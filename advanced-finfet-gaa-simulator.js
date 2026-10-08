@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * advanced-finfet-gaa-simulator.js — Advanced Node FinFET / GAA AntiFuse Scalability & Quantum Tunneling Simulator
  *
@@ -432,6 +434,58 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
     if (canvas) {
       drawFinfetGaaCanvas(canvas, res, lang);
     }
+
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([e1dEl, eCornerEl, vbdEl, pumpStagesEl, areaSavingsEl, jdtEl]);
+    const exportControl = root.querySelector('#finfet-gaa-export-csv-btn');
+    if (exportControl) {
+      const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent = isZh ? '📥 匯出 FinFET/GAA 擊穿特性 CSV' : '📥 Export FinFET/GAA Breakdown CSV';
+      exportControl.setAttribute('aria-label', isZh ? '匯出 FinFET 與 GAA 奈米線介電質擊穿特性資料集為 CSV 檔案' : 'Export FinFET & GAA dielectric breakdown metrics dataset as CSV file');
+    }
+  }
+
+  // Export CSV Action for Advanced FinFET & GAA
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = nodeSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#finfet-gaa-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'finfet-gaa-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 FinFET/GAA 擊穿特性 CSV' : '📥 Export FinFET/GAA Breakdown CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 FinFET 與 GAA 奈米線介電質擊穿特性資料集為 CSV 檔案' : 'Export FinFET & GAA dielectric breakdown metrics dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const nId = nodeSelect ? nodeSelect.value : 'tsmc_n3_gaa';
+      let csv = 'AppliedVolt_V,Temp_C,E1D_MVcm,ECorner_MVcm,VbdPredicted_V,PumpStages,AreaSavings_Pct,JdtTotal_Acm2\n';
+      const testVolts = [0.50, 0.65, 0.70, 0.85, 1.00, 1.20];
+      const testTemps = [25, 85, 125, 150, 175];
+      for (const v of testVolts) {
+        for (const t of testTemps) {
+          const res = calculateAdvancedFinfetGaa({
+            nodeId: nId,
+            appliedVolt: v,
+            tempC: t,
+          });
+          csv += `${v.toFixed(2)},${t},${res.metrics.e1dMvCm.toFixed(2)},${res.metrics.eCornerMvCm.toFixed(2)},${res.metrics.vbdPredicted.toFixed(2)},${res.metrics.stagesCalc},${res.metrics.areaSavingsPct},${res.metrics.jdtTotalAcm2.toExponential(4)}\n`;
+        }
+      }
+      downloadCsv(`finfet_gaa_${nId}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (nodeSelect) {
@@ -457,10 +511,8 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
   window.addEventListener('resize', () => {
     if (canvas) update();
   });
-
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 

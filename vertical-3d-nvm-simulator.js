@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * @file vertical-3d-nvm-simulator.js
  * @description First-principles simulator for 3D vertical stacked eNVM (3D OTP, 3D NOR, 3D NAND),
@@ -503,6 +505,60 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     if (canvas) {
       drawVertical3dCanvas(canvas, metrics, currentMode);
     }
+
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outResistivity, outWorstDelay, outDelaySkew, outAccessTime, outTierGrade]);
+    const exportControl = root.querySelector('#vert3d-export-csv-btn');
+    if (exportControl) {
+      const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent = isZhLang ? '📥 匯出 3D 立體階梯延遲 CSV' : '📥 Export 3D Vertical Delay CSV';
+      exportControl.setAttribute('aria-label', isZhLang ? '匯出 3D 垂直堆疊階梯 RC 傳遞延遲資料集為 CSV 檔案' : 'Export 3D vertical stacked staircase RC delay dataset as CSV file');
+    }
+  }
+
+  // Export CSV Action for 3D Vertical Stacked eNVM
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#vert3d-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'vert3d-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #a78bfa; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 3D 立體階梯延遲 CSV' : '📥 Export 3D Vertical Delay CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 3D 垂直堆疊階梯 RC 傳遞延遲資料集為 CSV 檔案' : 'Export 3D vertical stacked staircase RC delay dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const pid = presetSelect ? presetSelect.value : 'vert_3d_antifuse_64l';
+      const cid = conductorSelect ? conductorSelect.value : 'molybdenum_mo_pvd';
+      const mThick = thicknessSlider ? parseFloat(thicknessSlider.value) : 25.0;
+      const aLen = arrayLengthSlider ? parseFloat(arrayLengthSlider.value) : 120.0;
+      let csv = 'TierCount_L,EffectiveResistivity_uOhmCm,WorstDelay_ns,DelaySkew_ns,TotalAccessTime_ns\n';
+      const tierCounts = [32, 48, 64, 96, 128, 192, 256];
+      for (const tCount of tierCounts) {
+        const m = calculateVertical3dMetrics({
+          presetId: pid,
+          conductorId: cid,
+          tierCount: tCount,
+          metalThicknessNm: mThick,
+          arrayLengthUm: aLen
+        });
+        csv += `${tCount},${m.effectiveResistivityUohmCm.toFixed(2)},${m.worstWlDelayNs.toFixed(3)},${m.tierDelaySkewNs.toFixed(3)},${m.totalAccessTimeNs.toFixed(2)}\n`;
+      }
+      downloadCsv(`vertical_3d_delay_${pid}_${cid}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (presetSelect) presetSelect.addEventListener('change', () => {
@@ -556,9 +612,8 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 
