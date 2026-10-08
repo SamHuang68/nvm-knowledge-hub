@@ -383,6 +383,58 @@
       }
     },
     {
+      "id": "chingis-pfusion",
+      "title": "Chingis Technology pFusion: PMOS Floating-Gate eFlash",
+      "shortTitle": "Chingis · pFusion eFlash",
+      "vendor": "Chingis Technology (ESMT Group)",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility.",
+      "program": "BBHH band-to-band hot-hole injection into FG",
+      "reverse": "High-field FN tunneling erase from FG",
+      "readout": "Low-bias sensing of P-channel conduction current",
+      "lesson": "The core physics of pFusion lies in PMOS floating-gate operation with BBHH hot-hole injection, cutting programming current by 2–3 orders of magnitude compared to NMOS CHEI; erase uses FN tunneling. Standalone Pm25 SPI NOR Flash does not equate to full embedded PDK suites; process integration must be verified with target foundry PDK licenses.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "pFusion: BBHH Program / FN Erase Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same PMOS floating-gate cell supports programming, electrical erasure, and reprogramming. Erase restores the floating gate to a high-threshold or off-state window, enabling subsequent BBHH injection cycles.",
+        "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+        "granularity": "Target range and update granularity depend on named macro and array architecture; cell reversibility does not guarantee host bit-level operations.",
+        "limits": "Microamp programming current is an intrinsic PMOS floating-gate feature; it does not eliminate internal charge pump requirements for erase. High-temp retention and endurance must be referenced from foundry test reports.",
+        "sourceIds": [
+          "ip-chingis-pfusion",
+          "ip-chingis-pm25"
+        ]
+      }
+    },
+    {
+      "id": "iotmemory-silvoflash",
+      "title": "IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash",
+      "shortTitle": "IOTMemory · SilvoFlash eFlash",
+      "vendor": "IOTMemory Technology",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs.",
+      "program": "Internal low-power micro-pump tunneling injection",
+      "reverse": "Low-power tunneling erase discharging FG",
+      "readout": "Native 0.9V–1.2V core logic direct sensing",
+      "lesson": "SilvoFlash breaks the conventional eFlash reading barrier by sensing directly at native 0.9V–1.2V core voltage, eliminating charge-pump static standby leakage and startup latency; erase and write still rely on an internal micro-pump. A single process supports both SilvoFlash (code) and SilvoFE (data EEPROM).",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "SilvoFlash: Native Low-Voltage Read / Tunneling PGM-ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same patented floating-gate cell supports programming, electrical erasure, and reprogramming. Erasing discharges the FG back to virgin threshold levels, supporting both Code Flash and Data EEPROM dual modes.",
+        "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+        "granularity": "Selected ranges and update granularity depend on macro implementation; code blocks support sector erase, while data blocks support byte updates.",
+        "limits": "Native 0.9V–1.2V read does not mean program or erase operations require no internal boost. Actual write energy, retention, and cycle endurance depend on target foundry 40nm/55nm PDKs.",
+        "sourceIds": [
+          "ip-iotmemory-silvoflash",
+          "ip-iotmemory-silvofe"
+        ]
+      }
+    },
+    {
       "id": "numem-mram",
       "title": "Numem: Embedded STT-MRAM IP Cell",
       "shortTitle": "Numem · STT-MRAM IP",

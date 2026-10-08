@@ -42,7 +42,7 @@ validateResearch(research);
 const topics = [...charge.topics, ...emerging.topics];
 const engineering = collectEngineeringStudies(topics,language);
 const ipIndex = read('nvm-ip-cells-intro.json');
-const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash'];
+const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash','chingis-pfusion','iotmemory-silvoflash'];
 const ipCurriculum = collectIPCurriculum(ipIndex, language, id => ['neobit','neofuse','neoee','neomtp'].includes(id) ? ememoryIPStudy : id === 'ymc-mtp' ? ymcIPStudy : ['kilopass-xpm','sidense-1t-fuse'].includes(id) ? synopsysOTPStudy : id === 'impinj-aeon' ? impinjIPStudy : supplementIds.includes(id) ? supplementIPStudy : emergingIPStudy);
 const originalSources = [...intro.sources, ...charge.sources, ...emerging.sources, ...comparison.sources, ...foundry.sources, ...ipCurriculum.sources, ...research.sources];
 const operationSources = engineering.operations.flatMap(study=>[...study.sources,...study.variants.flatMap(variant=>variant.sources||[])]);
@@ -78,9 +78,9 @@ const validateRefs = (value, location) => {
   }
 };
 validateRefs({ topics, comparison, foundry, ipCurriculum, research }, '內容');
-const namedLogicIds = ['cfx-otp','attopsemi-ifuse','floadia-za','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash'];
+const namedLogicIds = ['cfx-otp','attopsemi-ifuse','floadia-za','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash','chingis-pfusion','iotmemory-silvoflash'];
 const mappedLogicIds = (comparison.logicIpMap?.groups || []).flatMap(group => (group.items || []).map(item => item.id));
-if (!comparison.logicIpMap?.title || namedLogicIds.some(id => !mappedLogicIds.includes(id)) || mappedLogicIds.length !== namedLogicIds.length) failures.push('比較專題缺少九款具名邏輯製程 IP 對照');
+if (!comparison.logicIpMap?.title || namedLogicIds.some(id => !mappedLogicIds.includes(id)) || mappedLogicIds.length !== namedLogicIds.length) failures.push('比較專題缺少十一款具名邏輯製程 IP 對照');
 for (const unit of ipCurriculum.units) if (!topics.some(topic => topic.id === unit.hostTopic)) failures.push(`${unit.id} 的物理背景不存在`);
 for (const topic of topics) {
   if (!['efuse','antifuse'].includes(topic.id)) validateRewriteCycle(topic);

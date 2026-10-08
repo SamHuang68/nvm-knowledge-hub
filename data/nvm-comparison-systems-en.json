@@ -534,7 +534,7 @@
   },
   "logicIpMap": {
     "kicker": "NAMED LOGIC-PROCESS IPs",
-    "title": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "title": "Eleven Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
     "intro": "The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.",
     "matrixUrl": "technology-comparison.html#sec-matrix",
     "matrixLabel": "Open the 11-leaf selection matrix",
@@ -619,6 +619,22 @@
             "id": "floadia-g2",
             "name": "Floadia · LEE Flash G2",
             "map": "SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1."
+          }
+        ]
+      },
+      {
+        "leaf": "Low-Power & Ultra-Low-Voltage eFlash (Chingis pFusion / IOTMemory SilvoFlash)",
+        "leafNote": "Chingis uses PMOS FG BBHH hot-hole injection for microamp-class write current; IOTMemory uses patented floating-gate structure for native 0.9V–1.2V core logic read.",
+        "items": [
+          {
+            "id": "chingis-pfusion",
+            "name": "Chingis Technology · pFusion eFlash",
+            "map": "P-Channel floating gate; BBHH band-to-band hot-hole injection program, FN tunneling erase; microamp-class write current, standard CMOS compatible."
+          },
+          {
+            "id": "iotmemory-silvoflash",
+            "name": "IOTMemory · SilvoFlash eFlash",
+            "map": "Patented single-poly / low-mask CMOS floating gate; native 0.9V–1.2V core voltage direct read, eliminating read charge pump; qualified in DDR5 SPD ICs and 40nm SoCs."
           }
         ]
       }

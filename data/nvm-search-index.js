@@ -126,6 +126,18 @@ window.NVMTopicIndex = [
     "tags": "SST / Microchip SST · SuperFlash Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN. Source-side injection writes hot electrons into the floating gate Interpoly FN removes electrons from the floating gate Sense channel current after the select gate turns on 分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。"
   },
   {
+    "title_zh": "常億科技 pFusion：PMOS 浮閘 eFlash",
+    "title_en": "Chingis Technology pFusion: PMOS Floating-Gate eFlash",
+    "url": "nvm-technology-atlas.html#ip-chingis-pfusion",
+    "tags": "Chingis Technology (ESMT Group) Chingis · pFusion eFlash Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility. BBHH band-to-band hot-hole injection into FG High-field FN tunneling erase from FG Low-bias sensing of P-channel conduction current 常億 pFusion eFlash 採用 P-Channel PMOS 浮動閘極架構。寫入利用能帶至能帶穿隧誘發熱電洞注入 (BBHH)，抹除走 FN 穿隧；寫入電流僅微安培級，具備標準 CMOS 相容性。"
+  },
+  {
+    "title_zh": "智憶科技 SilvoFlash：原生超低壓 eFlash",
+    "title_en": "IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash",
+    "url": "nvm-technology-atlas.html#ip-iotmemory-silvoflash",
+    "tags": "IOTMemory Technology IOTMemory · SilvoFlash eFlash IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs. Internal low-power micro-pump tunneling injection Low-power tunneling erase discharging FG Native 0.9V–1.2V core logic direct sensing 智憶專利單層／低光罩 CMOS 浮閘架構。核心突破為原生 0.9V–1.2V 核心邏輯電壓直接感測讀取，打破傳統 eFlash ≥1.8V 讀取壁壘；成功量產於 JEDEC DDR5 SPD Hub IC 與 40nm SoC。"
+  },
+  {
     "title_zh": "Numem：嵌入式 STT-MRAM IP 單元",
     "title_en": "Numem: Embedded STT-MRAM IP Cell",
     "url": "nvm-technology-atlas.html#ip-numem-mram",
@@ -792,8 +804,8 @@ window.NVMTopicIndex = [
     "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash"
   },
   {
-    "title_zh": "九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
-    "title_en": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "title_zh": "十一款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
+    "title_en": "Eleven Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
     "url": "nvm-technology-atlas.html#comparison-logic-ip",
     "tags": "Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash 選型矩陣 具名 IP"
   }

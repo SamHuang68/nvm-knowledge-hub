@@ -2471,7 +2471,7 @@
     },
     "logicIpMap": {
       "kicker": "NAMED LOGIC-PROCESS IPs",
-      "title": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+      "title": "Eleven Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
       "intro": "The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.",
       "matrixUrl": "technology-comparison.html#sec-matrix",
       "matrixLabel": "Open the 11-leaf selection matrix",
@@ -2556,6 +2556,22 @@
               "id": "floadia-g2",
               "name": "Floadia · LEE Flash G2",
               "map": "SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1."
+            }
+          ]
+        },
+        {
+          "leaf": "Low-Power & Ultra-Low-Voltage eFlash (Chingis pFusion / IOTMemory SilvoFlash)",
+          "leafNote": "Chingis uses PMOS FG BBHH hot-hole injection for microamp-class write current; IOTMemory uses patented floating-gate structure for native 0.9V–1.2V core logic read.",
+          "items": [
+            {
+              "id": "chingis-pfusion",
+              "name": "Chingis Technology · pFusion eFlash",
+              "map": "P-Channel floating gate; BBHH band-to-band hot-hole injection program, FN tunneling erase; microamp-class write current, standard CMOS compatible."
+            },
+            {
+              "id": "iotmemory-silvoflash",
+              "name": "IOTMemory · SilvoFlash eFlash",
+              "map": "Patented single-poly / low-mask CMOS floating gate; native 0.9V–1.2V core voltage direct read, eliminating read charge pump; qualified in DDR5 SPD ICs and 40nm SoCs."
             }
           ]
         }
@@ -8313,6 +8329,42 @@
       "date": "2018-03",
       "locator": "Pages 2–3: split-gate, source-side injection program, interpoly FN erase.",
       "limit": "Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees."
+    },
+    {
+      "id": "ip-chingis-pfusion",
+      "label": "Chingis Technology pFusion eFlash Technology",
+      "url": "https://www.chingistek.com",
+      "kind": "vendor",
+      "date": "2026-09-16",
+      "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+      "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+    },
+    {
+      "id": "ip-chingis-pm25",
+      "label": "Chingis pFlash SPI NOR Flash",
+      "url": "https://www.chingistek.com",
+      "kind": "vendor",
+      "date": "2026-09-16",
+      "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+      "limit": "Standalone packages do not represent all embedded macros."
+    },
+    {
+      "id": "ip-iotmemory-silvoflash",
+      "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+      "url": "https://iotmemory.com/en",
+      "kind": "vendor",
+      "date": "2026-09-16",
+      "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+      "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+    },
+    {
+      "id": "ip-iotmemory-silvofe",
+      "label": "IOTMemory SilvoFE Embedded eEEPROM",
+      "url": "https://iotmemory.com/en",
+      "kind": "vendor",
+      "date": "2026-09-16",
+      "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+      "limit": "Coexistence on a single chip must be verified on named macro architectures."
     },
     {
       "id": "ip-numem-current",
@@ -25905,6 +25957,820 @@
         ]
       },
       {
+        "id": "chingis-pfusion",
+        "title": "Chingis Technology pFusion: PMOS Floating-Gate eFlash",
+        "shortTitle": "Chingis · pFusion eFlash",
+        "vendor": "Chingis Technology (ESMT Group)",
+        "group": "eflash",
+        "hostTopic": "nor",
+        "summary": "Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility.",
+        "program": "BBHH band-to-band hot-hole injection into FG",
+        "reverse": "High-field FN tunneling erase from FG",
+        "readout": "Low-bias sensing of P-channel conduction current",
+        "lesson": "The core physics of pFusion lies in PMOS floating-gate operation with BBHH hot-hole injection, cutting programming current by 2–3 orders of magnitude compared to NMOS CHEI; erase uses FN tunneling. Standalone Pm25 SPI NOR Flash does not equate to full embedded PDK suites; process integration must be verified with target foundry PDK licenses.",
+        "eraseCycle": {
+          "kind": "electrical",
+          "title": "pFusion: BBHH Program / FN Erase Cycle",
+          "sequence": "PGM → ERS → PGM",
+          "definition": "The same PMOS floating-gate cell supports programming, electrical erasure, and reprogramming. Erase restores the floating gate to a high-threshold or off-state window, enabling subsequent BBHH injection cycles.",
+          "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+          "granularity": "Target range and update granularity depend on named macro and array architecture; cell reversibility does not guarantee host bit-level operations.",
+          "limits": "Microamp programming current is an intrinsic PMOS floating-gate feature; it does not eliminate internal charge pump requirements for erase. High-temp retention and endurance must be referenced from foundry test reports.",
+          "sourceIds": [
+            "ip-chingis-pfusion",
+            "ip-chingis-pm25"
+          ],
+          "before": "Programmed",
+          "mechanism": "Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling. — Cell enters off-state, ready for next BBHH program.",
+          "after": "Cell enters off-state, ready for next BBHH program."
+        },
+        "structure": {
+          "title": "Chingis Technology pFusion eFlash (P-Channel FG)",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-structure-0-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-structure-0-en-title ip-chingis-pfusion-structure-0-en-desc\"><title id=\"ip-chingis-pfusion-structure-0-en-title\">Chingis Technology pFusion eFlash (P-Channel FG)</title><desc id=\"ip-chingis-pfusion-structure-0-en-desc\">P-Channel PMOS floating-gate eFlash. Band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp-class write current, standard CMOS compatible.</desc><defs><marker id=\"ip-chingis-pfusion-structure-0-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-structure-0-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-structure-0-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-structure-0-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-structure-0-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-structure-0-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+          "caption": "P-Channel PMOS floating-gate eFlash. Band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp-class write current, standard CMOS compatible.",
+          "legend": [
+            {
+              "symbol": "Dielectric",
+              "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+            },
+            {
+              "symbol": "Channel / Well",
+              "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+            },
+            {
+              "symbol": "Bias / I",
+              "meaning": "Green arrows denote bias or conventional current direction."
+            },
+            {
+              "symbol": "h+",
+              "meaning": "Red dots denote hot holes; the count is qualitative."
+            },
+            {
+              "symbol": "BBHH",
+              "meaning": "Band-to-band hot-hole injection for microamp-class write current."
+            }
+          ],
+          "sourceIds": [
+            "ip-chingis-pfusion",
+            "ip-chingis-pm25"
+          ]
+        },
+        "operations": [
+          {
+            "topicId": "ip-chingis-pfusion",
+            "operationId": "write",
+            "title": "Chingis Technology pFusion eFlash (P-Channel FG) — Write",
+            "summary": "Establish the programmed state by the published mechanism without splicing unpublished bias tables.",
+            "sources": [
+              {
+                "id": "ip-chingis-pfusion",
+                "label": "Chingis Technology pFusion eFlash Technology",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+              },
+              {
+                "id": "ip-chingis-pm25",
+                "label": "Chingis pFlash SPI NOR Flash",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                "limit": "Standalone packages do not represent all embedded macros."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "BBHH / FN P-Channel FG Teaching Model",
+                "mechanism": "Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.",
+                "summary": "Establish the programmed state by the published mechanism without splicing unpublished bias tables.",
+                "frames": [
+                  {
+                    "id": "ip-chingis-pfusion-write-1-en-frame",
+                    "title": "P-Channel FG Cell: Ready to Program",
+                    "state": "Initial FG neutral or few holes",
+                    "stimulus": "Bias zero",
+                    "caption": "Chingis pFusion uses a PMOS floating-gate architecture.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-write-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-write-1-en-title ip-chingis-pfusion-write-1-en-desc\"><title id=\"ip-chingis-pfusion-write-1-en-title\">P-Channel FG Cell: Ready to Program</title><desc id=\"ip-chingis-pfusion-write-1-en-desc\">Chingis pFusion uses a PMOS floating-gate architecture.</desc><defs><marker id=\"ip-chingis-pfusion-write-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-write-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-write-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-write-2-en-frame",
+                    "title": "BBHH Band-to-Band Hot-Hole Injection",
+                    "state": "Programming",
+                    "stimulus": "Drain reverse-biased; BBHH injection",
+                    "caption": "Band-to-band tunneling generates hot holes injected into FG; programming current is microamp-class.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-write-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-write-2-en-title ip-chingis-pfusion-write-2-en-desc\"><title id=\"ip-chingis-pfusion-write-2-en-title\">BBHH Band-to-Band Hot-Hole Injection</title><desc id=\"ip-chingis-pfusion-write-2-en-desc\">Band-to-band tunneling generates hot holes injected into FG; programming current is microamp-class.</desc><defs><marker id=\"ip-chingis-pfusion-write-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-write-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-write-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">V_BBHH</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><line x1=\"390\" y1=\"215\" x2=\"330\" y2=\"155\" stroke=\"#b52f43\" stroke-width=\"3\" stroke-linecap=\"round\" marker-end=\"url(#ip-chingis-pfusion-write-2-en-hole)\"/><text x=\"400\" y=\"175\" text-anchor=\"start\" fill=\"#b52f43\" font-size=\"22\" font-weight=\"600\">BBHH</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-write-3-en-frame",
+                    "title": "Hot Holes Retained in FG; PMOS Conducts",
+                    "state": "Programmed",
+                    "stimulus": "Bias zero",
+                    "caption": "Holes lower FG potential to turn on channel, minimizing charge pump overhead.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-write-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-write-3-en-title ip-chingis-pfusion-write-3-en-desc\"><title id=\"ip-chingis-pfusion-write-3-en-title\">Hot Holes Retained in FG; PMOS Conducts</title><desc id=\"ip-chingis-pfusion-write-3-en-desc\">Holes lower FG potential to turn on channel, minimizing charge pump overhead.</desc><defs><marker id=\"ip-chingis-pfusion-write-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-write-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-write-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-write-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "h+",
+                    "meaning": "Red dots denote hot holes; the count is qualitative."
+                  },
+                  {
+                    "symbol": "BBHH",
+                    "meaning": "Band-to-band hot-hole injection for microamp-class write current."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-chingis-pfusion",
+                    "label": "Chingis Technology pFusion eFlash Technology",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                    "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+                  },
+                  {
+                    "id": "ip-chingis-pm25",
+                    "label": "Chingis pFlash SPI NOR Flash",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                    "limit": "Standalone packages do not represent all embedded macros."
+                  }
+                ],
+                "caveat": "Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries."
+              }
+            ]
+          },
+          {
+            "topicId": "ip-chingis-pfusion",
+            "operationId": "erase",
+            "title": "Chingis Technology pFusion eFlash (P-Channel FG) — Erase / Restore Limit",
+            "summary": "Electrically erase by the published mechanism so the cell returns to a reprogrammable window.",
+            "sources": [
+              {
+                "id": "ip-chingis-pfusion",
+                "label": "Chingis Technology pFusion eFlash Technology",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+              },
+              {
+                "id": "ip-chingis-pm25",
+                "label": "Chingis pFlash SPI NOR Flash",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                "limit": "Standalone packages do not represent all embedded macros."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "BBHH / FN P-Channel FG Teaching Model",
+                "mechanism": "Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.",
+                "summary": "Electrically erase by the published mechanism so the cell returns to a reprogrammable window.",
+                "frames": [
+                  {
+                    "id": "ip-chingis-pfusion-erase-1-en-frame",
+                    "title": "Cell Holds Accumulated Hole Charge",
+                    "state": "Programmed",
+                    "stimulus": "Bias zero",
+                    "caption": "Erase uses FN tunneling, not a fuse.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-erase-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-erase-1-en-title ip-chingis-pfusion-erase-1-en-desc\"><title id=\"ip-chingis-pfusion-erase-1-en-title\">Cell Holds Accumulated Hole Charge</title><desc id=\"ip-chingis-pfusion-erase-1-en-desc\">Erase uses FN tunneling, not a fuse.</desc><defs><marker id=\"ip-chingis-pfusion-erase-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-erase-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-erase-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-erase-2-en-frame",
+                    "title": "High-Field FN Tunneling Depletes Holes / Injects Electrons",
+                    "state": "Erasing",
+                    "stimulus": "FN Erase Bias",
+                    "caption": "FN electric field restores FG to neutral or high-threshold erase window.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-erase-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-erase-2-en-title ip-chingis-pfusion-erase-2-en-desc\"><title id=\"ip-chingis-pfusion-erase-2-en-title\">High-Field FN Tunneling Depletes Holes / Injects Electrons</title><desc id=\"ip-chingis-pfusion-erase-2-en-desc\">FN electric field restores FG to neutral or high-threshold erase window.</desc><defs><marker id=\"ip-chingis-pfusion-erase-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-erase-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-erase-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">V_FN</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><line x1=\"280\" y1=\"134\" x2=\"280\" y2=\"110\" stroke=\"#075f9d\" stroke-width=\"3\" stroke-linecap=\"round\" marker-end=\"url(#ip-chingis-pfusion-erase-2-en-electron)\"/><text x=\"20\" y=\"88\" text-anchor=\"start\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">FN Tunnel</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-erase-3-en-frame",
+                    "title": "FG Restored to Reprogrammable Window",
+                    "state": "Erased",
+                    "stimulus": "Bias zero",
+                    "caption": "Cell enters off-state, ready for next BBHH program.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-erase-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-erase-3-en-title ip-chingis-pfusion-erase-3-en-desc\"><title id=\"ip-chingis-pfusion-erase-3-en-title\">FG Restored to Reprogrammable Window</title><desc id=\"ip-chingis-pfusion-erase-3-en-desc\">Cell enters off-state, ready for next BBHH program.</desc><defs><marker id=\"ip-chingis-pfusion-erase-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-erase-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-erase-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-erase-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "h+",
+                    "meaning": "Red dots denote hot holes; the count is qualitative."
+                  },
+                  {
+                    "symbol": "BBHH",
+                    "meaning": "Band-to-band hot-hole injection for microamp-class write current."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-chingis-pfusion",
+                    "label": "Chingis Technology pFusion eFlash Technology",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                    "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+                  },
+                  {
+                    "id": "ip-chingis-pm25",
+                    "label": "Chingis pFlash SPI NOR Flash",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                    "limit": "Standalone packages do not represent all embedded macros."
+                  }
+                ],
+                "caveat": "Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries."
+              }
+            ]
+          },
+          {
+            "topicId": "ip-chingis-pfusion",
+            "operationId": "read",
+            "title": "Chingis Technology pFusion eFlash (P-Channel FG) — Read",
+            "summary": "Sense the retained state under product read conditions, then latch and isolate.",
+            "sources": [
+              {
+                "id": "ip-chingis-pfusion",
+                "label": "Chingis Technology pFusion eFlash Technology",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+              },
+              {
+                "id": "ip-chingis-pm25",
+                "label": "Chingis pFlash SPI NOR Flash",
+                "url": "https://www.chingistek.com",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                "limit": "Standalone packages do not represent all embedded macros."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "BBHH / FN P-Channel FG Teaching Model",
+                "mechanism": "Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.",
+                "summary": "Sense the retained state under product read conditions, then latch and isolate.",
+                "frames": [
+                  {
+                    "id": "ip-chingis-pfusion-read-1-en-frame",
+                    "title": "P-Channel FG Cell Awaits Read",
+                    "state": "Existing FG state",
+                    "stimulus": "Prepare sensing",
+                    "caption": "Read operates at low electrical stress.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-read-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-read-1-en-title ip-chingis-pfusion-read-1-en-desc\"><title id=\"ip-chingis-pfusion-read-1-en-title\">P-Channel FG Cell Awaits Read</title><desc id=\"ip-chingis-pfusion-read-1-en-desc\">Read operates at low electrical stress.</desc><defs><marker id=\"ip-chingis-pfusion-read-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-read-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-read-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-read-2-en-frame",
+                    "title": "Apply Small Read Bias to Sense P-Channel",
+                    "state": "Reading",
+                    "stimulus": "Read bias V_READ",
+                    "caption": "Channel conduction current reflects accumulated FG holes.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-read-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-read-2-en-title ip-chingis-pfusion-read-2-en-desc\"><title id=\"ip-chingis-pfusion-read-2-en-title\">Apply Small Read Bias to Sense P-Channel</title><desc id=\"ip-chingis-pfusion-read-2-en-desc\">Channel conduction current reflects accumulated FG holes.</desc><defs><marker id=\"ip-chingis-pfusion-read-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-read-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-read-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">V_READ</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  },
+                  {
+                    "id": "ip-chingis-pfusion-read-3-en-frame",
+                    "title": "Sense Amplifier Latches Data",
+                    "state": "Data latched",
+                    "stimulus": "Bias restored",
+                    "caption": "Low read disturb ensures multi-decade high-temp retention.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-chingis-pfusion-read-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-chingis-pfusion-read-3-en-title ip-chingis-pfusion-read-3-en-desc\"><title id=\"ip-chingis-pfusion-read-3-en-title\">Sense Amplifier Latches Data</title><desc id=\"ip-chingis-pfusion-read-3-en-desc\">Low read disturb ensures multi-decade high-temp retention.</desc><defs><marker id=\"ip-chingis-pfusion-read-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-chingis-pfusion-read-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-chingis-pfusion-read-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-chingis-pfusion-read-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">N-well</text><rect x=\"100\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"135\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ S</text><rect x=\"390\" y=\"210\" width=\"70\" height=\"40\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"425\" y=\"235\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P+ D</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"170\" y=\"176\" width=\"220\" height=\"34\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">P-Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"240\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"264\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><circle data-charge=\"stored\" cx=\"288\" cy=\"148\" r=\"8\" fill=\"#b52f43\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-chingis-pfusion",
+                      "ip-chingis-pm25"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "h+",
+                    "meaning": "Red dots denote hot holes; the count is qualitative."
+                  },
+                  {
+                    "symbol": "BBHH",
+                    "meaning": "Band-to-band hot-hole injection for microamp-class write current."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-chingis-pfusion",
+                    "label": "Chingis Technology pFusion eFlash Technology",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+                    "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+                  },
+                  {
+                    "id": "ip-chingis-pm25",
+                    "label": "Chingis pFlash SPI NOR Flash",
+                    "url": "https://www.chingistek.com",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+                    "limit": "Standalone packages do not represent all embedded macros."
+                  }
+                ],
+                "caveat": "Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "iotmemory-silvoflash",
+        "title": "IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash",
+        "shortTitle": "IOTMemory · SilvoFlash eFlash",
+        "vendor": "IOTMemory Technology",
+        "group": "eflash",
+        "hostTopic": "nor",
+        "summary": "IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs.",
+        "program": "Internal low-power micro-pump tunneling injection",
+        "reverse": "Low-power tunneling erase discharging FG",
+        "readout": "Native 0.9V–1.2V core logic direct sensing",
+        "lesson": "SilvoFlash breaks the conventional eFlash reading barrier by sensing directly at native 0.9V–1.2V core voltage, eliminating charge-pump static standby leakage and startup latency; erase and write still rely on an internal micro-pump. A single process supports both SilvoFlash (code) and SilvoFE (data EEPROM).",
+        "eraseCycle": {
+          "kind": "electrical",
+          "title": "SilvoFlash: Native Low-Voltage Read / Tunneling PGM-ERS Cycle",
+          "sequence": "PGM → ERS → PGM",
+          "definition": "The same patented floating-gate cell supports programming, electrical erasure, and reprogramming. Erasing discharges the FG back to virgin threshold levels, supporting both Code Flash and Data EEPROM dual modes.",
+          "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+          "granularity": "Selected ranges and update granularity depend on macro implementation; code blocks support sector erase, while data blocks support byte updates.",
+          "limits": "Native 0.9V–1.2V read does not mean program or erase operations require no internal boost. Actual write energy, retention, and cycle endurance depend on target foundry 40nm/55nm PDKs.",
+          "sourceIds": [
+            "ip-iotmemory-silvoflash",
+            "ip-iotmemory-silvofe"
+          ],
+          "before": "Programmed",
+          "mechanism": "Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase. — Features both SilvoFlash code and SilvoFE data storage.",
+          "after": "Features both SilvoFlash code and SilvoFE data storage."
+        },
+        "structure": {
+          "title": "IOTMemory SilvoFlash Native Low-Voltage eFlash",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-structure-0-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-structure-0-en-title ip-iotmemory-silvoflash-structure-0-en-desc\"><title id=\"ip-iotmemory-silvoflash-structure-0-en-title\">IOTMemory SilvoFlash Native Low-Voltage eFlash</title><desc id=\"ip-iotmemory-silvoflash-structure-0-en-desc\">Patented single-poly / low-mask CMOS floating-gate structure. Native 0.9V–1.2V core logic readout breaks the ≥1.8V barrier; qualified in DDR5 SPD IC supply chain.</desc><defs><marker id=\"ip-iotmemory-silvoflash-structure-0-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-structure-0-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-structure-0-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-structure-0-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-structure-0-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-structure-0-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+          "caption": "Patented single-poly / low-mask CMOS floating-gate structure. Native 0.9V–1.2V core logic readout breaks the ≥1.8V barrier; qualified in DDR5 SPD IC supply chain.",
+          "legend": [
+            {
+              "symbol": "Dielectric",
+              "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+            },
+            {
+              "symbol": "Channel / Well",
+              "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+            },
+            {
+              "symbol": "Bias / I",
+              "meaning": "Green arrows denote bias or conventional current direction."
+            },
+            {
+              "symbol": "0.9V",
+              "meaning": "Native 0.9V–1.2V core logic read, eliminating boost charge pumps."
+            },
+            {
+              "symbol": "e−",
+              "meaning": "Blue dots denote stored electrons; count is qualitative."
+            }
+          ],
+          "sourceIds": [
+            "ip-iotmemory-silvoflash",
+            "ip-iotmemory-silvofe"
+          ]
+        },
+        "operations": [
+          {
+            "topicId": "ip-iotmemory-silvoflash",
+            "operationId": "write",
+            "title": "IOTMemory SilvoFlash Native Low-Voltage eFlash — Write",
+            "summary": "Establish the programmed state by the published mechanism without splicing unpublished bias tables.",
+            "sources": [
+              {
+                "id": "ip-iotmemory-silvoflash",
+                "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+              },
+              {
+                "id": "ip-iotmemory-silvofe",
+                "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                "limit": "Coexistence on a single chip must be verified on named macro architectures."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "0.9V–1.2V Native Read Teaching Model",
+                "mechanism": "Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.",
+                "summary": "Establish the programmed state by the published mechanism without splicing unpublished bias tables.",
+                "frames": [
+                  {
+                    "id": "ip-iotmemory-silvoflash-write-1-en-frame",
+                    "title": "SilvoFlash Ultra-Low-Voltage Cell: Ready",
+                    "state": "FG uncharged",
+                    "stimulus": "Bias zero",
+                    "caption": "Patented CMOS-compatible single-poly / low-mask structure.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-write-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-write-1-en-title ip-iotmemory-silvoflash-write-1-en-desc\"><title id=\"ip-iotmemory-silvoflash-write-1-en-title\">SilvoFlash Ultra-Low-Voltage Cell: Ready</title><desc id=\"ip-iotmemory-silvoflash-write-1-en-desc\">Patented CMOS-compatible single-poly / low-mask structure.</desc><defs><marker id=\"ip-iotmemory-silvoflash-write-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-write-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-write-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-write-2-en-frame",
+                    "title": "Internal Micro-Pump Tunneling Injection",
+                    "state": "Programming",
+                    "stimulus": "Tunneling write pulse",
+                    "caption": "Low-power pump provides local tunneling field without external logic disturbance.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-write-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-write-2-en-title ip-iotmemory-silvoflash-write-2-en-desc\"><title id=\"ip-iotmemory-silvoflash-write-2-en-title\">Internal Micro-Pump Tunneling Injection</title><desc id=\"ip-iotmemory-silvoflash-write-2-en-desc\">Low-power pump provides local tunneling field without external logic disturbance.</desc><defs><marker id=\"ip-iotmemory-silvoflash-write-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-write-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-write-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">V_PGM</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-write-3-en-frame",
+                    "title": "Charge Retained on FG; Program Complete",
+                    "state": "Programmed",
+                    "stimulus": "Bias zero",
+                    "caption": "Cell completes data storage and returns to low-leakage standby.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-write-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-write-3-en-title ip-iotmemory-silvoflash-write-3-en-desc\"><title id=\"ip-iotmemory-silvoflash-write-3-en-title\">Charge Retained on FG; Program Complete</title><desc id=\"ip-iotmemory-silvoflash-write-3-en-desc\">Cell completes data storage and returns to low-leakage standby.</desc><defs><marker id=\"ip-iotmemory-silvoflash-write-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-write-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-write-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-write-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "0.9V",
+                    "meaning": "Native 0.9V–1.2V core logic read, eliminating boost charge pumps."
+                  },
+                  {
+                    "symbol": "e−",
+                    "meaning": "Blue dots denote stored electrons; count is qualitative."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-iotmemory-silvoflash",
+                    "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                    "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+                  },
+                  {
+                    "id": "ip-iotmemory-silvofe",
+                    "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                    "limit": "Coexistence on a single chip must be verified on named macro architectures."
+                  }
+                ],
+                "caveat": "Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs."
+              }
+            ]
+          },
+          {
+            "topicId": "ip-iotmemory-silvoflash",
+            "operationId": "erase",
+            "title": "IOTMemory SilvoFlash Native Low-Voltage eFlash — Erase / Restore Limit",
+            "summary": "Electrically erase by the published mechanism so the cell returns to a reprogrammable window.",
+            "sources": [
+              {
+                "id": "ip-iotmemory-silvoflash",
+                "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+              },
+              {
+                "id": "ip-iotmemory-silvofe",
+                "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                "limit": "Coexistence on a single chip must be verified on named macro architectures."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "0.9V–1.2V Native Read Teaching Model",
+                "mechanism": "Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.",
+                "summary": "Electrically erase by the published mechanism so the cell returns to a reprogrammable window.",
+                "frames": [
+                  {
+                    "id": "ip-iotmemory-silvoflash-erase-1-en-frame",
+                    "title": "Cell Holds Stored Charge",
+                    "state": "Programmed",
+                    "stimulus": "Bias zero",
+                    "caption": "Multiple rewrites supported; dual-mode for Code Flash and Data EEPROM.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-erase-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-erase-1-en-title ip-iotmemory-silvoflash-erase-1-en-desc\"><title id=\"ip-iotmemory-silvoflash-erase-1-en-title\">Cell Holds Stored Charge</title><desc id=\"ip-iotmemory-silvoflash-erase-1-en-desc\">Multiple rewrites supported; dual-mode for Code Flash and Data EEPROM.</desc><defs><marker id=\"ip-iotmemory-silvoflash-erase-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-erase-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-erase-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-erase-2-en-frame",
+                    "title": "Tunneling Erase Discharges FG",
+                    "state": "Erasing",
+                    "stimulus": "Erase pulse",
+                    "caption": "Charge discharged from FG, restoring virgin threshold voltage.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-erase-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-erase-2-en-title ip-iotmemory-silvoflash-erase-2-en-desc\"><title id=\"ip-iotmemory-silvoflash-erase-2-en-title\">Tunneling Erase Discharges FG</title><desc id=\"ip-iotmemory-silvoflash-erase-2-en-desc\">Charge discharged from FG, restoring virgin threshold voltage.</desc><defs><marker id=\"ip-iotmemory-silvoflash-erase-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-erase-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-erase-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">V_ERS</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-erase-3-en-frame",
+                    "title": "Cell Restored to Reprogrammable Window",
+                    "state": "Erased",
+                    "stimulus": "Bias zero",
+                    "caption": "Features both SilvoFlash code and SilvoFE data storage.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-erase-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-erase-3-en-title ip-iotmemory-silvoflash-erase-3-en-desc\"><title id=\"ip-iotmemory-silvoflash-erase-3-en-title\">Cell Restored to Reprogrammable Window</title><desc id=\"ip-iotmemory-silvoflash-erase-3-en-desc\">Features both SilvoFlash code and SilvoFE data storage.</desc><defs><marker id=\"ip-iotmemory-silvoflash-erase-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-erase-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-erase-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-erase-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "0.9V",
+                    "meaning": "Native 0.9V–1.2V core logic read, eliminating boost charge pumps."
+                  },
+                  {
+                    "symbol": "e−",
+                    "meaning": "Blue dots denote stored electrons; count is qualitative."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-iotmemory-silvoflash",
+                    "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                    "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+                  },
+                  {
+                    "id": "ip-iotmemory-silvofe",
+                    "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                    "limit": "Coexistence on a single chip must be verified on named macro architectures."
+                  }
+                ],
+                "caveat": "Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs."
+              }
+            ]
+          },
+          {
+            "topicId": "ip-iotmemory-silvoflash",
+            "operationId": "read",
+            "title": "IOTMemory SilvoFlash Native Low-Voltage eFlash — Read",
+            "summary": "Sense the retained state under product read conditions, then latch and isolate.",
+            "sources": [
+              {
+                "id": "ip-iotmemory-silvoflash",
+                "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+              },
+              {
+                "id": "ip-iotmemory-silvofe",
+                "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                "url": "https://iotmemory.com/en",
+                "kind": "vendor",
+                "date": "2026-09-16",
+                "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                "limit": "Coexistence on a single chip must be verified on named macro architectures."
+              }
+            ],
+            "variants": [
+              {
+                "id": "published-model",
+                "title": "0.9V–1.2V Native Read Teaching Model",
+                "mechanism": "Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.",
+                "summary": "Sense the retained state under product read conditions, then latch and isolate.",
+                "frames": [
+                  {
+                    "id": "ip-iotmemory-silvoflash-read-1-en-frame",
+                    "title": "Native 0.9V–1.2V Core Voltage Ready",
+                    "state": "Existing stored state",
+                    "stimulus": "Core supply rail VDD",
+                    "caption": "No read charge pump needed, eliminating the ≥1.8V conventional barrier.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-read-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-read-1-en-title ip-iotmemory-silvoflash-read-1-en-desc\"><title id=\"ip-iotmemory-silvoflash-read-1-en-title\">Native 0.9V–1.2V Core Voltage Ready</title><desc id=\"ip-iotmemory-silvoflash-read-1-en-desc\">No read charge pump needed, eliminating the ≥1.8V conventional barrier.</desc><defs><marker id=\"ip-iotmemory-silvoflash-read-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-read-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-read-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-read-2-en-frame",
+                    "title": "Sense Channel at Native 0.9V–1.2V",
+                    "state": "Reading",
+                    "stimulus": "VDD = 0.9V~1.2V",
+                    "caption": "Direct readout sharing power rail with near-threshold core; qualified in DDR5 SPD ICs.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-read-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-read-2-en-title ip-iotmemory-silvoflash-read-2-en-desc\"><title id=\"ip-iotmemory-silvoflash-read-2-en-title\">Sense Channel at Native 0.9V–1.2V</title><desc id=\"ip-iotmemory-silvoflash-read-2-en-desc\">Direct readout sharing power rail with near-threshold core; qualified in DDR5 SPD ICs.</desc><defs><marker id=\"ip-iotmemory-silvoflash-read-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-read-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-read-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0.9V</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  },
+                  {
+                    "id": "ip-iotmemory-silvoflash-read-3-en-frame",
+                    "title": "Read Complete; Zero-Boost Standby",
+                    "state": "Data latched",
+                    "stimulus": "Core rail maintained",
+                    "caption": "Minimizes standby leakage for high-efficiency IoT and edge SoCs.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-iotmemory-silvoflash-read-3-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-iotmemory-silvoflash-read-3-en-title ip-iotmemory-silvoflash-read-3-en-desc\"><title id=\"ip-iotmemory-silvoflash-read-3-en-title\">Read Complete; Zero-Boost Standby</title><desc id=\"ip-iotmemory-silvoflash-read-3-en-desc\">Minimizes standby leakage for high-efficiency IoT and edge SoCs.</desc><defs><marker id=\"ip-iotmemory-silvoflash-read-3-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-3-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-3-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-iotmemory-silvoflash-read-3-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-iotmemory-silvoflash-read-3-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-iotmemory-silvoflash-read-3-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><text x=\"430\" y=\"80\" text-anchor=\"middle\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">0.9V–1.2V Core</text><rect x=\"190\" y=\"86\" width=\"180\" height=\"28\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"105\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG / Control</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"16\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"210\" y=\"134\" width=\"140\" height=\"28\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"153\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SilvoFlash FG</text><rect x=\"200\" y=\"162\" width=\"160\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"176\" width=\"180\" height=\"34\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"198\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Native Low-V Ch</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"86\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"72\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><circle data-charge=\"stored\" cx=\"230\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"274\" cy=\"148\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "sourceIds": [
+                      "ip-iotmemory-silvoflash",
+                      "ip-iotmemory-silvofe"
+                    ]
+                  }
+                ],
+                "legend": [
+                  {
+                    "symbol": "Dielectric",
+                    "meaning": "Pale yellow marks a dielectric; thickness and material are unspecified."
+                  },
+                  {
+                    "symbol": "Channel / Well",
+                    "meaning": "Blue-gray marks a silicon channel or well function, not a metrology cross-section."
+                  },
+                  {
+                    "symbol": "Bias / I",
+                    "meaning": "Green arrows denote bias or conventional current direction."
+                  },
+                  {
+                    "symbol": "0.9V",
+                    "meaning": "Native 0.9V–1.2V core logic read, eliminating boost charge pumps."
+                  },
+                  {
+                    "symbol": "e−",
+                    "meaning": "Blue dots denote stored electrons; count is qualitative."
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ip-iotmemory-silvoflash",
+                    "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+                    "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+                  },
+                  {
+                    "id": "ip-iotmemory-silvofe",
+                    "label": "IOTMemory SilvoFE Embedded eEEPROM",
+                    "url": "https://iotmemory.com/en",
+                    "kind": "vendor",
+                    "date": "2026-09-16",
+                    "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+                    "limit": "Coexistence on a single chip must be verified on named macro architectures."
+                  }
+                ],
+                "caveat": "Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs."
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "numem-mram",
         "title": "Numem: Embedded STT-MRAM IP Cell",
         "shortTitle": "Numem · STT-MRAM IP",
@@ -28332,6 +29198,42 @@
         "date": "2018-03",
         "locator": "Pages 2–3: split-gate, source-side injection program, interpoly FN erase.",
         "limit": "Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees."
+      },
+      {
+        "id": "ip-chingis-pfusion",
+        "label": "Chingis Technology pFusion eFlash Technology",
+        "url": "https://www.chingistek.com",
+        "kind": "vendor",
+        "date": "2026-09-16",
+        "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.",
+        "limit": "Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet."
+      },
+      {
+        "id": "ip-chingis-pm25",
+        "label": "Chingis pFlash SPI NOR Flash",
+        "url": "https://www.chingistek.com",
+        "kind": "vendor",
+        "date": "2026-09-16",
+        "locator": "Pm25 series standalone NOR Flash; ESMT group product portfolio.",
+        "limit": "Standalone packages do not represent all embedded macros."
+      },
+      {
+        "id": "ip-iotmemory-silvoflash",
+        "label": "IOTMemory SilvoFlash Low-Voltage eFlash",
+        "url": "https://iotmemory.com/en",
+        "kind": "vendor",
+        "date": "2026-09-16",
+        "locator": "SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.",
+        "limit": "Native core-voltage read does not mean erase requires no internal boost; production status verified by named products."
+      },
+      {
+        "id": "ip-iotmemory-silvofe",
+        "label": "IOTMemory SilvoFE Embedded eEEPROM",
+        "url": "https://iotmemory.com/en",
+        "kind": "vendor",
+        "date": "2026-09-16",
+        "locator": "Single process integration of Code eFlash and Data eEEPROM.",
+        "limit": "Coexistence on a single chip must be verified on named macro architectures."
       },
       {
         "id": "ip-numem-current",

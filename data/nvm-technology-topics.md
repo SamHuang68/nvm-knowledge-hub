@@ -2934,6 +2934,340 @@ SuperFlash 公開為分裂閘極架構。
 
 SuperFlash 的寫入是 SSI，不是通用 CHE 標籤；抹除是閘極間 FN，不是通道抹除。授權製程範圍不能當成單一量產節點證明。
 
+### 常億科技 pFusion：PMOS 浮閘 eFlash
+
+常億科技 Chingis Technology（晶豪科技 ESMT 集團）
+
+常億 pFusion eFlash 採用 P-Channel PMOS 浮動閘極架構。寫入利用能帶至能帶穿隧誘發熱電洞注入 (BBHH)，抹除走 FN 穿隧；寫入電流僅微安培級，具備標準 CMOS 相容性。
+
+#### pFusion：BBHH 寫入／FN 抹除循環
+
+同一 PMOS 浮閘單元可寫入、電性抹除及再次寫入。抹除使浮閘回到高閾值或截止窗口，恢復可重複 BBHH 注入狀態。
+
+PGM → ERS → PGM
+
+寫入態
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。 — 單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
+
+微安培級寫入電流是 PMOS 浮閘特性，不代表抹除無需內部電荷泵升壓。高溫保持力與循環壽命需以目標代工廠實測報告為準。
+
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)
+
+常億科技 pFusion eFlash (P-Channel 浮閘)
+
+P-Channel PMOS 浮動閘極 eFlash。BBHH 帶帶穿隧熱電洞注入寫入，FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. P-Channel 浮閘單元：待編程狀態**
+
+狀態: 初始浮閘中性或少電洞
+
+刺激: 偏壓為零
+
+常億 pFusion 採 PMOS 浮閘架構。
+
+**2. BBHH 帶帶穿隧誘發熱電洞注入**
+
+狀態: 寫入中
+
+刺激: 汲極反偏；BBHH 注入
+
+帶帶穿隧在汲極能帶彎曲處激發熱電洞，高效注入 FG；寫入電流僅微安培級。
+
+**3. 熱電洞累積於浮閘，PMOS 導通**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+熱電洞降低浮閘電位使通道導通，片上電荷泵負擔極小。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. 單元持有累積電洞電荷**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+抹除走 FN 穿隧，不是熔絲。
+
+**2. 高電場 FN 穿隧導出電洞／注入電子**
+
+狀態: 抹除中
+
+刺激: FN 抹除偏壓
+
+FN 電場使浮閘回到中性或高閾值抹除窗口。
+
+**3. 浮閘回到可再寫抹除態**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. P-Channel 浮閘單元待讀取**
+
+狀態: 既有浮閘狀態
+
+刺激: 準備感測
+
+讀取操作以低刺激進行。
+
+**2. 施加微小讀取偏壓感測 P 溝道**
+
+狀態: 讀取中
+
+刺激: 讀取偏壓 V_READ
+
+導通通道電流反映浮閘電洞累積量。
+
+**3. 感測放大器鎖存資料**
+
+狀態: 資料鎖存
+
+刺激: 偏壓復原
+
+極低讀取擾動，保障數十年高溫資料留存。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### IP 單元取捨
+
+pFusion 的關鍵物理是 PMOS 浮閘與 BBHH 熱電洞注入，相較傳統 NMOS CHEI 能降低 2~3 個數量級的寫入功耗；抹除走 FN 穿隧。獨立式 Pm25 SPI NOR Flash 不等於全套嵌入式 PDK，製程整合需依代工廠 PDK 授權版本核對。
+
+### 智憶科技 SilvoFlash：原生超低壓 eFlash
+
+智憶科技 IOTMemory Technology
+
+智憶專利單層／低光罩 CMOS 浮閘架構。核心突破為原生 0.9V–1.2V 核心邏輯電壓直接感測讀取，打破傳統 eFlash ≥1.8V 讀取壁壘；成功量產於 JEDEC DDR5 SPD Hub IC 與 40nm SoC。
+
+#### SilvoFlash：原生低壓讀取／穿隧寫抹循環
+
+同一專利浮閘單元可寫入、電性抹除及再次寫入。抹除導出浮閘電荷，使臨界電壓恢復至初始窗口，支援 Code Flash 與 Data EEPROM 雙模操作。
+
+PGM → ERS → PGM
+
+寫入態
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。 — 兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；代碼區支援扇區抹除，資料區支援位元組更新。
+
+原生 0.9V–1.2V 讀取不代表寫抹操作無需內部升壓。實際寫入功耗、保持性與循環壽命需依目標代工廠 40nm/55nm PDK 為準。
+
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+智憶科技 SilvoFlash 原生超低壓 eFlash
+
+專利單層／低光罩 CMOS 浮閘結構。原生 0.9V–1.2V 核心邏輯電壓直接感測，破除傳統 eFlash ≥1.8V 壁壘；打入 DDR5 SPD IC 供應鏈。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. SilvoFlash 超低壓單元：待寫入**
+
+狀態: 浮閘無累積電荷
+
+刺激: 偏壓為零
+
+專利 CMOS 相容單層/低光罩結構。
+
+**2. 內部微電荷泵穿隧注入**
+
+狀態: 寫入中
+
+刺激: 穿隧寫入脈衝
+
+低功耗電荷泵提供局部穿隧電場，不干擾外部邏輯。
+
+**3. 電荷保留於浮閘，完成寫入**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+單元完成資料寫入，回到待機低漏電態。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. 單元持有儲存電荷**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+可重複抹除多次，支援 Code Flash 與 Data EEPROM 雙模。
+
+**2. 穿隧抹除導出電荷**
+
+狀態: 抹除中
+
+刺激: 抹除脈衝
+
+電荷自浮閘導出，恢復未寫入臨界電壓。
+
+**3. 回到可再寫窗口**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. 原生 0.9V–1.2V 核心電壓就緒**
+
+狀態: 既有儲存狀態
+
+刺激: 核心供電軌 VDD
+
+無需升壓電荷泵，破除傳統 eFlash ≥1.8V 讀取壁壘。
+
+**2. 以 0.9V–1.2V 原生讀取通道**
+
+狀態: 讀取中
+
+刺激: VDD = 0.9V~1.2V
+
+與近閾值 CPU 核心共用供電軌直接讀出，量產於 DDR5 SPD IC。
+
+**3. 讀取完成，零升壓待機**
+
+狀態: 資料鎖存
+
+刺激: 維持核心供電
+
+大幅縮減靜態待機漏電，為 IoT 與邊緣 SoC 提供高能效。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### IP 單元取捨
+
+SilvoFlash 的技術本質在於將讀取電壓降至原生核心電壓 0.9V–1.2V，徹底消除待機升壓電荷泵的靜態漏電與延遲；抹除與寫入仍由內部微電荷泵提供電場。單一製程可同時整合 SilvoFlash (代碼) 與 SilvoFE (資料 EEPROM)。
+
 ### Numem：嵌入式 STT-MRAM IP 單元
 
 Numem
@@ -6312,6 +6646,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)。vendor；2026-09-16；定位：SONOS 單元夾在開關電晶體之間；4 道光罩；VDD 讀取／不揮發化邏輯；標為持續開發。；限制：開發中敘述不能當已量產保證。
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)。vendor；2026-09-16；定位：SuperFlash 嵌入式快閃記憶體製程整合與授權入口。；限制：服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。vendor；2018-03；定位：第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。；限制：結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。
+- [ip-chingis-pfusion：常億科技 pFusion eFlash 產品技術](https://www.chingistek.com)。vendor；2026-09-16；定位：P-Channel 浮閘 PMOS eFlash；以能帶至能帶穿隧誘發熱電洞注入 (BBHH) 寫入與 FN 抹除；極低寫入電流，標準 CMOS 相容。；限制：適用於微控制器與智慧卡；不以單一規格書代表全節點 PDK。
+- [ip-chingis-pm25：常億 pFlash SPI NOR Flash](https://www.chingistek.com)。vendor；2026-09-16；定位：Pm25 系列獨立式 NOR Flash；晶豪科技 ESMT 產品線。；限制：獨立式封裝不等於所有嵌入式巨集。
+- [ip-iotmemory-silvoflash：智憶科技 SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)。vendor；2026-09-16；定位：SilvoFlash 原生 0.9V–1.2V 超低壓 eFlash；支援 40nm SoC 與 DDR5 SPD IC 供應鏈。；限制：核心電壓原生讀取不代表抹除無需內部升壓；量產驗證按具名產品核對。
+- [ip-iotmemory-silvofe：智憶科技 SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)。vendor；2026-09-16；定位：單一製程整合 Code eFlash 與 Data eEEPROM。；限制：兩者在同一晶片上共存需核對具名巨集組織。
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
 - [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。
@@ -6564,7 +6902,7 @@ Micron 於 2021-03-16 停止 3D XPoint 開發；Intel 於 2022 年 7 月停止 O
 - [CMP-MICRON-CALL2021：Micron 3D XPoint 策略更新法說稿](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023：Intel Optane 客戶信](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
 
-## 九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表
+## 十一款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表
 
 Yu 2016 與 2021 課程表比較 SRAM、DRAM、NOR、NAND、PCM、RRAM、STT-MRAM、SOT-MRAM、FeRAM 與 FeFET。下列邏輯製程 OTP／MTP／eFlash IP 不是該表欄位，也沒有可併入歷史表的統一電壓或循環次數。此處只對照選型矩陣的家族葉，並連到單元導讀。
 
@@ -6606,6 +6944,13 @@ HD-MTP 葉是 CHI／FN 浮閘。Schottky TwinBit 兩邊都不掛。
 
 - Floadia · LEE Flash G1（#ip-floadia-g1）：SONOS、+2–3 道光罩、FN 寫抹；公開敘述含 BCD。
 - Floadia · LEE Flash G2（#ip-floadia-g2）：SONOS 夾在開關電晶體之間、+4、VDD 讀；原廠標持續開發。不是 G1 的節點延伸。
+
+### 低功耗與超低壓 eFlash（常億 pFusion／智憶 SilvoFlash）
+
+常億以 PMOS 浮閘 BBHH 熱電洞注入達成微安級寫入；智憶以專利浮閘結構達成原生 0.9V–1.2V 核心電壓讀取。
+
+- 常億科技 · pFusion eFlash（#ip-chingis-pfusion）：P-Channel 浮閘；BBHH 帶帶穿隧熱電洞注入寫入、FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。
+- 智憶科技 · SilvoFlash eFlash（#ip-iotmemory-silvoflash）：專利單層／低光罩 CMOS 浮閘；原生 0.9V–1.2V 核心電壓直接讀取，消除讀取升壓電荷泵；驗證於 DDR5 SPD IC 與 40nm SoC。
 
 歷史表數字維持課程基線。具名 IP 的偏壓、循環次數與量產節點以各單元來源與 VERIFY 限制為準，不在此處補造規格。
 
