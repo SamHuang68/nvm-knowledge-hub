@@ -14,6 +14,7 @@ const channel = process.env.NVM_QA_BROWSER || 'msedge';
 const browser = await chromium.launch({headless:true, ...(channel === 'chromium' ? {} : {channel})});
 const errors = [];
 const results = [];
+const headerBounds = [];
 try {
   for (const language of ['en','zh']) {
     const context = await browser.newContext({serviceWorkers:'block',viewport:{width:1440,height:1000},reducedMotion:'reduce'});
@@ -97,21 +98,39 @@ try {
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://hub.samhuang68.org/sram-repair.html');
     assert.equal(await page.locator('meta[property="og:url"]').getAttribute('content'),'https://hub.samhuang68.org/sram-repair.html');
     assert.equal(await page.locator('body').evaluate(el=>el.classList.contains('hub-apps-page')),true);
-    await page.locator('#menuToggle').click();
-    assert.equal(await page.locator('#menuToggle').getAttribute('aria-expanded'),'true');
-    await page.keyboard.press('Escape');
-    assert.equal(await page.locator('#menuToggle').getAttribute('aria-expanded'),'false');
-    assert.equal(await page.locator('#menuToggle').evaluate(el=>el===document.activeElement),true);
-    await locale(); await fits();
-    await page.screenshot({path:path.join(output,`sram-mobile-${language}.png`)});
+    for (const width of [390,320]) {
+      await page.setViewportSize({width,height:844});
+      for (const fallback of [false,true]) {
+        // 在 QA 文件套用較寬後備字型，驗證排版不依賴單一平台的字寬。
+        const fontProbe = fallback ? await page.addStyleTag({content:'.sram-repair-page .site-header .brand{font-family:"Courier New","Liberation Mono","DejaVu Sans Mono",monospace!important}'}) : null;
+        const bounds = await page.locator('.site-header .brand, .site-header .header-actions > :is(a,button)').evaluateAll(nodes=>nodes.filter(node=>node.checkVisibility()).map(node=>{
+          const rect=node.getBoundingClientRect();
+          return {識別:node.id||node.className,x:rect.x,y:rect.y,右:rect.right,下:rect.bottom,寬:rect.width,高:rect.height,視窗寬:innerWidth,視窗高:innerHeight};
+        }));
+        assert.deepEqual(bounds.filter(item=>item.識別!=='brand').map(item=>item.識別),['home-pill','searchTrigger','languageToggle','menuToggle'],'全部主題、搜尋、語言與選單皆可見');
+        for (const item of bounds) {
+          assert.ok(item.x>=0&&item.右<=item.視窗寬&&item.y>=0&&item.下<=item.視窗高,`${language}/${width}/${fallback?'較寬後備字型':'原字型'}：${item.識別} 完整位於視窗內，x=${item.x}，右=${item.右}`);
+        }
+        headerBounds.push({語言:language,視窗寬:width,較寬後備字型:fallback,元素:bounds});
+        for (const selector of ['.home-pill','#searchTrigger','#languageToggle','#menuToggle']) await page.locator(selector).click({trial:true});
+        await page.locator('#menuToggle').click();
+        assert.equal(await page.locator('#menuToggle').getAttribute('aria-expanded'),'true');
+        await page.keyboard.press('Escape');
+        assert.equal(await page.locator('#menuToggle').getAttribute('aria-expanded'),'false');
+        assert.equal(await page.locator('#menuToggle').evaluate(el=>el===document.activeElement),true);
+        await locale(); await fits();
+        await page.screenshot({path:path.join(output,`SRAM手機-${language==='en'?'英文':'繁體中文'}-${width}-${fallback?'較寬後備字型':'原字型'}.png`)});
+        if (fontProbe) await fontProbe.evaluate(node=>node.remove());
+      }
+    }
     await page.setViewportSize({width:1440,height:1000});
     await page.screenshot({path:path.join(output,`sram-desktop-${language}.png`)});
     await page.locator('.brand').click();
     assert.equal(await page.locator('#layer-sram').getAttribute('href'),'sram-repair.html');
-    results.push({language,passed:true,viewports:['1440x1000','390x844'],checks:['reference filters and deep links','history filters','lineage focus','figure fitting and Escape','evidence reset and jump','briefing filters, notes and jump','SRAM metadata, mobile menu and anchor']});
+    results.push({language,passed:true,viewports:['1440x1000','390x844','320x844'],checks:['reference filters and deep links','history filters','lineage focus','figure fitting and Escape','evidence reset and jump','briefing filters, notes and jump','SRAM metadata, mobile menu and anchor','手機標頭全部操作與較寬後備字型完整位於視窗內']});
     await context.close();
   }
   assert.deepEqual(errors,[]);
-  await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,errors},null,2));
-  console.log('Restored reading UI passed in English and Traditional Chinese, desktop and mobile.');
+  await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,errors,標頭幾何:headerBounds},null,2));
+  console.log('閱讀介面驗證通過：中英文、桌面與 390／320 像素手機；原字型與較寬後備字型的全部標頭操作完整可點。');
 } finally { await browser.close(); if(server) await server.close(); }
