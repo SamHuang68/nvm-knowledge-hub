@@ -552,7 +552,7 @@ export function initPqcDpaSimulator(containerId) {
   const modePufBtn = root.querySelector('#pqc-mode-puf-btn');
 
   function getLang() {
-    return document.documentElement.lang === 'zh-TW' || document.documentElement.lang === 'zh' ? 'zh' : 'en';
+    return (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'en').startsWith('zh') ? 'zh' : 'en';
   }
 
   function update() {
