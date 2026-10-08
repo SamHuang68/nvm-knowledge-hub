@@ -112,7 +112,7 @@ export const PQC_ALGORITHMS = {
  * @param {number} params.processNodeNm - Process technology node in nm (e.g. 5, 12, 28)
  * @returns {Object} Calculated metrics
  */
-export function calculatePqcStorageMetrics(params) {
+export function calculatePqcStorageMetrics(params = {}) {
   const algo = PQC_ALGORITHMS[params.algoKey] || PQC_ALGORITHMS.ml_kem_768;
   const isSeedExpansion = params.storageArch !== 'pure_raw_storage';
   const maskingOrder = Math.max(0, Math.min(2, params.maskingOrder || 1));

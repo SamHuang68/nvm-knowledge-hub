@@ -120,7 +120,7 @@ export function calculatePackagingPdkMetrics({
   traceLengthMm = 3.5,
   diePowerWatts = 450.0,
   dataRateGbps = 8.0
-}) {
+} = {}) {
   const preset = PACKAGING_PRESETS[presetId] || PACKAGING_PRESETS.tsmc_cowos_s_hbm;
 
   // 1. Interconnect Density

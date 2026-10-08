@@ -200,7 +200,7 @@ export function calculateAutomotiveAsilMetrics({
   arrayCapacityMb = 16.0,
   scrubbingPeriodSec = 60.0,
   customAltitudeM = 1500.0
-}) {
+} = {}) {
   const mission = AUTO_MISSION_PROFILES[missionId] || AUTO_MISSION_PROFILES.powertrain_inverter_asild;
   const nvm = AUTO_NVM_PROFILES[nvmId] || AUTO_NVM_PROFILES.antifuse_charge_free;
   const ecc = ECC_ARCHITECTURES[eccId] || ECC_ARCHITECTURES.secded_72_64;

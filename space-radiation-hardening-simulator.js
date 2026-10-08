@@ -144,7 +144,7 @@ export function calculateSpaceRadiationHardening({
   techKey = "antifuse_rad_hard",
   customTidKrad,
   customLetMev,
-}) {
+} = {}) {
   const mission = SPACE_MISSION_PRESETS[missionKey] || SPACE_MISSION_PRESETS.geo_telecom_sat;
   const tech = RAD_HARD_TECH_PROFILES[techKey] || RAD_HARD_TECH_PROFILES.antifuse_rad_hard;
 

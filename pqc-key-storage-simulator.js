@@ -141,7 +141,7 @@ export function calculatePqcKeyStorage({
   mediaKey = "antifuse_append_log",
   customUpdateCycles,
   customArrayCapacityKb,
-}) {
+} = {}) {
   const algo = PQC_ALGORITHM_PROFILES[algoKey] || PQC_ALGORITHM_PROFILES.ml_kem_768;
   const media = STORAGE_MEDIA_PROFILES[mediaKey] || STORAGE_MEDIA_PROFILES.antifuse_append_log;
 

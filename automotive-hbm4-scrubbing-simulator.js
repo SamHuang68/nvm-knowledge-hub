@@ -143,7 +143,7 @@ export function calculateAutomotiveHbm4Metrics({
   junctionTempC = 115.0,
   scrubbingPeriodSec = 1.0,
   stackDensityGb = 64
-}) {
+} = {}) {
   const mission = AUTOMOTIVE_MISSION_PRESETS[missionId] || AUTOMOTIVE_MISSION_PRESETS.l4_robotaxi_extreme;
   const arch = REPAIR_ARCHITECTURES[repairArchId] || REPAIR_ARCHITECTURES.hybrid_tier_scrubbing;
 

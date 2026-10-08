@@ -171,7 +171,7 @@ export function calculateCpoSiphMetrics({
   ambientTempC = 45.0,
   laserPowerMw = 100.0,
   channelCount = 64
-}) {
+} = {}) {
   const preset = CPO_SYSTEM_PRESETS[presetId] || CPO_SYSTEM_PRESETS.hyperscale_cpo_51t;
   const tech = OPTICAL_NVM_TECHS[techId] || OPTICAL_NVM_TECHS.antifuse_zero_static;
 

@@ -210,7 +210,7 @@ export const PQC_STORAGE_TOPOLOGIES = Object.freeze({
  * @param {boolean} [params.customJitter]
  * @returns {Object} Comprehensive security metrics
  */
-export function calculatePqcDpaMetrics(params) {
+export function calculatePqcDpaMetrics(params = {}) {
   const preset = PQC_SECURITY_PRESETS[params.presetId] || PQC_SECURITY_PRESETS.fips140_3_lvl4;
   const topology = PQC_STORAGE_TOPOLOGIES[params.topologyId] || PQC_STORAGE_TOPOLOGIES.antifuse_rot_puf;
 

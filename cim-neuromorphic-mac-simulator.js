@@ -163,7 +163,7 @@ export const CIM_MEMORY_MEDIA = {
  * @param {number} [params.driftTimeHours=1000] - Operating lifetime elapsed time for conductance drift (hours)
  * @returns {Object} Calculated metrics
  */
-export function calculateCimMacMetrics(params) {
+export function calculateCimMacMetrics(params = {}) {
   const preset = CIM_SYSTEM_PRESETS[params.presetKey] || CIM_SYSTEM_PRESETS.edge_keyword_spotting_kws;
   const media = CIM_MEMORY_MEDIA[params.mediaKey] || CIM_MEMORY_MEDIA.analog_reram_crossbar;
   const rWire = params.wireResistanceOhm !== undefined ? Math.max(0.1, params.wireResistanceOhm) : 1.5;

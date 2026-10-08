@@ -147,7 +147,7 @@ export const CRYO_NVM_TECHS = {
  * @param {number} [params.readBiasMv=400] - Array readout bias voltage in mV
  * @returns {Object} Physical calculation results
  */
-export function calculateCryoNvmMetrics(params) {
+export function calculateCryoNvmMetrics(params = {}) {
   const preset = CRYO_SYSTEM_PRESETS[params.presetKey] || CRYO_SYSTEM_PRESETS.cryo_dilution_fridge_4k;
   const tech = CRYO_NVM_TECHS[params.techKey] || CRYO_NVM_TECHS.antifuse_ohmic_filament;
   const tempK = params.customTempK !== undefined ? Math.max(0.05, Math.min(350.0, params.customTempK)) : preset.targetTempK;

@@ -151,8 +151,8 @@ export function calculateRadMetrics(params = {}) {
   const preset = RAD_PRESETS[params.presetKey] || RAD_PRESETS.deep_space_jupiter;
   const tech = RAD_NVM_TECHS[params.techKey] || RAD_NVM_TECHS.antifuse_ohmic;
 
-  const dose = typeof params.tidDoseKrad === 'number' && !isNaN(params.tidDoseKrad) ? Math.max(0, params.tidDoseKrad) : preset.tidKrad;
-  const letVal = typeof params.heavyIonLet === 'number' && !isNaN(params.heavyIonLet) ? Math.max(0, params.heavyIonLet) : preset.letFlux;
+  const dose = typeof params.tidDoseKrad === 'number' && !isNaN(params.tidDoseKrad) ? Math.max(0, params.tidDoseKrad) : (preset.targetTidKrad || preset.tidKrad || 100);
+  const letVal = typeof params.heavyIonLet === 'number' && !isNaN(params.heavyIonLet) ? Math.max(0, params.heavyIonLet) : (preset.peakHeavyIonLet || preset.letFlux || 45);
 
   // 1. Analytical TID Threshold Shift ΔV_th
   // ΔV_th ∝ t_ox^2 * dose
