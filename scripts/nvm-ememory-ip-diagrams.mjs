@@ -112,7 +112,7 @@ function sourceList(ids,language){
   const source=DATA.sources.find(s=>s.id===id);
   if(!source)throw new Error('來源不存在：'+id);
   const fields=source[language];
-  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='架構量級參考'?'Architecture-class Reference':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
+  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='作者指定教學參考'?'Author-defined Teaching Reference':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
  });
 }
 function legend(id,language){
@@ -280,18 +280,18 @@ const DATA={
     {
       "id": "ip-neobit-io-pgm-author",
       "url": "https://patents.google.com/patent/US6920067B2/en",
-      "kind": "架構量級參考",
+      "kind": "作者指定教學參考",
       "zh": {
-        "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+        "label": "作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓",
         "date": "2026-09-11 查核",
-        "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-        "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+        "locator": "本頁作者設定 3.3 V I/O PMOS cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM，並以同節點 NMOS 較高 Vpgm 作教學對照；所連專利支持 I/O 裝置實施例，未提供這組精確配對。",
+        "limit": "此電壓配對為本頁作者架構教學設定。US6920067B2 僅支持 PMOS／I/O 裝置實施例，並非 6.5 V／7.5 V 精確配對的出處；不得外推現行 NeoBit 巨集規格，亦不得移作閘氧擊穿 AntiFuse。"
       },
       "en": {
-        "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+        "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
         "date": "reviewed 2026-09-11",
-        "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-        "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+        "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+        "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
       }
     },
     {

@@ -176,7 +176,7 @@ const draftProfiles = [
     updateModel: 'Wafer sort (KGD) + Post-Cu-Cu bonding hPPR + dynamic mission-profile sPPR repair via internal FuseBox',
     strongestFit: 'HBM4 16-Hi/24-Hi 2048-bit Wide-IO, 3nm AI Accelerator Base Dies, CoWoS/SoIC Cu-Cu Hybrid Bonding Repair',
     boundary: 'Probe card contact force strictly bounded (<=0.35 gf/pin, scrub depth <=2.0 nm) to protect CMP pads; thermal margin verified up to 125°C-150°C Tj',
-    evidenceStatus: 'JEDEC JESD238 HBM4 Reference · TSMC 3DFabric / Samsung I-Cube Architecture · Probe Card Consortium Baseline (MPI / CHPT / FormFactor)',
+    evidenceStatus: 'JEDEC JESD270-4 HBM4 Reference · TSMC 3DFabric / Samsung I-Cube Architecture · Probe Card Consortium Baseline (MPI / CHPT / FormFactor)',
     latency: 'Zero-cycle on-die address remapping (pure combinational mux decode)',
     busExposure: 'None (Autonomous on-die BIST/BIRA decoders within Base Die secure trust boundary)',
     bomCost: 'Zero mask adder (Standard pure logic CMOS process without HV/eFlash masks)'

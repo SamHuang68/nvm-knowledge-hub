@@ -42,7 +42,7 @@ Series pMOS selector and pMOS floating-gate cell. Historical section: n-well in 
 - [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author: Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — Program
 
@@ -98,7 +98,7 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author: Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — Erase Boundary
 
@@ -146,7 +146,7 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author: Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — Read
 
@@ -202,11 +202,11 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author: Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
 
 #### IP Cell Tradeoffs
 
-A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse.
+A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. For architecture teaching, this page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and 7.5 V for a 5 V cell, with a higher n-type Vpgm in the same-node comparison. These are author-defined teaching values, not specifications for current NeoBit macros. The linked patent supports PMOS/I/O-device embodiments but does not provide this exact voltage pairing; the values must not be transferred to core-GOX-breakdown AntiFuse.
 
 ### NeoFuse: Gate-Dielectric Antifuse OTP Cell
 
@@ -2150,7 +2150,7 @@ Selection and update granularity follow the named array and interface. Cell-leve
 40–22 nm and zero extra mask are vendor node narratives. No bias table is published. Gen-1 CMOS NMOS pairs are not mixed into the Gen-2 Schottky cross-section.
 
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 NSCore TwinBit MTP
 
@@ -2163,7 +2163,7 @@ Gen-2 uses a Pch Schottky transistor as the storage device with zero extra mask.
 - e− · Blue dots denote hot electrons; the count is qualitative.
 
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — Write
 
@@ -2204,7 +2204,7 @@ The PermSRAM SiN spacer is not drawn.
 TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
 
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — Erase / Restore Limit
 
@@ -2245,7 +2245,7 @@ Stimulus: Bias removed
 TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
 
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — Read
 
@@ -2286,7 +2286,7 @@ The read window is set by supplier conditions.
 TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
 
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### IP Cell Tradeoffs
 
@@ -2617,7 +2617,7 @@ G1 is eFlash/SONOS, not zero-mask MTP ZT and not Anti-fuse ZA. A BCD narrative c
 
 Floadia
 
-A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development.
+A SONOS storage cell sandwiched by switch transistors. The vendor’s main features and 55BCD example specify four extra masks; its cost section also states 4–5, so confirm the target platform. The vendor emphasizes VDD read without high voltage on diffusion terminals and marks ongoing development.
 
 #### LEE Flash G2: Sandwiched SONOS Cycle
 
@@ -2635,13 +2635,13 @@ After the prescribed pulse or internal update cycle completes, use the specified
 
 Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.
 
-The vendor marks ongoing development. VDD read does not mean erase needs no internal high-voltage generation. Four extra masks must not be extrapolated to G1 or ZT.
+The vendor marks ongoing development. VDD reading does not eliminate internal erase-voltage generation. Main features and the 55BCD example list four masks, while the same page’s cost section lists 4–5 without identifying a different configuration. Confirm the target platform; do not extrapolate to G1 or ZT.
 
 - [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
 
 Floadia LEE Flash G2 eFlash
 
-A SONOS storage cell sandwiched by switch transistors; 4 extra masks; read at VDD without high voltage on diffusion terminals.
+A SONOS storage cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; read at VDD without high voltage on diffusion terminals.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
@@ -2670,7 +2670,7 @@ State: Programming
 
 Stimulus: Side switches on; FN
 
-Four extra masks is the published integration number.
+Main features and the 55BCD example list 4 masks; the cost section lists 4–5. Confirm the target platform.
 
 **3. Turn Switches Off; Charge Remains in Nitride**
 
@@ -2785,7 +2785,7 @@ PGM → ERS → PGM
 
 Programmed State Awaiting Erase
 
-Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV. — The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification. — The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence.
 
 The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence.
 
@@ -2806,7 +2806,7 @@ SST SuperFlash split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- SG · Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption.
 - CG · Top control gate; provides high capacitive coupling to FG.
 - EG · Dedicated erase gate; uses an erase bias for interpoly FN; actual values depend on the PDK.
 - SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
@@ -2819,7 +2819,7 @@ SST SuperFlash split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-
 
 Establish the programmed state by the published mechanism without splicing unpublished bias tables.
 
-Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.
 
 **1. ESF3 Cell Ready: SG, CG, FG and EG 4-Gate Topology**
 
@@ -2848,7 +2848,7 @@ Floating-gate charge changes the effective threshold and read window; disturb ma
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- SG · Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption.
 - CG · Top control gate; provides high capacitive coupling to FG.
 - EG · Dedicated erase gate; uses an erase bias for interpoly FN; actual values depend on the PDK.
 - SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
@@ -2863,7 +2863,7 @@ The third generation uses dedicated erase and coupling gates; nodes, masks and o
 
 Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
 
-Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.
 
 **1. Cell Holds Injected Charge: Ready for EG Erase**
 
@@ -2871,15 +2871,15 @@ State: Programmed State Awaiting Erase
 
 Stimulus: Bias zero
 
-ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.
+ESF1/2 erase toward wordline poly; ESF3 introduces a dedicated Erase Gate (EG), separating selection and erase functions.
 
 **2. EG Erase Bias: Interpoly FN Tunneling**
 
 State: Erasing
 
-Stimulus: EG: ERS; SG = 0V
+Stimulus: EG: ERS; SG = 0 V (Teaching)
 
-Electrons tunnel from FG tip to EG; select gate (SG) is held at 0V, separating selection from erase bias; reliability is not inferred from this illustration.
+Electrons tunnel from FG tip to EG; SG = 0 V is a teaching setting illustrating separate selection and erase functions. The brochure does not provide this terminal-bias table; verify actual values for the named macro. The illustration does not establish reliability.
 
 **3. FG Restored to Erased State: Ready for Rewriting**
 
@@ -2892,7 +2892,7 @@ The cell returns to a reprogrammable state; endurance and retention conditions r
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- SG · Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption.
 - CG · Top control gate; provides high capacitive coupling to FG.
 - EG · Dedicated erase gate; uses an erase bias for interpoly FN; actual values depend on the PDK.
 - SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
@@ -2907,7 +2907,7 @@ The third generation uses dedicated erase and coupling gates; nodes, masks and o
 
 Sense the retained state under product read conditions, then latch and isolate.
 
-Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.
 
 **1. ESF3 Cell Awaits Read: 4-Gate Biases Ready**
 
@@ -2936,7 +2936,7 @@ Offers ultra-low standby leakage, ideal for MCUs, smart cards, and automotive pr
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- SG · Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption.
 - CG · Top control gate; provides high capacitive coupling to FG.
 - EG · Dedicated erase gate; uses an erase bias for interpoly FN; actual values depend on the PDK.
 - SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
@@ -5640,7 +5640,7 @@ Stimulus: In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-se
 
 After: The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.
 
-The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.
+The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). This pairing is the author-defined architecture teaching assumption used on this page. The linked patent supports PMOS/I/O-device embodiments, not the exact 6.5 V/7.5 V pairing. It is not a specification for current NeoBit macros and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.
 
 #### Erase: No Repair of the Broken-Down Dielectric in Normal Operation
 
@@ -5708,7 +5708,7 @@ Cells sharing a column or row, and internal floating nodes, can develop differen
 - [ch-pat-pmos-otp-6678190: eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2](https://patents.google.com/patent/US6678190B2/en)
 - [ch-pat-io-nvm-6920067: eMemory: I/O-Device Single-Poly NVM Patent US6920067B2](https://patents.google.com/patent/US6920067B2/en)
 - [ch-eetimes-neobit-2003: EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ch-author-pmos-io-pgm: Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages](https://patents.google.com/patent/US6920067B2/en)
+- [ch-author-pmos-io-pgm: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en)
 - [ch-pat-pmos-vs-nmos-5761121: Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A](https://patents.google.com/patent/US5761121A/en)
 - [ch-maturity-kilopass: Synopsys: 2018 Kilopass Acquisition and OTP Shipment Statement](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
 - [ch-maturity-otp-current: Synopsys: Current Antifuse OTP NVM IP Product Page](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html)
@@ -7875,35 +7875,35 @@ Limitations: Controller and processor integration evidence does not establish na
 
 ### 2019 · Samsung Foundry · eMRAM · 28FDS (28nm FD-SOI)
 
-Volume production: Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM.
+Volume production: Samsung announced commercial 28FDS eMRAM production and claimed roughly 1,000 times the write speed of eFlash.
 
-Limitations: FD-SOI platform with BEOL adders; do not equate with logic-roadmap 0-mask claims or bulk FinFET NVM.
+Limitations: The speed figure is a vendor comparison without complete disclosed conditions. Backend integration adds process layers; it is not a zero-mask claim and does not specify later FinFET macros.
 
-- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/)
+- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process)
 
-### 2019 · Intel Foundry · STT-MRAM · 22FFL (22nm FinFET)
+### 2018 · Intel · STT-MRAM · 22FFL (22nm FinFET)
 
-Production-ready: IEDM 2018/2019 publications describe 22FFL embedded STT-MRAM approaching production readiness.
+Research demonstration: IEDM 2018 paper 18.1 reports 7.2Mbit arrays demonstrating 22FFL embedded MRAM with 200°C ten-year retention capability and endurance exceeding one million cycles.
 
-Limitations: Evidence centers on 22FFL test vehicles; not an open PDK for every customer.
+Limitations: This is a 2018 research abstract, not proof of 2019 production readiness. Complete electrical and ECC conditions and current availability require separate evidence.
 
-- [FND-INTC-2018-22FFL: Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+- [FND-INTC-2018-22FFL: Intel: 22FFL Embedded MRAM Research Abstract (IEDM 2018)](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
 
-### 2024 · Samsung Foundry · Next-gen eMRAM / MBCFET GAA · SF3 / SF2
+### 2024 · Samsung Foundry · GAA logic-process context · SF3/SF2Z and related logic processes
 
-Roadmap / R&D: Samsung Foundry Forum materials discuss advanced-node eMRAM direction alongside MBCFET logic roadmaps.
+Logic roadmap announcement: SFF 2024 describes GAA logic and SF2Z backside-power roadmaps; SF3 volume production was then targeted for H2 2024.
 
-Limitations: SF3/SF2 logic announcements do not by themselves prove shipped eMRAM macros; separate NVM milestones required.
+Limitations: This supplies logic-process context for NVM, not evidence of SF3/SF2 eMRAM development or production. A target is not completion.
 
-- [FND-SEC-2024-MBCFET: Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap](https://semiconductor.samsung.com/foundry/process-technology/)
+- [FND-SEC-2024-MBCFET: Samsung Foundry: SFF 2024 Logic Process and GAA Roadmap](https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024)
 
-### 2024 · Intel Foundry · 18A RibbonFET + embedded NVM ecosystem · 18A
+### 2024 · Intel Foundry · 18A logic process and EDA/IP ecosystem · Intel 18A
 
-Production preparation: Intel Foundry Direct Connect 2024 describes 18A production preparation, PowerVia BSPDN, and embedded IP ecosystem goals.
+Logic roadmap announcement: The 2024 release describes 18A backside power delivery and EDA/IP enablement, targeting process leadership in 2025.
 
-Limitations: RibbonFET/PowerVia logic progress does not automatically prove native AntiFuse, eMRAM, or FeFET NVM at named nodes.
+Limitations: This is announcement-time logic-roadmap and design-ecosystem context. It establishes no development, qualification or production of specific AntiFuse, eMRAM or FeFET macros.
 
-- [FND-INTC-2024-18A: Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
+- [FND-INTC-2024-18A: Intel Foundry: 18A Logic Process and Design Ecosystem Announcement](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html)
 
 ## Comparison Examples
 
@@ -8113,7 +8113,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 
 ## Glossary
 
-- CHI and CHEI: CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O FG HCI pairing is public literature / architecture-class and must not be mixed with core-oxide-breakdown AntiFuse, whose program voltage tracks that process gate oxide rather than this I/O floating-gate window.
+- CHI and CHEI: CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. This is the author-defined architecture teaching pairing used on this page, not a specification for current NeoBit macros. The linked patent supports PMOS/I/O-device embodiments but does not provide the exact 6.5 V/7.5 V pairing. Do not transfer these values to core-oxide-breakdown AntiFuse, whose program voltage depends on its process gate oxide.
 - Fowler–Nordheim (FN) Tunneling: A sufficiently strong field changes the dielectric energy barrier so electrons can tunnel through it. State the electron origin, destination and field direction separately. NeoEE uses FN transport for both updates; NeoMTP uses FN electron transfer toward an erase gate for the reverse update.
 - BBT, BBHH and DAHHI: Band-to-band tunneling (BBT) creates electron/hole pairs inside silicon. Band-to-band hot-hole injection (BBHH) then uses energetic holes to cross the dielectric. Drain-avalanche hot-hole injection (DAHHI) uses avalanche generation instead; shared hot-hole injection does not make the carrier-generation mechanisms identical.
 - Direct Tunneling and Antifuse Readout: In eMemory's published ultrathin-dielectric explanation, programming generates defects that reduce effective tunneling distance and increase gate current. Preserve this named mechanism when discussing NeoFuse; an ideal metal short or a generic trap-assisted-tunneling label is not a substitute.
@@ -8154,7 +8154,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ch-pat-pmos-otp-6678190: eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2](https://patents.google.com/patent/US6678190B2/en). Patent; Granted 2004-01-13; reviewed 2026-09-11; Location in the Source: Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V; Limitations: Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse.
 - [ch-pat-io-nvm-6920067: eMemory: I/O-Device Single-Poly NVM Patent US6920067B2](https://patents.google.com/patent/US6920067B2/en). Patent; Granted 2005-07-19; reviewed 2026-09-11; Location in the Source: Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V; Limitations: Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V.
 - [ch-eetimes-neobit-2003: EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/). Contemporary industry report; 2003-11-05; reviewed 2026-09-11; Location in the Source: Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM; Limitations: Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown.
-- [ch-author-pmos-io-pgm: Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages](https://patents.google.com/patent/US6920067B2/en). Architecture-class reference; reviewed 2026-09-11; Location in the Source: About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm; Limitations: Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro.
+- [ch-author-pmos-io-pgm: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en). Author-defined teaching reference; reviewed 2026-09-11; Location in the Source: This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.; Limitations: The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse.
 - [ch-pat-pmos-vs-nmos-5761121: Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A](https://patents.google.com/patent/US5761121A/en). Patent; Granted 1998-06-02; reviewed 2026-09-11; Location in the Source: Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate; Limitations: This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table.
 - [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en). Patent; Granted 1978-09-26; reviewed 2026-09-10; Location in the Source: Front page of the original publication; Figures 3i and 6; claims 2 and 9; parent application in the priority chain; Limitations: 1976-03-26 is the parent-application date found in the records; this application was filed in 1977. The earliest date in a priority chain is not a legal determination of the effective priority of every claim.
 - [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en). Patent; Granted 1998-12-01; reviewed 2026-09-10; Location in the Source: Figures 3–6; buried control electrode, thick/thin oxide regions, and operating descriptions; claim 1; Limitations: Demonstrates one single-poly EEPROM implementation. It does not establish that current Synopsys MTP uses this structure or the same hot-electron injection and tunneling paths.
@@ -8285,10 +8285,11 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [FND-TSMC-SYMP-2025: TSMC 2025 North America Technology Symposium Press Release](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf). Official Annual Technology Symposium Press Release; 2025-04-23; Accessed 2026-09-10; Location in the Source: Three-page public press release; Limitations: The main release contains no complete MRAM/RRAM timeline suitable for verification. Unobtained internal symposium pages are not used to invent completion dates.
 - [FND-TSMC-SYMP-2026: TSMC 2026 North America Technology Symposium Press Release and Public Video Portal](https://pr.tsmc.com/english/news/3302). Official Annual Technology Symposium Press Release; 2026-04-23; Accessed 2026-09-10; Location in the Source: The US event took place on 2026-04-22; press release and technology highlights; Limitations: The public release does not provide a complete MRAM/RRAM roadmap. A presentation uploaded by a third party is not treated as an official version.
 - [FND-TSMC-SYMP-ACCESS: TSMC 2026 Technology Symposium Public Video Portal](https://www.tsmc.com/english/symposium_highlights/2026). Official Conference Portal; 2026; Accessed 2026-09-10; Location in the Source: Access instructions for the full on-demand videos; Limitations: This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.
-- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/). Vendor official press release; 2019-03-06; Accessed 2026-09-10; Location in the Source: 28FDS eMRAM commercial shipment and reliability section; Limitations: 28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.
-- [FND-SEC-2024-MBCFET: Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap](https://semiconductor.samsung.com/foundry/process-technology/). Vendor technology forum and product brief; 2024-06-12; Accessed 2026-09-10; Location in the Source: SFF 2024 MBCFET GAA and advanced embedded NVM planning; Limitations: SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.
-- [FND-INTC-2018-22FFL: Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html). Conference paper and official release; 2018-12-03; Accessed 2026-09-10; Location in the Source: IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability; Limitations: 22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.
-- [FND-INTC-2024-18A: Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html). Vendor official event release; 2024-02-21; Accessed 2026-09-10; Location in the Source: IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem; Limitations: 18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.
+- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process). Vendor official press release; 2019-03-06; Accessed 2026-10-09; Location in the Source: Mass production, relative write speed and backend module integration paragraphs; Limitations: The relative-speed claim lacks complete comparison conditions. This release does not provide a complete endurance, retention and reflow matrix or name NXP. Later FinFET eMRAM requires platform- and macro-specific evidence.
+- [FND-SEC-2024-MBCFET: Samsung Foundry: SFF 2024 Logic Process and GAA Roadmap](https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024). Vendor official press release; 2024-06-13; Accessed 2026-10-09; Location in the Source: Advanced logic-process roadmap and GAA maturity sections; Limitations: This source does not establish SF3/SF2 eMRAM, OTP macros or associated electrical specifications. A logic roadmap is not a named embedded-NVM development milestone.
+- [FND-INTC-2018-22FFL: Intel: 22FFL Embedded MRAM Research Abstract (IEDM 2018)](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf). Official conference program and paper abstract; 2018-12-04; Accessed 2026-10-09; Location in the Source: PDF page 52; December 4 session; paper 18.1; Limitations: The abstract does not provide a complete test matrix, ECC or BER conditions. It alone establishes neither 2019 production readiness nor current commercial availability.
+- [FND-INTC-2024-18A: Intel Foundry: 18A Logic Process and Design Ecosystem Announcement](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html). Vendor official press release; 2024-02-21; Accessed 2026-10-09; Location in the Source: Process roadmap, 18A backside power and EDA/IP enablement sections; Limitations: General logic-process and IP enablement do not establish development, qualification or production of native AntiFuse, eMRAM or FeFET macros. The source provides no NVM-specific power or performance specifications.
+- [FND-SEC-CURRENT-EMRAM: Samsung Current Specialty Page: FinFET eMRAM Expansion](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/). Vendor dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: eMRAM section; Limitations: The page has no revision date. Platform expansion does not establish qualification of every named macro or customer volume shipments; this section provides no complete electrical matrix.
 - [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Current product principle; full biases and layout are not disclosed.
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en). Public Patent; 2005-07-05; Location in the Source: Figures 2(a), 2(b), 6; claims 1, 4; Limitations: Historical p+ floating-gate model linked by 2005 company news; not every current process.
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414). Primary Technical Source; 2005-10-04; Location in the Source: Second body paragraph: patent title and inventors; Limitations: Direct historical association between NeoBit and the named patent.
@@ -8296,7 +8297,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en). Public Patent; 2004-01-13; Location in the Source: Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V; Limitations: Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule.
 - [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en). Public Patent; 2005-07-19; Location in the Source: I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V; Limitations: Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell.
 - [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/). Primary Technical Source; 2003-11-05; Location in the Source: Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM; Limitations: A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown.
-- [ip-neobit-io-pgm-author: Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en). Architecture-class Reference; reviewed 2026-09-11; Location in the Source: About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm; Limitations: Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse.
+- [ip-neobit-io-pgm-author: Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages](https://patents.google.com/patent/US6920067B2/en). Author-defined Teaching Reference; reviewed 2026-09-11; Location in the Source: This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.; Limitations: The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse.
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Impedance-based OTP and GIDL suppression; full dielectric materials are undisclosed.
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19). Primary Technical Source; 2021-01-19; Location in the Source: Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling; Limitations: eMemory-authored article; an ultrathin-oxide DT model, not a metallic filament for all generations.
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies). Officially Reposted Executive Interview; 2024-12-09; Location in the Source: NeoFuse: patented 3T design and regulating transistor; Limitations: Confirms 3T and a regulating function, not every current netlist or cross-section.
@@ -8333,11 +8334,11 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html). e; 2026-09-16; Location in the Source: LogicFlash MTP: logic-compatible, 0–1 extra mask, Flash-like byte PGM / sector or chip ERS, up to 10k cycles; SuperMTP marked under development; no public bit-cell cross-section.; Limitations: "Flash-like" proves interface and update granularity, not FN, HCI, or a trap layer.
 - [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/). e; 2016-08-30; Location in the Source: Actt acquired Chip Memory Technology (CMT) in 2016.; Limitations: CMT is a lineage name, not a current public SKU.
 - [ip-nscore-products: NSCore Products](https://www.nscore.com/products/). e; 2026-09-16; Location in the Source: TwinBit MTP is listed beside PermSRAM OTP; TwinBit is sold as CMOS, zero extra mask.; Limitations: The products page does not describe TwinBit as PermSRAM hotspot-into-SiN.
-- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html). e; 2026-09-16; Location in the Source: Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.; Limitations: No public bias table or junction dimensions.
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/). e; 2026-09-16; Location in the Source: Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.; Limitations: No public bias table or junction dimensions.
 - [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/). e; 2026-09-16; Location in the Source: Zero extra-mask MTP; FN program and erase; 180BCD sample; automotive narrative.; Limitations: Body 10K vs table >100k is inconsistent; do not take cycle counts as a common guarantee.
 - [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/). e; 2024-12-09; Location in the Source: ZT uses a floating gate as the storage node.; Limitations: The news item does not give poly count or well structure.
 - [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/). e; 2026-09-16; Location in the Source: SONOS eFlash, 2–3 extra masks, FN program/erase, BCD.; Limitations: No public nitride thickness or bias table.
-- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/). e; 2026-09-16; Location in the Source: SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.; Limitations: An in-development note is not a production guarantee.
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/). e; 2026-09-16; Location in the Source: SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.; Limitations: The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee.
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/). e; 2026-09-16; Location in the Source: SuperFlash embedded Flash process-integration and licensing entry.; Limitations: The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). e; 2018-03; Location in the Source: Pages 2–3: split-gate, source-side injection program, interpoly FN erase.; Limitations: Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.
 - [ip-sst-esf-generations: SST: SuperFlash Three-Generation Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). Vendor technology brochure; 2018-03; Accessed 2026-10-09; Location in the Source: PDF page 2: three generations, SSI and interpoly FN; page 3: production and platform ranges listed separately.; Limitations: No 11.5V or 40% reduction is stated; a 2018 brochure cannot establish 2026 cross-foundry 28nm production or a universal oxide/FinFET recipe.
@@ -8400,10 +8401,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [tdk-headway: TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf). Official primary source; 2025-09-01; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified.
 - [numem-aime: Numem · Foundry-based STT-MRAM](https://numem.com/news). Official primary source; 2025-06-10; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments.
 - [imec-sot: imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually). Official primary source; 2023-12-13; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Device switching energy excludes full macro, bus and system overhead. The 50nm dimension is not a 50nm CMOS process-node claim.
-- [RRAM-WEEBIT-2026: Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: First customer product mass production remained a future milestone.
+- [RRAM-WEEBIT-2026: Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-10-09; Location in the Source: Product, technology or announcement text; Limitations: First customer product mass production remained a future milestone.
 - [RRAM-ONSEMI-2026: onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Licensing or transfer does not establish product mass production.
 - [RRAM-TI-2026: Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: TI commercial FRAM and this ReRAM transfer are separate technology routes.
-- [RRAM-SKYWATER-S130: SkyWater/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: IP qualification does not qualify every customer chip or prove its mass production.
+- [RRAM-SKYWATER-S130: SkyWater/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/). Official primary source; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: Product, technology or announcement text; Limitations: IP qualification does not qualify every customer chip or prove its mass production.
 - [RRAM-DBHITEK-130: DB HiTek/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: 100K cycles is an extension option; base BCD volume does not establish ReRAM product shipments.
 - [RRAM-TSMC-IOT: TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM). Official primary source; 2024; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: 12RRAM risk production is not full production or automotive qualification.
 - [RRAM-INFINEON-TC4X: Infineon/TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031). Official primary source; 2022-11-25; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: This announcement does not prove every TC4x variant uses RRAM or has reached production.
@@ -8455,19 +8456,20 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [RRAM-TETRAMEM-MLX200-2026: TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/). Primary official source; 2026-05-19; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.
 - [RRAM-INTRINSIC-SURECORE: Intrinsic/sureCore · SiOx RRAM](https://www.intrinsicsemi.com/). Primary official source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/). Primary official source; 2016-08-31; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
-- [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc). Vendor Official Whitepaper; 2025-06; Accessed 2026-09-17; Location in the Source: Architecture and Qualification Sections; Limitations: Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.
+- [RES-PUFSEC-HROT-2025: PUFsecurity: Official PUFcc Product Page](https://www.pufsecurity.com/products/pufcc/pufcc/). Vendor dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: Architecture, features and certification links; Limitations: The page provides no production or attack-test matrix covering every process. Certifications and security claims require version-specific verification.
 - [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/non-volatile-memory-nvm/). Foundry Process Platform Document; 2024-11; Accessed 2026-09-17; Location in the Source: Power Management & Embedded NVM Section; Limitations: Single-poly cells suit low-to-mid density PMIC/BMS trim; cite CHE/BBT per Tower primary sources, not FN/FN.
-- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/). Supplier technical specification & foundry qualification; 2025-06-01; Location in the Source: Official technology page and SkyWater / DB HiTek commercial foundry qualification notices; Limitations: DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.
-- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/products). Supplier application note; 2025-04-15; Location in the Source: Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief; Limitations: Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge.
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Qualified ReRAM IP in DB HiTek 130nm BCD](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/). Vendor dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: DB HiTek product-page qualification statement and feature table; Limitations: IP qualification is not customer-product volume production. The page does not establish a GF 22FDX implementation or universal CIM specifications.
+- [RES-EVERSPIN-PLP-2025: Everspin 2025 Form 10-K: STT-MRAM Products and Manufacturing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm). Company regulatory filing; 2026-03-04; Accessed 2026-10-09; Location in the Source: Product Overview; Manufacturing; Arrangements with GLOBALFOUNDRIES; Limitations: Product interfaces, density and manufacturing must remain product-specific. The filing does not turn the 12nm development agreement into volume-product evidence or establish zero-latency operation.
 - [RES-INFINEON-TC4X-2024: Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual](https://www.infineon.com/aurix-tc4x). Microcontroller architecture manual; 2024-11-20; Location in the Source: Official product manual and automotive ASIL-D embedded memory roadmap chapter; Limitations: Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs.
 - [RES-ST-STELLAR-PCM-2024: STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper](https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html). Automotive silicon technical whitepaper; 2024-09-18; Location in the Source: Official automotive MCU and 28nm FD-SOI embedded PCM architecture release; Limitations: Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST).
-- [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/). Security Technical Whitepaper; 2025-05-12; Location in the Source: Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper; Limitations: Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning.
+- [RES-INTRINSICID-QUIDDIKEY-2025: Official Synopsys PUF Page (Redirect from Former Quiddikey URL)](https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html). Vendor dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: PUF security overview and Secure Storage paragraph; Limitations: Company-wide deployment and certification statements are not evidence for individual Quiddikey versions. This page was not used to establish 6T cells, BCH, key length or elimination of all provisioning costs and leakage risks.
 - [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip.html). Product Specification Manual; 2024-11-20; Location in the Source: Official Hardware Secure Module and Secure Boot Architecture Announcement; Limitations: Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3.
-- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/). Enterprise Security Whitepaper; 2025-02-18; Location in the Source: Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture; Limitations: Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles.
+- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: Official Root-of-Trust Product Portfolio](https://www.rambus.com/security/root-of-trust/). Vendor dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: CryptoManager and IoT/MCU sections and feature tables; Limitations: Features and certifications are version-specific. This page alone does not establish combined SPDM/IDE, AntiFuse, supply-chain certificate and widespread-adoption claims.
 - [RES-P-SPINMEM-PSC: Spin Memory: PSC and Skyrmionic Enhancement Patent](https://patents.google.com/patent/US10468588B2/en). Public patent; 2019-11-05; Accessed 2026-10-09; Location in the Source: Figure 3; claims 1, 8 and 20; original assignee Spin Memory Inc; Limitations: Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee.
 - [RES-P-CROCUS-TAS: Crocus: TAS-MRAM with Heating Elements and Thermal Barriers](https://patents.google.com/patent/US8717812B2/en). Public patent; 2014-05-06; Accessed 2026-10-09; Location in the Source: Figures 1 and 2; claim 1; TAS writing and cooling description; Limitations: Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.
 - [RES-P-4DS-PCMO: 4DS: PCMO Area-Based Interface Switching](https://www.4dsmemory.com/technology/4ds-technology/). Vendor technology explanation; Publication date not stated; checked 2026-10-09; Accessed 2026-10-09; Location in the Source: PCMO and Area Based Interface Switching; Limitations: The vendor describes SET when oxygen occupies sites and RESET on oxygen depletion; no exact stoichiometry, universal Schottky curve or forming-free guarantee is established.
 - [RES-P-ADESTO-CBRAM: Adesto: CBRAM Reliability Research Announcement](https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive). Vendor research announcement; Publication date not stated; checked 2026-10-09; Accessed 2026-10-09; Location in the Source: CBRAM research and historical IoT commercialization paragraphs; Limitations: Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.
+- [RRAM-TSMC-CURRENT-NVM: TSMC Current eNVM Page: Commercial N12e RRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash). Official dynamic product page; Publication Date Not Stated; Accessed 2026-10-09; Location in the Source: Embedded RRAM paragraph; Limitations: Undated current-status snapshot; it establishes neither a unique first-production date nor 12nm automotive qualification.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
@@ -8647,7 +8649,7 @@ The split-gate eFlash leaf is this family, not SONOS.
 Charge trapping. G1 and G2 are both SONOS but differ in mask count, read path and array organization; they are not one specification cell.
 
 - Floadia · LEE Flash G1(#ip-floadia-g1): SONOS, +2–3 extra masks, FN program/erase; public description includes BCD.
-- Floadia · LEE Flash G2(#ip-floadia-g2): SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1.
+- Floadia · LEE Flash G2(#ip-floadia-g2): SONOS sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the same page’s cost section lists 4–5. Confirm the target platform. VDD read; marked ongoing development. Do not infer a G1 node extension.
 
 ### Niche eFlash (Chingis pFusion / IOTMemory SilvoFlash)
 
@@ -8855,6 +8857,46 @@ Without complete macro data, no single shared endurance or retention value is as
 
 - [FND-TSMC-2025-AR: TSMC 2025 Annual Report: Second-Generation MRAM and Third-Generation RRAM](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
 - [FND-TSMC-2025-20F: TSMC Form 20-F for Fiscal Year 2025](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm)
+
+### Samsung Foundry 28FDS eMRAM
+
+The vendor claims roughly 1,000 times the write speed of eFlash. This release provides no complete endurance, retention or reflow matrix.
+
+2019 commercial-production announcement; backend integration adds process layers. The release establishes neither zero added masks nor named NXP adoption.
+
+Relative write speed is not full system latency. Comparison workloads and later FinFET macro qualifications require separate evidence.
+
+- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process)
+
+### Samsung Foundry 14LPU/8LPU eMRAM; Planned 5nm Expansion
+
+The current official page confirms MTJ-module expansion to 14LPU and 8LPU, with compatibility planned for 5nm; it provides no complete electrical matrix.
+
+October 9, 2026 snapshot of an undated product page; 14LPU and 8LPU are FinFET processes.
+
+Do not infer SF3/SF2 eMRAM, OTP, sub-1V operation or a specific thermal budget. Platform compatibility does not qualify every macro or prove volume shipments.
+
+- [FND-SEC-CURRENT-EMRAM: Samsung Current Specialty Page: FinFET eMRAM Expansion](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)
+
+### Intel 22FFL Embedded MRAM (IEDM 2018)
+
+7.2Mbit research arrays; the abstract reports 200°C ten-year retention capability and endurance exceeding one million cycles.
+
+IEDM 2018 paper 18.1, December 4, 2018 session; the official program abstract was reviewed.
+
+The full paper test matrix was not obtained; no cell-area, BER, ECC or automotive conclusion is added. Research demonstration is not production readiness.
+
+- [FND-INTC-2018-22FFL: Intel: 22FFL Embedded MRAM Research Abstract (IEDM 2018)](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
+
+### Intel 18A Logic Process and Backside-Power Context
+
+The 2024 announcement describes 18A backside power and EDA/IP enablement; it provides no NVM-specific performance.
+
+Historical logic-roadmap announcement including a 2025 process-leadership target, not a named eNVM macro specification.
+
+General logic and power architecture do not establish native AntiFuse, eMRAM/FeFET, key-storage density or zero voltage drop.
+
+- [FND-INTC-2024-18A: Intel Foundry: 18A Logic Process and Design Ecosystem Announcement](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html)
 
 ## Roadmap Reading Corrections
 
@@ -10630,15 +10672,16 @@ Undated source; checked 2026-09-10
 
 ### TSMC · ReRAM
 
-Embedded-memory foundry · 40/22 in production; 12 risk production
+Embedded-memory foundry · 40/28/22/12nm eRRAM in volume production
 
-The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers.
+The current eNVM page confirms commercial N12e RRAM volume production. Separately, the IoT page records 12RRAM consumer-grade risk production in 2024.
 
-12RRAM risk production is not full production or automotive qualification.
+The 2024 event and current status are distinct evidence. Neither establishes a unique first-production date or 12nm automotive qualification.
 
-Source date / event period: 2024 · Checked 2026-09-10
+2024 historical milestone; current page checked 2026-10-09
 
 - [RRAM-TSMC-IOT: TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)
+- [RRAM-TSMC-CURRENT-NVM: TSMC Current eNVM Page: Commercial N12e RRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
 
 ### Infineon / TSMC · ReRAM
 
@@ -11275,17 +11318,17 @@ Source date 2016-08-31
 
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
 
-### PUFsecurity · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)
+### PUFsecurity · PUFcc: PUF, Secure OTP and Crypto Coprocessor
 
-Hardware Root of Trust & Security IP Provider · Commercial Production; Qualified on TSMC / UMC nodes (5nm–55nm)
+Hardware Root of Trust & Security IP Provider · Vendor product and certification information; process and production scope separate
 
-Leverages zero-mask NeoPUF and AntiFuse OTP to convert microscopic gate-oxide quantum tunneling variations into chip-unique fingerprints; integrates NIST SP 800-90B TRNG, secure key storage, and crypto accelerators (AES/ECC/RSA) for end-to-end hardware root-of-trust and secure boot.
+The vendor describes PUFcc as IP combining a PUFrt hardware root of trust, secure OTP, cryptographic accelerators and a true random number generator, with key processing, secure boot and external-Flash protection.
 
-Relies on standard logic CMOS tunneling physics; zero physical charge storage prevents static TEM/SEM key extraction, but peripheral digital controllers still require layered DPA counter-measures and active metal mesh.
+These are vendor feature claims; their security scope and conditions have not been independently verified. This page does not establish production across all TSMC/UMC nodes, immunity to TEM/SEM attacks or shared certification across products. Certifications require named versions and certificates.
 
-2025–2026 Official Whitepaper & Production Qualification
+Undated product page; checked 2026-10-09
 
-- [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc)
+- [RES-PUFSEC-HROT-2025: PUFsecurity: Official PUFcc Product Page](https://www.pufsecurity.com/products/pufcc/pufcc/)
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 
 ### Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP
@@ -11302,40 +11345,42 @@ Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltag
 
 ### Weebit Nano · Embedded ReRAM (OxRAM) & analog CIM research
 
-Independent embedded ReRAM IP and neuromorphic AI inference provider · DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.
+Embedded ReRAM IP developer and licensor · DB HiTek and SkyWater 130nm IP qualified; customer-product production is separate
 
-Public OxRAM route centers on SiOx active layers (e.g., IMW 2019 samples with TiN bottom / Ti top electrodes). DB HiTek 130nm offers a qualified IP macro (2 masks, 10K cycles, 125°C retention under named conditions). SkyWater 130nm and GF 22FDX are distinct platform stages; analog CIM studies and customer production must not be merged into one spec sheet.
+DB HiTek 130nm BCD IP is qualified and available for integration; SkyWater S130 IP is qualified to JEDEC and AEC-Q100 and ready for production. The July 2026 announcement reports three customer tape-outs, with further product testing and qualification before mass production.
 
-Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.
+Qualified IP and production readiness are not completed customer-product mass production. The reported 22nm FD-SOI test tape-out does not name GF in the cited IP-page paragraph. Analog CIM research must remain separate from storage-product specifications.
 
-2024–2026 foundry qualification & whitepaper
+Undated IP pages and 2026-07-31 announcement; checked 2026-10-09
 
-- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Qualified ReRAM IP in DB HiTek 130nm BCD](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+- [RRAM-SKYWATER-S130: SkyWater/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)
+- [RRAM-WEEBIT-2026: Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
 
 ### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
 
-Discrete & embedded MRAM silicon and IP supplier · Volume production; foundry manufacturing at GlobalFoundries (22FDX / 12LP) and TSMC
+Discrete & embedded MRAM silicon and IP supplier · Commercial STT-MRAM shipments; GF 300mm manufacturing
 
-Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP.
+The 2025 Form 10-K confirms 1Gb STT-MRAM shipments and describes DDR3/DDR4-derived interfaces across its STT portfolio for persistent data-center memory. Separate product families provide SPI/xSPI and other serial interfaces. STT-MRAM manufacturing is identified at GF 300mm facilities; 12nm is separately described as joint development.
 
-Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-buffer rather than primary mass storage.
+Do not merge discrete products with GF 22FDX embedded macros or label a 12nm development agreement as production. Endurance, write latency and power-loss-protection architecture require named-part and controller evidence; no zero-latency or unlimited-endurance guarantee is established.
 
-2024–2026 production specification
+2025 reporting period; filed 2026-03-04; checked 2026-10-09
 
-- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/products)
+- [RES-EVERSPIN-PLP-2025: Everspin 2025 Form 10-K: STT-MRAM Products and Manufacturing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 - [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 
-### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
+### Intrinsic ID Quiddikey / Synopsys PUF · SRAM PUF and Key Generation
 
-Physical Unclonable Function (PUF) & Security IP Provider · Over 500 million devices deployed globally; supports TSMC, UMC, GF, Intel, and Samsung advanced & mature nodes
+Physical Unclonable Function (PUF) & Security IP Provider · Vendor PUF IP offering; named versions and deployment scope separate
 
-Leverages native 6T SRAM power-up mismatch as a hardware fingerprint; reconstructs 256-bit root keys dynamically via Fuzzy Extractor and public Activation Code; eliminates factory key provisioning costs and leak risks.
+The former official Quiddikey URL now redirects to the Synopsys PUF page. The vendor describes generating identifiers and cryptographic keys from each chip's inherent differences and combining SRAM PUF, OTP and cryptography in its Secure Storage solution.
 
-Requires volatile SRAM reconstruction at boot; working keys require runtime DPA masking and single-cycle zeroization.
+The scope of vendor feature and deployment claims has not been independently verified. Company-wide PUF deployment figures and certifications do not automatically apply to a specific Quiddikey version. This page establishes neither elimination of all key-leakage risks and provisioning costs nor a single-cycle zeroization requirement.
 
-2024–2026 Commercial Manual
+Former URL redirects to current product page; checked 2026-10-09
 
-- [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/)
+- [RES-INTRINSICID-QUIDDIKEY-2025: Official Synopsys PUF Page (Redirect from Former Quiddikey URL)](https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html)
 
 ### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
 
@@ -11349,17 +11394,17 @@ Subsystem-level IP requiring dedicated silicon area, memory protection units, an
 
 - [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip.html)
 
-### Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust
+### Rambus (CryptoManager™ Root of Trust) · CryptoManager Root of Trust; SPDM/IDE Integration Requires Separate Evidence
 
-High-Speed Interconnect Security & Silicon Lifecycle Key Provisioning Leader · Standard adoption in data center AI accelerators (GPU/NPU), CXL expanders, and server SoCs
+Root of Trust and Security IP Supplier · Vendor product portfolio; named-customer deployment scope unverified
 
-Implements DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE encryption; anchors silicon identity in foundry AntiFuse OTP across Foundry, OSAT, and CSP data centers.
+The vendor describes CryptoManager as a programmable hardware root-of-trust offering with secure boot, secure debug, and key and asset management. Its broader portfolio addresses data centers, automotive and IoT/MCU applications.
 
-Engineered for enterprise servers and data centers; rarely adopted in ultra-constrained consumer edge devices.
+These are vendor feature and target-market claims; their scope and conditions have not been independently verified. Target markets do not establish widespread adoption. The cited page does not establish a combined commitment to specific SPDM versions, line-rate PCIe/CXL IDE, AntiFuse storage or an unforgeable certificate chain.
 
-2024–2026 Product Manual
+Undated product page; checked 2026-10-09
 
-- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/)
+- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: Official Root-of-Trust Product Portfolio](https://www.rambus.com/security/root-of-trust/)
 
 ### Spin Memory (Spin Transfer Technologies) · Spin Memory: PSC and Skyrmionic Enhancement Patent
 

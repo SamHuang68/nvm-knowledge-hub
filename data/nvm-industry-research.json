@@ -765,7 +765,7 @@
       "label": "Weebit Nano · ReRAM",
       "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
       "date": "2026-07-31",
-      "accessedAt": "2026-09-10",
+      "accessedAt": "2026-10-09",
       "kind": "官方一手資料",
       "locator": "產品、技術或公告正文",
       "claim": "2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。",
@@ -798,7 +798,7 @@
       "label": "SkyWater／Weebit Nano · ReRAM",
       "url": "https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/",
       "date": null,
-      "accessedAt": "2026-09-10",
+      "accessedAt": "2026-10-09",
       "kind": "官方一手資料",
       "locator": "產品、技術或公告正文",
       "claim": "官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。",
@@ -1362,15 +1362,15 @@
     },
     {
       "id": "RES-PUFSEC-HROT-2025",
-      "label": "PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書",
-      "url": "https://www.pufsecurity.com/pufcc",
-      "kind": "供應商官方白皮書",
-      "date": "2025-06",
-      "locator": "架構與認證章節",
-      "claim": "NeoPUF 採用微觀閘極氧化層量子穿隧隨機變異產生晶片指紋，0 額外光罩相容 TSMC 與 UMC 先進與成熟製程；PUFcc 整合 NIST SP 800-90B TRNG、安全 OTP 與硬體密碼引擎，通過 PSA Certified Level 3 與 SESIP Level 3 認證。",
-      "evidence": "已核讀官網白皮書與架構規格",
-      "limit": "屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。",
-      "accessedAt": "2026-09-17"
+      "label": "PUFsecurity：PUFcc 原廠產品頁",
+      "url": "https://www.pufsecurity.com/products/pufcc/pufcc/",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "locator": "架構、功能與認證入口",
+      "claim": "原廠介紹 PUFrt、安全 OTP、密碼加速器、真亂數產生器及安全啟動等 PUFcc 功能。",
+      "evidence": "已核讀現行官方產品正文；未逐一核對證書與攻擊試驗報告",
+      "limit": "產品頁不提供涵蓋全部製程的量產或抗攻擊試驗矩陣；認證及安全宣稱須按具名版本另核。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-TOWER-YFLASH-2024",
@@ -1386,21 +1386,25 @@
     },
     {
       "id": "RES-WEEBIT-RERAM-2025",
-      "label": "Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書",
+      "label": "Weebit Nano：DB HiTek 130nm BCD 已完成資格驗證的 ReRAM IP",
       "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
-      "locator": "官方技術頁與 SkyWater / DB HiTek 商業代工認證公告",
-      "kind": "供應商技術規格與代工認證",
-      "date": "2025-06-01",
-      "limit": "DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。"
+      "locator": "DB HiTek 產品頁資格聲明與規格表",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "limit": "IP 資格不等於客戶產品量產；本頁不建立 GF 22FDX 實施或通用 CIM 規格。",
+      "accessedAt": "2026-10-09",
+      "claim": "DB HiTek 130nm BCD ReRAM IP 已矽驗證、資格驗證並可供 SoC 整合；頁面列兩層新增光罩、10K 次與 125°C 超過十年保持。"
     },
     {
       "id": "RES-EVERSPIN-PLP-2025",
-      "label": "Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南",
-      "url": "https://www.everspin.com/products",
-      "locator": "官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案",
-      "kind": "供應商應用技術手冊",
-      "date": "2025-04-15",
-      "limit": "確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。"
+      "label": "Everspin 2025 年度 10-K：STT-MRAM 商品與製造",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "locator": "產品概述、製造與 GlobalFoundries 合約段落",
+      "kind": "公司監管申報",
+      "date": "2026-03-04",
+      "limit": "介面、容量與製造條件須依產品分開；不能把 12nm 開發協議寫成商品量產，也不支持零延遲操作。",
+      "accessedAt": "2026-10-09",
+      "claim": "申報確認 1Gb STT-MRAM 出貨、DDR 衍生介面與 GF 300mm STT 製造；12nm 合作另列共同開發。"
     },
     {
       "id": "RES-INFINEON-TC4X-2024",
@@ -1422,12 +1426,15 @@
     },
     {
       "id": "RES-INTRINSICID-QUIDDIKEY-2025",
-      "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
-      "url": "https://www.intrinsic-id.com/products/quiddikey/",
-      "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
-      "kind": "安全技術白皮書",
-      "date": "2025-05-12",
-      "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
+      "label": "Synopsys PUF 原廠產品頁（Quiddikey 舊入口導向）",
+      "url": "https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html",
+      "locator": "PUF 安全概述與 Secure Storage 段落",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "limit": "公司層級部署與認證敘述不作 Quiddikey 個別版本證明；未由此頁核定 6T、BCH、金鑰長度或全面免除佈建成本與外洩風險。",
+      "claim": "原廠描述 PUF 產生識別碼與密碼金鑰，以及 SRAM PUF 與 OTP 結合的安全儲存方案。",
+      "evidence": "已核讀舊入口重新導向後的官方正文",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-SYNOPSYS-TROOT-2024",
@@ -1440,12 +1447,15 @@
     },
     {
       "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
-      "label": "Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書",
+      "label": "Rambus：硬體信任根原廠產品組合",
       "url": "https://www.rambus.com/security/root-of-trust/",
-      "locator": "官方 PCIe/CXL IDE 與硬體信任根生命週期架構",
-      "kind": "企業級安全白皮書",
-      "date": "2025-02-18",
-      "limit": "硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。"
+      "locator": "CryptoManager 與 IoT／MCU 產品段落及功能表",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "limit": "功能與認證依具名版本；此頁不單獨支持 SPDM／IDE、AntiFuse、全供應鏈憑證及廣泛採用的組合敘述。",
+      "claim": "原廠列出可程式化信任根、安全啟動、安全除錯與生命週期管理等功能，並區分不同產品與目標市場。",
+      "evidence": "已核讀現行官方產品正文；未獨立核實客戶部署及完整認證範圍",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-chingis-pfusion",
@@ -1526,6 +1536,17 @@
       "date": "未標發布日期；查核 2026-10-09",
       "limit": "支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。",
       "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "RRAM-TSMC-CURRENT-NVM",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash",
+      "date": null,
+      "accessedAt": "2026-10-09",
+      "label": "台積電現行 eNVM 頁：N12e RRAM 商用量產",
+      "kind": "官方動態產品頁",
+      "locator": "嵌入式 RRAM 段落",
+      "claim": "現行頁列 40／28／22／12nm eRRAM 大量生產，並明稱 N12e 已商用量產。",
+      "limit": "無日期現況快照；不提供唯一首次量產日，也不證明 12nm 車用資格。"
     }
   ],
   "landscape": [
@@ -1915,15 +1936,16 @@
       "technology": "ReRAM",
       "family": "ReRAM / CBRAM",
       "role": "嵌入式記憶體晶圓代工",
-      "maturity": "40／22 已量產；12 風險試產",
-      "claim": "官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。",
-      "limit": "12RRAM 風險試產不是全產品量產或車規資格。",
-      "dateLabel": "來源日期／事件期間: 2024 · 查核 2026-09-10",
+      "maturity": "40／28／22／12nm eRRAM 已量產",
+      "claim": "現行 eNVM 頁確認 N12e RRAM 已商用量產；IoT 頁另記錄 12RRAM 於 2024 年進入消費級風險試產。",
+      "limit": "2024 歷史事件與現況分開引用；不指定唯一首次量產日，也不推定 12nm 車用資格。",
+      "dateLabel": "2024 歷史里程碑；現況頁查核 2026-10-09",
       "sourceIds": [
-        "RRAM-TSMC-IOT"
+        "RRAM-TSMC-IOT",
+        "RRAM-TSMC-CURRENT-NVM"
       ],
       "target": "topic-vcm",
-      "search": "TSMC 官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。 The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers."
+      "search": "TSMC N12e 12RRAM 40nm 28nm 22nm 12nm 2024 消費級風險試產 現況商用量產"
     },
     {
       "id": "rram-infineon-tc4x",
@@ -2771,14 +2793,14 @@
     {
       "id": "pufsecurity-hrot",
       "name": "PUFsecurity 熵碼科技",
-      "technology": "NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+      "technology": "PUFcc：PUF、安全 OTP 與密碼協同處理器",
       "family": "OTP / MTP",
       "role": "晶片硬體信任根與安全矽智財供應商",
-      "maturity": "商用量產；TSMC / UMC 先進與成熟節點認證 (5nm–55nm)",
-      "claim": "基於 0 額外光罩之 NeoPUF 與 AntiFuse OTP，將微觀閘極氧化層量子穿隧隨機變異轉化為晶片硬體指紋；整合 NIST SP 800-90B TRNG、安全金鑰儲存與對稱/非對稱硬體密碼引擎 (AES/ECC/RSA)，提供從晶片製造、安全引導 (Secure Boot) 到雲端生命週期管理之全鏈路硬體信任根。",
-      "limit": "依賴標準邏輯 CMOS 閘極氧化層穿隧物理；物理不可複製金鑰無實體電荷儲存（免疫 TEM/SEM 靜態化學檢測），但週邊數位控制器仍須落實多層 DPA 側信道防護與頂層金屬主動屏蔽。",
-      "dateLabel": "2025–2026 官方白皮書與量產認證",
-      "search": "PUFsecurity 熵碼科技 NeoPUF PUFcc PUFiot PUFker AntiFuse HRoT 信任根 TSMC UMC",
+      "maturity": "原廠產品與認證資訊；製程及量產範圍另核",
+      "claim": "原廠將 PUFcc 描述為結合 PUFrt 硬體信任根、安全 OTP、密碼加速器與真亂數產生器的 IP，提供金鑰處理、安全啟動及外部 Flash 保護功能。",
+      "limit": "這是原廠產品功能主張，安全範圍與條件未獨立核實；未由此頁確認所有 TSMC／UMC 節點量產、TEM／SEM 攻擊免疫或各產品共用同一認證。認證須對應具名版本與證書。",
+      "dateLabel": "無日期產品頁；查核 2026-10-09",
+      "search": "PUFsecurity 熵碼科技 PUFcc PUFrt 安全OTP 硬體信任根 金鑰 安全啟動 原廠功能",
       "sourceIds": [
         "RES-PUFSEC-HROT-2025",
         "ip-neofuse"
@@ -2806,14 +2828,16 @@
       "name": "Weebit Nano",
       "technology": "嵌入式 ReRAM (OxRAM) 與類比 CIM 研究",
       "family": "ReRAM / OxRAM",
-      "role": "獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商",
-      "maturity": "DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。",
-      "claim": "公開 OxRAM 路線以 SiOx 活性層為主（例如 TiN 底電極／Ti 頂電極的 IMW 2019 樣本）；DB HiTek 130nm 提供 qualified IP（2 masks、10K cycles、125°C 保持等具名條件）。SkyWater 130nm 與 GF 22FDX 為不同平台階段；類比 CIM 研究與客戶量產須分開，不得合成單一規格。",
-      "limit": "商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。",
-      "dateLabel": "2024–2026 製程認證與技術白皮書",
-      "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX 神經形態 類比運算",
+      "role": "嵌入式 ReRAM 矽智財研發與授權商",
+      "maturity": "DB HiTek 與 SkyWater 130nm IP 已完成資格驗證；客戶產品量產另核",
+      "claim": "DB HiTek 130nm BCD IP 已完成資格驗證且可整合；SkyWater S130 IP 已依 JEDEC 與 AEC-Q100 驗證並具生產準備。2026 年 7 月公告三個客戶設計已投片，產品仍需測試及資格驗證後才進入量產。",
+      "limit": "IP 已完成資格驗證與具生產準備不等於客戶產品量產完成。所引 IP 頁的 22nm FD-SOI 試驗投片段落未具名 GF；類比 CIM 研究與儲存產品規格須分開。",
+      "dateLabel": "無日期 IP 頁與 2026-07-31 公告；查核 2026-10-09",
+      "search": "Weebit Nano 嵌入式 ReRAM OxRAM CIM SkyWater S130 DB HiTek 130nm 已完成資格驗證的IP 客戶投片 生產準備",
       "sourceIds": [
-        "RES-WEEBIT-RERAM-2025"
+        "RES-WEEBIT-RERAM-2025",
+        "RRAM-SKYWATER-S130",
+        "RRAM-WEEBIT-2026"
       ],
       "target": "topic-vcm"
     },
@@ -2823,11 +2847,11 @@
       "technology": "Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
       "family": "MRAM",
       "role": "獨立式與嵌入式 MRAM 晶片與矽智財供應商",
-      "maturity": "商用量產出貨；GlobalFoundries 22FDX/12LP FinFET 與 TSMC 代工製造",
-      "claim": "採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。",
-      "limit": "單位位元成本高於 DRAM 與 NAND Flash；主要作為系統持久快取與寫入日誌緩衝區（Write Buffer），非取代主容量儲存。",
-      "dateLabel": "2024–2026 商用量產手冊",
-      "search": "Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center 斷電保護 快取",
+      "maturity": "STT-MRAM 商用出貨；GF 300mm 製造",
+      "claim": "2025 年度 10-K 確認 1Gb STT-MRAM 持續出貨，並將 STT 商品組合的 DDR3／DDR4 衍生介面定位於資料中心持續性記憶體；其他商品家族另有 SPI／xSPI 等序列介面。STT-MRAM 製造列為 GF 300mm，12nm 合作另列共同開發。",
+      "limit": "獨立式商品不能與 GF 22FDX 嵌入式巨集合併，12nm 開發協議也不等於量產。耐久、寫入延遲與斷電保護架構須依具名料號及控制器核對；未建立零延遲或無限耐寫保證。",
+      "dateLabel": "2025 年度；申報 2026-03-04；查核 2026-10-09",
+      "search": "Everspin STT-MRAM 企業 持續性記憶體 DDR衍生 xSPI GF 300mm 斷電保護 PLP 12nm 共同開發",
       "sourceIds": [
         "RES-EVERSPIN-PLP-2025",
         "everspin-1gb-ddr"
@@ -2836,15 +2860,15 @@
     },
     {
       "id": "intrinsicid-quiddikey-srampuf",
-      "name": "Intrinsic ID (Quiddikey)",
-      "technology": "SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+      "name": "Intrinsic ID Quiddikey／Synopsys PUF",
+      "technology": "SRAM PUF 與金鑰產生",
       "family": "PUF",
       "role": "實體不可複製功能 (PUF) 與晶片安全矽智財供應商",
-      "maturity": "全球商用出貨超過 5 億顆晶片；支援 TSMC, UMC, GF, Intel, Samsung 各先進與成熟製程",
-      "claim": "利用晶片原生標準 6T SRAM 上電時隨機臨界電壓 mismatch 作為物理指紋，搭配公開儲存之 Activation Code（Helper Data），透過模糊提取器重構 256-bit 根金鑰；徹底免除封測廠安全金鑰注入成本與私鑰外洩風險。",
-      "limit": "依賴上電瞬態提取，工作金鑰存於揮發性暫存器，需搭配軟硬體防側信道遮罩與單週期清零機制。",
-      "dateLabel": "2024–2026 商用架構手冊",
-      "search": "Intrinsic ID Quiddikey SRAM PUF Activation Code Helper Data Fuzzy Extractor Zero Provisioning 硬體信任根",
+      "maturity": "原廠 PUF IP 產品；具名版本與採用規模另核",
+      "claim": "Quiddikey 舊官方網址現導向 Synopsys PUF 頁。原廠描述利用每顆晶片的固有差異產生識別碼與密碼金鑰，並將 SRAM PUF、OTP 與密碼技術結合於安全儲存方案。",
+      "limit": "原廠功能與採用主張的範圍未獨立核實；公司整體 PUF 部署數與認證不能直接套用 Quiddikey 特定版本。本頁不證明完全消除金鑰外洩風險或所有佈建成本，也未核定單週期清零要求。",
+      "dateLabel": "舊入口導向現行產品頁；查核 2026-10-09",
+      "search": "Intrinsic ID Quiddikey Synopsys SRAM PUF 金鑰 識別碼 安全儲存 版本",
       "sourceIds": [
         "RES-INTRINSICID-QUIDDIKEY-2025"
       ],
@@ -2869,14 +2893,14 @@
     {
       "id": "rambus-cryptomanager-spdm",
       "name": "Rambus (CryptoManager™ Root of Trust)",
-      "technology": "PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+      "technology": "CryptoManager 硬體信任根；SPDM／IDE 整合條件另核",
       "family": "OTP",
-      "role": "高速互連安全與晶片生命週期金鑰託管領導廠商",
-      "maturity": "資料中心 AI 加速卡、CXL 記憶體擴展器與伺服器晶片廣泛採用",
-      "claim": "支援 DMTF SPDM 1.2/1.3 設備證明與線速 PCIe/CXL IDE 加密，搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠至 CSP 資料中心的端到端不可偽造憑證鏈。",
-      "limit": "專注於資料中心、雲端運算與企業伺服器高速介面保護，消費級極小晶片通常簡化此架構。",
-      "dateLabel": "2024–2026 產品手冊",
-      "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation 晶片生命週期",
+      "role": "硬體信任根與安全矽智財供應商",
+      "maturity": "原廠產品組合；具名客戶採用範圍未核實",
+      "claim": "原廠將 CryptoManager 描述為可程式化硬體信任根產品，列出安全啟動、安全除錯、金鑰與資產管理等功能；產品組合另涵蓋資料中心、車用與 IoT／MCU。",
+      "limit": "這是原廠功能及目標市場主張，範圍與條件未獨立核實；目標市場不等於廣泛採用。所引頁面未建立 SPDM 特定版本、PCIe／CXL IDE 線速、AntiFuse 儲存實施或不可偽造憑證鏈的整組承諾。",
+      "dateLabel": "無日期產品頁；查核 2026-10-09",
+      "search": "Rambus CryptoManager 硬體信任根 Secure Boot 安全除錯 金鑰 IoT MCU SPDM IDE整合待核",
       "sourceIds": [
         "RES-RAMBUS-CRYPTOMANAGER-2025"
       ],

@@ -2,9 +2,8 @@ import {syncMetricCopy} from './模型數值複製.js';
 
 /**
  * @file deep-space-sel-retention-simulator.js
- * @description First-principles simulator for Deep Space exploration missions, evaluating Heavy Ion
- * Single Event Latchup (SEL) immunity threshold, high-temperature (up to 460°C) Arrhenius data retention,
- * and 20-year extreme mission lifetime degradation.
+ * @description 深空環境教學模型；SEL、活化能、高溫與保持時間配置均為假設，非產品規格或認證。
+ * 模型內符合條件不代表實際任務存活；NASA SiC JFET-R NVRAM 開發目標不支持本表 AntiFuse 數值。
  * @version 1.0.0
  * @license MIT
  */
@@ -31,13 +30,13 @@ import {syncMetricCopy} from './模型數值複製.js';
  * @property {number} activationEnergyEv - Arrhenius thermal retention activation energy (eV)
  * @property {number} maxSafeTempC - Maximum continuous operating temperature limit (°C)
  * @property {number} baseRetentionYears125C - Retention at 125°C qualification point (years)
- * @property {boolean} isImmuneToSel - Architectural immunity to parasitic PNPN latchup
+ * @property {boolean} isImmuneToSel - 相容欄位；表示模型將 SEL 截面積設為零的假設
  * @property {string} physicsZh
  * @property {string} physicsEn
  */
 
 /**
- * Standard Deep Space mission profile presets
+ * 深空與高溫任務教學情境；全部數值為既有假設，不是具名任務規格。
  * @type {Record<string, DeepSpaceMissionPreset>}
  */
 export const DEEP_SPACE_MISSION_PRESETS = {
@@ -90,55 +89,55 @@ export const DEEP_SPACE_MISSION_PRESETS = {
 export const DEEP_SPACE_TECH_PROFILES = {
   antifuse_soi_radhard: {
     id: 'antifuse_soi_radhard',
-    nameZh: 'AntiFuse on SOI (介電隔離完全免疫 SEL / 450°C 導電微絲)',
-    nameEn: 'AntiFuse on SOI (Dielectric SEL-Immune / 450°C Filament)',
-    letThreshold: 100.0, // Immune > 100 MeV*cm2/mg
+    nameZh: 'AntiFuse on SOI（零 SEL／450°C 情境假設）',
+    nameEn: 'AntiFuse on SOI (Assumed Zero SEL / 450°C Scenario)',
+    letThreshold: 100.0, // 教學假設，非實測 SEL 門檻
     satCrossSection: 0.0,
-    activationEnergyEv: 2.10, // Extreme activation energy of metallic/silicided filament
+    activationEnergyEv: 2.10, // 教學假設，非特定微絲的量測活化能
     maxSafeTempC: 475.0,
     baseRetentionYears125C: 1000.0,
     isImmuneToSel: true,
-    physicsZh: '埋氧層 (BOX) 徹底截斷體矽寄生 PNPN 閘流管迴路，完全免疫 SEL；微絲具超高活化能 (2.1 eV)。',
-    physicsEn: 'Buried oxide (BOX) isolates parasitic PNPN thyristors, zero SEL; filament has 2.1 eV activation energy.'
+    physicsZh: '教學假設：SEL 截面積設為零，保持模型採 2.1 eV、125°C 時 1000 年與 475°C 溫度界線；均非 AntiFuse 產品量測或太空認證。',
+    physicsEn: 'Teaching assumptions: zero SEL cross-section, 2.1 eV activation energy, 1000 years at 125°C, and a 475°C model boundary; not AntiFuse measurements or space qualification.'
   },
   sic_widebandgap_envm: {
     id: 'sic_widebandgap_envm',
-    nameZh: 'SiC 寬能隙耐高溫 eNVM (4H-SiC 500°C 極限架構)',
-    nameEn: 'SiC Wide-Bandgap eNVM (4H-SiC 500°C Platform)',
+    nameZh: 'SiC 寬能隙 eNVM（500°C 教學情境）',
+    nameEn: 'SiC Wide-Bandgap eNVM (500°C Teaching Scenario)',
     letThreshold: 90.0,
     satCrossSection: 1e-7,
     activationEnergyEv: 2.40,
     maxSafeTempC: 500.0,
     baseRetentionYears125C: 5000.0,
     isImmuneToSel: true,
-    physicsZh: '3.26 eV 超寬能隙使高溫本質載子濃度極低，耐受 500°C 連續工作與極高重離子撞擊。',
-    physicsEn: '3.26 eV wide bandgap maintains minimal intrinsic carrier density at 500°C with severe ion resilience.'
+    physicsZh: 'SiC 寬能隙提供高溫元件研究背景；本模型的零 SEL、2.4 eV 保持活化能、125°C 時 5000 年及 500°C 界線都是教學假設，不能由材料能隙推定。',
+    physicsEn: 'SiC wide bandgap motivates high-temperature device research. Zero SEL, 2.4 eV retention activation energy, 5000 years at 125°C, and the 500°C boundary are teaching assumptions, not consequences established by bandgap alone.'
   },
   radhard_stt_mram: {
     id: 'radhard_stt_mram',
-    nameZh: '航太強化 STT-MRAM (垂直磁穿隧 MTJ / 居禮溫度限制)',
-    nameEn: 'Rad-Hard STT-MRAM (Perpendicular MTJ / Curie Bound)',
+    nameZh: 'STT-MRAM（磁性保持／SEL 教學情境）',
+    nameEn: 'STT-MRAM (Magnetic Retention / SEL Teaching Scenario)',
     letThreshold: 45.0,
     satCrossSection: 5e-5,
     activationEnergyEv: 1.35,
-    maxSafeTempC: 220.0, // Magnetic state flips as T approaches Curie temp
+    maxSafeTempC: 220.0, // 教學溫度界線，不代表特定材料居禮溫度
     baseRetentionYears125C: 25.0,
     isImmuneToSel: false,
-    physicsZh: '純自旋磁矩無介電電荷流失，但高溫逼近居禮溫度 (Tc) 導致熱擾動翻轉；體矽結構有微弱 SEL 風險。',
-    physicsEn: 'Spin magnetic storage has no charge loss, but heat near Curie temp flips bits; bulk CMOS has SEL risk.'
+    physicsZh: '磁性保持與周邊 SEL 需依具體實作量測；本表 1.35 eV、125°C 時 25 年、220°C 界線與 SEL 參數僅為教學假設。',
+    physicsEn: 'Magnetic retention and peripheral SEL require implementation-specific measurements. The 1.35 eV value, 25 years at 125°C, 220°C boundary, and SEL parameters are teaching assumptions.'
   },
   bulk_cmos_eflash: {
     id: 'bulk_cmos_eflash',
-    nameZh: '常規 Bulk CMOS eFlash (浮閘/電荷陷阱 / 易引發破壞性 SEL)',
-    nameEn: 'Commercial Bulk CMOS eFlash (Charge Trap / Catastrophic SEL)',
+    nameZh: 'Bulk CMOS eFlash（電荷保持／SEL 教學情境）',
+    nameEn: 'Bulk CMOS eFlash (Charge Retention / SEL Teaching Scenario)',
     letThreshold: 14.0, // Vulnerable to heavy ions
     satCrossSection: 1e-3,
     activationEnergyEv: 1.10,
     maxSafeTempC: 150.0,
     baseRetentionYears125C: 10.0,
     isImmuneToSel: false,
-    physicsZh: '體矽三阱結構存在寄生 SCR 通路，高溫大幅提高雙極增益使 SEL 劇烈惡化；>200°C 電荷秒級漏失。',
-    physicsEn: 'Bulk triple-well has parasitic SCR paths; high temp amplifies bipolar gain triggering SEL burn-out.'
+    physicsZh: '電荷保持與寄生閂鎖路徑依製程與設計而異；本表 1.1 eV、125°C 時 10 年、150°C 界線及 SEL 參數是教學假設，不預測特定晶片燒毀。',
+    physicsEn: 'Charge retention and parasitic latchup paths vary by process and design. The 1.1 eV value, 10 years at 125°C, 150°C boundary, and SEL parameters are teaching assumptions, not a prediction of device burnout.'
   }
 };
 
@@ -198,39 +197,34 @@ export function calculateDeepSpaceMetrics({
   const accelerationFactor = Math.exp(Math.max(-50, Math.min(50, arrheniusExponent)));
   const estimatedRetentionYears = tech.baseRetentionYears125C / Math.max(1e-12, accelerationFactor);
 
-  // 3. Mission Lifetime Survival Probability (Poisson/Weibull decay)
+  // 3. 教學指數衰減；不包含整體任務或系統可靠度。
   // Fraction remaining after missionYears: R(t) = exp( - missionYears / tau_retention )
-  let retentionSurvPct = 100.0;
-  if (estimatedRetentionYears < missionYears) {
-    retentionSurvPct = Math.max(0.0, Math.exp(-missionYears / estimatedRetentionYears) * 100.0);
-  } else {
-    retentionSurvPct = Math.min(100.0, (1.0 - (missionYears / (estimatedRetentionYears * 2.0))) * 100.0);
-  }
+  const retentionSurvPct = Math.exp(-Math.max(0, missionYears) / estimatedRetentionYears) * 100.0;
 
   // Check temperature safety boundary
   const isThermalExceeded = targetTempC > tech.maxSafeTempC;
 
-  // 4. Overall Aerospace & Deep Space Rating
-  let rating = 'NASA Class-S Deep Space Certified';
+  // 4. 僅依既有教學條件分類，不產生任務資格或認證。
+  let rating = 'Within Model Conditions';
   let ratingColor = '#10b981';
   let verdictZh = '';
   let verdictEn = '';
 
   if (isSelLatching || isThermalExceeded || estimatedRetentionYears < (missionYears * 0.5)) {
-    rating = 'Mission Fatal Failure Unqualified';
+    rating = 'Outside Model Conditions';
     ratingColor = '#ef4444';
-    verdictZh = `致死故障：在 ${targetTempC}°C 及峰值 LET ${peakLetMev} MeV·cm²/mg 下，${isSelLatching ? '引發破壞性重離子單粒子閂鎖 (SEL 燒毀)！' : ''}${isThermalExceeded ? ` 超過架構耐溫極限 (${tech.maxSafeTempC}°C)！` : ''} 數據留存崩塌至 ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} 年。`;
-    verdictEn = `Fatal Failure: Under ${targetTempC}°C and LET ${peakLetMev} MeV·cm²/mg, ${isSelLatching ? 'catastrophic Heavy-Ion SEL burnout triggered!' : ''}${isThermalExceeded ? ` Exceeds safe temp limit (${tech.maxSafeTempC}°C)!` : ''} Data retention collapses to ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} yrs.`;
+    verdictZh = `超出模型條件：${targetTempC}°C、LET ${peakLetMev} MeV·cm²/mg 下，${isSelLatching ? '計算得到非零 SEL 截面積；' : ''}${isThermalExceeded ? `超出假設溫度界線 ${tech.maxSafeTempC}°C；` : ''}保持時間估計為 ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} 年。這是教學參數的結果，不代表已發生閂鎖、晶片毀壞或任務失敗。`;
+    verdictEn = `Outside model conditions at ${targetTempC}°C and LET ${peakLetMev} MeV·cm²/mg: ${isSelLatching ? 'nonzero modeled SEL cross-section; ' : ''}${isThermalExceeded ? `above the assumed ${tech.maxSafeTempC}°C boundary; ` : ''}estimated retention ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} yrs. Teaching assumptions do not establish an actual latchup, device destruction, or mission failure.`;
   } else if (selMarginMev < 15.0 || estimatedRetentionYears < (missionYears * 2.0)) {
-    rating = 'Planetary Marginal Clearance';
+    rating = 'Near Model Boundary';
     ratingColor = '#f59e0b';
-    verdictZh = `邊界合規：重離子閂鎖安全餘裕 ${selMarginMev.toFixed(1)} MeV·cm²/mg 偏低，留存壽命 ${estimatedRetentionYears.toFixed(1)} 年高於任務期 (${missionYears} 年)，具備行星任務邊界通行資格但需監控。`;
-    verdictEn = `Marginal Clearance: SEL threshold margin ${selMarginMev.toFixed(1)} MeV·cm²/mg is narrow; retention ${estimatedRetentionYears.toFixed(1)} yrs clears mission (${missionYears} yrs). Recommend radiation mitigation.`;
+    verdictZh = `接近模型邊界：假設 SEL 門檻餘裕 ${selMarginMev.toFixed(1)} MeV·cm²/mg，保持時間估計 ${estimatedRetentionYears.toFixed(1)} 年，輸入任務期 ${missionYears} 年。此分類不代表保持時間必定涵蓋任務期，也不構成認證。`;
+    verdictEn = `Near model boundary: assumed SEL threshold margin ${selMarginMev.toFixed(1)} MeV·cm²/mg, estimated retention ${estimatedRetentionYears.toFixed(1)} yrs, requested mission ${missionYears} yrs. This category does not guarantee retention through the mission or establish qualification.`;
   } else {
-    rating = 'NASA Class-S Deep Space Certified';
+    rating = 'Within Model Conditions';
     ratingColor = '#10b981';
-    verdictZh = `頂級航太：具備完全介電隔離或超寬能隙，免疫重離子 SEL (閾值 > ${tech.letThreshold} MeV·cm²/mg)。高活化能 (${tech.activationEnergyEv} eV) 保障在 ${targetTempC}°C 下數據留存達 ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} 年，完美通過 ${missionYears} 年深空任務。`;
-    verdictEn = `NASA Class-S: Complete dielectric/wide-bandgap SEL immunity (threshold > ${tech.letThreshold} MeV·cm²/mg). High activation energy (${tech.activationEnergyEv} eV) ensures ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} yrs retention at ${targetTempC}°C, fully surviving ${missionYears}-yr mission.`;
+    verdictZh = `模型內符合條件：以假設活化能 ${tech.activationEnergyEv} eV 計算，在 ${targetTempC}°C 的保持時間估計為 ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} 年，輸入任務期 ${missionYears} 年。零 SEL 計算值受預設或門檻模型控制，不代表物理免疫、任務保證或 NASA 認證。`;
+    verdictEn = `Within model conditions: assumed activation energy ${tech.activationEnergyEv} eV gives estimated retention ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} yrs at ${targetTempC}°C for a requested ${missionYears}-yr mission. Zero modeled SEL follows a preset or threshold; it does not establish physical immunity, mission assurance, or NASA certification.`;
   }
 
   return {
@@ -366,7 +360,10 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     ctx.fillText('100 MeV·cm²/mg', padLeft + plotW - 74, height - 10);
 
     ctx.fillStyle = metrics.tech.isImmuneToSel ? '#10b981' : '#f43f5e';
-    ctx.fillText(metrics.tech.isImmuneToSel ? 'Immune: SEL Cross Section = 0' : `SEL Threshold: ${metrics.tech.letThreshold} MeV·cm²/mg`, padLeft + 6, padTop + 14);
+    const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    ctx.fillText(metrics.tech.isImmuneToSel
+      ? (isZh ? '模型假設：SEL 截面積 = 0' : 'Model Assumption: SEL Cross Section = 0')
+      : `${isZh ? '假設 SEL 門檻' : 'Assumed SEL Threshold'}: ${metrics.tech.letThreshold} MeV·cm²/mg`, padLeft + 6, padTop + 14);
 
   } else {
     // Mode 2: Temperature (-50°C to 475°C) vs Arrhenius Retention Years (Log scale 0.001 to 1000 yrs)
@@ -470,7 +467,7 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
   let currentMode = 'sel_cross_section_let';
 
   function update() {
-    const isZh = document.documentElement.lang.startsWith('zh');
+    const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     const presetId = presetSelect ? presetSelect.value : 'venus_lander_460c';
     const techId = techSelect ? techSelect.value : 'antifuse_soi_radhard';
     const targetTempC = tempSlider ? parseFloat(tempSlider.value) : 460.0;
@@ -495,10 +492,10 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
 
     if (outSelStatus) {
       if (metrics.tech.isImmuneToSel) {
-        outSelStatus.textContent = isZh ? '完全免疫 (SOI)' : 'Immune (SOI)';
+        outSelStatus.textContent = isZh ? '零 SEL（模型假設）' : 'Zero SEL (Model Assumption)';
         outSelStatus.style.color = '#10b981';
       } else if (metrics.isSelLatching) {
-        outSelStatus.textContent = isZh ? '發生閂鎖 (致命)' : 'Latching (Fatal)';
+        outSelStatus.textContent = isZh ? '非零 SEL 截面積（模型）' : 'Nonzero SEL Cross Section (Model)';
         outSelStatus.style.color = '#ef4444';
       } else {
         outSelStatus.textContent = `${metrics.selMarginMev.toFixed(0)} MeV margin`;
@@ -520,7 +517,11 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
     }
 
     if (outRating) {
-      outRating.textContent = metrics.rating;
+      outRating.textContent = isZh ? ({
+        'Within Model Conditions': '模型內符合條件',
+        'Near Model Boundary': '接近模型邊界',
+        'Outside Model Conditions': '超出模型條件'
+      }[metrics.rating] || metrics.rating) : metrics.rating;
       outRating.style.color = metrics.ratingColor;
     }
 

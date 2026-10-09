@@ -173,17 +173,17 @@ export function calculatePqcRotBudget(options = {}) {
   const totalKilobits = totalBits / 1024;
 
   // 6. Technology Feasibility Evaluation
-  // A. eFuse (Typical practical ceiling: 1 Kb ~ 4 Kb)
-  const efuseLimitBits = 4096; // 4 Kb max limit in advanced nodes
+  // A. eFuse 教學容量假設；不是技術家族的實體上限。
+  const efuseLimitBits = 4096; // 假設 4 Kb，實際依具名巨集確認
   const efuseFeasible = totalBits <= efuseLimitBits;
   const efuseOverflowBits = Math.max(0, totalBits - efuseLimitBits);
 
-  // B. Logic AntiFuse OTP (Typical density: 8 Kb ~ 128 Kb)
+  // B. Logic AntiFuse OTP 教學容量假設。
   const antifuseLimitBits = 131072; // 128 Kb
   const antifuseFeasible = totalBits <= antifuseLimitBits;
   const antifuseUtilPct = (totalBits / antifuseLimitBits) * 100;
 
-  // C. Embedded MRAM / RRAM (Typical density: 256 Kb ~ 4 Mb)
+  // C. Embedded MRAM / RRAM 教學容量假設。
   const mramLimitBits = 4194304; // 4 Mb
   const mramFeasible = totalBits <= mramLimitBits;
   const mramUtilPct = (totalBits / mramLimitBits) * 100;
@@ -220,32 +220,32 @@ export function calculatePqcRotBudget(options = {}) {
         feasible: efuseFeasible,
         limitBits: efuseLimitBits,
         overflowBits: efuseOverflowBits,
-        statusEn: efuseFeasible ? 'Within Limit' : 'OVERFLOW / INFEASIBLE',
-        statusZh: efuseFeasible ? '容量尚足' : '溢位無法容納',
+        statusEn: efuseFeasible ? 'Within Model Capacity' : 'Exceeds Model Capacity',
+        statusZh: efuseFeasible ? '模型容量內' : '超出模型容量',
         reasonEn: efuseFeasible
-          ? 'Classical hashes fit within 4 Kb, but leave negligible room for certs or counters.'
-          : `Requires ${totalKilobits.toFixed(1)} Kb, exceeding 4 Kb eFuse limits. Electromigration and programming currents (15–20mA/bit) prevent scaling.`,
+          ? 'The selected budget fits the illustrative 4 Kb allocation. Verify the named macro capacity, programming conditions, and update policy.'
+          : `The ${totalKilobits.toFixed(1)} Kb budget exceeds the illustrative 4 Kb allocation, not a universal eFuse limit. Verify the named macro and integration requirements.`,
         reasonZh: efuseFeasible
-          ? '古典雜湊值可勉強塞入 4 Kb，但完全無法容納擴展憑證鏈或防降版計數器。'
-          : `總需求達 ${totalKilobits.toFixed(1)} Kb，嚴重超出 eFuse 4 Kb 實體上限；高燒錄電流（15–20mA/bit）與熱應力無法支援。`,
+          ? '目前預算在教學設定的 4 Kb 容量內；仍須確認具名巨集容量、編程條件與更新政策。'
+          : `需求 ${totalKilobits.toFixed(1)} Kb 超出教學設定的 4 Kb，並非超出所有 eFuse 的實體上限；須確認具名巨集與整合要求。`,
       },
       antifuse: {
         feasible: antifuseFeasible,
         limitBits: antifuseLimitBits,
         utilizationPct: parseFloat(antifuseUtilPct.toFixed(1)),
-        statusEn: 'OPTIMAL (Recommended)',
-        statusZh: '最佳架構 (推薦首選)',
-        reasonEn: `Effortlessly fits within 128 Kb Logic AntiFuse (utilization: ${antifuseUtilPct.toFixed(1)}%). 0 extra masks, native logic compatible, immune to SEM/TEM inspection.`,
-        reasonZh: `完美容納於 128 Kb 邏輯 AntiFuse（使用率 ${antifuseUtilPct.toFixed(1)}%）。0 道額外光罩、完全邏輯相容，且耐受 SEM/TEM 逆向顯微窺探。`,
+        statusEn: antifuseFeasible ? 'Within Model Capacity' : 'Exceeds Model Capacity',
+        statusZh: antifuseFeasible ? '模型容量內' : '超出模型容量',
+        reasonEn: `Illustrative 128 Kb allocation: ${antifuseUtilPct.toFixed(1)}% utilization. Confirm the named AntiFuse macro, process, programming, and security evidence; capacity alone does not establish suitability.`,
+        reasonZh: `教學設定 128 Kb，使用率 ${antifuseUtilPct.toFixed(1)}%。須確認具名 AntiFuse 巨集、製程、編程及安全證據；容量不能單獨決定適用性。`,
       },
       mram: {
         feasible: mramFeasible,
         limitBits: mramLimitBits,
         utilizationPct: parseFloat(mramUtilPct.toFixed(2)),
-        statusEn: 'HIGH-CAPACITY VIABLE',
-        statusZh: '高容量適用',
-        reasonEn: `Utilizes only ${mramUtilPct.toFixed(2)}% of 4 Mb eMRAM. High density enables multi-version cert staging, but requires 3–5 additional BEOL masks.`,
-        reasonZh: `僅佔用 4 Mb eMRAM 之 ${mramUtilPct.toFixed(2)}%。高密度適合儲存龐大多版本憑證鏈，但需增加 3–5 道 BEOL 後段光罩。`,
+        statusEn: mramFeasible ? 'Within Model Capacity' : 'Exceeds Model Capacity',
+        statusZh: mramFeasible ? '模型容量內' : '超出模型容量',
+        reasonEn: `Illustrative 4 Mb allocation: ${mramUtilPct.toFixed(2)}% utilization. Confirm the named MRAM/RRAM macro, process integration, retention, and update requirements.`,
+        reasonZh: `教學設定 4 Mb，使用率 ${mramUtilPct.toFixed(2)}%。須確認具名 MRAM／RRAM 巨集、製程整合、保持時間與更新需求。`,
       },
     },
     siliconArea: {
@@ -357,12 +357,12 @@ export function initPqcRotCalculator(rootSelector = '#pqc-budget-simulator-root'
       efuseDesc.textContent = T(res.feasibility.efuse.reasonEn, res.feasibility.efuse.reasonZh);
     }
     if (antifusePill && antifuseDesc) {
-      antifusePill.className = 'tech-status optimal';
+      antifusePill.className = res.feasibility.antifuse.feasible ? 'tech-status ok' : 'tech-status overflow';
       antifusePill.textContent = T(res.feasibility.antifuse.statusEn, res.feasibility.antifuse.statusZh);
       antifuseDesc.textContent = T(res.feasibility.antifuse.reasonEn, res.feasibility.antifuse.reasonZh);
     }
     if (mramPill && mramDesc) {
-      mramPill.className = 'tech-status ok';
+      mramPill.className = res.feasibility.mram.feasible ? 'tech-status ok' : 'tech-status overflow';
       mramPill.textContent = T(res.feasibility.mram.statusEn, res.feasibility.mram.statusZh);
       mramDesc.textContent = T(res.feasibility.mram.reasonEn, res.feasibility.mram.reasonZh);
     }
@@ -376,13 +376,13 @@ export function initPqcRotCalculator(rootSelector = '#pqc-budget-simulator-root'
     if (verdictBanner) {
       if (!res.feasibility.efuse.feasible) {
         verdictBanner.innerHTML = T(
-          `<strong>Architectural Notice:</strong> Post-Quantum algorithm migration (FIPS 203/204) causes a <strong>${(res.breakdown.totalBits / 512).toFixed(0)}× storage expansion</strong> over classical P-256. Traditional eFuse fails completely due to current and area collapse. <strong>0-mask Logic AntiFuse OTP (32–128 Kb)</strong> is the industry-standard silicon RoT solution.`,
-          `<strong>架構師審查結論：</strong> 後量子密碼學（FIPS 203/204）使得晶片安全儲存預算較傳統 P-256 暴增 <strong>${(res.breakdown.totalBits / 512).toFixed(0)} 倍</strong>。傳統 eFuse 因高燒錄電流與實體限制全面失效。<strong>0 道額外光罩之邏輯 AntiFuse OTP (32–128 Kb)</strong> 為兼顧成本與實體抗探針逆向的最權威解決方案。`
+          `<strong>Illustrative Capacity Estimate:</strong> The selected ${res.breakdown.totalKilobits} Kb budget is <strong>${(res.breakdown.totalBits / 512).toFixed(0)}× the 512-bit reference</strong> and exceeds this model's 4 Kb eFuse allocation. This is not a universal eFuse limit or a technology ranking. Compare named macro capacities, programming conditions, update policies, and implementation evidence.`,
+          `<strong>教學模型容量估算：</strong> 目前預算 ${res.breakdown.totalKilobits} Kb 為 <strong>512-bit 參考值的 ${(res.breakdown.totalBits / 512).toFixed(0)} 倍</strong>，超出本模型的 4 Kb eFuse 配置。這不是所有 eFuse 的容量上限或技術排名；應比較具名巨集容量、編程條件、更新政策與實作證據。`
         );
       } else {
         verdictBanner.innerHTML = T(
-          `<strong>Architectural Notice:</strong> Budget is compact (${res.breakdown.totalKilobits} Kb). Classical or hash-only architectures fit within legacy fuses, but lack cryptographic agility for full PQC certificate chains.`,
-          `<strong>架構師審查結論：</strong> 目前儲存預算精簡 (${res.breakdown.totalKilobits} Kb)。純雜湊或古典架構可塞入舊式熔絲，但缺少直接驗證後量子公鑰憑證鏈的密碼學敏捷度（Crypto-Agility）。`
+          `<strong>Illustrative Capacity Estimate:</strong> The selected ${res.breakdown.totalKilobits} Kb budget fits this model's 4 Kb eFuse allocation. Capacity alone does not establish cryptographic agility, attack resistance, or product availability; verify the named macro and system update architecture.`,
+          `<strong>教學模型容量估算：</strong> 目前預算 ${res.breakdown.totalKilobits} Kb 在本模型的 4 Kb eFuse 配置內。容量不能單獨判定密碼演算法更新能力、攻擊抵抗力或產品供應狀態；仍須確認具名巨集與系統更新架構。`
         );
       }
     }

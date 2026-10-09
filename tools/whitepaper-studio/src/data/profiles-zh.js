@@ -217,7 +217,7 @@ export const profileZh = {
     "updateModel": "晶圓排序 (KGD)＋Cu-Cu 鍵合後 hPPR＋任務剖面動態 sPPR 內部 FuseBox 熔絲燒錄",
     "strongestFit": "HBM4 16-Hi/24-Hi 2048-bit 超寬介面、3nm AI 加速器 Base Die、CoWoS/SoIC Cu-Cu 混合鍵合修復",
     "boundary": "探針卡接觸力嚴格受限 (<=0.35 gf/pin，針痕深度 <=2.0 nm) 以保護 CMP 鍵合墊；需驗證至 125°C-150°C Tj 熱裕量",
-    "evidenceStatus": "JEDEC JESD238 HBM4 參考架構 · TSMC 3DFabric 與 Samsung I-Cube 架構 · 探針卡生態系基準 (旺矽 MPI / 精測 CHPT / FormFactor)",
+    "evidenceStatus": "JEDEC JESD270-4 HBM4 參考架構 · TSMC 3DFabric 與 Samsung I-Cube 架構 · 探針卡生態系基準 (旺矽 MPI / 精測 CHPT / FormFactor)",
     "latency": "晶粒內零週期位址重新映射（純組合邏輯多工解碼）",
     "busExposure": "無（Base Die 安全信任邊界內之自主晶粒內 BIST/BIRA 解碼器）",
     "bomCost": "零額外光罩（標準純邏輯 CMOS 製程，無需高壓或 eFlash 光罩）",
