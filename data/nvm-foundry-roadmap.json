@@ -304,50 +304,62 @@
     {
       "id": "FND-SEC-2019-28FDS",
       "label": "Samsung Foundry：28FDS eMRAM 商用量產公告",
-      "url": "https://news.samsung.com/global/",
+      "url": "https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process",
       "kind": "供應商官方新聞稿",
       "date": "2019-03-06",
-      "locator": "28FDS eMRAM 商用出貨與可靠性段落",
-      "claim": "Samsung 正式商用出貨基於 28nm FD-SOI 製程之 eFlash 替代型 eMRAM，寫入速度快 1000 倍且耗電顯著降低。",
+      "locator": "量產、相對寫入速度與後段模組整合段落",
+      "claim": "2019 年宣布 28FDS eMRAM 商用量產；供應商稱寫入速度約為 eFlash 的一千倍，後段模組需新增製程層。",
       "evidence": "已核讀官方新聞稿全文",
-      "limit": "屬 28FDS 專用平台，後續延伸至 14FDS 與 8nm 射頻/車規需個別製程巨集資格。",
-      "accessedAt": "2026-09-10"
+      "limit": "相對速度缺少完整比較條件；本公告未提供完整循環、保持與迴焊矩陣，也未具名 NXP。後續 FinFET eMRAM 須依個別平台與巨集核對。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-SEC-2024-MBCFET",
-      "label": "Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖",
-      "url": "https://semiconductor.samsung.com/foundry/process-technology/",
-      "kind": "供應商技術論壇與產品白皮書",
-      "date": "2024-06-12",
-      "locator": "SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃",
-      "claim": "Samsung 公開 SF3 (3nm) 與 SF2 (2nm MBCFET) 環繞閘極平台之 eMRAM 開發計畫，瞄準車用 HPC 與 AI 邊緣運算，規畫 BEOL 整合高密度 MTJ 陣列。",
-      "evidence": "已核讀官方技術論壇摘要",
-      "limit": "SF3 / SF2 平台之 eMRAM 目前處於技術研發與驗證目標階段，尚未宣告大量商用出貨。",
-      "accessedAt": "2026-09-10"
+      "label": "Samsung Foundry：SFF 2024 邏輯製程與 GAA 路線圖",
+      "url": "https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024",
+      "kind": "供應商官方新聞稿",
+      "date": "2024-06-13",
+      "locator": "先進邏輯製程路線與 GAA 成熟度段落",
+      "claim": "SFF 2024 公開 SF2Z 背面供電、SF4U 與 SF3 等邏輯製程路線；SF3 當時以 2024 下半年量產為目標。",
+      "evidence": "已核讀官方新聞稿正文",
+      "limit": "本來源未建立 SF3／SF2 eMRAM、OTP 巨集或相關電性規格；邏輯製程路線不能改寫為具名嵌入式 NVM 開發里程碑。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-INTC-2018-22FFL",
-      "label": "Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)",
-      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
-      "kind": "技術論壇論文與官方發布",
-      "date": "2018-12-03",
-      "locator": "IEDM 2018 論文 13.3，22FFL STT-MRAM 單元與可靠性",
-      "claim": "Intel 發表 22FFL FinFET 製程嵌入式 STT-MRAM，單元面積 0.0446 µm²，具備 10^6 次寫入耐久度、200°C 保持力與 1E-9 誤碼率，達成生產就緒 (production-ready)。",
-      "evidence": "已核讀 IEDM 官方論文與技術發布摘要",
-      "limit": "屬 22FFL 低功耗 FinFET 特殊製程，指標取決於 ECC 配置與工作溫度。",
-      "accessedAt": "2026-09-10"
+      "label": "Intel：22FFL 嵌入式 MRAM 研究摘要（IEDM 2018）",
+      "url": "https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf",
+      "kind": "官方會議議程與論文摘要",
+      "date": "2018-12-04",
+      "locator": "PDF 第 52 頁；12 月 4 日場次；論文 18.1",
+      "claim": "Intel 22FFL 嵌入式 MRAM 研究摘要以 7.2Mbit 陣列展示 200°C 十年保持能力與超過一百萬次循環。",
+      "evidence": "已核讀 IEDM 官方議程中的論文摘要；未取得完整論文測試矩陣",
+      "limit": "摘要不提供完整測試矩陣、ECC 或 BER 條件；此來源不能單獨證明 2019 生產就緒或現行商用品供應。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-INTC-2024-18A",
-      "label": "Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖",
-      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
-      "kind": "供應商官方活動發布",
+      "label": "Intel Foundry：18A 邏輯製程與設計生態公告",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html",
+      "kind": "供應商官方新聞稿",
       "date": "2024-02-21",
-      "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
-      "evidence": "已核讀官方發布與技術白皮書",
-      "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
-      "accessedAt": "2026-09-10"
+      "locator": "製程路線、18A 背面供電與 EDA／IP 設計支援段落",
+      "claim": "2024 年公告介紹 18A 背面供電與 EDA／IP 生態支援，並以 2025 年重返製程領先為目標。",
+      "evidence": "已核讀官方新聞稿正文",
+      "limit": "一般邏輯製程及 IP 生態不證明原生 AntiFuse、eMRAM 或 FeFET 巨集的開發、資格或量產；來源未提供 NVM 專屬供電與效能規格。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "FND-SEC-CURRENT-EMRAM",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/",
+      "date": null,
+      "label": "Samsung 現行特殊製程頁：FinFET eMRAM 延伸",
+      "kind": "供應商動態產品頁",
+      "locator": "eMRAM 段落",
+      "claim": "現行頁列 MTJ 模組已延伸至 14LPU 與 8LPU FinFET 製程，並規畫延伸至 5nm。",
+      "evidence": "已核讀現行官方正文",
+      "limit": "無頁面更新日期；平台延伸不等於每個具名巨集完成資格或客戶大量出貨；本段未公開完整電性矩陣。",
+      "accessedAt": "2026-10-09"
     }
   ],
   "annualForumCoverage": [
@@ -435,39 +447,39 @@
     },
     {
       "platform": "Samsung Foundry 28FDS eMRAM",
-      "values": "寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次迴焊 (JEDEC 260°C)。",
-      "conditions": "商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。",
+      "values": "供應商稱寫入速度約為 eFlash 的一千倍；本公告未提供完整循環、保持與迴焊矩陣。",
+      "conditions": "2019 年商用量產公告；後段模組需新增製程層，沒有零新增光罩或具名 NXP 採用證據。",
       "sourceIds": [
         "FND-SEC-2019-28FDS"
       ],
-      "limit": "14FDS 與 8nm 衍生節點之車規 Grade 1/Grade 0 需對應巨集之專屬驗證報告。"
+      "limit": "相對速度不是完整系統延遲；比較負載與後續 FinFET 巨集資格須另核。"
     },
     {
-      "platform": "Samsung Foundry SF3／SF2 MBCFET eNVM",
-      "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
-      "conditions": "3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。",
+      "platform": "Samsung Foundry 14LPU／8LPU eMRAM；5nm 規畫",
+      "values": "現行官方頁確認 MTJ 模組延伸至 14LPU、8LPU，5nm 為相容性延伸規畫；未列完整電性矩陣。",
+      "conditions": "無日期產品頁的 2026-10-09 現況快照；14LPU 與 8LPU 為 FinFET 製程。",
       "sourceIds": [
-        "FND-SEC-2024-MBCFET"
+        "FND-SEC-CURRENT-EMRAM"
       ],
-      "limit": "屬於先進節點研發與路線圖前瞻規劃，目前無公開出貨之單元電性測試矩陣。"
+      "limit": "不推定 SF3／SF2 的 eMRAM、OTP、低於 1V 或特定熱預算；平台相容不代表每個巨集完成車規或大量出貨。"
     },
     {
-      "platform": "Intel Foundry 22FFL STT-MRAM",
-      "values": "單元面積 0.0446 µm²；10^6 次循環；125°C 下 10 年保持、200°C 下 100 萬秒保持；1E-9 BER (低錯誤率)；百萬門邏輯相容。",
-      "conditions": "IEDM 2018 論文揭露並進入生產就緒；採用 22nm 低漏電 FinFET 基礎製程；純 BEOL 整合。",
+      "platform": "Intel 22FFL 嵌入式 MRAM（IEDM 2018）",
+      "values": "7.2Mbit 研究陣列；摘要報告 200°C 十年保持能力與超過一百萬次循環。",
+      "conditions": "IEDM 2018 論文 18.1，2018-12-04 場次；本輪核讀官方議程摘要。",
       "sourceIds": [
         "FND-INTC-2018-22FFL"
       ],
-      "limit": "寫入錯誤率受限於電流脈衝寬度與陣列磁場干擾，需搭配內部 ECC 引擎達到汽車級高可靠性。"
+      "limit": "未取得完整論文測試矩陣，不補入單元面積、BER、ECC 或車規結論；研究展示不等於生產就緒。"
     },
     {
-      "platform": "Intel Foundry 18A RibbonFET BSPDN eNVM",
-      "values": "結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。",
-      "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。",
+      "platform": "Intel 18A 邏輯製程與背面供電背景",
+      "values": "2024 年公告介紹 18A 背面供電及 EDA／IP 設計支援；未提供 NVM 專屬性能。",
+      "conditions": "歷史邏輯路線公告，包含 2025 年製程領先目標；不是具名 eNVM 巨集規格。",
       "sourceIds": [
         "FND-INTC-2024-18A"
       ],
-      "limit": "目前處於生產準備與客戶投片測試階段，前瞻 eMRAM / FeFET 巨集完成量產仍需後續里程碑確認。"
+      "limit": "不由一般邏輯或供電架構推定原生 AntiFuse、eMRAM／FeFET、金鑰儲存密度或零壓降。"
     }
   ],
   "corrections": [
@@ -851,21 +863,21 @@
       "technology": "eMRAM",
       "node": "28FDS（28nm FD-SOI）",
       "stage": "量產",
-      "claim": "Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。",
-      "limit": "28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。",
+      "claim": "Samsung 正式宣布 28FDS eMRAM 商用量產，並稱相對 eFlash 的寫入速度約快一千倍。",
+      "limit": "速度為供應商比較主張，完整比較條件未公開。後段模組需新增製程層；不能寫成零新增光罩，也不能套用至後續 FinFET 巨集。",
       "sourceIds": [
         "FND-SEC-2019-28FDS"
       ]
     },
     {
       "id": "INTC-2019",
-      "year": 2019,
-      "foundry": "Intel Foundry",
+      "year": 2018,
+      "foundry": "Intel",
       "technology": "STT-MRAM",
       "node": "22FFL（22nm FinFET）",
-      "stage": "生產就緒",
-      "claim": "IEDM 發表 22FFL 嵌入式 STT-MRAM 進入生產就緒，位元單元 0.0446 µm²，耐受 10^6 次循環。",
-      "limit": "公開文獻以 22FFL 原型與測試晶片為主，非全客戶通用開架式 PDK。",
+      "stage": "研究展示",
+      "claim": "IEDM 2018 論文 18.1 摘要以 7.2Mbit 陣列展示 22FFL 嵌入式 MRAM 的 200°C 十年保持能力及超過一百萬次循環。",
+      "limit": "屬 2018 年研究摘要，不作 2019 生產就緒證明；完整電性、ECC 與現行供應狀態仍須另核。",
       "sourceIds": [
         "FND-INTC-2018-22FFL"
       ]
@@ -874,11 +886,11 @@
       "id": "SEC-2024",
       "year": 2024,
       "foundry": "Samsung Foundry",
-      "technology": "次世代 eMRAM／MBCFET GAA",
-      "node": "SF3 / SF2（3nm / 2nm MBCFET）",
-      "stage": "研發與技術路線規劃",
-      "claim": "Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。",
-      "limit": "SF3/SF2 為邏輯與 GAA 路線公告；eMRAM 仍屬研發／驗證目標，不能等同已量產嵌入式巨集。",
+      "technology": "GAA 邏輯製程背景",
+      "node": "SF3／SF2Z 等邏輯製程",
+      "stage": "邏輯路線公告",
+      "claim": "SFF 2024 公開 GAA 邏輯製程與 SF2Z 背面供電路線；SF3 當時以 2024 下半年量產為目標。",
+      "limit": "這是 NVM 所處的邏輯製程背景，不是 SF3／SF2 eMRAM 開發或量產證據；目標不等於完成。",
       "sourceIds": [
         "FND-SEC-2024-MBCFET"
       ]
@@ -887,11 +899,11 @@
       "id": "INTC-2024",
       "year": 2024,
       "foundry": "Intel Foundry",
-      "technology": "18A RibbonFET 與嵌入式 IP 生態",
-      "node": "18A（1.8nm RibbonFET + PowerVia）",
-      "stage": "生產準備與生態系整合",
-      "claim": "Intel Foundry Direct Connect 2024 描述 18A 進入生產準備、PowerVia 背面供電與嵌入式 IP 生態目標。",
-      "limit": "RibbonFET/PowerVia 邏輯進度不能自動推出具名節點的原生 AntiFuse、eMRAM 或 FeFET NVM 量產。",
+      "technology": "18A 邏輯製程與 EDA／IP 生態",
+      "node": "Intel 18A",
+      "stage": "邏輯路線公告",
+      "claim": "2024 年官方公告介紹 18A 背面供電與 EDA／IP 設計支援，並以 2025 年重返製程領先為目標。",
+      "limit": "此為當年的邏輯路線與設計生態背景；未建立特定 AntiFuse、eMRAM 或 FeFET 巨集的開發、資格或量產。",
       "sourceIds": [
         "FND-INTC-2024-18A"
       ]

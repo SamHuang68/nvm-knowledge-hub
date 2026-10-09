@@ -394,21 +394,22 @@
             </h3>
           </div>
           <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(15, 118, 110, 0.12); color: #0f766e; font-weight: 600;">
-            <span data-lang="zh">NIST SP 800-22 &amp; SP 800-90B 檢驗規範</span>
-            <span data-lang="en">NIST SP 800-22 &amp; SP 800-90B Rigor</span>
+            <span data-lang="zh">SP 800-22 檢定示意 · 頻率法簡化熵</span>
+            <span data-lang="en">SP 800-22 Test Illustration · Frequency-Only Entropy Estimate</span>
           </span>
         </div>
 
         <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
-          <span data-lang="zh">以第一性原理密碼學假設檢定為依據，即時評估 1,024 位元原生硬體熵源之空間均勻度與無偏性。即時執行 NIST SP 800-22 四大核心統計檢定（單元頻率 Monobit、區塊頻率 Block Frequency、相鄰遊程 Runs、累計和漫步 Cusum）及 SP 800-90B 最小熵（Min-Entropy）。對比 AntiFuse 微觀量子穿隧缺陷（NeoPUF）、SRAM 啟動態與差動對稱架構，精準識別空間偏壓並判定晶片信任根合規性。</span>
-          <span data-lang="en">Evaluates spatial uniformity and bias of a 1,024-bit hardware entropy source using first-principles cryptographic hypothesis testing. Executes 4 core NIST SP 800-22 tests (Frequency Monobit, Block Frequency, Runs, Cumulative Sums) and SP 800-90B Min-Entropy in real time. Compares AntiFuse quantum tunneling (NeoPUF), SRAM startup unbalance, and differential OTP mismatch to detect spatial correlation for root-of-trust qualification.</span>
+          <span data-lang="zh">以 1,024 位元模擬樣本示意空間分佈與偏壓，計算 SP 800-22 中四項檢定的簡化實作（單位元頻率 Monobit、區塊頻率 Block Frequency、遊程 Runs、累計和 Cusum），並依 0／1 頻率估計簡化熵。各預設情境用於比較 AntiFuse、SRAM 啟動態與差動失配的假設分佈，不代表產品量測，也不判定晶片信任根安全性或標準符合性。</span>
+          <span data-lang="en">Uses a simulated 1,024-bit sample to illustrate spatial distribution and bias with simplified implementations of four SP 800-22 tests (Frequency Monobit, Block Frequency, Runs, Cumulative Sums) and a frequency-only entropy estimate. Presets compare assumed distributions for AntiFuse, SRAM startup states, and differential mismatch. They are not product measurements and do not determine root-of-trust security or standards conformance.</span>
         </p>
 
         <!-- Simulation Disclaimer Banner -->
         <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
           <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
-          <span data-lang="zh">本檢驗器所呈現之 1,024 位元空間隨機分佈與 NIST SP 800-22 / 800-90B 統計檢定為前端輕量演算法之數值示意，非正式實驗室百萬位元（Mbit 級）樣本之 CAVP 認證報告。實體晶片 PUF 熵值與漢明距離穩定性需經全溫全壓 (PVT) 壽命老化測試及後處理條件化演算法驗證。</span>
-          <span data-lang="en">The 1,024-bit spatial randomness patterns and NIST SP 800-22 / 800-90B statistical metrics in this evaluator are schematic numerical demonstrations, rather than official lab CAVP validation reports across multi-megabit sample sets. Physical chip PUF entropy and intra-Hamming stability must be characterized across full PVT corners and post-processing conditioners.</span>
+          <span data-lang="zh">四項統計檢定與 H∞ = −log₂(max(p, 1−p)) 都是教學示意；頻率法簡化熵未評估完整的相關性、預測性或熵源設計，不等同 SP 800-90B 評估。通過所選檢定不能證明密碼學安全，也不能取得 FIPS 140-3／ISO/IEC 19790 認證。實體 PUF 仍需驗證跨製程、電壓、溫度與老化的穩定性、洩漏及重建機制，並依適用制度取得實作證據。</span>
+          <span data-lang="en">The four tests and H∞ = −log₂(max(p, 1−p)) are teaching illustrations. The frequency-only estimate does not fully assess correlation, predictability, or entropy-source design and is not an SP 800-90B assessment. Passing the selected tests does not establish cryptographic security or FIPS 140-3 / ISO/IEC 19790 certification. Physical PUFs still require evidence for stability across process, voltage, temperature and aging, leakage, reconstruction, and the applicable evaluation scheme.</span>
+          <span><a href="https://csrc.nist.gov/pubs/sp/800/22/r1/upd1/final" target="_blank" rel="noopener noreferrer">NIST SP 800-22</a> · <a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations" target="_blank" rel="noopener noreferrer"><span data-lang="zh">NIST 熵源驗證</span><span data-lang="en">NIST Entropy Validation</span></a></span>
         </div>
 
         <!-- CONTROL PANEL -->
@@ -445,15 +446,15 @@
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #0284c7;">
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">最小熵 H<sub>&infin;</sub></span><span data-lang="en">MIN-ENTROPY</span>
+              <span data-lang="zh">頻率法簡化熵 H<sub>&infin;</sub></span><span data-lang="en">FREQUENCY-ONLY ENTROPY</span>
             </div>
             <div id="puf-entropy-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">0.985 bit</div>
-            <span style="font-size: 10px; color: #64748b;">SP 800-90B (&ge;0.9)</span>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學參考值 &ge;0.9；非 90B 門檻</span><span data-lang="en">Illustrative reference &ge;0.9; not a 90B threshold</span></span>
           </div>
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #059669;">
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">NIST 檢定通過數</span><span data-lang="en">NIST PASSED</span>
+              <span data-lang="zh">所選檢定通過數</span><span data-lang="en">SELECTED TESTS PASSED</span>
             </div>
             <div id="puf-passed-tests-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">4 / 4</div>
             <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">&alpha; = 0.01 門檻</span><span data-lang="en">&alpha; = 0.01 threshold</span></span>
@@ -479,8 +480,8 @@
         <div id="puf-verdict-banner" class="puf-verdict-banner nist_certified" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;" role="status" aria-live="polite">
           <span style="font-size: 1.25rem; line-height: 1;">🛡️</span>
           <span class="puf-verdict-text">
-            <span data-lang="zh">【NIST SP 800-22 密碼學隨機性認證】4 項核心假設檢定全數通過（P-value 均 &ge; 0.01）。漢明權重 = 50.02%，最小熵 = 0.985 bit/bit。原生硬體熵源完全符合 ISO/IEC 19790 與 FIPS 140-3 晶片信任根安全標準。</span>
-            <span data-lang="en">[NIST SP 800-22 Compliant] Passed all 4 hypothesis tests (All P-values &ge; 0.01). Hamming weight = 50.02%, Min-Entropy = 0.985 bit/bit. Hardware entropy satisfies ISO/IEC 19790 and FIPS 140-3 root-of-trust qualification.</span>
+            <span data-lang="zh">【教學樣本 · 所選 4 項檢定通過】P-value 均 &ge; 0.01。漢明權重 = 50.02%，頻率法簡化熵估計 = 0.985 bit/bit。結果不能判定熵源安全性、SP 800-90B 符合性或 FIPS 140-3／ISO/IEC 19790 認證。</span>
+            <span data-lang="en">[Illustrative Sample — 4 Selected Tests Passed] All P-values &ge; 0.01. Hamming weight = 50.02%, frequency-only entropy estimate = 0.985 bit/bit. These results do not establish entropy-source security, SP 800-90B conformance, or FIPS 140-3 / ISO/IEC 19790 certification.</span>
           </span>
         </div>
       </article>
@@ -497,8 +498,8 @@
           </h2>
         </div>
         <p>
-          <span data-lang="zh">在後量子密碼 (NIST FIPS 203/204) 時代，透過差分感測、內部電流隨機偽裝與時脈抖動，第一性原理評估 Pearson 相關係數 ρmax、密鑰揭示採樣次數 (MTD) 與 AntiFuse PUF 零輔助數據 (Zero Helper Data) 物理抗侵入優勢。</span>
-          <span data-lang="en">First-principles simulation of Pearson correlation ρmax, Measurements to Disclosure (MTD), and AntiFuse PUF zero-helper-data physical resilience against Differential Power Analysis (DPA) under NIST FIPS 203/204 Post-Quantum standards.</span>
+          <span data-lang="zh">以差分感測、電流偽裝與時脈抖動的教學假設，示意 Pearson 相關係數 ρmax、金鑰揭示採樣次數 (MTD) 與防護評分。MTD 及高／中／基本／低分級皆為啟發式，不是 FIPS、SESIP、PSA、EVITA 或 ASIL 的要求，也不能推導認證、實測攻擊抵抗力或儲存技術優劣。</span>
+          <span data-lang="en">Illustrates Pearson correlation ρmax, Measurements to Disclosure (MTD), and protection scores using teaching assumptions for differential sensing, current blinding, and clock jitter. MTD and high/medium/basic/low categories are heuristics, not FIPS, SESIP, PSA, EVITA, or ASIL requirements. They do not establish certification, measured attack resistance, or storage-technology superiority.</span>
         </p>
       </header>
 
@@ -507,14 +508,14 @@
           <!-- Security Preset Selection -->
           <div>
             <label for="pqc-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #c4a574; margin-bottom: 6px;">
-              <span data-lang="zh">安全防禦認證等級 (Security Assurance Preset):</span>
-              <span data-lang="en">Security Assurance Preset:</span>
+              <span data-lang="zh">教學模型防護目標：</span>
+              <span data-lang="en">Illustrative Protection Target:</span>
             </label>
             <select id="pqc-preset-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
-              <option value="fips140_3_lvl4">FIPS 140-3 L4 / SESIP L5 (Aerospace / MTD > 10M)</option>
-              <option value="automotive_evita_high">ISO 21434 / EVITA High (Gateway / MTD > 500k)</option>
-              <option value="iot_commercial_secure">PSA Certified Level 2 / SESIP L2 (Commercial IoT)</option>
-              <option value="legacy_unprotected">Legacy Unprotected Baseline (Direct Read / MTD &lt; 1.5k)</option>
+              <option value="fips140_3_lvl4" data-zh="教學模型：高防護目標" data-en="Illustrative Model: High Protection Target">Illustrative Model: High Protection Target</option>
+              <option value="automotive_evita_high" data-zh="教學模型：中防護目標" data-en="Illustrative Model: Medium Protection Target">Illustrative Model: Medium Protection Target</option>
+              <option value="iot_commercial_secure" data-zh="教學模型：基本防護目標" data-en="Illustrative Model: Basic Protection Target">Illustrative Model: Basic Protection Target</option>
+              <option value="legacy_unprotected" data-zh="教學模型：低防護基準" data-en="Illustrative Model: Low Protection Baseline">Illustrative Model: Low Protection Baseline</option>
             </select>
           </div>
 

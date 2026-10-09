@@ -1,23 +1,22 @@
 /**
  * puf-nist-randomness-evaluator.js — Physical Unclonable Function (PUF) Spatial Randomness & NIST SP 800-22 Evaluator
  *
- * First-principles cryptographic statistical testing of hardware PUF entropy sources
- * (AntiFuse NeoPUF quantum tunneling, 6T SRAM unbalance, differential OTP mismatch).
+ * 以模擬位元序列示意 PUF 空間分佈與統計檢定，不判定硬體安全性或認證。
  *
- * Implements 4 core NIST SP 800-22 statistical hypothesis tests + NIST SP 800-90B Min-Entropy:
+ * 示意 SP 800-22 的四項統計檢定，另提供依位元頻率計算的簡化熵估計：
  * 1. Frequency (Monobit) Test: Tests the proportion of zeroes and ones.
  * 2. Frequency Test within a Block (Block Frequency): Tests proportion of ones within M-bit blocks.
  * 3. Runs Test: Tests the total number of uninterrupted sequences of identical bits.
  * 4. Cumulative Sums (Cusum) Test: Tests the maximal excursion of the random walk from origin.
- * 5. Min-Entropy (SP 800-90B): H_inf = -log2(p_max).
+ * 5. 頻率法簡化熵：H_inf = -log2(p_max)，不是完整 SP 800-90B 熵源評估。
  *
  * Mathematical Foundations:
  * - Complementary Error Function: erfc(x) = 1 - erf(x) = (2 / sqrt(pi)) * integral_x^inf exp(-t^2) dt
  * - Regularized Incomplete Gamma Function: igamc(a, x) = Gamma(a, x) / Gamma(a)
- * - Significance Level: alpha = 0.01 (P-value >= 0.01 indicates cryptographic randomness acceptance).
+ * - 顯著水準 alpha = 0.01；未拒絕個別虛無假設不代表密碼學安全。
  *
  * Author: NVM Knowledge Hub Editorial Board
- * Standards: NIST SP 800-22 Rev 1a, NIST SP 800-90B, ISO/IEC 19790, Common Criteria AVA_VAN.5
+ * 參考：NIST SP 800-22 Rev 1a；不產生 SP 800-90B、FIPS 或 ISO 認證結論。
  */
 
 'use strict';
@@ -64,8 +63,8 @@ export const PUF_ENTROPY_PRESETS = Object.freeze({
     nominalHammingWeight: 0.5850, // 58.5% strong bias
     spatialCorr: 0.185, // Severe spatial clustering
     minEntropyEst: 0.650,
-    descriptionEn: 'Simulates compromised entropy under physical perturbation or layout defect; triggers NIST SP 800-22 rejection alarm.',
-    descriptionZh: '模擬受到外部雷射注入或晶圓缺陷污染之退化熵源，展示 NIST SP 800-22 統計檢驗套件如何精準攔截報警。',
+    descriptionEn: 'Illustrates a biased bitstream and selected statistical-test warnings; the results do not identify a physical defect or attack.',
+    descriptionZh: '示意有偏位元序列與所選統計檢定的警示；結果不能辨識實際物理缺陷或攻擊。',
   },
 });
 
@@ -262,28 +261,29 @@ export function calculatePufNistRandomness(params) {
   const pValCusum = Math.max(0.0, Math.min(1.0, 1.0 - sumTerms));
   const passCusum = pValCusum >= 0.01;
 
-  // 5. NIST SP 800-90B Min-Entropy: H_inf = -log2(max(p, 1-p))
+  // 頻率法簡化熵；未評估相關性與預測性，不等同完整 SP 800-90B 熵源評估。
   const pMax = Math.max(onesRatio, 1 - onesRatio);
   const minEntropy = -Math.log2(pMax);
 
   // Overall Verdict Assessment
   const passedCount = (passMonobit ? 1 : 0) + (passBlock ? 1 : 0) + (passRuns ? 1 : 0) + (passCusum ? 1 : 0);
+  // 保留既有狀態識別供 API／樣式相容；名稱不代表任何認證結果。
   let verdictStatus = 'nist_certified';
   let verdictEn = '';
   let verdictZh = '';
 
   if (passedCount === 4 && minEntropy >= 0.95) {
     verdictStatus = 'nist_certified';
-    verdictEn = `[NIST SP 800-22 Compliant] Passed all 4 hypothesis tests (All P-values >= 0.01). Hamming weight = ${(onesRatio * 100).toFixed(2)}%, Min-Entropy = ${minEntropy.toFixed(3)} bit/bit. Hardware entropy satisfies ISO/IEC 19790 and FIPS 140-3 root-of-trust qualification.`;
-    verdictZh = `【NIST SP 800-22 密碼學隨機性認證】4 項核心假設檢定全數通過（P-value 均 ≥ 0.01）。漢明權重 = ${(onesRatio * 100).toFixed(2)}%，最小熵 = ${minEntropy.toFixed(3)} bit/bit。原生硬體熵源完全符合 ISO/IEC 19790 與 FIPS 140-3 晶片信任根安全標準。`;
+    verdictEn = `[Illustrative Sample — 4 Selected Tests Passed] All P-values >= 0.01. Hamming weight = ${(onesRatio * 100).toFixed(2)}%, frequency-only entropy estimate = ${minEntropy.toFixed(3)} bit/bit. These results do not establish entropy-source security, SP 800-90B conformance, or FIPS 140-3 / ISO/IEC 19790 certification.`;
+    verdictZh = `【教學樣本 · 所選 4 項檢定通過】P-value 均 ≥ 0.01。漢明權重 = ${(onesRatio * 100).toFixed(2)}%，頻率法簡化熵估計 = ${minEntropy.toFixed(3)} bit/bit。結果不能判定熵源安全性、SP 800-90B 符合性或 FIPS 140-3／ISO/IEC 19790 認證。`;
   } else if (passedCount >= 3) {
     verdictStatus = 'marginal_conditioning_required';
-    verdictEn = `[Conditional Entropy - Post-Processing Required] Passed ${passedCount}/4 tests. Slight spatial bias detected (Hamming weight = ${(onesRatio * 100).toFixed(2)}%, Min-Entropy = ${minEntropy.toFixed(3)}). Requires cryptographic hash conditioning or BCH Fuzzy Extractor before key derivation.`;
-    verdictZh = `【邊界熵源 · 需密碼學調節】通過 ${passedCount}/4 項檢定。檢測到輕微空間偏壓（漢明權重 = ${(onesRatio * 100).toFixed(2)}%，最小熵 = ${minEntropy.toFixed(3)}）。在金鑰衍生前必須導入密碼雜湊調節或 BCH 模糊提取器（Fuzzy Extractor）。`;
+    verdictEn = `[Illustrative Sample — Further Assessment Needed] Passed ${passedCount}/4 selected tests. Hamming weight = ${(onesRatio * 100).toFixed(2)}%, frequency-only entropy estimate = ${minEntropy.toFixed(3)}. These results do not select a conditioner or fuzzy extractor, establish SP 800-90B conformance, or certify cryptographic security.`;
+    verdictZh = `【教學樣本 · 需進一步評估】所選檢定通過 ${passedCount}/4 項。漢明權重 = ${(onesRatio * 100).toFixed(2)}%，頻率法簡化熵估計 = ${minEntropy.toFixed(3)}。結果不能決定條件化器或模糊擷取器的選用，也不能判定 SP 800-90B 符合性或密碼安全認證。`;
   } else {
     verdictStatus = 'nist_rejected';
-    verdictEn = `[Cryptographic Rejection - Failed NIST SP 800-22] Failed ${4 - passedCount} tests. Severe non-randomness detected (Hamming weight = ${(onesRatio * 100).toFixed(2)}%, Cusum Z = ${maxExcursionZ}). Root entropy compromised by physical defect or external fault injection!`;
-    verdictZh = `【密碼學拒絕 · 未通過 NIST SP 800-22】${4 - passedCount} 項檢定失敗。檢測到嚴重非隨機性偏壓（漢明權重 = ${(onesRatio * 100).toFixed(2)}%，累計和偏差 Z = ${maxExcursionZ}）。原生熵源遭受物理缺陷或外部故障注入干擾，嚴禁直接用於根金鑰生成！`;
+    verdictEn = `[Illustrative Sample — Statistical Warning] Failed ${4 - passedCount} selected tests. Hamming weight = ${(onesRatio * 100).toFixed(2)}%, Cusum Z = ${maxExcursionZ}. This sample warrants investigation; it does not identify a physical defect or fault-injection attack, or determine SP 800-90B conformance or certification.`;
+    verdictZh = `【教學樣本 · 統計警示】所選檢定有 ${4 - passedCount} 項未通過。漢明權重 = ${(onesRatio * 100).toFixed(2)}%，累計和偏差 Z = ${maxExcursionZ}。此樣本需進一步調查；結果不能辨識物理缺陷或故障注入攻擊，也不能判定 SP 800-90B 符合性或認證。`;
   }
 
   return {

@@ -2319,29 +2319,29 @@
               <div style="background: #f8fafc; border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #6b21a8; letter-spacing: 0.1em;"><span data-lang="en">05 · 28NM FD-SOI PHASE-CHANGE MEMORY</span><span data-lang="zh">05 · 28nm FD-SOI 相變記憶體</span></span>
-                  <span style="font-size: 10px; background: rgba(168, 85, 247, 0.15); color: #6b21a8; padding: 2px 6px; border-radius: 3px;"><span data-lang="en">165°C Tj · Zero-Downtime</span><span data-lang="zh">165°C Tj · 零停機時間</span></span>
+                  <span style="font-size: 10px; background: rgba(168, 85, 247, 0.15); color: #6b21a8; padding: 2px 6px; border-radius: 3px;"><span data-lang="en">Vendor PCM / OTA Disclosure</span><span data-lang="zh">PCM／OTA 供應商揭露</span></span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">STMicroelectronics Stellar (28nm ePCM)</h4>
                 <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
                     <strong style="color: #785021;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
-                    <span data-lang="zh">整合於 28nm FD-SOI (全空乏絕緣上覆矽) 平台，以鍺銻碲 (GST) 硫族化合物為相變材料，BEOL 僅增 4 道低溫光罩，具備天然優異之抗軟錯誤 (Soft-Error) 免疫力。</span>
-                    <span data-lang="en">Integrated into 28nm FD-SOI platform with GST chalcogenide phase-change material; requires only 4 BEOL masks and delivers intrinsic immunity against soft errors.</span>
+                    <span data-lang="zh">ST 公開資料說明 GST 相變材料整合於 28 nm 與 18 nm FD-SOI 平台；Stellar P3E 簡報具體列出 28 nm FD-SOI PCM。相關材料與平台揭露不等於所有料號的製程光罩數或完整抗輻射保證。</span>
+                    <span data-lang="en">ST describes GST phase-change material on 28 nm and 18 nm FD-SOI platforms; the Stellar P3E presentation specifically lists 28 nm FD-SOI PCM. Material and platform disclosures do not establish mask counts or complete radiation immunity for every part.</span>
                   </p>
                   <p style="margin: 0 0 8px;">
                     <strong style="color: #785021;"><span data-lang="zh">[相變物理特徵]</span><span data-lang="en">[PCM Physics]</span></strong>
-                    <span data-lang="zh">透過電脈衝瞬態焦耳熱實現非晶態（高阻）與多晶態（低阻）切換，寫入速度較傳統 eFlash 快數十倍，並在 165°C 高溫接面下確保 10 年以上資料留存。</span>
-                    <span data-lang="en">Switches between amorphous (high-R) and crystalline (low-R) states via fast electrical Joule heating; writes up to 10x faster than eFlash with &gt;10 years data retention at 165°C junction.</span>
+                    <span data-lang="zh">PCM 透過電脈衝加熱切換非晶態（高阻）與晶態（低阻）。ST 的技術頁宣稱可在最高 165°C 操作；操作溫度不等於資料保持測試溫度，寫入速度、保持年限與耐寫條件仍須核對具名料號。</span>
+                    <span data-lang="en">PCM uses electrical heating to switch between amorphous high-resistance and crystalline low-resistance states. ST’s technology page claims operation up to 165°C; operating temperature does not establish retention test temperature. Write speed, retention lifetime and endurance conditions require named-part documentation.</span>
                   </p>
                   <p style="margin: 0;">
                     <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
-                    <span data-lang="zh">ST Stellar 系列車用 32 位元 Arm 多核 MCU，於高階軟體定義汽車 (SDV) 實現「雙分區零停機即時 OTA (Zero-Downtime Live Update)」，確保車輛行駛中升級不停機。</span>
-                    <span data-lang="en">ST Stellar automotive 32-bit multicore MCU family, powering zero-downtime live OTA updates in software-defined vehicles (SDV) while driving.</span>
+                    <span data-lang="zh">Stellar P3E 公開簡報介紹 xMemory 與 OTA 功能，作為車用軟體更新的架構能力。更新時機、執行隔離、切換與復原須依 ECU 和整車安全策略設計；此揭露不保證所有車輛可在行駛中零停機升級。</span>
+                    <span data-lang="en">The Stellar P3E presentation describes xMemory and OTA as architectural capabilities for automotive software updates. Update timing, execution isolation, switchover and recovery depend on ECU and vehicle safety strategies; the disclosure does not guarantee zero-downtime updates while driving for every vehicle.</span>
                   </p>
                   <p style="margin: 8px 0 0; font-size: 0.78rem;">
                     <a href="memory-evidence.html#evidence-V17" style="color: #785021; text-decoration: underline;">
-                      <span data-lang="zh">檢視 ST Stellar 28nm ePCM 雙分區 Live OTA 官方證據 (V17) ↗</span>
-                      <span data-lang="en">Review ST Stellar 28nm ePCM Dual-Bank Live OTA Spec (V17) ↗</span>
+                      <span data-lang="zh">檢視 ST PCM 與 Stellar P3E 具名來源及限制 (V17) ↗</span>
+                      <span data-lang="en">Review Named ST PCM / Stellar P3E Sources and Limits (V17) ↗</span>
                     </a>
                   </p>
                 </div>

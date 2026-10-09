@@ -23,7 +23,7 @@ import { syncMetricCopy } from './模型數值複製.js';
  * PQC Security Assurance Presets
  * @typedef {Object} PqcSecurityPreset
  * @property {string} id
- * @property {string} targetScheme Target Certification Scheme
+ * @property {string} targetScheme 教學模型防護目標；保留欄位名稱相容性，不代表認證制度
  * @property {boolean} differentialSensing Differential Complementary Sensing Active
  * @property {boolean} currentBlinding Random Current Masking / Blinding Active
  * @property {boolean} randomJitter Dynamic Clock Jitter Active
@@ -35,66 +35,66 @@ import { syncMetricCopy } from './模型數值複製.js';
 export const PQC_SECURITY_PRESETS = Object.freeze({
   fips140_3_lvl4: {
     id: 'fips140_3_lvl4',
-    targetScheme: 'FIPS 140-3 Level 4 / SESIP Level 5',
+    targetScheme: 'Illustrative High Protection',
     differentialSensing: true,
     currentBlinding: true,
     randomJitter: true,
     noiseSigma: 4.8,
     zh: {
-      name: 'FIPS 140-3 L4 / SESIP L5 (航太軍工高防護)',
-      desc: '差分對稱感測 + 內部隨機電流偽裝 + 動態隨機抖動 (MTD > 10,000,000 次)'
+      name: '教學模型：高防護目標',
+      desc: '差分感測＋電流偽裝＋時脈抖動；MTD > 10,000,000 次為啟發式參考，非標準要求。'
     },
     en: {
-      name: 'FIPS 140-3 L4 / SESIP L5 (Aerospace & Defense)',
-      desc: 'Differential Sensing + Internal Current Blinding + Dynamic Clock Jitter (MTD > 10M)'
+      name: 'Illustrative Model: High Protection Target',
+      desc: 'Differential sensing + current blinding + clock jitter; MTD > 10M is a heuristic reference, not a standards requirement.'
     }
   },
   automotive_evita_high: {
     id: 'automotive_evita_high',
-    targetScheme: 'ISO 21434 / EVITA High (車載中央網關)',
+    targetScheme: 'Illustrative Medium Protection',
     differentialSensing: true,
     currentBlinding: true,
     randomJitter: false,
     noiseSigma: 2.4,
     zh: {
-      name: 'EVITA High / ASIL-D (車規中央運算網關)',
-      desc: '差分 AntiFuse PUF + 內部電流雜訊掩蔽 (MTD > 500,000 次)'
+      name: '教學模型：中防護目標',
+      desc: '差分感測＋電流雜訊遮罩；MTD > 500,000 次為啟發式參考，非車用安全認證門檻。'
     },
     en: {
-      name: 'EVITA High / ASIL-D (Automotive Central Gateway)',
-      desc: 'Differential AntiFuse PUF + Internal Current Noise Masking (MTD > 500k)'
+      name: 'Illustrative Model: Medium Protection Target',
+      desc: 'Differential sensing + current noise masking; MTD > 500k is a heuristic reference, not an automotive qualification threshold.'
     }
   },
   iot_commercial_secure: {
     id: 'iot_commercial_secure',
-    targetScheme: 'PSA Certified Level 2 / SESIP Level 2',
+    targetScheme: 'Illustrative Basic Protection',
     differentialSensing: false,
     currentBlinding: true,
     randomJitter: false,
     noiseSigma: 1.1,
     zh: {
-      name: 'IoT 商業安全元件 (智慧電表 / 邊緣節點)',
-      desc: '單端 AntiFuse 讀取 + 基礎電流平滑抑制 (MTD ≈ 60,000 次)'
+      name: '教學模型：基本防護目標',
+      desc: '單端讀取＋基本電流平滑；MTD ≈ 60,000 次為啟發式參考，非認證門檻。'
     },
     en: {
-      name: 'IoT Commercial Secure Element (Smart Meter)',
-      desc: 'Single-Ended Read + Basic Current Smoothing (MTD ≈ 60k)'
+      name: 'Illustrative Model: Basic Protection Target',
+      desc: 'Single-ended read + basic current smoothing; MTD ≈ 60k is a heuristic reference, not a certification threshold.'
     }
   },
   legacy_unprotected: {
     id: 'legacy_unprotected',
-    targetScheme: '無認證基準 (傳統單端直接讀取)',
+    targetScheme: 'Illustrative Low Protection',
     differentialSensing: false,
     currentBlinding: false,
     randomJitter: false,
     noiseSigma: 0.35,
     zh: {
-      name: '傳統無防護基準 (直接單端讀取)',
-      desc: '無抗側信道設計，功耗軌跡與金鑰 Hamming 權重直接相關 (MTD < 1,500 次)'
+      name: '教學模型：低防護基準',
+      desc: '直接單端讀取假設；MTD < 1,500 次為啟發式參考，不代表實測金鑰恢復。'
     },
     en: {
-      name: 'Legacy Unprotected Baseline (Direct Read)',
-      desc: 'Zero DPA defenses, power traces directly correlate to Hamming Weight (MTD < 1.5k)'
+      name: 'Illustrative Model: Low Protection Baseline',
+      desc: 'Assumed direct single-ended read; MTD < 1.5k is a heuristic reference, not measured key recovery.'
     }
   }
 });
@@ -271,7 +271,7 @@ export function calculatePqcDpaMetrics(params = {}) {
 
   securityScore = Math.max(0.0, Math.min(100.0, Math.round(securityScore)));
 
-  // 7. Security Certification Verdict
+  // 7. 教學評分分類；保留既有內部 ID 相容性，不對應認證或標準門檻。
   let verdictStatus = 'CRITICAL';
   if (securityScore >= 85) verdictStatus = 'LEVEL4_RESILIENT';
   else if (securityScore >= 65) verdictStatus = 'AUTOMOTIVE_QUALIFIED';
@@ -509,7 +509,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillStyle = '#10b981';
-      ctx.fillText(`${lang === 'zh' ? '實測分佈' : 'Measured'}: μ = ${mean.toFixed(2)}%, BER = ${metrics.intraBerPercent}%`, padLeft + 10, padTop + 16);
+      ctx.fillText(`${lang === 'zh' ? '模型分佈' : 'Modeled'}: μ = ${mean.toFixed(2)}%, BER = ${metrics.intraBerPercent}%`, padLeft + 10, padTop + 16);
       ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
       ctx.fillText(lang === 'zh' ? '— 理想 50.0% 高斯分佈' : '— Ideal 50.0% Gaussian', padLeft + 280, padTop + 16);
 
@@ -603,13 +603,14 @@ export function initPqcDpaSimulator(containerId) {
       const cons = lang === 'zh' ? metrics.topology.zh.cons : metrics.topology.en.cons;
 
       verdictEl.innerHTML = `
-        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.securityScore >= 80 ? '#10b981' : (metrics.securityScore >= 55 ? '#f59e0b' : '#ef4444')}">
-          ${metrics.verdictStatus === 'LEVEL4_RESILIENT' ? (lang === 'zh' ? '✓ 最高安全評定：FIPS 140-3 Level 4 / PQC 抵抗就緒' : '✓ Top Security: FIPS 140-3 Level 4 / PQC Resilient') :
-            (metrics.verdictStatus === 'AUTOMOTIVE_QUALIFIED' ? (lang === 'zh' ? '✓ 車規安全評定：EVITA High / ASIL-D 合規' : '✓ Automotive Security: EVITA High / ASIL-D Compliant') :
-             (metrics.verdictStatus === 'COMMERCIAL_BASIC' ? (lang === 'zh' ? '⚠ 商業基本防護：PSA Certified Level 2' : '⚠ Commercial Baseline: PSA Certified Level 2') :
-              (lang === 'zh' ? '✗ 側信道高危漏洞：幾百次讀取內可恢復金鑰' : '✗ Critical Side-Channel Vulnerability: Key exposed in < 1k traces')))}
+        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.securityScore >= 80 ? '#047857' : (metrics.securityScore >= 55 ? '#92400e' : '#b91c1c')}">
+          ${metrics.verdictStatus === 'LEVEL4_RESILIENT' ? (lang === 'zh' ? '教學模型評分：高防護區間' : 'Illustrative Model Score: High Protection Range') :
+            (metrics.verdictStatus === 'AUTOMOTIVE_QUALIFIED' ? (lang === 'zh' ? '教學模型評分：中防護區間' : 'Illustrative Model Score: Medium Protection Range') :
+             (metrics.verdictStatus === 'COMMERCIAL_BASIC' ? (lang === 'zh' ? '教學模型評分：基本防護區間' : 'Illustrative Model Score: Basic Protection Range') :
+              (lang === 'zh' ? '教學模型評分：低防護區間' : 'Illustrative Model Score: Low Protection Range')))}
         </div>
-        <div style="font-size: 0.85rem; line-height: 1.45; color: #cbd5e1;">
+        <div style="font-size: 0.85rem; line-height: 1.45; color: #334155;">
+          ${lang === 'zh' ? 'MTD 與評分門檻為教學啟發式，不能推導 FIPS、SESIP、PSA 或車用安全認證，也不證明實際金鑰恢復。以下拓撲特性為模型假設：' : 'MTD and score thresholds are teaching heuristics. They do not establish FIPS, SESIP, PSA, or automotive qualification, or measured key recovery. The topology properties below are model assumptions:'}
           <strong>${topoName}:</strong> ${pros} <span style="opacity: 0.85">${cons}</span>
         </div>
       `;

@@ -8,21 +8,16 @@ const siteDir = path.resolve(scriptDir, "..");
 const jsonPath = path.join(siteDir, "data", "oip-secure-storage-knowledge.json");
 const csvPath = path.join(siteDir, "data", "oip-sharepoint-import.csv");
 const povPath = path.join(siteDir, "data", "institutional-pov-contract.json");
+const schemaPath = path.join(siteDir, "data", "assurance-knowledge-schema.json");
 // Git 的文字 blob 使用 LF；來源雜湊不應隨 checkout 平台的換行改變。
 const knowledgeSource = fs.readFileSync(jsonPath, "utf8").replaceAll("\r\n", "\n");
 const knowledge = JSON.parse(knowledgeSource);
 const pov = JSON.parse(fs.readFileSync(povPath, "utf8"));
+const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 const sha256 = value => crypto.createHash("sha256").update(value, "utf8").digest("hex").toUpperCase();
 const canonicalContentSha256 = sha256(knowledgeSource);
 
-const required = [
-  "recordId", "title", "contentType", "topic", "asset", "attackClass", "lifecyclePhase",
-  "claim", "claimStatus", "evidenceClass", "assuranceMaturity", "scope", "applicability",
-  "limitation", "openQuestion", "sourceUrl", "sourceOwner", "reviewedDate", "owner",
-  "classification", "audience", "presentationRole", "oipRelevance"
-];
-const evidenceClasses = new Set(["Direct Observation", "Mechanism Evidence", "Vendor Disclosure", "Bounded Inference", "Unknown"]);
-const maturityValues = new Set(["Claimed", "Specified", "Tested", "Independently Evaluated", "Certified", "Field-proven"]);
+const required = schema.required;
 
 if (!Array.isArray(knowledge.records) || knowledge.records.length < 8) {
   throw new Error(`Expected at least 8 governed records; found ${knowledge.records?.length ?? 0}.`);
@@ -34,8 +29,16 @@ for (const record of knowledge.records) {
   if (missing.length) throw new Error(`${record.recordId || "<missing id>"}: missing ${missing.join(", ")}`);
   if (ids.has(record.recordId)) throw new Error(`Duplicate recordId: ${record.recordId}`);
   ids.add(record.recordId);
-  if (!evidenceClasses.has(record.evidenceClass)) throw new Error(`${record.recordId}: invalid evidenceClass`);
-  if (!maturityValues.has(record.assuranceMaturity)) throw new Error(`${record.recordId}: invalid assuranceMaturity`);
+  // 共用既有結構定義的列舉，避免匯出端維護另一份可接受值。
+  for (const [field, definition] of Object.entries(schema.properties)) {
+    if (record[field] === undefined) continue;
+    if (definition.enum && !definition.enum.includes(record[field])) {
+      throw new Error(`${record.recordId}：${field} 不符合共用結構定義的列舉。`);
+    }
+    if (definition.items?.enum && (!Array.isArray(record[field]) || record[field].some(value => !definition.items.enum.includes(value)))) {
+      throw new Error(`${record.recordId}：${field} 含有共用結構定義未允許的項目。`);
+    }
+  }
   if (record.classification !== "Public") throw new Error(`${record.recordId}: public export contains ${record.classification} content`);
   new URL(record.sourceUrl);
 }

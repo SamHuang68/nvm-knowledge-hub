@@ -17,15 +17,15 @@
     "eink_ultra_hv_mtp_otp",
     "hbm4_logic_base_die_repair"
   ],
-  "dataSha256": "36a4aaca6eac6bdae56c026f1e7d2e04ce52fc1319fbe4236b6a8342d9aa3d0a",
+  "dataSha256": "5230597472325f881b3c764ad3530196703ad9b99b68084df186e7924109ea5f",
   "sourceHashes": {
-    "src/data/nvm_specs.js": "1293ce975169d8eab94b0114df59b80a3737ee7d9b1121d95ba033e150ba17d8",
+    "src/data/nvm_specs.js": "4f79a4e1eb58436f702beb19c07a2793e50eae5a931b65dfefdfee1a8922093b",
     "src/data/phase1_kb.js": "de66ae74496303df1f69db5b22cec8ea89a6d5d69b4b9bb8b49cdefdb43f5f13",
     "src/data/phase2_paper.js": "04141a382f58a9380bb09699eac6a97eabadb8fdf41ef6a05ce4e180f873d6af",
     "src/data/phase3_templates.js": "12941646b3bb8f8cf15830242fae03609b11f00149fbc35b236d893c72096862",
     "src/data/phase4_metadata.js": "46a048fd7252644c0a18d455e08c7a32b0d0ced12a3f63624ae037d344354056",
     "src/data/profile-locale.js": "aac145fffdf01c51d968832b6f191bb4b059658eb69e1325d5d840ee07ab916a",
-    "src/data/profiles-zh.js": "291488b07adbb54ac40b43b5e99ebb1669b0de175daf72c517140c8f29b2c37e",
+    "src/data/profiles-zh.js": "6b4351d123d5ac7d4a04b0642fc716f9efc4df47b9948c6d4a886d0b10ded41d",
     "src/js/app.js": "af9ca477562f30fe13057fbc5a9f5c00a127dd281c15edba28ae7aed3a1df583",
     "src/js/build-entry.js": "a74afcb676680c134db067fe8a9d7d4405f2f24d2e76647b5ac1dad32589541c",
     "src/js/modules/matrix.js": "7a8d77cbdc06b2e03b103ce557c21b1894be0283560173342f8774fcb56154b2",
@@ -46,9 +46,9 @@
     "scripts/build-whitepaper.mjs": "fb93b79ccb12926c99abd1c9484b5a694f9b97a9c7ff3bd2a30f13c9098d639e"
   },
   "outputs": {
-    "index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c",
+    "index.html": "aac1b568038dfaa74efcbbeb6a96e580050af41c3bd64fa53ae9adcd9c957490",
     "assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
-    "assets/whitepaper.js": "6c1693ead7aa2e1602fe8033e6a59b8f4e26aabce60b01c93df98b14c2d86689",
+    "assets/whitepaper.js": "21579d0732fc9a57400ce69c0d6f3cccba3bbf66de47b3b5f005be4270d78adc",
     "assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8"
   }
 }

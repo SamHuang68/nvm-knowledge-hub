@@ -7,7 +7,7 @@
   "properties": {
     "recordId": { "type": "string" },
     "title": { "type": "string" },
-    "contentType": { "enum": ["Architecture", "Mechanism", "Case Study", "Evidence", "Platform Evidence", "System Inference", "Open Question", "Training"] },
+    "contentType": { "enum": ["Architecture", "Mechanism", "Case Study", "Evidence", "Platform Evidence", "Portfolio Evidence", "System Inference", "Open Question", "Training"] },
     "topic": { "enum": ["Architecture", "Fault Injection", "Side-Channel Analysis", "Invasive Analysis", "Countermeasure", "Evidence", "Certification", "Training"] },
     "asset": { "enum": ["PUF Response", "Root Key", "Derived Key", "OTP Ciphertext", "Helper Data", "Lifecycle State", "Plaintext Window", "Controller Policy"] },
     "attackClass": { "type": "array", "items": { "enum": ["Power SCA", "EM SCA", "Timing", "Voltage Fault", "Clock Fault", "EM Fault", "Laser Fault", "Invasive Readout", "Protocol Abuse"] } },
@@ -16,7 +16,7 @@
     "claimStatus": { "enum": ["Public Fact", "Vendor Claim", "Analyst Inference", "Internally Tested", "Independently Evaluated", "Certified", "Field-proven", "Unknown"] },
     "evidenceClass": { "enum": ["Direct Observation", "Mechanism Evidence", "Vendor Disclosure", "Bounded Inference", "Unknown"] },
     "assuranceMaturity": { "enum": ["Claimed", "Specified", "Tested", "Independently Evaluated", "Certified", "Field-proven"] },
-    "scope": { "enum": ["IP", "Subsystem", "SoC", "Device", "Organization"] },
+    "scope": { "enum": ["IP", "Subsystem", "SoC", "Device", "Organization", "Portfolio"] },
     "applicability": { "type": "string" },
     "limitation": { "type": "string" },
     "openQuestion": { "type": "string" },
@@ -30,7 +30,7 @@
     "certificateOrReportId": { "type": ["string", "null"] },
     "productVersion": { "type": ["string", "null"] },
     "audience": { "type": "array", "items": { "type": "string" } },
-    "presentationRole": { "enum": ["Problem", "Threat Evidence", "Architecture", "Lifecycle", "Consequence", "Platform Readiness", "Validation Gate", "Decision", "Appendix", null] },
+    "presentationRole": { "enum": ["Problem", "Threat Evidence", "Architecture", "Lifecycle", "Consequence", "Platform Readiness", "Portfolio Context", "Validation Gate", "Decision", "Appendix", null] },
     "oipRelevance": { "type": "string" },
     "copilotAnswerRule": { "const": "Return claim, claim status, evidence class, assurance maturity, source, scope, limitation, reviewed date and open question together." }
   }

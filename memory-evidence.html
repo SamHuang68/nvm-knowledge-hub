@@ -284,28 +284,29 @@
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V11" data-type="vendor" data-keywords="JEDEC DDR5 JESD79-5 HBM3e HBM4 JESD238 Post Package Repair PPR AntiFuse Logic Base Die Probe Card">
+          <article class="source-card" id="evidence-V11" data-type="vendor" data-keywords="JEDEC DDR5 JESD79-5 HBM3e HBM4 JESD238 JESD270-4 Post Package Repair PPR AntiFuse Logic Base Die Probe Card">
             <div class="source-index"><b>V11</b><span><span data-lang="en">INDUSTRY STANDARD</span><span data-lang="zh">產業標準</span></span></div>
             <div class="source-content">
-              <p class="source-meta"><span data-lang="en">JEDEC STANDARDS &amp; FOUNDRY SHIFT · E3 / OFFICIAL</span><span data-lang="zh">JEDEC 標準與代工轉移 · E3／官方</span></p>
-              <h3>JESD79-5 DDR5, JESD238 HBM3e &amp; HBM4 Logic Base Die: Mandatory Post-Package Repair (PPR) Architecture</h3>
+              <p class="source-meta"><span data-lang="en">JEDEC STANDARDS &amp; NAMED SUPPLIER PLAN · E3 / OFFICIAL</span><span data-lang="zh">JEDEC 標準與具名供應商計畫 · E3／官方</span></p>
+              <h3>DDR5 / HBM Post-Package Repair and the SK hynix–TSMC HBM4 Plan</h3>
               <p>
-                <span data-lang="zh">JEDEC 官方標準規範確立：在伺服器 DDR5 與高頻寬記憶體 (HBM3/HBM3e/HBM4) 中，必須具備硬體封裝後現場修復 (hPPR) 機制。高密度 AntiFuse OTP 提供永久、零金屬回彈的非揮發性重映射位址儲存。至 HBM4 世代，Base Die 正式由 DRAM 製程轉向台積電 12nm/3nm 與三星 4nm 先進邏輯製程，內嵌 0-mask AntiFuse 執行 2048-bit PHY 與 TSV 冗餘修復，並驅動晶圓測試採購權力向晶圓代工高階邏輯探針卡生態系（旺矽 6223、精測 6510、Technoprobe、FormFactor）全面轉移。</span>
-                <span data-lang="en">JEDEC specifications mandate Hard Post-Package Repair (hPPR) across DDR5 and high-bandwidth memory (HBM3/HBM3e/HBM4). High-density AntiFuse OTP provides non-volatile, zero-growback address remapping. In HBM4, the Base Die transitions from DRAM processes to advanced logic foundries (TSMC 12nm/3nm, Samsung 4nm), utilizing 0-mask AntiFuse for 2048-bit PHY and TSV redundancy repair, while transferring wafer sort test procurement directly to the advanced logic probe card ecosystem (MPI 6223.TW, CHPT 6510.TW, Technoprobe, FormFactor).</span>
+                <span data-lang="zh">DDR5、HBM3 與 HBM4 分別對應 JESD79-5、JESD238 與 JESD270-4 標準系列。hPPR 表示永久封裝後修復，其功能限制須核對標準版本與器件。另於 2024 年 4 月 19 日，SK hynix 與 TSMC 公告 HBM4 先進邏輯 Base Die／CoWoS 合作及 2026 年量產計畫；該公告不能證明計畫已完成。</span>
+                <span data-lang="en">DDR5, HBM3 and HBM4 correspond to the JESD79-5, JESD238 and JESD270-4 standard families. hPPR denotes permanent post-package repair; feature limits require the relevant revision and device. Separately, on April 19, 2024, SK hynix and TSMC announced HBM4 advanced-logic base-die / CoWoS collaboration with a 2026 mass-production plan. That announcement does not establish completion.</span>
               </p>
               <div class="source-proof">
                 <div>
                   <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">AntiFuse OTP 是高密度記憶體封裝後現場修復與邏輯 Base Die 2048-bit 介面修復的 JEDEC 業界規範標準解決方案。</span><span data-lang="en">AntiFuse OTP is the standard JEDEC architectural solution for in-field post-package memory repair and logic base die 2048-bit interface repair.</span></p>
+                  <p><span data-lang="zh">永久修復的功能概念，以及具名供應商於公告日期揭露的 HBM4 合作方向與時程計畫。</span><span data-lang="en">The functional concept of permanent repair and the named suppliers’ HBM4 collaboration direction and schedule as disclosed on the announcement date.</span></p>
                 </div>
                 <div>
                   <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">備援行/列可無限次替代；修復容量仍受限於實體備援數量與巨集佈局邊界。</span><span data-lang="en">Infinite spare row/column capacity; repair boundary is governed by physical spare layout limits.</span></p>
+                  <p><span data-lang="zh">JEDEC 強制 AntiFuse、固定低於 100Ω 電阻、零回跳風險、所有 HBM4 供應商採相同節點或 0-mask OTP，以及探針卡採購全面移轉；亦不證明無限備援容量。</span><span data-lang="en">A JEDEC mandate for AntiFuse, fixed resistance below 100Ω, zero grow-back risk, common nodes or 0-mask OTP across HBM4 suppliers, a universal probe-card procurement shift, or unlimited spare capacity.</span></p>
                 </div>
               </div>
               <a href="https://www.jedec.org/standards-documents/docs/jesd79-5" target="_blank" rel="noopener noreferrer">JEDEC Official Specification ↗</a>
             </div>
-          </article>
+                        <a href="https://news.skhynix.com/en/sk-hynix-partners-with-tsmc-to-strengthen-hbm-technological-leadership/" target="_blank" rel="noopener noreferrer"><span data-lang="zh">SK hynix／TSMC 合作公告（2024-04-19）↗</span><span data-lang="en">SK hynix / TSMC Announcement (2024-04-19) ↗</span></a>
+</article>
 
           <article class="source-card" id="evidence-V12" data-type="vendor" data-keywords="OLED De-Mura Gamma 2.2 Vcom high voltage DDIC MTP LUT SID IEEE">
             <div class="source-index"><b>V12</b><span><span data-lang="en">TECHNICAL DISCLOSURE</span><span data-lang="zh">技術揭露</span></span></div>
@@ -398,16 +399,17 @@
           <article class="source-card" id="evidence-V17" data-type="vendor" data-keywords="STMicroelectronics Stellar P3E 28nm FD-SOI PCM Phase Change Memory xMemory OTA">
             <div class="source-index"><b>V17</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta">STELLAR P3E PRODUCT PRESENTATION, P. 8 · E3 · CHECKED 2026-10-03</p>
+              <p class="source-meta">ST PCM TECHNOLOGY &amp; STELLAR P3E PRESENTATION, P. 8 · E3 · CHECKED 2026-10-09</p>
               <h3>STMicroelectronics Stellar P3E: 28 nm FD-SOI PCM Disclosure</h3>
-              <p><span data-lang="zh">ST 的《Stellar P3E: the future of automotive edge intelligence》第 8 頁列出 P3E 採用 28 nm FD-SOI 與 PCM，並介紹 xMemory 與 OTA 功能。這是針對 P3E 的供應商簡報，不能把相變記憶體的一般機制或家族宣傳回填成所有 Stellar 料號的產品保證。</span><span data-lang="en">Page 8 of ST’s Stellar P3E presentation lists 28 nm FD-SOI with PCM and describes xMemory and OTA features for P3E. This is a supplier presentation for P3E; a general PCM mechanism or family narrative cannot establish guarantees for every Stellar part.</span></p>
+              <p><span data-lang="zh">ST 的 PCM 技術頁說明 GST 材料、28 nm／18 nm FD-SOI 平台及最高 165°C 操作的供應商主張；此操作溫度不能直接轉成資料保持溫度。《Stellar P3E: the future of automotive edge intelligence》第 8 頁另列出 P3E 的 28 nm FD-SOI PCM、xMemory 與 OTA，適用範圍應保留在具名平台與產品。</span><span data-lang="en">ST’s PCM technology page describes GST, 28 nm / 18 nm FD-SOI platforms and claims operation up to 165°C; this operating limit does not establish retention temperature. Page 8 of the Stellar P3E presentation separately lists P3E’s 28 nm FD-SOI PCM, xMemory and OTA. Scope must remain tied to the named platform and product.</span></p>
               <div class="source-proof">
-                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">具名 P3E 的製程、記憶體整合與 OTA 設計方向揭露。</span><span data-lang="en">The named P3E process, memory integration and OTA design disclosure.</span></p></div>
-                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">本頁未確立精確 GST 合金比例、100K 次耐寫、20 年保持條件或系統零停機保證；接面／環境溫度、更新流程與資格驗證須另核具名料號。</span><span data-lang="en">This page does not establish an exact GST composition, 100K-cycle endurance, 20-year retention conditions or a system zero-downtime guarantee. Junction/ambient limits, update flow and qualification require named-part documentation.</span></p></div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">ST 所揭露的 GST／FD-SOI 技術方向、操作溫度主張，以及具名 P3E 的 PCM 整合與 OTA 架構。</span><span data-lang="en">ST’s GST / FD-SOI technology and operating-temperature claims, plus named P3E PCM integration and OTA architecture.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">來源未確立精確 GST 合金比例、4 道 BEOL 光罩、10 倍寫入速度、165°C 下保持 10 年、100K 次耐寫或系統零停機保證；保持條件、更新流程及安全策略須另核具名料號與系統。</span><span data-lang="en">The sources do not establish an exact GST composition, four BEOL masks, 10x write speed, ten-year retention at 165°C, 100K-cycle endurance or a system zero-downtime guarantee. Retention conditions, update flows and safety strategies require named-part and system documentation.</span></p></div>
               </div>
               <a href="https://www.st.com/resource/en/product_presentation/presentation-stellarp3e-automotive-microcontrollers-edge-ai.pdf#page=8" target="_blank" rel="noopener noreferrer">ST, Stellar P3E product presentation, p. 8 ↗</a>
             </div>
-          </article>
+                        <a href="https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html" target="_blank" rel="noopener noreferrer"><span data-lang="zh">ST PCM 技術頁與操作條件主張 ↗</span><span data-lang="en">ST PCM Technology and Operating Claims ↗</span></a>
+</article>
 
           <article class="source-card" id="evidence-V18" data-type="vendor" data-keywords="Intrinsic ID Quiddikey SRAM PUF Fuzzy Extractor Activation Code Helper Data Zero Provisioning">
             <div class="source-index"><b>V18</b><span><span data-lang="en">HARDWARE ROOT OF TRUST</span><span data-lang="zh">硬體信任根</span></span></div>

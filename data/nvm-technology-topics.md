@@ -42,7 +42,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 寫入
 
@@ -98,7 +98,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 抹除操作界線
 
@@ -146,7 +146,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 讀取
 
@@ -202,11 +202,11 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-io-pgm-author：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### IP 單元取捨
 
-浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。NeoBit 公開原理為串聯兩個 p-MOSFET，CHEI 寫入。單元採 I/O 裝置：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 n 型浮閘 cell 需要更高 PGM。這是 p 型 cell 能嵌入標準邏輯 CMOS 的電壓窗口，不是 core GOX 擊穿 AntiFuse。
+浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。NeoBit 公開原理為串聯兩個 p-MOSFET，CHEI 寫入。本頁作者以 3.3 V I/O PMOS cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM，以及同節點 n 型較高 Vpgm 作架構教學設定。這些數字不是現行 NeoBit 巨集規格；所連專利僅支持 PMOS／I/O 裝置實施例，未提供這組精確配對，也不得套用到 core GOX 擊穿 AntiFuse。
 
 ### NeoFuse：介電層型 Antifuse OTP 單元
 
@@ -2150,7 +2150,7 @@ PGM → ERS → PGM
 40–22 nm 與零額外光罩是原廠節點敘述。未公開偏壓表，也未把 Gen-1 CMOS NMOS 對與 Gen-2 Schottky 混成同一剖面。
 
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 NSCore TwinBit MTP
 
@@ -2163,7 +2163,7 @@ Gen-2 以 Pch Schottky 電晶體為儲存元件；零額外光罩。PermSRAM 是
 - e− · 藍色圓點表示熱電子，數量只作狀態示意。
 
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — 寫入
 
@@ -2204,7 +2204,7 @@ Gen-2 公開為 Pch Schottky，零額外光罩。
 未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
 
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — 抹除／還原限制
 
@@ -2245,7 +2245,7 @@ TwinBit 可電性抹除，與 OTP 的 PermSRAM 分開。
 未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
 
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### NSCore TwinBit MTP — 讀取
 
@@ -2286,7 +2286,7 @@ TwinBit 可電性抹除，與 OTP 的 PermSRAM 分開。
 未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
 
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)
 
 #### IP 單元取捨
 
@@ -2617,7 +2617,7 @@ G1 是 eFlash／SONOS，不是零光罩 MTP 的 ZT，也不是 Anti-fuse 的 ZA�
 
 富提亞科技 Floadia
 
-SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。
+SONOS 儲存單元夾在兩側開關電晶體之間。原廠主要特性與 55BCD 範例列 4 道光罩，同頁成本段落另列 4–5 道，須依目標平台核對。原廠強調 VDD 讀取、擴散端不需高壓，並標為持續開發。
 
 #### LEE Flash G2：夾層 SONOS 循環
 
@@ -2635,13 +2635,13 @@ PGM → ERS → PGM
 
 受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
 
-原廠標為持續開發。VDD 讀取不表示抹除不需要內部高壓產生。4 道光罩不能外推到 G1 或 ZT。
+原廠標為持續開發。VDD 讀取不表示抹除不需要內部高壓產生。主要特性與 55BCD 範例列 4 道光罩，同頁成本段落另列 4–5 道但未指明不同組態；須依目標平台核對，不可外推 G1 或 ZT。
 
 - [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
 
 Floadia LEE Flash G2 eFlash
 
-SONOS 儲存單元夾在兩側開關電晶體之間；4 道光罩；讀取走 VDD，擴散端不需高壓。
+SONOS 儲存單元夾在兩側開關電晶體之間；主要特性與 55BCD 範例列 4 道光罩，同頁成本段落另列 4–5 道，須依平台核對；讀取走 VDD，擴散端不需高壓。
 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
@@ -2670,7 +2670,7 @@ G2 把 SONOS 夾在開關電晶體之間。
 
 刺激: 側開關開啟；FN
 
-4 道光罩是公開整合數字。
+主要特性與 55BCD 範例列 4 道；成本段落另列 4–5 道，須依平台核對。
 
 **3. 關閉開關，電荷留在氮化層**
 
@@ -2785,7 +2785,7 @@ PGM → ERS → PGM
 
 寫入態待抹除
 
-寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。 — 單元回到可再次寫入的狀態；循環次數與保持條件須核對具名產品。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，選擇閘 (SG) 與抹除閘功能分開；本圖以 SG = 0 V 作教學偏壓，實際值須依具名巨集核對。 — 單元回到可再次寫入的狀態；循環次數與保持條件須核對具名產品。
 
 單元回到可再次寫入的狀態；循環次數與保持條件須核對具名產品。
 
@@ -2806,7 +2806,7 @@ SST SuperFlash 分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- SG · 選擇閘 (Wordline)；負責讀取選取，與抹除閘功能分開；抹除時 0 V 為本圖教學設定。
 - CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
 - EG · 獨立抹除閘；施加抹除偏壓經閘極間 FN 抹除；實際值依 PDK。
 - SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
@@ -2819,7 +2819,7 @@ SST SuperFlash 分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自
 
 依公開機制建立寫入態，不拼接未公開偏壓表。
 
-寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，選擇閘 (SG) 與抹除閘功能分開；本圖以 SG = 0 V 作教學偏壓，實際值須依具名巨集核對。
 
 **1. ESF3 單元就緒：SG、CG、FG 與 EG 4 閘極拓撲**
 
@@ -2848,7 +2848,7 @@ ESF3 自對準頂部耦合單元具備獨立 Erase Gate (EG)，突破 ESF1/ESF2 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- SG · 選擇閘 (Wordline)；負責讀取選取，與抹除閘功能分開；抹除時 0 V 為本圖教學設定。
 - CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
 - EG · 獨立抹除閘；施加抹除偏壓經閘極間 FN 抹除；實際值依 PDK。
 - SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
@@ -2863,7 +2863,7 @@ ESF3 自對準頂部耦合單元具備獨立 Erase Gate (EG)，突破 ESF1/ESF2 
 
 依公開機制做電性抹除，使單元回到可再寫窗口。
 
-寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，選擇閘 (SG) 與抹除閘功能分開；本圖以 SG = 0 V 作教學偏壓，實際值須依具名巨集核對。
 
 **1. 單元持有儲存電荷：準備專用 EG 抹除**
 
@@ -2871,15 +2871,15 @@ ESF3 自對準頂部耦合單元具備獨立 Erase Gate (EG)，突破 ESF1/ESF2 
 
 刺激: 偏壓為零
 
-ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線徹底解耦。
+ESF1/2 朝字元線多晶矽抹除；ESF3 引進專用 Erase Gate (EG)，將選擇與抹除閘功能分開。
 
 **2. EG 施加抹除偏壓：閘極間 FN 穿隧**
 
 狀態: 抹除中
 
-刺激: EG: ERS; SG = 0V
+刺激: EG: ERS; SG = 0 V（教學）
 
-電子由 FG 尖端穿隧至 EG；選擇閘 (SG) 維持 0V，將選擇控制與抹除偏壓分開；不由示意圖推定可靠度。
+電子由 FG 尖端穿隧至 EG；本圖設定 SG = 0 V，示意選擇與抹除閘功能分開。手冊未提供此端點偏壓表，實際值依具名巨集核對；不由示意圖推定可靠度。
 
 **3. FG 回到抹除態：可電性再次寫入**
 
@@ -2892,7 +2892,7 @@ ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- SG · 選擇閘 (Wordline)；負責讀取選取，與抹除閘功能分開；抹除時 0 V 為本圖教學設定。
 - CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
 - EG · 獨立抹除閘；施加抹除偏壓經閘極間 FN 抹除；實際值依 PDK。
 - SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
@@ -2907,7 +2907,7 @@ ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線
 
 以產品讀取條件感測已保留狀態，再鎖存與隔離。
 
-寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，選擇閘 (SG) 與抹除閘功能分開；本圖以 SG = 0 V 作教學偏壓，實際值須依具名巨集核對。
 
 **1. ESF3 單元待讀：4 閘極偏壓就緒**
 
@@ -2936,7 +2936,7 @@ ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- SG · 選擇閘 (Wordline)；負責讀取選取，與抹除閘功能分開；抹除時 0 V 為本圖教學設定。
 - CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
 - EG · 獨立抹除閘；施加抹除偏壓經閘極間 FN 抹除；實際值依 PDK。
 - SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
@@ -5640,7 +5640,7 @@ US6667902B2 的教學例以薄介電層儲存元件串接選擇電晶體；欄�
 
 操作後：薄介電層形成可感測導通；寫入驗證比較電流是否達到規定視窗，避免把僅略增漏電的狀態誤判為充分程式化。
 
-受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不得回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。
+受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），這組配對是本頁作者架構教學設定；所連專利支持 PMOS／I/O 裝置實施例，未提供 6.5 V／7.5 V 精確配對。它不是現行 NeoBit 巨集規格，也不得回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。
 
 #### 抹除：崩潰介電層不在正常操作中修復
 
@@ -5708,7 +5708,7 @@ US6667902B2 的教學例以薄介電層儲存元件串接選擇電晶體；欄�
 - [ch-pat-pmos-otp-6678190：力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2](https://patents.google.com/patent/US6678190B2/en)
 - [ch-pat-io-nvm-6920067：力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2](https://patents.google.com/patent/US6920067B2/en)
 - [ch-eetimes-neobit-2003：EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ch-author-pmos-io-pgm：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
+- [ch-author-pmos-io-pgm：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 - [ch-pat-pmos-vs-nmos-5761121：Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A](https://patents.google.com/patent/US5761121A/en)
 - [ch-maturity-kilopass：新思科技：2018 年收購 Kilopass 與 OTP 出貨聲明](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
 - [ch-maturity-otp-current：新思科技：現行 antifuse OTP NVM IP 產品頁](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html)
@@ -7875,35 +7875,35 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 ### 2019 · Samsung Foundry · eMRAM · 28FDS（28nm FD-SOI）
 
-量產：Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。
+量產：Samsung 正式宣布 28FDS eMRAM 商用量產，並稱相對 eFlash 的寫入速度約快一千倍。
 
-限制：28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。
+限制：速度為供應商比較主張，完整比較條件未公開。後段模組需新增製程層；不能寫成零新增光罩，也不能套用至後續 FinFET 巨集。
 
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process)
 
-### 2019 · Intel Foundry · STT-MRAM · 22FFL（22nm FinFET）
+### 2018 · Intel · STT-MRAM · 22FFL（22nm FinFET）
 
-生產就緒：IEDM 發表 22FFL 嵌入式 STT-MRAM 進入生產就緒，位元單元 0.0446 µm²，耐受 10^6 次循環。
+研究展示：IEDM 2018 論文 18.1 摘要以 7.2Mbit 陣列展示 22FFL 嵌入式 MRAM 的 200°C 十年保持能力及超過一百萬次循環。
 
-限制：公開文獻以 22FFL 原型與測試晶片為主，非全客戶通用開架式 PDK。
+限制：屬 2018 年研究摘要，不作 2019 生產就緒證明；完整電性、ECC 與現行供應狀態仍須另核。
 
-- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+- [FND-INTC-2018-22FFL：Intel：22FFL 嵌入式 MRAM 研究摘要（IEDM 2018）](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
 
-### 2024 · Samsung Foundry · 次世代 eMRAM／MBCFET GAA · SF3 / SF2（3nm / 2nm MBCFET）
+### 2024 · Samsung Foundry · GAA 邏輯製程背景 · SF3／SF2Z 等邏輯製程
 
-研發與技術路線規劃：Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。
+邏輯路線公告：SFF 2024 公開 GAA 邏輯製程與 SF2Z 背面供電路線；SF3 當時以 2024 下半年量產為目標。
 
-限制：SF3/SF2 為邏輯與 GAA 路線公告；eMRAM 仍屬研發／驗證目標，不能等同已量產嵌入式巨集。
+限制：這是 NVM 所處的邏輯製程背景，不是 SF3／SF2 eMRAM 開發或量產證據；目標不等於完成。
 
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SFF 2024 邏輯製程與 GAA 路線圖](https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024)
 
-### 2024 · Intel Foundry · 18A RibbonFET 與嵌入式 IP 生態 · 18A（1.8nm RibbonFET + PowerVia）
+### 2024 · Intel Foundry · 18A 邏輯製程與 EDA／IP 生態 · Intel 18A
 
-生產準備與生態系整合：Intel Foundry Direct Connect 2024 描述 18A 進入生產準備、PowerVia 背面供電與嵌入式 IP 生態目標。
+邏輯路線公告：2024 年官方公告介紹 18A 背面供電與 EDA／IP 設計支援，並以 2025 年重返製程領先為目標。
 
-限制：RibbonFET/PowerVia 邏輯進度不能自動推出具名節點的原生 AntiFuse、eMRAM 或 FeFET NVM 量產。
+限制：此為當年的邏輯路線與設計生態背景；未建立特定 AntiFuse、eMRAM 或 FeFET 巨集的開發、資格或量產。
 
-- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
+- [FND-INTC-2024-18A：Intel Foundry：18A 邏輯製程與設計生態公告](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html)
 
 ## 比較案例
 
@@ -8113,7 +8113,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 ## 共同詞彙
 
-- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。
+- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。此配對為本頁作者架構教學設定，不是現行 NeoBit 巨集規格；所連專利僅支持 PMOS／I/O 裝置實施例，未提供 6.5 V／7.5 V 精確配對。不可將這組數字套用到 core 閘氧擊穿 AntiFuse，後者的編程電壓取決於該製程閘氧。
 - Fowler–Nordheim（FN）穿隧：足夠強的電場改變介電層能障，使電子能夠穿隧。電子起點、終點及電場方向須分別說明。NeoEE 的雙向更新均採 FN；NeoMTP 的反向更新則讓電子以 FN 朝抹除閘極移動。
 - BBT、BBHH 與 DAHHI：能帶間穿隧（BBT）先在矽內產生電子／電洞對，再由高能電洞跨介電層，構成能帶間熱電洞注入（BBHH）。汲極雪崩熱電洞注入（DAHHI）以雪崩產生載子；同樣有熱電洞入閘極，不代表載子生成機制相同。
 - 直接穿隧與反熔絲讀取：力旺公開的超薄介電層說明指出，寫入造成缺陷、縮短有效穿隧距離，進而提高閘極電流。解讀 NeoFuse 時須保留這個具名機制，不能以理想金屬短路或泛稱陷阱輔助穿隧取代。
@@ -8154,7 +8154,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ch-pat-pmos-otp-6678190：力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2](https://patents.google.com/patent/US6678190B2/en)。專利；2004-01-13 公告；2026-09-11 查核；定位：圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V；限制：實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。
 - [ch-pat-io-nvm-6920067：力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2](https://patents.google.com/patent/US6920067B2/en)。專利；2005-07-19 公告；2026-09-11 查核；定位：說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式；限制：支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。
 - [ch-eetimes-neobit-2003：EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)。當代產業報導；2003-11-05；2026-09-11 查核；定位：Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM；限制：支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。
-- [ch-author-pmos-io-pgm：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。架構量級參考；2026-09-11 查核；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM；限制：依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。
+- [ch-author-pmos-io-pgm：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。作者指定教學參考；2026-09-11 查核；定位：本頁作者設定 3.3 V I/O PMOS cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM，並以同節點 NMOS 較高 Vpgm 作教學對照；所連專利支持 I/O 裝置實施例，未提供這組精確配對。；限制：此電壓配對為本頁作者架構教學設定。US6920067B2 僅支持 PMOS／I/O 裝置實施例，並非 6.5 V／7.5 V 精確配對的出處；不得外推現行 NeoBit 巨集規格，亦不得移作閘氧擊穿 AntiFuse。
 - [ch-pat-pmos-vs-nmos-5761121：Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A](https://patents.google.com/patent/US5761121A/en)。專利；1998-06-02 公告；2026-09-11 查核；定位：背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V；限制：這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。
 - [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)。專利；1978-09-26 公告；2026-09-10 查核；定位：原始公報首頁；圖 3i、6；權利項 2、9；優先權鏈中的母案；限制：1976-03-26 是所見母案日期，本案於 1977 年提出；最早優先權鏈不等於每一權利項的法律有效優先權判斷。
 - [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)。專利；1998-12-01 公告；2026-09-10 查核；定位：圖 3–6；埋入控制電極、厚薄氧化層及操作說明；權利項 1；限制：示範一種單層多晶矽 EEPROM；不可據此聲稱新思科技現行 MTP 採用本案結構或同一熱電子／穿隧路徑。
@@ -8285,10 +8285,11 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [FND-TSMC-SYMP-2025：台積電 2025 北美技術論壇新聞稿](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf)。年度技術論壇官方新聞稿；2025-04-23；查閱 2026-09-10；定位：三頁公開新聞稿；限制：主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。
 - [FND-TSMC-SYMP-2026：台積電 2026 北美技術論壇新聞稿與公開影音入口](https://pr.tsmc.com/english/news/3302)。年度技術論壇官方新聞稿；2026-04-23；查閱 2026-09-10；定位：美國活動日為 2026-04-22；新聞稿與技術亮點；限制：公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。
 - [FND-TSMC-SYMP-ACCESS：台積電 2026 技術論壇公開影音入口](https://www.tsmc.com/english/symposium_highlights/2026)。官方會議入口；2026；查閱 2026-09-10；定位：完整隨選視訊存取說明；限制：本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)。供應商官方新聞稿；2019-03-06；查閱 2026-09-10；定位：28FDS eMRAM 商用出貨與可靠性段落；限制：屬 28FDS 專用平台，後續延伸至 14FDS 與 8nm 射頻/車規需個別製程巨集資格。
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)。供應商技術論壇與產品白皮書；2024-06-12；查閱 2026-09-10；定位：SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃；限制：SF3 / SF2 平台之 eMRAM 目前處於技術研發與驗證目標階段，尚未宣告大量商用出貨。
-- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)。技術論壇論文與官方發布；2018-12-03；查閱 2026-09-10；定位：IEDM 2018 論文 13.3，22FFL STT-MRAM 單元與可靠性；限制：屬 22FFL 低功耗 FinFET 特殊製程，指標取決於 ECC 配置與工作溫度。
-- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)。供應商官方活動發布；2024-02-21；查閱 2026-09-10；定位：IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem；限制：18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process)。供應商官方新聞稿；2019-03-06；查閱 2026-10-09；定位：量產、相對寫入速度與後段模組整合段落；限制：相對速度缺少完整比較條件；本公告未提供完整循環、保持與迴焊矩陣，也未具名 NXP。後續 FinFET eMRAM 須依個別平台與巨集核對。
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SFF 2024 邏輯製程與 GAA 路線圖](https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024)。供應商官方新聞稿；2024-06-13；查閱 2026-10-09；定位：先進邏輯製程路線與 GAA 成熟度段落；限制：本來源未建立 SF3／SF2 eMRAM、OTP 巨集或相關電性規格；邏輯製程路線不能改寫為具名嵌入式 NVM 開發里程碑。
+- [FND-INTC-2018-22FFL：Intel：22FFL 嵌入式 MRAM 研究摘要（IEDM 2018）](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)。官方會議議程與論文摘要；2018-12-04；查閱 2026-10-09；定位：PDF 第 52 頁；12 月 4 日場次；論文 18.1；限制：摘要不提供完整測試矩陣、ECC 或 BER 條件；此來源不能單獨證明 2019 生產就緒或現行商用品供應。
+- [FND-INTC-2024-18A：Intel Foundry：18A 邏輯製程與設計生態公告](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html)。供應商官方新聞稿；2024-02-21；查閱 2026-10-09；定位：製程路線、18A 背面供電與 EDA／IP 設計支援段落；限制：一般邏輯製程及 IP 生態不證明原生 AntiFuse、eMRAM 或 FeFET 巨集的開發、資格或量產；來源未提供 NVM 專屬供電與效能規格。
+- [FND-SEC-CURRENT-EMRAM：Samsung 現行特殊製程頁：FinFET eMRAM 延伸](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)。供應商動態產品頁；未標示發布日期；查閱 2026-10-09；定位：eMRAM 段落；限制：無頁面更新日期；平台延伸不等於每個具名巨集完成資格或客戶大量出貨；本段未公開完整電性矩陣。
 - [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：現行產品原理；未公開全部偏壓及佈局。
 - [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)。公開專利；2005-07-05；定位：Figures 2(a), 2(b), 6; claims 1, 4；限制：p+ 浮動閘極模型；由 2005 年官方新聞連結，不能推定所有現行製程。
 - [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)。原始技術來源；2005-10-04；定位：Second body paragraph: patent title and inventors；限制：同名專利與 NeoBit 的直接歷史關聯。
@@ -8296,7 +8297,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)。公開專利；2004-01-13；定位：圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V；限制：實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)。公開專利；2005-07-19；定位：I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V；限制：支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)。當代產業報導；2003-11-05；定位：Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM；限制：0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。
-- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。架構量級參考；2026-09-11 查核；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM；限制：依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。
+- [ip-neobit-io-pgm-author：作者架構教學設定：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。作者指定教學參考；2026-09-11 查核；定位：本頁作者設定 3.3 V I/O PMOS cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM，並以同節點 NMOS 較高 Vpgm 作教學對照；所連專利支持 I/O 裝置實施例，未提供這組精確配對。；限制：此電壓配對為本頁作者架構教學設定。US6920067B2 僅支持 PMOS／I/O 裝置實施例，並非 6.5 V／7.5 V 精確配對的出處；不得外推現行 NeoBit 巨集規格，亦不得移作閘氧擊穿 AntiFuse。
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：阻抗式 OTP 及 GIDL 抑制；未公開完整層材。
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)。原始技術來源；2021-01-19；定位：Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling；限制：力旺署名原文；超薄氧化層的 DT 模型，不是所有世代的金屬導通絲。
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)。官方轉載主管訪談；2024-12-09；定位：NeoFuse: patented 3T design and regulating transistor；限制：確認 3T 與調節功能，未確認全部現行接線及剖面。
@@ -8333,11 +8334,11 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)。v；2026-09-16；定位：LogicFlash MTP：邏輯相容、0–1 道光罩、Flash-like byte PGM／sector 或 chip ERS、最高 10k 次；SuperMTP 標為開發中；未公開位元單元剖面。；限制：「類似 Flash」只證明介面與更新粒度，不證明 FN、HCI 或電荷捕捉層。
 - [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)。n；2016-08-30；定位：2016 年 Actt 併購 Chip Memory Technology (CMT)。；限制：CMT 是譜系名稱，不是現行公開 SKU。
 - [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)。v；2026-09-16；定位：TwinBit MTP 與 PermSRAM OTP 並列；TwinBit 以 CMOS 製程、零額外光罩為賣點。；限制：產品頁不把 TwinBit 寫成 PermSRAM 的熱載子氮化側牆。
-- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)。v；2026-09-16；定位：Gen-2 Pch Schottky；寫入熱電洞、抹除熱電子；40–22 nm、零額外光罩。；限制：未公開偏壓表或接面尺寸。
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/products/twinbit-gen2/)。v；2026-09-16；定位：Gen-2 Pch Schottky；寫入熱電洞、抹除熱電子；40–22 nm、零額外光罩。；限制：未公開偏壓表或接面尺寸。
 - [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)。v；2026-09-16；定位：零額外光罩 MTP；FN 寫入與抹除；180BCD 樣品；車規敘述。；限制：頁面本文 10K 與表格 >100k 不一致；不取循環次數當共通保證。
 - [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)。v；2024-12-09；定位：ZT 以浮動閘極為儲存節點。；限制：新聞未給多晶矽層數或井結構。
 - [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)。v；2026-09-16；定位：SONOS eFlash、2–3 道光罩、FN 寫抹、BCD。；限制：未公開氮化層厚度或偏壓表。
-- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)。v；2026-09-16；定位：SONOS 單元夾在開關電晶體之間；4 道光罩；VDD 讀取／不揮發化邏輯；標為持續開發。；限制：開發中敘述不能當已量產保證。
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)。v；2026-09-16；定位：SONOS 單元夾在開關電晶體之間；主要特性與 55BCD 範例列 4 道光罩，同頁成本段落另列 4–5 道，須依平台核對；VDD 讀取／不揮發化邏輯；標為持續開發。；限制：同頁光罩數未標明不同組態，須依目標平台核對；開發中敘述不能當已量產保證。
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)。v；2026-09-16；定位：SuperFlash 嵌入式快閃記憶體製程整合與授權入口。；限制：服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。v；2018-03；定位：第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。；限制：結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。
 - [ip-sst-esf-generations：SST：SuperFlash 三代技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。原廠技術手冊；2018-03；查閱 2026-10-09；定位：PDF 第 2 頁：三代結構、SSI 與多晶矽間 FN；第 3 頁：量產與平台範圍分列。；限制：未列 11.5V 或 40% 縮減；2018 年手冊不能證明 2026 年 28nm 跨廠量產或通用氧化層及 FinFET 配方。
@@ -8400,10 +8401,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [tdk-headway：TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf)。官方一手資料；2025-09-01；查閱 2026-09-10；定位：產品、技術或公告正文；限制：磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。
 - [numem-aime：Numem · Foundry-based STT-MRAM](https://numem.com/news)。官方一手資料；2025-06-10；查閱 2026-09-10；定位：產品、技術或公告正文；限制：節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。
 - [imec-sot：imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)。官方一手資料；2023-12-13；查閱 2026-09-10；定位：產品、技術或公告正文；限制：單元能量不含完整巨集週邊、匯流排與系統功耗；50nm是元件關鍵尺寸，不能直接稱50nm CMOS節點。
-- [RRAM-WEEBIT-2026：Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：首款客戶產品量產仍是後續里程碑。
+- [RRAM-WEEBIT-2026：Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-10-09；定位：產品、技術或公告正文；限制：首款客戶產品量產仍是後續里程碑。
 - [RRAM-ONSEMI-2026：onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不得由授權或技轉推論成品量產。
 - [RRAM-TI-2026：Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不可將 TI 已商用 FRAM 與此 ReRAM 導入混為一談。
-- [RRAM-SKYWATER-S130：SkyWater／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。
+- [RRAM-SKYWATER-S130：SkyWater／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)。官方一手資料；未標示發布日期；查閱 2026-10-09；定位：產品、技術或公告正文；限制：IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。
 - [RRAM-DBHITEK-130：DB HiTek／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：100K 次屬可延伸選項；不能把基礎 BCD 量產量當成 ReRAM 客戶產品出貨。
 - [RRAM-TSMC-IOT：TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)。官方一手資料；2024；查閱 2026-09-10；定位：產品、技術或公告正文；限制：12RRAM 風險試產不是全產品量產或車規資格。
 - [RRAM-INFINEON-TC4X：Infineon／TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031)。官方一手資料；2022-11-25；查閱 2026-09-10；定位：產品、技術或公告正文；限制：這份公告不證明所有 TC4x 型號均採 RRAM 或已完成量產；須查型號文件。
@@ -8455,19 +8456,20 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [RRAM-TETRAMEM-MLX200-2026：TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/)。官方一手資料；2026-05-19；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。
 - [RRAM-INTRINSIC-SURECORE：Intrinsic／sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)。官方一手資料；2016-08-31；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
-- [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)。供應商官方白皮書；2025-06；查閱 2026-09-17；定位：架構與認證章節；限制：屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。
+- [RES-PUFSEC-HROT-2025：PUFsecurity：PUFcc 原廠產品頁](https://www.pufsecurity.com/products/pufcc/pufcc/)。供應商動態產品頁；未標示發布日期；查閱 2026-10-09；定位：架構、功能與認證入口；限制：產品頁不提供涵蓋全部製程的量產或抗攻擊試驗矩陣；認證及安全宣稱須按具名版本另核。
 - [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/non-volatile-memory-nvm/)。晶圓代工官方製程文件；2024-11；查閱 2026-09-17；定位：Power Management & Embedded NVM 節；限制：單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。
-- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)。供應商技術規格與代工認證；2025-06-01；定位：官方技術頁與 SkyWater / DB HiTek 商業代工認證公告；限制：DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。
-- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/products)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：DB HiTek 130nm BCD 已完成資格驗證的 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)。供應商動態產品頁；未標示發布日期；查閱 2026-10-09；定位：DB HiTek 產品頁資格聲明與規格表；限制：IP 資格不等於客戶產品量產；本頁不建立 GF 22FDX 實施或通用 CIM 規格。
+- [RES-EVERSPIN-PLP-2025：Everspin 2025 年度 10-K：STT-MRAM 商品與製造](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)。公司監管申報；2026-03-04；查閱 2026-10-09；定位：產品概述、製造與 GlobalFoundries 合約段落；限制：介面、容量與製造條件須依產品分開；不能把 12nm 開發協議寫成商品量產，也不支持零延遲操作。
 - [RES-INFINEON-TC4X-2024：Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊](https://www.infineon.com/aurix-tc4x)。微控制器架構手冊；2024-11-20；定位：官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節；限制：證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。
 - [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
-- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)。安全技術白皮書；2025-05-12；定位：官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書；限制：利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。
+- [RES-INTRINSICID-QUIDDIKEY-2025：Synopsys PUF 原廠產品頁（Quiddikey 舊入口導向）](https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html)。供應商動態產品頁；未標示發布日期；查閱 2026-10-09；定位：PUF 安全概述與 Secure Storage 段落；限制：公司層級部署與認證敘述不作 Quiddikey 個別版本證明；未由此頁核定 6T、BCH、金鑰長度或全面免除佈建成本與外洩風險。
 - [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip.html)。產品規格手冊；2024-11-20；定位：官方硬體安全模組與安全開機架構發布；限制：整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。
-- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)。企業級安全白皮書；2025-02-18；定位：官方 PCIe/CXL IDE 與硬體信任根生命週期架構；限制：硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。
+- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：硬體信任根原廠產品組合](https://www.rambus.com/security/root-of-trust/)。供應商動態產品頁；未標示發布日期；查閱 2026-10-09；定位：CryptoManager 與 IoT／MCU 產品段落及功能表；限制：功能與認證依具名版本；此頁不單獨支持 SPDM／IDE、AntiFuse、全供應鏈憑證及廣泛採用的組合敘述。
 - [RES-P-SPINMEM-PSC：Spin Memory：PSC 與 skyrmionic 增強層專利](https://patents.google.com/patent/US10468588B2/en)。公開專利；2019-11-05；查閱 2026-10-09；定位：圖 3；權利項 1、8、20；原始申請人 Spin Memory Inc；限制：限定含 PSC、耦合層與增強層的實施例；不保證次 3ns、耐久或商用量產。
 - [RES-P-CROCUS-TAS：Crocus：具加熱元件與熱障壁的 TAS-MRAM 專利](https://patents.google.com/patent/US8717812B2/en)。公開專利；2014-05-06；查閱 2026-10-09；定位：圖 1、2；權利項 1；TAS 寫入與冷卻鎖定說明；限制：加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。
 - [RES-P-4DS-PCMO：4DS：PCMO 面積型介面切換技術](https://www.4dsmemory.com/technology/4ds-technology/)。原廠技術說明；未標發布日期；查核 2026-10-09；查閱 2026-10-09；定位：PCMO and Area Based Interface Switching；限制：原廠描述氧進入位點時 SET、氧耗盡時 RESET；不支持精確化學比例、通用肖特基曲線或無 Forming 保證。
 - [RES-P-ADESTO-CBRAM：Adesto：CBRAM 可靠度研究公告](https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive)。原廠研究公告；未標發布日期；查核 2026-10-09；查閱 2026-10-09；定位：CBRAM 研究與歷史 IoT 商品敘述；限制：支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。
+- [RRAM-TSMC-CURRENT-NVM：台積電現行 eNVM 頁：N12e RRAM 商用量產](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)。官方動態產品頁；未標示發布日期；查閱 2026-10-09；定位：嵌入式 RRAM 段落；限制：無日期現況快照；不提供唯一首次量產日，也不證明 12nm 車用資格。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
@@ -8647,7 +8649,7 @@ HD-MTP 葉是 CHI／FN 浮閘。Schottky TwinBit 兩邊都不掛。
 電荷捕捉。G1 與 G2 同為 SONOS，但光罩、讀取與陣列組織不同，不併成一格規格。
 
 - Floadia · LEE Flash G1（#ip-floadia-g1）：SONOS、+2–3 道光罩、FN 寫抹；公開敘述含 BCD。
-- Floadia · LEE Flash G2（#ip-floadia-g2）：SONOS 夾在開關電晶體之間、+4、VDD 讀；原廠標持續開發。不是 G1 的節點延伸。
+- Floadia · LEE Flash G2（#ip-floadia-g2）：SONOS 夾在開關電晶體之間；主要特性與 55BCD 範例列 4 道光罩，同頁成本段落另列 4–5 道，須依目標平台核對。VDD 讀取，原廠標持續開發；不推定為 G1 的節點延伸。
 
 ### 利基 eFlash（常憶 pFusion／智憶 SilvoFlash）
 
@@ -8858,43 +8860,43 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 ### Samsung Foundry 28FDS eMRAM
 
-寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次迴焊 (JEDEC 260°C)。
+供應商稱寫入速度約為 eFlash 的一千倍；本公告未提供完整循環、保持與迴焊矩陣。
 
-商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。
+2019 年商用量產公告；後段模組需新增製程層，沒有零新增光罩或具名 NXP 採用證據。
 
-14FDS 與 8nm 衍生節點之車規 Grade 1/Grade 0 需對應巨集之專屬驗證報告。
+相對速度不是完整系統延遲；比較負載與後續 FinFET 巨集資格須另核。
 
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process)
 
-### Samsung Foundry SF3／SF2 MBCFET eNVM
+### Samsung Foundry 14LPU／8LPU eMRAM；5nm 規畫
 
-規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。
+現行官方頁確認 MTJ 模組延伸至 14LPU、8LPU，5nm 為相容性延伸規畫；未列完整電性矩陣。
 
-3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。
+無日期產品頁的 2026-10-09 現況快照；14LPU 與 8LPU 為 FinFET 製程。
 
-屬於先進節點研發與路線圖前瞻規劃，目前無公開出貨之單元電性測試矩陣。
+不推定 SF3／SF2 的 eMRAM、OTP、低於 1V 或特定熱預算；平台相容不代表每個巨集完成車規或大量出貨。
 
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)
+- [FND-SEC-CURRENT-EMRAM：Samsung 現行特殊製程頁：FinFET eMRAM 延伸](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)
 
-### Intel Foundry 22FFL STT-MRAM
+### Intel 22FFL 嵌入式 MRAM（IEDM 2018）
 
-單元面積 0.0446 µm²；10^6 次循環；125°C 下 10 年保持、200°C 下 100 萬秒保持；1E-9 BER (低錯誤率)；百萬門邏輯相容。
+7.2Mbit 研究陣列；摘要報告 200°C 十年保持能力與超過一百萬次循環。
 
-IEDM 2018 論文揭露並進入生產就緒；採用 22nm 低漏電 FinFET 基礎製程；純 BEOL 整合。
+IEDM 2018 論文 18.1，2018-12-04 場次；本輪核讀官方議程摘要。
 
-寫入錯誤率受限於電流脈衝寬度與陣列磁場干擾，需搭配內部 ECC 引擎達到汽車級高可靠性。
+未取得完整論文測試矩陣，不補入單元面積、BER、ECC 或車規結論；研究展示不等於生產就緒。
 
-- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+- [FND-INTC-2018-22FFL：Intel：22FFL 嵌入式 MRAM 研究摘要（IEDM 2018）](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
 
-### Intel Foundry 18A RibbonFET BSPDN eNVM
+### Intel 18A 邏輯製程與背面供電背景
 
-結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。
+2024 年公告介紹 18A 背面供電及 EDA／IP 設計支援；未提供 NVM 專屬性能。
 
-1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。
+歷史邏輯路線公告，包含 2025 年製程領先目標；不是具名 eNVM 巨集規格。
 
-目前處於生產準備與客戶投片測試階段，前瞻 eMRAM / FeFET 巨集完成量產仍需後續里程碑確認。
+不由一般邏輯或供電架構推定原生 AntiFuse、eMRAM／FeFET、金鑰儲存密度或零壓降。
 
-- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
+- [FND-INTC-2024-18A：Intel Foundry：18A 邏輯製程與設計生態公告](https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html)
 
 ## 路線圖閱讀修正
 
@@ -10670,15 +10672,16 @@ IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模�
 
 ### TSMC · ReRAM
 
-嵌入式記憶體晶圓代工 · 40／22 已量產；12 風險試產
+嵌入式記憶體晶圓代工 · 40／28／22／12nm eRRAM 已量產
 
-官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。
+現行 eNVM 頁確認 N12e RRAM 已商用量產；IoT 頁另記錄 12RRAM 於 2024 年進入消費級風險試產。
 
-12RRAM 風險試產不是全產品量產或車規資格。
+2024 歷史事件與現況分開引用；不指定唯一首次量產日，也不推定 12nm 車用資格。
 
-來源日期／事件期間: 2024 · 查核 2026-09-10
+2024 歷史里程碑；現況頁查核 2026-10-09
 
 - [RRAM-TSMC-IOT：TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)
+- [RRAM-TSMC-CURRENT-NVM：台積電現行 eNVM 頁：N12e RRAM 商用量產](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
 
 ### Infineon / TSMC · ReRAM
 
@@ -11315,17 +11318,17 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
 
-### PUFsecurity 熵碼科技 · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)
+### PUFsecurity 熵碼科技 · PUFcc：PUF、安全 OTP 與密碼協同處理器
 
-晶片硬體信任根與安全矽智財供應商 · 商用量產；TSMC / UMC 先進與成熟節點認證 (5nm–55nm)
+晶片硬體信任根與安全矽智財供應商 · 原廠產品與認證資訊；製程及量產範圍另核
 
-基於 0 額外光罩之 NeoPUF 與 AntiFuse OTP，將微觀閘極氧化層量子穿隧隨機變異轉化為晶片硬體指紋；整合 NIST SP 800-90B TRNG、安全金鑰儲存與對稱/非對稱硬體密碼引擎 (AES/ECC/RSA)，提供從晶片製造、安全引導 (Secure Boot) 到雲端生命週期管理之全鏈路硬體信任根。
+原廠將 PUFcc 描述為結合 PUFrt 硬體信任根、安全 OTP、密碼加速器與真亂數產生器的 IP，提供金鑰處理、安全啟動及外部 Flash 保護功能。
 
-依賴標準邏輯 CMOS 閘極氧化層穿隧物理；物理不可複製金鑰無實體電荷儲存（免疫 TEM/SEM 靜態化學檢測），但週邊數位控制器仍須落實多層 DPA 側信道防護與頂層金屬主動屏蔽。
+這是原廠產品功能主張，安全範圍與條件未獨立核實；未由此頁確認所有 TSMC／UMC 節點量產、TEM／SEM 攻擊免疫或各產品共用同一認證。認證須對應具名版本與證書。
 
-2025–2026 官方白皮書與量產認證
+無日期產品頁；查核 2026-10-09
 
-- [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)
+- [RES-PUFSEC-HROT-2025：PUFsecurity：PUFcc 原廠產品頁](https://www.pufsecurity.com/products/pufcc/pufcc/)
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 
 ### Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP
@@ -11342,40 +11345,42 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 ### Weebit Nano · 嵌入式 ReRAM (OxRAM) 與類比 CIM 研究
 
-獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商 · DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。
+嵌入式 ReRAM 矽智財研發與授權商 · DB HiTek 與 SkyWater 130nm IP 已完成資格驗證；客戶產品量產另核
 
-公開 OxRAM 路線以 SiOx 活性層為主（例如 TiN 底電極／Ti 頂電極的 IMW 2019 樣本）；DB HiTek 130nm 提供 qualified IP（2 masks、10K cycles、125°C 保持等具名條件）。SkyWater 130nm 與 GF 22FDX 為不同平台階段；類比 CIM 研究與客戶量產須分開，不得合成單一規格。
+DB HiTek 130nm BCD IP 已完成資格驗證且可整合；SkyWater S130 IP 已依 JEDEC 與 AEC-Q100 驗證並具生產準備。2026 年 7 月公告三個客戶設計已投片，產品仍需測試及資格驗證後才進入量產。
 
-商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。
+IP 已完成資格驗證與具生產準備不等於客戶產品量產完成。所引 IP 頁的 22nm FD-SOI 試驗投片段落未具名 GF；類比 CIM 研究與儲存產品規格須分開。
 
-2024–2026 製程認證與技術白皮書
+無日期 IP 頁與 2026-07-31 公告；查核 2026-10-09
 
-- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：DB HiTek 130nm BCD 已完成資格驗證的 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+- [RRAM-SKYWATER-S130：SkyWater／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)
+- [RRAM-WEEBIT-2026：Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
 
 ### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
 
-獨立式與嵌入式 MRAM 晶片與矽智財供應商 · 商用量產出貨；GlobalFoundries 22FDX/12LP FinFET 與 TSMC 代工製造
+獨立式與嵌入式 MRAM 晶片與矽智財供應商 · STT-MRAM 商用出貨；GF 300mm 製造
 
-採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。
+2025 年度 10-K 確認 1Gb STT-MRAM 持續出貨，並將 STT 商品組合的 DDR3／DDR4 衍生介面定位於資料中心持續性記憶體；其他商品家族另有 SPI／xSPI 等序列介面。STT-MRAM 製造列為 GF 300mm，12nm 合作另列共同開發。
 
-單位位元成本高於 DRAM 與 NAND Flash；主要作為系統持久快取與寫入日誌緩衝區（Write Buffer），非取代主容量儲存。
+獨立式商品不能與 GF 22FDX 嵌入式巨集合併，12nm 開發協議也不等於量產。耐久、寫入延遲與斷電保護架構須依具名料號及控制器核對；未建立零延遲或無限耐寫保證。
 
-2024–2026 商用量產手冊
+2025 年度；申報 2026-03-04；查核 2026-10-09
 
-- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/products)
+- [RES-EVERSPIN-PLP-2025：Everspin 2025 年度 10-K：STT-MRAM 商品與製造](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 - [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 
-### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
+### Intrinsic ID Quiddikey／Synopsys PUF · SRAM PUF 與金鑰產生
 
-實體不可複製功能 (PUF) 與晶片安全矽智財供應商 · 全球商用出貨超過 5 億顆晶片；支援 TSMC, UMC, GF, Intel, Samsung 各先進與成熟製程
+實體不可複製功能 (PUF) 與晶片安全矽智財供應商 · 原廠 PUF IP 產品；具名版本與採用規模另核
 
-利用晶片原生標準 6T SRAM 上電時隨機臨界電壓 mismatch 作為物理指紋，搭配公開儲存之 Activation Code（Helper Data），透過模糊提取器重構 256-bit 根金鑰；徹底免除封測廠安全金鑰注入成本與私鑰外洩風險。
+Quiddikey 舊官方網址現導向 Synopsys PUF 頁。原廠描述利用每顆晶片的固有差異產生識別碼與密碼金鑰，並將 SRAM PUF、OTP 與密碼技術結合於安全儲存方案。
 
-依賴上電瞬態提取，工作金鑰存於揮發性暫存器，需搭配軟硬體防側信道遮罩與單週期清零機制。
+原廠功能與採用主張的範圍未獨立核實；公司整體 PUF 部署數與認證不能直接套用 Quiddikey 特定版本。本頁不證明完全消除金鑰外洩風險或所有佈建成本，也未核定單週期清零要求。
 
-2024–2026 商用架構手冊
+舊入口導向現行產品頁；查核 2026-10-09
 
-- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)
+- [RES-INTRINSICID-QUIDDIKEY-2025：Synopsys PUF 原廠產品頁（Quiddikey 舊入口導向）](https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html)
 
 ### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
 
@@ -11389,17 +11394,17 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 - [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip.html)
 
-### Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust
+### Rambus (CryptoManager™ Root of Trust) · CryptoManager 硬體信任根；SPDM／IDE 整合條件另核
 
-高速互連安全與晶片生命週期金鑰託管領導廠商 · 資料中心 AI 加速卡、CXL 記憶體擴展器與伺服器晶片廣泛採用
+硬體信任根與安全矽智財供應商 · 原廠產品組合；具名客戶採用範圍未核實
 
-支援 DMTF SPDM 1.2/1.3 設備證明與線速 PCIe/CXL IDE 加密，搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠至 CSP 資料中心的端到端不可偽造憑證鏈。
+原廠將 CryptoManager 描述為可程式化硬體信任根產品，列出安全啟動、安全除錯、金鑰與資產管理等功能；產品組合另涵蓋資料中心、車用與 IoT／MCU。
 
-專注於資料中心、雲端運算與企業伺服器高速介面保護，消費級極小晶片通常簡化此架構。
+這是原廠功能及目標市場主張，範圍與條件未獨立核實；目標市場不等於廣泛採用。所引頁面未建立 SPDM 特定版本、PCIe／CXL IDE 線速、AntiFuse 儲存實施或不可偽造憑證鏈的整組承諾。
 
-2024–2026 產品手冊
+無日期產品頁；查核 2026-10-09
 
-- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)
+- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：硬體信任根原廠產品組合](https://www.rambus.com/security/root-of-trust/)
 
 ### Spin Memory (Spin Transfer Technologies) · Spin Memory：PSC 與 skyrmionic 增強層專利
 

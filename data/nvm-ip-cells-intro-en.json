@@ -40,7 +40,7 @@
       "program": "Hot-hole-induced electron injection",
       "reverse": "No electrical erase in normal OTP operation",
       "readout": "P-type storage-channel current",
-      "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse."
+      "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. For architecture teaching, this page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and 7.5 V for a 5 V cell, with a higher n-type Vpgm in the same-node comparison. These are author-defined teaching values, not specifications for current NeoBit macros. The linked patent supports PMOS/I/O-device embodiments but does not provide this exact voltage pairing; the values must not be transferred to core-GOX-breakdown AntiFuse."
     },
     {
       "id": "neofuse",
@@ -338,7 +338,7 @@
       "vendor": "Floadia",
       "group": "eflash",
       "hostTopic": "sonos",
-      "summary": "A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development.",
+      "summary": "A SONOS storage cell sandwiched by switch transistors. The vendor’s main features and 55BCD example specify four extra masks; its cost section also states 4–5, so confirm the target platform. The vendor emphasizes VDD read without high voltage on diffusion terminals and marks ongoing development.",
       "program": "FN program through the side switches",
       "reverse": "Reverse FN erase through the side switches",
       "readout": "Sense after the side switches turn on at VDD",
@@ -350,7 +350,7 @@
         "definition": "The same sandwiched SONOS cell supports programming, electrical erase and subsequent programming. Side switches select the cell; storage remains in the nitride trap layer.",
         "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
         "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.",
-        "limits": "The vendor marks ongoing development. VDD read does not mean erase needs no internal high-voltage generation. Four extra masks must not be extrapolated to G1 or ZT.",
+        "limits": "The vendor marks ongoing development. VDD reading does not eliminate internal erase-voltage generation. Main features and the 55BCD example list four masks, while the same page’s cost section lists 4–5 without identifying a different configuration. Confirm the target platform; do not extrapolate to G1 or ZT.",
         "sourceIds": [
           "ip-floadia-g2"
         ]

@@ -266,7 +266,7 @@
           "before": "The storage dielectric is intact and the selected bit has low leakage. Other cells in the same row and column must remain unprogrammed.",
           "stimulus": "In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-select line, a 0 V source line, and a 7 V selected column line. These values apply only to that structure and period, not to current product operation.",
           "after": "The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.",
-          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
+          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). This pairing is the author-defined architecture teaching assumption used on this page. The linked patent supports PMOS/I/O-device embodiments, not the exact 6.5 V/7.5 V pairing. It is not a specification for current NeoBit macros and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
         },
         {
           "id": "erase",
@@ -2826,7 +2826,7 @@
             {
               "id": "floadia-g2",
               "name": "Floadia · LEE Flash G2",
-              "map": "SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1."
+              "map": "SONOS sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the same page’s cost section lists 4–5. Confirm the target platform. VDD read; marked ongoing development. Do not infer a G1 node extension."
             }
           ]
         },
@@ -3096,7 +3096,7 @@
     "glossary": [
       {
         "term": "CHI and CHEI",
-        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O FG HCI pairing is public literature / architecture-class and must not be mixed with core-oxide-breakdown AntiFuse, whose program voltage tracks that process gate oxide rather than this I/O floating-gate window."
+        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. This is the author-defined architecture teaching pairing used on this page, not a specification for current NeoBit macros. The linked patent supports PMOS/I/O-device embodiments but does not provide the exact 6.5 V/7.5 V pairing. Do not transfer these values to core-oxide-breakdown AntiFuse, whose program voltage depends on its process gate oxide."
       },
       {
         "term": "Fowler–Nordheim (FN) Tunneling",
@@ -3510,50 +3510,62 @@
       {
         "id": "FND-SEC-2019-28FDS",
         "label": "Samsung Foundry: 28FDS eMRAM commercial production announcement",
-        "url": "https://news.samsung.com/global/",
+        "url": "https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process",
         "kind": "Vendor official press release",
         "date": "2019-03-06",
-        "locator": "28FDS eMRAM commercial shipment and reliability section",
-        "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM with faster writes and lower power versus eFlash alternatives.",
+        "locator": "Mass production, relative write speed and backend module integration paragraphs",
+        "claim": "Samsung announced commercial 28FDS eMRAM production in 2019. The vendor claims roughly 1,000 times the write speed of eFlash; backend integration adds process layers.",
         "evidence": "Full official press release reviewed",
-        "limit": "28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.",
-        "accessedAt": "2026-09-10"
+        "limit": "The relative-speed claim lacks complete comparison conditions. This release does not provide a complete endurance, retention and reflow matrix or name NXP. Later FinFET eMRAM requires platform- and macro-specific evidence.",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "FND-SEC-2024-MBCFET",
-        "label": "Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap",
-        "url": "https://semiconductor.samsung.com/foundry/process-technology/",
-        "kind": "Vendor technology forum and product brief",
-        "date": "2024-06-12",
-        "locator": "SFF 2024 MBCFET GAA and advanced embedded NVM planning",
-        "claim": "Samsung publicly discusses SF3/SF2 GAA platforms with advanced embedded eMRAM development goals for automotive HPC and edge AI.",
-        "evidence": "Official technology forum summary reviewed",
-        "limit": "SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.",
-        "accessedAt": "2026-09-10"
+        "label": "Samsung Foundry: SFF 2024 Logic Process and GAA Roadmap",
+        "url": "https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024",
+        "kind": "Vendor official press release",
+        "date": "2024-06-13",
+        "locator": "Advanced logic-process roadmap and GAA maturity sections",
+        "claim": "SFF 2024 describes SF2Z backside power delivery, SF4U and SF3 logic-process roadmaps. SF3 volume production was then targeted for H2 2024.",
+        "evidence": "Official press release body reviewed",
+        "limit": "This source does not establish SF3/SF2 eMRAM, OTP macros or associated electrical specifications. A logic roadmap is not a named embedded-NVM development milestone.",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "FND-INTC-2018-22FFL",
-        "label": "Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)",
-        "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
-        "kind": "Conference paper and official release",
-        "date": "2018-12-03",
-        "locator": "IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability",
-        "claim": "Intel published 22FFL FinFET embedded STT-MRAM with 0.0446 µm² cell, 10^6 endurance, 200°C retention, and 1E-9 BER under named ECC conditions.",
-        "evidence": "IEDM paper and official release reviewed",
-        "limit": "22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.",
-        "accessedAt": "2026-09-10"
+        "label": "Intel: 22FFL Embedded MRAM Research Abstract (IEDM 2018)",
+        "url": "https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf",
+        "kind": "Official conference program and paper abstract",
+        "date": "2018-12-04",
+        "locator": "PDF page 52; December 4 session; paper 18.1",
+        "claim": "The Intel 22FFL embedded-MRAM abstract reports 7.2Mbit arrays demonstrating 200°C ten-year retention capability and endurance exceeding one million cycles.",
+        "evidence": "Paper abstract in the official IEDM program reviewed; the full paper test matrix was not obtained",
+        "limit": "The abstract does not provide a complete test matrix, ECC or BER conditions. It alone establishes neither 2019 production readiness nor current commercial availability.",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "FND-INTC-2024-18A",
-        "label": "Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap",
-        "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
-        "kind": "Vendor official event release",
+        "label": "Intel Foundry: 18A Logic Process and Design Ecosystem Announcement",
+        "url": "https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html",
+        "kind": "Vendor official press release",
         "date": "2024-02-21",
-        "locator": "IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem",
-        "claim": "Intel 18A integrates RibbonFET GAA with PowerVia BSPDN for next-gen dense embedded memory and logic AntiFuse OTP key cells.",
-        "evidence": "Official release and technical brief reviewed",
-        "limit": "18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.",
-        "accessedAt": "2026-09-10"
+        "locator": "Process roadmap, 18A backside power and EDA/IP enablement sections",
+        "claim": "The 2024 announcement describes 18A backside power delivery and EDA/IP ecosystem support, targeting process leadership in 2025.",
+        "evidence": "Official press release body reviewed",
+        "limit": "General logic-process and IP enablement do not establish development, qualification or production of native AntiFuse, eMRAM or FeFET macros. The source provides no NVM-specific power or performance specifications.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "id": "FND-SEC-CURRENT-EMRAM",
+        "url": "https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/",
+        "date": null,
+        "label": "Samsung Current Specialty Page: FinFET eMRAM Expansion",
+        "kind": "Vendor dynamic product page",
+        "locator": "eMRAM section",
+        "claim": "The current page lists MTJ-module expansion to 14LPU and 8LPU FinFET processes, with compatibility planned for 5nm.",
+        "evidence": "Current official body text reviewed",
+        "limit": "The page has no revision date. Platform expansion does not establish qualification of every named macro or customer volume shipments; this section provides no complete electrical matrix.",
+        "accessedAt": "2026-10-09"
       }
     ],
     "annualForumCoverage": [
@@ -3638,6 +3650,42 @@
           "FND-TSMC-2025-20F"
         ],
         "limit": "Without complete macro data, no single shared endurance or retention value is assigned to all RRAM."
+      },
+      {
+        "platform": "Samsung Foundry 28FDS eMRAM",
+        "values": "The vendor claims roughly 1,000 times the write speed of eFlash. This release provides no complete endurance, retention or reflow matrix.",
+        "conditions": "2019 commercial-production announcement; backend integration adds process layers. The release establishes neither zero added masks nor named NXP adoption.",
+        "sourceIds": [
+          "FND-SEC-2019-28FDS"
+        ],
+        "limit": "Relative write speed is not full system latency. Comparison workloads and later FinFET macro qualifications require separate evidence."
+      },
+      {
+        "platform": "Samsung Foundry 14LPU/8LPU eMRAM; Planned 5nm Expansion",
+        "values": "The current official page confirms MTJ-module expansion to 14LPU and 8LPU, with compatibility planned for 5nm; it provides no complete electrical matrix.",
+        "conditions": "October 9, 2026 snapshot of an undated product page; 14LPU and 8LPU are FinFET processes.",
+        "sourceIds": [
+          "FND-SEC-CURRENT-EMRAM"
+        ],
+        "limit": "Do not infer SF3/SF2 eMRAM, OTP, sub-1V operation or a specific thermal budget. Platform compatibility does not qualify every macro or prove volume shipments."
+      },
+      {
+        "platform": "Intel 22FFL Embedded MRAM (IEDM 2018)",
+        "values": "7.2Mbit research arrays; the abstract reports 200°C ten-year retention capability and endurance exceeding one million cycles.",
+        "conditions": "IEDM 2018 paper 18.1, December 4, 2018 session; the official program abstract was reviewed.",
+        "sourceIds": [
+          "FND-INTC-2018-22FFL"
+        ],
+        "limit": "The full paper test matrix was not obtained; no cell-area, BER, ECC or automotive conclusion is added. Research demonstration is not production readiness."
+      },
+      {
+        "platform": "Intel 18A Logic Process and Backside-Power Context",
+        "values": "The 2024 announcement describes 18A backside power and EDA/IP enablement; it provides no NVM-specific performance.",
+        "conditions": "Historical logic-roadmap announcement including a 2025 process-leadership target, not a named eNVM macro specification.",
+        "sourceIds": [
+          "FND-INTC-2024-18A"
+        ],
+        "limit": "General logic and power architecture do not establish native AntiFuse, eMRAM/FeFET, key-storage density or zero voltage drop."
       }
     ],
     "corrections": [
@@ -4021,21 +4069,21 @@
         "technology": "eMRAM",
         "node": "28FDS (28nm FD-SOI)",
         "stage": "Volume production",
-        "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM.",
-        "limit": "FD-SOI platform with BEOL adders; do not equate with logic-roadmap 0-mask claims or bulk FinFET NVM.",
+        "claim": "Samsung announced commercial 28FDS eMRAM production and claimed roughly 1,000 times the write speed of eFlash.",
+        "limit": "The speed figure is a vendor comparison without complete disclosed conditions. Backend integration adds process layers; it is not a zero-mask claim and does not specify later FinFET macros.",
         "sourceIds": [
           "FND-SEC-2019-28FDS"
         ]
       },
       {
         "id": "INTC-2019",
-        "year": 2019,
-        "foundry": "Intel Foundry",
+        "year": 2018,
+        "foundry": "Intel",
         "technology": "STT-MRAM",
         "node": "22FFL (22nm FinFET)",
-        "stage": "Production-ready",
-        "claim": "IEDM 2018/2019 publications describe 22FFL embedded STT-MRAM approaching production readiness.",
-        "limit": "Evidence centers on 22FFL test vehicles; not an open PDK for every customer.",
+        "stage": "Research demonstration",
+        "claim": "IEDM 2018 paper 18.1 reports 7.2Mbit arrays demonstrating 22FFL embedded MRAM with 200°C ten-year retention capability and endurance exceeding one million cycles.",
+        "limit": "This is a 2018 research abstract, not proof of 2019 production readiness. Complete electrical and ECC conditions and current availability require separate evidence.",
         "sourceIds": [
           "FND-INTC-2018-22FFL"
         ]
@@ -4044,11 +4092,11 @@
         "id": "SEC-2024",
         "year": 2024,
         "foundry": "Samsung Foundry",
-        "technology": "Next-gen eMRAM / MBCFET GAA",
-        "node": "SF3 / SF2",
-        "stage": "Roadmap / R&D",
-        "claim": "Samsung Foundry Forum materials discuss advanced-node eMRAM direction alongside MBCFET logic roadmaps.",
-        "limit": "SF3/SF2 logic announcements do not by themselves prove shipped eMRAM macros; separate NVM milestones required.",
+        "technology": "GAA logic-process context",
+        "node": "SF3/SF2Z and related logic processes",
+        "stage": "Logic roadmap announcement",
+        "claim": "SFF 2024 describes GAA logic and SF2Z backside-power roadmaps; SF3 volume production was then targeted for H2 2024.",
+        "limit": "This supplies logic-process context for NVM, not evidence of SF3/SF2 eMRAM development or production. A target is not completion.",
         "sourceIds": [
           "FND-SEC-2024-MBCFET"
         ]
@@ -4057,11 +4105,11 @@
         "id": "INTC-2024",
         "year": 2024,
         "foundry": "Intel Foundry",
-        "technology": "18A RibbonFET + embedded NVM ecosystem",
-        "node": "18A",
-        "stage": "Production preparation",
-        "claim": "Intel Foundry Direct Connect 2024 describes 18A production preparation, PowerVia BSPDN, and embedded IP ecosystem goals.",
-        "limit": "RibbonFET/PowerVia logic progress does not automatically prove native AntiFuse, eMRAM, or FeFET NVM at named nodes.",
+        "technology": "18A logic process and EDA/IP ecosystem",
+        "node": "Intel 18A",
+        "stage": "Logic roadmap announcement",
+        "claim": "The 2024 release describes 18A backside power delivery and EDA/IP enablement, targeting process leadership in 2025.",
+        "limit": "This is announcement-time logic-roadmap and design-ecosystem context. It establishes no development, qualification or production of specific AntiFuse, eMRAM or FeFET macros.",
         "sourceIds": [
           "FND-INTC-2024-18A"
         ]
@@ -4843,7 +4891,7 @@
         "label": "Weebit Nano · ReRAM",
         "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
         "date": "2026-07-31",
-        "accessedAt": "2026-09-10",
+        "accessedAt": "2026-10-09",
         "kind": "Official primary source",
         "locator": "Product, technology or announcement text",
         "claim": "Three customer designs had taped out by July 2026, with a prototype running software.",
@@ -4876,7 +4924,7 @@
         "label": "SkyWater／Weebit Nano · ReRAM",
         "url": "https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/",
         "date": null,
-        "accessedAt": "2026-09-10",
+        "accessedAt": "2026-10-09",
         "kind": "Official primary source",
         "locator": "Product, technology or announcement text",
         "claim": "The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL.",
@@ -5440,15 +5488,15 @@
       },
       {
         "id": "RES-PUFSEC-HROT-2025",
-        "label": "PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper",
-        "url": "https://www.pufsecurity.com/pufcc",
-        "kind": "Vendor Official Whitepaper",
-        "date": "2025-06",
-        "locator": "Architecture and Qualification Sections",
-        "claim": "NeoPUF harnesses microscopic gate oxide quantum tunneling variations for zero-mask chip fingerprinting across TSMC and UMC nodes; PUFcc integrates NIST SP 800-90B TRNG, secure OTP, and cryptographic engines with PSA Certified Level 3 and SESIP Level 3 compliance.",
-        "evidence": "Verified official whitepaper and architecture briefs",
-        "limit": "Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.",
-        "accessedAt": "2026-09-17"
+        "label": "PUFsecurity: Official PUFcc Product Page",
+        "url": "https://www.pufsecurity.com/products/pufcc/pufcc/",
+        "kind": "Vendor dynamic product page",
+        "date": null,
+        "locator": "Architecture, features and certification links",
+        "claim": "The vendor describes PUFrt, secure OTP, cryptographic accelerators, a true random number generator and secure boot among PUFcc features.",
+        "evidence": "Current official product text reviewed; individual certificates and attack-test reports were not independently checked",
+        "limit": "The page provides no production or attack-test matrix covering every process. Certifications and security claims require version-specific verification.",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "RES-TOWER-YFLASH-2024",
@@ -5464,21 +5512,25 @@
       },
       {
         "id": "RES-WEEBIT-RERAM-2025",
-        "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
+        "label": "Weebit Nano: Qualified ReRAM IP in DB HiTek 130nm BCD",
         "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
-        "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
-        "kind": "Supplier technical specification & foundry qualification",
-        "date": "2025-06-01",
-        "limit": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence."
+        "locator": "DB HiTek product-page qualification statement and feature table",
+        "kind": "Vendor dynamic product page",
+        "date": null,
+        "limit": "IP qualification is not customer-product volume production. The page does not establish a GF 22FDX implementation or universal CIM specifications.",
+        "accessedAt": "2026-10-09",
+        "claim": "DB HiTek 130nm BCD ReRAM IP is silicon-proven, qualified and available for SoC integration; the page lists two added masks, 10K cycles and over ten years at 125°C."
       },
       {
         "id": "RES-EVERSPIN-PLP-2025",
-        "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
-        "url": "https://www.everspin.com/products",
-        "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
-        "kind": "Supplier application note",
-        "date": "2025-04-15",
-        "limit": "Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge."
+        "label": "Everspin 2025 Form 10-K: STT-MRAM Products and Manufacturing",
+        "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+        "locator": "Product Overview; Manufacturing; Arrangements with GLOBALFOUNDRIES",
+        "kind": "Company regulatory filing",
+        "date": "2026-03-04",
+        "limit": "Product interfaces, density and manufacturing must remain product-specific. The filing does not turn the 12nm development agreement into volume-product evidence or establish zero-latency operation.",
+        "accessedAt": "2026-10-09",
+        "claim": "The filing confirms 1Gb STT-MRAM shipments, DDR-derived interfaces and GF 300mm STT manufacturing. It separately identifies 12nm joint development."
       },
       {
         "id": "RES-INFINEON-TC4X-2024",
@@ -5500,12 +5552,15 @@
       },
       {
         "id": "RES-INTRINSICID-QUIDDIKEY-2025",
-        "label": "Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper",
-        "url": "https://www.intrinsic-id.com/products/quiddikey/",
-        "locator": "Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper",
-        "kind": "Security Technical Whitepaper",
-        "date": "2025-05-12",
-        "limit": "Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning."
+        "label": "Official Synopsys PUF Page (Redirect from Former Quiddikey URL)",
+        "url": "https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html",
+        "locator": "PUF security overview and Secure Storage paragraph",
+        "kind": "Vendor dynamic product page",
+        "date": null,
+        "limit": "Company-wide deployment and certification statements are not evidence for individual Quiddikey versions. This page was not used to establish 6T cells, BCH, key length or elimination of all provisioning costs and leakage risks.",
+        "claim": "The vendor describes PUF-generated identifiers and cryptographic keys, and a Secure Storage solution combining SRAM PUF with OTP.",
+        "evidence": "Official text at the former URL's redirect destination reviewed",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "RES-SYNOPSYS-TROOT-2024",
@@ -5518,12 +5573,15 @@
       },
       {
         "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
-        "label": "Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper",
+        "label": "Rambus: Official Root-of-Trust Product Portfolio",
         "url": "https://www.rambus.com/security/root-of-trust/",
-        "locator": "Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture",
-        "kind": "Enterprise Security Whitepaper",
-        "date": "2025-02-18",
-        "limit": "Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles."
+        "locator": "CryptoManager and IoT/MCU sections and feature tables",
+        "kind": "Vendor dynamic product page",
+        "date": null,
+        "limit": "Features and certifications are version-specific. This page alone does not establish combined SPDM/IDE, AntiFuse, supply-chain certificate and widespread-adoption claims.",
+        "claim": "The vendor lists programmable roots of trust, secure boot, secure debug and lifecycle management, with distinct products and target markets.",
+        "evidence": "Current official product text reviewed; customer deployments and complete certification scope were not independently verified",
+        "accessedAt": "2026-10-09"
       },
       {
         "id": "ip-chingis-pfusion",
@@ -5604,6 +5662,17 @@
         "date": "Publication date not stated; checked 2026-10-09",
         "limit": "Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.",
         "accessedAt": "2026-10-09"
+      },
+      {
+        "id": "RRAM-TSMC-CURRENT-NVM",
+        "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash",
+        "date": null,
+        "accessedAt": "2026-10-09",
+        "label": "TSMC Current eNVM Page: Commercial N12e RRAM",
+        "kind": "Official dynamic product page",
+        "locator": "Embedded RRAM paragraph",
+        "claim": "The current page lists high-volume eRRAM production at 40/28/22/12nm and commercial N12e volume production.",
+        "limit": "Undated current-status snapshot; it establishes neither a unique first-production date nor 12nm automotive qualification."
       }
     ],
     "landscape": [
@@ -5993,15 +6062,16 @@
         "technology": "ReRAM",
         "family": "ReRAM / CBRAM",
         "role": "Embedded-memory foundry",
-        "maturity": "40/22 in production; 12 risk production",
-        "claim": "The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers.",
-        "limit": "12RRAM risk production is not full production or automotive qualification.",
-        "dateLabel": "Source date / event period: 2024 · Checked 2026-09-10",
+        "maturity": "40/28/22/12nm eRRAM in volume production",
+        "claim": "The current eNVM page confirms commercial N12e RRAM volume production. Separately, the IoT page records 12RRAM consumer-grade risk production in 2024.",
+        "limit": "The 2024 event and current status are distinct evidence. Neither establishes a unique first-production date or 12nm automotive qualification.",
+        "dateLabel": "2024 historical milestone; current page checked 2026-10-09",
         "sourceIds": [
-          "RRAM-TSMC-IOT"
+          "RRAM-TSMC-IOT",
+          "RRAM-TSMC-CURRENT-NVM"
         ],
         "target": "topic-vcm",
-        "search": "TSMC 官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。 The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers."
+        "search": "TSMC N12e 12RRAM 40nm 28nm 22nm 12nm consumer risk production 2024 commercial volume production current status"
       },
       {
         "id": "rram-infineon-tc4x",
@@ -6849,14 +6919,14 @@
       {
         "id": "pufsecurity-hrot",
         "name": "PUFsecurity",
-        "technology": "NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+        "technology": "PUFcc: PUF, Secure OTP and Crypto Coprocessor",
         "family": "OTP / MTP",
         "role": "Hardware Root of Trust & Security IP Provider",
-        "maturity": "Commercial Production; Qualified on TSMC / UMC nodes (5nm–55nm)",
-        "claim": "Leverages zero-mask NeoPUF and AntiFuse OTP to convert microscopic gate-oxide quantum tunneling variations into chip-unique fingerprints; integrates NIST SP 800-90B TRNG, secure key storage, and crypto accelerators (AES/ECC/RSA) for end-to-end hardware root-of-trust and secure boot.",
-        "limit": "Relies on standard logic CMOS tunneling physics; zero physical charge storage prevents static TEM/SEM key extraction, but peripheral digital controllers still require layered DPA counter-measures and active metal mesh.",
-        "dateLabel": "2025–2026 Official Whitepaper & Production Qualification",
-        "search": "PUFsecurity NeoPUF PUFcc PUFiot PUFker AntiFuse HRoT Root of Trust TSMC UMC",
+        "maturity": "Vendor product and certification information; process and production scope separate",
+        "claim": "The vendor describes PUFcc as IP combining a PUFrt hardware root of trust, secure OTP, cryptographic accelerators and a true random number generator, with key processing, secure boot and external-Flash protection.",
+        "limit": "These are vendor feature claims; their security scope and conditions have not been independently verified. This page does not establish production across all TSMC/UMC nodes, immunity to TEM/SEM attacks or shared certification across products. Certifications require named versions and certificates.",
+        "dateLabel": "Undated product page; checked 2026-10-09",
+        "search": "PUFsecurity PUFcc PUFrt secure OTP hardware root of trust key processing secure boot vendor features",
         "sourceIds": [
           "RES-PUFSEC-HROT-2025",
           "ip-neofuse"
@@ -6884,14 +6954,16 @@
         "name": "Weebit Nano",
         "technology": "Embedded ReRAM (OxRAM) & analog CIM research",
         "family": "ReRAM / OxRAM",
-        "role": "Independent embedded ReRAM IP and neuromorphic AI inference provider",
-        "maturity": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.",
-        "claim": "Public OxRAM route centers on SiOx active layers (e.g., IMW 2019 samples with TiN bottom / Ti top electrodes). DB HiTek 130nm offers a qualified IP macro (2 masks, 10K cycles, 125°C retention under named conditions). SkyWater 130nm and GF 22FDX are distinct platform stages; analog CIM studies and customer production must not be merged into one spec sheet.",
-        "limit": "Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.",
-        "dateLabel": "2024–2026 foundry qualification & whitepaper",
-        "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory",
+        "role": "Embedded ReRAM IP developer and licensor",
+        "maturity": "DB HiTek and SkyWater 130nm IP qualified; customer-product production is separate",
+        "claim": "DB HiTek 130nm BCD IP is qualified and available for integration; SkyWater S130 IP is qualified to JEDEC and AEC-Q100 and ready for production. The July 2026 announcement reports three customer tape-outs, with further product testing and qualification before mass production.",
+        "limit": "Qualified IP and production readiness are not completed customer-product mass production. The reported 22nm FD-SOI test tape-out does not name GF in the cited IP-page paragraph. Analog CIM research must remain separate from storage-product specifications.",
+        "dateLabel": "Undated IP pages and 2026-07-31 announcement; checked 2026-10-09",
+        "search": "Weebit Nano Embedded ReRAM OxRAM CIM SkyWater S130 DB HiTek 130nm qualified IP customer tape-out production readiness",
         "sourceIds": [
-          "RES-WEEBIT-RERAM-2025"
+          "RES-WEEBIT-RERAM-2025",
+          "RRAM-SKYWATER-S130",
+          "RRAM-WEEBIT-2026"
         ],
         "target": "topic-vcm"
       },
@@ -6901,11 +6973,11 @@
         "technology": "Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
         "family": "MRAM",
         "role": "Discrete & embedded MRAM silicon and IP supplier",
-        "maturity": "Volume production; foundry manufacturing at GlobalFoundries (22FDX / 12LP) and TSMC",
-        "claim": "Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP.",
-        "limit": "Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-buffer rather than primary mass storage.",
-        "dateLabel": "2024–2026 production specification",
-        "search": "Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center Write Buffer",
+        "maturity": "Commercial STT-MRAM shipments; GF 300mm manufacturing",
+        "claim": "The 2025 Form 10-K confirms 1Gb STT-MRAM shipments and describes DDR3/DDR4-derived interfaces across its STT portfolio for persistent data-center memory. Separate product families provide SPI/xSPI and other serial interfaces. STT-MRAM manufacturing is identified at GF 300mm facilities; 12nm is separately described as joint development.",
+        "limit": "Do not merge discrete products with GF 22FDX embedded macros or label a 12nm development agreement as production. Endurance, write latency and power-loss-protection architecture require named-part and controller evidence; no zero-latency or unlimited-endurance guarantee is established.",
+        "dateLabel": "2025 reporting period; filed 2026-03-04; checked 2026-10-09",
+        "search": "Everspin STT-MRAM enterprise persistent memory DDR-derived xSPI GF 300mm product-specific PLP 12nm joint development",
         "sourceIds": [
           "RES-EVERSPIN-PLP-2025",
           "everspin-1gb-ddr"
@@ -6914,15 +6986,15 @@
       },
       {
         "id": "intrinsicid-quiddikey-srampuf",
-        "name": "Intrinsic ID (Quiddikey)",
-        "technology": "SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+        "name": "Intrinsic ID Quiddikey / Synopsys PUF",
+        "technology": "SRAM PUF and Key Generation",
         "family": "PUF",
         "role": "Physical Unclonable Function (PUF) & Security IP Provider",
-        "maturity": "Over 500 million devices deployed globally; supports TSMC, UMC, GF, Intel, and Samsung advanced & mature nodes",
-        "claim": "Leverages native 6T SRAM power-up mismatch as a hardware fingerprint; reconstructs 256-bit root keys dynamically via Fuzzy Extractor and public Activation Code; eliminates factory key provisioning costs and leak risks.",
-        "limit": "Requires volatile SRAM reconstruction at boot; working keys require runtime DPA masking and single-cycle zeroization.",
-        "dateLabel": "2024–2026 Commercial Manual",
-        "search": "Intrinsic ID Quiddikey SRAM PUF Activation Code Helper Data Fuzzy Extractor Zero Provisioning Hardware Root of Trust",
+        "maturity": "Vendor PUF IP offering; named versions and deployment scope separate",
+        "claim": "The former official Quiddikey URL now redirects to the Synopsys PUF page. The vendor describes generating identifiers and cryptographic keys from each chip's inherent differences and combining SRAM PUF, OTP and cryptography in its Secure Storage solution.",
+        "limit": "The scope of vendor feature and deployment claims has not been independently verified. Company-wide PUF deployment figures and certifications do not automatically apply to a specific Quiddikey version. This page establishes neither elimination of all key-leakage risks and provisioning costs nor a single-cycle zeroization requirement.",
+        "dateLabel": "Former URL redirects to current product page; checked 2026-10-09",
+        "search": "Intrinsic ID Quiddikey Synopsys SRAM PUF keys identifiers Secure Storage version",
         "sourceIds": [
           "RES-INTRINSICID-QUIDDIKEY-2025"
         ],
@@ -6947,14 +7019,14 @@
       {
         "id": "rambus-cryptomanager-spdm",
         "name": "Rambus (CryptoManager™ Root of Trust)",
-        "technology": "PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+        "technology": "CryptoManager Root of Trust; SPDM/IDE Integration Requires Separate Evidence",
         "family": "OTP",
-        "role": "High-Speed Interconnect Security & Silicon Lifecycle Key Provisioning Leader",
-        "maturity": "Standard adoption in data center AI accelerators (GPU/NPU), CXL expanders, and server SoCs",
-        "claim": "Implements DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE encryption; anchors silicon identity in foundry AntiFuse OTP across Foundry, OSAT, and CSP data centers.",
-        "limit": "Engineered for enterprise servers and data centers; rarely adopted in ultra-constrained consumer edge devices.",
-        "dateLabel": "2024–2026 Product Manual",
-        "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation Silicon Lifecycle",
+        "role": "Root of Trust and Security IP Supplier",
+        "maturity": "Vendor product portfolio; named-customer deployment scope unverified",
+        "claim": "The vendor describes CryptoManager as a programmable hardware root-of-trust offering with secure boot, secure debug, and key and asset management. Its broader portfolio addresses data centers, automotive and IoT/MCU applications.",
+        "limit": "These are vendor feature and target-market claims; their scope and conditions have not been independently verified. Target markets do not establish widespread adoption. The cited page does not establish a combined commitment to specific SPDM versions, line-rate PCIe/CXL IDE, AntiFuse storage or an unforgeable certificate chain.",
+        "dateLabel": "Undated product page; checked 2026-10-09",
+        "search": "Rambus CryptoManager root of trust secure boot secure debug keys IoT MCU SPDM IDE integration unverified",
         "sourceIds": [
           "RES-RAMBUS-CRYPTOMANAGER-2025"
         ],
@@ -7128,12 +7200,12 @@
     },
     {
       "id": "ch-author-pmos-io-pgm",
-      "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+      "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
       "url": "https://patents.google.com/patent/US6920067B2/en",
-      "kind": "Architecture-class reference",
+      "kind": "Author-defined teaching reference",
       "date": "reviewed 2026-09-11",
-      "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-      "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+      "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+      "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
     },
     {
       "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -8412,50 +8484,62 @@
     {
       "id": "FND-SEC-2019-28FDS",
       "label": "Samsung Foundry: 28FDS eMRAM commercial production announcement",
-      "url": "https://news.samsung.com/global/",
+      "url": "https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-emram-product-based-on-28nm-fd-soi-process",
       "kind": "Vendor official press release",
       "date": "2019-03-06",
-      "locator": "28FDS eMRAM commercial shipment and reliability section",
-      "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM with faster writes and lower power versus eFlash alternatives.",
+      "locator": "Mass production, relative write speed and backend module integration paragraphs",
+      "claim": "Samsung announced commercial 28FDS eMRAM production in 2019. The vendor claims roughly 1,000 times the write speed of eFlash; backend integration adds process layers.",
       "evidence": "Full official press release reviewed",
-      "limit": "28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.",
-      "accessedAt": "2026-09-10"
+      "limit": "The relative-speed claim lacks complete comparison conditions. This release does not provide a complete endurance, retention and reflow matrix or name NXP. Later FinFET eMRAM requires platform- and macro-specific evidence.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-SEC-2024-MBCFET",
-      "label": "Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap",
-      "url": "https://semiconductor.samsung.com/foundry/process-technology/",
-      "kind": "Vendor technology forum and product brief",
-      "date": "2024-06-12",
-      "locator": "SFF 2024 MBCFET GAA and advanced embedded NVM planning",
-      "claim": "Samsung publicly discusses SF3/SF2 GAA platforms with advanced embedded eMRAM development goals for automotive HPC and edge AI.",
-      "evidence": "Official technology forum summary reviewed",
-      "limit": "SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.",
-      "accessedAt": "2026-09-10"
+      "label": "Samsung Foundry: SFF 2024 Logic Process and GAA Roadmap",
+      "url": "https://news.samsung.com/global/samsung-showcases-ai-era-vision-and-latest-foundry-technologies-at-sff-2024",
+      "kind": "Vendor official press release",
+      "date": "2024-06-13",
+      "locator": "Advanced logic-process roadmap and GAA maturity sections",
+      "claim": "SFF 2024 describes SF2Z backside power delivery, SF4U and SF3 logic-process roadmaps. SF3 volume production was then targeted for H2 2024.",
+      "evidence": "Official press release body reviewed",
+      "limit": "This source does not establish SF3/SF2 eMRAM, OTP macros or associated electrical specifications. A logic roadmap is not a named embedded-NVM development milestone.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-INTC-2018-22FFL",
-      "label": "Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)",
-      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
-      "kind": "Conference paper and official release",
-      "date": "2018-12-03",
-      "locator": "IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability",
-      "claim": "Intel published 22FFL FinFET embedded STT-MRAM with 0.0446 µm² cell, 10^6 endurance, 200°C retention, and 1E-9 BER under named ECC conditions.",
-      "evidence": "IEDM paper and official release reviewed",
-      "limit": "22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.",
-      "accessedAt": "2026-09-10"
+      "label": "Intel: 22FFL Embedded MRAM Research Abstract (IEDM 2018)",
+      "url": "https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf",
+      "kind": "Official conference program and paper abstract",
+      "date": "2018-12-04",
+      "locator": "PDF page 52; December 4 session; paper 18.1",
+      "claim": "The Intel 22FFL embedded-MRAM abstract reports 7.2Mbit arrays demonstrating 200°C ten-year retention capability and endurance exceeding one million cycles.",
+      "evidence": "Paper abstract in the official IEDM program reviewed; the full paper test matrix was not obtained",
+      "limit": "The abstract does not provide a complete test matrix, ECC or BER conditions. It alone establishes neither 2019 production readiness nor current commercial availability.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "FND-INTC-2024-18A",
-      "label": "Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap",
-      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
-      "kind": "Vendor official event release",
+      "label": "Intel Foundry: 18A Logic Process and Design Ecosystem Announcement",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/foundry-news-roadmaps-updates.html",
+      "kind": "Vendor official press release",
       "date": "2024-02-21",
-      "locator": "IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem",
-      "claim": "Intel 18A integrates RibbonFET GAA with PowerVia BSPDN for next-gen dense embedded memory and logic AntiFuse OTP key cells.",
-      "evidence": "Official release and technical brief reviewed",
-      "limit": "18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.",
-      "accessedAt": "2026-09-10"
+      "locator": "Process roadmap, 18A backside power and EDA/IP enablement sections",
+      "claim": "The 2024 announcement describes 18A backside power delivery and EDA/IP ecosystem support, targeting process leadership in 2025.",
+      "evidence": "Official press release body reviewed",
+      "limit": "General logic-process and IP enablement do not establish development, qualification or production of native AntiFuse, eMRAM or FeFET macros. The source provides no NVM-specific power or performance specifications.",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "FND-SEC-CURRENT-EMRAM",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/",
+      "date": null,
+      "label": "Samsung Current Specialty Page: FinFET eMRAM Expansion",
+      "kind": "Vendor dynamic product page",
+      "locator": "eMRAM section",
+      "claim": "The current page lists MTJ-module expansion to 14LPU and 8LPU FinFET processes, with compatibility planned for 5nm.",
+      "evidence": "Current official body text reviewed",
+      "limit": "The page has no revision date. Platform expansion does not establish qualification of every named macro or customer volume shipments; this section provides no complete electrical matrix.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-neobit",
@@ -8522,12 +8606,12 @@
     },
     {
       "id": "ip-neobit-io-pgm-author",
-      "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+      "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
       "url": "https://patents.google.com/patent/US6920067B2/en",
-      "kind": "Architecture-class Reference",
+      "kind": "Author-defined Teaching Reference",
       "date": "reviewed 2026-09-11",
-      "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-      "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+      "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+      "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
     },
     {
       "id": "ip-neofuse",
@@ -8865,7 +8949,7 @@
     {
       "id": "ip-nscore-twinbit-g2",
       "label": "NSCore TwinBit Gen-2",
-      "url": "https://www.nscore.com/twinbit_g2.html",
+      "url": "https://www.nscore.com/products/twinbit-gen2/",
       "kind": "e",
       "date": "2026-09-16",
       "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -8904,8 +8988,8 @@
       "url": "https://floadia.com/product/lee-flash-g2/",
       "kind": "e",
       "date": "2026-09-16",
-      "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-      "limit": "An in-development note is not a production guarantee."
+      "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+      "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
     },
     {
       "id": "ip-sst-home",
@@ -9580,7 +9664,7 @@
       "label": "Weebit Nano · ReRAM",
       "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
       "date": "2026-07-31",
-      "accessedAt": "2026-09-10",
+      "accessedAt": "2026-10-09",
       "kind": "Official primary source",
       "locator": "Product, technology or announcement text",
       "claim": "Three customer designs had taped out by July 2026, with a prototype running software.",
@@ -9613,7 +9697,7 @@
       "label": "SkyWater／Weebit Nano · ReRAM",
       "url": "https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/",
       "date": null,
-      "accessedAt": "2026-09-10",
+      "accessedAt": "2026-10-09",
       "kind": "Official primary source",
       "locator": "Product, technology or announcement text",
       "claim": "The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL.",
@@ -10177,15 +10261,15 @@
     },
     {
       "id": "RES-PUFSEC-HROT-2025",
-      "label": "PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper",
-      "url": "https://www.pufsecurity.com/pufcc",
-      "kind": "Vendor Official Whitepaper",
-      "date": "2025-06",
-      "locator": "Architecture and Qualification Sections",
-      "claim": "NeoPUF harnesses microscopic gate oxide quantum tunneling variations for zero-mask chip fingerprinting across TSMC and UMC nodes; PUFcc integrates NIST SP 800-90B TRNG, secure OTP, and cryptographic engines with PSA Certified Level 3 and SESIP Level 3 compliance.",
-      "evidence": "Verified official whitepaper and architecture briefs",
-      "limit": "Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.",
-      "accessedAt": "2026-09-17"
+      "label": "PUFsecurity: Official PUFcc Product Page",
+      "url": "https://www.pufsecurity.com/products/pufcc/pufcc/",
+      "kind": "Vendor dynamic product page",
+      "date": null,
+      "locator": "Architecture, features and certification links",
+      "claim": "The vendor describes PUFrt, secure OTP, cryptographic accelerators, a true random number generator and secure boot among PUFcc features.",
+      "evidence": "Current official product text reviewed; individual certificates and attack-test reports were not independently checked",
+      "limit": "The page provides no production or attack-test matrix covering every process. Certifications and security claims require version-specific verification.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-TOWER-YFLASH-2024",
@@ -10201,21 +10285,25 @@
     },
     {
       "id": "RES-WEEBIT-RERAM-2025",
-      "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
+      "label": "Weebit Nano: Qualified ReRAM IP in DB HiTek 130nm BCD",
       "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
-      "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
-      "kind": "Supplier technical specification & foundry qualification",
-      "date": "2025-06-01",
-      "limit": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence."
+      "locator": "DB HiTek product-page qualification statement and feature table",
+      "kind": "Vendor dynamic product page",
+      "date": null,
+      "limit": "IP qualification is not customer-product volume production. The page does not establish a GF 22FDX implementation or universal CIM specifications.",
+      "accessedAt": "2026-10-09",
+      "claim": "DB HiTek 130nm BCD ReRAM IP is silicon-proven, qualified and available for SoC integration; the page lists two added masks, 10K cycles and over ten years at 125°C."
     },
     {
       "id": "RES-EVERSPIN-PLP-2025",
-      "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
-      "url": "https://www.everspin.com/products",
-      "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
-      "kind": "Supplier application note",
-      "date": "2025-04-15",
-      "limit": "Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge."
+      "label": "Everspin 2025 Form 10-K: STT-MRAM Products and Manufacturing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "locator": "Product Overview; Manufacturing; Arrangements with GLOBALFOUNDRIES",
+      "kind": "Company regulatory filing",
+      "date": "2026-03-04",
+      "limit": "Product interfaces, density and manufacturing must remain product-specific. The filing does not turn the 12nm development agreement into volume-product evidence or establish zero-latency operation.",
+      "accessedAt": "2026-10-09",
+      "claim": "The filing confirms 1Gb STT-MRAM shipments, DDR-derived interfaces and GF 300mm STT manufacturing. It separately identifies 12nm joint development."
     },
     {
       "id": "RES-INFINEON-TC4X-2024",
@@ -10237,12 +10325,15 @@
     },
     {
       "id": "RES-INTRINSICID-QUIDDIKEY-2025",
-      "label": "Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper",
-      "url": "https://www.intrinsic-id.com/products/quiddikey/",
-      "locator": "Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper",
-      "kind": "Security Technical Whitepaper",
-      "date": "2025-05-12",
-      "limit": "Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning."
+      "label": "Official Synopsys PUF Page (Redirect from Former Quiddikey URL)",
+      "url": "https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf.html",
+      "locator": "PUF security overview and Secure Storage paragraph",
+      "kind": "Vendor dynamic product page",
+      "date": null,
+      "limit": "Company-wide deployment and certification statements are not evidence for individual Quiddikey versions. This page was not used to establish 6T cells, BCH, key length or elimination of all provisioning costs and leakage risks.",
+      "claim": "The vendor describes PUF-generated identifiers and cryptographic keys, and a Secure Storage solution combining SRAM PUF with OTP.",
+      "evidence": "Official text at the former URL's redirect destination reviewed",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-SYNOPSYS-TROOT-2024",
@@ -10255,12 +10346,15 @@
     },
     {
       "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
-      "label": "Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper",
+      "label": "Rambus: Official Root-of-Trust Product Portfolio",
       "url": "https://www.rambus.com/security/root-of-trust/",
-      "locator": "Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture",
-      "kind": "Enterprise Security Whitepaper",
-      "date": "2025-02-18",
-      "limit": "Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles."
+      "locator": "CryptoManager and IoT/MCU sections and feature tables",
+      "kind": "Vendor dynamic product page",
+      "date": null,
+      "limit": "Features and certifications are version-specific. This page alone does not establish combined SPDM/IDE, AntiFuse, supply-chain certificate and widespread-adoption claims.",
+      "claim": "The vendor lists programmable roots of trust, secure boot, secure debug and lifecycle management, with distinct products and target markets.",
+      "evidence": "Current official product text reviewed; customer deployments and complete certification scope were not independently verified",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-SPINMEM-PSC",
@@ -10301,6 +10395,17 @@
       "date": "Publication date not stated; checked 2026-10-09",
       "limit": "Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.",
       "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "RRAM-TSMC-CURRENT-NVM",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash",
+      "date": null,
+      "accessedAt": "2026-10-09",
+      "label": "TSMC Current eNVM Page: Commercial N12e RRAM",
+      "kind": "Official dynamic product page",
+      "locator": "Embedded RRAM paragraph",
+      "claim": "The current page lists high-volume eRRAM production at 40/28/22/12nm and commercial N12e volume production.",
+      "limit": "Undated current-status snapshot; it establishes neither a unique first-production date nor 12nm automotive qualification."
     },
     {
       "id": "op-pat-nrom-hhi",
@@ -10979,7 +11084,7 @@
         "topicId": "antifuse",
         "operationId": "write",
         "title": "Program: Apply the Breakdown Field Only to the Selected Dielectric",
-        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
+        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). This pairing is the author-defined architecture teaching assumption used on this page. The linked patent supports PMOS/I/O-device embodiments, not the exact 6.5 V/7.5 V pairing. It is not a specification for current NeoBit macros and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
         "sources": [
           {
             "id": "ch-pat-antifuse",
@@ -11037,12 +11142,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
             "url": "https://patents.google.com/patent/US6920067B2/en",
-            "kind": "Architecture-class reference",
+            "kind": "Author-defined teaching reference",
             "date": "reviewed 2026-09-11",
-            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+            "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -11223,12 +11328,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
             "url": "https://patents.google.com/patent/US6920067B2/en",
-            "kind": "Architecture-class reference",
+            "kind": "Author-defined teaching reference",
             "date": "reviewed 2026-09-11",
-            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+            "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -11398,12 +11503,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
             "url": "https://patents.google.com/patent/US6920067B2/en",
-            "kind": "Architecture-class reference",
+            "kind": "Author-defined teaching reference",
             "date": "reviewed 2026-09-11",
-            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+            "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -18581,7 +18686,7 @@
         "program": "Hot-hole-induced electron injection",
         "reverse": "No electrical erase in normal OTP operation",
         "readout": "P-type storage-channel current",
-        "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse.",
+        "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. For architecture teaching, this page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and 7.5 V for a 5 V cell, with a higher n-type Vpgm in the same-node comparison. These are author-defined teaching values, not specifications for current NeoBit macros. The linked patent supports PMOS/I/O-device embodiments but does not provide this exact voltage pairing; the values must not be transferred to core-GOX-breakdown AntiFuse.",
         "structure": {
           "title": "NeoBit — Cell Structure",
           "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 400\" role=\"img\" aria-labelledby=\"emip-neobit-structure-0-en-title\" style=\"font-family:Arial,Microsoft JhengHei,sans-serif;background:#f8fafc\"><title id=\"emip-neobit-structure-0-en-title\">NeoBit — Cell Structure</title><defs><marker id=\"emip-neobit-structure-0-en-e\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-h\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#bd354a\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-i\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#087968\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-field\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#a45410\" stroke-width=\"2\"/></marker></defs><text x=\"280\" y=\"31\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Historical pMOS Cell Section</text><rect x=\"26\" y=\"230\" width=\"505\" height=\"116\" fill=\"#bfd3e4\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"42\" y=\"230\" width=\"460\" height=\"89\" fill=\"#a9c7df\" stroke=\"#16334c\" stroke-width=\"1.5\" /><text x=\"105\" y=\"309\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">n-well</text><text x=\"281\" y=\"340\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p-Si</text><rect x=\"62\" y=\"230\" width=\"69\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"205\" y=\"230\" width=\"61\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"376\" y=\"230\" width=\"65\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"211\" width=\"266\" height=\"19\" fill=\"#f4e0a9\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"178\" width=\"81\" height=\"33\" fill=\"#9badba\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"265\" y=\"174\" width=\"123\" height=\"37\" fill=\"#c6a16b\" stroke=\"#16334c\" stroke-width=\"1.5\" data-storage-region=\"fg\"/><text x=\"162\" y=\"202\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><text x=\"96\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"236\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"408\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><path d=\"M94 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"94\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><path d=\"M162 82V178\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"162\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><path d=\"M408 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"408\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><path d=\"M478 82V295\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"478\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">NW</text><text x=\"326\" y=\"155\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+ FG</text><text x=\"326\" y=\"202\" text-anchor=\"middle\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">Q−</text><text x=\"280\" y=\"395\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Public-source reconstruction; not to scale</text></svg>",
@@ -18695,12 +18800,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                 "url": "https://patents.google.com/patent/US6920067B2/en",
-                "kind": "Architecture-class Reference",
+                "kind": "Author-defined Teaching Reference",
                 "date": "reviewed 2026-09-11",
-                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -18875,12 +18980,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                     "url": "https://patents.google.com/patent/US6920067B2/en",
-                    "kind": "Architecture-class Reference",
+                    "kind": "Author-defined Teaching Reference",
                     "date": "reviewed 2026-09-11",
-                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                    "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -18958,12 +19063,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                 "url": "https://patents.google.com/patent/US6920067B2/en",
-                "kind": "Architecture-class Reference",
+                "kind": "Author-defined Teaching Reference",
                 "date": "reviewed 2026-09-11",
-                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -19120,12 +19225,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                     "url": "https://patents.google.com/patent/US6920067B2/en",
-                    "kind": "Architecture-class Reference",
+                    "kind": "Author-defined Teaching Reference",
                     "date": "reviewed 2026-09-11",
-                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                    "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -19203,12 +19308,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                 "url": "https://patents.google.com/patent/US6920067B2/en",
-                "kind": "Architecture-class Reference",
+                "kind": "Author-defined Teaching Reference",
                 "date": "reviewed 2026-09-11",
-                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -19383,12 +19488,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
                     "url": "https://patents.google.com/patent/US6920067B2/en",
-                    "kind": "Architecture-class Reference",
+                    "kind": "Author-defined Teaching Reference",
                     "date": "reviewed 2026-09-11",
-                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+                    "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -25000,7 +25105,7 @@
               {
                 "id": "ip-nscore-twinbit-g2",
                 "label": "NSCore TwinBit Gen-2",
-                "url": "https://www.nscore.com/twinbit_g2.html",
+                "url": "https://www.nscore.com/products/twinbit-gen2/",
                 "kind": "e",
                 "date": "2026-09-16",
                 "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -25086,7 +25191,7 @@
                   {
                     "id": "ip-nscore-twinbit-g2",
                     "label": "NSCore TwinBit Gen-2",
-                    "url": "https://www.nscore.com/twinbit_g2.html",
+                    "url": "https://www.nscore.com/products/twinbit-gen2/",
                     "kind": "e",
                     "date": "2026-09-16",
                     "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -25115,7 +25220,7 @@
               {
                 "id": "ip-nscore-twinbit-g2",
                 "label": "NSCore TwinBit Gen-2",
-                "url": "https://www.nscore.com/twinbit_g2.html",
+                "url": "https://www.nscore.com/products/twinbit-gen2/",
                 "kind": "e",
                 "date": "2026-09-16",
                 "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -25201,7 +25306,7 @@
                   {
                     "id": "ip-nscore-twinbit-g2",
                     "label": "NSCore TwinBit Gen-2",
-                    "url": "https://www.nscore.com/twinbit_g2.html",
+                    "url": "https://www.nscore.com/products/twinbit-gen2/",
                     "kind": "e",
                     "date": "2026-09-16",
                     "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -25230,7 +25335,7 @@
               {
                 "id": "ip-nscore-twinbit-g2",
                 "label": "NSCore TwinBit Gen-2",
-                "url": "https://www.nscore.com/twinbit_g2.html",
+                "url": "https://www.nscore.com/products/twinbit-gen2/",
                 "kind": "e",
                 "date": "2026-09-16",
                 "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -25316,7 +25421,7 @@
                   {
                     "id": "ip-nscore-twinbit-g2",
                     "label": "NSCore TwinBit Gen-2",
-                    "url": "https://www.nscore.com/twinbit_g2.html",
+                    "url": "https://www.nscore.com/products/twinbit-gen2/",
                     "kind": "e",
                     "date": "2026-09-16",
                     "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -26053,7 +26158,7 @@
         "vendor": "Floadia",
         "group": "eflash",
         "hostTopic": "sonos",
-        "summary": "A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development.",
+        "summary": "A SONOS storage cell sandwiched by switch transistors. The vendor’s main features and 55BCD example specify four extra masks; its cost section also states 4–5, so confirm the target platform. The vendor emphasizes VDD read without high voltage on diffusion terminals and marks ongoing development.",
         "program": "FN program through the side switches",
         "reverse": "Reverse FN erase through the side switches",
         "readout": "Sense after the side switches turn on at VDD",
@@ -26065,7 +26170,7 @@
           "definition": "The same sandwiched SONOS cell supports programming, electrical erase and subsequent programming. Side switches select the cell; storage remains in the nitride trap layer.",
           "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
           "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.",
-          "limits": "The vendor marks ongoing development. VDD read does not mean erase needs no internal high-voltage generation. Four extra masks must not be extrapolated to G1 or ZT.",
+          "limits": "The vendor marks ongoing development. VDD reading does not eliminate internal erase-voltage generation. Main features and the 55BCD example list four masks, while the same page’s cost section lists 4–5 without identifying a different configuration. Confirm the target platform; do not extrapolate to G1 or ZT.",
           "sourceIds": [
             "ip-floadia-g2"
           ],
@@ -26075,8 +26180,8 @@
         },
         "structure": {
           "title": "Floadia LEE Flash G2 eFlash",
-          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-floadia-g2-structure-0-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-floadia-g2-structure-0-en-title ip-floadia-g2-structure-0-en-desc\"><title id=\"ip-floadia-g2-structure-0-en-title\">Floadia LEE Flash G2 eFlash</title><desc id=\"ip-floadia-g2-structure-0-en-desc\">A SONOS storage cell sandwiched by switch transistors; 4 extra masks; read at VDD without high voltage on diffusion terminals.</desc><defs><marker id=\"ip-floadia-g2-structure-0-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-floadia-g2-structure-0-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-floadia-g2-structure-0-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><rect x=\"96\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"123\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"410\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"437\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"190\" y=\"96\" width=\"180\" height=\"22\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"112\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"200\" y=\"130\" width=\"160\" height=\"22\" fill=\"#d98762\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"146\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SiN</text><rect x=\"200\" y=\"152\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"164\" width=\"180\" height=\"36\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"186\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"74\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
-          "caption": "A SONOS storage cell sandwiched by switch transistors; 4 extra masks; read at VDD without high voltage on diffusion terminals.",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-floadia-g2-structure-0-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-floadia-g2-structure-0-en-title ip-floadia-g2-structure-0-en-desc\"><title id=\"ip-floadia-g2-structure-0-en-title\">Floadia LEE Flash G2 eFlash</title><desc id=\"ip-floadia-g2-structure-0-en-desc\">A SONOS storage cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; read at VDD without high voltage on diffusion terminals.</desc><defs><marker id=\"ip-floadia-g2-structure-0-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-structure-0-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-floadia-g2-structure-0-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-floadia-g2-structure-0-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><rect x=\"96\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"123\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"410\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"437\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"190\" y=\"96\" width=\"180\" height=\"22\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"112\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"200\" y=\"130\" width=\"160\" height=\"22\" fill=\"#d98762\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"146\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SiN</text><rect x=\"200\" y=\"152\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"164\" width=\"180\" height=\"36\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"186\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"74\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+          "caption": "A SONOS storage cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; read at VDD without high voltage on diffusion terminals.",
           "legend": [
             {
               "symbol": "Dielectric",
@@ -26112,8 +26217,8 @@
                 "url": "https://floadia.com/product/lee-flash-g2/",
                 "kind": "e",
                 "date": "2026-09-16",
-                "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                "limit": "An in-development note is not a production guarantee."
+                "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
               }
             ],
             "variants": [
@@ -26139,8 +26244,8 @@
                     "title": "Apply FN Program through Side Switches",
                     "state": "Programming",
                     "stimulus": "Side switches on; FN",
-                    "caption": "Four extra masks is the published integration number.",
-                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-floadia-g2-write-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-floadia-g2-write-2-en-title ip-floadia-g2-write-2-en-desc\"><title id=\"ip-floadia-g2-write-2-en-title\">Apply FN Program through Side Switches</title><desc id=\"ip-floadia-g2-write-2-en-desc\">Four extra masks is the published integration number.</desc><defs><marker id=\"ip-floadia-g2-write-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-floadia-g2-write-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-floadia-g2-write-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">＋VFN</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><rect x=\"96\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"123\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"410\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"437\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"190\" y=\"96\" width=\"180\" height=\"22\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"112\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"200\" y=\"130\" width=\"160\" height=\"22\" fill=\"#d98762\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"146\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SiN</text><rect x=\"200\" y=\"152\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"164\" width=\"180\" height=\"36\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"186\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"74\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"228\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"276\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "caption": "Main features and the 55BCD example list 4 masks; the cost section lists 4–5. Confirm the target platform.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-floadia-g2-write-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-floadia-g2-write-2-en-title ip-floadia-g2-write-2-en-desc\"><title id=\"ip-floadia-g2-write-2-en-title\">Apply FN Program through Side Switches</title><desc id=\"ip-floadia-g2-write-2-en-desc\">Main features and the 55BCD example list 4 masks; the cost section lists 4–5. Confirm the target platform.</desc><defs><marker id=\"ip-floadia-g2-write-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-floadia-g2-write-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-floadia-g2-write-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-floadia-g2-write-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">＋VFN</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><rect x=\"96\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"123\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"410\" y=\"150\" width=\"54\" height=\"50\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"437\" y=\"180\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SW</text><rect x=\"190\" y=\"96\" width=\"180\" height=\"22\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"112\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"200\" y=\"118\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"200\" y=\"130\" width=\"160\" height=\"22\" fill=\"#d98762\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"146\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SiN</text><rect x=\"200\" y=\"152\" width=\"160\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"190\" y=\"164\" width=\"180\" height=\"36\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"280\" y=\"186\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><line x1=\"280\" y1=\"54\" x2=\"280\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"296\" y=\"74\" text-anchor=\"start\" fill=\"#087766\" font-size=\"22\" font-weight=\"600\">ON</text><circle data-charge=\"stored\" cx=\"228\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"252\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"276\" cy=\"141\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
                     "sourceIds": [
                       "ip-floadia-g2"
                     ]
@@ -26182,8 +26287,8 @@
                     "url": "https://floadia.com/product/lee-flash-g2/",
                     "kind": "e",
                     "date": "2026-09-16",
-                    "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                    "limit": "An in-development note is not a production guarantee."
+                    "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                    "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
                   }
                 ],
                 "caveat": "The vendor marks ongoing development; this drawing teaches only the published structural principle."
@@ -26202,8 +26307,8 @@
                 "url": "https://floadia.com/product/lee-flash-g2/",
                 "kind": "e",
                 "date": "2026-09-16",
-                "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                "limit": "An in-development note is not a production guarantee."
+                "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
               }
             ],
             "variants": [
@@ -26272,8 +26377,8 @@
                     "url": "https://floadia.com/product/lee-flash-g2/",
                     "kind": "e",
                     "date": "2026-09-16",
-                    "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                    "limit": "An in-development note is not a production guarantee."
+                    "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                    "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
                   }
                 ],
                 "caveat": "The vendor marks ongoing development; this drawing teaches only the published structural principle."
@@ -26292,8 +26397,8 @@
                 "url": "https://floadia.com/product/lee-flash-g2/",
                 "kind": "e",
                 "date": "2026-09-16",
-                "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                "limit": "An in-development note is not a production guarantee."
+                "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
               }
             ],
             "variants": [
@@ -26362,8 +26467,8 @@
                     "url": "https://floadia.com/product/lee-flash-g2/",
                     "kind": "e",
                     "date": "2026-09-16",
-                    "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-                    "limit": "An in-development note is not a production guarantee."
+                    "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+                    "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
                   }
                 ],
                 "caveat": "The vendor marks ongoing development; this drawing teaches only the published structural principle."
@@ -26398,7 +26503,7 @@
             "ip-sst-esf-generations"
           ],
           "before": "Programmed State Awaiting Erase",
-          "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV. — The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence.",
+          "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification. — The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence.",
           "after": "The cell returns to a reprogrammable state; endurance and retention conditions require named-product evidence."
         },
         "structure": {
@@ -26420,7 +26525,7 @@
             },
             {
               "symbol": "SG",
-              "meaning": "Select gate (Wordline); read select; 0V decoupled during erase."
+              "meaning": "Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption."
             },
             {
               "symbol": "CG",
@@ -26481,7 +26586,7 @@
               {
                 "id": "published-model",
                 "title": "ESF3 4-Gate Self-Aligned Top-Coupled Model",
-                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.",
+                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.",
                 "summary": "Establish the programmed state by the published mechanism without splicing unpublished bias tables.",
                 "frames": [
                   {
@@ -26539,7 +26644,7 @@
                   },
                   {
                     "symbol": "SG",
-                    "meaning": "Select gate (Wordline); read select; 0V decoupled during erase."
+                    "meaning": "Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption."
                   },
                   {
                     "symbol": "CG",
@@ -26627,7 +26732,7 @@
               {
                 "id": "published-model",
                 "title": "ESF3 4-Gate Self-Aligned Top-Coupled Model",
-                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.",
+                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.",
                 "summary": "Electrically erase by the published mechanism so the cell returns to a reprogrammable window.",
                 "frames": [
                   {
@@ -26635,8 +26740,8 @@
                     "title": "Cell Holds Injected Charge: Ready for EG Erase",
                     "state": "Programmed State Awaiting Erase",
                     "stimulus": "Bias zero",
-                    "caption": "ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.",
-                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-sst-superflash-erase-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-sst-superflash-erase-1-en-title ip-sst-superflash-erase-1-en-desc\"><title id=\"ip-sst-superflash-erase-1-en-title\">Cell Holds Injected Charge: Ready for EG Erase</title><desc id=\"ip-sst-superflash-erase-1-en-desc\">ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.</desc><defs><marker id=\"ip-sst-superflash-erase-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-sst-superflash-erase-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-sst-superflash-erase-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><g data-state=\"select-gate\" data-sg-on=\"false\"><rect x=\"100\" y=\"96\" width=\"68\" height=\"52\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"134\" y=\"127\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><rect x=\"100\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><line x1=\"134\" y1=\"54\" x2=\"134\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"144\" y=\"90\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text></g><rect x=\"182\" y=\"74\" width=\"110\" height=\"26\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"237\" y=\"93\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"182\" y=\"100\" width=\"110\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"182\" y=\"112\" width=\"110\" height=\"36\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"208\" y=\"134\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"182\" y=\"148\" width=\"110\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"306\" y=\"88\" width=\"68\" height=\"60\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"340\" y=\"123\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">EG</text><rect x=\"306\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"80\" y=\"162\" width=\"75\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"117\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><rect x=\"155\" y=\"162\" width=\"150\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"230\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"305\" y=\"162\" width=\"105\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"357\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><circle data-charge=\"stored\" cx=\"240\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"260\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"280\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "caption": "ESF1/2 erase toward wordline poly; ESF3 introduces a dedicated Erase Gate (EG), separating selection and erase functions.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-sst-superflash-erase-1-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-sst-superflash-erase-1-en-title ip-sst-superflash-erase-1-en-desc\"><title id=\"ip-sst-superflash-erase-1-en-title\">Cell Holds Injected Charge: Ready for EG Erase</title><desc id=\"ip-sst-superflash-erase-1-en-desc\">ESF1/2 erase toward wordline poly; ESF3 introduces a dedicated Erase Gate (EG), separating selection and erase functions.</desc><defs><marker id=\"ip-sst-superflash-erase-1-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-1-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-sst-superflash-erase-1-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-sst-superflash-erase-1-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">0</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><g data-state=\"select-gate\" data-sg-on=\"false\"><rect x=\"100\" y=\"96\" width=\"68\" height=\"52\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"134\" y=\"127\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><rect x=\"100\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><line x1=\"134\" y1=\"54\" x2=\"134\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"144\" y=\"90\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text></g><rect x=\"182\" y=\"74\" width=\"110\" height=\"26\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"237\" y=\"93\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"182\" y=\"100\" width=\"110\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"182\" y=\"112\" width=\"110\" height=\"36\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"208\" y=\"134\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"182\" y=\"148\" width=\"110\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"306\" y=\"88\" width=\"68\" height=\"60\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"340\" y=\"123\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">EG</text><rect x=\"306\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"80\" y=\"162\" width=\"75\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"117\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><rect x=\"155\" y=\"162\" width=\"150\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"230\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"305\" y=\"162\" width=\"105\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"357\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><circle data-charge=\"stored\" cx=\"240\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"260\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><circle data-charge=\"stored\" cx=\"280\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
                     "sourceIds": [
                       "ip-sst-home",
                       "ip-sst-superflash",
@@ -26647,9 +26752,9 @@
                     "id": "ip-sst-superflash-erase-2-en-frame",
                     "title": "EG Erase Bias: Interpoly FN Tunneling",
                     "state": "Erasing",
-                    "stimulus": "EG: ERS; SG = 0V",
-                    "caption": "Electrons tunnel from FG tip to EG; select gate (SG) is held at 0V, separating selection from erase bias; reliability is not inferred from this illustration.",
-                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-sst-superflash-erase-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-sst-superflash-erase-2-en-title ip-sst-superflash-erase-2-en-desc\"><title id=\"ip-sst-superflash-erase-2-en-title\">EG Erase Bias: Interpoly FN Tunneling</title><desc id=\"ip-sst-superflash-erase-2-en-desc\">Electrons tunnel from FG tip to EG; select gate (SG) is held at 0V, separating selection from erase bias; reliability is not inferred from this illustration.</desc><defs><marker id=\"ip-sst-superflash-erase-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-sst-superflash-erase-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-sst-superflash-erase-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">ERS</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><g data-state=\"select-gate\" data-sg-on=\"false\"><rect x=\"100\" y=\"96\" width=\"68\" height=\"52\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"134\" y=\"127\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><rect x=\"100\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><line x1=\"134\" y1=\"54\" x2=\"134\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"144\" y=\"90\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text></g><rect x=\"182\" y=\"74\" width=\"110\" height=\"26\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"237\" y=\"93\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"182\" y=\"100\" width=\"110\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"182\" y=\"112\" width=\"110\" height=\"36\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"208\" y=\"134\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"182\" y=\"148\" width=\"110\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"306\" y=\"88\" width=\"68\" height=\"60\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"340\" y=\"123\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">EG</text><rect x=\"306\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"80\" y=\"162\" width=\"75\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"117\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><rect x=\"155\" y=\"162\" width=\"150\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"230\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"305\" y=\"162\" width=\"105\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"357\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><circle data-charge=\"stored\" cx=\"240\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><line x1=\"275\" y1=\"130\" x2=\"312\" y2=\"120\" stroke=\"#075f9d\" stroke-width=\"3\" stroke-linecap=\"round\" marker-end=\"url(#ip-sst-superflash-erase-2-en-electron)\"/><text x=\"260\" y=\"68\" text-anchor=\"middle\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">FN to EG</text><text x=\"355\" y=\"78\" text-anchor=\"start\" fill=\"#a34b10\" font-size=\"22\" font-weight=\"600\">ERS</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
+                    "stimulus": "EG: ERS; SG = 0 V (Teaching)",
+                    "caption": "Electrons tunnel from FG tip to EG; SG = 0 V is a teaching setting illustrating separate selection and erase functions. The brochure does not provide this terminal-bias table; verify actual values for the named macro. The illustration does not establish reliability.",
+                    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ip-sst-superflash-erase-2-en\" viewBox=\"0 0 560 360\" role=\"img\" aria-labelledby=\"ip-sst-superflash-erase-2-en-title ip-sst-superflash-erase-2-en-desc\"><title id=\"ip-sst-superflash-erase-2-en-title\">EG Erase Bias: Interpoly FN Tunneling</title><desc id=\"ip-sst-superflash-erase-2-en-desc\">Electrons tunnel from FG tip to EG; SG = 0 V is a teaching setting illustrating separate selection and erase functions. The brochure does not provide this terminal-bias table; verify actual values for the named macro. The illustration does not establish reliability.</desc><defs><marker id=\"ip-sst-superflash-erase-2-en-electron\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-hole\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#b52f43\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-field\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#a34b10\" stroke-width=\"2\"/></marker><marker id=\"ip-sst-superflash-erase-2-en-current\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L8 5L1 9\" fill=\"none\" stroke=\"#087766\" stroke-width=\"2\"/></marker></defs><style>#ip-sst-superflash-erase-2-en text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#ip-sst-superflash-erase-2-en{background:#f7f9fc;color:#16334c}</style><rect x=\"1\" y=\"1\" width=\"558\" height=\"358\" fill=\"#f7f9fc\" stroke=\"#16334c\" stroke-width=\"1.4\" rx=\"14\" stroke=\"none\"/><text x=\"88\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">ERS</text><text x=\"20\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Select</text><text x=\"430\" y=\"54\" text-anchor=\"start\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"70\" y=\"210\" width=\"420\" height=\"90\" fill=\"#bed1e2\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"80\" y=\"292\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">P-well / Substrate</text><g data-state=\"select-gate\" data-sg-on=\"false\"><rect x=\"100\" y=\"96\" width=\"68\" height=\"52\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"134\" y=\"127\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><rect x=\"100\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><line x1=\"134\" y1=\"54\" x2=\"134\" y2=\"96\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\"/><text x=\"144\" y=\"90\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">OFF</text></g><rect x=\"182\" y=\"74\" width=\"110\" height=\"26\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"237\" y=\"93\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">CG</text><rect x=\"182\" y=\"100\" width=\"110\" height=\"12\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"182\" y=\"112\" width=\"110\" height=\"36\" fill=\"#c2a269\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"208\" y=\"134\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">FG</text><rect x=\"182\" y=\"148\" width=\"110\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"306\" y=\"88\" width=\"68\" height=\"60\" fill=\"#899ba9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"340\" y=\"123\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">EG</text><rect x=\"306\" y=\"148\" width=\"68\" height=\"14\" fill=\"#f3e2af\" stroke=\"#16334c\" stroke-width=\"1.4\" /><rect x=\"80\" y=\"162\" width=\"75\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"117\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><rect x=\"155\" y=\"162\" width=\"150\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"230\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Channel</text><rect x=\"305\" y=\"162\" width=\"105\" height=\"40\" fill=\"#7299b9\" stroke=\"#16334c\" stroke-width=\"1.4\" /><text x=\"357\" y=\"187\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><circle data-charge=\"stored\" cx=\"240\" cy=\"130\" r=\"8\" fill=\"#075f9d\"/><line x1=\"275\" y1=\"130\" x2=\"312\" y2=\"120\" stroke=\"#075f9d\" stroke-width=\"3\" stroke-linecap=\"round\" marker-end=\"url(#ip-sst-superflash-erase-2-en-electron)\"/><text x=\"260\" y=\"68\" text-anchor=\"middle\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">FN to EG</text><text x=\"355\" y=\"78\" text-anchor=\"start\" fill=\"#a34b10\" font-size=\"22\" font-weight=\"600\">ERS</text><text x=\"20\" y=\"338\" text-anchor=\"start\" fill=\"#5b6f82\" font-size=\"22\" font-weight=\"600\">Original Structure Model; Not to Scale</text></svg>",
                     "sourceIds": [
                       "ip-sst-home",
                       "ip-sst-superflash",
@@ -26685,7 +26790,7 @@
                   },
                   {
                     "symbol": "SG",
-                    "meaning": "Select gate (Wordline); read select; 0V decoupled during erase."
+                    "meaning": "Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption."
                   },
                   {
                     "symbol": "CG",
@@ -26773,7 +26878,7 @@
               {
                 "id": "published-model",
                 "title": "ESF3 4-Gate Self-Aligned Top-Coupled Model",
-                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.",
+                "mechanism": "Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, separating select-gate and erase-gate functions. SG = 0 V is a teaching bias in this figure; actual values require the named macro specification.",
                 "summary": "Sense the retained state under product read conditions, then latch and isolate.",
                 "frames": [
                   {
@@ -26831,7 +26936,7 @@
                   },
                   {
                     "symbol": "SG",
-                    "meaning": "Select gate (Wordline); read select; 0V decoupled during erase."
+                    "meaning": "Select gate (Wordline); selects reading separately from the erase-gate function; 0 V during erase is a teaching assumption."
                   },
                   {
                     "symbol": "CG",
@@ -32733,12 +32838,12 @@
       },
       {
         "id": "ip-neobit-io-pgm-author",
-        "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+        "label": "Author-Defined Architecture Teaching Values: I/O PMOS Floating-Gate OTP Program Voltages",
         "url": "https://patents.google.com/patent/US6920067B2/en",
-        "kind": "Architecture-class Reference",
+        "kind": "Author-defined Teaching Reference",
         "date": "reviewed 2026-09-11",
-        "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-        "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+        "locator": "This page assumes about 6.5 V PGM for a 3.3 V I/O PMOS cell and about 7.5 V for a 5 V cell, with a higher NMOS Vpgm in the same-node comparison. The linked patent supports I/O-device embodiments, not this exact pairing.",
+        "limit": "The voltage pairing is an author-defined architecture teaching assumption. US6920067B2 supports PMOS/I/O-device embodiments; it is not the source of the exact 6.5 V/7.5 V pairing. Do not treat these assumptions as current NeoBit macro specifications or transfer them to gate-oxide-breakdown AntiFuse."
       },
       {
         "id": "ip-neofuse",
@@ -33076,7 +33181,7 @@
       {
         "id": "ip-nscore-twinbit-g2",
         "label": "NSCore TwinBit Gen-2",
-        "url": "https://www.nscore.com/twinbit_g2.html",
+        "url": "https://www.nscore.com/products/twinbit-gen2/",
         "kind": "e",
         "date": "2026-09-16",
         "locator": "Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.",
@@ -33115,8 +33220,8 @@
         "url": "https://floadia.com/product/lee-flash-g2/",
         "kind": "e",
         "date": "2026-09-16",
-        "locator": "SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.",
-        "limit": "An in-development note is not a production guarantee."
+        "locator": "SONOS cell sandwiched by switch transistors; main features and the 55BCD example list 4 extra masks, while the cost section lists 4–5, requiring platform confirmation; VDD read / non-volatilized logic; marked ongoing development.",
+        "limit": "The page does not identify separate configurations for its mask counts; confirm the target platform. An in-development note is not a production guarantee."
       },
       {
         "id": "ip-sst-home",
