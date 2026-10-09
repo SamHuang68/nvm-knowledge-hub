@@ -10,14 +10,65 @@
 /**
  * Physical constants for Si-SiO2 dielectric interface.
  */
-const SIM_CONSTANTS = {
+export const SIM_CONSTANTS = Object.freeze({
   BARRIER_HEIGHT_EV: 3.15, // Si-SiO2 conduction band offset (eV)
   B_FN_MV_PER_CM: 250.0,   // FN slope factor (MV/cm) with image-force correction
   A_FN: 1.54e-6,           // Pre-exponential constant A_FN (A/V^2)
   CRITICAL_RETENTION_MV: 4.0,
   CRITICAL_FN_MV: 10.0,
   CRITICAL_BREAKDOWN_MV: 13.0,
-};
+});
+
+/**
+ * Pure calculation function for Quantum Tunneling and Dielectric Breakdown metrics.
+ * @param {Object} params Input parameters {tox, vox}.
+ * @return {Object} Evaluated metrics.
+ */
+export function calculateTunnelingBreakdownMetrics(params = {}) {
+  const tox = Number.isFinite(Number(params.tox)) ? Math.max(0.1, Number(params.tox)) : 2.2;
+  const vox = Number.isFinite(Number(params.vox)) ? Math.max(0, Number(params.vox)) : 3.5;
+
+  const eox = vox / (tox * 0.1); // MV/cm
+
+  let logJ = -18;
+  let mechanism = 'retention';
+
+  if (vox <= 0.05) {
+    logJ = -18;
+    mechanism = 'retention';
+  } else if (vox < SIM_CONSTANTS.BARRIER_HEIGHT_EV) {
+    mechanism = 'direct';
+    const alpha = 1.025;
+    const barrierEff = Math.max(0.1, SIM_CONSTANTS.BARRIER_HEIGHT_EV - vox * 0.5);
+    const exponent = -alpha * (tox * 10) * Math.sqrt(barrierEff);
+    const jDirect = 1e3 * Math.pow(vox / tox, 2) * Math.exp(exponent);
+    logJ = Math.min(6, Math.max(-18, Math.log10(Math.max(jDirect, 1e-18))));
+  } else {
+    mechanism = 'fn';
+    const eoxVcm = eox * 1e6;
+    const bfnVcm = SIM_CONSTANTS.B_FN_MV_PER_CM * 1e6;
+    const jFN = SIM_CONSTANTS.A_FN * Math.pow(eoxVcm, 2) * Math.exp(-bfnVcm / eoxVcm);
+    logJ = Math.min(6, Math.max(-18, Math.log10(Math.max(jFN, 1e-18))));
+  }
+
+  let state = 'safe';
+  if (eox >= SIM_CONSTANTS.CRITICAL_BREAKDOWN_MV) {
+    state = 'breakdown';
+  } else if (eox >= SIM_CONSTANTS.CRITICAL_FN_MV) {
+    state = 'injection';
+  } else if (eox >= SIM_CONSTANTS.CRITICAL_RETENTION_MV) {
+    state = 'stress';
+  }
+
+  return {
+    tox,
+    vox,
+    eox,
+    logJ,
+    mechanism,
+    state
+  };
+}
 
 /**
  * Controller for the Quantum Tunneling Simulator.
@@ -550,10 +601,12 @@ class TunnelingSimulator {
 }
 
 // Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new TunnelingSimulator();
+    });
+  } else {
     new TunnelingSimulator();
-  });
-} else {
-  new TunnelingSimulator();
+  }
 }

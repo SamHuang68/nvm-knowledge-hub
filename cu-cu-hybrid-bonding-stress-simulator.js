@@ -20,6 +20,143 @@
  *    d_KOZ = r_pad * (1 + kappa * sqrt(|sigma_peak| / sigma_limit))
  */
 
+export const CU_BONDING_DIELECTRICS = Object.freeze({
+  'sicn': { nameZh: 'SiCN (高密度保護蓋層)', nameEn: 'SiCN (High-Density Cap)', cte: 1.8e-6, modulus: 120 },
+  'sio2': { nameZh: 'SiO2 (PECVD 氧化物)', nameEn: 'SiO2 (PECVD Oxide)', cte: 0.5e-6, modulus: 70 },
+  'sio2-lowt': { nameZh: 'SiO2 (低溫電漿活化)', nameEn: 'SiO2 (Low-T Activated)', cte: 0.6e-6, modulus: 65 }
+});
+
+export const CU_BONDING_TECH_PROFILES = Object.freeze({
+  antifuse: {
+    nameZh: 'AntiFuse OTP (0-Mask 微絲)',
+    nameEn: 'AntiFuse OTP (0-Mask Filament)',
+    sigmaLimit: 450,
+    piezoSensitivity: 0.25,
+    leakageSensitivity: 0.002,
+    minKozFactor: 1.2,
+    retentionResilience: '優異 (FEOL 高溫相容 / 歐姆微絲無浮閘電荷洩漏)',
+    retentionResilienceEn: 'Preferred (FEOL High-T / Filament immune to floating gate leakage)',
+    descZh: '已崩潰之金屬/矽導電微絲本質上無捕獲電荷，剪切應力僅引發微幅歐姆阻值漂移。',
+    descEn: 'Ruptured filament stores zero trapped charge, exhibiting minimal ohmic drift under shear stress.'
+  },
+  mram: {
+    nameZh: 'STT-MRAM (BEOL 垂直 MTJ)',
+    nameEn: 'STT-MRAM (BEOL Perpendicular MTJ)',
+    sigmaLimit: 320,
+    piezoSensitivity: 0.25,
+    leakageSensitivity: 0.005,
+    minKozFactor: 1.8,
+    retentionResilience: '良好 (需控制退火熱預算 / 磁致伸縮致 PMA 輕微退化)',
+    retentionResilienceEn: 'Good (Manage anneal budget / Minor magnetostrictive PMA derating)',
+    descZh: 'Cu Pad 剪切應變透過金屬介電層傳至 MTJ 柱，磁光彈效應造成垂直磁各向異性輕微衰減。',
+    descEn: 'Pad shear strain propagates to MTJ, derating PMA thermal stability delta slightly.'
+  },
+  reram: {
+    nameZh: 'Oxide ReRAM (BEOL 氧空位微絲)',
+    nameEn: 'Oxide ReRAM (BEOL Oxygen Vacancy)',
+    sigmaLimit: 260,
+    piezoSensitivity: 0.25,
+    leakageSensitivity: 0.008,
+    minKozFactor: 2.2,
+    retentionResilience: '中等 (需低溫鍵合或 Forming 補償 / 氧空位非均勻側向擴散)',
+    retentionResilienceEn: 'Moderate (Low-T bonding / Strain gradients accelerate lateral oxygen migration)',
+    descZh: '局部高張應力降低氧離子活化擴散能障，長效高溫高阻態 (HRS) 阻值漂移散佈加劇。',
+    descEn: 'Tensile stress lowers oxygen diffusion barriers, widening HRS resistance drift.'
+  },
+  eflash: {
+    nameZh: 'Floating-Gate / CT eFlash (FEOL)',
+    nameEn: 'Floating-Gate / CT eFlash (FEOL)',
+    sigmaLimit: 180,
+    piezoSensitivity: 0.25,
+    leakageSensitivity: 0.018,
+    minKozFactor: 3.5,
+    retentionResilience: '受限 (需注意 SILC 漏電與退火熱預算 / 氧化層陷阱)',
+    retentionResilienceEn: 'Constrained (SILC stress & thermal budget constraints / Oxide traps)',
+    descZh: '熱應力直通穿隧氧化層界面，引發界面陷阱與 SILC 漏電，高溫留存壽命需依退火條件降額。',
+    descEn: 'Thermal stress damages tunnel oxide interface, increasing SILC leakage requiring retention derating.'
+  }
+});
+
+export function calculateCuCuBondingMetrics(params = {}) {
+  const annealTemp = Number.isFinite(Number(params.annealTemp)) ? Number(params.annealTemp) : 300;
+  const cmpDishing = Number.isFinite(Number(params.cmpDishing)) ? Number(params.cmpDishing) : 3.0;
+  const padHeight = Number.isFinite(Number(params.padHeight)) ? Number(params.padHeight) : 1.2;
+  const opTemp = Number.isFinite(Number(params.opTemp)) ? Number(params.opTemp) : 85;
+  const padDiameter = Number.isFinite(Number(params.padDiameter)) ? Number(params.padDiameter) : 0.5;
+  const dielectricKey = params.dielectric || 'sicn';
+  const techKey = params.tech || 'antifuse';
+
+  const diel = CU_BONDING_DIELECTRICS[dielectricKey] || CU_BONDING_DIELECTRICS['sicn'];
+  const tech = CU_BONDING_TECH_PROFILES[techKey] || CU_BONDING_TECH_PROFILES['antifuse'];
+
+  const alphaCu = 16.5e-6;
+  const alphaSi = 2.6e-6;
+  const ECu = 120e9;
+  const nuCu = 0.343;
+  const kB = 8.617333262145e-5;
+
+  // 1. Dishing Gap and Thermal Expansion Closure
+  const T0 = 25;
+  const deltaT_anneal = Math.max(0, annealTemp - T0);
+  const initialGap = 2 * Math.max(0, cmpDishing);
+
+  const singleProtrusionNm = (Math.max(0.1, padHeight) * 1e-6) * (alphaCu - diel.cte) * deltaT_anneal * 1e9;
+  const totalExpansionNm = 2 * singleProtrusionNm;
+  const closureMarginNm = totalExpansionNm - initialGap;
+
+  let voidRisk = 'none';
+  if (closureMarginNm >= 1.5) {
+    voidRisk = 'none';
+  } else if (closureMarginNm >= 0) {
+    voidRisk = 'marginal';
+  } else if (closureMarginNm >= -1.5) {
+    voidRisk = 'high';
+  } else {
+    voidRisk = 'fatal';
+  }
+
+  // 2. Residual Thermal Stress
+  const deltaT_cool = Math.max(0, annealTemp - opTemp);
+  const biaxialModulus = ECu / (1 - nuCu);
+  const thermalStrain = (alphaCu - alphaSi) * deltaT_cool;
+  const sigmaPeakPa = biaxialModulus * thermalStrain;
+  const sigmaPeakMPa = sigmaPeakPa / 1e6;
+
+  // 3. Piezoresistive Effect
+  const rPadUm = Math.max(0.01, padDiameter / 2);
+  const mobilityShiftPct = -(tech.piezoSensitivity * (sigmaPeakMPa / 20));
+  const vthShiftMv = tech.piezoSensitivity * sigmaPeakMPa * 0.45;
+
+  // 4. Stress Induced Leakage & Keep-Out Zone (KOZ)
+  let kozDistanceUm = 0;
+  if (sigmaPeakMPa > tech.sigmaLimit) {
+    const ratio = Math.max(1, sigmaPeakMPa / tech.sigmaLimit);
+    kozDistanceUm = rPadUm * (Math.pow(ratio, 1 / 2.2) - 1);
+  } else {
+    kozDistanceUm = rPadUm * 0.2;
+  }
+  const finalKozUm = Math.max(0.2, (kozDistanceUm + rPadUm) * tech.minKozFactor);
+  const topKelvin = Math.max(1, opTemp + 273.15);
+  const thermalEnergyEv = kB * topKelvin;
+  const betaStress = tech.leakageSensitivity * 0.026;
+  const leakageSurgeFactor = Math.min(1e12, Math.exp(Math.min(50, (betaStress * sigmaPeakMPa) / thermalEnergyEv)));
+
+  return {
+    initialGap,
+    totalExpansionNm,
+    closureMarginNm,
+    voidRisk,
+    sigmaPeakMPa,
+    mobilityShiftPct,
+    vthShiftMv,
+    finalKozUm,
+    leakageSurgeFactor,
+    rPadUm,
+    diel,
+    tech
+  };
+}
+
 export class CuCuHybridBondingSimulator {
   constructor(containerId = 'cu-bonding-simulator-root') {
     this.container = document.getElementById(containerId);
@@ -478,70 +615,7 @@ export class CuCuHybridBondingSimulator {
   }
 
   computePhysics() {
-    const s = this.state;
-    const diel = this.dielectrics[s.dielectric] || this.dielectrics['sicn'];
-    const tech = this.techProfiles[s.tech] || this.techProfiles['antifuse'];
-
-    // 1. Dishing Gap and Thermal Expansion Closure
-    const T0 = 25;
-    const deltaT_anneal = Math.max(0, s.annealTemp - T0);
-    const initialGap = 2 * s.cmpDishing; // nm
-
-    const singleProtrusionNm = (s.padHeight * 1e-6) * (this.alphaCu - diel.cte) * deltaT_anneal * 1e9;
-    const totalExpansionNm = 2 * singleProtrusionNm;
-    const closureMarginNm = totalExpansionNm - initialGap;
-
-    let voidRisk = 'none';
-    if (closureMarginNm >= 1.5) {
-      voidRisk = 'none';
-    } else if (closureMarginNm >= 0) {
-      voidRisk = 'marginal';
-    } else if (closureMarginNm >= -1.5) {
-      voidRisk = 'high';
-    } else {
-      voidRisk = 'fatal';
-    }
-
-    // 2. Residual Thermal Stress on Cooldown from T_anneal to T_op
-    const deltaT_cool = Math.max(0, s.annealTemp - s.opTemp);
-    const biaxialModulus = this.ECu / (1 - this.nuCu); // Pa
-    const thermalStrain = (this.alphaCu - this.alphaSi) * deltaT_cool;
-    const sigmaPeakPa = biaxialModulus * thermalStrain;
-    const sigmaPeakMPa = sigmaPeakPa / 1e6;
-
-    // 3. Piezoresistive Effect on Underlying Transistor Channel
-    const rPadUm = s.padDiameter / 2;
-    const mobilityShiftPct = -(tech.piezoSensitivity * (sigmaPeakMPa / 20));
-    const vthShiftMv = tech.piezoSensitivity * sigmaPeakMPa * 0.45;
-
-    // 4. Stress Induced Leakage & Keep-Out Zone (KOZ)
-    let kozDistanceUm = 0;
-    if (sigmaPeakMPa > tech.sigmaLimit) {
-      const ratio = sigmaPeakMPa / tech.sigmaLimit;
-      kozDistanceUm = rPadUm * (Math.pow(ratio, 1 / 2.2) - 1);
-    } else {
-      kozDistanceUm = rPadUm * 0.2;
-    }
-    const finalKozUm = Math.max(0.2, (kozDistanceUm + rPadUm) * tech.minKozFactor);
-    const topKelvin = s.opTemp + 273.15;
-    const thermalEnergyEv = this.kB * topKelvin;
-    const betaStress = tech.leakageSensitivity * 0.026;
-    const leakageSurgeFactor = Math.exp((betaStress * sigmaPeakMPa) / thermalEnergyEv);
-
-    return {
-      initialGap,
-      totalExpansionNm,
-      closureMarginNm,
-      voidRisk,
-      sigmaPeakMPa,
-      mobilityShiftPct,
-      vthShiftMv,
-      finalKozUm,
-      leakageSurgeFactor,
-      rPadUm,
-      diel,
-      tech
-    };
+    return calculateCuCuBondingMetrics(this.state);
   }
 
   update() {

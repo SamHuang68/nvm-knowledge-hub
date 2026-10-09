@@ -176,12 +176,12 @@ export function generateSyntheticPufBits(nBits = 1024, hammingWeight = 0.5, spat
  * @param {Uint8Array} [params.customBits] - Optional custom bitstream
  * @returns {Object} Test scores, P-values, pass/fail status, and diagnostic summary
  */
-export function calculatePufNistRandomness(params) {
-  const presetId = params.presetId && PUF_ENTROPY_PRESETS[params.presetId] ? params.presetId : 'antifuse_neopuf_quantum';
+export function calculatePufNistRandomness(params = {}) {
+  const presetId = params && params.presetId && PUF_ENTROPY_PRESETS[params.presetId] ? params.presetId : 'antifuse_neopuf_quantum';
   const preset = PUF_ENTROPY_PRESETS[presetId];
 
   const nBits = 1024; // Standard sample size for real-time in-browser testing
-  const bits = params.customBits || generateSyntheticPufBits(nBits, preset.nominalHammingWeight, preset.spatialCorr);
+  const bits = (params && params.customBits) || generateSyntheticPufBits(nBits, preset.nominalHammingWeight, preset.spatialCorr);
 
   let onesCount = 0;
   for (let i = 0; i < nBits; i++) {

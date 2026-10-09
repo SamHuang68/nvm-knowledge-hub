@@ -17,6 +17,82 @@
  *    NIST SP 800-193 & ISO/IEC 20243 Assurance Score
  */
 
+export const TROJAN_PEM_TECH_PROFILES = Object.freeze({
+  antifuse_puf: {
+    nameZh: '0-Mask AntiFuse 原生 PUF',
+    nameEn: '0-Mask AntiFuse Native PUF',
+    maskAdders: 0,
+    baseEmissionRate: 12,
+    shieldingFactor: 48,
+    interHammingMean: 50.02,
+    intraBitErrorRate: 0.25,
+    trojanImmunity: '消除專屬光罩插入面；需防範摻雜層木馬',
+    trojanImmunityEn: 'Eliminates dedicated mask vector; requires dopant defenses'
+  },
+  sram_puf: {
+    nameZh: 'SRAM 啟動狀態 PUF',
+    nameEn: 'SRAM Power-Up PUF',
+    maskAdders: 0,
+    baseEmissionRate: 150,
+    shieldingFactor: 18,
+    interHammingMean: 49.3,
+    intraBitErrorRate: 4.8,
+    trojanImmunity: '免額外光罩；需防範供電噪訊與雷射 BBI 誘騙',
+    trojanImmunityEn: 'No mask adders; requires anti-glitch & laser BBI filtering'
+  },
+  mram: {
+    nameZh: 'STT-MRAM 磁阻隨機數',
+    nameEn: 'STT-MRAM TRNG / MOKE',
+    maskAdders: 4,
+    baseEmissionRate: 85,
+    shieldingFactor: 28,
+    interHammingMean: 49.8,
+    intraBitErrorRate: 1.8,
+    trojanImmunity: 'BEOL 磁穿隧結隱蔽性高；需防範外部磁場與 MOKE',
+    trojanImmunityEn: 'BEOL MTJ concealment; requires MOKE / magnetic shielding'
+  },
+  eflash: {
+    nameZh: '傳統 eFlash 儲存金鑰',
+    nameEn: 'Conventional eFlash Key Store',
+    maskAdders: 10,
+    baseEmissionRate: 1200,
+    shieldingFactor: 8,
+    interHammingMean: 0.0,
+    intraBitErrorRate: 0.0,
+    trojanImmunity: '具專屬高壓光罩攻擊面；高壓電荷泵需發射遮蔽',
+    trojanImmunityEn: 'Dedicated HV mask vector; charge pump requires emission shielding'
+  }
+});
+
+export function calculateHardwareTrojanPemMetrics(params = {}) {
+  const substrateThickUm = Number.isFinite(Number(params.substrateThickUm)) ? Math.max(0.1, Number(params.substrateThickUm)) : 8.0;
+  const opticalShieldDb = Number.isFinite(Number(params.opticalShieldDb)) ? Math.max(0, Number(params.opticalShieldDb)) : 45;
+  const trojanPayloadPpm = Number.isFinite(Number(params.trojanPayloadPpm)) ? Math.max(0, Number(params.trojanPayloadPpm)) : 50;
+  const techKey = params.tech || 'antifuse_puf';
+
+  const tech = TROJAN_PEM_TECH_PROFILES[techKey] || TROJAN_PEM_TECH_PROFILES['antifuse_puf'];
+
+  const lambdaOptUm = 20.0;
+  const substrateAbsorptionFactor = Math.exp(-substrateThickUm / lambdaOptUm);
+  const totalShieldingDb = opticalShieldDb + tech.shieldingFactor;
+  const shieldAttenuationFactor = Math.pow(10, -totalShieldingDb / 10);
+
+  const measuredFlux = Math.max(0, tech.baseEmissionRate * substrateAbsorptionFactor * shieldAttenuationFactor);
+  const snrDb = 10 * Math.log10(Math.max(1e-4, measuredFlux / 5.0));
+
+  const ppmNormalized = Math.min(1.0, Math.max(0.01, trojanPayloadPpm / 1000));
+  const baseInspectability = tech.maskAdders === 0 ? 0.82 : Math.max(0.60, 0.82 - tech.maskAdders * 0.015);
+  const detectionProb = Math.min(1.0, Math.max(0.01, 1.0 - Math.exp(-baseInspectability * (0.8 + 2.5 * ppmNormalized))));
+
+  return {
+    measuredFlux,
+    snrDb,
+    totalShieldingDb,
+    detectionProb,
+    tech
+  };
+}
+
 export class SupplyChainTrojanPemSimulator {
   constructor(containerId = 'trojan-pem-simulator-root') {
     this.container = document.getElementById(containerId);
@@ -398,38 +474,7 @@ export class SupplyChainTrojanPemSimulator {
   }
 
   computePhysics() {
-    const s = this.state;
-    const tech = this.techProfiles[s.tech] || this.techProfiles['antifuse_puf'];
-
-    // 1. Hot-Carrier Photon Emission & Substrate Absorption
-    // Silicon absorption depth for NIR (lambda ~ 1064nm): lambda_opt ~ 20 um (Schlösser et al. CHES 2012)
-    const lambdaOptUm = 20.0;
-    const substrateAbsorptionFactor = Math.exp(-s.substrateThickUm / lambdaOptUm);
-    const totalShieldingDb = s.opticalShieldDb + tech.shieldingFactor;
-    const shieldAttenuationFactor = Math.pow(10, -totalShieldingDb / 10);
-
-    // Measured Photon flux (photons / sec)
-    const measuredFlux = tech.baseEmissionRate * substrateAbsorptionFactor * shieldAttenuationFactor;
-    // Dark count rate for SNSPD is ~ 5.0 cps. If measuredFlux < 0.5 cps, it is buried under detector noise
-    const snrDb = 10 * Math.log10(Math.max(1e-4, measuredFlux / 5.0));
-
-    // 2. Hardware Trojan Detection (Continuous Poisson coverage model)
-    // Trojan payload scaling: larger footprint -> higher detection sensitivity
-    const ppmNormalized = Math.min(1.0, Math.max(0.01, s.trojanPayloadPpm / 1000));
-    // Architecture base inspectability (0.6 - 0.9):
-    // 0-mask standard CMOS has strict DRC/OPC checking across identical standard cells.
-    // Dedicated masks add verification vectors.
-    const baseInspectability = tech.maskAdders === 0 ? 0.82 : Math.max(0.60, 0.82 - tech.maskAdders * 0.015);
-    // Continuous detection probability: P = 1 - exp(-inspectability * (1 + 3 * ppm))
-    const detectionProb = 1.0 - Math.exp(-baseInspectability * (0.8 + 2.5 * ppmNormalized));
-
-    return {
-      measuredFlux,
-      snrDb,
-      totalShieldingDb,
-      detectionProb,
-      tech
-    };
+    return calculateHardwareTrojanPemMetrics(this.state);
   }
 
   update() {

@@ -20,6 +20,113 @@
  *    t_DESAT_read = t_base + C_BL * Delta_V / Delta_I_sense(T)
  */
 
+export const AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES = Object.freeze({
+  antifuse: {
+    nameZh: '0-Mask AntiFuse OTP (歐姆金屬微絲)',
+    nameEn: '0-Mask AntiFuse OTP (Ohmic Filament)',
+    activationEnergyEa: 0.98,
+    baseLifetimeYears: 12000,
+    tempCoeffAlpha: 0.0039,
+    retentionRating: '適合 (耐高溫微絲 / 250°C 留存 > 10 年)',
+    retentionRatingEn: 'Suitable (High-T filament / > 10yr Retention at 250°C)',
+    desatReadLatencyNs: 35,
+    descZh: '物理擊穿形成之合金/結晶矽導電微絲無捕獲電荷，主要退化受金屬原子自擴散控制，高溫穩定。',
+    descEn: 'Physically melted alloy filament holds zero trapped charge, governed by self-diffusion with high stability.'
+  },
+  mram: {
+    nameZh: 'STT-MRAM (垂直 MTJ 自旋轉矩)',
+    nameEn: 'STT-MRAM (Perpendicular MTJ)',
+    activationEnergyEa: 1.40,
+    baseLifetimeYears: 10,
+    tempCoeffAlpha: -0.0025,
+    retentionRating: '良好 (限 150°C 以下 / 高溫需注意 PMA 熱消磁)',
+    retentionRatingEn: 'Good (Limited < 150°C / PMA Demagnetization at elevated Tj)',
+    desatReadLatencyNs: 65,
+    descZh: '垂直磁各向異性能 Ku 隨溫度劇降，高於 175°C 熱穩定因數 Δ 顯著降低，需強化 ECC 防護。',
+    descEn: 'PMA anisotropy barrier Ku drops sharply; thermal stability factor Δ degrades above 175°C.'
+  },
+  reram: {
+    nameZh: 'Oxide ReRAM (BEOL 氧空位微絲)',
+    nameEn: 'Oxide ReRAM (BEOL Oxygen Vacancy)',
+    activationEnergyEa: 1.25,
+    baseLifetimeYears: 5,
+    tempCoeffAlpha: -0.004,
+    retentionRating: '中等 (需補償氧空位回擴散 / 讀取窗口需校準)',
+    retentionRatingEn: 'Moderate (Oxygen back-diffusion / Read window requires calibration)',
+    desatReadLatencyNs: 95,
+    descZh: '熱活化氧離子在 175°C 以上加速側向回擴散，高阻態 (HRS) 阻抗下降，讀取窗口需預留校準裕度。',
+    descEn: 'Thermally activated oxygen vacancies back-diffuse above 175°C, requiring read-window calibration margins.'
+  },
+  eflash: {
+    nameZh: 'Floating-Gate / CT eFlash (FEOL)',
+    nameEn: 'Floating-Gate / CT eFlash (FEOL)',
+    activationEnergyEa: 1.10,
+    baseLifetimeYears: 15,
+    tempCoeffAlpha: -0.008,
+    retentionRating: '受限 (裸晶合封熱區浮閘洩漏加速 / 需佈局於非功率熱區)',
+    retentionRatingEn: 'Constrained (Thermionic emission in power hot-spots / Requires thermal separation)',
+    desatReadLatencyNs: 180,
+    descZh: '高溫熱發射 (Thermionic Emission) 使浮閘電荷洩漏加速；在 >175°C~250°C 裸晶功率直結環境下受限。',
+    descEn: 'Thermionic emission accelerates charge loss; severely constrained in direct >175°C~250°C power co-packaging.'
+  }
+});
+
+export function calculateAutomotiveHighTempSicGanMetrics(params = {}) {
+  const junctionTemp = Number.isFinite(Number(params.junctionTemp)) ? Number(params.junctionTemp) : 175;
+  const techKey = params.tech || 'antifuse';
+  const tech = AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES[techKey] || AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES['antifuse'];
+  const kB = 8.617333262145e-5;
+
+  const T_base_K = 125 + 273.15;
+  const T_j_K = Math.max(1.0, junctionTemp + 273.15);
+  const exponent = (tech.activationEnergyEa / kB) * ((1 / T_base_K) - (1 / T_j_K));
+  const af = Math.exp(Math.max(-50, Math.min(50, exponent)));
+
+  const lifetimeYears = Math.max(1e-6, tech.baseLifetimeYears / af);
+
+  let deltaBarrier = null;
+  let ber = 1e-16;
+  if (techKey === 'mram') {
+    const tempDerating = Math.max(0.1, 1 - (junctionTemp - 125) * 0.0075);
+    deltaBarrier = 60.0 * tempDerating;
+    ber = Math.min(0.5, 0.5 * Math.exp(-deltaBarrier));
+  } else if (techKey === 'antifuse') {
+    deltaBarrier = null;
+    ber = 1e-18;
+  } else if (techKey === 'reram') {
+    deltaBarrier = null;
+    ber = Math.min(0.1, 1e-12 * af);
+  } else {
+    deltaBarrier = null;
+    ber = Math.min(0.5, 1e-10 * af);
+  }
+
+  let senseMarginUa = 22.0;
+  if (techKey === 'antifuse') {
+    senseMarginUa = 22.0 / (1 + tech.tempCoeffAlpha * Math.max(0, junctionTemp - 125));
+  } else if (techKey === 'mram') {
+    senseMarginUa = Math.max(1.0, 15.0 - (junctionTemp - 125) * 0.12);
+  } else if (techKey === 'reram') {
+    senseMarginUa = Math.max(0.8, 14.0 - (junctionTemp - 125) * 0.11);
+  } else {
+    senseMarginUa = Math.max(0.05, 18.0 - (junctionTemp - 125) * 0.18);
+  }
+
+  const snrDb = 20 * Math.log10(Math.max(1.1, senseMarginUa / 0.8));
+  const desatLatencyNs = tech.desatReadLatencyNs + (25.0 / Math.max(0.2, senseMarginUa)) * 12;
+
+  return {
+    af,
+    lifetimeYears,
+    deltaBarrier,
+    ber,
+    senseMarginUa,
+    snrDb,
+    desatLatencyNs,
+    tech
+  };
+}
+
 export class AutomotiveHighTempSicGanSimulator {
   constructor(containerId = 'sic-gan-simulator-root') {
     this.container = document.getElementById(containerId);
@@ -402,70 +509,7 @@ export class AutomotiveHighTempSicGanSimulator {
   }
 
   computePhysics() {
-    const s = this.state;
-    const tech = this.techProfiles[s.tech] || this.techProfiles['antifuse'];
-
-    // 1. Arrhenius Acceleration Factor (AF) from 125 C (398.15 K) baseline:
-    const T_base_K = 125 + 273.15;
-    const T_j_K = Math.max(1.0, s.junctionTemp + 273.15);
-    const exponent = (tech.activationEnergyEa / this.kB) * ( (1 / T_base_K) - (1 / T_j_K) );
-    const af = Math.exp(Math.max(-50, Math.min(50, exponent)));
-
-    // Lifetime in years:
-    const lifetimeYears = tech.baseLifetimeYears / af;
-
-    // 2. STT-MRAM Thermal Stability Barrier Factor Delta(T):
-    // Delta(125 C) ~ 60. As temp increases, Ku(T) propto Ms(T)^3 drops, kBT increases
-    let deltaBarrier = null;
-    let ber = 1e-16;
-    if (s.tech === 'mram') {
-      const tempDerating = Math.max(0.1, 1 - (s.junctionTemp - 125) * 0.0075);
-      deltaBarrier = 60.0 * tempDerating;
-      ber = Math.min(0.5, 0.5 * Math.exp(-deltaBarrier));
-    } else if (s.tech === 'antifuse') {
-      deltaBarrier = null; // Non-magnetic medium
-      ber = 1e-18;
-    } else if (s.tech === 'reram') {
-      deltaBarrier = null;
-      ber = Math.min(0.1, 1e-12 * af);
-    } else {
-      // eFlash
-      deltaBarrier = null;
-      ber = Math.min(0.5, 1e-10 * af);
-    }
-
-    // 3. Differential Sense Margin (Delta_I_sense in uA)
-    // AntiFuse maintains robust ~20uA window, eFlash margin closes due to leakage
-    let senseMarginUa = 22.0;
-    if (s.tech === 'antifuse') {
-      // Slight ohmic resistance increase reduces read current marginally: I = V / (R0 * (1 + alpha * dT))
-      senseMarginUa = 22.0 / (1 + tech.tempCoeffAlpha * (s.junctionTemp - 125));
-    } else if (s.tech === 'mram') {
-      // TMR drops with temperature: TMR(T) = TMR0 * (1 - alpha * T)
-      senseMarginUa = Math.max(1.0, 15.0 - (s.junctionTemp - 125) * 0.12);
-    } else if (s.tech === 'reram') {
-      senseMarginUa = Math.max(0.8, 14.0 - (s.junctionTemp - 125) * 0.11);
-    } else {
-      // eFlash: tunnel oxide leakage surges, Ion/Ioff window closes
-      senseMarginUa = Math.max(0.05, 18.0 - (s.junctionTemp - 125) * 0.18);
-    }
-
-    const snrDb = 20 * Math.log10(Math.max(1.1, senseMarginUa / 0.8));
-
-    // 4. DESAT Trip Readout Latency
-    // C_BL * Delta_V / Delta_I_sense
-    const desatLatencyNs = tech.desatReadLatencyNs + (25.0 / Math.max(0.2, senseMarginUa)) * 12;
-
-    return {
-      af,
-      lifetimeYears,
-      deltaBarrier,
-      ber,
-      senseMarginUa,
-      snrDb,
-      desatLatencyNs,
-      tech
-    };
+    return calculateAutomotiveHighTempSicGanMetrics(this.state);
   }
 
   update() {
