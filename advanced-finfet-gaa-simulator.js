@@ -440,8 +440,8 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
     const exportControl = root.querySelector('#finfet-gaa-export-csv-btn');
     if (exportControl) {
       const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-      exportControl.textContent = isZh ? '📥 匯出 FinFET/GAA 擊穿特性 CSV' : '📥 Export FinFET/GAA Breakdown CSV';
-      exportControl.setAttribute('aria-label', isZh ? '匯出 FinFET 與 GAA 奈米線介電質擊穿特性資料集為 CSV 檔案' : 'Export FinFET & GAA dielectric breakdown metrics dataset as CSV file');
+      exportControl.textContent = isZh ? '📥 匯出 FinFET/GAA 電壓與溫度掃描 CSV' : '📥 Export FinFET/GAA Voltage and Temperature Sweep CSV';
+      exportControl.setAttribute('aria-label', isZh ? '保留目前教學預設，匯出 FinFET 與 GAA 電壓與溫度掃描 CSV' : 'Export the voltage and temperature sweep for the selected FinFET or GAA teaching preset as CSV');
     }
   }
 
@@ -464,10 +464,10 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
     const exportBtn = document.createElement('button');
     exportBtn.id = 'finfet-gaa-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-    exportBtn.textContent = isZhLang ? '📥 匯出 FinFET/GAA 擊穿特性 CSV' : '📥 Export FinFET/GAA Breakdown CSV';
-    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 FinFET 與 GAA 奈米線介電質擊穿特性資料集為 CSV 檔案' : 'Export FinFET & GAA dielectric breakdown metrics dataset as CSV file');
+    exportBtn.textContent = isZhLang ? '📥 匯出 FinFET/GAA 電壓與溫度掃描 CSV' : '📥 Export FinFET/GAA Voltage and Temperature Sweep CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '保留目前教學預設，匯出 FinFET 與 GAA 電壓與溫度掃描 CSV' : 'Export the voltage and temperature sweep for the selected FinFET or GAA teaching preset as CSV');
     exportBtn.addEventListener('click', () => {
       const nId = nodeSelect ? nodeSelect.value : 'tsmc_n3_gaa';
       let csv = 'AppliedVolt_V,Temp_C,E1D_MVcm,ECorner_MVcm,VbdPredicted_V,PumpStages,AreaSavings_Pct,JdtTotal_Acm2\n';
@@ -483,7 +483,8 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
           csv += `${v.toFixed(2)},${t},${res.metrics.e1dMvCm.toFixed(2)},${res.metrics.eCornerMvCm.toFixed(2)},${res.metrics.vbdPredicted.toFixed(2)},${res.metrics.stagesCalc},${res.metrics.areaSavingsPct},${res.metrics.jdtTotalAcm2.toExponential(4)}\n`;
         }
       }
-      downloadCsv(`finfet_gaa_${nId}.csv`, csv);
+      const preset = FOUNDRY_ADVANCED_NODES[nId] || FOUNDRY_ADVANCED_NODES.tsmc_n3_gaa;
+      downloadCsv(`FinFET_GAA_電壓與溫度掃描_${preset.nameZh}.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }

@@ -598,8 +598,8 @@ export function initCimAnalogMacSimulator() {
     syncMetricCopy([outEnob, outSinad, outAccuracy, outTopsWatt, outAdcShare]);
     const exportControl = root.querySelector('#cim-analog-export-csv-btn');
     if (exportControl) {
-      exportControl.textContent = isZh ? '📥 匯出 CiM 類比 MAC 精度 CSV' : '📥 Export CiM Analog MAC CSV';
-      exportControl.setAttribute('aria-label', isZh ? '匯出神經網路層在不同 eNVM 介質與雜訊條件下的 ENOB 與精度資料集為 CSV 檔案' : 'Export neural network layer ENOB and accuracy dataset under analog CiM impairments as CSV file');
+      exportControl.textContent = isZh ? '📥 匯出類比 CiM 參數掃描 CSV' : '📥 Export Analog CiM Parameter Sweep CSV';
+      exportControl.setAttribute('aria-label', isZh ? '保留目前工作負載與介質，匯出 ADC、溫度及留存時間掃描 CSV' : 'Export the ADC, temperature and retention-time sweep for the current workload and device as CSV');
     }
   }
 
@@ -622,10 +622,10 @@ export function initCimAnalogMacSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'cim-analog-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-    exportBtn.textContent = isZhLang ? '📥 匯出 CiM 類比 MAC 精度 CSV' : '📥 Export CiM Analog MAC CSV';
-    exportBtn.setAttribute('aria-label', isZhLang ? '匯出神經網路層在不同 eNVM 介質與雜訊條件下的 ENOB 與精度資料集為 CSV 檔案' : 'Export neural network layer ENOB and accuracy dataset under analog CiM impairments as CSV file');
+    exportBtn.textContent = isZhLang ? '📥 匯出類比 CiM 參數掃描 CSV' : '📥 Export Analog CiM Parameter Sweep CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '保留目前工作負載與介質，匯出 ADC、溫度及留存時間掃描 CSV' : 'Export the ADC, temperature and retention-time sweep for the current workload and device as CSV');
     exportBtn.addEventListener('click', () => {
       const curWorkload = workloadSelect?.value || 'transformer_attn';
       const curDevice = deviceSelect?.value || 'reram_oxram';
@@ -648,7 +648,7 @@ export function initCimAnalogMacSimulator() {
           }
         }
       }
-      downloadCsv(`cim_analog_mac_${curWorkload}_${curDevice}.csv`, csv);
+      downloadCsv(`類比CiM_ADC溫度留存掃描_${curWorkload}_${curDevice}.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }
@@ -682,6 +682,7 @@ export function initCimAnalogMacSimulator() {
     }
   });
 
+  window.addEventListener('hub:language-change', update);
   window.addEventListener("languagechange", update);
   window.addEventListener("resize", () => {
     if (canvas) update();
