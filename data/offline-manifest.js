@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "a61a84dcb046c5f9396d",
+  "version": "f8ca814306bfcae884c3",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -268,7 +268,7 @@ self.NVMOfflineManifest = {
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "pqc-rot-dpa-simulator.js": "3af3274f118705c0907f47c0c775df459caf22c836b6f408e4c88f4857974137",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
-    "puf-reconstruction-simulator.js": "88df65b7d5af41a8155b77b22eb1d1f8be471a66a3bace0b8e3899dbe49d10d1",
+    "puf-reconstruction-simulator.js": "b8202493023455e2b6a487175e02942dd55b4c7ca960415b0e206b00ab175d74",
     "quick-probe.js": "13857acf21a476d43ed5eb2baf42ba8b9f88ef823ae1f213d643a87b77223994",
     "rad-hard-nvm-simulator.js": "cc9ab29d21c278fff2f3d961afc9637003508d4c1062ae78087ab052265b4282",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
@@ -312,9 +312,9 @@ self.NVMOfflineManifest = {
     "儲存狀態導讀.css": "b3837e567264f690ca9c94686537c4cbea4f982bb2e4bc142331985ebe4a4656",
     "儲存狀態導讀.js": "52339aadab8c56218823ef01a8858e51be6e6b0663ee07cd3f31b6446aa11f32",
     "操作圖步進演示.js": "212b96eb093e0dbcf3448567cf366f76838ae8bcbaa40a84765d3f2e61e2e847",
-    "模型數值複製.js": "778132cbd0b2eec7213af1e441d5eda3e6d290776bb580e96dfce27ac31e61c1",
+    "模型數值複製.js": "2d5d80105d1c4a565e8efa975a761d7ffda10ca8e90d7addca887c9602459777",
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 14926528
+  "totalBytes": 14927624
 };

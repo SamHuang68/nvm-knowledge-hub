@@ -3,8 +3,8 @@ const states = new WeakMap();
 const copyIcon = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 8h11v13H9zM5 16H3V3h11v2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
 const language = () => (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'en').startsWith('zh');
 const text = () => language()
-  ? {copy:'複製數值',busy:'正在複製',done:'已複製',failed:'無法複製；請選取數值後手動複製。'}
-  : {copy:'Copy value',busy:'Copying',done:'Copied',failed:'Unable to copy. Select the value and copy it manually.'};
+  ? {copy:'複製數值',busy:'正在複製',done:'已複製',failed:'無法複製；請選取數值後手動複製。',unavailable:'無法複製：目前沒有有效數值'}
+  : {copy:'Copy value',busy:'Copying',done:'Copied',failed:'Unable to copy. Select the value and copy it manually.',unavailable:'Copy unavailable: no valid value'};
 
 function installStyles() {
   if (document.getElementById('model-value-copy-styles')) return;
@@ -26,21 +26,29 @@ function installStyles() {
 function refresh(element,state) {
   const labels = text();
   state.wrapper.style.color = element.style.color || 'inherit';
-  element.title = labels.copy;
-  state.button.setAttribute('aria-label', `${state.busy ? labels.busy : labels.copy}: ${element.textContent.trim()}`);
+  element.title = state.available ? labels.copy : labels.unavailable;
+  element.style.cursor = state.available ? 'pointer' : 'default';
+  state.button.disabled = state.busy || !state.available;
+  state.button.style.cursor = state.available ? '' : 'not-allowed';
+  state.button.setAttribute('aria-busy',String(state.busy));
+  state.button.setAttribute('aria-label',state.available
+    ? `${state.busy ? labels.busy : labels.copy}: ${element.textContent.trim()}`
+    : labels.unavailable);
+  if (!state.available && state.describedBy) state.button.setAttribute('aria-describedby',state.describedBy);
+  else state.button.removeAttribute('aria-describedby');
   state.button.title = element.title;
-  if (state.message === 'done') state.status.textContent = `${labels.done}: ${state.copied}`;
-  if (state.message === 'failed') state.status.textContent = labels.failed;
-  if (state.busy) state.status.textContent = labels.busy;
+  state.status.textContent = !state.available ? ''
+    : state.busy ? labels.busy
+    : state.message === 'done' ? `${labels.done}: ${state.copied}`
+    : state.message === 'failed' ? labels.failed : '';
 }
 
 async function copyValue(element,state) {
-  if (state.busy) return;
+  if (state.busy || !state.available) return;
   const value = element.textContent.trim();
+  const generation = state.generation;
   state.busy = true;
   state.message = '';
-  state.button.disabled = true;
-  state.button.setAttribute('aria-busy','true');
   clearTimeout(state.feedbackTimer);
   refresh(element,state);
   let timeout;
@@ -50,15 +58,15 @@ async function copyValue(element,state) {
       navigator.clipboard.writeText(value),
       new Promise((_,reject) => {timeout=setTimeout(()=>reject(new Error('剪貼簿逾時')),8000);})
     ]);
-    state.message = 'done';
-    state.copied = value;
+    if (generation === state.generation) {
+      state.message = 'done';
+      state.copied = value;
+    }
   } catch {
-    state.message = 'failed';
+    if (generation === state.generation) state.message = 'failed';
   } finally {
     clearTimeout(timeout);
     state.busy = false;
-    state.button.disabled = false;
-    state.button.setAttribute('aria-busy','false');
     if (element.isConnected) refresh(element,state);
   }
   if (state.message === 'done') {
@@ -69,7 +77,7 @@ async function copyValue(element,state) {
   }
 }
 
-export function syncMetricCopy(elements) {
+export function syncMetricCopy(elements,{available=true,describedBy=null}={}) {
   installStyles();
   for (const element of elements) {
     if (!element) continue;
@@ -87,13 +95,21 @@ export function syncMetricCopy(elements) {
       status.setAttribute('aria-atomic','true');
       element.before(wrapper);
       wrapper.append(element,button,status);
-      state={wrapper,button,status,busy:false,message:'',copied:''};
+      state={wrapper,button,status,busy:false,message:'',copied:'',available:true,generation:0,describedBy:null};
       states.set(element,state);
       element.dataset.copyAttached='true';
       element.style.cursor='pointer';
       button.addEventListener('click',()=>copyValue(element,state));
       element.addEventListener('click',()=>copyValue(element,state));
     }
+    if (!available) {
+      // 已送出的剪貼簿請求無法撤銷；失效後不再顯示其完成回饋。
+      if (state.available) state.generation++;
+      state.message='';
+      clearTimeout(state.feedbackTimer);
+    }
+    state.available=available;
+    state.describedBy=describedBy;
     refresh(element,state);
   }
 }
