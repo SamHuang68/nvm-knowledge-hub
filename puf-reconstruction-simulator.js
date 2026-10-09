@@ -326,6 +326,10 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
       if (verdictElem) verdictElem.textContent = T(
         'The illustrative information length k = 128 − 7t must be positive. This input is retained but cannot produce FER, helper-data or entropy estimates with this approximation. Use a named BCH code and measured PUF data.',
         '此示意近似要求資訊長度 k = 128 − 7t 為正。輸入選項保留，但本近似不能輸出此條件的 FER、輔助資料或熵；須改用具名 BCH 碼與 PUF 量測資料。');
+      syncMetricCopy([berDisplay, ferDisplay, helperDisplay, entropyDisplay], {
+        available: false,
+        describedBy: verdictElem?.id,
+      });
       if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
       return;
     }
