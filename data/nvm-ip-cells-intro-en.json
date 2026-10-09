@@ -541,6 +541,211 @@
           "ip-crossbar-cell-2012"
         ]
       }
+    },
+    {
+      "id": "everspin-mram",
+      "title": "Everspin: pMTJ STT-MRAM Cell",
+      "shortTitle": "Everspin · pMTJ MRAM",
+      "vendor": "Everspin Technologies",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "Analyze interfacial perpendicular magnetic anisotropy (i-PMA) from dual MgO interfaces to understand high thermal stability with low switching current at sub-40nm nodes.",
+      "program": "Spin-transfer torque switching (P to AP)",
+      "reverse": "Reverse spin-polarized switching (AP to P)",
+      "readout": "pMTJ tunneling magnetoresistance (TMR)",
+      "lesson": "Everspin's pMTJ demonstrates interfacial PMA replacing in-plane shape anisotropy. BEOL thermal budget (< 400°C) is a key integration constraint.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "How Erase Maps: Bidirectional Overwrite Without Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data through magnetic switching without Flash-style preceding erase. Erasing to all 0s or 1s is a sequence of target-state writes.",
+        "verification": "Verify target state according to release-specific read/verify conditions after designated pulse cycles.",
+        "granularity": "Selection scope and update granularity follow the named array and interface.",
+        "limits": "Endurance, retention, disturbance, and update interruption must be verified per target product specifications.",
+        "sourceIds": [
+          "ip-everspin-pmtj",
+          "ip-everspin-product",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "avalanche-mram",
+      "title": "Avalanche: Dual-SAF Stray Field Compensated MRAM Cell",
+      "shortTitle": "Avalanche · Dual-SAF MRAM",
+      "vendor": "Avalanche Technology",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "Analyze dual-SAF magnetic symmetry to understand cancellation of stray dipole fields on the free layer for rad-hard, reliable switching.",
+      "program": "Dual spin-torque injection switching",
+      "reverse": "Symmetric reverse spin switching",
+      "readout": "Dual-barrier tunneling resistance sensing",
+      "lesson": "Avalanche resolves magnetic field asymmetry with dual SAFs, reducing Ic by 50% and enhancing rad-hard robustness at the cost of stack complexity.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "How Erase Maps: Symmetric Spin Overwrite Without Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data through magnetic switching without Flash-style preceding erase.",
+        "verification": "Verify target state according to release-specific read/verify conditions after designated pulse cycles.",
+        "granularity": "Selection scope and update granularity follow the named array and interface.",
+        "limits": "Endurance, retention, disturbance, and rad-hard TID must be verified per space or automotive qualified packaging.",
+        "sourceIds": [
+          "ip-avalanche-saf",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "spinmem-mram",
+      "title": "Spin Memory: PSC Precessional MRAM Cell",
+      "shortTitle": "Spin Memory · PSC MRAM",
+      "vendor": "Spin Memory",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "Analyze in-plane precessional spin polarizer providing orthogonal torque to eliminate thermal incubation delay for <3ns switching.",
+      "program": "Orthogonal precessional torque fast write",
+      "reverse": "Reverse current assisted fast switching",
+      "readout": "Perpendicular MTJ resistance sensing",
+      "lesson": "The PSC layer physically resolves thermal incubation delay in STT-MRAM, requiring tight spacer thickness control.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "How Erase Maps: Ultra-Fast Precessional Direct Overwrite",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data through magnetic switching without Flash-style preceding erase.",
+        "verification": "Verify target state under sub-3ns pulse verify conditions.",
+        "granularity": "Selection scope and update granularity follow the named array and interface.",
+        "limits": "High-speed switching requires low parasitic capacitance peripheral layout; macro performance depends on foundry PDK.",
+        "sourceIds": [
+          "ip-spinmem-psc",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "crocus-mram",
+      "title": "Crocus: TAS-MRAM Thermally Assisted Cell",
+      "shortTitle": "Crocus · TAS-MRAM",
+      "vendor": "Crocus Technology",
+      "group": "mram",
+      "hostTopic": "sot",
+      "summary": "Examine pulse heating past the AFM blocking temperature (Tb) to understand unpinned switching with room-temperature thermal stability.",
+      "program": "Thermal unlock + low-current switching",
+      "reverse": "Thermal unlock + reverse switching",
+      "readout": "Unheated room-temperature MR readout",
+      "lesson": "TAS-MRAM uses localized heating to unlock switching barriers, providing ultra-high stability but limited by cooling cycle latency.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "How Erase Maps: Thermally Assisted Overwrite and Cool Freeze",
+        "sequence": "P ⇄ AP",
+        "definition": "Heating pulse unlocks exchange bias, overwrites magnetization, and freezes state upon cooling.",
+        "verification": "Perform read verification after heat dissipation returns cell to ambient temperature.",
+        "granularity": "Restricted by cell thermal isolation boundaries and driver lines.",
+        "limits": "Thermal cycle lifetime and dissipation paths follow qualified industrial sensor packaging.",
+        "sourceIds": [
+          "ip-crocus-tas",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "panasonic-reram",
+      "title": "Panasonic: Bilayer Ta2O5/TaOx ReRAM Cell",
+      "shortTitle": "Panasonic · TaOx ReRAM",
+      "vendor": "Panasonic / RAMXEED",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "Track reversible oxygen ion exchange across stoichiometric Ta2O5 and oxygen-deficient TaOx with self-limiting filament resistance.",
+      "program": "SET forms Ta-rich self-limiting filament",
+      "reverse": "RESET gently ruptures filament neck",
+      "readout": "Small positive bias reads filament resistance",
+      "lesson": "Panasonic bilayer TaOx prevents hard breakdown via self-limiting series resistance, enabling production at mature nodes.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "How Erase Maps: Reverse RESET Ruptures Filament, Restored by SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "Reverse bias drives oxygen ions to recombine with vacancies, restoring HRS; non-destructive reversible switching.",
+        "verification": "Sense resistance under designated read bias to confirm HRS threshold.",
+        "granularity": "Individually addressed by 1T access transistor.",
+        "limits": "Endurance 10^5 to 10^6 cycles; high-temperature retention follows MN101L datasheet.",
+        "sourceIds": [
+          "ip-panasonic-taox"
+        ]
+      }
+    },
+    {
+      "id": "tetramem-reram",
+      "title": "TetraMem: Multi-Level Linear CIM ReRAM Cell",
+      "shortTitle": "TetraMem · CIM ReRAM",
+      "vendor": "TetraMem",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "Analyze multi-layer interface defect engineering delivering continuous 8-bit linear analog synapse weights for in-memory computing.",
+      "program": "Incremental pulse linear potentiation",
+      "reverse": "Reverse micro-step linear depression",
+      "readout": "Ultra-low voltage non-destructive analog MAC read",
+      "lesson": "TetraMem replaces abrupt filaments with continuous interfacial barriers for high-precision CIM, trading off noise and drift sensitivity.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "How Erase Maps: Progressive Conductance Depression Without Block Erase",
+        "sequence": "Potentiation ⇄ Depression",
+        "definition": "Continuous micro-pulses incrementally decrease conductance for downward weight tuning; non-binary analog erasure.",
+        "verification": "Closed-loop comparator verifies conductance falls into target analog bin.",
+        "granularity": "Supports individual fine-grained analog weight tuning.",
+        "limits": "Analog multi-level retention requires periodic background calibration to compensate for relaxation drift.",
+        "sourceIds": [
+          "ip-tetramem-cim"
+        ]
+      }
+    },
+    {
+      "id": "4ds-reram",
+      "title": "4DS Memory: Area-Dependent PCMO ReRAM Cell",
+      "shortTitle": "4DS · PCMO ReRAM",
+      "vendor": "4DS Memory",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "Understand non-filamentary Schottky barrier modulation across single-wafer PCMO for strict area-dependent scaling and forming-free operation.",
+      "program": "Low-voltage electric field vacancy modulation (SET)",
+      "reverse": "Reverse electric field vacancy extraction (RESET)",
+      "readout": "Low-voltage area-dependent interface resistance sensing",
+      "lesson": "4DS PCMO eliminates filament random breakdown, targeting SCM and DRAM gap filling, but faces multi-element perovskite etching hurdles.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "How Erase Maps: Reverse Field Restores Schottky Barrier",
+        "sequence": "SET → RESET → SET",
+        "definition": "Uniform extraction of interface vacancies widens space charge region, restoring high-resistance Schottky barrier.",
+        "verification": "Verify HRS interface current under small-signal read bias.",
+        "granularity": "Addressed via 1T access device or 3D cross-point array.",
+        "limits": "Thermal stability and retention verified per imec joint technical reports.",
+        "sourceIds": [
+          "ip-4ds-pcmo"
+        ]
+      }
+    },
+    {
+      "id": "adesto-cbram",
+      "title": "Adesto: Micro-Ampere Conductive Bridging CBRAM Cell",
+      "shortTitle": "Adesto · CBRAM",
+      "vendor": "Adesto Technologies / Renesas",
+      "group": "reram",
+      "hostTopic": "ecm",
+      "summary": "Examine copper active anode and solid electrolyte to understand microamp (1-10uA) metallic nanobridge formation and electrochemical dissolution.",
+      "program": "Electrochemical redox growing Cu nanobridge (SET)",
+      "reverse": "Sub-volt electrochemical dissolution of Cu bridge (RESET)",
+      "readout": "Tera-ohm off / low-ohm on resistance readout",
+      "lesson": "Adesto CBRAM excels in ultra-low-power IoT with microamp switching, but copper ion thermal diffusion presents 125°C retention challenges.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "How Erase Maps: Dissolve Copper Nanobridge, Restored by Microamp SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "Reverse sub-volt bias electrochemically dissolves copper nanobridge, restoring tera-ohm high-resistance state.",
+        "verification": "Apply 0.1V read bias to confirm leakage is below off-state threshold.",
+        "granularity": "Supports byte-level rapid write/erase.",
+        "limits": "Retention verified per specialized anode stabilization alloy on Renesas MCU platforms.",
+        "sourceIds": [
+          "ip-adesto-cbram"
+        ]
+      }
     }
   ],
   "lineage": {

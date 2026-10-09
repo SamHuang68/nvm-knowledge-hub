@@ -9,7 +9,7 @@ const base=process.env.NVM_QA_BASE||server.base;
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/nvm-knowledge-data-en.json'),'utf8'));
 const units=data.ipCurriculum.units,results=[],failures=[],errors=[];
 const note=(passed,label,details={})=>{const row={passed:Boolean(passed),label,...details};results.push(row);if(!passed)failures.push(row);};
-const requiredIds=['neobit','neofuse','kilopass-xpm','sidense-1t-fuse','cfx-otp','attopsemi-ifuse','floadia-za','neoee','neomtp','ymc-mtp','impinj-aeon','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash','chingis-pfusion','iotmemory-silvoflash','numem-mram','gf-emram','weebit-reram','crossbar-reram'];
+const requiredIds=["neobit","neofuse","kilopass-xpm","sidense-1t-fuse","cfx-otp","attopsemi-ifuse","floadia-za","neoee","neomtp","ymc-mtp","impinj-aeon","actt-cmt","nscore-twinbit","floadia-zt","floadia-g1","floadia-g2","sst-superflash","chingis-pfusion","iotmemory-silvoflash","numem-mram","gf-emram","weebit-reram","crossbar-reram","everspin-mram","avalanche-mram","spinmem-mram","crocus-mram","panasonic-reram","tetramem-reram","4ds-reram","adesto-cbram"];
 note(units.length===requiredIds.length&&requiredIds.every(id=>units.some(unit=>unit.id===id))&&new Set(units.map(unit=>unit.id)).size===units.length,'IP 目錄包含既有單元及 Actt、NSCore、Floadia、創飛芯、Attopsemi、SST、常億、智憶技術');
 const sourceIds=new Set(data.sources.map(source=>source.id));
 for(const unit of units)note(unit.operations.length===3&&unit.structure.sourceIds.every(id=>sourceIds.has(id))&&unit.operations.every(operation=>operation.variants.every(variant=>variant.frames.length>=3&&variant.frames.every(frame=>frame.sourceIds.every(id=>sourceIds.has(id))))),'單元結構與所有逐格操作綁定有效來源',{id:unit.id});

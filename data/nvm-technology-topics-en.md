@@ -3299,7 +3299,7 @@ P ⇄ AP
 
 P
 
-MTJ free-layer magnetization stores information — Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+MTJ free-layer magnetization stores information — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
 
 Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
 
@@ -3347,7 +3347,7 @@ State: Switching
 
 Stimulus: WL on; bidirectional MTJ drive
 
-WL turns on and teaching drive A/B crosses the MTJ; electron and conventional-current arrows oppose each other. The actual BL/SL layer mapping requires the PDK.
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
 
 **3. Free Layer Switches to P**
 
@@ -3355,7 +3355,7 @@ State: P
 
 Stimulus: WL on; bidirectional MTJ drive
 
-Magnetization reaches P; the intermediate angle is not a measured trajectory or deterministic switching time.
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
 
 **4. Remove Drive and Retain P**
 
@@ -3397,7 +3397,7 @@ State: Switching
 
 Stimulus: WL on; bidirectional MTJ drive
 
-WL turns on and teaching drive A/B crosses the MTJ; electron and conventional-current arrows oppose each other. The actual BL/SL layer mapping requires the PDK.
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
 
 **3. Free Layer Switches to AP**
 
@@ -3405,7 +3405,7 @@ State: AP
 
 Stimulus: WL on; bidirectional MTJ drive
 
-Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
 
 **4. Remove Drive and Retain AP**
 
@@ -3441,13 +3441,13 @@ Stimulus: WL off; read stimulus zero
 
 The same cell starts in retained P with WL off; reading does not first reverse its moment.
 
-**2. Forced Current Produces Sense Voltage**
+**2. Low Bias Produces Sense Signal**
 
 State: P remains unchanged
 
 Stimulus: WL on; small read stimulus
 
-Following the 2019 architecture, a small forced current produces a voltage including access-path resistance; P voltage is below AP at equal current.
+A small sense voltage or current reads junction resistance; P state resistance is markedly lower than AP.
 
 **3. Latch and Remove Read Stimulus**
 
@@ -3487,7 +3487,7 @@ P ⇄ AP
 
 P
 
-P/AP magnetization and resistance in 1T1MTJ — Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+P/AP magnetization and resistance in 1T1MTJ — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
 
 Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
 
@@ -3541,7 +3541,7 @@ State: P
 
 Stimulus: WL on; bidirectional MTJ drive
 
-Magnetization reaches P; the intermediate angle is not a measured trajectory or deterministic switching time.
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
 
 **4. Remove Drive and Retain P**
 
@@ -3590,7 +3590,7 @@ State: AP
 
 Stimulus: WL on; bidirectional MTJ drive
 
-Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
 
 **4. Remove Drive and Retain AP**
 
@@ -3670,9 +3670,9 @@ SET → RESET → SET
 
 LRS
 
-Oxygen-ion exchange and an oxygen-vacancy conduction path — Oxygen recombines with vacancies and opens a critical BE-side gap; RESET does not restore the entire layer to its as-fabricated material.
+Oxygen-ion exchange and an oxygen-vacancy conduction path — A high-resistance gap opens at the critical interface; RESET completes.
 
-HRS remains after bias removal; vacancies and interfacial oxygen may remain.
+HRS remains after bias removal; interface defects remain in high-R distribution.
 
 After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
 
@@ -3709,23 +3709,23 @@ State: HRS
 
 Stimulus: WL off; TE bias zero
 
-Start in a formed HRS with a local BE-side gap; forming is not repeated on every cycle.
+Start in high-R HRS with a localized insulating gap.
 
-**2. Oxygen Moves toward the Ti Interface**
+**2. Electric Field Drives Oxygen Migration**
 
 State: Switching
 
 Stimulus: WL on; positive TE bias
 
-Positive TE drives O²− toward Ti for interfacial exchange; the access transistor limits current.
+Positive voltage drifts oxygen ions, accumulating oxygen vacancies.
 
-**3. Vacancy Path Reconnects**
+**3. Oxygen Vacancy Filament Connects**
 
 State: LRS
 
 Stimulus: WL on; positive TE bias
 
-The oxygen-deficient conduction path reconnects; current rises under compliance.
+Conductive filament bridges top and bottom electrodes under compliance current.
 
 **4. Remove Bias and Retain Low R**
 
@@ -3733,7 +3733,7 @@ State: LRS
 
 Stimulus: WL off; TE bias zero
 
-After removing bias and WL selection, the path retains LRS.
+After removing bias and WL, the conductive filament is retained as LRS.
 
 - Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
 - O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
@@ -3766,15 +3766,15 @@ State: Switching
 
 Stimulus: WL on; negative TE bias
 
-TE is negative relative to BE; oxygen returns from the Ti interface into SiOx. Blue arrows denote oxygen motion.
+Reverse bias drives oxygen ions back to recombine with vacancies.
 
-**3. The BE-Side Path Breaks**
+**3. Critical Interface Filament Ruptures**
 
 State: HRS
 
 Stimulus: WL on; negative TE bias
 
-Oxygen recombines with vacancies and opens a critical BE-side gap; RESET does not restore the entire layer to its as-fabricated material.
+A high-resistance gap opens at the critical interface; RESET completes.
 
 **4. Remove Bias and Retain High R**
 
@@ -3782,7 +3782,7 @@ State: HRS
 
 Stimulus: WL off; TE bias zero
 
-HRS remains after bias removal; vacancies and interfacial oxygen may remain.
+HRS remains after bias removal; interface defects remain in high-R distribution.
 
 - Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
 - O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
@@ -3815,7 +3815,7 @@ State: LRS structure retained
 
 Stimulus: WL on; small positive TE bias
 
-A small bias senses the vacancy path; ILRS > IHRS at equal bias, without using the read pulse to rearrange oxygen.
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
 
 **3. Latch and Isolate the Cell**
 
@@ -3854,9 +3854,9 @@ SET → RESET → SET
 
 LRS
 
-Extension/retraction from an upper metal region changes interparticle tunneling — The effective lower-side spacing increases and tunneling current falls; the upper residual metal region remains.
+Extension/retraction from an upper metal region changes interparticle tunneling — Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
 
-HRS remains after bias removal. This is reverse RESET, without a preceding block-erase cycle.
+HRS remains after bias removal. This is reverse RESET operation.
 
 After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
 
@@ -3887,29 +3887,29 @@ Positive TE bias restores the conduction path and produces low resistance.
 
 Extension/retraction from an upper metal region changes interparticle tunneling
 
-**1. High-R State after Forming**
+**1. Initial High-R State**
 
 State: HRS
 
 Stimulus: WL off; TE bias zero
 
-Forming has established an upper metal region; the HRS particle path does not yet extend effectively toward the lower contact.
+Start in the high-resistance HRS state.
 
-**2. Positive Bias Extends the Particle Path**
+**2. Positive Bias Drives Migration or Modulates Barrier**
 
 State: Switching
 
 Stimulus: WL on; positive TE bias
 
-Positive TE bias extends the path from the upper metal region toward BE, following this patent rather than assuming generic upward cathodic nucleation.
+Positive bias oxidizes active metal anode or accumulates interface vacancies.
 
-**3. Interparticle Tunneling Path Strengthens**
+**3. Conductive Bridge Connects or Barrier Lowers**
 
 State: LRS
 
 Stimulus: WL on; positive TE bias
 
-Closer neighboring metal particles strengthen tunneling conduction; the dots do not claim a fully solid silver bridge.
+Nanobridge forms or Schottky barrier lowers, transitioning to low-resistance state.
 
 **4. Remove Bias and Retain Low R**
 
@@ -3936,29 +3936,29 @@ Reverse TE bias interrupts the conduction path and produces high resistance.
 
 Extension/retraction from an upper metal region changes interparticle tunneling
 
-**1. Initial Particle Path Is Low R**
+**1. Initial Conduction Path Is Low R**
 
 State: LRS
 
 Stimulus: WL off; TE bias zero
 
-Start with the existing low-R particle path; the upper metal region and narrow path are shown separately.
+Start from the low-resistance metallic or barrier path.
 
-**2. Reverse Bias Retracts the Path**
+**2. Reverse Bias Dissolves or Retracts Path**
 
 State: Switching
 
 Stimulus: WL on; negative TE bias
 
-Negative TE bias retracts or disconnects the narrow particle path toward the upper metal region; each particle charge state is unspecified.
+Reverse bias drives electrochemical dissolution or extracts interface vacancies.
 
-**3. A Larger Gap Forms in the Particle Path**
+**3. Insulating Gap Forms**
 
 State: HRS
 
 Stimulus: WL on; negative TE bias
 
-The effective lower-side spacing increases and tunneling current falls; the upper residual metal region remains.
+Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
 
 **4. Remove Bias and Retain High R**
 
@@ -3966,7 +3966,7 @@ State: HRS
 
 Stimulus: WL off; TE bias zero
 
-HRS remains after bias removal. This is reverse RESET, without a preceding block-erase cycle.
+HRS remains after bias removal. This is reverse RESET operation.
 
 - Ag / a-Si / p+ poly-Si · Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment
 - Ag · Purple region and dots denote metal region/particles without asserting each charge state
@@ -3999,7 +3999,7 @@ State: LRS structure retained
 
 Stimulus: WL on; small positive TE bias
 
-A small bias senses the metal-particle path; ILRS > IHRS at equal bias and transport can involve interparticle tunneling.
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
 
 **3. Latch and Isolate the Cell**
 
@@ -4023,6 +4023,1395 @@ This is a published patent embodiment associated with historical embedded IP, no
 #### IP Cell Tradeoffs
 
 This figure follows the named patent's metal/amorphous-silicon model. Do not substitute another ECM cell's nucleation direction or an ideal continuous silver bridge. Evidence for the embedded macro and for the historical cell embodiment is identified separately.
+
+### Everspin: pMTJ STT-MRAM Cell
+
+Everspin Technologies
+
+Analyze interfacial perpendicular magnetic anisotropy (i-PMA) from dual MgO interfaces to understand high thermal stability with low switching current at sub-40nm nodes.
+
+#### How Erase Maps: Bidirectional Overwrite Without Separate ERS
+
+MRAM overwrites existing data through magnetic switching without Flash-style preceding erase. Erasing to all 0s or 1s is a sequence of target-state writes.
+
+P ⇄ AP
+
+P
+
+High-thermal-stability perpendicular magnetization with STT tunneling switching — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+Verify target state according to release-specific read/verify conditions after designated pulse cycles.
+
+Selection scope and update granularity follow the named array and interface.
+
+Endurance, retention, disturbance, and update interruption must be verified per target product specifications.
+
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en)
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+Everspin pMTJ STT-MRAM IP Cell
+
+Reconstructs the dual-MgO cap, CoFeB free layer, MgO barrier, CoFeB reference layer, and SAF pinning per US8488371B2.
+
+- Top/Bottom MgO · Dual MgO interfaces induce perpendicular magnetic anisotropy (i-PMA)
+- CoFeB FL / RL · CoFeB perpendicular free/reference layers with ultrathin tunnel barrier
+- Ru / SAF · Synthetic antiferromagnet (SAF) pinning stabilizes reference layer
+- Ic / e− · Bidirectional spin-transfer torque switching current
+
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en)
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Everspin pMTJ STT-MRAM IP Cell — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+High-thermal-stability perpendicular magnetization with STT tunneling switching
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Top/Bottom MgO · Dual MgO interfaces induce perpendicular magnetic anisotropy (i-PMA)
+- CoFeB FL / RL · CoFeB perpendicular free/reference layers with ultrathin tunnel barrier
+- Ru / SAF · Synthetic antiferromagnet (SAF) pinning stabilizes reference layer
+- Ic / e− · Bidirectional spin-transfer torque switching current
+
+Educational reconstruction of Everspin patented architecture; BEOL thermal budget must remain under 400°C to avoid boron out-diffusion.
+
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en)
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Everspin pMTJ STT-MRAM IP Cell — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+High-thermal-stability perpendicular magnetization with STT tunneling switching
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Reverse Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Top/Bottom MgO · Dual MgO interfaces induce perpendicular magnetic anisotropy (i-PMA)
+- CoFeB FL / RL · CoFeB perpendicular free/reference layers with ultrathin tunnel barrier
+- Ru / SAF · Synthetic antiferromagnet (SAF) pinning stabilizes reference layer
+- Ic / e− · Bidirectional spin-transfer torque switching current
+
+Educational reconstruction of Everspin patented architecture; BEOL thermal budget must remain under 400°C to avoid boron out-diffusion.
+
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en)
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Everspin pMTJ STT-MRAM IP Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+High-thermal-stability perpendicular magnetization with STT tunneling switching
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Low Bias Produces Sense Signal**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+A small sense voltage or current reads junction resistance; P state resistance is markedly lower than AP.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- Top/Bottom MgO · Dual MgO interfaces induce perpendicular magnetic anisotropy (i-PMA)
+- CoFeB FL / RL · CoFeB perpendicular free/reference layers with ultrathin tunnel barrier
+- Ru / SAF · Synthetic antiferromagnet (SAF) pinning stabilizes reference layer
+- Ic / e− · Bidirectional spin-transfer torque switching current
+
+Educational reconstruction of Everspin patented architecture; BEOL thermal budget must remain under 400°C to avoid boron out-diffusion.
+
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en)
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### IP Cell Tradeoffs
+
+Everspin's pMTJ demonstrates interfacial PMA replacing in-plane shape anisotropy. BEOL thermal budget (< 400°C) is a key integration constraint.
+
+### Avalanche: Dual-SAF Stray Field Compensated MRAM Cell
+
+Avalanche Technology
+
+Analyze dual-SAF magnetic symmetry to understand cancellation of stray dipole fields on the free layer for rad-hard, reliable switching.
+
+#### How Erase Maps: Symmetric Spin Overwrite Without Separate ERS
+
+MRAM overwrites existing data through magnetic switching without Flash-style preceding erase.
+
+P ⇄ AP
+
+P
+
+Cancels asymmetric stray dipole fields for symmetric bidirectional switching — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+Verify target state according to release-specific read/verify conditions after designated pulse cycles.
+
+Selection scope and update granularity follow the named array and interface.
+
+Endurance, retention, disturbance, and rad-hard TID must be verified per space or automotive qualified packaging.
+
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+Avalanche Dual-SAF Stray-Field Compensated MRAM Cell
+
+Reconstructs the central CoFeB free layer flanked by dual MgO barriers and top/bottom dual-SAF reference layers per US9837603B2.
+
+- Top / Bottom SAF · Dual symmetric SAFs cancel stray dipole fields on the free layer
+- Center CoFeB FL · Central perpendicular free layer flanked by dual MgO tunnel barriers
+- Ic (Dual STT) · Dual spin-torque injection reducing critical switching current by ~50%
+
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Avalanche Dual-SAF Stray-Field Compensated MRAM Cell — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+Cancels asymmetric stray dipole fields for symmetric bidirectional switching
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Top / Bottom SAF · Dual symmetric SAFs cancel stray dipole fields on the free layer
+- Center CoFeB FL · Central perpendicular free layer flanked by dual MgO tunnel barriers
+- Ic (Dual STT) · Dual spin-torque injection reducing critical switching current by ~50%
+
+Based on the patent embodiment; rad-hard total ionizing dose and automotive retention require qualified packaging.
+
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Avalanche Dual-SAF Stray-Field Compensated MRAM Cell — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+Cancels asymmetric stray dipole fields for symmetric bidirectional switching
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Reverse Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Top / Bottom SAF · Dual symmetric SAFs cancel stray dipole fields on the free layer
+- Center CoFeB FL · Central perpendicular free layer flanked by dual MgO tunnel barriers
+- Ic (Dual STT) · Dual spin-torque injection reducing critical switching current by ~50%
+
+Based on the patent embodiment; rad-hard total ionizing dose and automotive retention require qualified packaging.
+
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Avalanche Dual-SAF Stray-Field Compensated MRAM Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Cancels asymmetric stray dipole fields for symmetric bidirectional switching
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Low Bias Produces Sense Signal**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+A small sense voltage or current reads junction resistance; P state resistance is markedly lower than AP.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- Top / Bottom SAF · Dual symmetric SAFs cancel stray dipole fields on the free layer
+- Center CoFeB FL · Central perpendicular free layer flanked by dual MgO tunnel barriers
+- Ic (Dual STT) · Dual spin-torque injection reducing critical switching current by ~50%
+
+Based on the patent embodiment; rad-hard total ionizing dose and automotive retention require qualified packaging.
+
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### IP Cell Tradeoffs
+
+Avalanche resolves magnetic field asymmetry with dual SAFs, reducing Ic by 50% and enhancing rad-hard robustness at the cost of stack complexity.
+
+### Spin Memory: PSC Precessional MRAM Cell
+
+Spin Memory
+
+Analyze in-plane precessional spin polarizer providing orthogonal torque to eliminate thermal incubation delay for <3ns switching.
+
+#### How Erase Maps: Ultra-Fast Precessional Direct Overwrite
+
+MRAM overwrites existing data through magnetic switching without Flash-style preceding erase.
+
+P ⇄ AP
+
+P
+
+Orthogonal spin torque eliminates thermal incubation delay for <3ns switching — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+Verify target state under sub-3ns pulse verify conditions.
+
+Selection scope and update granularity follow the named array and interface.
+
+High-speed switching requires low parasitic capacitance peripheral layout; macro performance depends on foundry PDK.
+
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+Spin Memory PSC Ultra-Fast Precessional MRAM Cell
+
+Reconstructs the in-plane PSC polarizer, decoupling spacer, and perpendicular MTJ stack per US9287500B2.
+
+- PSC Polarizer · In-plane precessional spin polarizer supplies orthogonal torque
+- Spacer · Non-magnetic exchange-decoupling spacer layer
+- p-FL / SAF RL · Perpendicular MTJ eliminating thermal incubation delay
+
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Spin Memory PSC Ultra-Fast Precessional MRAM Cell — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+Orthogonal spin torque eliminates thermal incubation delay for <3ns switching
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- PSC Polarizer · In-plane precessional spin polarizer supplies orthogonal torque
+- Spacer · Non-magnetic exchange-decoupling spacer layer
+- p-FL / SAF RL · Perpendicular MTJ eliminating thermal incubation delay
+
+PSC layer and spacer thickness follow the patent disclosure; commercial macro latency depends on licensed foundry delivery.
+
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Spin Memory PSC Ultra-Fast Precessional MRAM Cell — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+Orthogonal spin torque eliminates thermal incubation delay for <3ns switching
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Reverse Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- PSC Polarizer · In-plane precessional spin polarizer supplies orthogonal torque
+- Spacer · Non-magnetic exchange-decoupling spacer layer
+- p-FL / SAF RL · Perpendicular MTJ eliminating thermal incubation delay
+
+PSC layer and spacer thickness follow the patent disclosure; commercial macro latency depends on licensed foundry delivery.
+
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Spin Memory PSC Ultra-Fast Precessional MRAM Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Orthogonal spin torque eliminates thermal incubation delay for <3ns switching
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Low Bias Produces Sense Signal**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+A small sense voltage or current reads junction resistance; P state resistance is markedly lower than AP.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- PSC Polarizer · In-plane precessional spin polarizer supplies orthogonal torque
+- Spacer · Non-magnetic exchange-decoupling spacer layer
+- p-FL / SAF RL · Perpendicular MTJ eliminating thermal incubation delay
+
+PSC layer and spacer thickness follow the patent disclosure; commercial macro latency depends on licensed foundry delivery.
+
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### IP Cell Tradeoffs
+
+The PSC layer physically resolves thermal incubation delay in STT-MRAM, requiring tight spacer thickness control.
+
+### Crocus: TAS-MRAM Thermally Assisted Cell
+
+Crocus Technology
+
+Examine pulse heating past the AFM blocking temperature (Tb) to understand unpinned switching with room-temperature thermal stability.
+
+#### How Erase Maps: Thermally Assisted Overwrite and Cool Freeze
+
+Heating pulse unlocks exchange bias, overwrites magnetization, and freezes state upon cooling.
+
+P ⇄ AP
+
+P
+
+Heating pulse exceeding Tb unlocks pinning barrier; cools down to freeze state — Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+Perform read verification after heat dissipation returns cell to ambient temperature.
+
+Restricted by cell thermal isolation boundaries and driver lines.
+
+Thermal cycle lifetime and dissipation paths follow qualified industrial sensor packaging.
+
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+Crocus TAS-MRAM Thermally Assisted Cell
+
+Reconstructs the top heater line, AFM pinning layer, storage layer, tunnel barrier, and reference layer per US7916526B2.
+
+- Heater Line · Heating pulse raises temperature above blocking temperature Tb
+- AFM (Tb) · Antiferromagnetic layer locks storage layer via exchange bias below Tb
+- Storage FL · Switches while thermally unlocked, then freezes state upon cooling
+
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Crocus TAS-MRAM Thermally Assisted Cell — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+Heating pulse exceeding Tb unlocks pinning barrier; cools down to freeze state
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Heater Line · Heating pulse raises temperature above blocking temperature Tb
+- AFM (Tb) · Antiferromagnetic layer locks storage layer via exchange bias below Tb
+- Storage FL · Switches while thermally unlocked, then freezes state upon cooling
+
+Thermal cooling cycle limits write speed to 20-30ns; thermal diffusion isolation limits maximum array density scaling.
+
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Crocus TAS-MRAM Thermally Assisted Cell — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+Heating pulse exceeding Tb unlocks pinning barrier; cools down to freeze state
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Reverse Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and spin-polarized current flows through MTJ, exerting switching torque with opposite electron motion.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; intermediate angle is schematic as torque surmounts the barrier.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- Heater Line · Heating pulse raises temperature above blocking temperature Tb
+- AFM (Tb) · Antiferromagnetic layer locks storage layer via exchange bias below Tb
+- Storage FL · Switches while thermally unlocked, then freezes state upon cooling
+
+Thermal cooling cycle limits write speed to 20-30ns; thermal diffusion isolation limits maximum array density scaling.
+
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Crocus TAS-MRAM Thermally Assisted Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Heating pulse exceeding Tb unlocks pinning barrier; cools down to freeze state
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Low Bias Produces Sense Signal**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+A small sense voltage or current reads junction resistance; P state resistance is markedly lower than AP.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- Heater Line · Heating pulse raises temperature above blocking temperature Tb
+- AFM (Tb) · Antiferromagnetic layer locks storage layer via exchange bias below Tb
+- Storage FL · Switches while thermally unlocked, then freezes state upon cooling
+
+Thermal cooling cycle limits write speed to 20-30ns; thermal diffusion isolation limits maximum array density scaling.
+
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### IP Cell Tradeoffs
+
+TAS-MRAM uses localized heating to unlock switching barriers, providing ultra-high stability but limited by cooling cycle latency.
+
+### Panasonic: Bilayer Ta2O5/TaOx ReRAM Cell
+
+Panasonic / RAMXEED
+
+Track reversible oxygen ion exchange across stoichiometric Ta2O5 and oxygen-deficient TaOx with self-limiting filament resistance.
+
+#### How Erase Maps: Reverse RESET Ruptures Filament, Restored by SET
+
+Reverse bias drives oxygen ions to recombine with vacancies, restoring HRS; non-destructive reversible switching.
+
+SET → RESET → SET
+
+LRS
+
+Reversible oxygen ion exchange with series resistance self-limiting filament size — A high-resistance gap opens at the critical interface; RESET completes.
+
+HRS remains after bias removal; interface defects remain in high-R distribution.
+
+Sense resistance under designated read bias to confirm HRS threshold.
+
+Individually addressed by 1T access transistor.
+
+Endurance 10^5 to 10^6 cycles; high-temperature retention follows MN101L datasheet.
+
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en)
+
+Panasonic Bilayer Tantalum Oxide (Ta2O5/TaOx) ReRAM Cell
+
+Reconstructs the Pt/TiN top electrode, Ta2O5 layer, TaOx reservoir, and TiN bottom electrode per US8068356B2.
+
+- Pt/TiN TE / BE · Inert electrodes sandwiching the bilayer tantalum oxide stack
+- Ta2O5 (~5nm) · Ultrathin stoichiometric insulator where Ta-rich conductive filament forms
+- TaOx (~30nm) · Oxygen-deficient layer acting as oxygen reservoir with self-limiting resistance
+
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en)
+
+#### Panasonic Bilayer Tantalum Oxide (Ta2O5/TaOx) ReRAM Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Reversible oxygen ion exchange with series resistance self-limiting filament size
+
+**1. Initial High-R Gap**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Start in high-R HRS with a localized insulating gap.
+
+**2. Electric Field Drives Oxygen Migration**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive voltage drifts oxygen ions, accumulating oxygen vacancies.
+
+**3. Oxygen Vacancy Filament Connects**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+Conductive filament bridges top and bottom electrodes under compliance current.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+After removing bias and WL, the conductive filament is retained as LRS.
+
+- Pt/TiN TE / BE · Inert electrodes sandwiching the bilayer tantalum oxide stack
+- Ta2O5 (~5nm) · Ultrathin stoichiometric insulator where Ta-rich conductive filament forms
+- TaOx (~30nm) · Oxygen-deficient layer acting as oxygen reservoir with self-limiting resistance
+
+Oxygen profile gradient across Ta2O5/TaOx requires tight sputtering control; retention degrades under extreme thermal stress.
+
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en)
+
+#### Panasonic Bilayer Tantalum Oxide (Ta2O5/TaOx) ReRAM Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Reversible oxygen ion exchange with series resistance self-limiting filament size
+
+**1. Initial Vacancy Path Conducts**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+A vacancy path already exists; this operation changes LRS to HRS.
+
+**2. Reverse Bias Returns Oxygen**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+Reverse bias drives oxygen ions back to recombine with vacancies.
+
+**3. Critical Interface Filament Ruptures**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+A high-resistance gap opens at the critical interface; RESET completes.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal; interface defects remain in high-R distribution.
+
+- Pt/TiN TE / BE · Inert electrodes sandwiching the bilayer tantalum oxide stack
+- Ta2O5 (~5nm) · Ultrathin stoichiometric insulator where Ta-rich conductive filament forms
+- TaOx (~30nm) · Oxygen-deficient layer acting as oxygen reservoir with self-limiting resistance
+
+Oxygen profile gradient across Ta2O5/TaOx requires tight sputtering control; retention degrades under extreme thermal stress.
+
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en)
+
+#### Panasonic Bilayer Tantalum Oxide (Ta2O5/TaOx) ReRAM Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Reversible oxygen ion exchange with series resistance self-limiting filament size
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- Pt/TiN TE / BE · Inert electrodes sandwiching the bilayer tantalum oxide stack
+- Ta2O5 (~5nm) · Ultrathin stoichiometric insulator where Ta-rich conductive filament forms
+- TaOx (~30nm) · Oxygen-deficient layer acting as oxygen reservoir with self-limiting resistance
+
+Oxygen profile gradient across Ta2O5/TaOx requires tight sputtering control; retention degrades under extreme thermal stress.
+
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en)
+
+#### IP Cell Tradeoffs
+
+Panasonic bilayer TaOx prevents hard breakdown via self-limiting series resistance, enabling production at mature nodes.
+
+### TetraMem: Multi-Level Linear CIM ReRAM Cell
+
+TetraMem
+
+Analyze multi-layer interface defect engineering delivering continuous 8-bit linear analog synapse weights for in-memory computing.
+
+#### How Erase Maps: Progressive Conductance Depression Without Block Erase
+
+Continuous micro-pulses incrementally decrease conductance for downward weight tuning; non-binary analog erasure.
+
+Potentiation ⇄ Depression
+
+LRS
+
+Continuous vacancy modulation achieving 8-bit high-linearity analog CIM weights — Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+Closed-loop comparator verifies conductance falls into target analog bin.
+
+Supports individual fine-grained analog weight tuning.
+
+Analog multi-level retention requires periodic background calibration to compensate for relaxation drift.
+
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en)
+
+TetraMem Analog Multi-Level Conductance CIM Cell
+
+Reconstructs the multi-layer metal oxide interface-engineered stack per US11393527B2.
+
+- Barrier / Oxide · Interface-engineered multi-layer metal oxide stack
+- Multi-Level G · Continuous vacancy tuning delivering 8-bit linear analog conductance
+- CIM In-Memory · Analog compute-in-memory weights with minimal conductance drift
+
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en)
+
+#### TetraMem Analog Multi-Level Conductance CIM Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Continuous vacancy modulation achieving 8-bit high-linearity analog CIM weights
+
+**1. Initial High-R State**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Start in the high-resistance HRS state.
+
+**2. Positive Bias Drives Migration or Modulates Barrier**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive bias oxidizes active metal anode or accumulates interface vacancies.
+
+**3. Conductive Bridge Connects or Barrier Lowers**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+Nanobridge forms or Schottky barrier lowers, transitioning to low-resistance state.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Turn selection off and remove bias to retain the low-R path.
+
+- Barrier / Oxide · Interface-engineered multi-layer metal oxide stack
+- Multi-Level G · Continuous vacancy tuning delivering 8-bit linear analog conductance
+- CIM In-Memory · Analog compute-in-memory weights with minimal conductance drift
+
+Analog multi-level precision is susceptible to thermal variations; requires periodic background calibration.
+
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en)
+
+#### TetraMem Analog Multi-Level Conductance CIM Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Continuous vacancy modulation achieving 8-bit high-linearity analog CIM weights
+
+**1. Initial Conduction Path Is Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Start from the low-resistance metallic or barrier path.
+
+**2. Reverse Bias Dissolves or Retracts Path**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+Reverse bias drives electrochemical dissolution or extracts interface vacancies.
+
+**3. Insulating Gap Forms**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+- Barrier / Oxide · Interface-engineered multi-layer metal oxide stack
+- Multi-Level G · Continuous vacancy tuning delivering 8-bit linear analog conductance
+- CIM In-Memory · Analog compute-in-memory weights with minimal conductance drift
+
+Analog multi-level precision is susceptible to thermal variations; requires periodic background calibration.
+
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en)
+
+#### TetraMem Analog Multi-Level Conductance CIM Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Continuous vacancy modulation achieving 8-bit high-linearity analog CIM weights
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- Barrier / Oxide · Interface-engineered multi-layer metal oxide stack
+- Multi-Level G · Continuous vacancy tuning delivering 8-bit linear analog conductance
+- CIM In-Memory · Analog compute-in-memory weights with minimal conductance drift
+
+Analog multi-level precision is susceptible to thermal variations; requires periodic background calibration.
+
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en)
+
+#### IP Cell Tradeoffs
+
+TetraMem replaces abrupt filaments with continuous interfacial barriers for high-precision CIM, trading off noise and drift sensitivity.
+
+### 4DS Memory: Area-Dependent PCMO ReRAM Cell
+
+4DS Memory
+
+Understand non-filamentary Schottky barrier modulation across single-wafer PCMO for strict area-dependent scaling and forming-free operation.
+
+#### How Erase Maps: Reverse Field Restores Schottky Barrier
+
+Uniform extraction of interface vacancies widens space charge region, restoring high-resistance Schottky barrier.
+
+SET → RESET → SET
+
+LRS
+
+Uniform interface vacancy modulation; resistance scales inversely with contact area (Forming-free) — Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+Verify HRS interface current under small-signal read bias.
+
+Addressed via 1T access device or 3D cross-point array.
+
+Thermal stability and retention verified per imec joint technical reports.
+
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en)
+
+4DS Memory Non-Filamentary Area-Dependent PCMO Cell
+
+Reconstructs the metal contact, single-wafer PCMO perovskite film, and ohmic bottom electrode per US10468591B2.
+
+- PCMO Perovskite · Single-wafer Pr0.7Ca0.3MnO3 perovskite transition metal oxide
+- Schottky Barrier · Uniform interface Schottky barrier modulation without localized filaments
+- Forming-free · Forming-free operation; resistance scales inversely with junction area
+
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en)
+
+#### 4DS Memory Non-Filamentary Area-Dependent PCMO Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Uniform interface vacancy modulation; resistance scales inversely with contact area (Forming-free)
+
+**1. Initial High-R State**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Start in the high-resistance HRS state.
+
+**2. Positive Bias Drives Migration or Modulates Barrier**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive bias oxidizes active metal anode or accumulates interface vacancies.
+
+**3. Conductive Bridge Connects or Barrier Lowers**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+Nanobridge forms or Schottky barrier lowers, transitioning to low-resistance state.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Turn selection off and remove bias to retain the low-R path.
+
+- PCMO Perovskite · Single-wafer Pr0.7Ca0.3MnO3 perovskite transition metal oxide
+- Schottky Barrier · Uniform interface Schottky barrier modulation without localized filaments
+- Forming-free · Forming-free operation; resistance scales inversely with junction area
+
+Complex perovskite deposition requires strict crystalline uniformity; 3D vertical stacking etch remains under active R&D.
+
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en)
+
+#### 4DS Memory Non-Filamentary Area-Dependent PCMO Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Uniform interface vacancy modulation; resistance scales inversely with contact area (Forming-free)
+
+**1. Initial Conduction Path Is Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Start from the low-resistance metallic or barrier path.
+
+**2. Reverse Bias Dissolves or Retracts Path**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+Reverse bias drives electrochemical dissolution or extracts interface vacancies.
+
+**3. Insulating Gap Forms**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+- PCMO Perovskite · Single-wafer Pr0.7Ca0.3MnO3 perovskite transition metal oxide
+- Schottky Barrier · Uniform interface Schottky barrier modulation without localized filaments
+- Forming-free · Forming-free operation; resistance scales inversely with junction area
+
+Complex perovskite deposition requires strict crystalline uniformity; 3D vertical stacking etch remains under active R&D.
+
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en)
+
+#### 4DS Memory Non-Filamentary Area-Dependent PCMO Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Uniform interface vacancy modulation; resistance scales inversely with contact area (Forming-free)
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- PCMO Perovskite · Single-wafer Pr0.7Ca0.3MnO3 perovskite transition metal oxide
+- Schottky Barrier · Uniform interface Schottky barrier modulation without localized filaments
+- Forming-free · Forming-free operation; resistance scales inversely with junction area
+
+Complex perovskite deposition requires strict crystalline uniformity; 3D vertical stacking etch remains under active R&D.
+
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en)
+
+#### IP Cell Tradeoffs
+
+4DS PCMO eliminates filament random breakdown, targeting SCM and DRAM gap filling, but faces multi-element perovskite etching hurdles.
+
+### Adesto: Micro-Ampere Conductive Bridging CBRAM Cell
+
+Adesto Technologies / Renesas
+
+Examine copper active anode and solid electrolyte to understand microamp (1-10uA) metallic nanobridge formation and electrochemical dissolution.
+
+#### How Erase Maps: Dissolve Copper Nanobridge, Restored by Microamp SET
+
+Reverse sub-volt bias electrochemically dissolves copper nanobridge, restoring tera-ohm high-resistance state.
+
+SET → RESET → SET
+
+LRS
+
+Electrochemical redox forming and dissolving microamp copper metallic nanobridges — Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+Apply 0.1V read bias to confirm leakage is below off-state threshold.
+
+Supports byte-level rapid write/erase.
+
+Retention verified per specialized anode stabilization alloy on Renesas MCU platforms.
+
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en)
+
+Adesto Solid-Electrolyte Micro-Ampere CBRAM Cell
+
+Reconstructs the Cu anode, thin solid electrolyte, and W cathode per US8824194B2.
+
+- Cu Anode / W Cathode · Copper active anode and inert tungsten cathode flanking solid electrolyte
+- Cu+ / Cu Bridge · Electrochemical redox growing microamp-level copper metallic nanobridge
+- Sub-Volt RESET · Low reverse bias dissolves copper bridge, restoring tera-ohm high-resistance state
+
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en)
+
+#### Adesto Solid-Electrolyte Micro-Ampere CBRAM Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Electrochemical redox forming and dissolving microamp copper metallic nanobridges
+
+**1. Initial High-R State**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Start in the high-resistance HRS state.
+
+**2. Positive Bias Drives Migration or Modulates Barrier**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive bias oxidizes active metal anode or accumulates interface vacancies.
+
+**3. Conductive Bridge Connects or Barrier Lowers**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+Nanobridge forms or Schottky barrier lowers, transitioning to low-resistance state.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Turn selection off and remove bias to retain the low-R path.
+
+- Cu Anode / W Cathode · Copper active anode and inert tungsten cathode flanking solid electrolyte
+- Cu+ / Cu Bridge · Electrochemical redox growing microamp-level copper metallic nanobridge
+- Sub-Volt RESET · Low reverse bias dissolves copper bridge, restoring tera-ohm high-resistance state
+
+Metallic ions face spontaneous thermal diffusion; automotive retention requires stabilized alloy anodes.
+
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en)
+
+#### Adesto Solid-Electrolyte Micro-Ampere CBRAM Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Electrochemical redox forming and dissolving microamp copper metallic nanobridges
+
+**1. Initial Conduction Path Is Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Start from the low-resistance metallic or barrier path.
+
+**2. Reverse Bias Dissolves or Retracts Path**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+Reverse bias drives electrochemical dissolution or extracts interface vacancies.
+
+**3. Insulating Gap Forms**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+Metallic bridge ruptures or Schottky barrier widens, sharply increasing resistance.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal. This is reverse RESET operation.
+
+- Cu Anode / W Cathode · Copper active anode and inert tungsten cathode flanking solid electrolyte
+- Cu+ / Cu Bridge · Electrochemical redox growing microamp-level copper metallic nanobridge
+- Sub-Volt RESET · Low reverse bias dissolves copper bridge, restoring tera-ohm high-resistance state
+
+Metallic ions face spontaneous thermal diffusion; automotive retention requires stabilized alloy anodes.
+
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en)
+
+#### Adesto Solid-Electrolyte Micro-Ampere CBRAM Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Electrochemical redox forming and dissolving microamp copper metallic nanobridges
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the conduction path; ILRS > IHRS at equal bias without altering the material resistance state.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- Cu Anode / W Cathode · Copper active anode and inert tungsten cathode flanking solid electrolyte
+- Cu+ / Cu Bridge · Electrochemical redox growing microamp-level copper metallic nanobridge
+- Sub-Volt RESET · Low reverse bias dissolves copper bridge, restoring tera-ohm high-resistance state
+
+Metallic ions face spontaneous thermal diffusion; automotive retention requires stabilized alloy anodes.
+
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en)
+
+#### IP Cell Tradeoffs
+
+Adesto CBRAM excels in ultra-low-power IoT with microamp switching, but copper ion thermal diffusion presents 125°C retention challenges.
 
 ## IP Technology Lineage and Product Succession
 
@@ -6972,6 +8361,15 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf). Manufacturer public product brief; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Pages 1–2: hard macro/architectural license, embedded macro, and overwrite; Limitations: Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.
 - [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf). Manufacturer public conference presentation; 2015; Accessed 2026-09-10; Location in the Source: Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R; Limitations: Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en). Original published patent application; 2012-01-12; Accessed 2026-09-10; Location in the Source: Figures 1–3; [0023]–[0025], [0037]: Ag/a-Si/p+ poly-Si, positive extension, negative retraction; Limitations: Selects a named embodiment with metal particles and tunneling paths; does not establish this recipe for all current macros or generic cathode-grown silver bridges.
+- [ip-everspin-pmtj: Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2](https://patents.google.com/patent/US8488371B2/en). Manufacturer core patent; 2013-07-16; Accessed 2026-09-10; Location in the Source: Claims 1-12; Figures 2-4: Dual-MgO interface perpendicular anisotropy free layer and SAF pinning; Limitations: Governed by the published interfacial perpendicular magnetic anisotropy (i-PMA) embodiment; does not imply specific foundry anneal thermal budgets.
+- [ip-everspin-product: Everspin: pMTJ STT-MRAM Product Technology](https://www.everspin.com/). Manufacturer technology overview; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: pMTJ STT-MRAM architecture and BEOL 400°C thermal compatibility; Limitations: Product identity does not imply all external foundries offer identical bitcell dimensions.
+- [ip-avalanche-saf: Avalanche: Dual-SAF Symmetric Patent US9837603B2](https://patents.google.com/patent/US9837603B2/en). Manufacturer core patent; 2017-12-05; Accessed 2026-09-10; Location in the Source: Claims 1-20; Figures 3-5: Top/bottom symmetric dual-SAF cancelling stray field bias on free layer; Limitations: Governed by the patent embodiment; rad-hard and automotive claims require qualification per package.
+- [ip-spinmem-psc: Spin Memory: Precessional Spin Current Patent US9287500B2](https://patents.google.com/patent/US9287500B2/en). Manufacturer core patent; 2016-03-15; Accessed 2026-09-10; Location in the Source: Claims 1-18; Figures 1-4: In-plane PSC layer eliminating thermal incubation delay for <3ns switching; Limitations: Selects patent PSC embodiment; commercial IP licensing and actual speed depend on macro delivery.
+- [ip-crocus-tas: Crocus: Thermally Assisted MRAM Patent US7916526B2](https://patents.google.com/patent/US7916526B2/en). Manufacturer core patent; 2011-03-29; Accessed 2026-09-10; Location in the Source: Claims 1-24; Figures 2-6: Heating pulse above AFM blocking temperature Tb enabling unpinned switching; Limitations: Governed by disclosed TAS mechanism; cooling latency limits write speed compared to non-heated STT.
+- [ip-panasonic-taox: Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2](https://patents.google.com/patent/US8068356B2/en). Manufacturer core patent; 2011-11-29; Accessed 2026-09-10; Location in the Source: Claims 1-15; Figures 1-8: Ta2O5 insulator + TaOx oxygen-deficient reservoir with self-limiting filament; Limitations: Governed by bilayer tantalum oxide embodiment; mass-production MN101L specs verified per datasheet.
+- [ip-tetramem-cim: TetraMem: Analog Multi-Level Conductance Patent US11393527B2](https://patents.google.com/patent/US11393527B2/en). Manufacturer core patent; 2022-07-19; Accessed 2026-09-10; Location in the Source: Claims 1-20; Figures 3-9: Continuous interfacial vacancy barrier engineering for 8-bit linear CIM weights; Limitations: Governed by analog multi-level patent embodiment; neural inference precision depends on calibration.
+- [ip-4ds-pcmo: 4DS Memory: Non-Filamentary PCMO Patent US10468591B2](https://patents.google.com/patent/US10468591B2/en). Manufacturer core patent; 2019-11-05; Accessed 2026-09-10; Location in the Source: Claims 1-16; Figures 1-5: Single-wafer PCMO interface Schottky barrier modulation, forming-free operation; Limitations: Governed by disclosed area-dependent non-filamentary embodiment; 3D integration verified via imec.
+- [ip-adesto-cbram: Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2](https://patents.google.com/patent/US8824194B2/en). Manufacturer core patent; 2014-09-02; Accessed 2026-09-10; Location in the Source: Claims 1-22; Figures 2-7: Copper active anode forming microamp metallic bridge in solid electrolyte; Limitations: Governed by patent metallic bridge embodiment; automotive retention requires stabilized alloy anodes.
 - [aeon-transfer-2008: Virage Logic Filing on the Impinj NVM IP Business](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm). Original SEC filing; 2008-06-26; Location in the Source: Item 2.01; signed 2008-07-02; transaction 2008-06-26; Limitations: Supports acquisition of the logic NVM IP business assets by Virage Logic, not a direct Synopsys acquisition of Impinj.
 - [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195). Company completion announcement; 2010-09-02; Location in the Source: Opening completion paragraph and added NVM portfolio; Limitations: Supports corporate acquisition and portfolio succession, not identical AEON internal cells across generations.
 - [aeon-synopsys-2013: Synopsys DesignWare AEON MTP ULP Announcement](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half). Company product announcement; 2013-11-20; Location in the Source: Highlights, opening paragraph and Availability; Limitations: Explicitly continues AEON branding with MTP ULP. Performance comparisons are not used; branding does not establish a cell netlist.

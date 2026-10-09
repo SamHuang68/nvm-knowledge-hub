@@ -541,6 +541,211 @@
           "ip-crossbar-cell-2012"
         ]
       }
+    },
+    {
+      "id": "everspin-mram",
+      "title": "Everspin：pMTJ 垂直自旋轉矩 MRAM 單元",
+      "shortTitle": "Everspin · pMTJ MRAM",
+      "vendor": "Everspin Technologies",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "從雙 MgO 界面誘導的垂直磁各向異性 (i-PMA)，理解次 40nm 節點如何在保持高熱穩定性的同時降低翻轉電流。",
+      "program": "自旋轉矩穿隧翻轉 (P→AP)",
+      "reverse": "反向自旋電流翻轉 (AP→P)",
+      "readout": "pMTJ 穿隧磁阻差 (TMR)",
+      "lesson": "Everspin 的 pMTJ 展示了界面 PMA 取代面內形狀各向異性的物理路徑。熱預算限制（< 400°C）是 BEOL 整合的關鍵邊界。",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "抹除如何對應：雙向自旋電流直接覆寫，無獨立 ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。",
+        "limits": "這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。",
+        "sourceIds": [
+          "ip-everspin-pmtj",
+          "ip-everspin-product",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "avalanche-mram",
+      "title": "Avalanche：雙對稱 SAF 雜散磁場補償 MRAM 單元",
+      "shortTitle": "Avalanche · Dual-SAF MRAM",
+      "vendor": "Avalanche Technology",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "從頂底對稱雙 SAF 結構，理解如何消除參考層偶極場對自由層的非對稱偏置，實現抗輻照與高可靠翻轉。",
+      "program": "雙重自旋轉矩注入翻轉",
+      "reverse": "對稱反向自旋電流翻轉",
+      "readout": "雙障壁穿隧磁阻感測",
+      "lesson": "Avalanche 藉由雙 SAF 設計解決了單一 SAF 的磁場失衡難題，翻轉電流降低 50% 且具備航太抗輻照優勢，但增加了薄膜加工難度。",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "抹除如何對應：對稱自旋電流覆寫，無獨立 ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面。",
+        "limits": "循環壽命、保持性、擾動與抗輻照總劑量需核對具名航太或車規封裝規格。",
+        "sourceIds": [
+          "ip-avalanche-saf",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "spinmem-mram",
+      "title": "Spin Memory：PSC 自旋進動極速 MRAM 單元",
+      "shortTitle": "Spin Memory · PSC MRAM",
+      "vendor": "Spin Memory",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "從面內自旋進動極化層 (PSC)，理解如何提供額外正交自旋轉矩，消除熱起伏延遲並實現次 3ns 極速確定性翻轉。",
+      "program": "正交進動轉矩輔助高速寫入",
+      "reverse": "反向電流輔助極速翻轉",
+      "readout": "垂直 MTJ 電阻感測",
+      "lesson": "PSC 極化層在物理上攻克了 STT-MRAM 寫入初期的熱隨機延遲，但需嚴格控制去耦層厚度以避免干擾自由層穩定性。",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "抹除如何對應：極速進動自旋直接覆寫",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。",
+        "verification": "依該版本的超短脈衝（<3ns）讀寫驗證條件確認目標狀態。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面。",
+        "limits": "高速翻轉特性需搭配低寄生電容周邊電路；巨集性能依代工廠 PDK 授權。",
+        "sourceIds": [
+          "ip-spinmem-psc",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "crocus-mram",
+      "title": "Crocus：TAS-MRAM 熱輔助阻變單元",
+      "shortTitle": "Crocus · TAS-MRAM",
+      "vendor": "Crocus Technology",
+      "group": "mram",
+      "hostTopic": "sot",
+      "summary": "從加熱脈衝越過反鐵磁阻斷溫度 (Tb) 的解鎖機制，理解熱輔助磁阻記憶體如何在常溫保持超高抗干擾與高保持性。",
+      "program": "加熱解鎖 ＋ 微電流翻轉",
+      "reverse": "加熱解鎖 ＋ 反向偏壓翻轉",
+      "readout": "常溫未加熱磁電阻感測",
+      "lesson": "TAS-MRAM 將寫入熱效應作為解除位障的工具，常溫下具極高保持性，但熱循環冷卻延遲限制了其寫入頻寬。",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "抹除如何對應：熱輔助解鎖後覆寫並冷卻鎖定",
+        "sequence": "P ⇄ AP",
+        "definition": "加熱脈衝解除交換偏置後覆寫磁矩，冷卻後自動鎖定新資料。",
+        "verification": "待熱量散逸恢復常溫後執行讀取驗證。",
+        "granularity": "單元受熱隔離邊界與驅動線約束。",
+        "limits": "熱循環壽命與散熱路徑依具名工業感測器或安全巨集封裝。",
+        "sourceIds": [
+          "ip-crocus-tas",
+          "ip-stt-physics"
+        ]
+      }
+    },
+    {
+      "id": "panasonic-reram",
+      "title": "Panasonic：雙層鉭氧化物 (Ta2O5/TaOx) ReRAM 單元",
+      "shortTitle": "Panasonic · TaOx ReRAM",
+      "vendor": "Panasonic / RAMXEED",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "從化學計量絕緣層 Ta2O5 與缺氧儲庫層 TaOx 雙層堆疊，追蹤氧離子可逆交換與自限制微絲粗細機制。",
+      "program": "SET 建立富鉭自限制導電微絲",
+      "reverse": "RESET 氧化破裂微絲頸縮區",
+      "readout": "小正偏壓感測微絲電阻",
+      "lesson": "Panasonic 雙層氧化鉭解決了單層金屬氧化物微絲失控硬崩潰問題，實現商業量產，但薄膜氧濃度梯度對沉積製程敏感。",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "抹除如何對應：反向 RESET 破裂微絲，再以 SET 重建",
+        "sequence": "SET → RESET → SET",
+        "definition": "以反向偏壓誘導氧離子回填並斷開微絲，恢復高阻態 (HRS)；非破壞性可逆切換。",
+        "verification": "在預設讀取偏壓下感測電阻確認達到 HRS 門限。",
+        "granularity": "受選位元單元由 1T 選擇電晶體獨立定址。",
+        "limits": "累積擦寫壽命 10^5–10^6 次；高溫保持性依 MN101L 量產手冊。",
+        "sourceIds": [
+          "ip-panasonic-taox"
+        ]
+      }
+    },
+    {
+      "id": "tetramem-reram",
+      "title": "TetraMem：CIM 多階連續線性電導 ReRAM 單元",
+      "shortTitle": "TetraMem · CIM ReRAM",
+      "vendor": "TetraMem",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "從多層介面障壁工程與連續氧空缺調控，理解 8-bit (256 階) 超高線性度類比突觸權重儲存。",
+      "program": "漸進電壓脈衝線性調諧電導",
+      "reverse": "反向微步進脈衝均勻抑制電導",
+      "readout": "超低壓非破壞性類比乘加感測",
+      "lesson": "TetraMem 放棄傳統粗微絲突變，改用介面連續能障工程，實現高精度 CIM 運算，但需對抗溫度漂移與感測雜訊。",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "抹除如何對應：漸進抑制電導，無突變區塊抹除",
+        "sequence": "Potentiation ⇄ Depression",
+        "definition": "透過連續反向微脈衝逐步降低電導狀態，實現權重向下調諧；非二值化數位抹除。",
+        "verification": "以封閉迴路比較器確認電導落入目標類比 bin。",
+        "granularity": "單元支援獨立類比權重細微漸進調校。",
+        "limits": "類比多階保持性需定期背景權重重新校準以補償弛豫效應。",
+        "sourceIds": [
+          "ip-tetramem-cim"
+        ]
+      }
+    },
+    {
+      "id": "4ds-reram",
+      "title": "4DS Memory：非微絲面積型 PCMO ReRAM 單元",
+      "shortTitle": "4DS · PCMO ReRAM",
+      "vendor": "4DS Memory",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "從單晶圓級 PCMO 鈣鈦礦介質，理解非微絲肖特基能障調變如何實現電阻隨面積嚴格反比微縮並徹底免除高壓 Forming。",
+      "program": "低壓電場調控介面氧空缺聚集",
+      "reverse": "反向電場均勻抽取空缺恢復肖特基能障",
+      "readout": "低壓面積型界面電阻感測",
+      "lesson": "4DS PCMO 消除傳統微絲過熱隨機崩潰難題，瞄準 SCM 與 DRAM 補償市場，但多元鈣鈦礦晶體沉積與蝕刻工藝難度極高。",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "抹除如何對應：反向電場恢復高肖特基能障",
+        "sequence": "SET → RESET → SET",
+        "definition": "反向均勻抽取介面氧空缺，增厚空間電荷區並恢復高阻肖特基能障。",
+        "verification": "以小訊號讀取電壓驗證高阻態界面電流。",
+        "granularity": "由 1T 選擇元件或高密度 3D 陣列架構定址。",
+        "limits": "材料熱穩定性與保持性以 imec 聯合技術驗證報告為準。",
+        "sourceIds": [
+          "ip-4ds-pcmo"
+        ]
+      }
+    },
+    {
+      "id": "adesto-cbram",
+      "title": "Adesto：固態電解質微安培導電橋接 CBRAM 單元",
+      "shortTitle": "Adesto · CBRAM",
+      "vendor": "Adesto Technologies / Renesas",
+      "group": "reram",
+      "hostTopic": "ecm",
+      "summary": "從銅活性陽極與固態電解質，理解電化學金屬奈米微橋如何在 1–10µA 超低電流下生長與電離溶解。",
+      "program": "電化學氧化還原形成銅奈米微橋",
+      "reverse": "亞伏特低壓電離溶解銅微橋",
+      "readout": "太歐姆級離態／微歐姆導通態感測",
+      "lesson": "Adesto CBRAM 以微安培寫入功耗領先超低功耗 IoT 市場，但銅離子的高溫熱擴散特性對車規 125°C 保持性構成挑戰。",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "抹除如何對應：電化學溶解銅微橋，再以微安培重建",
+        "sequence": "SET → RESET → SET",
+        "definition": "反向亞伏特偏壓電離溶解金屬銅奈米橋，恢復太歐姆 (TΩ) 高阻離態。",
+        "verification": "施加 0.1V 超低偏壓確認漏電流低於關斷門限。",
+        "granularity": "單元支援位元組級快速更新。",
+        "limits": "高溫保持性依特定陽極摻雜穩定工藝與瑞薩 MCU 平台認證。",
+        "sourceIds": [
+          "ip-adesto-cbram"
+        ]
+      }
     }
   ],
   "lineage": {
