@@ -4503,6 +4503,8 @@ NeoEE uses FN program/erase; NeoMTP uses p-type storage and an erase gate. The r
 - [ch-mtp-ememory-neoee: eMemory: NeoEE Single-Poly Embedded EEPROM](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
 - [ch-mtp-ememory-neomtp: eMemory: NeoMTP Single-Poly p-Type Floating-Gate Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
 
+### Single-Poly IP: Compare the Actual Mechanisms
+
 #### Synopsys · MTP EEPROM IP
 
 Single-poly
@@ -4670,6 +4672,58 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 Maturity: In Volume Production. Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson.
 
 A product's interface supply is not its internal cell bias. Typical endurance, retention, and generation figures in the 2018 brochure are not common guarantees for all NOR. The channel-erase table in US6232180B1 must not be applied to SuperFlash.
+
+### Named eFlash IP: Compare the Actual Mechanisms
+
+#### SST / Microchip · SuperFlash eFlash (ESF1 / ESF2 / ESF3)
+
+Self-aligned 4-gate 5-terminal cell (SG + CG + FG + EG)
+
+Polysilicon Floating Gate
+
+Program: Source-side injection (SSI) with microamp-level programming current
+
+Erase: Dedicated Erase Gate (EG) poly-to-poly FN tunneling erase, SG 0V decoupling
+
+Overcame 40nm barrier down to 28nm; high-volume production at TSMC, GF, and UMC
+
+Identified 28nm is an automotive-qualified product; actual mask adder count and thermal budget depend on foundry PDK licensing.
+
+- [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### Chingis Technology · pFusion eFlash
+
+P-Channel PMOS Floating Gate
+
+Polysilicon Floating Gate (PMOS Floating Gate)
+
+Program: Band-to-band tunneling induced hot-hole injection (BBHH) with microamp-level write current
+
+Erase: High-field FN tunneling erase
+
+Standard CMOS compatible; widely licensed for MCUs, smart cards, and touch controllers
+
+Microamp programming current is a PMOS floating-gate characteristic and does not imply erase without internal voltage boosting; process support depends on target PDK.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### IOTMemory · SilvoFlash Native Ultra-Low Voltage eFlash
+
+Patented single-poly / low-mask CMOS floating gate
+
+Polysilicon Floating Gate (CMOS Floating Gate)
+
+Program: Low-power charge-pump assisted tunneling program
+
+Erase: Tunneling erase; supports dual-mode Code Flash and Data EEPROM
+
+Native 0.9V-1.2V core logic voltage direct sensing without boost charge pump; in volume production in 40nm SoCs and DDR5 SPD ICs
+
+Native core voltage read does not eliminate internal charge pumps for write/erase; actual retention and endurance are verified per foundry PDK.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
 
 ### Storage and Structure
 
@@ -5142,6 +5196,92 @@ Maturity: In Volume Production. Everspin has shipped STT products with DDR-deriv
 
 Interface speed is not junction switching time. Production capacity, automotive grade, and qualification year must not be combined across product families.
 
+### Named MRAM Vendors: Patent Reverse Engineering and Mechanisms
+
+#### Everspin Technologies · Perpendicular MTJ STT-MRAM (pMTJ i-PMA)
+
+Dual MgO interface PMA perpendicular free layer (CoFeB/MgO)
+
+Interfacial perpendicular magnetic anisotropy (i-PMA, Eb > 60 kBT); SAF synthetic antiferromagnetic pinned layer
+
+Write / Flip: Bidirectional spin-transfer torque tunneling current (Jc < 2-3 MA/cm2) driving polarization switching
+
+Reverse Flip: Reverse spin-polarized tunneling current for antiparallel (AP) to parallel (P) high-speed switching
+
+BEOL 400C thermal budget back-end integration; high-volume production at GLOBALFOUNDRIES 22FDX and 28nm
+
+Thermal budget must stay under 400C to avoid boron out-diffusion and PMA degradation; retention qualified per JEDEC JESD22 standards.
+
+- [EMG-P-EVERSPIN-PMTJ: Everspin pMTJ Interfacial Perpendicular Magnetic Anisotropy Patent](https://patents.google.com/patent/US8488371B2/en)
+- [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+#### Avalanche Technology · Dual-SAF Stray Field Compensated STT-MRAM
+
+Top and bottom symmetric Dual-SAF magnetic stack
+
+Central perpendicular free layer flanked by dual tunnel oxide barriers and dual SAF reference layers
+
+Write / Flip: Dual spin-transfer torque injection, cutting critical switching current (Ic) by ~50%
+
+Reverse Flip: Cancels stray dipole fields on free layer, achieving symmetric P to AP and AP to P switching voltages
+
+TSMC 22nm ULL / UMC 28nm HPC+ automotive and aerospace rad-hard embedded production
+
+Dual SAF adds layer count and etch aspect ratio complexity; total ionizing dose rad-hard performance requires space-qualified packaging.
+
+- [EMG-P-AVALANCHE-SAF: Avalanche Dual Synthetic Antiferromagnet (Dual-SAF) MRAM Patent](https://patents.google.com/patent/US9837603B2/en)
+- [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+
+#### Spin Memory · Precessional Spin Current (PSC) Ultra-Fast STT-MRAM
+
+Perpendicular pMTJ stack integrated with an additional in-plane precessional spin current (PSC) layer
+
+Perpendicular free layer with high thermal stability; PSC provides an orthogonal spin polarization torque
+
+Write / Flip: In-plane torque eliminates random thermal incubation delay, enabling < 3ns ultra-fast deterministic switching
+
+Reverse Flip: Precessional torque suppresses switching jitter, reducing dynamic write energy by 40%-50%
+
+Licensed by Applied Materials and Arm; compatible with advanced logic BEOL metallization
+
+Additional orthogonal polarization layer requires precise control of exchange-decoupling thickness; commercial IP licensing depends on valid patent claims.
+
+- [EMG-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en)
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+
+#### Numem · Smart Write Termination (SWT) Adaptive STT-MRAM
+
+Foundry-compatible standard BEOL pMTJ stack (40nm / 28nm / 22nm)
+
+Standard perpendicular free and reference layers with peripheral high-speed closed-loop sensing
+
+Write / Flip: Real-time monitoring of MTJ resistance switching (dV/dt, dI/dt) during pulse, cutting write current within 1ns of flip
+
+Reverse Flip: Eliminates excessive voltage stress on fast bitcells caused by worst-case slow-tail write pulses
+
+Circuit-level innovation boosting MgO barrier endurance 100x to 10^10 cycles; reduces write energy by 60%
+
+High-speed write cutoff requires low parasitic capacitance comparator layout; sub-12nm scaling trades off sensing latency vs peripheral area.
+
+- [EMG-P-NUMEM-SWT: Numem Smart Write Termination (SWT) Low-Power MRAM Patent](https://patents.google.com/patent/US10460788B2/en)
+- [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+
+#### Crocus Technology · Thermally Assisted Switching MRAM (TAS-MRAM)
+
+Antiferromagnetic (AFM) pinned storage layer + heating electrode stack
+
+Exchange-bias pinning below blocking temperature (Tb) locking magnetization orientation
+
+Write / Flip: Short heating pulse raises local temperature above Tb, enabling low-field/low-current switching
+
+Reverse Flip: Rapid cooling freezes new state under restored exchange bias, ensuring ultra-high retention and field immunity at room temperature
+
+Partnered with TowerJazz and other foundries; deployed in rugged industrial magnetic sensors and secure storage
+
+Thermal cooling cycle limits write cycle to 20-30ns; thermal isolation boundaries restrict maximum array density scaling.
+
+- [EMG-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en)
+
 ### Storage and Structure
 
 The stored quantity remains the orientation of the free magnetic layer relative to the reference layer, and reading relies on the resistance difference of the magnetic tunnel junction. The principal difference from Toggle is writing: current passing through the magnetic stack carries spin angular momentum and exerts torque on the free layer, changing its magnetic state. Nonvolatility comes from the magnetic energy barrier, not from keeping current inside the device.
@@ -5232,6 +5372,7 @@ Read current also passes through the MTJ, producing spin torque and electrical s
 - [EMG-P-AVALANCHE-SAF: Avalanche Dual Synthetic Antiferromagnet (Dual-SAF) MRAM Patent](https://patents.google.com/patent/US9837603B2/en)
 - [EMG-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en)
 - [EMG-P-NUMEM-SWT: Numem Smart Write Termination (SWT) Low-Power MRAM Patent](https://patents.google.com/patent/US10460788B2/en)
+- [EMG-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en)
 
 ## SOT-MRAM: Separate Read and Write Paths
 
@@ -5385,6 +5526,75 @@ Maturity: Qualification Completed. Weebit/DB HiTek 130nm BCD RRAM has public evi
 
 The oxide VCM description here is a source-supported teaching model. It does not assign the same oxygen-vacancy stack to all commercial RRAM, including TSMC products. Technology qualification also does not establish volume shipments of customer products.
 
+### Named ReRAM Vendors: Patent Reverse Engineering and Mechanisms
+
+#### Weebit Nano · CMOS-Friendly Silicon Oxide (SiOx) ReRAM
+
+Standard FAB qualified SiOx dielectric film + defect-engineered electrode
+
+Controlled oxygen vacancy filaments formed inside standard semiconductor-grade silicon oxide
+
+SET: Electric-field driven oxygen ion drift forming nanoscale conductive filaments (SET, < 50uA)
+
+RESET: Bipolar reverse bias driven thermal Joule heating re-oxidizing the filament gap (RESET)
+
+100% standard CMOS line material without exotic metal contamination; qualified at DB HiTek 130nm and SkyWater 130nm
+
+Volume production is qualified on mature nodes; sub-28nm FinFET scaling and high-temperature retention depend on ongoing qualifications.
+
+- [EMG-P-WEEBIT-SIOX: Weebit Nano Silicon Oxide CMOS-Compatible ReRAM Patent](https://patents.google.com/patent/US10236442B2/en)
+- [EMG-DBH: Weebit/DB HiTek Technology Qualification and Product Adoption](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
+- [EMG-S130: Weebit SkyWater S130 Reliability Validation](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
+
+#### Panasonic / RAMXEED · Dual-Layer Tantalum Oxide (Ta2O5 / TaOx) Self-Limiting ReRAM
+
+Bilayer stack: high-resistance stoichiometric Ta2O5 (~5nm) + low-resistance oxygen-deficient TaOx (~30nm)
+
+Reversible oxygen exchange between TaOx reservoir and Ta2O5 layer; series resistance intrinsically self-limits filament radius
+
+SET: Negative bias drifts oxygen ions into TaOx, stabilizing Ta-rich conductive filament (SET: 0.15V-1.5V)
+
+RESET: Positive bias pushes oxygen back into the interface, gently rupturing the filament constriction (RESET)
+
+First commercially mass-produced ReRAM (MN101L MCU in 2013); >100M units shipped; endurance 10^5 to 10^6 cycles
+
+Oxygen profile gradient across Ta2O5/TaOx requires tight sputtering control; unpowered high-temperature retention degrades under extreme thermal stress.
+
+- [EMG-P-PANA-TAOX: Panasonic Bi-Layer Oxygen-Deficient Tantalum Oxide ReRAM Patent](https://patents.google.com/patent/US8068356B2/en)
+- [EMG-VCM08: Resistive Switching Mechanisms in Metal/Oxide/Metal Devices](https://www.nature.com/articles/nnano.2008.160)
+
+#### TetraMem · Analog Multi-Level Linear Conductance ReRAM for CIM
+
+Interface-engineered multi-layer metal oxide stack
+
+Continuous interfacial vacancy barrier modulation achieving 8-bit (256-level) high-precision analog conductance
+
+SET: Progressive pulse incremental tuning (PICA algorithm) delivering highly symmetric and linear conductance tuning
+
+RESET: Symmetric weight depression with minimal conductance drift and relaxation (< 1% over 10^5 s)
+
+Targeted at ultra-low-power edge AI analog Compute-in-Memory (CIM) accelerators; compatible with 28nm/22nm PDKs
+
+Analog multi-level precision is susceptible to thermal variations and read noise; requires periodic background calibration in DNN accelerators.
+
+- [EMG-P-TETRAMEM-CIM: TetraMem Analog Multi-Level Conductance Deep Learning Accelerator Patent](https://patents.google.com/patent/US11393527B2/en)
+
+#### 4DS Memory · Non-Filamentary Interface-Type Perovskite (PCMO) ReRAM
+
+Single-wafer Pr0.7Ca0.3MnO3 (PCMO) perovskite transition metal oxide
+
+Completely non-filamentary; resistance modulated uniformly across the electrode/PCMO interface Schottky barrier
+
+SET: Low-voltage bipolar pulse modulates interfacial oxygen vacancy profile; cell resistance scales inversely with junction area
+
+RESET: Reverse uniform extraction of interface vacancies restores high-resistance state; inherently Forming-free
+
+Developed in multi-year partnership with imec; targeted at high-bandwidth Storage Class Memory (SCM) and DRAM gap filling
+
+Complex multi-element perovskite deposition requires strict crystalline uniformity; 3D vertical stacking etch challenges remain under development.
+
+- [EMG-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en)
+
 ### Storage and Structure
 
 VCM stores data in the ionic distribution, local redox state, or interfacial barrier of an oxide, producing distinguishable resistance states. A typical filament model explains conduction and rupture through redistribution of oxygen ions/oxygen vacancies, but not every device has a single clearly defined filament. Materials, electrodes, and measurement evidence determine the mechanism; a hysteretic I–V curve alone is insufficient to identify VCM.
@@ -5506,6 +5716,41 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 Maturity: Historical Commercial Shipments. The CBRAM section of Adesto's 2019 annual filing explicitly records commercial product shipments. ECM/CBRAM therefore cannot uniformly be labeled as never commercialized. This evidence supports historical product maturity, but does not establish every subsequent node or availability of the original part numbers in 2026.
 
 Licensing, technology transfer, and new foundry-development programs cannot be elevated to volume-production status on the strength of historical shipments.
+
+### Named ReRAM Vendors: Patent Reverse Engineering and Mechanisms
+
+#### CrossBar · Nanopore-Confined Amorphous Silicon / Silver (a-Si / Ag) ReRAM
+
+Silver (Ag) active electrode + nanopore-engineered amorphous silicon (a-Si) layer + inert counter-electrode
+
+Silver metallic nanofilament nucleates within pre-defined nanopores, suppressing lateral random diffusion
+
+SET: Positive voltage oxidizes Ag into Ag+ ions, migrating through nanopores and reducing into a conductive metallic bridge (SET: < 2V)
+
+RESET: Negative bias induces electrochemical dissolution and capillary-driven rupture of the Ag filament (RESET)
+
+Boasts > 10^6 ON/OFF ratio with patented 1S1R selector integration; compatible with low-temperature (< 300C) BEOL processing
+
+Silver ions exhibit high thermal diffusivity in BEOL metal stacks, requiring high-density diffusion barrier containment.
+
+- [EMG-P-CROSSBAR-FILAMENT: CrossBar Localized Filamentary Amorphous Silicon ReRAM Patent](https://patents.google.com/patent/US8658467B2/en)
+
+#### Adesto Technologies / Renesas · Solid-Electrolyte Micro-Ampere Conductive Bridging RAM (CBRAM)
+
+Copper (Cu) active anode + copper-doped solid electrolyte + inert tungsten (W) cathode
+
+Electrochemical formation and dissolution of copper metallic nanobridges within a solid electrolyte
+
+SET: Microamp-level (1-10uA) ultra-low current SET operation, slashing write power by > 90% compared to eFlash
+
+RESET: Sub-volt reverse bias rapidly dissolves copper nanobridge, restoring tera-ohm (T-ohm) high-resistance state
+
+Volume manufactured at Altis, X-FAB and Winbond; integrated into Renesas ultra-low-power MCU platform
+
+Metallic ions face spontaneous thermal diffusion at high temperatures; AEC-Q100 Grade 1 retention requires specialized anode stabilization alloys.
+
+- [EMG-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Low-Power CBRAM Patent](https://patents.google.com/patent/US8824194B2/en)
+- [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
 
 ### Storage and Structure
 

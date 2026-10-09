@@ -4503,15 +4503,17 @@ NeoEE 採 FN 寫抹；NeoMTP 採 p 型儲存元件及抹除閘極；Synopsys 本
 - [ch-mtp-ememory-neoee：力旺電子：NeoEE 單層多晶矽嵌入式 EEPROM](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
 - [ch-mtp-ememory-neomtp：力旺電子：NeoMTP 單層多晶矽 p 型浮動閘極原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
 
+### 單層多晶矽 IP：比較各自的操作機制
+
 #### Synopsys · MTP EEPROM IP
 
 單層多晶矽
 
 浮動閘極
 
-寫入: 已確認支援 PGM；本次產品頁未揭露載子路徑與端點偏壓。
+寫入：已確認支援 PGM；本次產品頁未揭露載子路徑與端點偏壓。
 
-抹除: 已確認支援電性 ERS；本次產品頁未揭露微觀抹除路徑與端點偏壓。
+抹除：已確認支援電性 ERS；本次產品頁未揭露微觀抹除路徑與端點偏壓。
 
 具名標準 CMOS 平臺；零新增光罩；整合高壓周邊
 
@@ -4525,9 +4527,9 @@ NeoEE 採 FN 寫抹；NeoMTP 採 p 型儲存元件及抹除閘極；Synopsys 本
 
 浮動閘極；MOS 電容耦合與選擇器
 
-寫入: FN 穿隧將電荷存入浮動閘極
+寫入：FN 穿隧將電荷存入浮動閘極
 
-抹除: FN 穿隧將電荷移出浮動閘極
+抹除：FN 穿隧將電荷移出浮動閘極
 
 具名邏輯製程；零新增光罩；內含高壓及控制
 
@@ -4541,9 +4543,9 @@ NeoEE 採 FN 寫抹；NeoMTP 採 p 型儲存元件及抹除閘極；Synopsys 本
 
 p 型浮動閘極 MOSFET；另有抹除閘極
 
-寫入: 通道熱電洞誘發熱電子注入（原廠標示 CHEI）
+寫入：通道熱電洞誘發熱電子注入（原廠標示 CHEI）
 
-抹除: 電子由浮動閘極經 FN 移至抹除閘極
+抹除：電子由浮動閘極經 FN 移至抹除閘極
 
 具名邏輯／BCD 平臺；零新增光罩版本
 
@@ -4670,6 +4672,58 @@ SuperFlash 手冊描述浮動閘極到另一閘極的 FN 穿隧；US6232180B1 �
 成熟度：已量產。微芯科技 SST39SF020A 在本次查核時標示量產中，公開摘要為 2 Mb、4.5–5.5 V 平行快閃。SST 的 SuperFlash 技術手冊另提供分離閘極、源極側注入與閘極間 FN 抹除的具名技術脈絡，可作商用實作與機制教材的對照。
 
 產品介面供電不等於內部單元偏壓；2018 手冊的典型耐久、保持或世代數字不能成為所有 NOR 的共同保證。也不能把 US6232180B1 的通道抹除表套到 SuperFlash。
+
+### 具名 eFlash IP：比較各自的操作機制
+
+#### SST／Microchip · SuperFlash eFlash (ESF1 / ESF2 / ESF3)
+
+自對準 4 閘極 5 端子單元 (SG + CG + FG + EG)
+
+多晶矽浮動閘極 (Floating Gate)
+
+寫入：源側注入 (SSI) 微安培級寫入電流
+
+抹除：專用 Erase Gate (EG) 多晶矽間 FN 抹除，SG 0V 解耦
+
+突破 40nm 壁壘微縮至 28nm；TSMC、GF、UMC 大規模量產
+
+具名 28nm 為車規量產產品；實際額外光罩道數與熱預算依代工廠 PDK 授權合約。
+
+- [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### 常億科技 Chingis Technology · pFusion eFlash
+
+P-Channel PMOS 浮閘
+
+多晶矽浮動閘極 (PMOS Floating Gate)
+
+寫入：能帶間穿隧誘發熱電洞注入 (BBHH) 微安培級寫入電流
+
+抹除：高電場 FN 穿隧抹除
+
+標準 CMOS 相容；廣泛授權於 MCU、智慧卡與觸控晶片
+
+微安培寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 智憶科技 IOTMemory · SilvoFlash 原生超低壓 eFlash
+
+專利單層／低光罩 CMOS 浮閘
+
+多晶矽浮動閘極 (CMOS Floating Gate)
+
+寫入：低功耗電荷泵輔助穿隧寫入
+
+抹除：穿隧抹除；支援 Code Flash 與 Data EEPROM 雙模
+
+原生 0.9V–1.2V 核心邏輯電壓直接感測，免升壓電荷泵；量產於 40nm SoC 與 DDR5 SPD IC
+
+核心電壓原生讀取不代表寫抹無需內部升壓；實際保持性與抹寫耐久依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
 
 ### 儲存與結構
 
@@ -5142,6 +5196,92 @@ MTJ 處於反平行高阻態。
 
 介面速度不是接面切換時間；量產容量、車用等級及認證年份不能跨系列合併。
 
+### 具名 MRAM 技術廠家：專利反推與操作機制
+
+#### Everspin Technologies · 垂直磁各向異性 STT-MRAM (pMTJ i-PMA)
+
+雙 MgO 介面界面 PMA 垂直磁化自由層 (CoFeB/MgO)
+
+垂直磁各向異性界面位障 (i-PMA, Eb > 60 kBT)；SAF 合成反鐵磁釘扎層
+
+寫入／翻轉：雙向自旋轉矩穿隧電流 (Jc < 2-3 MA/cm²) 誘導極化翻轉
+
+反向翻轉：反向極化自旋電流穿隧，反平行 (AP) 與平行 (P) 雙向高速翻轉
+
+BEOL 400°C 熱預算後端整合；GLOBALFOUNDRIES 22FDX 與 28nm 量產出貨
+
+核心 PMA 介面退火熱預算需小於 400°C 避免硼擴散與 PMA 衰退；高溫保持性依 JEDEC JESD22 標準驗證。
+
+- [EMG-P-EVERSPIN-PMTJ：Everspin pMTJ 界面垂直磁各向異性專利](https://patents.google.com/patent/US8488371B2/en)
+- [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+#### Avalanche Technology · 雙對稱 SAF 雜散磁場補償 STT-MRAM
+
+頂底對稱雙 SAF (Dual Synthetic Antiferromagnet) 磁性堆疊
+
+中心垂直自由層 (FL) 兩側夾置雙穿隧氧化障壁與雙 SAF 參考層
+
+寫入／翻轉：雙重自旋轉矩注入，有效降低 50% 臨界翻轉電流 (Ic)
+
+反向翻轉：消除自由層雜散偶極場偏置，實現 P→AP 與 AP→P 完美對稱翻轉電壓
+
+TSMC 22nm ULL / UMC 28nm HPC+ 車規與航太抗輻照 (Rad-Hard) 嵌入式量產
+
+雙 SAF 增加薄膜層數與蝕刻深寬比要求；空間級防護抗輻照總劑量需由特定航太封裝驗證。
+
+- [EMG-P-AVALANCHE-SAF：Avalanche 雙重合成反鐵磁 Dual-SAF 專利](https://patents.google.com/patent/US9837603B2/en)
+- [EMG-RA8：Renesas RA8M2／RA8D2 嵌入式 MRAM MCU](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+
+#### Spin Memory · 自旋進動輔助超速極化層 (PSC) STT-MRAM
+
+垂直 pMTJ 堆疊上方額外整合磁化面內自旋極化層 (PSC Layer)
+
+垂直自由層具高熱穩定性障壁；PSC 提供垂直於自由層磁化的額外自旋分量
+
+寫入／翻轉：面內自旋轉矩消除隨機熱起伏延遲 (Incubation Delay)，實現 < 3ns 極速翻轉
+
+反向翻轉：高頻進動轉矩消除翻轉隨機抖動 (Jitter)，寫入能耗降低 40%–50%
+
+獲 Applied Materials (AMAT) 與 Arm 策略投資授權；相容先進邏輯金屬間後端製程
+
+額外非等向性極化層需精確控制交換去耦層厚度；商用 IP 移轉需依相關專利權利範圍授權。
+
+- [EMG-P-SPINMEM-PSC：Spin Memory 進動自旋流 PSC 極速翻轉專利](https://patents.google.com/patent/US9287500B2/en)
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
+
+#### Numem · 即時動態智慧寫入終止 (Smart Write Termination, SWT) STT-MRAM
+
+相容於代工廠標準 BEOL pMTJ 堆疊 (40nm / 28nm / 22nm)
+
+標準單元垂直自由層與參考層；外圍加入高速自適應閉環感測電路
+
+寫入／翻轉：脈衝施加期間即時監測 MTJ 電阻跳變 (dV/dt 或 dI/dt)，翻轉完成瞬間 (1ns 內) 自動切斷電流
+
+反向翻轉：消除因製程慢單元 (Slow Tail) 所需寬脈衝對快單元造成的介電層過應力 (Over-stress)
+
+以純周邊電路創新將穿隧氧化層 (MgO) 耐久度提升 100 倍至 10^10 次；功耗降低 60%
+
+高速切斷需要低寄生電容周邊比較器佈局；微縮至 12nm 以下需權衡感測延遲與單元面積。
+
+- [EMG-P-NUMEM-SWT：Numem 即時寫入自適應終止低功耗 MRAM 專利](https://patents.google.com/patent/US10460788B2/en)
+- [EMG-XSPI：Everspin 64Mb 高可靠度 xSPI 生產認證](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+
+#### Crocus Technology · 熱輔助阻變自旋翻轉 (TAS-MRAM)
+
+反鐵磁 (AFM) 釘扎儲存層 + 加熱電極堆疊
+
+高溫阻斷溫度 (Blocking Temperature, Tb) 交換偏置場鎖定磁化方向
+
+寫入／翻轉：短加熱電流脈衝將磁層加熱越過 Tb 降低釘扎位障，結合微弱磁場或自旋電流翻轉
+
+反向翻轉：斷電冷卻後交換偏置場重新建立，凍結新狀態；實現常溫超高保持性與高抗干擾
+
+與 TowerJazz 等晶圓廠合作；廣泛應用於高可靠度工業感測器與安全儲存
+
+熱循環冷卻時間限制隨機寫入速度至 20-30ns；熱擴散隔離設計限制極限單元微縮密度。
+
+- [EMG-P-CROCUS-TAS：Crocus 熱輔助 TAS-MRAM 高選擇性專利](https://patents.google.com/patent/US7916526B2/en)
+
 ### 儲存與結構
 
 儲存量仍是自由磁層相對參考磁層的方向，讀取依賴磁性穿隧接面的電阻差。與 Toggle 的主要區別在寫入：電流經過磁性堆疊後攜帶自旋角動量，向自由層施加轉矩，使磁態改變。非揮發性由磁能障壁提供，不是把電流持續留在元件內。
@@ -5232,6 +5372,7 @@ MTJ 直徑、障壁厚度、磁異向性與參考層特性會造成阻值及臨�
 - [EMG-P-AVALANCHE-SAF：Avalanche 雙重合成反鐵磁 Dual-SAF 專利](https://patents.google.com/patent/US9837603B2/en)
 - [EMG-P-SPINMEM-PSC：Spin Memory 進動自旋流 PSC 極速翻轉專利](https://patents.google.com/patent/US9287500B2/en)
 - [EMG-P-NUMEM-SWT：Numem 即時寫入自適應終止低功耗 MRAM 專利](https://patents.google.com/patent/US10460788B2/en)
+- [EMG-P-CROCUS-TAS：Crocus 熱輔助 TAS-MRAM 高選擇性專利](https://patents.google.com/patent/US7916526B2/en)
 
 ## SOT-MRAM：分開讀取與寫入路徑
 
@@ -5385,6 +5526,75 @@ SET → RESET → SET
 
 這裡的氧化物 VCM 是有來源支持的教學機制模型；未把台積電等所有商用 RRAM 都指定為相同氧空缺堆疊，技術資格也不等於客戶產品大量出貨。
 
+### 具名 ReRAM 技術廠家：專利反推與操作機制
+
+#### Weebit Nano · CMOS 標準氧化矽 (SiOx) 阻變記憶體
+
+標準 FAB 現有 SiOx 介電質薄膜 + 多孔氧空缺工程接觸電極
+
+利用純氧化矽內部受控奈米級氧空缺團簇 (Oxygen Vacancy Clusters) 形成低阻導電通道
+
+寫入 (SET)：電場驅動氧離子偏壓漂移，於 SiOx 形成奈米導電微絲 (SET, 電流 < 50µA)
+
+抹除 (RESET)：雙極性反向偏壓誘導局部焦耳熱，使氧離子回填並斷開微絲 (RESET)
+
+100% 採用標準 CMOS 現成材料，零特殊金屬交叉污染風險；已在 DB HiTek 130nm 與 SkyWater 130nm 量產
+
+量產製程採用成熟節點；先進 FinFET 節點微縮與高溫保持性依代工廠後續認證。
+
+- [EMG-P-WEEBIT-SIOX：Weebit Nano 氧化矽基 CMOS 相容 ReRAM 專利](https://patents.google.com/patent/US10236442B2/en)
+- [EMG-DBH：Weebit／DB HiTek 技術資格與產品導入](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
+- [EMG-S130：Weebit SkyWater S130 可靠性驗證](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
+
+#### Panasonic / RAMXEED · 雙層鉭氧化物 (Ta2O5 / TaOx) 自限制導電微絲 ReRAM
+
+高阻化學計量絕緣層 Ta2O5 (~5nm) + 低阻缺氧導電層 TaOx (~30nm) 雙層堆疊
+
+氧離子在 TaOx 儲庫與 Ta2O5 活化層間可逆交換；串聯電阻自限制微絲粗細
+
+寫入 (SET)：負向偏壓使氧離子自 Ta2O5 遷移至 TaOx，形成穩定富鉭微絲 (SET: 0.15V-1.5V)
+
+抹除 (RESET)：正向偏壓將氧離子推回界面，溫和氧化微絲頂部頸縮區 (RESET)
+
+全球首款商業量產 ReRAM（MN101L MCU，2013 年）；180nm/130nm 累積出貨破億顆；耐久達 10^5-10^6 次
+
+雙層氧化鉭薄膜氧含量梯度需嚴格控制濺鍍分壓；高溫無偏壓保持壽命隨高熱應力退化。
+
+- [EMG-P-PANA-TAOX：Panasonic 雙層缺氧氧化鉭百萬次 ReRAM 專利](https://patents.google.com/patent/US8068356B2/en)
+- [EMG-VCM08：金屬／氧化物／金屬元件的電阻切換機制](https://www.nature.com/articles/nnano.2008.160)
+
+#### TetraMem · 高線性多階電導類比記憶體 (CIM In-Memory Computing)
+
+多層金屬氧化物介面障壁工程 (Interface-Engineered Metal Oxide) 堆疊
+
+利用非微絲型／連續介面空缺調控，實現 8-bit (256 階) 以上超高解析度電導狀態
+
+寫入 (SET)：漸進式精確電壓脈衝調控 (PICA 演算法)，電導調諧呈高度對稱性與超高線性度
+
+抹除 (RESET)：對稱微調電導降低 (Potentiation & Depression)，弛豫漂移極低 (< 1% / 10^5 s)
+
+專注邊緣端超低功耗神經網路類比記憶體運算 (Compute-in-Memory, CIM)；相容 28nm/22nm PDK
+
+類比多階精度對溫度變化與讀取雜訊敏感；神經網路推理需搭配週期性背景權重校準電路。
+
+- [EMG-P-TETRAMEM-CIM：TetraMem 類比多階電導深度學習加速專利](https://patents.google.com/patent/US11393527B2/en)
+
+#### 4DS Memory · 非微絲面積型鈣鈦礦 (PCMO) 介面型 ReRAM
+
+單結晶圓級 Pr0.7Ca0.3MnO3 (PCMO) 鈣鈦礦金屬氧化物介電質
+
+無局部崩潰微絲；阻變由電極／PCMO 界面肖特基障壁高度與耗盡寬度可逆調變決定
+
+寫入 (SET)：低電壓雙極脈衝電場調控介面氧空缺聚集，阻值隨接觸面積成嚴格反比微縮
+
+抹除 (RESET)：反向均勻抽取界面氧空缺恢復高阻態；徹底免除高壓電氣 Forming 步驟
+
+與 imec 長期策略合作開發；鎖定先進高頻寬儲存級記憶體 (Storage Class Memory, SCM) 與 DRAM 補償市場
+
+複雜多元金屬氧化物沉積需嚴格控制晶體結構均勻度；高密度 3D 堆疊垂直加工挑戰仍在持續克服中。
+
+- [EMG-P-4DS-PCMO：4DS Memory 結晶 PCMO 無微絲界面型 SCM 專利](https://patents.google.com/patent/US10468591B2/en)
+
 ### 儲存與結構
 
 VCM 以氧化物中的離子分布、局部氧化還原狀態或界面障壁儲存資料，表現為可區分的電阻狀態。典型通道模型用氧離子／氧空缺重分布解釋導通與斷裂，但並非所有元件都只有一根清晰細絲。材料、電極及量測證據才是機制判定依據，遲滯 I–V 本身不足以識別 VCM。
@@ -5506,6 +5716,41 @@ SET → RESET → SET
 成熟度：歷史商用。Adesto 2019 年度申報的 CBRAM 段落明確記錄商業產品已出貨，因此 ECM／CBRAM 不能一律標為尚未商用。這份證據支持歷史產品成熟度，不足以確認所有後續節點或 2026 年原型號供應。
 
 授權、技術移轉及新的晶圓廠開發計畫，不能由歷史出貨一併升格為已量產。
+
+### 具名 ReRAM 技術廠家：專利反推與操作機制
+
+#### CrossBar · 局域奈米微孔非晶矽／銀 (a-Si / Ag) 導電微絲 ReRAM
+
+銀 (Ag) 活性電極 + 奈米微孔工程非晶矽 (a-Si) 阻變層 + 多晶矽／金屬惰性電極
+
+銀奈米微絲局域於預置之奈米微孔通道內成核生長，阻絕隨機側向擴散
+
+寫入 (SET)：正偏壓使 Ag 陽極氧化為 Ag+ 離子，在微孔內電場引導下遷移還原為連續銀奈米橋 (SET: < 2V)
+
+抹除 (RESET)：反向偏壓誘導電化學溶解與毛細焦耳熱，使銀奈米微絲斷開 (RESET)
+
+具備 > 10^6 開關比與 1S1R 雙向閾值選擇器 (OTS/Selector) 整合專利；相容 CMOS 後端金屬層低溫 (< 300°C) 製程
+
+銀離子在先進 BEOL 銅製程中具高熱擴散係數，需具備超高緻密性之擴散阻擋層 (Diffusion Barrier) 隔離防護。
+
+- [EMG-P-CROSSBAR-FILAMENT：CrossBar 局域成絲非晶矽 ReRAM 專利](https://patents.google.com/patent/US8658467B2/en)
+
+#### Adesto Technologies / Renesas · 固態電解質微安培導電橋接記憶體 (CBRAM / Mavリコ)
+
+銅 (Cu) 活性金屬陽極 + 摻銅非晶硫屬／矽氧化物固態電解質 (Solid Electrolyte) + 惰性鎢 (W) 陰極
+
+超薄固態電解質中銅原子奈米微橋之電化學生長與溶解
+
+寫入 (SET)：微安培 (1–10µA) 超低電流 SET 操作，極限寫入功耗較傳統 eFlash 降低 90% 以上
+
+抹除 (RESET)：亞伏特級低壓反向偏壓快速電離溶解銅奈米橋，恢復太歐姆 (TΩ) 級超高離態阻值
+
+在 Altis / X-FAB / 華邦等代工廠量產獨立式晶片與超低功耗嵌入式 IP；已納入瑞薩 (Renesas) 嵌入式 MCU 平台
+
+高溫熱應力下金屬離子存在自發熱擴散溶解風險，車規 125°C+ 級長效保持需搭配特殊陽極摻雜穩定工藝。
+
+- [EMG-P-ADESTO-CBRAM：Adesto 銅離子固態電解質低功耗 CBRAM 專利](https://patents.google.com/patent/US8824194B2/en)
+- [EMG-ADESTO：Adesto 2019 年度 CBRAM 商用出貨申報](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
 
 ### 儲存與結構
 

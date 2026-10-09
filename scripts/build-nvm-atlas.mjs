@@ -107,19 +107,62 @@ function integrationRoutes(topic) {
 }
 
 function integrationRoutesMarkdown(topic) {
-  if (!topic.integrationRoutes?.length) return '';
-  const routes = '\n\n### ' + (isEnglish ? 'Embedded MTP IP Integration Routes' : '嵌入式 MTP IP 整合路徑') + '\n\n' + topic.integrationRoutes.map(route=>`#### ${route.title}\n\n${route.provider}\n\n${route.polyLayers}\n\n${route.controlTopology}\n\n${route.processContract}\n\n${route.operationContract}\n\n${sourceMarkdown(route.sourceIds)}`).join('\n\n');
-  const implementations = (topic.implementations||[]).map(item=>`#### ${item.vendor} · ${item.title}\n\n${item.polyLayers}\n\n${item.storage}\n\n${isEnglish?'Program':'寫入'}: ${item.program}\n\n${isEnglish?'Erase':'抹除'}: ${item.erase}\n\n${item.integration}\n\n${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n');
-  return routes + (implementations ? '\n\n'+implementations : '');
+  let out = '';
+  if (topic.integrationRoutes?.length) {
+    out += '\n\n### ' + (isEnglish ? 'Embedded MTP IP Integration Routes' : '嵌入式 MTP IP 整合路徑') + '\n\n' + topic.integrationRoutes.map(route=>`#### ${route.title}\n\n${route.provider}\n\n${route.polyLayers}\n\n${route.controlTopology}\n\n${route.processContract}\n\n${route.operationContract}\n\n${sourceMarkdown(route.sourceIds)}`).join('\n\n');
+  }
+  if (topic.implementations?.length) {
+    const isNor = topic.id === 'nor';
+    const isMram = topic.id === 'stt' || topic.id === 'sot';
+    const isReram = topic.id === 'vcm' || topic.id === 'ecm';
+    const heading = isNor ? (isEnglish ? 'Named eFlash IP: Compare the Actual Mechanisms' : '具名 eFlash IP：比較各自的操作機制') :
+                    isMram ? (isEnglish ? 'Named MRAM Vendors: Patent Reverse Engineering and Mechanisms' : '具名 MRAM 技術廠家：專利反推與操作機制') :
+                    isReram ? (isEnglish ? 'Named ReRAM Vendors: Patent Reverse Engineering and Mechanisms' : '具名 ReRAM 技術廠家：專利反推與操作機制') :
+                    (isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制');
+    const pLabel = isMram ? (isEnglish ? 'Write / Flip' : '寫入／翻轉') : isReram ? (isEnglish ? 'SET' : '寫入 (SET)') : (isEnglish ? 'Program' : '寫入');
+    const eLabel = isMram ? (isEnglish ? 'Reverse Flip' : '反向翻轉') : isReram ? (isEnglish ? 'RESET' : '抹除 (RESET)') : (isEnglish ? 'Erase' : '抹除');
+    const colon = isEnglish ? ': ' : '：';
+    const impls = topic.implementations.map(item=>`#### ${item.vendor} · ${item.title}\n\n${item.polyLayers}\n\n${item.storage}\n\n${pLabel}${colon}${item.program}\n\n${eLabel}${colon}${item.erase}\n\n${item.integration}\n\n${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n');
+    out += (out ? '\n\n' : '\n\n') + '### ' + heading + '\n\n' + impls;
+  }
+  return out;
 }
 
 function implementationTable(topic) {
   if (!topic.implementations?.length) return '';
   const isNor = topic.id === 'nor';
-  const heading = isNor ? (isEnglish ? 'Named eFlash IP: Compare the Actual Mechanisms' : '具名 eFlash IP：比較各自的操作機制') : (isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制');
-  const caption = isNor ? (isEnglish ? 'Named eFlash IP operating mechanisms comparison' : '具名 eFlash IP 操作機制比較') : (isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較');
-  const labels = isNor ? (isEnglish ? ['Named eFlash IP', 'Gate Stack and Storage', 'Program / Erase and Integration'] : ['具名 eFlash IP', '閘極堆疊與儲存結構', '寫入／抹除與整合']) : (isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合']);
-  return `<section id="${esc(topic.id)}-implementations"><h3>${heading}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${caption}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
+  const isMram = topic.id === 'stt' || topic.id === 'sot';
+  const isReram = topic.id === 'vcm' || topic.id === 'ecm';
+
+  let heading, caption, labels, programLabel, eraseLabel;
+  if (isMram) {
+    heading = isEnglish ? 'Named MRAM Vendors: Patent Reverse Engineering and Mechanisms' : '具名 MRAM 技術廠家：專利反推與操作機制';
+    caption = isEnglish ? 'Named MRAM vendors patent reverse engineering and switching mechanisms comparison' : '具名 MRAM 技術廠家專利反推與操作機制比較';
+    labels = isEnglish ? ['Vendor & Core Patent', 'Magnetic Stack & Interface Physics', 'Switching & Foundry Integration'] : ['具名 MRAM 廠家與核心專利', '磁性堆疊與界面物理', '翻轉機制／寫入控制與代工整合'];
+    programLabel = isEnglish ? 'Write / Flip' : '寫入／翻轉';
+    eraseLabel = isEnglish ? 'Reverse Flip' : '反向翻轉';
+  } else if (isReram) {
+    heading = isEnglish ? 'Named ReRAM Vendors: Patent Reverse Engineering and Mechanisms' : '具名 ReRAM 技術廠家：專利反推與操作機制';
+    caption = isEnglish ? 'Named ReRAM vendors patent reverse engineering and switching mechanisms comparison' : '具名 ReRAM 技術廠家專利反推與操作機制比較';
+    labels = isEnglish ? ['Vendor & Core Patent', 'Resistive Stack & Filament Physics', 'SET / RESET & Foundry Integration'] : ['具名 ReRAM 廠家與核心專利', '阻變材料堆疊與成絲機制', 'SET／RESET 操作與代工整合'];
+    programLabel = isEnglish ? 'SET' : '寫入 (SET)';
+    eraseLabel = isEnglish ? 'RESET' : '抹除 (RESET)';
+  } else if (isNor) {
+    heading = isEnglish ? 'Named eFlash IP: Compare the Actual Mechanisms' : '具名 eFlash IP：比較各自的操作機制';
+    caption = isEnglish ? 'Named eFlash IP operating mechanisms comparison' : '具名 eFlash IP 操作機制比較';
+    labels = isEnglish ? ['Named eFlash IP', 'Gate Stack and Storage', 'Program / Erase and Integration'] : ['具名 eFlash IP', '閘極堆疊與儲存結構', '寫入／抹除與整合'];
+    programLabel = isEnglish ? 'Program' : '寫入';
+    eraseLabel = isEnglish ? 'Erase' : '抹除';
+  } else {
+    heading = isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制';
+    caption = isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較';
+    labels = isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合'];
+    programLabel = isEnglish ? 'Program' : '寫入';
+    eraseLabel = isEnglish ? 'Erase' : '抹除';
+  }
+  const colon = isEnglish ? ': ' : '：';
+
+  return `<section id="${esc(topic.id)}-implementations"><h3>${heading}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${caption}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${programLabel}${colon}</b>${esc(item.program)}</p><p><b>${eraseLabel}${colon}</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
 }
 
 function topicPanel(topic, index) {

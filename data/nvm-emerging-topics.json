@@ -653,7 +653,8 @@
         "EMG-P-EVERSPIN-PMTJ",
         "EMG-P-AVALANCHE-SAF",
         "EMG-P-SPINMEM-PSC",
-        "EMG-P-NUMEM-SWT"
+        "EMG-P-NUMEM-SWT",
+        "EMG-P-CROCUS-TAS"
       ],
       "quiz": {
         "question": "為何 STT-MRAM 的讀取電流不能只為加快感測而一直增加？",
@@ -677,7 +678,78 @@
           "EMG-P-SPINMEM-PSC",
           "EMG-P-NUMEM-SWT"
         ]
-      }
+      },
+      "implementations": [
+        {
+          "vendor": "Everspin Technologies",
+          "title": "垂直磁各向異性 STT-MRAM (pMTJ i-PMA)",
+          "polyLayers": "雙 MgO 介面界面 PMA 垂直磁化自由層 (CoFeB/MgO)",
+          "storage": "垂直磁各向異性界面位障 (i-PMA, Eb > 60 kBT)；SAF 合成反鐵磁釘扎層",
+          "program": "雙向自旋轉矩穿隧電流 (Jc < 2-3 MA/cm²) 誘導極化翻轉",
+          "erase": "反向極化自旋電流穿隧，反平行 (AP) 與平行 (P) 雙向高速翻轉",
+          "integration": "BEOL 400°C 熱預算後端整合；GLOBALFOUNDRIES 22FDX 與 28nm 量產出貨",
+          "limit": "核心 PMA 介面退火熱預算需小於 400°C 避免硼擴散與 PMA 衰退；高溫保持性依 JEDEC JESD22 標準驗證。",
+          "sourceIds": [
+            "EMG-P-EVERSPIN-PMTJ",
+            "EMG-SEC"
+          ]
+        },
+        {
+          "vendor": "Avalanche Technology",
+          "title": "雙對稱 SAF 雜散磁場補償 STT-MRAM",
+          "polyLayers": "頂底對稱雙 SAF (Dual Synthetic Antiferromagnet) 磁性堆疊",
+          "storage": "中心垂直自由層 (FL) 兩側夾置雙穿隧氧化障壁與雙 SAF 參考層",
+          "program": "雙重自旋轉矩注入，有效降低 50% 臨界翻轉電流 (Ic)",
+          "erase": "消除自由層雜散偶極場偏置，實現 P→AP 與 AP→P 完美對稱翻轉電壓",
+          "integration": "TSMC 22nm ULL / UMC 28nm HPC+ 車規與航太抗輻照 (Rad-Hard) 嵌入式量產",
+          "limit": "雙 SAF 增加薄膜層數與蝕刻深寬比要求；空間級防護抗輻照總劑量需由特定航太封裝驗證。",
+          "sourceIds": [
+            "EMG-P-AVALANCHE-SAF",
+            "EMG-RA8"
+          ]
+        },
+        {
+          "vendor": "Spin Memory",
+          "title": "自旋進動輔助超速極化層 (PSC) STT-MRAM",
+          "polyLayers": "垂直 pMTJ 堆疊上方額外整合磁化面內自旋極化層 (PSC Layer)",
+          "storage": "垂直自由層具高熱穩定性障壁；PSC 提供垂直於自由層磁化的額外自旋分量",
+          "program": "面內自旋轉矩消除隨機熱起伏延遲 (Incubation Delay)，實現 < 3ns 極速翻轉",
+          "erase": "高頻進動轉矩消除翻轉隨機抖動 (Jitter)，寫入能耗降低 40%–50%",
+          "integration": "獲 Applied Materials (AMAT) 與 Arm 策略投資授權；相容先進邏輯金屬間後端製程",
+          "limit": "額外非等向性極化層需精確控制交換去耦層厚度；商用 IP 移轉需依相關專利權利範圍授權。",
+          "sourceIds": [
+            "EMG-P-SPINMEM-PSC",
+            "EMG-P-STT"
+          ]
+        },
+        {
+          "vendor": "Numem",
+          "title": "即時動態智慧寫入終止 (Smart Write Termination, SWT) STT-MRAM",
+          "polyLayers": "相容於代工廠標準 BEOL pMTJ 堆疊 (40nm / 28nm / 22nm)",
+          "storage": "標準單元垂直自由層與參考層；外圍加入高速自適應閉環感測電路",
+          "program": "脈衝施加期間即時監測 MTJ 電阻跳變 (dV/dt 或 dI/dt)，翻轉完成瞬間 (1ns 內) 自動切斷電流",
+          "erase": "消除因製程慢單元 (Slow Tail) 所需寬脈衝對快單元造成的介電層過應力 (Over-stress)",
+          "integration": "以純周邊電路創新將穿隧氧化層 (MgO) 耐久度提升 100 倍至 10^10 次；功耗降低 60%",
+          "limit": "高速切斷需要低寄生電容周邊比較器佈局；微縮至 12nm 以下需權衡感測延遲與單元面積。",
+          "sourceIds": [
+            "EMG-P-NUMEM-SWT",
+            "EMG-XSPI"
+          ]
+        },
+        {
+          "vendor": "Crocus Technology",
+          "title": "熱輔助阻變自旋翻轉 (TAS-MRAM)",
+          "polyLayers": "反鐵磁 (AFM) 釘扎儲存層 + 加熱電極堆疊",
+          "storage": "高溫阻斷溫度 (Blocking Temperature, Tb) 交換偏置場鎖定磁化方向",
+          "program": "短加熱電流脈衝將磁層加熱越過 Tb 降低釘扎位障，結合微弱磁場或自旋電流翻轉",
+          "erase": "斷電冷卻後交換偏置場重新建立，凍結新狀態；實現常溫超高保持性與高抗干擾",
+          "integration": "與 TowerJazz 等晶圓廠合作；廣泛應用於高可靠度工業感測器與安全儲存",
+          "limit": "熱循環冷卻時間限制隨機寫入速度至 20-30ns；熱擴散隔離設計限制極限單元微縮密度。",
+          "sourceIds": [
+            "EMG-P-CROCUS-TAS"
+          ]
+        }
+      ]
     },
     {
       "id": "sot",
@@ -973,7 +1045,64 @@
           "EMG-P-TETRAMEM-CIM",
           "EMG-P-4DS-PCMO"
         ]
-      }
+      },
+      "implementations": [
+        {
+          "vendor": "Weebit Nano",
+          "title": "CMOS 標準氧化矽 (SiOx) 阻變記憶體",
+          "polyLayers": "標準 FAB 現有 SiOx 介電質薄膜 + 多孔氧空缺工程接觸電極",
+          "storage": "利用純氧化矽內部受控奈米級氧空缺團簇 (Oxygen Vacancy Clusters) 形成低阻導電通道",
+          "program": "電場驅動氧離子偏壓漂移，於 SiOx 形成奈米導電微絲 (SET, 電流 < 50µA)",
+          "erase": "雙極性反向偏壓誘導局部焦耳熱，使氧離子回填並斷開微絲 (RESET)",
+          "integration": "100% 採用標準 CMOS 現成材料，零特殊金屬交叉污染風險；已在 DB HiTek 130nm 與 SkyWater 130nm 量產",
+          "limit": "量產製程採用成熟節點；先進 FinFET 節點微縮與高溫保持性依代工廠後續認證。",
+          "sourceIds": [
+            "EMG-P-WEEBIT-SIOX",
+            "EMG-DBH",
+            "EMG-S130"
+          ]
+        },
+        {
+          "vendor": "Panasonic / RAMXEED",
+          "title": "雙層鉭氧化物 (Ta2O5 / TaOx) 自限制導電微絲 ReRAM",
+          "polyLayers": "高阻化學計量絕緣層 Ta2O5 (~5nm) + 低阻缺氧導電層 TaOx (~30nm) 雙層堆疊",
+          "storage": "氧離子在 TaOx 儲庫與 Ta2O5 活化層間可逆交換；串聯電阻自限制微絲粗細",
+          "program": "負向偏壓使氧離子自 Ta2O5 遷移至 TaOx，形成穩定富鉭微絲 (SET: 0.15V-1.5V)",
+          "erase": "正向偏壓將氧離子推回界面，溫和氧化微絲頂部頸縮區 (RESET)",
+          "integration": "全球首款商業量產 ReRAM（MN101L MCU，2013 年）；180nm/130nm 累積出貨破億顆；耐久達 10^5-10^6 次",
+          "limit": "雙層氧化鉭薄膜氧含量梯度需嚴格控制濺鍍分壓；高溫無偏壓保持壽命隨高熱應力退化。",
+          "sourceIds": [
+            "EMG-P-PANA-TAOX",
+            "EMG-VCM08"
+          ]
+        },
+        {
+          "vendor": "TetraMem",
+          "title": "高線性多階電導類比記憶體 (CIM In-Memory Computing)",
+          "polyLayers": "多層金屬氧化物介面障壁工程 (Interface-Engineered Metal Oxide) 堆疊",
+          "storage": "利用非微絲型／連續介面空缺調控，實現 8-bit (256 階) 以上超高解析度電導狀態",
+          "program": "漸進式精確電壓脈衝調控 (PICA 演算法)，電導調諧呈高度對稱性與超高線性度",
+          "erase": "對稱微調電導降低 (Potentiation & Depression)，弛豫漂移極低 (< 1% / 10^5 s)",
+          "integration": "專注邊緣端超低功耗神經網路類比記憶體運算 (Compute-in-Memory, CIM)；相容 28nm/22nm PDK",
+          "limit": "類比多階精度對溫度變化與讀取雜訊敏感；神經網路推理需搭配週期性背景權重校準電路。",
+          "sourceIds": [
+            "EMG-P-TETRAMEM-CIM"
+          ]
+        },
+        {
+          "vendor": "4DS Memory",
+          "title": "非微絲面積型鈣鈦礦 (PCMO) 介面型 ReRAM",
+          "polyLayers": "單結晶圓級 Pr0.7Ca0.3MnO3 (PCMO) 鈣鈦礦金屬氧化物介電質",
+          "storage": "無局部崩潰微絲；阻變由電極／PCMO 界面肖特基障壁高度與耗盡寬度可逆調變決定",
+          "program": "低電壓雙極脈衝電場調控介面氧空缺聚集，阻值隨接觸面積成嚴格反比微縮",
+          "erase": "反向均勻抽取界面氧空缺恢復高阻態；徹底免除高壓電氣 Forming 步驟",
+          "integration": "與 imec 長期策略合作開發；鎖定先進高頻寬儲存級記憶體 (Storage Class Memory, SCM) 與 DRAM 補償市場",
+          "limit": "複雜多元金屬氧化物沉積需嚴格控制晶體結構均勻度；高密度 3D 堆疊垂直加工挑戰仍在持續克服中。",
+          "sourceIds": [
+            "EMG-P-4DS-PCMO"
+          ]
+        }
+      ]
     },
     {
       "id": "ecm",
@@ -1107,7 +1236,36 @@
           "EMG-P-CROSSBAR-FILAMENT",
           "EMG-P-ADESTO-CBRAM"
         ]
-      }
+      },
+      "implementations": [
+        {
+          "vendor": "CrossBar",
+          "title": "局域奈米微孔非晶矽／銀 (a-Si / Ag) 導電微絲 ReRAM",
+          "polyLayers": "銀 (Ag) 活性電極 + 奈米微孔工程非晶矽 (a-Si) 阻變層 + 多晶矽／金屬惰性電極",
+          "storage": "銀奈米微絲局域於預置之奈米微孔通道內成核生長，阻絕隨機側向擴散",
+          "program": "正偏壓使 Ag 陽極氧化為 Ag+ 離子，在微孔內電場引導下遷移還原為連續銀奈米橋 (SET: < 2V)",
+          "erase": "反向偏壓誘導電化學溶解與毛細焦耳熱，使銀奈米微絲斷開 (RESET)",
+          "integration": "具備 > 10^6 開關比與 1S1R 雙向閾值選擇器 (OTS/Selector) 整合專利；相容 CMOS 後端金屬層低溫 (< 300°C) 製程",
+          "limit": "銀離子在先進 BEOL 銅製程中具高熱擴散係數，需具備超高緻密性之擴散阻擋層 (Diffusion Barrier) 隔離防護。",
+          "sourceIds": [
+            "EMG-P-CROSSBAR-FILAMENT"
+          ]
+        },
+        {
+          "vendor": "Adesto Technologies / Renesas",
+          "title": "固態電解質微安培導電橋接記憶體 (CBRAM / Mavリコ)",
+          "polyLayers": "銅 (Cu) 活性金屬陽極 + 摻銅非晶硫屬／矽氧化物固態電解質 (Solid Electrolyte) + 惰性鎢 (W) 陰極",
+          "storage": "超薄固態電解質中銅原子奈米微橋之電化學生長與溶解",
+          "program": "微安培 (1–10µA) 超低電流 SET 操作，極限寫入功耗較傳統 eFlash 降低 90% 以上",
+          "erase": "亞伏特級低壓反向偏壓快速電離溶解銅奈米橋，恢復太歐姆 (TΩ) 級超高離態阻值",
+          "integration": "在 Altis / X-FAB / 華邦等代工廠量產獨立式晶片與超低功耗嵌入式 IP；已納入瑞薩 (Renesas) 嵌入式 MCU 平台",
+          "limit": "高溫熱應力下金屬離子存在自發熱擴散溶解風險，車規 125°C+ 級長效保持需搭配特殊陽極摻雜穩定工藝。",
+          "sourceIds": [
+            "EMG-P-ADESTO-CBRAM",
+            "EMG-ADESTO"
+          ]
+        }
+      ]
     },
     {
       "id": "pcm",
