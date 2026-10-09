@@ -16,7 +16,7 @@ export function collectEngineeringStudies(topics,language){
   // 頂層 frames 為相容別名；共用資料只保留每個實際變體一次。
   return{topicId:topic.id,operationId:operation.id,title:plate.title,summary:plate.summary,sources:plate.sources,variants:variants.map(({variants:unused,...variant})=>variant)};
  }));
- const patents=topics.flatMap(topic=>topic.patents.map(patent=>({topicId:topic.id,...patentStudy(patent.id,language)})));
+ const patents=topics.flatMap(topic=>topic.patents.map(patent=>{const study=patentStudy(patent.id,language);return study?{topicId:topic.id,...study}:null;})).filter(Boolean);
  return{schemaVersion:'1.0',language,operations,patents};
 }
 function frameNotes(frame,language,compact){

@@ -5133,6 +5133,10 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 - [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
 - [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
 - [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [EMG-P-EVERSPIN-PMTJ: Everspin pMTJ Interfacial Perpendicular Magnetic Anisotropy Patent](https://patents.google.com/patent/US8488371B2/en)
+- [EMG-P-AVALANCHE-SAF: Avalanche Dual Synthetic Antiferromagnet (Dual-SAF) MRAM Patent](https://patents.google.com/patent/US9837603B2/en)
+- [EMG-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en)
+- [EMG-P-NUMEM-SWT: Numem Smart Write Termination (SWT) Low-Power MRAM Patent](https://patents.google.com/patent/US10460788B2/en)
 
 Maturity: In Volume Production. Everspin has shipped STT products with DDR-derived interfaces and SPI-class products. In 2026, its 64Mb high-reliability xSPI product also has evidence of completed production qualification and ordering availability. Embedded implementations must be linked individually to a specific MCU or process document.
 
@@ -5207,6 +5211,10 @@ Generic STT figures are insufficient for decisions involving extremely high dens
 ### Patent Study
 
 - [US5695864A](https://patents.google.com/patent/US5695864A/en): Change a magnetic moment with current flowing through a magnetic structure, providing state control without the magnetic field from external write lines. Current passes through a layered structure containing fixed and variable magnetic moments. Angular-momentum exchange exerts torque on the variable magnetic moment. Claim Reading: Claim 1 focuses on the relationship among the magnetic roles of the layers, current direction, and the change in magnetic moment. Modern MgO junction materials and all 1T1MTJ peripheral circuits must not be read into this early claim. Limitations: A starting point for research into STT principles. It does not establish adoption of a specific embodiment by a foundry or product, nor does it support a conclusion on legal status.
+- [US8488371B2](https://patents.google.com/patent/US8488371B2/en): In-plane MTJs suffer from superparamagnetic demagnetization limits below 40nm, preventing simultaneous achievement of high thermal stability (Eb > 60 kBT) and sub-milliampere switching current Ic. Utilizes CoFeB/MgO interfacial perpendicular magnetic anisotropy (i-PMA) coupled with Ta/Ru diffusion barrier layers and high-temperature crystallization annealing, orienting free layer magnetization perpendicularly to eliminate shape demagnetization energy overhead. Claim Reading: Claim 1 recites a transition metal-iron-boron free layer, an MgO tunnel barrier interface, and a PMA-inducing layer of specific thickness; claims must be read against post-anneal Fe-O orbital hybridization conditions rather than generic perpendicular materials. Limitations: The patent discloses specific pMTJ interfacial engineering; commercial 1Gb DDR4/xSPI multi-layer SAF pinning and defect compensation recipes remain proprietary trade secrets.
+- [US9837603B2](https://patents.google.com/patent/US9837603B2/en): Asymmetric stray dipole fields from a single SAF reference layer bias the free layer, creating severe P-to-AP vs AP-to-P switching asymmetry and degrading automotive and rad-hard margins. Introduces symmetric Dual-SAF reference stacks with Ru nano-coupling layers to cancel net static magnetic fields on the free layer, providing symmetric switching across extreme temperatures (-40°C to 125°C) and under heavy ion irradiation. Claim Reading: Claim 1 emphasizes the spatial compensation between oppositely directed magnetization vectors in upper/lower SAF stacks and the free layer; Ru coupling thickness and flux closure paths must be verified. Limitations: The patent is limited to dipole stray-field geometric cancellation; metal interconnect and planarization tolerances in foundry 22nm/16nm PDKs follow foundry manuals.
+- [US9287500B2](https://patents.google.com/patent/US9287500B2/en): Conventional STT-MRAM relies on thermal fluctuations for initial tilt angles, introducing severe stochastic thermal incubation delay in sub-10ns writes. Integrates a perpendicularly polarized Precessional Spin Current (PSC) polarizer above the MTJ free layer, providing an immediate large-angle non-collinear torque upon bias to compress switching latency below 3ns. Claim Reading: Claim 1 requires at least two spin-polarizing layers with differing magnetic anisotropy orientations and specific precessional torque coupling; non-collinear geometry is essential. Limitations: The patent discloses PSC switching physics; deposition tool partnerships and licensing milestones with Applied Materials do not represent industry-wide commoditization.
+- [US10460788B2](https://patents.google.com/patent/US10460788B2/en): Process variations cause a broad distribution of MTJ switching times; fixed-pulse write schemes subject faster cells to over-stress, degrading oxide barrier lifetime and wasting dynamic power. Monitors real-time dV/dt or TMR resistance transition steps across the MTJ during the write pulse, truncating current within sub-nanoseconds upon state transition to achieve self-termination and higher endurance (>10^10 cycles). Claim Reading: Claim 1 explicitly defines an MRAM controller architecture with dynamic resistance comparators and adaptive pulse termination switches; distinct from static timer circuits. Limitations: The patent pertains to peripheral circuits and controller algorithms; actual array macro leakage and layout area overhead depend on foundry PDK simulations.
 
 ### Check Your Understanding
 
@@ -5220,6 +5228,10 @@ Read current also passes through the MTJ, producing spin torque and electrical s
 - [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
 - [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
 - [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [EMG-P-EVERSPIN-PMTJ: Everspin pMTJ Interfacial Perpendicular Magnetic Anisotropy Patent](https://patents.google.com/patent/US8488371B2/en)
+- [EMG-P-AVALANCHE-SAF: Avalanche Dual Synthetic Antiferromagnet (Dual-SAF) MRAM Patent](https://patents.google.com/patent/US9837603B2/en)
+- [EMG-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en)
+- [EMG-P-NUMEM-SWT: Numem Smart Write Termination (SWT) Low-Power MRAM Patent](https://patents.google.com/patent/US10460788B2/en)
 
 ## SOT-MRAM: Separate Read and Write Paths
 
@@ -5247,6 +5259,7 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 - [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
 - [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en)
 - [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
+- [EMG-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en)
 
 Maturity: Research Demonstration. imec demonstrated extremely scaled devices and functional arrays in 2023–2024. TSMC's 2025 annual report also records field-free Type-C SOT-MRAM presented at IEDM 2025. These are concrete device and array research results, but they are insufficient to label a last-level cache as being in volume production.
 
@@ -5321,6 +5334,7 @@ A SOT research record alone does not establish production readiness for near-ter
 ### Patent Study
 
 - [US10930843B2](https://patents.google.com/patent/US10930843B2/en): Arrange SOT devices, interconnects, and sensing in a scalable array while controlling the integration and area cost of a three-terminal structure. Use differently oriented lines and SOT-device formation steps to arrange write excitation and read connections in a manufacturing method suitable for arrays. Claim Reading: Claim 1 emphasizes the relationship between lines in two directions and device formation. Use the process order in Figure 7 to distinguish required structural limitations from optional embodiments in the specification. Limitations: This patent does not define the general principle of all SOT devices or establish volume production at a specific foundry. Area claims in the specification are not measured density; patent-family and legal-status comparisons are incomplete.
+- [US7916526B2](https://patents.google.com/patent/US7916526B2/en): High-density MRAM requires very high energy barriers for 10-year retention across ambient temperatures, making room-temperature write fields or switching currents excessively large and susceptible to thermal cross-disturb. Exploits antiferromagnetic blocking temperature (TB) physics; applies a brief sub-microamp heating pulse to unpin the storage layer above TB, switches the bit under a moderate directional field, and rapidly cools below TB to re-pin, yielding extreme selectivity and physical anti-tamper resilience. Claim Reading: Claim 1 recites a magnetoresistive cell with an antiferromagnetic exchange layer, a heating current path, and a timing sequence maintaining a target magnetic field during cool-down; distinct from conventional pure-spin-torque switching. Limitations: The patent is restricted to thermally-assisted pinning mechanisms; thermal cycling latency (several ns to tens of ns) makes it unsuited for GHz-scale L1/L2 cache replacement.
 
 ### Check Your Understanding
 
@@ -5334,6 +5348,7 @@ SOT typically needs a third terminal, a SOT line, and additional selection paths
 - [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
 - [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en)
 - [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
+- [EMG-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en)
 
 ## VCM ReRAM: Oxygen Redistribution and Conductive Paths
 
@@ -5361,6 +5376,10 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 - [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
 - [EMG-DBH: Weebit/DB HiTek Technology Qualification and Product Adoption](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
 - [EMG-S130: Weebit SkyWater S130 Reliability Validation](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
+- [EMG-P-WEEBIT-SIOX: Weebit Nano Silicon Oxide CMOS-Compatible ReRAM Patent](https://patents.google.com/patent/US10236442B2/en)
+- [EMG-P-PANA-TAOX: Panasonic Bi-Layer Oxygen-Deficient Tantalum Oxide ReRAM Patent](https://patents.google.com/patent/US8068356B2/en)
+- [EMG-P-TETRAMEM-CIM: TetraMem Analog Multi-Level Conductance Deep Learning Accelerator Patent](https://patents.google.com/patent/US11393527B2/en)
+- [EMG-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en)
 
 Maturity: Qualification Completed. Weebit/DB HiTek 130nm BCD RRAM has public evidence of completed technology qualification, and SkyWater S130 has a named 1T1R reliability test vehicle. These support the maturity of resistive-memory integration; a product name alone cannot reveal its complete VCM material cross section.
 
@@ -5435,6 +5454,10 @@ VCM variation and selection requirements may be unsuitable when every write must
 ### Patent Study
 
 - [US8331131B2](https://patents.google.com/patent/US8331131B2/en): Control state transitions and intermediate states in multilayer resistive-switching devices, improving on the limited precision of simple two-state pulses. Use a multilayer structure and specific segmented pulses to alter ionic or defect distributions and barriers, moving the device between target resistance states. Claim Reading: First identify the layer structure and operating relationships required by the independent claims, then connect pulses and physical states using Figures 3 and 5. Do not treat the specification's particular two-stage pulse as mandatory for all VCM. Limitations: A specific oxide-switching design, not substitute evidence for a known commercial RRAM cross section. Patent-family and subsequent granted-scope comparisons are incomplete.
+- [US10236442B2](https://patents.google.com/patent/US10236442B2/en): Conventional transition metal oxides (HfO2, Ta2O5) require non-standard fab toolsets and isolation areas, while random thermal diffusion of oxygen vacancies causes resistance drift in high-temperature automotive conditions. Utilizes standard CMOS-native porous silicon oxide (SiOx); local high electric fields drive oxygen migration into a getter reservoir, creating a stable silicon-rich conductive filament that fully redissolves under reverse polarity. Claim Reading: Claim 1 limits the SiOx active layer thickness to under 20nm disposed between specific metallic electrodes, expressly excluding heavy-metal dependence; requires checking the native SiOx stoichiometry ratio x (0.5 < x < 2.0). Limitations: The patent discloses standard CMOS fab-compatible SiOx switching physics; actual silicon yields, high-temperature retention, and AEC-Q100 qualifications on SkyWater 130nm and DB HiTek 130nm BCD follow foundry manuals.
+- [US8068356B2](https://patents.google.com/patent/US8068356B2/en): Single-layer metal oxide ReRAM exhibits uncontrolled stochastic filament overgrowth, requiring excessive RESET current and triggering irreversible hard dielectric breakdown, capping endurance below 10^4 cycles. Engineers a bi-layer tantalum oxide stack with an oxygen-deficient TaOx (0.8 < x < 1.9) base serving as conductive/reservoir layer and an ultra-thin stoichiometric Ta2O5 barrier layer; confines filaments to the Ta2O5 layer to enable self-limiting switching and 10^6-cycle endurance. Claim Reading: Claim 1 recites specific differences in oxygen content and partition ratios between first and second tantalum oxide layers; reversible oxygen ion exchange at the bi-layer interface is a critical boundary condition. Limitations: The patent discloses 10^6-cycle bi-layer tantalum oxide technology; production performance in Panasonic MN103S industrial MCUs is constrained by package thermal dissipation and target operating profiles.
+- [US11393527B2](https://patents.google.com/patent/US11393527B2/en): Conventional binary ReRAM provides only 0/1 states; when applied to analog neural network acceleration (CIM), filament stochasticity causes severe non-linearity, asymmetry, and relaxation drift, preventing high-precision weight storage. Modulates oxygen vacancy filament cross-sectional area via weak ion drift combined with adaptive closed-loop write-verify micro-stepping pulses, achieving 8–12 bit (256–4096 levels) linear, symmetric, and low-drift continuous analog conductance arrays. Claim Reading: Claim 1 recites an analog compute-in-memory unit control method with conductance feedback comparison and progressive staircase pulse tuning; distinct from single-pulse binary programming. Limitations: The patent discloses analog memristor multiply-accumulate unit control; overall chip compute energy efficiency and throughput are constrained by high-speed ADC/DAC conversion overhead and array IR-drop penalties.
+- [US10468591B2](https://patents.google.com/patent/US10468591B2/en): Filamentary ReRAM faces scaling limits below 20nm due to stochastic filament rupture and localized thermal runaway, while requiring destructive high-voltage electrical forming steps that impede Storage-Class Memory (SCM) scaling. Employs crystalline perovskite Pr0.7Ca0.3MnO3 (PCMO) thin films to uniformly modulate the metal/oxide interface Schottky barrier height via area-distributed oxygen electromigration, achieving forming-free, non-filamentary switching with sub-20nm scalability. Claim Reading: Claim 1 emphasizes rectifying property modulation at the crystalline PCMO/electrode interface and operational conditions devoid of conductive filament formation; requires verifying anneal crystallinity and interfacial energy band alignment. Limitations: The patent discloses area-distributed Schottky barrier switching; PCMO high-temperature annealing thermal budgets must remain compatible with advanced BEOL metallization, and modest on/off ratios (10–50x) demand sensitive sense amplifiers.
 
 ### Check Your Understanding
 
@@ -5448,6 +5471,10 @@ Several ionic, interfacial, thermal, or electronic mechanisms can produce resist
 - [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
 - [EMG-DBH: Weebit/DB HiTek Technology Qualification and Product Adoption](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
 - [EMG-S130: Weebit SkyWater S130 Reliability Validation](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
+- [EMG-P-WEEBIT-SIOX: Weebit Nano Silicon Oxide CMOS-Compatible ReRAM Patent](https://patents.google.com/patent/US10236442B2/en)
+- [EMG-P-PANA-TAOX: Panasonic Bi-Layer Oxygen-Deficient Tantalum Oxide ReRAM Patent](https://patents.google.com/patent/US8068356B2/en)
+- [EMG-P-TETRAMEM-CIM: TetraMem Analog Multi-Level Conductance Deep Learning Accelerator Patent](https://patents.google.com/patent/US11393527B2/en)
+- [EMG-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en)
 
 ## ECM/CBRAM: Growing and Dissolving a Metal Bridge
 
@@ -5473,6 +5500,8 @@ This sequence explains state reuse, not unlimited endurance. Qualify cycling, re
 
 - [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
 - [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+- [EMG-P-CROSSBAR-FILAMENT: CrossBar Localized Filamentary Amorphous Silicon ReRAM Patent](https://patents.google.com/patent/US8658467B2/en)
+- [EMG-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Low-Power CBRAM Patent](https://patents.google.com/patent/US8824194B2/en)
 
 Maturity: Historical Commercial Shipments. The CBRAM section of Adesto's 2019 annual filing explicitly records commercial product shipments. ECM/CBRAM therefore cannot uniformly be labeled as never commercialized. This evidence supports historical product maturity, but does not establish every subsequent node or availability of the original part numbers in 2026.
 
@@ -5547,6 +5576,8 @@ A conceptual ECM design should not be adopted directly for long-term retention a
 ### Patent Study
 
 - [US5761115A](https://patents.google.com/patent/US5761115A/en): Establish a nonvolatile conductive path that can be formed and restored electrically, rather than treating a one-time metal short as rewritable memory. Control metal-dendrite growth in a solid medium and reverse the resulting conductive state with opposite polarity. Claim Reading: Read claims 1–2 against the metal source, growth path, and reverse-restoration conditions. The lateral and vertical arrangements in the figures are different embodiments; do not combine them into a cell that the patent does not disclose. Limitations: An early metallization-cell patent that provides an entry point to ECM principles. It does not establish that every CBRAM product uses its specific structure, and current legal status is not addressed.
+- [US8658467B2](https://patents.google.com/patent/US8658467B2/en): Uncontrolled stochastic lateral diffusion of silver ions (Ag+) in conventional amorphous silicon causes multiple parasitic filaments, degrading leakage current, on/off ratio, and preventing 1S1R crosspoint scaling. Places a dense barrier layer with a nano-aperture between the top silver electrode and the amorphous silicon active medium, confining electric field and Ag filament formation strictly within the nano-window to yield high on/off ratios (>10^5), sub-100nA off-state leakage, and high-entropy PUF characteristics. Claim Reading: Claim 1 emphasizes a three-layer cell structure comprising a top silver electrode, a barrier layer with a localized through-hole, and an undoped or lightly doped amorphous silicon switching layer; requires verifying nano-aperture geometry and silver ion nucleation conditions. Limitations: The patent discloses localized silver filament window mechanics in amorphous silicon; environmental tolerance in DARPA DARIC PUF defense chips does not equate to commercial commodity storage specifications.
+- [US8824194B2](https://patents.google.com/patent/US8824194B2/en): Conventional conductive bridge memories require multi-milliampere write currents, failing the stringent power budgets of ultra-low-power IoT nodes and energy-harvesting systems. Employs a copper-alloy anode with sulfur/selenium chalcogenide solid electrolytes; extremely low ion activation energy allows copper metallic bridges to form and dissolve electrochemically under sub-microampere (<1uA) pulses, achieving ultra-low write power and fast programming. Claim Reading: Claim 1 explicitly defines a copper source electrode, a solid ion electrolyte layer, and write/erase voltage comparison operations with controlled polarity; electrolyte thickness and ion migration barriers are critical parameters. Limitations: The patent discloses low-current solid electrolyte conductive bridge mechanics; embedded eCBRAM specifications and automotive qualification on GlobalFoundries 22FDX depend on foundry PDK design manuals.
 
 ### Check Your Understanding
 
@@ -5558,6 +5589,8 @@ RESET often dissolves only part of the bridge, leaving metal and nucleation site
 
 - [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
 - [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+- [EMG-P-CROSSBAR-FILAMENT: CrossBar Localized Filamentary Amorphous Silicon ReRAM Patent](https://patents.google.com/patent/US8658467B2/en)
+- [EMG-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Low-Power CBRAM Patent](https://patents.google.com/patent/US8824194B2/en)
 
 ## PCM: Controlling Phase with Thermal History
 
@@ -6561,6 +6594,17 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [EMG-P-FEFET: FeFET Gate Stack and Device Integration Patent](https://patents.google.com/patent/US11502083B2/en). Published Patent; 2022-11-15; Accessed 2026-09-10; Location in the Source: Figures 2 and 3A–3F; claim 1; Limitations: Improvements in a specific stack do not establish production qualification or universally applicable endurance values.
 - [EMG-P-FTJ: TSMC FTJ Structure and Low-Temperature Formation Application](https://patents.google.com/patent/US20240057343A1/en). Published Patent Application; 2024-02-15; Accessed 2026-09-10; Location in the Source: Figure 17; claims 1 and 17; Limitations: The reviewed document is the A1 publication. The granted scope of a B2 family member requires a separate comparison.
 - [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf). Supplier Annual Report: R&D Results; 2026; Accessed 2026-09-10; Location in the Source: Printed pages 104–105; page 4 of the chapter PDF; IEDM 2025 Type-C section; Limitations: A research demonstration. Qualification of other TSMC MRAM platforms does not establish SOT volume production; area and current improvements must retain their comparison baseline.
+- [EMG-P-EVERSPIN-PMTJ: Everspin pMTJ Interfacial Perpendicular Magnetic Anisotropy Patent](https://patents.google.com/patent/US8488371B2/en). Public Patent; 2013-07-16; Accessed 2026-10-09; Location in the Source: Figs. 2, 4; Claim 1; CoFeB/MgO Interfacial PMA Stack; Limitations: The patent discloses specific pMTJ interfacial engineering; commercial annealing profiles and detailed multi-layer stack parameters for 1Gb/xSPI chips remain trade secrets.
+- [EMG-P-AVALANCHE-SAF: Avalanche Dual Synthetic Antiferromagnet (Dual-SAF) MRAM Patent](https://patents.google.com/patent/US9837603B2/en). Public Patent; 2017-12-05; Accessed 2026-10-09; Location in the Source: Figs. 2, 3; Claim 1; Ru-Coupled Stray Field Compensation Structure; Limitations: The patent specifies stray-field compensation via dual-SAF stacks; foundry 22nm/16nm PDK integration parameters must be verified against vendor licensing disclosures.
+- [EMG-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en). Public Patent; 2016-03-15; Accessed 2026-10-09; Location in the Source: Figs. 2, 4; Claim 1; PSC-Assisted Large-Angle Initial Torque; Limitations: The patent discloses sub-nanosecond switching physics; commercial sampling timelines from the Applied Materials joint platform do not imply an industry-wide default.
+- [EMG-P-NUMEM-SWT: Numem Smart Write Termination (SWT) Low-Power MRAM Patent](https://patents.google.com/patent/US10460788B2/en). Public Patent; 2019-10-29; Accessed 2026-10-09; Location in the Source: Figs. 3, 5; Claim 1; Real-Time TMR Edge Detection and Adaptive Cutoff; Limitations: The patent focuses on circuit architectures and dynamic feedback; actual NuMRAM IP macro silicon area and standby leakage depend on target foundry PDK simulations.
+- [EMG-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en). Public Patent; 2011-03-29; Accessed 2026-10-09; Location in the Source: Figs. 2, 3; Claim 1; Blocking Temperature TB and Thermal Unpinning Switching; Limitations: The patent specifies thermally assisted pinned-layer switching; thermal cycling latency makes it unsuited for ultra-high-frequency L1 cache replacements.
+- [EMG-P-WEEBIT-SIOX: Weebit Nano Silicon Oxide CMOS-Compatible ReRAM Patent](https://patents.google.com/patent/US10236442B2/en). Public Patent; 2019-03-19; Accessed 2026-10-09; Location in the Source: Figs. 1, 3; Claim 1; SiOx Switching Layer and Oxygen Reservoir Electrode; Limitations: The patent discloses standard CMOS-fabbed SiOx filament mechanisms; SkyWater/DB HiTek silicon yields and auto-grade qualification depend on official release notices.
+- [EMG-P-CROSSBAR-FILAMENT: CrossBar Localized Filamentary Amorphous Silicon ReRAM Patent](https://patents.google.com/patent/US8658467B2/en). Public Patent; 2014-02-25; Accessed 2026-10-09; Location in the Source: Figs. 2, 4; Claim 1; Ag/a-Si Nano-Filament Confining Window; Limitations: The patent discloses high on/off ratio filaments with selector integration; defense PUF implementations under DARPA DARIC do not reflect commercial commodity memory chips.
+- [EMG-P-PANA-TAOX: Panasonic Bi-Layer Oxygen-Deficient Tantalum Oxide ReRAM Patent](https://patents.google.com/patent/US8068356B2/en). Public Patent; 2011-11-29; Accessed 2026-10-09; Location in the Source: Figs. 1, 5; Claim 1; Ta2O5/TaOx Bipolar Reversible Redox Switching; Limitations: The patent discloses bi-layer tantalum oxide self-limiting filaments; production performance in MN103S MCUs is bounded by package and industrial temperature ratings.
+- [EMG-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Low-Power CBRAM Patent](https://patents.google.com/patent/US8824194B2/en). Public Patent; 2014-09-02; Accessed 2026-10-09; Location in the Source: Figs. 1, 3; Claim 1; Sub-Microampere Copper Conductive Bridge Operation; Limitations: The patent discloses ultra-low-power solid-electrolyte conductive bridges; embedded eCBRAM specifications on GF 22FDX depend on foundry PDK design manuals.
+- [EMG-P-TETRAMEM-CIM: TetraMem Analog Multi-Level Conductance Deep Learning Accelerator Patent](https://patents.google.com/patent/US11393527B2/en). Public Patent; 2022-07-19; Accessed 2026-10-09; Location in the Source: Figs. 2, 4; Claim 1; 8-12bit Linear Conductance Closed-Loop Tuning Array; Limitations: The patent discloses analog memristor matrix multiply-accumulate operations; practical compute density and efficiency are constrained by ADC/DAC conversion and IR drop.
+- [EMG-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en). Public Patent; 2019-11-05; Accessed 2026-10-09; Location in the Source: Figs. 2, 3; Claim 1; Area-Distributed Schottky Barrier Forming-Free Switching; Limitations: The patent discloses non-filamentary area-type interfacial switching; thermal budget constraints and moderate on/off ratios (10–50x) require specialized sense amplifiers.
 - [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199). Original Technical Review; 2016; Location in the Source: IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199; Limitations: The original table includes only STT-MRAM, PCRAM, and RRAM in its emerging-technology columns. Representative values and cell-level energy estimates are not guarantees for modern products.
 - [CMP-LECTURE2021: Shimeng Yu: Comparison Table from Lecture 6, 2021](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s). Lecture and Supplied Screenshot; 2021-11-01; Location in the Source: Slide p14, dated 2021/11/1; comparison segment at 36:05–43:49; every table cell was checked against the screenshot at its original size; Limitations: The course cites and extends the 2016 paper, adding SOT-MRAM, FeRAM, and FeFET. This website retains the historical values without presenting them as universal specifications for 2026.
 - [CMP-FRAM-PRODUCT: Infineon CY15B104QSN-108SXI Product Status](https://www.infineon.com/part/CY15B104QSN-108SXI). Supplier Product Page; Verified 2026-09-10; Location in the Source: Product status, 4 Mb capacity, and interface specifications; Limitations: Active supply status applies to the specified part number; it cannot be generalized to every ferroelectric-memory implementation.
@@ -6786,6 +6830,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/). Security Technical Whitepaper; 2025-05-12; Location in the Source: Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper; Limitations: Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning.
 - [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip.html). Product Specification Manual; 2024-11-20; Location in the Source: Official Hardware Secure Module and Secure Boot Architecture Announcement; Limitations: Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3.
 - [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/). Enterprise Security Whitepaper; 2025-02-18; Location in the Source: Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture; Limitations: Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles.
+- [RES-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en). Public Patent; 2016-03-15; Location in the Source: Figs. 2, 4; Claim 1; Sub-3ns Switching and Non-Collinear Torque; Limitations: The patent discloses ultra-fast switching device physics; commercial sampling progress does not imply an industry default.
+- [RES-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en). Public Patent; 2011-03-29; Location in the Source: Figs. 2, 3; Claim 1; Blocking Temperature TB Thermal Unpinning Method; Limitations: The patent specifies thermally-assisted pinned switching; write operations incur thermal cycling latency.
+- [RES-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en). Public Patent; 2019-11-05; Location in the Source: Figs. 2, 3; Claim 1; Area-Distributed Schottky Barrier Forming-Free Modulation; Limitations: The patent discloses non-filamentary area-type interfacial switching; annealing thermal budgets must remain compatible with BEOL.
+- [RES-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Sub-Microampere CBRAM Patent](https://patents.google.com/patent/US8824194B2/en). Public Patent; 2014-09-02; Location in the Source: Figs. 1, 3; Claim 1; Sub-Microampere Copper Conductive Bridge Operation; Limitations: The patent discloses ultra-low-power solid-electrolyte bridges; embedded eCBRAM specifications on GF 22FDX depend on foundry manuals.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
@@ -7022,17 +7070,61 @@ Priority Date: 2001-10-16; Assignment Record: Original Applicant/Assignee: Motor
 
 Priority Date: 1995-09-28; Assignment Record: Original Applicant/Assignee: IBM; Figures and Passages: Multilayer structure with fixed and variable magnetic moments; use claim 1 to trace the current path.
 
+### US8488371B2
+
+Priority Date: 2010-09-15; Assignment Record: Everspin Technologies, Inc.; Figures and Passages: Figs. 2, 4: Perpendicular magnetic anisotropy CoFeB/MgO free layer interface; Fig. 5: Curie temperature and thermal annealing stability.
+
+### US9837603B2
+
+Priority Date: 2015-06-03; Assignment Record: Avalanche Technology, Inc.; Figures and Passages: Figs. 2, 3: Dual synthetic antiferromagnet (Dual-SAF) stack cross section; Fig. 4: Stray field dipole cancellation schematic.
+
+### US9287500B2
+
+Priority Date: 2012-05-18; Assignment Record: Spin Memory, Inc. (Spin Transfer Technologies); Figures and Passages: Figs. 2, 4: Precessional spin current (PSC) layer combined with perpendicular free layer; Fig. 6: Micromagnetic switching trajectories.
+
+### US10460788B2
+
+Priority Date: 2017-06-08; Assignment Record: Numem, Inc.; Figures and Passages: Figs. 3, 5: Smart Write Termination (SWT) feedback circuit and current waveform comparison.
+
 ### US10930843B2
 
 Priority Date: 2018-12-17; Assignment Record: Original Applicant/Assignee: Spin Memory; subsequent assignments require separate review; Figures and Passages: Figures 3–6: lines, selection, and sensing; Figures 7A–7F: process steps.
+
+### US7916526B2
+
+Priority Date: 2006-03-31; Assignment Record: Crocus Technology SA (Allegro Microsystems); Figures and Passages: Figs. 2, 3: Thermally-Assisted Switching (TAS-MRAM) heating line and antiferromagnetic pinning band; Fig. 5: Thermal cycle timing.
 
 ### US8331131B2
 
 Priority Date: 2011-01-31; Assignment Record: Original Applicant/Assignee: Hewlett-Packard Development; Figures and Passages: Figure 3: pulses; Figure 5: ionic distributions and barrier states.
 
+### US10236442B2
+
+Priority Date: 2016-04-14; Assignment Record: Weebit Nano Ltd. & CEA-Leti; Figures and Passages: Figs. 1, 3: Microstructure of SiOx switching layer and oxygen-reservoir Ti/TiN electrodes; Fig. 4: Current-limited forming and SET characteristics.
+
+### US8068356B2
+
+Priority Date: 2007-12-14; Assignment Record: Panasonic Corporation (RAMXEED); Figures and Passages: Figs. 1, 5: Bi-layer stack of stoichiometric Ta2O5 and oxygen-deficient TaOx; Fig. 6: 10^6 cycling endurance and resistance window.
+
+### US11393527B2
+
+Priority Date: 2020-04-20; Assignment Record: TetraMem Inc.; Figures and Passages: Figs. 2, 4: Multi-level analog conductance tuning architecture; Fig. 5: Closed-loop write-verify pulse algorithm for compute-in-memory.
+
+### US10468591B2
+
+Priority Date: 2016-08-31; Assignment Record: 4DS Memory Limited; Figures and Passages: Figs. 2, 3: Non-filamentary crystalline PCMO switching layer cross-section; Fig. 4: Interfacial Schottky barrier energy band diagram.
+
 ### US5761115A
 
 Priority Date: 1996-05-30; Assignment Record: Published Assignment Records Include Axon Technologies and the Arizona Board of Regents; Figures and Passages: Figures 1A/1B: lateral structure; Figures 4A/4B: vertical structure; claims 1–2.
+
+### US8658467B2
+
+Priority Date: 2010-06-08; Assignment Record: CrossBar, Inc.; Figures and Passages: Figs. 2, 4: Ag/amorphous silicon (a-Si) nano-filament localized penetration window; Fig. 6: High on/off ratio switching curve and current-limiting circuit.
+
+### US8824194B2
+
+Priority Date: 2012-07-27; Assignment Record: Adesto Technologies Corporation (Dialog / Renesas); Figures and Passages: Figs. 1, 3: Solid electrolyte copper-ion nano-bridge stack cross section; Fig. 5: Sub-microampere write pulse timing.
 
 ### US5912839A
 
@@ -9666,3 +9758,51 @@ Engineered for enterprise servers and data centers; rarely adopted in ultra-cons
 2024–2026 Product Manual
 
 - [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/)
+
+### Spin Memory (Spin Transfer Technologies) · Precessional Spin Current (PSC) Ultra-Fast STT-MRAM
+
+Advanced MRAM Silicon IP & Device Architecture Pioneer · IP licensing & Applied Materials joint tool development; demonstrated sub-3ns switching
+
+Patent US9287500B2 discloses Precessional Spin Current (PSC) polarizer technology; introduces non-collinear spin polarization above the perpendicular free layer, eliminating stochastic thermal incubation delay to achieve sub-3ns switching and 10^12 endurance, establishing physical feasibility for SRAM cache replacement.
+
+Commercialization bounded by advanced PVD multi-layer thin-film stack yield and corporate restructuring; widely referenced as a foundational fast-MRAM patent.
+
+2016–2026 Patents & R&D Progress
+
+- [RES-P-SPINMEM-PSC: Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent](https://patents.google.com/patent/US9287500B2/en)
+
+### Crocus Technology (Allegro MicroSystems) · Thermally-Assisted Switching (TAS-MRAM) & Magnetic Sensors
+
+High-Security Anti-Tamper Magnetic Memory & XtremeSense TMR Sensor Vendor · Volume shipments of commercial TMR sensors; TAS memory patented for automotive & defense SoCs
+
+Patent US7916526B2 discloses Thermally-Assisted Switching (TAS-MRAM); leverages antiferromagnetic blocking temperature (TB) to thermally unpin and switch under low fields, re-locking upon cooling to provide extreme magnetic immunity and physical anti-tamper resilience.
+
+Constrained by thermal cycling latency with write times in tens of nanoseconds, unsuited for GHz-scale L1/L2 caches; current commercial revenue focuses on TMR current and angle sensors.
+
+2011–2026 Commercial & Patent Portfolio
+
+- [RES-P-CROCUS-TAS: Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent](https://patents.google.com/patent/US7916526B2/en)
+
+### 4DS Memory Limited · Interface-Type Non-Filamentary PCMO ReRAM / SCM
+
+Storage-Class Memory (SCM) & DRAM-NAND Gap-Bridging Innovator · Joint 1-megabit array qualification with imec; sub-20nm functional cell demonstrations
+
+Patent US10468591B2 discloses non-filamentary crystalline PCMO switching; modulates interfacial Schottky barriers via area-distributed oxygen ion drift across the entire contact area, achieving forming-free, non-filamentary switching with 10^5 endurance scalable below 20nm.
+
+Crystalline PCMO deposition and annealing thermal budgets must integrate with advanced BEOL; modest on/off resistance ratio (10–50x) requires specialized high-sensitivity sense amplifier designs.
+
+2019–2026 imec Joint Platform
+
+- [RES-P-4DS-PCMO: 4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent](https://patents.google.com/patent/US10468591B2/en)
+
+### Adesto Technologies (Dialog / Renesas) · Conductive Bridging RAM (CBRAM) / Solid-Electrolyte eNVM
+
+Ultra-Low-Power IoT & Edge Embedded NVM Leader · Ongoing commercial product shipments (Mavriq family); embedded qualification on GlobalFoundries 22FDX eCBRAM
+
+Patent US8824194B2 discloses copper solid-electrolyte conductive bridge mechanisms; achieves microsecond-scale reversible programming under sub-microampere (<1uA) write currents and sub-1uA standby, enabling ultra-low-power non-volatile storage for IoT and energy-harvesting nodes.
+
+Thermal stability of thin metallic bridges presents retention tradeoffs; AEC-Q100 Grade 1/0 automotive qualification must be verified against foundry PDK design rules.
+
+2014–2026 Commercial & Foundry IP
+
+- [RES-P-ADESTO-CBRAM: Adesto Copper-Ion Solid Electrolyte Sub-Microampere CBRAM Patent](https://patents.google.com/patent/US8824194B2/en)
