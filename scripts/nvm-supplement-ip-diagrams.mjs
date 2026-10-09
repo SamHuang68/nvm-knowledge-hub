@@ -47,6 +47,11 @@ const SOURCES = {
   'ip-floadia-g2': { id: 'ip-floadia-g2', label: bi('Floadia LEE Flash G2', 'Floadia LEE Flash G2'), url: 'https://floadia.com/product/lee-flash-g2/', kind: 'vendor', date: '2026-09-16', locator: bi('SONOS 單元夾在開關電晶體之間；4 道光罩；VDD 讀取／不揮發化邏輯；標為持續開發。', 'SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.'), limit: bi('開發中敘述不能當已量產保證。', 'An in-development note is not a production guarantee.') },
   'ip-sst-home': { id: 'ip-sst-home', label: bi('SST 首頁與服務', 'SST Home and Services'), url: 'https://www.sst.com/services/', kind: 'vendor', date: '2026-09-16', locator: bi('SuperFlash 嵌入式快閃記憶體製程整合與授權入口。', 'SuperFlash embedded Flash process-integration and licensing entry.'), limit: bi('服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。', 'The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.') },
   'ip-sst-superflash': { id: 'ip-sst-superflash', label: bi('SST／微芯科技 SuperFlash 技術手冊 DS00001425F', 'SST / Microchip SuperFlash Brochure DS00001425F'), url: 'https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf', kind: 'vendor', date: '2018-03', locator: bi('第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。', 'Pages 2–3: split-gate, source-side injection program, interpoly FN erase.'), limit: bi('結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。', 'Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.') },
+  'ip-sst-esf-generations': { id: 'ip-sst-esf-generations', label: bi('SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進', 'SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution'), url: 'https://www.sst.com/technology/superflash-technology/', kind: 'vendor', date: '2024-05', locator: bi('ESF1 非自對準雙閘極 (1µm–0.11µm)；ESF2 自對準雙閘極 (0.25µm–0.11µm)；ESF3 頂部耦合 4 閘極 5 端子單元 (120nm–28nm，專用 Erase Gate)。', 'ESF1 non-self-aligned 2-gate (1µm–0.11µm); ESF2 self-aligned 2-gate (0.25µm–0.11µm); ESF3 top-coupled 4-gate 5-terminal cell (120nm–28nm, dedicated Erase Gate).'), limit: bi('三代架構演進為 SST / Microchip 公開製程節點里程碑；各代 PDK 規則與光罩數依代工廠授權而定。', 'Three-generation evolution represents SST / Microchip public roadmap milestones; PDK design rules and mask adders depend on foundry licensing.') },
+  'ip-chingis-pfusion': { id: 'ip-chingis-pfusion', label: bi('常億科技 pFusion eFlash 產品技術', 'Chingis Technology pFusion eFlash Technology'), url: 'https://www.chingistek.com', kind: 'vendor', date: '2026-09-16', locator: bi('P-Channel 浮閘 PMOS eFlash；以能帶至能帶穿隧誘發熱電洞注入 (BBHH) 寫入與 FN 抹除；極低寫入電流，標準 CMOS 相容。', 'P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.'), limit: bi('適用於微控制器與智慧卡；不以單一規格書代表全節點 PDK。', 'Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet.') },
+  'ip-chingis-pm25': { id: 'ip-chingis-pm25', label: bi('常億 pFlash SPI NOR Flash', 'Chingis pFlash SPI NOR Flash'), url: 'https://www.chingistek.com', kind: 'vendor', date: '2026-09-16', locator: bi('Pm25 系列獨立式 NOR Flash；晶豪科技 ESMT 產品線。', 'Pm25 series standalone NOR Flash; ESMT group product portfolio.'), limit: bi('獨立式封裝不等於所有嵌入式巨集。', 'Standalone packages do not represent all embedded macros.') },
+  'ip-iotmemory-silvoflash': { id: 'ip-iotmemory-silvoflash', label: bi('智憶科技 SilvoFlash 超低壓 eFlash', 'IOTMemory SilvoFlash Low-Voltage eFlash'), url: 'https://iotmemory.com/en', kind: 'vendor', date: '2026-09-16', locator: bi('SilvoFlash 原生 0.9V–1.2V 超低壓 eFlash；支援 40nm SoC 與 DDR5 SPD IC 供應鏈。', 'SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.'), limit: bi('核心電壓原生讀取不代表抹除無需內部升壓；量產驗證按具名產品核對。', 'Native core-voltage read does not mean erase requires no internal boost; production status verified by named products.') },
+  'ip-iotmemory-silvofe': { id: 'ip-iotmemory-silvofe', label: bi('智憶科技 SilvoFE 嵌入式 eEEPROM', 'IOTMemory SilvoFE Embedded eEEPROM'), url: 'https://iotmemory.com/en', kind: 'vendor', date: '2026-09-16', locator: bi('單一製程整合 Code eFlash 與 Data eEEPROM。', 'Single process integration of Code eFlash and Data eEEPROM.'), limit: bi('兩者在同一晶片上共存需核對具名巨集組織。', 'Coexistence on a single chip must be verified on named macro architectures.') },
 };
 
 const META = {
@@ -123,13 +128,31 @@ const META = {
     caveat: bi('原廠標為持續開發，本圖只教公開結構原則。', 'The vendor marks ongoing development; this drawing teaches only the published structural principle.'),
   },
   'sst-superflash': {
-    name: bi('SST SuperFlash eFlash', 'SST SuperFlash eFlash'),
+    name: bi('SST SuperFlash eFlash (ESF1 / ESF2 / ESF3)', 'SST SuperFlash eFlash (ESF1 / ESF2 / ESF3)'),
     hostTopic: 'nor',
-    refs: ['ip-sst-home', 'ip-sst-superflash'],
-    structure: bi('分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。', 'Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.'),
-    model: bi('SSI／interpoly FN 教學模型', 'SSI / Interpoly FN Teaching Model'),
-    mechanism: bi('熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。', 'Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.'),
-    caveat: bi('製程範圍是授權敘述，不是單一量產節點證明。', 'The process range is a licensing narrative, not proof of one production node.'),
+    refs: ['ip-sst-home', 'ip-sst-superflash', 'ip-sst-esf-generations'],
+    structure: bi('SST SuperFlash 分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自對準雙閘極）、ESF3（自對準頂部耦合 4 閘極 5 端子單元：SG+CG+FG+EG）。寫入源側注入 (SSI)，抹除獨立 EG 多晶矽間 FN。', 'SST SuperFlash split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate 5-terminal cell: SG+CG+FG+EG). Program uses source-side injection (SSI); erase uses interpoly FN to dedicated EG.'),
+    model: bi('ESF3 4 閘極自對準頂部耦合教學模型', 'ESF3 4-Gate Self-Aligned Top-Coupled Model'),
+    mechanism: bi('寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。', 'Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.'),
+    caveat: bi('ESF1/ESF2 抹除高壓經由 WL；ESF3 引入獨立 EG 突破 40nm 壁壘微縮至 28nm。實際 PDK 光罩增加數與操作電壓依目標代工廠授權。', 'ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.'),
+  },
+  'chingis-pfusion': {
+    name: bi('常億科技 pFusion eFlash (P-Channel 浮閘)', 'Chingis Technology pFusion eFlash (P-Channel FG)'),
+    hostTopic: 'nor',
+    refs: ['ip-chingis-pfusion', 'ip-chingis-pm25'],
+    structure: bi('P-Channel PMOS 浮動閘極 eFlash。BBHH 帶帶穿隧熱電洞注入寫入，FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。', 'P-Channel PMOS floating-gate eFlash. Band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp-class write current, standard CMOS compatible.'),
+    model: bi('BBHH／FN P-Channel 浮閘教學模型', 'BBHH / FN P-Channel FG Teaching Model'),
+    mechanism: bi('以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。', 'Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.'),
+    caveat: bi('微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。', 'Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries.'),
+  },
+  'iotmemory-silvoflash': {
+    name: bi('智憶科技 SilvoFlash 原生超低壓 eFlash', 'IOTMemory SilvoFlash Native Low-Voltage eFlash'),
+    hostTopic: 'nor',
+    refs: ['ip-iotmemory-silvoflash', 'ip-iotmemory-silvofe'],
+    structure: bi('專利單層／低光罩 CMOS 浮閘結構。原生 0.9V–1.2V 核心邏輯電壓直接感測，破除傳統 eFlash ≥1.8V 壁壘；打入 DDR5 SPD IC 供應鏈。', 'Patented single-poly / low-mask CMOS floating-gate structure. Native 0.9V–1.2V core logic readout breaks the ≥1.8V barrier; qualified in DDR5 SPD IC supply chain.'),
+    model: bi('0.9V–1.2V 原生讀取教學模型', '0.9V–1.2V Native Read Teaching Model'),
+    mechanism: bi('以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。', 'Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.'),
+    caveat: bi('讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。', 'Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs.'),
   },
 };
 
@@ -213,15 +236,55 @@ function fuseCell(c, { on, bias, migrated = false, heat = false }) {
 }
 function splitGate(c, { on, bias, electrons = 0, inject = false, erase = false }) {
   let body = terminals(c, bias) + well(c);
-  body += c.rect(150, 96, 90, 36, C.metal) + c.t(195, 119, 'SG', 'middle');
-  body += c.rect(250, 86, 120, 46, C.fg) + c.t(310, 113, 'FG', 'middle');
-  body += c.rect(150, 132, 220, 16, C.oxide);
-  body += c.rect(150, 148, 80, 40, C.doped) + c.rect(250, 148, 120, 40, C.doped);
-  body += c.text(195, 172, '源側', 'Source', 'middle') + c.text(310, 172, '通道', 'Channel', 'middle');
-  body += c.line(195, 54, 195, 96) + c.t(211, 72, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  for (let i = 0; i < electrons; i++) body += c.charge(270 + i * 22, 109);
-  if (inject) body += c.arrow(210, 168, 280, 118, C.electron, 3) + c.t(400, 128, 'SSI', 'start', C.electron);
-  if (erase) body += c.arrow(310, 96, 310, 70, C.electron, 3) + c.text(20, 88, 'FN 出 FG', 'FN off FG', 'start', C.electron);
+  body += c.rect(100, 96, 68, 52, C.metal) + c.t(134, 127, 'SG', 'middle');
+  body += c.rect(100, 148, 68, 14, C.oxide);
+  body += c.line(134, 54, 134, 96) + c.t(144, 90, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
+  body += c.rect(182, 74, 110, 26, C.metal) + c.t(237, 93, 'CG', 'middle');
+  body += c.rect(182, 100, 110, 12, C.oxide);
+  body += c.rect(182, 112, 110, 36, C.fg) + c.t(208, 134, 'FG', 'middle');
+  body += c.rect(182, 148, 110, 14, C.oxide);
+  body += c.rect(306, 88, 68, 60, C.metal) + c.t(340, 123, 'EG', 'middle');
+  body += c.rect(306, 148, 68, 14, C.oxide);
+  body += c.rect(80, 162, 75, 40, C.doped) + c.text(117, 187, '源極 SL', 'SL', 'middle');
+  body += c.rect(155, 162, 150, 40, C.doped) + c.text(230, 187, '通道', 'Channel', 'middle');
+  body += c.rect(305, 162, 105, 40, C.doped) + c.text(357, 187, '汲極 BL', 'BL', 'middle');
+  for (let i = 0; i < electrons; i++) body += c.charge(240 + i * 20, 130);
+  if (inject) body += c.arrow(160, 175, 205, 135, C.electron, 3) + c.t(148, 155, 'SSI', 'middle', C.electron);
+  if (erase) body += c.arrow(275, 130, 312, 120, C.electron, 3) + c.text(260, 68, 'FN 至 EG', 'FN to EG', 'middle', C.electron) + c.t(355, 78, '11.5V', 'start', C.field);
+  return body;
+}
+
+function pmosFgCell(c, { on, bias, holes = 0, bbhh = false, erase = false }) {
+  let body = terminals(c, bias);
+  body += c.rect(70, 210, 420, 90, C.doped) + c.text(80, 292, 'N 井 (N-well)', 'N-well', 'start', C.ink);
+  body += c.rect(100, 210, 70, 40, C.silicon) + c.text(135, 235, 'P+ 源', 'P+ S', 'middle', C.ink);
+  body += c.rect(390, 210, 70, 40, C.silicon) + c.text(425, 235, 'P+ 汲', 'P+ D', 'middle', C.ink);
+  body += c.rect(190, 86, 180, 28, C.metal) + c.text(280, 105, 'CG (控制閘)', 'CG', 'middle');
+  body += c.rect(200, 118, 160, 16, C.oxide);
+  body += c.rect(210, 134, 140, 28, C.fg) + c.text(280, 153, 'FG (浮動閘)', 'FG', 'middle');
+  body += c.rect(200, 162, 160, 14, C.oxide);
+  body += c.rect(170, 176, 220, 34, C.silicon) + c.text(280, 198, 'P-Channel 通道', 'P-Channel', 'middle', C.ink);
+  body += c.line(280, 54, 280, 86) + c.t(296, 72, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
+  for (let i = 0; i < holes; i++) body += c.charge(240 + i * 24, 148, true);
+  if (bbhh) {
+    body += c.arrow(390, 215, 330, 155, C.hole, 3) + c.t(400, 175, 'BBHH', 'start', C.hole);
+  }
+  if (erase) {
+    body += c.arrow(280, 134, 280, 110, C.electron, 3) + c.text(20, 88, 'FN 穿隧', 'FN Tunnel', 'start', C.electron);
+  }
+  return body;
+}
+
+function lowVoltFgCell(c, { on, bias, electrons = 0 }) {
+  let body = terminals(c, bias) + well(c);
+  body += c.t(430, 80, '0.9V–1.2V Core', 'middle', C.current);
+  body += c.rect(190, 86, 180, 28, C.metal) + c.t(280, 105, 'CG / Control', 'middle');
+  body += c.rect(200, 118, 160, 16, C.oxide);
+  body += c.rect(210, 134, 140, 28, C.fg) + c.t(280, 153, 'SilvoFlash FG', 'middle');
+  body += c.rect(200, 162, 160, 14, C.oxide);
+  body += c.rect(190, 176, 180, 34, C.doped) + c.text(280, 198, '原生超低壓通道', 'Native Low-V Ch', 'middle');
+  body += c.line(280, 54, 280, 86) + c.t(296, 72, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
+  for (let i = 0; i < electrons; i++) body += c.charge(230 + i * 22, 148);
   return body;
 }
 
@@ -234,6 +297,8 @@ function cellBody(id, c, props) {
   if (id === 'floadia-g1') return sonosCell(c, props);
   if (id === 'floadia-g2') return sonosCell(c, { ...props, switches: true });
   if (id === 'sst-superflash') return splitGate(c, props);
+  if (id === 'chingis-pfusion') return pmosFgCell(c, props);
+  if (id === 'iotmemory-silvoflash') return lowVoltFgCell(c, props);
   return genericCell(c, { ...props, labelZh: '儲存單元', labelEn: 'Storage Cell' });
 }
 
@@ -245,6 +310,9 @@ function legendFor(id, language) {
     item('Bias / I', '綠色箭頭表示偏壓或傳統電流方向。', 'Green arrows denote bias or conventional current direction.'),
   ];
   if (id === 'nscore-twinbit') return [...common, item('h+', '紅色圓點表示熱電洞，數量只作狀態示意。', 'Red dots denote hot holes; the count is qualitative.'), item('e−', '藍色圓點表示熱電子，數量只作狀態示意。', 'Blue dots denote hot electrons; the count is qualitative.')];
+  if (id === 'chingis-pfusion') return [...common, item('h+', '紅色圓點表示熱電洞，數量只作狀態示意。', 'Red dots denote hot holes; the count is qualitative.'), item('BBHH', '帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。', 'Band-to-band hot-hole injection for microamp-class write current.')];
+  if (id === 'iotmemory-silvoflash') return [...common, item('0.9V', '原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。', 'Native 0.9V–1.2V core logic read, eliminating boost charge pumps.'), item('e−', '藍色圓點表示儲存電子，數量只作電荷示意。', 'Blue dots denote stored electrons; count is qualitative.')];
+  if (id === 'sst-superflash') return [...common, item('SG', '選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。', 'Select gate (Wordline); read select; 0V decoupled during erase.'), item('CG', '頂部控制閘；提供強電容耦合精確調控浮閘電位。', 'Top control gate; provides high capacitive coupling to FG.'), item('EG', '獨立抹除閘；施加高壓(~11.5V)經 Interpoly FN 抹除。', 'Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.'), item('SSI', '源側注入；SG 與 FG 間隙強電場高效率注入熱電子。', 'Source-side injection; efficient hot-electron injection at SG-FG gap.')];
   if (id === 'attopsemi-ifuse') return [...common, item('Fuse', '橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。', 'The orange path marks a high-R fuse after electromigration, not an explosive gap.')];
   if (id === 'cfx-otp' || id === 'floadia-za') return [...common, item('BD', '橘色折線表示介電層擊穿後的導通路徑。', 'The orange polyline marks a conduction path after dielectric breakdown.')];
   if (id === 'floadia-g1' || id === 'floadia-g2') return [...common, item('SiN', '赭色標示氮化捕捉層；厚度未公開。', 'Terracotta marks the nitride trap layer; thickness is unpublished.')];
@@ -399,19 +467,53 @@ function framesFor(id, operation, language, sourceIds) {
     },
     'sst-superflash': {
       write: [
-        [bi('分裂閘極：選擇閘與浮動閘並列', 'Split Gate: Select Gate beside Floating Gate'), bi('FG 電子較少', 'Fewer FG electrons'), bi('偏壓為零', 'Bias zero'), bi('SuperFlash 公開為分裂閘極架構。', 'SuperFlash is published as a split-gate architecture.'), {}],
-        [bi('源側注入把熱電子寫入 FG', 'Source-Side Injection Writes Hot Electrons into FG'), bi('寫入中', 'Programming'), bi('SSI', 'SSI'), bi('寫入機制是源側注入，不是通道熱電子的通用標籤。', 'The program mechanism is source-side injection, not a generic CHE label.'), { on: true, bias: 'PGM', inject: true, electrons: 3 }],
-        [bi('電子留在 FG', 'Electrons Remain on FG'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('授權製程範圍不能當成單一節點證明。', 'The licensed process range is not proof of one node.'), { electrons: 3 }],
+        [bi('ESF3 單元就緒：SG、CG、FG 與 EG 4 閘極拓撲', 'ESF3 Cell Ready: SG, CG, FG and EG 4-Gate Topology'), bi('浮閘初始態', 'FG Initial State'), bi('偏壓為零', 'Bias zero'), bi('ESF3 自對準頂部耦合單元具備獨立 Erase Gate (EG)，突破 ESF1/ESF2 微縮瓶頸。', 'ESF3 self-aligned top-coupled cell features dedicated Erase Gate (EG), breaking ESF1/ESF2 scaling limits.'), {}],
+        [bi('源側注入 (SSI) 將熱電子高效注入 FG', 'Source-Side Injection (SSI) Injects Hot Electrons into FG'), bi('寫入中', 'Programming'), bi('SSI (CG/SL 偏壓)', 'SSI (CG/SL Bias)'), bi('在 SG 與 FG 間隙產生高橫向電場，注入效率比傳統 CHE 高 100~1000 倍，寫入電流僅微安培級。', 'High lateral field at SG-FG gap yields 100-1000x higher injection efficiency than CHE with microamp write current.'), { on: true, bias: 'PGM', inject: true, electrons: 3 }],
+        [bi('熱電子保留於 FG，臨界電壓調高', 'Hot Electrons Stored on FG; Threshold Shifted'), bi('寫入態保留', 'Programmed State Retained'), bi('偏壓為零', 'Bias zero'), bi('浮閘儲存電子提高單元等效臨界電壓，寫入態不易受干擾。', 'Electrons stored on FG raise cell equivalent threshold, ensuring disturb-free retention.'), { electrons: 3 }],
       ],
       erase: [
-        [bi('FG 已有注入電子', 'FG Already Holds Injected Electrons'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('抹除走多晶矽間 FN，不是源側注入的逆過程電流。', 'Erase uses interpoly FN, not a reverse SSI current.'), { electrons: 3 }],
-        [bi('多晶矽間 FN 使電子離開 FG', 'Interpoly FN Removes Electrons from FG'), bi('抹除中', 'Erasing'), bi('interpoly FN', 'interpoly FN'), bi('電子穿過選擇閘與浮動閘之間的氧化層。', 'Electrons cross the oxide between select gate and floating gate.'), { on: true, bias: 'ERS', erase: true, electrons: 1 }],
-        [bi('FG 回到可再寫窗口', 'FG Returns to a Reprogrammable Window'), bi('抹除態', 'Erased'), bi('偏壓為零', 'Bias zero'), bi('教學圖不是特定代工廠量測剖面。', 'The teaching drawing is not a foundry metrology cross-section.'), {}],
+        [bi('單元持有儲存電荷：準備專用 EG 抹除', 'Cell Holds Injected Charge: Ready for EG Erase'), bi('寫入態待抹除', 'Programmed State Awaiting Erase'), bi('偏壓為零', 'Bias zero'), bi('ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線徹底解耦。', 'ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.'), { electrons: 3 }],
+        [bi('EG 施加 11.5V 高壓：Interpoly FN 穿隧抹除', 'EG Biased to 11.5V: Interpoly FN Tunneling Erase'), bi('抹除中', 'Erasing'), bi('V_EG ≈ 11.5V; SG = 0V', 'V_EG ≈ 11.5V; SG = 0V'), bi('電子由 FG 尖端穿隧至 EG；選擇閘 (SG) 處於 0V 應力，免除先進節點超薄邏輯閘氧擊穿風險。', 'Electrons tunnel from FG tip to EG; select gate (SG) sits at 0V stress, preventing logic gate-oxide breakdown at advanced nodes.'), { on: true, bias: 'ERS', erase: true, electrons: 1 }],
+        [bi('FG 回到抹除態：可電性再次寫入', 'FG Restored to Erased State: Ready for Rewriting'), bi('抹除態', 'Erased'), bi('偏壓為零', 'Bias zero'), bi('單元回到低閾值導通窗口，具備高達 10 萬次抹寫與 20 年車規級留存。', 'Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.'), {}],
       ],
       read: [
-        [bi('同一分裂閘極單元待讀', 'The Same Split-Gate Cell Awaits Read'), bi('既有 FG 電荷', 'Existing FG charge'), bi('讀取偏壓待產品定義', 'Read bias is product-defined'), bi('讀取不重複 SSI 寫入。', 'Read does not repeat SSI program.'), { electrons: 3 }],
-        [bi('選擇閘開啟並感測通道', 'Turn on Select Gate and Sense the Channel'), bi('讀取中', 'Reading'), bi('小偏壓', 'Small bias'), bi('通道電流反映 FG 電荷。', 'Channel current reflects FG charge.'), { on: true, bias: 'READ', electrons: 3 }],
-        [bi('鎖存後關閉選擇閘', 'Latch then Turn off Select Gate'), bi('電荷保留', 'Charge retained'), bi('偏壓為零', 'Bias zero'), bi('讀取速度規格須核對目標授權版本。', 'Read-speed ratings must be checked on the licensed target version.'), { electrons: 3 }],
+        [bi('ESF3 單元待讀：4 閘極偏壓就緒', 'ESF3 Cell Awaits Read: 4-Gate Biases Ready'), bi('既有浮閘電荷', 'Existing FG Charge'), bi('核心邏輯供電軌就緒', 'Core Logic Rail Ready'), bi('讀取由字元線 SG 控制選取，CG 提供適度讀取偏壓。', 'Read selects through wordline SG while CG provides optimal read bias.'), { electrons: 3 }],
+        [bi('SG 在核心邏輯電壓開啟並感測通道', 'SG Turns On at Core Voltage to Sense Channel'), bi('讀取中', 'Reading'), bi('SG = VDD (邏輯電平)', 'SG = VDD (Logic Level)'), bi('若 FG 儲存電子則通道截止，未存電子則導通；感測放大器辨識資料狀態。', 'Channel is cut off if FG stores electrons and conducts if erased; sense amplifier reads data state.'), { on: true, bias: 'READ', electrons: 3 }],
+        [bi('資料鎖存完成：SG 關閉回到待機', 'Data Latched: SG Turns Off to Return to Standby'), bi('資料鎖存保留', 'Data Latched'), bi('偏壓為零', 'Bias zero'), bi('具備極低待機漏電，適用於微控制器、智慧卡與車載 MCU 晶片。', 'Offers ultra-low standby leakage, ideal for MCUs, smart cards, and automotive processors.'), { electrons: 3 }],
+      ],
+    },
+    'chingis-pfusion': {
+      write: [
+        [bi('P-Channel 浮閘單元：待編程狀態', 'P-Channel FG Cell: Ready to Program'), bi('初始浮閘中性或少電洞', 'Initial FG neutral or few holes'), bi('偏壓為零', 'Bias zero'), bi('常億 pFusion 採 PMOS 浮閘架構。', 'Chingis pFusion uses a PMOS floating-gate architecture.'), {}],
+        [bi('BBHH 帶帶穿隧誘發熱電洞注入', 'BBHH Band-to-Band Hot-Hole Injection'), bi('寫入中', 'Programming'), bi('汲極反偏；BBHH 注入', 'Drain reverse-biased; BBHH injection'), bi('帶帶穿隧在汲極能帶彎曲處激發熱電洞，高效注入 FG；寫入電流僅微安培級。', 'Band-to-band tunneling generates hot holes injected into FG; programming current is microamp-class.'), { on: true, bias: 'V_BBHH', bbhh: true, holes: 3 }],
+        [bi('熱電洞累積於浮閘，PMOS 導通', 'Hot Holes Retained in FG; PMOS Conducts'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('熱電洞降低浮閘電位使通道導通，片上電荷泵負擔極小。', 'Holes lower FG potential to turn on channel, minimizing charge pump overhead.'), { holes: 3 }],
+      ],
+      erase: [
+        [bi('單元持有累積電洞電荷', 'Cell Holds Accumulated Hole Charge'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('抹除走 FN 穿隧，不是熔絲。', 'Erase uses FN tunneling, not a fuse.'), { holes: 3 }],
+        [bi('高電場 FN 穿隧導出電洞／注入電子', 'High-Field FN Tunneling Depletes Holes / Injects Electrons'), bi('抹除中', 'Erasing'), bi('FN 抹除偏壓', 'FN Erase Bias'), bi('FN 電場使浮閘回到中性或高閾值抹除窗口。', 'FN electric field restores FG to neutral or high-threshold erase window.'), { on: true, bias: 'V_FN', erase: true, holes: 1 }],
+        [bi('浮閘回到可再寫抹除態', 'FG Restored to Reprogrammable Window'), bi('抹除態', 'Erased'), bi('偏壓為零', 'Bias zero'), bi('單元進入高阻或截止狀態，可再次執行 BBHH 寫入。', 'Cell enters off-state, ready for next BBHH program.'), {}],
+      ],
+      read: [
+        [bi('P-Channel 浮閘單元待讀取', 'P-Channel FG Cell Awaits Read'), bi('既有浮閘狀態', 'Existing FG state'), bi('準備感測', 'Prepare sensing'), bi('讀取操作以低刺激進行。', 'Read operates at low electrical stress.'), { holes: 3 }],
+        [bi('施加微小讀取偏壓感測 P 溝道', 'Apply Small Read Bias to Sense P-Channel'), bi('讀取中', 'Reading'), bi('讀取偏壓 V_READ', 'Read bias V_READ'), bi('導通通道電流反映浮閘電洞累積量。', 'Channel conduction current reflects accumulated FG holes.'), { on: true, bias: 'V_READ', holes: 3 }],
+        [bi('感測放大器鎖存資料', 'Sense Amplifier Latches Data'), bi('資料鎖存', 'Data latched'), bi('偏壓復原', 'Bias restored'), bi('極低讀取擾動，保障數十年高溫資料留存。', 'Low read disturb ensures multi-decade high-temp retention.'), { holes: 3 }],
+      ],
+    },
+    'iotmemory-silvoflash': {
+      write: [
+        [bi('SilvoFlash 超低壓單元：待寫入', 'SilvoFlash Ultra-Low-Voltage Cell: Ready'), bi('浮閘無累積電荷', 'FG uncharged'), bi('偏壓為零', 'Bias zero'), bi('專利 CMOS 相容單層/低光罩結構。', 'Patented CMOS-compatible single-poly / low-mask structure.'), {}],
+        [bi('內部微電荷泵穿隧注入', 'Internal Micro-Pump Tunneling Injection'), bi('寫入中', 'Programming'), bi('穿隧寫入脈衝', 'Tunneling write pulse'), bi('低功耗電荷泵提供局部穿隧電場，不干擾外部邏輯。', 'Low-power pump provides local tunneling field without external logic disturbance.'), { on: true, bias: 'V_PGM', electrons: 3 }],
+        [bi('電荷保留於浮閘，完成寫入', 'Charge Retained on FG; Program Complete'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('單元完成資料寫入，回到待機低漏電態。', 'Cell completes data storage and returns to low-leakage standby.'), { electrons: 3 }],
+      ],
+      erase: [
+        [bi('單元持有儲存電荷', 'Cell Holds Stored Charge'), bi('寫入態', 'Programmed'), bi('偏壓為零', 'Bias zero'), bi('可重複抹除多次，支援 Code Flash 與 Data EEPROM 雙模。', 'Multiple rewrites supported; dual-mode for Code Flash and Data EEPROM.'), { electrons: 3 }],
+        [bi('穿隧抹除導出電荷', 'Tunneling Erase Discharges FG'), bi('抹除中', 'Erasing'), bi('抹除脈衝', 'Erase pulse'), bi('電荷自浮閘導出，恢復未寫入臨界電壓。', 'Charge discharged from FG, restoring virgin threshold voltage.'), { on: true, bias: 'V_ERS', electrons: 1 }],
+        [bi('回到可再寫窗口', 'Cell Restored to Reprogrammable Window'), bi('抹除態', 'Erased'), bi('偏壓為零', 'Bias zero'), bi('兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。', 'Features both SilvoFlash code and SilvoFE data storage.'), {}],
+      ],
+      read: [
+        [bi('原生 0.9V–1.2V 核心電壓就緒', 'Native 0.9V–1.2V Core Voltage Ready'), bi('既有儲存狀態', 'Existing stored state'), bi('核心供電軌 VDD', 'Core supply rail VDD'), bi('無需升壓電荷泵，破除傳統 eFlash ≥1.8V 讀取壁壘。', 'No read charge pump needed, eliminating the ≥1.8V conventional barrier.'), { electrons: 3 }],
+        [bi('以 0.9V–1.2V 原生讀取通道', 'Sense Channel at Native 0.9V–1.2V'), bi('讀取中', 'Reading'), bi('VDD = 0.9V~1.2V', 'VDD = 0.9V~1.2V'), bi('與近閾值 CPU 核心共用供電軌直接讀出，量產於 DDR5 SPD IC。', 'Direct readout sharing power rail with near-threshold core; qualified in DDR5 SPD ICs.'), { on: true, bias: '0.9V', electrons: 3 }],
+        [bi('讀取完成，零升壓待機', 'Read Complete; Zero-Boost Standby'), bi('資料鎖存', 'Data latched'), bi('維持核心供電', 'Core rail maintained'), bi('大幅縮減靜態待機漏電，為 IoT 與邊緣 SoC 提供高能效。', 'Minimizes standby leakage for high-efficiency IoT and edge SoCs.'), { electrons: 3 }],
       ],
     },
   }[id][operation];

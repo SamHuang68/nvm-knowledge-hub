@@ -42,7 +42,7 @@ validateResearch(research);
 const topics = [...charge.topics, ...emerging.topics];
 const engineering = collectEngineeringStudies(topics,language);
 const ipIndex = read('nvm-ip-cells-intro.json');
-const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash'];
+const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash','chingis-pfusion','iotmemory-silvoflash'];
 const ipCurriculum = collectIPCurriculum(ipIndex, language, id => ['neobit','neofuse','neoee','neomtp'].includes(id) ? ememoryIPStudy : id === 'ymc-mtp' ? ymcIPStudy : ['kilopass-xpm','sidense-1t-fuse'].includes(id) ? synopsysOTPStudy : id === 'impinj-aeon' ? impinjIPStudy : supplementIds.includes(id) ? supplementIPStudy : emergingIPStudy);
 const originalSources = [...intro.sources, ...charge.sources, ...emerging.sources, ...comparison.sources, ...foundry.sources, ...ipCurriculum.sources, ...research.sources];
 const operationSources = engineering.operations.flatMap(study=>[...study.sources,...study.variants.flatMap(variant=>variant.sources||[])]);
@@ -78,9 +78,9 @@ const validateRefs = (value, location) => {
   }
 };
 validateRefs({ topics, comparison, foundry, ipCurriculum, research }, '內容');
-const namedLogicIds = ['cfx-otp','attopsemi-ifuse','floadia-za','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash'];
+const namedLogicIds = ['cfx-otp','attopsemi-ifuse','floadia-za','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash','chingis-pfusion','iotmemory-silvoflash'];
 const mappedLogicIds = (comparison.logicIpMap?.groups || []).flatMap(group => (group.items || []).map(item => item.id));
-if (!comparison.logicIpMap?.title || namedLogicIds.some(id => !mappedLogicIds.includes(id)) || mappedLogicIds.length !== namedLogicIds.length) failures.push('比較專題缺少九款具名邏輯製程 IP 對照');
+if (!comparison.logicIpMap?.title || namedLogicIds.some(id => !mappedLogicIds.includes(id)) || mappedLogicIds.length !== namedLogicIds.length) failures.push('比較專題缺少十一款具名邏輯製程 IP 對照');
 for (const unit of ipCurriculum.units) if (!topics.some(topic => topic.id === unit.hostTopic)) failures.push(`${unit.id} 的物理背景不存在`);
 for (const topic of topics) {
   if (!['efuse','antifuse'].includes(topic.id)) validateRewriteCycle(topic);
@@ -113,8 +113,11 @@ function integrationRoutesMarkdown(topic) {
 
 function implementationTable(topic) {
   if (!topic.implementations?.length) return '';
-  const labels = isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合'];
-  return `<section id="${esc(topic.id)}-implementations"><h3>${isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制'}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較'}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
+  const isNor = topic.id === 'nor';
+  const heading = isNor ? (isEnglish ? 'Named eFlash IP: Compare the Actual Mechanisms' : '具名 eFlash IP：比較各自的操作機制') : (isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制');
+  const caption = isNor ? (isEnglish ? 'Named eFlash IP operating mechanisms comparison' : '具名 eFlash IP 操作機制比較') : (isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較');
+  const labels = isNor ? (isEnglish ? ['Named eFlash IP', 'Gate Stack and Storage', 'Program / Erase and Integration'] : ['具名 eFlash IP', '閘極堆疊與儲存結構', '寫入／抹除與整合']) : (isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合']);
+  return `<section id="${esc(topic.id)}-implementations"><h3>${heading}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${caption}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
 }
 
 function topicPanel(topic, index) {

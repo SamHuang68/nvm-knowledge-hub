@@ -120,10 +120,22 @@ window.NVMTopicIndex = [
     "tags": "Floadia Floadia · LEE Flash G2 A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development. FN program through the side switches Reverse FN erase through the side switches Sense after the side switches turn on at VDD SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。"
   },
   {
-    "title_zh": "SST SuperFlash：分裂閘極 eFlash",
-    "title_en": "SST SuperFlash: Split-Gate eFlash",
+    "title_zh": "SST SuperFlash：ESF1 / ESF2 / ESF3 三代分裂閘極 eFlash",
+    "title_en": "SST SuperFlash: ESF1 / ESF2 / ESF3 Three-Generation Split-Gate eFlash",
     "url": "nvm-technology-atlas.html#ip-sst-superflash",
-    "tags": "SST / Microchip SST · SuperFlash Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN. Source-side injection writes hot electrons into the floating gate Interpoly FN removes electrons from the floating gate Sense channel current after the select gate turns on 分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。"
+    "tags": "SST / Microchip SST · SuperFlash (ESF1/2/3) SST SuperFlash split-gate eFlash technology has advanced across three distinct generations: 1st-Gen ESF1 (1µm–0.11µm) used a non-self-aligned 2-gate cell with source-side injection (SSI) programming and FG-tip FN erase to the wordline; 2nd-Gen ESF2 (0.25µm–0.11µm) transitioned to a self-aligned 2-gate architecture, eliminating overlay margins and shrinking cell area by >40%; 3rd-Gen ESF3 (120nm–28nm) broke the planar eFlash scaling barrier by introducing a self-aligned top-coupled 4-gate 5-terminal cell (SG+CG+FG+EG), using a dedicated Erase Gate (EG) for 11.5V interpoly FN erase while fully decoupling the wordline (SG) at 0V, scaling successfully to 28nm and achieving mass production across TSMC, GF, and UMC. Source-side injection (SSI) writes hot electrons into FG with microamp-class write current Dedicated Erase Gate (EG) interpoly FN tunneling erase with SG fully decoupled at 0V Select gate (SG) turns on at core logic voltage to sense channel conduction current SST SuperFlash 分裂閘極 eFlash 技術歷經三代演進：第一代 ESF1（1µm–0.11µm）採非自對準雙閘極，源側注入 (SSI) 寫入、浮閘尖端 FN 抹除至字元線；第二代 ESF2（0.25µm–0.11µm）升級為自對準雙閘極，消除微影疊對誤差並縮減 40% 單元面積；第三代 ESF3（120nm–28nm）突破平面 eFlash 瓶頸，引進自對準頂部耦合 4 閘極 5 端子單元（SG+CG+FG+EG），以獨立 Erase Gate (EG) 承擔 11.5V 抹除高壓，使字元線 (SG) 完全與高壓解耦，成功微縮至 28nm 並獲台積電、格芯、聯電等晶圓廠大規模量產。"
+  },
+  {
+    "title_zh": "常億科技 pFusion：PMOS 浮閘 eFlash",
+    "title_en": "Chingis Technology pFusion: PMOS Floating-Gate eFlash",
+    "url": "nvm-technology-atlas.html#ip-chingis-pfusion",
+    "tags": "Chingis Technology (ESMT Group) Chingis · pFusion eFlash Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility. BBHH band-to-band hot-hole injection into FG High-field FN tunneling erase from FG Low-bias sensing of P-channel conduction current 常億 pFusion eFlash 採用 P-Channel PMOS 浮動閘極架構。寫入利用能帶至能帶穿隧誘發熱電洞注入 (BBHH)，抹除走 FN 穿隧；寫入電流僅微安培級，具備標準 CMOS 相容性。"
+  },
+  {
+    "title_zh": "智憶科技 SilvoFlash：原生超低壓 eFlash",
+    "title_en": "IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash",
+    "url": "nvm-technology-atlas.html#ip-iotmemory-silvoflash",
+    "tags": "IOTMemory Technology IOTMemory · SilvoFlash eFlash IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs. Internal low-power micro-pump tunneling injection Low-power tunneling erase discharging FG Native 0.9V–1.2V core logic direct sensing 智憶專利單層／低光罩 CMOS 浮閘架構。核心突破為原生 0.9V–1.2V 核心邏輯電壓直接感測讀取，打破傳統 eFlash ≥1.8V 讀取壁壘；成功量產於 JEDEC DDR5 SPD Hub IC 與 40nm SoC。"
   },
   {
     "title_zh": "Numem：嵌入式 STT-MRAM IP 單元",
@@ -177,7 +189,7 @@ window.NVMTopicIndex = [
     "title_zh": "NOR：從堆疊閘極到分離閘極的程式碼儲存",
     "title_en": "NOR: Stacked-Gate and Split-Gate Code Storage",
     "url": "nvm-technology-atlas.html#topic-nor",
-    "tags": "NOR describes array connectivity and access organization, not a unique storage material. This topic uses floating-gate NOR: charge changes cell threshold voltage, and the selected cell is sensed through the bitline and source path. Both stacked-gate and split-gate cells can serve NOR arrays, but their selection channels, programming efficiency, and erase control differ. NOR is commonly used for code storage requiring direct, predictable reads. Stacked-gate cells place storage and selection responsibilities under the cell's gate control; split-gate cells add a selection channel that helps block unselected leakage from overerased cells. Execute-in-place support also depends on the interface, controller, and cache timing and cannot be guaranteed by the NOR name alone. Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson. NOR 描述陣列的連接與存取組織，並不限定唯一儲存材料。本題以浮動閘極 NOR 說明：電荷改變單元臨界電壓，受選單元經位元線與源極路徑被感測。堆疊閘極與分離閘極都可服務 NOR，但選擇通道、寫入效率及抹除控制不同。 NOR 常用於需要直接、可預測讀取的程式碼儲存。堆疊閘極把儲存與選擇責任集中在單元的閘極控制；分離閘極加入選擇通道，有助阻斷過度抹除單元的非受選漏電。是否支援原地執行，還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。 Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1 SST / Microchip: SuperFlash Technology Brochure DS00001425F Microchip: SST39SF020A Parallel Flash Product Page Kioxia: NAND Flash Memory Fundamentals US6232180B1"
+    "tags": "NOR describes array connectivity and access organization, not a unique storage material. This topic uses floating-gate NOR: charge changes cell threshold voltage, and the selected cell is sensed through the bitline and source path. Both stacked-gate and split-gate cells can serve NOR arrays, but their selection channels, programming efficiency, and erase control differ. NOR is commonly used for code storage requiring direct, predictable reads. Beyond mainstream SST SuperFlash split-gate evolution (ESF1/2/3 and 28nm production), mature foundries and specialized IP vendors provide diverse niche eFlash architectures: Chingis Technology pFusion employs PMOS floating gates with band-to-band tunneling induced hot-hole injection (BBHH) to achieve microamp-level write currents; IOTMemory SilvoFlash adopts a patented single-poly / low-mask architecture with native 0.9V-1.2V core logic direct sensing, breaking the traditional eFlash >=1.8V threshold and entering volume production in DDR5 SPD ICs. Stacked-gate, split-gate, and niche low-voltage / PMOS floating-gate topologies involve different trade-offs; execute-in-place support also depends on interface, controller, and cache timing and cannot be guaranteed by the NOR name alone. Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson. NOR 描述陣列的連接與存取組織，並不限定唯一儲存材料。本題以浮動閘極 NOR 說明：電荷改變單元臨界電壓，受選單元經位元線與源極路徑被感測。堆疊閘極與分離閘極都可服務 NOR，但選擇通道、寫入效率及抹除控制不同。 NOR 常用於需要直接、可預測讀取的程式碼儲存。除了主流 SST SuperFlash 分裂閘極（ESF1/2/3 演進與 28nm 量產）外，成熟代工與專業 IP 廠提供多元利基 eFlash 架構：常億科技 (Chingistek) pFusion 採 PMOS 浮閘與能帶間穿隧熱電洞注入 (BBHH)，提供微安培級寫入電流；智憶科技 (IOTMemory) SilvoFlash 採專利單層/低光罩架構，原生 0.9V–1.2V 核心電壓直接讀取，打破傳統 eFlash ≥1.8V 門檻並量產於 DDR5 SPD IC。堆疊閘極、分離閘極與利基低壓/PMOS 浮閘各有取捨，是否支援原地執行還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。 Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1 SST / Microchip: SuperFlash Technology Brochure DS00001425F Microchip: SST39SF020A Parallel Flash Product Page Kioxia: NAND Flash Memory Fundamentals Chingis Technology: pFusion eFlash Technology Chingis Technology: pFlash SPI NOR Flash IOTMemory: SilvoFlash Ultra-Low Voltage eFlash IOTMemory: SilvoFE Embedded eEEPROM US6232180B1"
   },
   {
     "title_zh": "SONOS 與 NROM：把電荷留在絕緣捕捉層",
@@ -540,6 +552,18 @@ window.NVMTopicIndex = [
     "tags": "SST / Microchip SuperFlash NOR / eFlash SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage. SST／Microchip 官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。 SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage. 官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。"
   },
   {
+    "title_zh": "常億科技 Chingis Technology · pFusion PMOS eFlash",
+    "title_en": "Chingis Technology · pFusion PMOS eFlash",
+    "url": "nvm-technology-atlas.html#company-chingistek-pfusion",
+    "tags": "Chingis Technology pFusion PMOS eFlash Patented pFusion architecture uses P-Channel PMOS floating gates, using band-to-band tunneling induced hot-hole injection (BBHH) for microamp-level write current and high-field FN tunneling erase; provides ultra-low write power and standard CMOS compatibility, widely licensed in MCUs, smart cards, and touch controllers. Chingis Technology pFusion PMOS eFlash BBHH band-to-band tunneling hot-hole injection low write current smart card MCU ESMT 專利 pFusion 架構採 P-Channel PMOS 浮閘，利用能帶間穿隧誘發熱電洞注入 (BBHH) 進行微安培級寫入，並以高電場 FN 穿隧抹除；具備低功耗寫入與標準 CMOS 相容特徵，廣泛授權於 MCU、智慧卡與周邊晶片。"
+  },
+  {
+    "title_zh": "智憶科技 IOTMemory · SilvoFlash Native Low-Voltage eFlash",
+    "title_en": "IOTMemory · SilvoFlash Native Low-Voltage eFlash",
+    "url": "nvm-technology-atlas.html#company-iotmemory-silvoflash",
+    "tags": "IOTMemory SilvoFlash Native Low-Voltage eFlash Patented SilvoFlash architecture uses single-poly / low-mask CMOS floating gates to achieve native 0.9V-1.2V core logic voltage high-speed sensing and reading without continuous charge pump operation; supports dual-mode Code Flash and Data EEPROM (SilvoFE), in volume production at 40nm and qualified in DDR5 SPD ICs. IOTMemory SilvoFlash SilvoFE native ultra-low voltage 0.9V 1.2V DDR5 SPD EEPROM eFlash 40nm low power 專利 SilvoFlash 架構採單層多晶矽／低光罩 CMOS 浮閘技術，實現原生 0.9V–1.2V 核心邏輯電壓直接高速感測讀取，無須常時啟動升壓電荷泵；支援 Code Flash 與 Data EEPROM (SilvoFE) 雙模共存，已於 40nm 等節點量產並打入 DDR5 SPD 晶片供應鏈。"
+  },
+  {
     "title_zh": "STMicroelectronics · eSTM eFlash / Page EEPROM",
     "title_en": "STMicroelectronics · eSTM eFlash / Page EEPROM",
     "url": "nvm-technology-atlas.html#company-industry-st-estm",
@@ -792,8 +816,8 @@ window.NVMTopicIndex = [
     "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash"
   },
   {
-    "title_zh": "九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
-    "title_en": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "title_zh": "十一款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
+    "title_en": "Eleven Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
     "url": "nvm-technology-atlas.html#comparison-logic-ip",
     "tags": "Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash 選型矩陣 具名 IP"
   }

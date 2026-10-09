@@ -1446,6 +1446,42 @@
       "kind": "Enterprise Security Whitepaper",
       "date": "2025-02-18",
       "limit": "Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles."
+    },
+    {
+      "id": "ip-chingis-pfusion",
+      "label": "Chingis Technology: pFusion eFlash Technology",
+      "url": "https://www.chingistek.com",
+      "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program and FN erase; microamp-level write current, standard CMOS compatible.",
+      "kind": "Manufacturer Specification",
+      "date": "Reviewed 2026-09-16",
+      "limit": "Targeted at microcontrollers and smart cards; a single datasheet does not represent all node PDKs."
+    },
+    {
+      "id": "ip-chingis-pm25",
+      "label": "Chingis Technology: pFlash SPI NOR Flash",
+      "url": "https://www.chingistek.com",
+      "locator": "Pm25 series standalone NOR Flash; ESMT product line.",
+      "kind": "Manufacturer Product Manual",
+      "date": "Reviewed 2026-09-16",
+      "limit": "Standalone packages are not identical to all embedded macros."
+    },
+    {
+      "id": "ip-iotmemory-silvoflash",
+      "label": "IOTMemory: SilvoFlash Ultra-Low Voltage eFlash",
+      "url": "https://iotmemory.com/en",
+      "locator": "SilvoFlash native 0.9V-1.2V ultra-low-voltage eFlash; deployed in 40nm SoC and DDR5 SPD IC supply chains.",
+      "kind": "Manufacturer Whitepaper",
+      "date": "Reviewed 2026-09-16",
+      "limit": "Native core-voltage read does not eliminate internal charge pumps for write/erase; volume qualification verified per product."
+    },
+    {
+      "id": "ip-iotmemory-silvofe",
+      "label": "IOTMemory: SilvoFE Embedded eEEPROM",
+      "url": "https://iotmemory.com/en",
+      "locator": "Single-process integration for Code eFlash and Data eEEPROM.",
+      "kind": "Manufacturer Whitepaper",
+      "date": "Reviewed 2026-09-16",
+      "limit": "Coexistence on the same die requires macro-specific arrangement check."
     }
   ],
   "landscape": [
@@ -2213,6 +2249,40 @@
       ],
       "target": "topic-nor",
       "search": "SST／Microchip 官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。 SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage."
+    },
+    {
+      "id": "chingistek-pfusion",
+      "name": "Chingis Technology",
+      "technology": "pFusion PMOS eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Niche eFlash IP Provider",
+      "maturity": "Volume Production and Broad Licensing",
+      "claim": "Patented pFusion architecture uses P-Channel PMOS floating gates, using band-to-band tunneling induced hot-hole injection (BBHH) for microamp-level write current and high-field FN tunneling erase; provides ultra-low write power and standard CMOS compatibility, widely licensed in MCUs, smart cards, and touch controllers.",
+      "limit": "Microamp write current is a PMOS floating-gate characteristic and does not eliminate internal charge pumps during erase; node support depends on target foundry PDK license agreements.",
+      "dateLabel": "2024-2026 Technical Manual; reviewed 2026-09-16",
+      "sourceIds": [
+        "ip-chingis-pfusion",
+        "ip-chingis-pm25"
+      ],
+      "target": "ip-chingis-pfusion",
+      "search": "Chingis Technology pFusion PMOS eFlash BBHH band-to-band tunneling hot-hole injection low write current smart card MCU ESMT"
+    },
+    {
+      "id": "iotmemory-silvoflash",
+      "name": "IOTMemory",
+      "technology": "SilvoFlash Native Low-Voltage eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Ultra-Low-Voltage eFlash IP Provider",
+      "maturity": "Volume Shipments and Commercial Qualification",
+      "claim": "Patented SilvoFlash architecture uses single-poly / low-mask CMOS floating gates to achieve native 0.9V-1.2V core logic voltage high-speed sensing and reading without continuous charge pump operation; supports dual-mode Code Flash and Data EEPROM (SilvoFE), in volume production at 40nm and qualified in DDR5 SPD ICs.",
+      "limit": "Native core-voltage read does not mean write and erase operations operate without internal charge pumps; endurance and retention are qualified per foundry PDK.",
+      "dateLabel": "2024-2026 Commercial Manual; reviewed 2026-09-16",
+      "sourceIds": [
+        "ip-iotmemory-silvoflash",
+        "ip-iotmemory-silvofe"
+      ],
+      "target": "ip-iotmemory-silvoflash",
+      "search": "IOTMemory SilvoFlash SilvoFE native ultra-low voltage 0.9V 1.2V DDR5 SPD EEPROM eFlash 40nm low power"
     },
     {
       "id": "industry-st-estm",

@@ -6,14 +6,14 @@ const root=path.resolve(import.meta.dirname,'..'),output=path.join(root,'qa/audi
 fs.mkdirSync(output,{recursive:true});
 const results=[],errors=[],failures=[];
 const check=(ok,label,details={})=>{const item={ok:Boolean(ok),label,...details};results.push(item);if(!ok)failures.push(item);};
-const data=['','英文'].map(s=>JSON.parse(fs.readFileSync(path.join(root,`data/NVM知識資料${s}.json`),'utf8')));
+const data=['data/nvm-knowledge-data.json','data/nvm-knowledge-data-en.json'].map(file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8')));
 check(data[0].research.landscape.length===data[1].research.landscape.length,'雙語具名路線數量一致');
 for(const [index,d]of data.entries()){
  const r=d.research,ids=new Set(d.sources.map(s=>s.id));
  check(r.landscape.length>=60&&new Set(r.landscape.map(x=>x.family)).size>=8,'具名路線涵蓋主要技術家族',{language:index?'en':'zh',routes:r.landscape.length});
  check(new Set(r.landscape.map(x=>x.id)).size===r.landscape.length,'具名路線 ID 不重複');
  check(r.landscape.every(x=>x.sourceIds.length&&x.sourceIds.every(id=>ids.has(id))),'所有具名路線有可解析來源');
- for(const name of ['Everspin','Samsung','Renesas','TSMC','GlobalFoundries','UMC','Panasonic','IBM','ITRI','Weebit','Infineon','Micron','Kioxia','TI','Texas Instruments'])check(r.landscape.some(x=>(x.name+' '+x.search).toLowerCase().includes(name.toLowerCase())),'代表廠商／機構有入口',{language:index?'en':'zh',name});
+ for(const name of ['Everspin','Samsung','Renesas','TSMC','GlobalFoundries','UMC','Panasonic','IBM','ITRI','Weebit','Infineon','Micron','Kioxia','TI','Texas Instruments','Chingis','IOTMemory'])check(r.landscape.some(x=>(x.name+' '+x.search).toLowerCase().includes(name.toLowerCase())),'代表廠商／機構有入口',{language:index?'en':'zh',name});
  check(r.landscape.filter(x=>x.id.startsWith('everspin')).length>=3,'Everspin 三條產品路線分開');
  check(d.foundry.milestones.filter(x=>x.foundry==='UMC').length===5,'UMC 五個里程碑已納入正式年表');
 }

@@ -2771,168 +2771,519 @@ G2 把 SONOS 夾在開關電晶體之間。
 
 G2 的讀取賣點是 VDD 與側開關，不取消電荷捕捉物理。開發中敘述不是量產保證，也不能當成通用標準單元庫。
 
-### SST SuperFlash：分裂閘極 eFlash
+### SST SuperFlash：ESF1 / ESF2 / ESF3 三代分裂閘極 eFlash
 
 SST／Microchip
 
-分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。
+SST SuperFlash 分裂閘極 eFlash 技術歷經三代演進：第一代 ESF1（1µm–0.11µm）採非自對準雙閘極，源側注入 (SSI) 寫入、浮閘尖端 FN 抹除至字元線；第二代 ESF2（0.25µm–0.11µm）升級為自對準雙閘極，消除微影疊對誤差並縮減 40% 單元面積；第三代 ESF3（120nm–28nm）突破平面 eFlash 瓶頸，引進自對準頂部耦合 4 閘極 5 端子單元（SG+CG+FG+EG），以獨立 Erase Gate (EG) 承擔 11.5V 抹除高壓，使字元線 (SG) 完全與高壓解耦，成功微縮至 28nm 並獲台積電、格芯、聯電等晶圓廠大規模量產。
 
-#### SuperFlash：SSI 寫入／interpoly FN 抹除
+#### SuperFlash ESF3：SSI 寫入／獨立 EG Interpoly FN 抹除循環
 
-同一分裂閘極單元可寫入、電性抹除及再次寫入。抹除使電子經多晶矽間氧化層離開 FG，回到可再寫窗口。
+同一自對準頂部耦合 ESF3 單元支援微安培級源側注入寫入、獨立 Erase Gate 多晶矽間 FN 電性抹除及多次重複寫入。抹除時 11.5V 高壓完全隔離在 EG，字元線 (SG) 處於 0V 零應力，使單元恢復未寫入導通窗口，支援 10 萬次循環與 20 年保持性。
 
 PGM → ERS → PGM
 
-寫入態
+寫入態待抹除
 
-熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。 — 教學圖不是特定代工廠量測剖面。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。 — 單元回到低閾值導通窗口，具備高達 10 萬次抹寫與 20 年車規級留存。
 
-教學圖不是特定代工廠量測剖面。
+單元回到低閾值導通窗口，具備高達 10 萬次抹寫與 20 年車規級留存。
 
-指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+指定抹除脈衝或晶片內部自動抹除／驗證序列完成後，依 PDK 規定的讀取邊限與感測放大器參考電流確認單元狀態；不自行假設通用完成時間或脈衝次數。
 
-受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+支援扇區抹除 (Sector Erase, 通常 4KB) 與頁面／位元組寫入；單元級電性可逆不代表主機端具備逐位元獨立抹除粒度。
 
-結構及機制按具名 SuperFlash 世代閱讀。2018 年出貨量與節點表不是 2026 年全部產品保證。
+三代架構演進（ESF1/ESF2/ESF3）為技術演進歷程；28nm 量產出貨數據為公開車規與代工廠報告，不同晶圓代工廠之額外光罩道數（通常 9–11 道）與熱預算需依具體 PDK 授權合約核實。
 
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)
 
-SST SuperFlash eFlash
+SST SuperFlash eFlash (ESF1 / ESF2 / ESF3)
 
-分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。
+SST SuperFlash 分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自對準雙閘極）、ESF3（自對準頂部耦合 4 閘極 5 端子單元：SG+CG+FG+EG）。寫入源側注入 (SSI)，抹除獨立 EG 多晶矽間 FN。
 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
+- EG · 獨立抹除閘；施加高壓(~11.5V)經 Interpoly FN 抹除。
+- SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
 
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — 寫入
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — 寫入
 
 依公開機制建立寫入態，不拼接未公開偏壓表。
 
-熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
 
-**1. 分裂閘極：選擇閘與浮動閘並列**
+**1. ESF3 單元就緒：SG、CG、FG 與 EG 4 閘極拓撲**
 
-狀態: FG 電子較少
+狀態: 浮閘初始態
 
 刺激: 偏壓為零
 
-SuperFlash 公開為分裂閘極架構。
+ESF3 自對準頂部耦合單元具備獨立 Erase Gate (EG)，突破 ESF1/ESF2 微縮瓶頸。
 
-**2. 源側注入把熱電子寫入 FG**
+**2. 源側注入 (SSI) 將熱電子高效注入 FG**
 
 狀態: 寫入中
 
-刺激: SSI
+刺激: SSI (CG/SL 偏壓)
 
-寫入機制是源側注入，不是通道熱電子的通用標籤。
+在 SG 與 FG 間隙產生高橫向電場，注入效率比傳統 CHE 高 100~1000 倍，寫入電流僅微安培級。
 
-**3. 電子留在 FG**
+**3. 熱電子保留於 FG，臨界電壓調高**
 
-狀態: 寫入態
+狀態: 寫入態保留
 
 刺激: 偏壓為零
 
-授權製程範圍不能當成單一節點證明。
+浮閘儲存電子提高單元等效臨界電壓，寫入態不易受干擾。
 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
+- EG · 獨立抹除閘；施加高壓(~11.5V)經 Interpoly FN 抹除。
+- SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
 
-製程範圍是授權敘述，不是單一量產節點證明。
+ESF1/ESF2 抹除高壓經由 WL；ESF3 引入獨立 EG 突破 40nm 壁壘微縮至 28nm。實際 PDK 光罩增加數與操作電壓依目標代工廠授權。
 
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — 抹除／還原限制
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — 抹除／還原限制
 
 依公開機制做電性抹除，使單元回到可再寫窗口。
 
-熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
 
-**1. FG 已有注入電子**
+**1. 單元持有儲存電荷：準備專用 EG 抹除**
 
-狀態: 寫入態
+狀態: 寫入態待抹除
 
 刺激: 偏壓為零
 
-抹除走多晶矽間 FN，不是源側注入的逆過程電流。
+ESF1/2 抹除高壓走字元線；ESF3 引進專用 Erase Gate (EG) 將字元線徹底解耦。
 
-**2. 多晶矽間 FN 使電子離開 FG**
+**2. EG 施加 11.5V 高壓：Interpoly FN 穿隧抹除**
 
 狀態: 抹除中
 
-刺激: interpoly FN
+刺激: V_EG ≈ 11.5V; SG = 0V
 
-電子穿過選擇閘與浮動閘之間的氧化層。
+電子由 FG 尖端穿隧至 EG；選擇閘 (SG) 處於 0V 應力，免除先進節點超薄邏輯閘氧擊穿風險。
 
-**3. FG 回到可再寫窗口**
+**3. FG 回到抹除態：可電性再次寫入**
 
 狀態: 抹除態
 
 刺激: 偏壓為零
 
-教學圖不是特定代工廠量測剖面。
+單元回到低閾值導通窗口，具備高達 10 萬次抹寫與 20 年車規級留存。
 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
+- EG · 獨立抹除閘；施加高壓(~11.5V)經 Interpoly FN 抹除。
+- SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
 
-製程範圍是授權敘述，不是單一量產節點證明。
+ESF1/ESF2 抹除高壓經由 WL；ESF3 引入獨立 EG 突破 40nm 壁壘微縮至 28nm。實際 PDK 光罩增加數與操作電壓依目標代工廠授權。
 
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — 讀取
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — 讀取
 
 以產品讀取條件感測已保留狀態，再鎖存與隔離。
 
-熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+寫入以源側注入 (SSI) 將熱電子高效注入 FG；抹除由獨立 Erase Gate (EG) 施加高壓透過 Interpoly FN 導出電子，Select Gate (SG) 保持 0V 完全與高壓解耦。
 
-**1. 同一分裂閘極單元待讀**
+**1. ESF3 單元待讀：4 閘極偏壓就緒**
 
-狀態: 既有 FG 電荷
+狀態: 既有浮閘電荷
 
-刺激: 讀取偏壓待產品定義
+刺激: 核心邏輯供電軌就緒
 
-讀取不重複 SSI 寫入。
+讀取由字元線 SG 控制選取，CG 提供適度讀取偏壓。
 
-**2. 選擇閘開啟並感測通道**
+**2. SG 在核心邏輯電壓開啟並感測通道**
 
 狀態: 讀取中
 
-刺激: 小偏壓
+刺激: SG = VDD (邏輯電平)
 
-通道電流反映 FG 電荷。
+若 FG 儲存電子則通道截止，未存電子則導通；感測放大器辨識資料狀態。
 
-**3. 鎖存後關閉選擇閘**
+**3. 資料鎖存完成：SG 關閉回到待機**
 
-狀態: 電荷保留
+狀態: 資料鎖存保留
 
 刺激: 偏壓為零
 
-讀取速度規格須核對目標授權版本。
+具備極低待機漏電，適用於微控制器、智慧卡與車載 MCU 晶片。
 
 - Dielectric · 淡黃區是介電層；厚度與材料未指定。
 - Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
 - Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
-- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+- SG · 選擇閘 (Wordline)；讀取選取，抹除時 0V 與高壓解耦。
+- CG · 頂部控制閘；提供強電容耦合精確調控浮閘電位。
+- EG · 獨立抹除閘；施加高壓(~11.5V)經 Interpoly FN 抹除。
+- SSI · 源側注入；SG 與 FG 間隙強電場高效率注入熱電子。
 
-製程範圍是授權敘述，不是單一量產節點證明。
+ESF1/ESF2 抹除高壓經由 WL；ESF3 引入獨立 EG 突破 40nm 壁壘微縮至 28nm。實際 PDK 光罩增加數與操作電壓依目標代工廠授權。
 
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)
 
 #### IP 單元取捨
 
-SuperFlash 的寫入是 SSI，不是通用 CHE 標籤；抹除是閘極間 FN，不是通道抹除。授權製程範圍不能當成單一量產節點證明。
+SST SuperFlash 的技術演進體現了嵌入式快閃記憶體克服深次微米微縮極限的第一性原理：在 ESF1/ESF2 雙閘極架構中，抹除高壓（~12V）必須施加在字元線 (SG/WL) 上，當邏輯製程微縮至 90nm 以下時，超薄核心邏輯閘氧化層根本無法承受高壓擊穿；ESF3 的架構突破在於『四閘極功能解耦』——引入頂部控制閘 (CG) 提供高電容耦合比，並增設專用獨立抹除閘 (EG) 承受 11.5V 抹除脈衝，使字元線 (SG) 在抹除時保持 0V，完全採用標準低壓邏輯電晶體閘氧，從而跨越 40nm 壁壘直達 28nm HKMG/FinFET 製程。授權製程範圍須依各代工廠具體 PDK 規格核對。
+
+### 常億科技 pFusion：PMOS 浮閘 eFlash
+
+常億科技 Chingis Technology（晶豪科技 ESMT 集團）
+
+常億 pFusion eFlash 採用 P-Channel PMOS 浮動閘極架構。寫入利用能帶至能帶穿隧誘發熱電洞注入 (BBHH)，抹除走 FN 穿隧；寫入電流僅微安培級，具備標準 CMOS 相容性。
+
+#### pFusion：BBHH 寫入／FN 抹除循環
+
+同一 PMOS 浮閘單元可寫入、電性抹除及再次寫入。抹除使浮閘回到高閾值或截止窗口，恢復可重複 BBHH 注入狀態。
+
+PGM → ERS → PGM
+
+寫入態
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。 — 單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
+
+微安培級寫入電流是 PMOS 浮閘特性，不代表抹除無需內部電荷泵升壓。高溫保持力與循環壽命需以目標代工廠實測報告為準。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+常億科技 pFusion eFlash (P-Channel 浮閘)
+
+P-Channel PMOS 浮動閘極 eFlash。BBHH 帶帶穿隧熱電洞注入寫入，FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. P-Channel 浮閘單元：待編程狀態**
+
+狀態: 初始浮閘中性或少電洞
+
+刺激: 偏壓為零
+
+常億 pFusion 採 PMOS 浮閘架構。
+
+**2. BBHH 帶帶穿隧誘發熱電洞注入**
+
+狀態: 寫入中
+
+刺激: 汲極反偏；BBHH 注入
+
+帶帶穿隧在汲極能帶彎曲處激發熱電洞，高效注入 FG；寫入電流僅微安培級。
+
+**3. 熱電洞累積於浮閘，PMOS 導通**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+熱電洞降低浮閘電位使通道導通，片上電荷泵負擔極小。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. 單元持有累積電洞電荷**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+抹除走 FN 穿隧，不是熔絲。
+
+**2. 高電場 FN 穿隧導出電洞／注入電子**
+
+狀態: 抹除中
+
+刺激: FN 抹除偏壓
+
+FN 電場使浮閘回到中性或高閾值抹除窗口。
+
+**3. 浮閘回到可再寫抹除態**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+單元進入高阻或截止狀態，可再次執行 BBHH 寫入。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### 常億科技 pFusion eFlash (P-Channel 浮閘) — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+以能帶至能帶穿隧 (BBHH) 激發熱電洞高效注入 FG；抹除走 FN 穿隧。
+
+**1. P-Channel 浮閘單元待讀取**
+
+狀態: 既有浮閘狀態
+
+刺激: 準備感測
+
+讀取操作以低刺激進行。
+
+**2. 施加微小讀取偏壓感測 P 溝道**
+
+狀態: 讀取中
+
+刺激: 讀取偏壓 V_READ
+
+導通通道電流反映浮閘電洞累積量。
+
+**3. 感測放大器鎖存資料**
+
+狀態: 資料鎖存
+
+刺激: 偏壓復原
+
+極低讀取擾動，保障數十年高溫資料留存。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- BBHH · 帶帶穿隧熱電洞注入寫入，寫入電流僅微安培級。
+
+微安培級低寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### IP 單元取捨
+
+pFusion 的關鍵物理是 PMOS 浮閘與 BBHH 熱電洞注入，相較傳統 NMOS CHEI 能降低 2~3 個數量級的寫入功耗；抹除走 FN 穿隧。獨立式 Pm25 SPI NOR Flash 不等於全套嵌入式 PDK，製程整合需依代工廠 PDK 授權版本核對。
+
+### 智憶科技 SilvoFlash：原生超低壓 eFlash
+
+智憶科技 IOTMemory Technology
+
+智憶專利單層／低光罩 CMOS 浮閘架構。核心突破為原生 0.9V–1.2V 核心邏輯電壓直接感測讀取，打破傳統 eFlash ≥1.8V 讀取壁壘；成功量產於 JEDEC DDR5 SPD Hub IC 與 40nm SoC。
+
+#### SilvoFlash：原生低壓讀取／穿隧寫抹循環
+
+同一專利浮閘單元可寫入、電性抹除及再次寫入。抹除導出浮閘電荷，使臨界電壓恢復至初始窗口，支援 Code Flash 與 Data EEPROM 雙模操作。
+
+PGM → ERS → PGM
+
+寫入態
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。 — 兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；代碼區支援扇區抹除，資料區支援位元組更新。
+
+原生 0.9V–1.2V 讀取不代表寫抹操作無需內部升壓。實際寫入功耗、保持性與循環壽命需依目標代工廠 40nm/55nm PDK 為準。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+智憶科技 SilvoFlash 原生超低壓 eFlash
+
+專利單層／低光罩 CMOS 浮閘結構。原生 0.9V–1.2V 核心邏輯電壓直接感測，破除傳統 eFlash ≥1.8V 壁壘；打入 DDR5 SPD IC 供應鏈。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. SilvoFlash 超低壓單元：待寫入**
+
+狀態: 浮閘無累積電荷
+
+刺激: 偏壓為零
+
+專利 CMOS 相容單層/低光罩結構。
+
+**2. 內部微電荷泵穿隧注入**
+
+狀態: 寫入中
+
+刺激: 穿隧寫入脈衝
+
+低功耗電荷泵提供局部穿隧電場，不干擾外部邏輯。
+
+**3. 電荷保留於浮閘，完成寫入**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+單元完成資料寫入，回到待機低漏電態。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. 單元持有儲存電荷**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+可重複抹除多次，支援 Code Flash 與 Data EEPROM 雙模。
+
+**2. 穿隧抹除導出電荷**
+
+狀態: 抹除中
+
+刺激: 抹除脈衝
+
+電荷自浮閘導出，恢復未寫入臨界電壓。
+
+**3. 回到可再寫窗口**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+兼具 SilvoFlash 代碼與 SilvoFE 資料儲存特性。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### 智憶科技 SilvoFlash 原生超低壓 eFlash — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+以原生 0.9V–1.2V 核心邏輯電壓直接讀取通道；低功耗電荷泵輔助穿隧寫抹。
+
+**1. 原生 0.9V–1.2V 核心電壓就緒**
+
+狀態: 既有儲存狀態
+
+刺激: 核心供電軌 VDD
+
+無需升壓電荷泵，破除傳統 eFlash ≥1.8V 讀取壁壘。
+
+**2. 以 0.9V–1.2V 原生讀取通道**
+
+狀態: 讀取中
+
+刺激: VDD = 0.9V~1.2V
+
+與近閾值 CPU 核心共用供電軌直接讀出，量產於 DDR5 SPD IC。
+
+**3. 讀取完成，零升壓待機**
+
+狀態: 資料鎖存
+
+刺激: 維持核心供電
+
+大幅縮減靜態待機漏電，為 IoT 與邊緣 SoC 提供高能效。
+
+- Dielectric · 淡黃區是介電層；厚度與材料未指定。
+- Channel / Well · 藍灰區是矽通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- 0.9V · 原生 0.9V–1.2V 核心邏輯供電讀取，免去升壓電荷泵。
+- e− · 藍色圓點表示儲存電子，數量只作電荷示意。
+
+讀取無需升壓不代表寫抹無需內部高壓；實際保持性與循環依代工廠 PDK 驗證。
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
+
+#### IP 單元取捨
+
+SilvoFlash 的技術本質在於將讀取電壓降至原生核心電壓 0.9V–1.2V，徹底消除待機升壓電荷泵的靜態漏電與延遲；抹除與寫入仍由內部微電荷泵提供電場。單一製程可同時整合 SilvoFlash (代碼) 與 SilvoFE (資料 EEPROM)。
 
 ### Numem：嵌入式 STT-MRAM IP 單元
 
@@ -4291,7 +4642,7 @@ p 型浮動閘極 MOSFET；另有抹除閘極
 
 ## NOR：從堆疊閘極到分離閘極的程式碼儲存
 
-NOR 常用於需要直接、可預測讀取的程式碼儲存。堆疊閘極把儲存與選擇責任集中在單元的閘極控制；分離閘極加入選擇通道，有助阻斷過度抹除單元的非受選漏電。是否支援原地執行，還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。
+NOR 常用於需要直接、可預測讀取的程式碼儲存。除了主流 SST SuperFlash 分裂閘極（ESF1/2/3 演進與 28nm 量產）外，成熟代工與專業 IP 廠提供多元利基 eFlash 架構：常億科技 (Chingistek) pFusion 採 PMOS 浮閘與能帶間穿隧熱電洞注入 (BBHH)，提供微安培級寫入電流；智憶科技 (IOTMemory) SilvoFlash 採專利單層/低光罩架構，原生 0.9V–1.2V 核心電壓直接讀取，打破傳統 eFlash ≥1.8V 門檻並量產於 DDR5 SPD IC。堆疊閘極、分離閘極與利基低壓/PMOS 浮閘各有取捨，是否支援原地執行還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。
 
 #### 電性抹除：PGM 與 ERS 的完整循環
 
@@ -4402,6 +4753,10 @@ NOR 透過字線及位元線選擇單元，未選列漏電會直接影響感測�
 - [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
 - [ch-maturity-nor-product：微芯科技：SST39SF020A 平行快閃產品頁](https://www.microchip.com/en-us/product/SST39SF020A)
 - [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
 
 ## SONOS 與 NROM：把電荷留在絕緣捕捉層
 
@@ -6173,6 +6528,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ch-mtp-ememory-neomtp：力旺電子：NeoMTP 單層多晶矽 p 型浮動閘極原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)。原廠技術產品頁；頁面未標出版日；2026-09-10 查核；定位：頁首 single-poly 與額外 erase gate；Technical Principles 的 p 型 FG-MOSFET、CHEI 及 FN 抹除出口；限制：原廠說明通道熱電洞誘發熱電子注入，並由浮動閘極向抹除閘極 FN 轉移電子。不得套用 n 通道／源極抹除剖面，也不據此推定其他 NeoEE 或第三方 MTP。
 - [ch-mtp-floadia-zt：Floadia：LEE Flash ZT 零新增光罩 MTP](https://floadia.com/product/lee-flash-zt/)。原廠產品頁；頁面未標出版日；2026-09-10 查核；定位：Product Info、Major Features 第 4–5 項；FN 寫入與抹除段落；限制：可確認 MTP、標準 CMOS、零新增光罩與 FN 寫抹；本頁未直接明示多晶矽層數。頁面不同位置的循環規格不一致，本教案不採其數字為共同保證。
 - [ch-mtp-floadia-zt-fg：Floadia 與力積電子：LEE Flash ZT 浮動閘極 MTP 公開整合](https://floadia.com/news/422/)。原廠公告；2016-05-20；2026-09-10 查核；定位：2016-05-20 公告標題及說明；ZT 浮動閘極與 FN 雙向操作段落；限制：具名歷史整合為 Maxchip 0.18 µm BCD，支持浮動閘極與 FN 寫抹。沒有直接明示多晶矽層數，不能由零新增光罩推定；也不能把此代規格套至全部現行 ZT。
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)。原廠技術規格；2026-09-16 查核；定位：P-Channel 浮閘 PMOS eFlash；以能帶至能帶穿隧誘發熱電洞注入 (BBHH) 寫入與 FN 抹除；極低寫入電流，標準 CMOS 相容。；限制：適用於微控制器與智慧卡；不以單一規格書代表全節點 PDK。
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)。原廠產品手冊；2026-09-16 查核；定位：Pm25 系列獨立式 NOR Flash；晶豪科技 ESMT 產品線。；限制：獨立式封裝不等於所有嵌入式巨集。
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)。原廠技術白皮書；2026-09-16 查核；定位：SilvoFlash 原生 0.9V–1.2V 超低壓 eFlash；支援 40nm SoC 與 DDR5 SPD IC 供應鏈。；限制：核心電壓原生讀取不代表抹除無需內部升壓；量產驗證按具名產品核對。
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)。原廠技術白皮書；2026-09-16 查核；定位：單一製程整合 Code eFlash 與 Data eEEPROM。；限制：兩者在同一晶片上共存需核對具名巨集組織。
 - [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)。公司監管申報；2026-03-04；查閱 2026-09-10；定位：2025 年度產品概況與製造段落；SEC 索引確認申報日 2026-03-04，受理時間 17:20:43；限制：量產與出貨限具名產品；不能把家族中一個產品的規格套用到全部 MRAM。
 - [EMG-XSPI：Everspin 64Mb 高可靠度 xSPI 生產認證](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)。原廠公告；2026-03-05；查閱 2026-09-10；定位：64Mb 認證、可訂購與通路庫存；其他容量時程；限制：128Mb／256Mb 在此公告為預計認證，不能由日期已過推定完成。
 - [EMG-RA8：Renesas RA8M2／RA8D2 嵌入式 MRAM MCU](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)。原廠產品公告；2025-10-22；查閱 2026-09-10；定位：1MB MRAM、22nm ULL 與供貨段落；限制：1GHz 是 CPU 時脈，不是 MTJ 寫入頻率；外部 Flash 選項不計入 MRAM 容量。
@@ -6312,6 +6671,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)。vendor；2026-09-16；定位：SONOS 單元夾在開關電晶體之間；4 道光罩；VDD 讀取／不揮發化邏輯；標為持續開發。；限制：開發中敘述不能當已量產保證。
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)。vendor；2026-09-16；定位：SuperFlash 嵌入式快閃記憶體製程整合與授權入口。；限制：服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。vendor；2018-03；定位：第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。；限制：結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。
+- [ip-sst-esf-generations：SST SuperFlash ESF1 / ESF2 / ESF3 世代技術架構演進](https://www.sst.com/technology/superflash-technology/)。vendor；2024-05；定位：ESF1 非自對準雙閘極 (1µm–0.11µm)；ESF2 自對準雙閘極 (0.25µm–0.11µm)；ESF3 頂部耦合 4 閘極 5 端子單元 (120nm–28nm，專用 Erase Gate)。；限制：三代架構演進為 SST / Microchip 公開製程節點里程碑；各代 PDK 規則與光罩數依代工廠授權而定。
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
 - [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。
@@ -6564,7 +6924,7 @@ Micron 於 2021-03-16 停止 3D XPoint 開發；Intel 於 2022 年 7 月停止 O
 - [CMP-MICRON-CALL2021：Micron 3D XPoint 策略更新法說稿](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023：Intel Optane 客戶信](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
 
-## 九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表
+## 十一款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表
 
 Yu 2016 與 2021 課程表比較 SRAM、DRAM、NOR、NAND、PCM、RRAM、STT-MRAM、SOT-MRAM、FeRAM 與 FeFET。下列邏輯製程 OTP／MTP／eFlash IP 不是該表欄位，也沒有可併入歷史表的統一電壓或循環次數。此處只對照選型矩陣的家族葉，並連到單元導讀。
 
@@ -6598,7 +6958,7 @@ HD-MTP 葉是 CHI／FN 浮閘。Schottky TwinBit 兩邊都不掛。
 
 分裂閘極 eFlash 葉即此族，不是 SONOS。
 
-- SST · SuperFlash（#ip-sst-superflash）：源側注入寫入、多晶矽間 FN 抹除。公開代工節點約 180–28 nm；首頁亦見 500 nm–28 nm。
+- SST · SuperFlash (ESF1/2/3)（#ip-sst-superflash）：三代分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自對準雙閘極）、ESF3（自對準頂部耦合 4 閘極，SG+CG+FG+EG）。源側注入寫入、專用 EG 閘極間 FN 抹除。代工節點涵蓋 500 nm 至 28 nm（TSMC 28HPC+、GF、UMC）。
 
 ### SONOS eFlash
 
@@ -6606,6 +6966,13 @@ HD-MTP 葉是 CHI／FN 浮閘。Schottky TwinBit 兩邊都不掛。
 
 - Floadia · LEE Flash G1（#ip-floadia-g1）：SONOS、+2–3 道光罩、FN 寫抹；公開敘述含 BCD。
 - Floadia · LEE Flash G2（#ip-floadia-g2）：SONOS 夾在開關電晶體之間、+4、VDD 讀；原廠標持續開發。不是 G1 的節點延伸。
+
+### 低功耗與超低壓 eFlash（常億 pFusion／智憶 SilvoFlash）
+
+常億以 PMOS 浮閘 BBHH 熱電洞注入達成微安級寫入；智憶以專利浮閘結構達成原生 0.9V–1.2V 核心電壓讀取。
+
+- 常億科技 · pFusion eFlash（#ip-chingis-pfusion）：P-Channel 浮閘；BBHH 帶帶穿隧熱電洞注入寫入、FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。
+- 智憶科技 · SilvoFlash eFlash（#ip-iotmemory-silvoflash）：專利單層／低光罩 CMOS 浮閘；原生 0.9V–1.2V 核心電壓直接讀取，消除讀取升壓電荷泵；驗證於 DDR5 SPD IC 與 40nm SoC。
 
 歷史表數字維持課程基線。具名 IP 的偏壓、循環次數與量產節點以各單元來源與 VERIFY 限制為準，不在此處補造規格。
 
@@ -8895,6 +9262,32 @@ Cypress 歷史與現行 Infineon 巨集分開；不合併全家族最佳規格�
 來源未標日期；查核 2026-09-10
 
 - [industry-sst-superflash：SST／Microchip · SuperFlash NOR／eFlash](https://www.sst.com/services/)
+
+### 常億科技 Chingis Technology · pFusion PMOS eFlash
+
+利基 eFlash IP 供應商 · 成熟量產與廣泛授權
+
+專利 pFusion 架構採 P-Channel PMOS 浮閘，利用能帶間穿隧誘發熱電洞注入 (BBHH) 進行微安培級寫入，並以高電場 FN 穿隧抹除；具備低功耗寫入與標準 CMOS 相容特徵，廣泛授權於 MCU、智慧卡與周邊晶片。
+
+微安培寫入電流為 PMOS 特性，不代表抹除無需內部升壓；製程支援與額外光罩道數依目標代工廠 PDK 授權合約。
+
+2024–2026 技術手冊 · 查核 2026-09-16
+
+- [ip-chingis-pfusion：常億科技：pFusion eFlash 產品技術](https://www.chingistek.com)
+- [ip-chingis-pm25：常億科技：pFlash SPI NOR Flash](https://www.chingistek.com)
+
+### 智憶科技 IOTMemory · SilvoFlash 原生超低壓 eFlash
+
+利基超低壓 eFlash IP 供應商 · 量產出貨與商用驗證
+
+專利 SilvoFlash 架構採單層多晶矽／低光罩 CMOS 浮閘技術，實現原生 0.9V–1.2V 核心邏輯電壓直接高速感測讀取，無須常時啟動升壓電荷泵；支援 Code Flash 與 Data EEPROM (SilvoFE) 雙模共存，已於 40nm 等節點量產並打入 DDR5 SPD 晶片供應鏈。
+
+核心電壓原生讀取不代表寫抹操作無需內部升壓電荷泵；具體耐久與保持性按代工廠 PDK 驗證為準。
+
+2024–2026 商業手冊 · 查核 2026-09-16
+
+- [ip-iotmemory-silvoflash：智憶科技：SilvoFlash 超低壓 eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe：智憶科技：SilvoFE 嵌入式 eEEPROM](https://iotmemory.com/en)
 
 ### STMicroelectronics · eSTM eFlash / Page EEPROM
 

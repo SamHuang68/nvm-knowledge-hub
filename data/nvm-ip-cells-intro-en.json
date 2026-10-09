@@ -358,27 +358,80 @@
     },
     {
       "id": "sst-superflash",
-      "title": "SST SuperFlash: Split-Gate eFlash",
-      "shortTitle": "SST · SuperFlash",
+      "title": "SST SuperFlash: ESF1 / ESF2 / ESF3 Three-Generation Split-Gate eFlash",
+      "shortTitle": "SST · SuperFlash (ESF1/2/3)",
       "vendor": "SST / Microchip",
       "group": "eflash",
       "hostTopic": "nor",
-      "summary": "Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.",
-      "program": "Source-side injection writes hot electrons into the floating gate",
-      "reverse": "Interpoly FN removes electrons from the floating gate",
-      "readout": "Sense channel current after the select gate turns on",
-      "lesson": "SuperFlash program is SSI, not a generic CHE label; erase is inter-gate FN, not channel erase. A licensed process range is not proof of one production node.",
+      "summary": "SST SuperFlash split-gate eFlash technology has advanced across three distinct generations: 1st-Gen ESF1 (1µm–0.11µm) used a non-self-aligned 2-gate cell with source-side injection (SSI) programming and FG-tip FN erase to the wordline; 2nd-Gen ESF2 (0.25µm–0.11µm) transitioned to a self-aligned 2-gate architecture, eliminating overlay margins and shrinking cell area by >40%; 3rd-Gen ESF3 (120nm–28nm) broke the planar eFlash scaling barrier by introducing a self-aligned top-coupled 4-gate 5-terminal cell (SG+CG+FG+EG), using a dedicated Erase Gate (EG) for 11.5V interpoly FN erase while fully decoupling the wordline (SG) at 0V, scaling successfully to 28nm and achieving mass production across TSMC, GF, and UMC.",
+      "program": "Source-side injection (SSI) writes hot electrons into FG with microamp-class write current",
+      "reverse": "Dedicated Erase Gate (EG) interpoly FN tunneling erase with SG fully decoupled at 0V",
+      "readout": "Select gate (SG) turns on at core logic voltage to sense channel conduction current",
+      "lesson": "SST SuperFlash evolution demonstrates the first-principles resolution of deep submicron eFlash scaling limits: in 2-gate ESF1/ESF2, the high erase voltage (~12V) was routed to the wordline (SG/WL), causing dielectric breakdown on ultra-thin core logic gate oxide below 90nm; ESF3 solved this via four-gate functional decoupling—adding a top Control Gate (CG) for high capacitive coupling and a dedicated Erase Gate (EG) to absorb the 11.5V pulse, keeping the Select Gate (SG) at 0V with standard logic thin oxide. This enabled scaling past the 40nm planar barrier down to 28nm. Process rules and mask adders must be verified against target foundry PDK licenses.",
       "eraseCycle": {
         "kind": "electrical",
-        "title": "SuperFlash: SSI Program / Interpoly FN Erase",
+        "title": "SuperFlash ESF3: SSI Program / Dedicated EG Interpoly FN Erase Cycle",
         "sequence": "PGM → ERS → PGM",
-        "definition": "The same split-gate cell supports programming, electrical erase and subsequent programming. Erase lets electrons leave FG through the interpoly oxide and restores a reprogrammable window.",
-        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
-        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
-        "limits": "Read structure and mechanism within the named SuperFlash generation. 2018 shipment and node tables are not guarantees for every product in 2026.",
+        "definition": "The same self-aligned top-coupled ESF3 cell supports microamp-class SSI programming, dedicated Erase Gate interpoly FN electrical erase, and repeated cycling. Erase confines the 11.5V bias to EG while SG remains at 0V zero-stress, restoring the cell to a low-threshold conductive window with 100k cycles and 20-year retention.",
+        "verification": "After the specified erase pulse or on-chip auto-erase/verify algorithm completes, use PDK-specified read margins and sense amplifier references to confirm bit status; do not invent generic timing or pulse thresholds.",
+        "granularity": "Supports sector erase (typically 4KB) with page/byte programming; cell-level reversibility does not establish host-level bit-alterability.",
+        "limits": "Three-generation evolution (ESF1/ESF2/ESF3) reflects documented technology milestones; 28nm shipment metrics are verified from public automotive and foundry reports; extra mask count (typically 9–11 masks) and thermal budgets vary by target foundry license.",
         "sourceIds": [
           "ip-sst-home",
-          "ip-sst-superflash"
+          "ip-sst-superflash",
+          "ip-sst-esf-generations"
+        ]
+      }
+    },
+    {
+      "id": "chingis-pfusion",
+      "title": "Chingis Technology pFusion: PMOS Floating-Gate eFlash",
+      "shortTitle": "Chingis · pFusion eFlash",
+      "vendor": "Chingis Technology (ESMT Group)",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility.",
+      "program": "BBHH band-to-band hot-hole injection into FG",
+      "reverse": "High-field FN tunneling erase from FG",
+      "readout": "Low-bias sensing of P-channel conduction current",
+      "lesson": "The core physics of pFusion lies in PMOS floating-gate operation with BBHH hot-hole injection, cutting programming current by 2–3 orders of magnitude compared to NMOS CHEI; erase uses FN tunneling. Standalone Pm25 SPI NOR Flash does not equate to full embedded PDK suites; process integration must be verified with target foundry PDK licenses.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "pFusion: BBHH Program / FN Erase Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same PMOS floating-gate cell supports programming, electrical erasure, and reprogramming. Erase restores the floating gate to a high-threshold or off-state window, enabling subsequent BBHH injection cycles.",
+        "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+        "granularity": "Target range and update granularity depend on named macro and array architecture; cell reversibility does not guarantee host bit-level operations.",
+        "limits": "Microamp programming current is an intrinsic PMOS floating-gate feature; it does not eliminate internal charge pump requirements for erase. High-temp retention and endurance must be referenced from foundry test reports.",
+        "sourceIds": [
+          "ip-chingis-pfusion",
+          "ip-chingis-pm25"
+        ]
+      }
+    },
+    {
+      "id": "iotmemory-silvoflash",
+      "title": "IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash",
+      "shortTitle": "IOTMemory · SilvoFlash eFlash",
+      "vendor": "IOTMemory Technology",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs.",
+      "program": "Internal low-power micro-pump tunneling injection",
+      "reverse": "Low-power tunneling erase discharging FG",
+      "readout": "Native 0.9V–1.2V core logic direct sensing",
+      "lesson": "SilvoFlash breaks the conventional eFlash reading barrier by sensing directly at native 0.9V–1.2V core voltage, eliminating charge-pump static standby leakage and startup latency; erase and write still rely on an internal micro-pump. A single process supports both SilvoFlash (code) and SilvoFE (data EEPROM).",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "SilvoFlash: Native Low-Voltage Read / Tunneling PGM-ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same patented floating-gate cell supports programming, electrical erasure, and reprogramming. Erasing discharges the FG back to virgin threshold levels, supporting both Code Flash and Data EEPROM dual modes.",
+        "verification": "After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.",
+        "granularity": "Selected ranges and update granularity depend on macro implementation; code blocks support sector erase, while data blocks support byte updates.",
+        "limits": "Native 0.9V–1.2V read does not mean program or erase operations require no internal boost. Actual write energy, retention, and cycle endurance depend on target foundry 40nm/55nm PDKs.",
+        "sourceIds": [
+          "ip-iotmemory-silvoflash",
+          "ip-iotmemory-silvofe"
         ]
       }
     },

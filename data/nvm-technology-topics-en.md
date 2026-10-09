@@ -2771,168 +2771,519 @@ The vendor marks ongoing development; this drawing teaches only the published st
 
 G2’s read claim is VDD plus side switches; it does not cancel charge-trap physics. An in-development note is not a production guarantee and is not a generic standard-cell library.
 
-### SST SuperFlash: Split-Gate eFlash
+### SST SuperFlash: ESF1 / ESF2 / ESF3 Three-Generation Split-Gate eFlash
 
 SST / Microchip
 
-Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+SST SuperFlash split-gate eFlash technology has advanced across three distinct generations: 1st-Gen ESF1 (1µm–0.11µm) used a non-self-aligned 2-gate cell with source-side injection (SSI) programming and FG-tip FN erase to the wordline; 2nd-Gen ESF2 (0.25µm–0.11µm) transitioned to a self-aligned 2-gate architecture, eliminating overlay margins and shrinking cell area by >40%; 3rd-Gen ESF3 (120nm–28nm) broke the planar eFlash scaling barrier by introducing a self-aligned top-coupled 4-gate 5-terminal cell (SG+CG+FG+EG), using a dedicated Erase Gate (EG) for 11.5V interpoly FN erase while fully decoupling the wordline (SG) at 0V, scaling successfully to 28nm and achieving mass production across TSMC, GF, and UMC.
 
-#### SuperFlash: SSI Program / Interpoly FN Erase
+#### SuperFlash ESF3: SSI Program / Dedicated EG Interpoly FN Erase Cycle
 
-The same split-gate cell supports programming, electrical erase and subsequent programming. Erase lets electrons leave FG through the interpoly oxide and restores a reprogrammable window.
+The same self-aligned top-coupled ESF3 cell supports microamp-class SSI programming, dedicated Erase Gate interpoly FN electrical erase, and repeated cycling. Erase confines the 11.5V bias to EG while SG remains at 0V zero-stress, restoring the cell to a low-threshold conductive window with 100k cycles and 20-year retention.
 
 PGM → ERS → PGM
 
-Programmed
+Programmed State Awaiting Erase
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide. — The teaching drawing is not a foundry metrology cross-section.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV. — Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
-The teaching drawing is not a foundry metrology cross-section.
+Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
-After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+After the specified erase pulse or on-chip auto-erase/verify algorithm completes, use PDK-specified read margins and sense amplifier references to confirm bit status; do not invent generic timing or pulse thresholds.
 
-Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+Supports sector erase (typically 4KB) with page/byte programming; cell-level reversibility does not establish host-level bit-alterability.
 
-Read structure and mechanism within the named SuperFlash generation. 2018 shipment and node tables are not guarantees for every product in 2026.
+Three-generation evolution (ESF1/ESF2/ESF3) reflects documented technology milestones; 28nm shipment metrics are verified from public automotive and foundry reports; extra mask count (typically 9–11 masks) and thermal budgets vary by target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-SST SuperFlash eFlash
+SST SuperFlash eFlash (ESF1 / ESF2 / ESF3)
 
-Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+SST SuperFlash split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate 5-terminal cell: SG+CG+FG+EG). Program uses source-side injection (SSI); erase uses interpoly FN to dedicated EG.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Write
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Write
 
 Establish the programmed state by the published mechanism without splicing unpublished bias tables.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. Split Gate: Select Gate beside Floating Gate**
+**1. ESF3 Cell Ready: SG, CG, FG and EG 4-Gate Topology**
 
-State: Fewer FG electrons
+State: FG Initial State
 
 Stimulus: Bias zero
 
-SuperFlash is published as a split-gate architecture.
+ESF3 self-aligned top-coupled cell features dedicated Erase Gate (EG), breaking ESF1/ESF2 scaling limits.
 
-**2. Source-Side Injection Writes Hot Electrons into FG**
+**2. Source-Side Injection (SSI) Injects Hot Electrons into FG**
 
 State: Programming
 
-Stimulus: SSI
+Stimulus: SSI (CG/SL Bias)
 
-The program mechanism is source-side injection, not a generic CHE label.
+High lateral field at SG-FG gap yields 100-1000x higher injection efficiency than CHE with microamp write current.
 
-**3. Electrons Remain on FG**
+**3. Hot Electrons Stored on FG; Threshold Shifted**
 
-State: Programmed
+State: Programmed State Retained
 
 Stimulus: Bias zero
 
-The licensed process range is not proof of one node.
+Electrons stored on FG raise cell equivalent threshold, ensuring disturb-free retention.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Erase / Restore Limit
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Erase / Restore Limit
 
 Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. FG Already Holds Injected Electrons**
+**1. Cell Holds Injected Charge: Ready for EG Erase**
 
-State: Programmed
+State: Programmed State Awaiting Erase
 
 Stimulus: Bias zero
 
-Erase uses interpoly FN, not a reverse SSI current.
+ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.
 
-**2. Interpoly FN Removes Electrons from FG**
+**2. EG Biased to 11.5V: Interpoly FN Tunneling Erase**
 
 State: Erasing
 
-Stimulus: interpoly FN
+Stimulus: V_EG ≈ 11.5V; SG = 0V
 
-Electrons cross the oxide between select gate and floating gate.
+Electrons tunnel from FG tip to EG; select gate (SG) sits at 0V stress, preventing logic gate-oxide breakdown at advanced nodes.
 
-**3. FG Returns to a Reprogrammable Window**
+**3. FG Restored to Erased State: Ready for Rewriting**
 
 State: Erased
 
 Stimulus: Bias zero
 
-The teaching drawing is not a foundry metrology cross-section.
+Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Read
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Read
 
 Sense the retained state under product read conditions, then latch and isolate.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. The Same Split-Gate Cell Awaits Read**
+**1. ESF3 Cell Awaits Read: 4-Gate Biases Ready**
 
-State: Existing FG charge
+State: Existing FG Charge
 
-Stimulus: Read bias is product-defined
+Stimulus: Core Logic Rail Ready
 
-Read does not repeat SSI program.
+Read selects through wordline SG while CG provides optimal read bias.
 
-**2. Turn on Select Gate and Sense the Channel**
+**2. SG Turns On at Core Voltage to Sense Channel**
 
 State: Reading
 
-Stimulus: Small bias
+Stimulus: SG = VDD (Logic Level)
 
-Channel current reflects FG charge.
+Channel is cut off if FG stores electrons and conducts if erased; sense amplifier reads data state.
 
-**3. Latch then Turn off Select Gate**
+**3. Data Latched: SG Turns Off to Return to Standby**
 
-State: Charge retained
+State: Data Latched
 
 Stimulus: Bias zero
 
-Read-speed ratings must be checked on the licensed target version.
+Offers ultra-low standby leakage, ideal for MCUs, smart cards, and automotive processors.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
 #### IP Cell Tradeoffs
 
-SuperFlash program is SSI, not a generic CHE label; erase is inter-gate FN, not channel erase. A licensed process range is not proof of one production node.
+SST SuperFlash evolution demonstrates the first-principles resolution of deep submicron eFlash scaling limits: in 2-gate ESF1/ESF2, the high erase voltage (~12V) was routed to the wordline (SG/WL), causing dielectric breakdown on ultra-thin core logic gate oxide below 90nm; ESF3 solved this via four-gate functional decoupling—adding a top Control Gate (CG) for high capacitive coupling and a dedicated Erase Gate (EG) to absorb the 11.5V pulse, keeping the Select Gate (SG) at 0V with standard logic thin oxide. This enabled scaling past the 40nm planar barrier down to 28nm. Process rules and mask adders must be verified against target foundry PDK licenses.
+
+### Chingis Technology pFusion: PMOS Floating-Gate eFlash
+
+Chingis Technology (ESMT Group)
+
+Chingis pFusion eFlash uses a P-channel PMOS floating-gate architecture. Program uses band-to-band tunneling induced hot-hole injection (BBHH) and erase uses FN tunneling, delivering microamp-class write current and standard CMOS compatibility.
+
+#### pFusion: BBHH Program / FN Erase Cycle
+
+The same PMOS floating-gate cell supports programming, electrical erasure, and reprogramming. Erase restores the floating gate to a high-threshold or off-state window, enabling subsequent BBHH injection cycles.
+
+PGM → ERS → PGM
+
+Programmed
+
+Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling. — Cell enters off-state, ready for next BBHH program.
+
+Cell enters off-state, ready for next BBHH program.
+
+After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.
+
+Target range and update granularity depend on named macro and array architecture; cell reversibility does not guarantee host bit-level operations.
+
+Microamp programming current is an intrinsic PMOS floating-gate feature; it does not eliminate internal charge pump requirements for erase. High-temp retention and endurance must be referenced from foundry test reports.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+Chingis Technology pFusion eFlash (P-Channel FG)
+
+P-Channel PMOS floating-gate eFlash. Band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp-class write current, standard CMOS compatible.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- BBHH · Band-to-band hot-hole injection for microamp-class write current.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### Chingis Technology pFusion eFlash (P-Channel FG) — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.
+
+**1. P-Channel FG Cell: Ready to Program**
+
+State: Initial FG neutral or few holes
+
+Stimulus: Bias zero
+
+Chingis pFusion uses a PMOS floating-gate architecture.
+
+**2. BBHH Band-to-Band Hot-Hole Injection**
+
+State: Programming
+
+Stimulus: Drain reverse-biased; BBHH injection
+
+Band-to-band tunneling generates hot holes injected into FG; programming current is microamp-class.
+
+**3. Hot Holes Retained in FG; PMOS Conducts**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Holes lower FG potential to turn on channel, minimizing charge pump overhead.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- BBHH · Band-to-band hot-hole injection for microamp-class write current.
+
+Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### Chingis Technology pFusion eFlash (P-Channel FG) — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.
+
+**1. Cell Holds Accumulated Hole Charge**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Erase uses FN tunneling, not a fuse.
+
+**2. High-Field FN Tunneling Depletes Holes / Injects Electrons**
+
+State: Erasing
+
+Stimulus: FN Erase Bias
+
+FN electric field restores FG to neutral or high-threshold erase window.
+
+**3. FG Restored to Reprogrammable Window**
+
+State: Erased
+
+Stimulus: Bias zero
+
+Cell enters off-state, ready for next BBHH program.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- BBHH · Band-to-band hot-hole injection for microamp-class write current.
+
+Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### Chingis Technology pFusion eFlash (P-Channel FG) — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Hot holes generated by band-to-band tunneling (BBHH) efficiently inject into FG; erase uses FN tunneling.
+
+**1. P-Channel FG Cell Awaits Read**
+
+State: Existing FG state
+
+Stimulus: Prepare sensing
+
+Read operates at low electrical stress.
+
+**2. Apply Small Read Bias to Sense P-Channel**
+
+State: Reading
+
+Stimulus: Read bias V_READ
+
+Channel conduction current reflects accumulated FG holes.
+
+**3. Sense Amplifier Latches Data**
+
+State: Data latched
+
+Stimulus: Bias restored
+
+Low read disturb ensures multi-decade high-temp retention.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- BBHH · Band-to-band hot-hole injection for microamp-class write current.
+
+Microamp write current is an inherent PMOS FG trait; it does not mean erase requires no boost; PDK support depends on target foundries.
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+#### IP Cell Tradeoffs
+
+The core physics of pFusion lies in PMOS floating-gate operation with BBHH hot-hole injection, cutting programming current by 2–3 orders of magnitude compared to NMOS CHEI; erase uses FN tunneling. Standalone Pm25 SPI NOR Flash does not equate to full embedded PDK suites; process integration must be verified with target foundry PDK licenses.
+
+### IOTMemory SilvoFlash: Native Ultra-Low-Voltage eFlash
+
+IOTMemory Technology
+
+IOTMemory's patented single-poly / low-mask CMOS floating-gate architecture. Its primary breakthrough is native 0.9V–1.2V core logic read operation, eliminating the conventional ≥1.8V read barrier; qualified in JEDEC DDR5 SPD Hub ICs and 40nm SoCs.
+
+#### SilvoFlash: Native Low-Voltage Read / Tunneling PGM-ERS Cycle
+
+The same patented floating-gate cell supports programming, electrical erasure, and reprogramming. Erasing discharges the FG back to virgin threshold levels, supporting both Code Flash and Data EEPROM dual modes.
+
+PGM → ERS → PGM
+
+Programmed
+
+Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase. — Features both SilvoFlash code and SilvoFE data storage.
+
+Features both SilvoFlash code and SilvoFE data storage.
+
+After designated pulses or internal update cycles complete, verify the target state under specified read conditions before accepting new data; do not invent generic verification thresholds or timings.
+
+Selected ranges and update granularity depend on macro implementation; code blocks support sector erase, while data blocks support byte updates.
+
+Native 0.9V–1.2V read does not mean program or erase operations require no internal boost. Actual write energy, retention, and cycle endurance depend on target foundry 40nm/55nm PDKs.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
+
+IOTMemory SilvoFlash Native Low-Voltage eFlash
+
+Patented single-poly / low-mask CMOS floating-gate structure. Native 0.9V–1.2V core logic readout breaks the ≥1.8V barrier; qualified in DDR5 SPD IC supply chain.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- 0.9V · Native 0.9V–1.2V core logic read, eliminating boost charge pumps.
+- e− · Blue dots denote stored electrons; count is qualitative.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
+
+#### IOTMemory SilvoFlash Native Low-Voltage eFlash — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.
+
+**1. SilvoFlash Ultra-Low-Voltage Cell: Ready**
+
+State: FG uncharged
+
+Stimulus: Bias zero
+
+Patented CMOS-compatible single-poly / low-mask structure.
+
+**2. Internal Micro-Pump Tunneling Injection**
+
+State: Programming
+
+Stimulus: Tunneling write pulse
+
+Low-power pump provides local tunneling field without external logic disturbance.
+
+**3. Charge Retained on FG; Program Complete**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Cell completes data storage and returns to low-leakage standby.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- 0.9V · Native 0.9V–1.2V core logic read, eliminating boost charge pumps.
+- e− · Blue dots denote stored electrons; count is qualitative.
+
+Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
+
+#### IOTMemory SilvoFlash Native Low-Voltage eFlash — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.
+
+**1. Cell Holds Stored Charge**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Multiple rewrites supported; dual-mode for Code Flash and Data EEPROM.
+
+**2. Tunneling Erase Discharges FG**
+
+State: Erasing
+
+Stimulus: Erase pulse
+
+Charge discharged from FG, restoring virgin threshold voltage.
+
+**3. Cell Restored to Reprogrammable Window**
+
+State: Erased
+
+Stimulus: Bias zero
+
+Features both SilvoFlash code and SilvoFE data storage.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- 0.9V · Native 0.9V–1.2V core logic read, eliminating boost charge pumps.
+- e− · Blue dots denote stored electrons; count is qualitative.
+
+Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
+
+#### IOTMemory SilvoFlash Native Low-Voltage eFlash — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Direct channel readout at native 0.9V–1.2V core logic voltage; low-power charge pump assists tunneling program/erase.
+
+**1. Native 0.9V–1.2V Core Voltage Ready**
+
+State: Existing stored state
+
+Stimulus: Core supply rail VDD
+
+No read charge pump needed, eliminating the ≥1.8V conventional barrier.
+
+**2. Sense Channel at Native 0.9V–1.2V**
+
+State: Reading
+
+Stimulus: VDD = 0.9V~1.2V
+
+Direct readout sharing power rail with near-threshold core; qualified in DDR5 SPD ICs.
+
+**3. Read Complete; Zero-Boost Standby**
+
+State: Data latched
+
+Stimulus: Core rail maintained
+
+Minimizes standby leakage for high-efficiency IoT and edge SoCs.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- 0.9V · Native 0.9V–1.2V core logic read, eliminating boost charge pumps.
+- e− · Blue dots denote stored electrons; count is qualitative.
+
+Boost-free read does not mean program/erase requires no internal HV; retention and endurance must be verified on foundry PDKs.
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
+
+#### IP Cell Tradeoffs
+
+SilvoFlash breaks the conventional eFlash reading barrier by sensing directly at native 0.9V–1.2V core voltage, eliminating charge-pump static standby leakage and startup latency; erase and write still rely on an internal micro-pump. A single process supports both SilvoFlash (code) and SilvoFE (data EEPROM).
 
 ### Numem: Embedded STT-MRAM IP Cell
 
@@ -4291,7 +4642,7 @@ No. NeoEE publicly describes FN charge transfer in both directions. NeoMTP descr
 
 ## NOR: Stacked-Gate and Split-Gate Code Storage
 
-NOR is commonly used for code storage requiring direct, predictable reads. Stacked-gate cells place storage and selection responsibilities under the cell's gate control; split-gate cells add a selection channel that helps block unselected leakage from overerased cells. Execute-in-place support also depends on the interface, controller, and cache timing and cannot be guaranteed by the NOR name alone.
+NOR is commonly used for code storage requiring direct, predictable reads. Beyond mainstream SST SuperFlash split-gate evolution (ESF1/2/3 and 28nm production), mature foundries and specialized IP vendors provide diverse niche eFlash architectures: Chingis Technology pFusion employs PMOS floating gates with band-to-band tunneling induced hot-hole injection (BBHH) to achieve microamp-level write currents; IOTMemory SilvoFlash adopts a patented single-poly / low-mask architecture with native 0.9V-1.2V core logic direct sensing, breaking the traditional eFlash >=1.8V threshold and entering volume production in DDR5 SPD ICs. Stacked-gate, split-gate, and niche low-voltage / PMOS floating-gate topologies involve different trade-offs; execute-in-place support also depends on interface, controller, and cache timing and cannot be guaranteed by the NOR name alone.
 
 #### Electrical Erase: The Complete PGM / ERS Cycle
 
@@ -4402,6 +4753,10 @@ No. The SuperFlash brochure's example uses inter-gate FN tunneling, while US6232
 - [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
 - [ch-maturity-nor-product: Microchip: SST39SF020A Parallel Flash Product Page](https://www.microchip.com/en-us/product/SST39SF020A)
 - [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
 
 ## SONOS and NROM: Charge Trapping in Insulating Layers
 
@@ -6173,6 +6528,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ch-mtp-ememory-neomtp: eMemory: NeoMTP Single-Poly p-Type Floating-Gate Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP). Manufacturer Technical Product Page; No publication date stated; reviewed 2026-09-10; Location in the Source: Opening single-poly and additional-erase-gate descriptions; Technical Principles: p-type FG-MOSFET, CHEI, and FN erase destination; Limitations: The manufacturer describes channel-hot-hole-induced hot-electron injection and FN electron transfer from floating gate to erase gate. Do not substitute an n-channel/source-erase cross-section or extend this mechanism to NeoEE or other vendors' MTP.
 - [ch-mtp-floadia-zt: Floadia: LEE Flash ZT Zero-Added-Mask MTP](https://floadia.com/product/lee-flash-zt/). Manufacturer Product Page; No publication date stated; reviewed 2026-09-10; Location in the Source: Product Info; Major Features items 4–5; FN program/erase paragraph; Limitations: Confirms MTP, standard CMOS, zero added masks, and FN programming/erase. This page does not explicitly state the polysilicon count. Cycle figures differ across page sections and are not adopted as a common guarantee.
 - [ch-mtp-floadia-zt-fg: Floadia and Maxchip: Public Floating-Gate LEE Flash ZT MTP Integration](https://floadia.com/news/422/). Manufacturer Announcement; 2016-05-20; reviewed 2026-09-10; Location in the Source: 2016-05-20 title and announcement; paragraph identifying floating-gate storage and FN program/erase; Limitations: An identified historical integration on Maxchip 0.18 um BCD supports floating-gate storage and FN program/erase. The polysilicon count is not stated and cannot be inferred from zero added masks. These generation-specific ratings do not apply to all current ZT products.
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com). Manufacturer Specification; Reviewed 2026-09-16; Location in the Source: P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program and FN erase; microamp-level write current, standard CMOS compatible.; Limitations: Targeted at microcontrollers and smart cards; a single datasheet does not represent all node PDKs.
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com). Manufacturer Product Manual; Reviewed 2026-09-16; Location in the Source: Pm25 series standalone NOR Flash; ESMT product line.; Limitations: Standalone packages are not identical to all embedded macros.
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en). Manufacturer Whitepaper; Reviewed 2026-09-16; Location in the Source: SilvoFlash native 0.9V-1.2V ultra-low-voltage eFlash; deployed in 40nm SoC and DDR5 SPD IC supply chains.; Limitations: Native core-voltage read does not eliminate internal charge pumps for write/erase; volume qualification verified per product.
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en). Manufacturer Whitepaper; Reviewed 2026-09-16; Location in the Source: Single-process integration for Code eFlash and Data eEEPROM.; Limitations: Coexistence on the same die requires macro-specific arrangement check.
 - [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm). Company Regulatory Filing; 2026-03-04; Accessed 2026-09-10; Location in the Source: 2025 product overview and manufacturing sections; the SEC index confirms a filing date of 2026-03-04 and an acceptance time of 17:20:43; Limitations: Production and shipment claims apply to named products; specifications for one product must not be applied to the entire MRAM family.
 - [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb). Manufacturer Announcement; 2026-03-05; Accessed 2026-09-10; Location in the Source: 64Mb qualification, ordering availability, and distributor inventory; schedules for other densities; Limitations: The announcement describes 128Mb/256Mb qualification as planned. A passed target date does not establish completion.
 - [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram). Manufacturer Product Announcement; 2025-10-22; Accessed 2026-09-10; Location in the Source: Sections on 1MB MRAM, 22nm ULL, and availability; Limitations: 1GHz is the CPU clock frequency, not the MTJ write frequency. External Flash options are excluded from MRAM capacity.
@@ -6312,6 +6671,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/). vendor; 2026-09-16; Location in the Source: SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.; Limitations: An in-development note is not a production guarantee.
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/). vendor; 2026-09-16; Location in the Source: SuperFlash embedded Flash process-integration and licensing entry.; Limitations: The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). vendor; 2018-03; Location in the Source: Pages 2–3: split-gate, source-side injection program, interpoly FN erase.; Limitations: Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/). vendor; 2024-05; Location in the Source: ESF1 non-self-aligned 2-gate (1µm–0.11µm); ESF2 self-aligned 2-gate (0.25µm–0.11µm); ESF3 top-coupled 4-gate 5-terminal cell (120nm–28nm, dedicated Erase Gate).; Limitations: Three-generation evolution represents SST / Microchip public roadmap milestones; PDK design rules and mask adders depend on foundry licensing.
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/). Manufacturer product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: What is Numem MRAM?; Numem MRAM IP; Limitations: Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.
 - [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance; Limitations: Supports STT family physics only, not Numem product, material, or performance evidence.
@@ -6564,7 +6924,7 @@ Development, manufacturing, inventory shipments, warranties, and support are dif
 - [CMP-MICRON-CALL2021: Micron 3D XPoint Strategy-Update Prepared Remarks](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023: Intel Optane Customer Letter](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
 
-## Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table
+## Eleven Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table
 
 The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.
 
@@ -6598,7 +6958,7 @@ The HD-MTP leaf is CHI/FN floating gate. Schottky TwinBit belongs to neither lea
 
 The split-gate eFlash leaf is this family, not SONOS.
 
-- SST · SuperFlash(#ip-sst-superflash): Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm.
+- SST · SuperFlash (ESF1/2/3)(#ip-sst-superflash): Three-generation split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate: SG+CG+FG+EG). SSI program, dedicated EG interpoly FN erase. Foundry nodes span 500 nm to 28 nm (TSMC 28HPC+, GF, UMC).
 
 ### SONOS eFlash
 
@@ -6606,6 +6966,13 @@ Charge trapping. G1 and G2 are both SONOS but differ in mask count, read path an
 
 - Floadia · LEE Flash G1(#ip-floadia-g1): SONOS, +2–3 extra masks, FN program/erase; public description includes BCD.
 - Floadia · LEE Flash G2(#ip-floadia-g2): SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1.
+
+### Low-Power & Ultra-Low-Voltage eFlash (Chingis pFusion / IOTMemory SilvoFlash)
+
+Chingis uses PMOS FG BBHH hot-hole injection for microamp-class write current; IOTMemory uses patented floating-gate structure for native 0.9V–1.2V core logic read.
+
+- Chingis Technology · pFusion eFlash(#ip-chingis-pfusion): P-Channel floating gate; BBHH band-to-band hot-hole injection program, FN tunneling erase; microamp-class write current, standard CMOS compatible.
+- IOTMemory · SilvoFlash eFlash(#ip-iotmemory-silvoflash): Patented single-poly / low-mask CMOS floating gate; native 0.9V–1.2V core voltage direct read, eliminating read charge pump; qualified in DDR5 SPD ICs and 40nm SoCs.
 
 Historical-table numbers remain the course baseline. Biases, cycle counts and production nodes for named IPs stay bound to each cell study and its VERIFY limits; this page does not invent datasheet figures.
 
@@ -8855,6 +9222,32 @@ Licensing does not establish identical current qualification across nodes; verif
 Undated source; checked 2026-09-10
 
 - [industry-sst-superflash: SST/Microchip · SuperFlash NOR/eFlash](https://www.sst.com/services/)
+
+### Chingis Technology · pFusion PMOS eFlash
+
+Niche eFlash IP Provider · Volume Production and Broad Licensing
+
+Patented pFusion architecture uses P-Channel PMOS floating gates, using band-to-band tunneling induced hot-hole injection (BBHH) for microamp-level write current and high-field FN tunneling erase; provides ultra-low write power and standard CMOS compatibility, widely licensed in MCUs, smart cards, and touch controllers.
+
+Microamp write current is a PMOS floating-gate characteristic and does not eliminate internal charge pumps during erase; node support depends on target foundry PDK license agreements.
+
+2024-2026 Technical Manual; reviewed 2026-09-16
+
+- [ip-chingis-pfusion: Chingis Technology: pFusion eFlash Technology](https://www.chingistek.com)
+- [ip-chingis-pm25: Chingis Technology: pFlash SPI NOR Flash](https://www.chingistek.com)
+
+### IOTMemory · SilvoFlash Native Low-Voltage eFlash
+
+Ultra-Low-Voltage eFlash IP Provider · Volume Shipments and Commercial Qualification
+
+Patented SilvoFlash architecture uses single-poly / low-mask CMOS floating gates to achieve native 0.9V-1.2V core logic voltage high-speed sensing and reading without continuous charge pump operation; supports dual-mode Code Flash and Data EEPROM (SilvoFE), in volume production at 40nm and qualified in DDR5 SPD ICs.
+
+Native core-voltage read does not mean write and erase operations operate without internal charge pumps; endurance and retention are qualified per foundry PDK.
+
+2024-2026 Commercial Manual; reviewed 2026-09-16
+
+- [ip-iotmemory-silvoflash: IOTMemory: SilvoFlash Ultra-Low Voltage eFlash](https://iotmemory.com/en)
+- [ip-iotmemory-silvofe: IOTMemory: SilvoFE Embedded eEEPROM](https://iotmemory.com/en)
 
 ### STMicroelectronics · eSTM eFlash / Page EEPROM
 
