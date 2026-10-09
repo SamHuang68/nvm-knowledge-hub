@@ -555,16 +555,20 @@ export function initPqcDpaSimulator(containerId) {
     return (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'en').startsWith('zh') ? 'zh' : 'en';
   }
 
-  function update() {
-    const lang = getLang();
-    const metrics = calculatePqcDpaMetrics({
+  function readConfig() {
+    return {
       presetId: currentPresetId,
       topologyId: currentTopologyId,
       customDiff: diffCheck ? diffCheck.checked : undefined,
       customBlinding: blindingCheck ? blindingCheck.checked : undefined,
       customJitter: jitterCheck ? jitterCheck.checked : undefined,
       customNoise: noiseSlider ? Number(noiseSlider.value) : undefined
-    });
+    };
+  }
+
+  function update() {
+    const lang = getLang();
+    const metrics = calculatePqcDpaMetrics(readConfig());
 
     // Update Slider Labels
     const noiseValEl = root.querySelector('#pqc-noise-val');
@@ -620,8 +624,8 @@ export function initPqcDpaSimulator(containerId) {
     syncMetricCopy([mtdEl, rhoEl, berEl, scoreEl]);
     const exportControl = root.querySelector('#pqc-export-csv-btn');
     if (exportControl) {
-      exportControl.textContent = lang === 'zh' ? '📥 匯出 PQC 側信道 MTD/防禦 CSV' : '📥 Export PQC DPA Defense CSV';
-      exportControl.setAttribute('aria-label', lang === 'zh' ? '匯出後量子密碼學側信道防禦與 MTD 評估資料集為 CSV 檔案' : 'Export Post-Quantum Cryptography side-channel MTD metrics dataset as CSV file');
+      exportControl.textContent = lang === 'zh' ? '📥 匯出目前防護的全部拓撲 CSV' : '📥 Export All Topologies with Current Defenses CSV';
+      exportControl.setAttribute('aria-label', lang === 'zh' ? '依目前預設與自訂防護條件，匯出全部儲存拓撲的 MTD 掃描 CSV' : 'Export an MTD sweep of all storage topologies using the current preset and custom defenses');
     }
   }
 
@@ -646,22 +650,16 @@ export function initPqcDpaSimulator(containerId) {
     exportBtn.type = 'button';
     exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
     const initialLang = getLang();
-    exportBtn.textContent = initialLang === 'zh' ? '📥 匯出 PQC 側信道 MTD/防禦 CSV' : '📥 Export PQC DPA Defense CSV';
-    exportBtn.setAttribute('aria-label', initialLang === 'zh' ? '匯出後量子密碼學側信道防禦與 MTD 評估資料集為 CSV 檔案' : 'Export Post-Quantum Cryptography side-channel MTD metrics dataset as CSV file');
+    exportBtn.textContent = initialLang === 'zh' ? '📥 匯出目前防護的全部拓撲 CSV' : '📥 Export All Topologies with Current Defenses CSV';
+    exportBtn.setAttribute('aria-label', initialLang === 'zh' ? '依目前預設與自訂防護條件，匯出全部儲存拓撲的 MTD 掃描 CSV' : 'Export an MTD sweep of all storage topologies using the current preset and custom defenses');
     exportBtn.addEventListener('click', () => {
-      let csv = 'PresetId,TopologyId,DiffSensing,CurrentBlinding,ClockJitter,NoiseSigma,MTD,RhoMax,IntraBerPct,SecurityScore\n';
-      const testPresets = Object.keys(PQC_SECURITY_PRESETS);
-      const testTopologies = Object.keys(PQC_SECURITY_TOPOLOGIES);
-      for (const pId of testPresets) {
-        for (const tId of testTopologies) {
-          const res = calculatePqcDpaMetrics({
-            presetId: pId,
-            topologyId: tId
-          });
-          csv += `${pId},${tId},${res.diffActive ? 1 : 0},${res.blindingActive ? 1 : 0},${res.jitterActive ? 1 : 0},${res.noiseSigma.toFixed(1)},${res.mtd},${res.rhoMax.toFixed(4)},${res.intraBerPercent.toFixed(4)},${res.securityScore}\n`;
-        }
+      const config = readConfig();
+      let csv = '預設,拓撲,差動感測,電流遮蔽,時脈抖動,雜訊標準差,MTD,最高相關係數,內部位元錯誤率_pct,安全分數\n';
+      for (const topologyId of Object.keys(PQC_STORAGE_TOPOLOGIES)) {
+        const res = calculatePqcDpaMetrics({...config, topologyId});
+        csv += `${res.preset.id},${res.topology.id},${res.diffSensing ? 1 : 0},${res.blinding ? 1 : 0},${res.jitter ? 1 : 0},${res.noiseSigma.toFixed(1)},${res.mtd},${res.rhoMax.toFixed(4)},${res.intraBerPercent.toFixed(4)},${res.securityScore}\n`;
       }
-      downloadCsv(`pqc_dpa_${currentPresetId}_${currentTopologyId}.csv`, csv);
+      downloadCsv(`PQC_全部拓撲掃描_目前自訂防護_${config.presetId}.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }

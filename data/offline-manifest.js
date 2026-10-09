@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e38be57e038f6fdcd062",
+  "version": "93ad1c60cbe5d932810b",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -194,7 +194,7 @@ self.NVMOfflineManifest = {
     "chiplet-ucie-nvm-simulator.js": "6c754e3d72ab69b489ed8d3739133facb79f3151eb1a2a7c14fb5a0e7d40ee03",
     "cim-analog-mac-simulator.js": "a946fb43386621846b82c5d237a0d6ab1f852f95e958b212b3a03838a0a5ac98",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
-    "cim-neuromorphic-mac-simulator.js": "54c41b7816d4cdb4e0a3b4dc0ee06dcbe39e666e77de424c54bf49cbbe7fc556",
+    "cim-neuromorphic-mac-simulator.js": "32882481cdfc05874c7d77ad607679502da2a86563b4028e5f7a1a2c3fa0857f",
     "cim-nn-accuracy-degradation-simulator.js": "da46154f186de39bd56aa83af0efd825072e80b97c52057a7163aa472a30514c",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "afb6669b0420740e62c06d44b43cf44bc35c9849b95a5c8b35bf1192f977f952",
@@ -208,7 +208,7 @@ self.NVMOfflineManifest = {
     "cxl-memory-pooling-simulator.js": "5b4bc8968a4011c64878d936d1658ec7a88054e8ed3d72f7b95efde9134fe18b",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
-    "data/nvm-search-index.js": "8f99db94a5c7de8527d6b9f83bbfc074403439244daacb674ae05cd725445038",
+    "data/nvm-search-index.js": "b69b22a52781c5b5afd01e46c4d6a135eca8984d1e2141a6c179a0132eddcef3",
     "deep-space-sel-retention-simulator.js": "129c5eebca28d79b16249655d08a52c8f9cde29c35ddf9d7d1ccc26692b8e69b",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
@@ -257,16 +257,16 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "d9842915db2e13b74e4240873f70091aa6f055f1c01286d6ef9dd0643deb4cba",
+    "nvm-technology-atlas-zh.html": "29e930caec80dfa085bf7889e5b447013e43496c14a0c5c0aead20438aa1d6fb",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "c81c1c3223fe2c376170282cb79757d0ef0fa57e6b008aed806f27af744fc154",
+    "nvm-technology-atlas.html": "1a179014ac0f9e937ab3558a28e0bddf2fd1a15f2b97471733dd012dcaf06ca3",
     "nvm-technology-atlas.js": "7ba90c8f62c0b4146eb491c90abb2857e547613ed4da1ddec8bd1fce6b18c817",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
     "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
     "pqc-key-storage-simulator.js": "9f05e72b2d67b9f0567c5146b79b498887b778e89a9ca8bd010c4679e94a7433",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
-    "pqc-rot-dpa-simulator.js": "b460e3476b2cf6a5024ba6a431a7da7e09cdd846ab876314c2ecf2c5535fe120",
+    "pqc-rot-dpa-simulator.js": "3af3274f118705c0907f47c0c775df459caf22c836b6f408e4c88f4857974137",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "025dccf8752bf478187d02df11dbfde67a20715669958701a4dd889bb2648351",
     "quick-probe.js": "13857acf21a476d43ed5eb2baf42ba8b9f88ef823ae1f213d643a87b77223994",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 15099569
+  "totalBytes": 14925559
 };

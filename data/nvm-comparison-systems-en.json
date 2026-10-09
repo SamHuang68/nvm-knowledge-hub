@@ -602,7 +602,7 @@
           {
             "id": "sst-superflash",
             "name": "SST · SuperFlash (ESF1/2/3)",
-            "map": "Three-generation split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate: SG+CG+FG+EG). SSI program, dedicated EG interpoly FN erase. Foundry nodes span 500 nm to 28 nm (TSMC 28HPC+, GF, UMC)."
+            "map": "DS00001425F describes three cell generations: the first two erase toward wordline poly, while the third adds dedicated erase and coupling gates. The third generation assigns separate gate functions. The 2018 brochure separates production from platform/design ranges; it does not establish cross-foundry 28nm production or a universal bias, oxide or FinFET recipe."
           }
         ]
       },
@@ -623,18 +623,18 @@
         ]
       },
       {
-        "leaf": "Low-Power & Ultra-Low-Voltage eFlash (Chingis pFusion / IOTMemory SilvoFlash)",
-        "leafNote": "Chingis uses PMOS FG BBHH hot-hole injection for microamp-class write current; IOTMemory uses patented floating-gate structure for native 0.9V–1.2V core logic read.",
+        "leaf": "Niche eFlash (Chingis pFusion / IOTMemory SilvoFlash)",
+        "leafNote": "SilvoFlash has vendor floating-gate and single-supply descriptions; pFusion physics remain unverified.",
         "items": [
           {
             "id": "chingis-pfusion",
             "name": "Chingis Technology · pFusion eFlash",
-            "map": "P-Channel floating gate; BBHH band-to-band hot-hole injection program, FN tunneling erase; microamp-class write current, standard CMOS compatible."
+            "map": "The named pFusion entry is retained; this review did not obtain readable vendor documentation sufficient to verify carriers, floating-gate structure or read/write polarity. The earlier BBHH, FN, microamp and threshold-direction claims lacked verifiable primary evidence and have been withdrawn. The drawing retains functional states only, not a reconstructed vendor cross-section."
           },
           {
             "id": "iotmemory-silvoflash",
             "name": "IOTMemory · SilvoFlash eFlash",
-            "map": "Patented single-poly / low-mask CMOS floating gate; native 0.9V–1.2V core voltage direct read, eliminating read charge pump; qualified in DDR5 SPD ICs and 40nm SoCs."
+            "map": "The vendor technology page describes floating-gate NOR and single low-voltage reading; voltages and process versions must be tied to a named macro. Public evidence supports a low single supply and floating gates, not the earlier single-poly, fixed 0.9–1.2V, DDR5 SPD production or specific tunneling-stack claims. Verify SilvoFE organization separately by version."
           }
         ]
       }

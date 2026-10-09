@@ -487,15 +487,18 @@ export function initCimMacSimulator() {
 
   let activeMode = 'crossbar_heatmap';
 
-  function update() {
-    const config = {
+  function readConfig() {
+    return {
       presetKey: presetSelect ? presetSelect.value : 'edge_keyword_spotting_kws',
       mediaKey: mediaSelect ? mediaSelect.value : 'analog_reram_crossbar',
       wireResistanceOhm: wireSlider ? parseFloat(wireSlider.value) : 1.5,
       adcResolutionBits: adcSlider ? parseInt(adcSlider.value, 10) : 6,
       driftTimeHours: driftSlider ? parseFloat(driftSlider.value) : 1000.0
     };
+  }
 
+  function update() {
+    const config = readConfig();
     if (wireVal && wireSlider) wireVal.textContent = parseFloat(wireSlider.value).toFixed(1) + ' Ω/cell';
     if (adcVal && adcSlider) adcVal.textContent = adcSlider.value + ' Bits';
     if (driftVal && driftSlider) driftVal.textContent = parseInt(driftSlider.value, 10).toLocaleString() + ' Hours';
@@ -534,8 +537,8 @@ export function initCimMacSimulator() {
     const exportControl = root.querySelector('#cim-neuromorphic-export-csv-btn');
     if (exportControl) {
       const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-      exportControl.textContent = isZh ? '📥 匯出神經形態 MAC 陣列 CSV' : '📥 Export Neuromorphic MAC CSV';
-      exportControl.setAttribute('aria-label', isZh ? '匯出神經形態交叉陣列在不同突觸介質與寄生效應下的 MAC 效能資料集為 CSV 檔案' : 'Export neuromorphic crossbar array MAC performance dataset as CSV file');
+      exportControl.textContent = isZh ? '📥 匯出線阻與 ADC 掃描 CSV' : '📥 Export Wire Resistance / ADC Sweep CSV';
+      exportControl.setAttribute('aria-label', isZh ? '依目前架構、介質與漂移時間，匯出四種線阻與三種 ADC 解析度的 CSV 掃描' : 'Export four wire resistances and three ADC resolutions using the current architecture, medium and drift time');
     }
   }
 
@@ -560,27 +563,20 @@ export function initCimMacSimulator() {
     exportBtn.type = 'button';
     exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-    exportBtn.textContent = isZhLang ? '📥 匯出神經形態 MAC 陣列 CSV' : '📥 Export Neuromorphic MAC CSV';
-    exportBtn.setAttribute('aria-label', isZhLang ? '匯出神經形態交叉陣列在不同突觸介質與寄生效應下的 MAC 效能資料集為 CSV 檔案' : 'Export neuromorphic crossbar array MAC performance dataset as CSV file');
+    exportBtn.textContent = isZhLang ? '📥 匯出線阻與 ADC 掃描 CSV' : '📥 Export Wire Resistance / ADC Sweep CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '依目前架構、介質與漂移時間，匯出四種線阻與三種 ADC 解析度的 CSV 掃描' : 'Export four wire resistances and three ADC resolutions using the current architecture, medium and drift time');
     exportBtn.addEventListener('click', () => {
-      const curPreset = presetSelect?.value || 'vision_transformer_vit_patch';
-      const curMedia = mediaSelect?.value || 'reram_filament_mlc';
-      let csv = 'Preset,Medium,WireResistanceOhm,AdcResolutionBits,ThroughputTops,EnergyEffTopsW,MaxIrDropMv,AdcSharePct,RetainedAccuracyPct\n';
+      const config = readConfig();
+      let csv = '預設,介質,線阻_Ohm,ADC_位元,漂移時間_小時,吞吐量_TOPS,能效_TOPS每W,最差壓降_mV,精度保留率_pct\n';
       const testWires = [0.5, 1.5, 3.0, 5.0];
       const testAdcs = [4, 6, 8];
       for (const w of testWires) {
         for (const a of testAdcs) {
-          const res = calculateCimMacMetrics({
-            presetKey: curPreset,
-            mediumKey: curMedia,
-            wireResistanceOhm: w,
-            adcResolutionBits: a,
-            driftHours: 24,
-          });
-          csv += `${curPreset},${curMedia},${w},${a},${res.throughputTops.toFixed(2)},${res.energyEfficiencyTopsW.toFixed(2)},${res.maxIrDropMv.toFixed(2)},${res.adcPowerSharePct.toFixed(2)},${res.retainedAccuracyPct.toFixed(2)}\n`;
+          const res = calculateCimMacMetrics({...config, wireResistanceOhm: w, adcResolutionBits: a});
+          csv += `${res.preset.id},${res.media.id},${res.rWire},${res.adcBits},${res.driftHours},${res.throughputTops.toFixed(2)},${res.energyEfficiencyTopsPerWatt.toFixed(2)},${res.worstCaseIrDropMv.toFixed(2)},${res.retainedAccuracyPct.toFixed(2)}\n`;
         }
       }
-      downloadCsv(`cim_neuromorphic_${curPreset}_${curMedia}.csv`, csv);
+      downloadCsv(`CiM_線阻與ADC掃描_${config.presetKey}_${config.mediaKey}_漂移${config.driftTimeHours}小時.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }

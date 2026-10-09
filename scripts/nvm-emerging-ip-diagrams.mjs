@@ -6,28 +6,28 @@ const bi = (zh,en) => ({zh,en});
 const pick = (value,language) => typeof value === 'string' ? value : value[language];
 const esc = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const C = {ink:'#173449',muted:'#536c7c',line:'#6b8492',metal:'#bdd0dc',oxide:'#edf3f7',free:'#178084',ref:'#4b6396',spin:'#7f5899',current:'#bd6827',electron:'#236fab',oxygen:'#1b80a2',vacancy:'#b66b21',silver:'#82639d',copper:'#b86e33',white:'#ffffff'};
-const source = (id,label,url,kind,date,locator,limit) => ({id,label,url,kind,date,accessedAt:'2026-09-10',locator,limit});
+const source = (id,label,url,kind,date,locator,limit,accessedAt='2026-09-10') => ({id,label,url,kind,date,accessedAt,locator,limit});
 const SOURCES = {
-  numem:source('ip-numem-current',bi('Numem：MRAM IP 公開定位','Numem: Public MRAM IP Positioning'),'https://www.numem.com/',bi('原廠產品頁','Manufacturer product page'),null,bi('What is Numem MRAM?；Numem MRAM IP','What is Numem MRAM?; Numem MRAM IP'),bi('支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。','Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.')),
+  numem:source("ip-numem-current",bi("Numem：晶圓廠 STT-MRAM 與記憶體架構","Numem: Foundry STT-MRAM and Memory Architecture"),"https://www.numem.com/",bi("原廠技術概況","Vendor overview"),null,bi("Numem MRAM 與 foundry-based STT-MRAM 說明","Numem MRAM and foundry-based STT-MRAM description"),bi("支持晶圓廠 STT 單元與 IP 整合；SWT 偵測電路及精確能量改善未核實。","Supports foundry STT cells and IP integration; SWT sensing circuitry and exact energy gains are unverified."),"2026-10-09"),
   numem2019:source('ip-numem-2019',bi('Numem：第一代 22nm 嵌入式 MRAM 原始發表','Numem: First-Generation 22nm Embedded MRAM Presentation'),'https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf',bi('原廠公開會議簡報','Manufacturer public conference presentation'),'2019-08-05',bi('第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ','Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ'),bi('這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。','This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.')),
   stt:source('ip-stt-physics',bi('Everspin：STT 家族物理說明','Everspin: STT Family Physics'),'https://www.everspin.com/stt-mram-technology',bi('原廠機制說明','Manufacturer mechanism explanation'),null,bi('Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻','Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance'),bi('僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。','Supports STT family physics only, not Numem product, material, or performance evidence.')),
   gf:source('ip-gf-platform',bi('GF：22FDX 嵌入式 MRAM 平台','GF: 22FDX Embedded MRAM Platform'),'https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram',bi('晶圓代工廠原始公告','Original foundry announcement'),'2020-02-27',bi('首段與 Custom design kits：進入生產、可嵌入的矽驗證 MRAM 巨集','Opening and Custom design kits: production entry and drop-in silicon-validated MRAM macros'),bi('平台身分與單元研究配方分開；可用宏、節點與條件須以供應商交付確認。','Platform identity is separate from the research-cell recipe; confirm macro availability, nodes, and conditions with the supplier.')),
   gf2024:source('ip-gf-cell-2024',bi('GF 共同作者研究：22FDX STT-MRAM 單元','GF Coauthored Research: 22FDX STT-MRAM Cells'),'https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/',bi('原始研究論文','Original research paper'),'2024-09-18',bi('Materials and Methods：MRAM array structure and fabrication；圖 2','Materials and Methods: MRAM array structure and fabrication; Figure 2'),bi('僅限文中 CoFeB／SAF 與 1T1MTJ 範例；文中正向 Ic：RL→FL，寫入 P。未指定障壁材料。','Limited to the reported CoFeB/SAF and 1T1MTJ example; positive Ic is RL-to-FL and writes P. Barrier material is not specified here.')),
-  weebit:source('ip-weebit-product',bi('Weebit：嵌入式 ReRAM IP','Weebit: Embedded ReRAM IP'),'https://www.weebit-nano.com/products/embedded-reram-ip/',bi('原廠 IP 產品頁','Manufacturer IP product page'),null,bi('IP 模組、設計交付、控制與類比周邊','IP module, design deliverables, control, and analog periphery'),bi('產品身分不代表每個代工節點採用同一公開研究配方。','Product identity does not imply every foundry node uses the same published research recipe.')),
+  weebit:source("ip-weebit-product",bi("Weebit：OxRAM 單元運作","Weebit: OxRAM Cell Operation"),"https://www.weebit-nano.com/faq/how-does-weebit-reram-rram-work/",bi("原廠技術說明","Vendor technology explanation"),null,bi("How does Weebit ReRAM / RRAM work?","How does Weebit ReRAM / RRAM work?"),bi("支持氧化物、電極與缺陷路徑教學；未核實專利及特定 TiN/SiOx/Ti 配方不作產品規格。","Supports oxide, electrode and defect-path teaching; the unverified patent and a specific TiN/SiOx/Ti recipe are not product specifications."),"2026-10-09"),
   weebitCell:source('ip-weebit-bitcell',bi('Weebit：ReRAM 位元單元','Weebit: ReRAM Bitcell'),'https://www.weebit-nano.com/technology/reram-bitcell/',bi('原廠機制說明','Manufacturer mechanism explanation'),null,bi('雙電極／薄氧化物、成形、正向 SET 與反向 RESET','Two electrodes/thin oxide, forming, positive SET, and reverse RESET'),bi('成形與日常 SET 分開；頁面未給所有材料與逐端點電壓。','Forming is distinct from recurring SET; the page does not specify all materials or terminal voltages.')),
   weebit2021:source('ip-weebit-cell-2021',bi('Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型','Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model'),'https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf',bi('原始研究論文的作者公開版本','Author-posted original research paper'),'2021-05',bi('PDF 第 2–5 頁；II–IV 節、圖 1、3、5、11：Ti／SiOx／TiN 與氧交換','PDF pages 2–5; Sections II–IV and Figures 1, 3, 5, 11: Ti/SiOx/TiN and oxygen exchange'),bi('CEA 130nm 研究單元的模型與電性比對；不是現場直接追蹤離子，也不是所有 SkyWater 宏的配方揭露。','Model/electrical comparison for a CEA 130nm research cell; neither direct operando ion tracking nor a recipe disclosure for every SkyWater macro.')),
   crossbar:source('ip-crossbar-macro',bi('Crossbar：高效能 ReRAM IP 產品簡介','Crossbar: High-Performance ReRAM IP Brief'),'https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf',bi('原廠公開產品簡介','Manufacturer public product brief'),null,bi('第 1–2 頁：hard macro／architectural license、嵌入式宏與改寫','Pages 1–2: hard macro/architectural license, embedded macro, and overwrite'),bi('支持歷史 IP 授權形態；本次未確認 2026 年可新授權的節點與宏清單。','Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.')),
   crossbar2015:source('ip-crossbar-2015',bi('Crossbar：嵌入式 1T1R 與金屬路徑原始發表','Crossbar: Original Embedded 1T1R and Metallic-Path Presentation'),'https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf',bi('原廠公開會議簡報','Manufacturer public conference presentation'),'2015',bi('第 3、4、7、8、15 頁：金屬路徑、單元與選擇器、BEOL 1T1R','Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R'),bi('嵌入式 1T1R 與高密度 1S1R／1TnR 各有範圍，不合併為同一電路。','Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.')),
-  crossbar2012:source('ip-crossbar-cell-2012',bi('Crossbar：公開專利申請 US20120007035A1','Crossbar: Published Patent Application US20120007035A1'),'https://patents.google.com/patent/US20120007035A1/en',bi('原始公開專利申請','Original published patent application'),'2012-01-12',bi('圖 1–3；[0023]–[0025]、[0037]：Ag／a-Si／p+ poly-Si、正向延伸、負向回縮','Figures 1–3; [0023]–[0025], [0037]: Ag/a-Si/p+ poly-Si, positive extension, negative retraction'),bi('選取其中的具名實施例；以金屬粒子與穿隧路徑描述，未宣稱已證明現售宏皆為此配方或一般陰極成核銀橋。','Selects a named embodiment with metal particles and tunneling paths; does not establish this recipe for all current macros or generic cathode-grown silver bridges.')),
-  everspinPat:source('ip-everspin-pmtj',bi('Everspin：pMTJ 垂直磁化專利 US8488371B2','Everspin: pMTJ Perpendicular Magnetization Patent US8488371B2'),'https://patents.google.com/patent/US8488371B2/en',bi('原廠核心專利','Manufacturer core patent'),'2013-07-16',bi('Claims 1-12；圖 2-4：雙 MgO 界面垂直各向異性自由層與 SAF 釘扎','Claims 1-12; Figures 2-4: Dual-MgO interface perpendicular anisotropy free layer and SAF pinning'),bi('以專利公開之界面垂直各向異性 (i-PMA) 實施例為準；不推定任一代工廠現行退火條件。','Governed by the published interfacial perpendicular magnetic anisotropy (i-PMA) embodiment; does not imply specific foundry anneal thermal budgets.')),
-  everspinProd:source('ip-everspin-product',bi('Everspin：pMTJ STT-MRAM 產品技術','Everspin: pMTJ STT-MRAM Product Technology'),'https://www.everspin.com/',bi('原廠技術說明','Manufacturer technology overview'),null,bi('pMTJ STT-MRAM 產品線架構與 BEOL 400°C 整合','pMTJ STT-MRAM architecture and BEOL 400°C thermal compatibility'),bi('產品身分不代表所有外部代工廠提供相同單元尺寸。','Product identity does not imply all external foundries offer identical bitcell dimensions.')),
-  avalanchePat:source('ip-avalanche-saf',bi('Avalanche：雙對稱 SAF 專利 US9837603B2','Avalanche: Dual-SAF Symmetric Patent US9837603B2'),'https://patents.google.com/patent/US9837603B2/en',bi('原廠核心專利','Manufacturer core patent'),'2017-12-05',bi('Claims 1-20；圖 3-5：上下對稱雙 SAF 抵消自由層雜散場偏置','Claims 1-20; Figures 3-5: Top/bottom symmetric dual-SAF cancelling stray field bias on free layer'),bi('以專利實施例為準；抗輻照與車規表現需搭配特定封裝與測試認證。','Governed by the patent embodiment; rad-hard and automotive claims require qualification per package.')),
-  spinmemPat:source('ip-spinmem-psc',bi('Spin Memory：進動自旋流極化層專利 US9287500B2','Spin Memory: Precessional Spin Current Patent US9287500B2'),'https://patents.google.com/patent/US9287500B2/en',bi('原廠核心專利','Manufacturer core patent'),'2016-03-15',bi('Claims 1-18；圖 1-4：面內極化 PSC 層消除熱起伏延遲實現 <3ns 翻轉','Claims 1-18; Figures 1-4: In-plane PSC layer eliminating thermal incubation delay for <3ns switching'),bi('選取專利中 PSC 實施例；商用 IP 授權與實際翻轉速度依授權巨集規格。','Selects patent PSC embodiment; commercial IP licensing and actual speed depend on macro delivery.')),
-  crocusPat:source('ip-crocus-tas',bi('Crocus：熱輔助 MRAM 專利 US7916526B2','Crocus: Thermally Assisted MRAM Patent US7916526B2'),'https://patents.google.com/patent/US7916526B2/en',bi('原廠核心專利','Manufacturer core patent'),'2011-03-29',bi('Claims 1-24；圖 2-6：加熱電流脈衝越過 AFM 阻斷溫度 Tb 實現解鎖翻轉','Claims 1-24; Figures 2-6: Heating pulse above AFM blocking temperature Tb enabling unpinned switching'),bi('以專利揭露之 TAS 機制為準；冷卻時間限制不可推廣為非加熱 STT 速度。','Governed by disclosed TAS mechanism; cooling latency limits write speed compared to non-heated STT.')),
-  panaPat:source('ip-panasonic-taox',bi('Panasonic：雙層鉭氧化物 ReRAM 專利 US8068356B2','Panasonic: Dual-Layer TaOx ReRAM Patent US8068356B2'),'https://patents.google.com/patent/US8068356B2/en',bi('原廠核心專利','Manufacturer core patent'),'2011-11-29',bi('Claims 1-15；圖 1-8：Ta2O5 薄絕緣層 + TaOx 缺氧導電層可逆氧交換與自限制微絲','Claims 1-15; Figures 1-8: Ta2O5 insulator + TaOx oxygen-deficient reservoir with self-limiting filament'),bi('以專利雙層氧化鉭實施例為準；量產晶片 MN101L 規格需另核對原廠手冊。','Governed by bilayer tantalum oxide embodiment; mass-production MN101L specs verified per datasheet.')),
-  tetraPat:source('ip-tetramem-cim',bi('TetraMem：類比多階線性電導專利 US11393527B2','TetraMem: Analog Multi-Level Conductance Patent US11393527B2'),'https://patents.google.com/patent/US11393527B2/en',bi('原廠核心專利','Manufacturer core patent'),'2022-07-19',bi('Claims 1-20；圖 3-9：連續介面氧空缺障壁工程實現 8-bit 高線性度 CIM 權重','Claims 1-20; Figures 3-9: Continuous interfacial vacancy barrier engineering for 8-bit linear CIM weights'),bi('以專利類比多階調控實施例為準；神經網路推理精度依陣列校準與溫度條件。','Governed by analog multi-level patent embodiment; neural inference precision depends on calibration.')),
-  fourdsPat:source('ip-4ds-pcmo',bi('4DS Memory：非微絲 PCMO 介面 ReRAM 專利 US10468591B2','4DS Memory: Non-Filamentary PCMO Patent US10468591B2'),'https://patents.google.com/patent/US10468591B2/en',bi('原廠核心專利','Manufacturer core patent'),'2019-11-05',bi('Claims 1-16；圖 1-5：單晶圓 PCMO 介面肖特基能障均勻調變，免 Forming 步驟','Claims 1-16; Figures 1-5: Single-wafer PCMO interface Schottky barrier modulation, forming-free operation'),bi('以專利揭露之面積型非微絲實施例為準；高密度 3D 整合以策略夥伴 imec 合作發表為準。','Governed by disclosed area-dependent non-filamentary embodiment; 3D integration verified via imec.')),
-  adestoPat:source('ip-adesto-cbram',bi('Adesto：微安培銅奈米橋專利 US8824194B2','Adesto: Micro-Ampere Cu-Bridge Patent US8824194B2'),'https://patents.google.com/patent/US8824194B2/en',bi('原廠核心專利','Manufacturer core patent'),'2014-09-02',bi('Claims 1-22；圖 2-7：銅活性陽極於固態電解質中形成微安培級導電微橋','Claims 1-22; Figures 2-7: Copper active anode forming microamp metallic bridge in solid electrolyte'),bi('以專利金屬離子橋接實施例為準；車規保持性依特定合金陽極穩定配方。','Governed by patent metallic bridge embodiment; automotive retention requires stabilized alloy anodes.'))
+  crossbar2012:source("ip-crossbar-cell-2012",bi("Crossbar：RRAM 內在寫入電流控制公開申請案","Crossbar: Intrinsic Programming Current Control for RRAM"),"https://patents.google.com/patent/US20120007035A1/en",bi("公開專利申請案","Published patent application"),null,bi("圖 1–3；摘要與非晶矽缺陷密度描述","Figures 1–3; abstract and amorphous-silicon defect-density description"),bi("使用歷史實施例的金屬粒子路徑；不是奈米開孔專利，公開申請不等於有效授權或現行產品。","Uses the historical metal-particle-path embodiment; not a nano-aperture patent. Publication does not establish an enforceable grant or current product."),"2026-10-09"),
+  everspinPat:source("ip-everspin-pmtj",bi("Everspin：STT-MRAM 技術","Everspin: STT-MRAM Technology"),"https://www.everspin.com/stt-mram-technology",bi("原廠技術頁","Vendor technology page"),null,bi("Spin-transfer Torque MRAM Technology；pMTJ、寫入電流與 P/AP 段落","Spin-transfer Torque MRAM Technology; pMTJ, write current and P/AP paragraphs"),bi("支持垂直 MTJ 與雙向 STT；未揭露雙 MgO、薄膜厚度或通用熱預算。","Supports perpendicular MTJs and bidirectional STT; no dual-MgO stack, film thickness or universal thermal budget is established."),"2026-10-09"),
+  everspinProd:source('ip-everspin-product',bi('Everspin：STT-MRAM 產品技術','Everspin: STT-MRAM Product Technology'),'https://www.everspin.com/stt-mram-technology',bi('原廠技術說明','Manufacturer technology overview'),null,bi('pMTJ、寫入電流方向與 P／AP 電阻態','pMTJ, write-current direction and P/AP resistance states'),bi('只支持公開的 STT 原理與技術定位；精確堆疊、熱預算及可用節點須依具名產品另行核對。','Supports public STT principles and technology positioning; exact stacks, thermal budgets and available nodes require named-product evidence.'),'2026-10-09'),
+  avalanchePat:source("ip-avalanche-saf",bi("Avalanche：STT-MRAM 公司技術概況","Avalanche: STT-MRAM Company Overview"),"https://www.avalanche-technology.com/company/",bi("原廠技術概況","Vendor overview"),null,bi("公司 STT-MRAM 與應用介紹","Company STT-MRAM and application overview"),bi("只支持 STT-MRAM 技術定位；Dual-SAF、雙障壁與 50% 改善未核實。","Supports the STT-MRAM positioning only; dual-SAF, dual barriers and a 50% improvement are unverified."),"2026-10-09"),
+  spinmemPat:source("ip-spinmem-psc",bi("Spin Memory：PSC 與 skyrmionic 增強層專利","Spin Memory: PSC and Skyrmionic Enhancement Patent"),"https://patents.google.com/patent/US10468588B2/en",bi("公開專利","Public patent"),null,bi("圖 3；權利項 1、8、20；原始申請人 Spin Memory Inc","Figure 3; claims 1, 8 and 20; original assignee Spin Memory Inc"),bi("限定含 PSC、耦合層與增強層的實施例；不保證次 3ns、耐久或商用量產。","Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee."),"2026-10-09"),
+  crocusPat:source("ip-crocus-tas",bi("Crocus：具加熱元件與熱障壁的 TAS-MRAM 專利","Crocus: TAS-MRAM with Heating Elements and Thermal Barriers"),"https://patents.google.com/patent/US8717812B2/en",bi("公開專利","Public patent"),null,bi("圖 1、2；權利項 1；TAS 寫入與冷卻鎖定說明","Figures 1 and 2; claim 1; TAS writing and cooling description"),bi("加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。","Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants."),"2026-10-09"),
+  panaPat:source("ip-panasonic-taox",bi("Panasonic：安全 LSI 用高速低功耗 ReRAM 技報","Panasonic: High-Speed Low-Power ReRAM for Security LSIs"),"https://tech.panasonic.com/jp/phd/pdf/technology-journal/v6302/p0112.pdf",bi("原廠技術論文","Vendor technical paper"),null,bi("Panasonic Technical Journal 63(2), 2017-11；PDF 第 2–4 頁圖 2、3、6","Panasonic Technical Journal 63(2), November 2017; PDF pages 2–4, figures 2, 3 and 6"),bi("支持 Ta2O5/TaOx 與氧相關微絲模型；40nm 研究載具不等於所有商品或量產節點。","Supports Ta2O5/TaOx and an oxygen-related filament model; the 40nm research vehicle does not establish every product or production node."),"2026-10-09"),
+  tetraPat:source("ip-tetramem-cim",bi("TetraMem：多階 RRAM 類比記憶體內運算","TetraMem: Multi-Level RRAM Analog In-Memory Computing"),"https://tetramem.com/rebuilding-ai-hardware/",bi("原廠技術說明","Vendor technology explanation"),null,bi("Multi-level RRAM 與類比運算段落","Multi-level RRAM and analog computing sections"),bi("支持多階電導與類比運算；未揭露本圖的氧空缺幾何、精確障壁或通用 256 階規格。","Supports multi-level conductance and analog computing; no vacancy geometry, exact barrier or universal 256-level specification is established."),"2026-10-09"),
+  fourdsPat:source("ip-4ds-pcmo",bi("4DS：PCMO 面積型介面切換技術","4DS: PCMO Area-Based Interface Switching"),"https://www.4dsmemory.com/technology/4ds-technology/",bi("原廠技術說明","Vendor technology explanation"),null,bi("PCMO and Area Based Interface Switching","PCMO and Area Based Interface Switching"),bi("原廠描述氧進入位點時 SET、氧耗盡時 RESET；不支持精確化學比例、通用肖特基曲線或無 Forming 保證。","The vendor describes SET when oxygen occupies sites and RESET on oxygen depletion; no exact stoichiometry, universal Schottky curve or forming-free guarantee is established."),"2026-10-09"),
+  adestoPat:source("ip-adesto-cbram",bi("Adesto：CBRAM 可靠度研究公告","Adesto: CBRAM Reliability Research Announcement"),"https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive",bi("原廠研究公告","Vendor research announcement"),null,bi("CBRAM 研究與歷史 IoT 商品敘述","CBRAM research and historical IoT commercialization paragraphs"),bi("支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。","Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration."),"2026-10-09")
 };
 
 function localSources(keys,language) {
@@ -51,36 +51,36 @@ const META = {
     refs:['gf','gf2024']
   },
   'everspin-mram':{
-    name:bi('Everspin pMTJ STT-MRAM IP 單元','Everspin pMTJ STT-MRAM IP Cell'),
-    model:bi('雙 MgO 界面垂直磁各向異性自由層 (i-PMA)','Dual-MgO Interfacial Perpendicular Magnetic Anisotropy (i-PMA)'),
-    mechanism:bi('雙界面高熱穩定垂直磁化與自旋穿隧翻轉','High-thermal-stability perpendicular magnetization with STT tunneling switching'),
-    structure:bi('依 US8488371B2 專利繪製雙 MgO 界面帽層、CoFeB 自由層、MgO 穿隧障壁、CoFeB 參考層與 SAF 固定層。','Reconstructs the dual-MgO cap, CoFeB free layer, MgO barrier, CoFeB reference layer, and SAF pinning per US8488371B2.'),
-    caveat:bi('此為 Everspin 專利與量產架構教學模型；後端 BEOL 熱預算需小於 400°C 避免硼擴散；保持性驗證依 JEDEC 標準。','Educational reconstruction of Everspin patented architecture; BEOL thermal budget must remain under 400°C to avoid boron out-diffusion.'),
+    name:bi('Everspin pMTJ STT-MRAM 教學單元','Everspin pMTJ STT-MRAM Teaching Cell'),
+    model:bi('垂直 MTJ 功能層模型','Perpendicular MTJ Functional-Layer Model'),
+    mechanism:bi('STT 調整自由層磁矩，以 P／AP 電阻區分狀態','STT changes the free-layer moment; P/AP resistance distinguishes states'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('原廠支持 pMTJ 與雙向 STT；圖未指定雙 MgO、材料配方、薄膜厚度或通用熱預算。','The vendor supports pMTJ and bidirectional STT; the drawing does not assign dual MgO, material recipes, thicknesses, or a universal thermal budget.'),
     refs:['everspinPat','everspinProd','stt']
   },
   'avalanche-mram':{
-    name:bi('Avalanche Dual-SAF 對稱磁補償 MRAM 單元','Avalanche Dual-SAF Stray-Field Compensated MRAM Cell'),
-    model:bi('上下雙對稱 SAF 磁性堆疊 (Dual Synthetic Antiferromagnet)','Top and Bottom Symmetric Dual-SAF Magnetic Stack'),
-    mechanism:bi('消除自由層非對稱雜散磁場，實現對稱雙向翻轉電壓','Cancels asymmetric stray dipole fields for symmetric bidirectional switching'),
-    structure:bi('依 US9837603B2 專利繪製中心 CoFeB 自由層兩側夾置雙 MgO 障壁與頂底雙 SAF 參考層。','Reconstructs the central CoFeB free layer flanked by dual MgO barriers and top/bottom dual-SAF reference layers per US9837603B2.'),
-    caveat:bi('雙 SAF 堆疊以專利實施例為準；抗輻照總劑量與車規耐熱需依航太或車規封裝認證。','Based on the patent embodiment; rad-hard total ionizing dose and automotive retention require qualified packaging.'),
+    name:bi('Avalanche STT-MRAM 功能教學單元','Avalanche STT-MRAM Functional Teaching Cell'),
+    model:bi('未指定材料的 STT 功能層','Material-Unspecified STT Functional Layers'),
+    mechanism:bi('STT 調整自由層磁矩，讀取 MTJ 電阻態','STT changes the free-layer moment; reading senses MTJ resistance'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('原廠來源僅支持 STT-MRAM 定位；此圖未重建 Dual-SAF、雙障壁或宣稱定量改善。','The vendor source supports STT-MRAM positioning only; this drawing does not reconstruct dual-SAF or dual barriers or claim a quantitative improvement.'),
     refs:['avalanchePat','stt']
   },
   'spinmem-mram':{
-    name:bi('Spin Memory PSC 自旋進動極速 MRAM 單元','Spin Memory PSC Ultra-Fast Precessional MRAM Cell'),
-    model:bi('垂直 MTJ ＋ 面內進動自旋極化層 (PSC Layer)','Perpendicular MTJ + In-Plane Precessional Spin Current (PSC) Layer'),
-    mechanism:bi('正交自旋極化力矩消除隨機熱起伏延遲，實現 <3ns 極速翻轉','Orthogonal spin torque eliminates thermal incubation delay for <3ns switching'),
-    structure:bi('依 US9287500B2 專利繪製面內極化 PSC 層、去耦隔離層與垂直 MTJ 堆疊。','Reconstructs the in-plane PSC polarizer, decoupling spacer, and perpendicular MTJ stack per US9287500B2.'),
-    caveat:bi('PSC 層與去耦厚度依專利揭露；商用授權與實際翻轉延遲由被授權代工巨集決定。','PSC layer and spacer thickness follow the patent disclosure; commercial macro latency depends on licensed foundry delivery.'),
+    name:bi('Spin Memory PSC 公開專利功能示意','Spin Memory PSC Published-Patent Functional Model'),
+    model:bi('PSC、耦合層與增強層功能示意','PSC, Coupling and Enhancement Functional Layers'),
+    mechanism:bi('專利實施例以 PSC 與增強層輔助磁態切換','The patent embodiment uses PSC and enhancement functions to assist magnetic switching'),
+    structure:bi('依 US10468588B2 圖 3 與權利項 1、8、20 表示 PSC、耦合層與 skyrmionic 增強層功能；圖層位置與厚度為教學配置。','PSC, coupling and skyrmionic enhancement functions follow US10468588B2 Figure 3 and claims 1, 8 and 20; placement and thickness are teaching abstractions.'),
+    caveat:bi('限定此專利實施例；未宣稱通用面內極化器、次 3ns 速度、耐久或現行量產配方。','Limited to this patent embodiment; no generic in-plane polarizer, sub-3ns speed, endurance, or current production recipe is asserted.'),
     refs:['spinmemPat','stt']
   },
   'crocus-mram':{
     name:bi('Crocus TAS-MRAM 熱輔助阻變單元','Crocus TAS-MRAM Thermally Assisted Cell'),
     model:bi('加熱電極 ＋ AFM 阻斷溫度 (Tb) 交換偏置鎖定','Heater Line + AFM Blocking Temperature (Tb) Exchange-Bias Pinning'),
-    mechanism:bi('短加熱脈衝超過 Tb 解鎖釘扎位障，微弱電流翻轉後冷卻鎖定','Heating pulse exceeding Tb unlocks pinning barrier; cools down to freeze state'),
-    structure:bi('依 US7916526B2 專利繪製頂部加熱電阻、AFM 釘扎層、儲存層、穿隧障壁與參考層。','Reconstructs the top heater line, AFM pinning layer, storage layer, tunnel barrier, and reference layer per US7916526B2.'),
-    caveat:bi('熱冷卻時間限制隨機寫入速度至 20-30ns；熱擴散隔離設計限制極限單元微縮密度。','Thermal cooling cycle limits write speed to 20-30ns; thermal diffusion isolation limits maximum array density scaling.'),
-    refs:['crocusPat','stt']
+    mechanism:bi('加熱越過 Tb 解鎖儲存層；外加寫入場翻轉後冷卻鎖定','Heat above Tb to unlock the storage layer; an applied write field reverses it before cooling locks it'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('此為 TAS 功能教學序列；加熱路徑、磁場線與層序未重建原廠版圖，不提供未核實溫度、時間或寫入電流。','This TAS teaching sequence abstracts heating and field functions; it does not reconstruct vendor layout or specify unverified temperature, timing, or write current.'),
+    refs:['crocusPat']
   },
   'weebit-reram':{
     name:bi('Weebit ReRAM IP：CEA 研究單元','Weebit ReRAM IP: CEA Research Cell'),
@@ -100,34 +100,34 @@ const META = {
   },
   'panasonic-reram':{
     name:bi('Panasonic 雙層鉭氧化物 (Ta2O5/TaOx) ReRAM 單元','Panasonic Bilayer Tantalum Oxide (Ta2O5/TaOx) ReRAM Cell'),
-    model:bi('Ta2O5 薄絕緣層 ＋ TaOx 缺氧導電層雙層堆疊','Stoichiometric Ta2O5 (~5nm) + Oxygen-Deficient TaOx (~30nm) Bilayer'),
-    mechanism:bi('氧離子可逆交換，串聯電阻自限制微絲粗細','Reversible oxygen ion exchange with series resistance self-limiting filament size'),
-    structure:bi('依 US8068356B2 專利繪製 Pt/TiN 上電極、超薄 Ta2O5 活化層、TaOx 氧離子庫與 TiN 下電極。','Reconstructs the Pt/TiN top electrode, Ta2O5 layer, TaOx reservoir, and TiN bottom electrode per US8068356B2.'),
-    caveat:bi('雙層氧化鉭薄膜氧含量梯度需嚴格控制濺鍍分壓；高溫保持壽命隨高熱應力退化。','Oxygen profile gradient across Ta2O5/TaOx requires tight sputtering control; retention degrades under extreme thermal stress.'),
+    model:bi('Ta2O5／TaOx 雙層功能示意','Ta2O5/TaOx Bilayer Functional Model'),
+    mechanism:bi('氧相關導電微絲改變阻態','An oxygen-related conductive filament changes resistance'),
+    structure:bi('依 Panasonic 公開技報表示 Ta2O5／TaOx 與氧相關微絲；電極材料及層厚不在圖中指定。','Ta2O5/TaOx and an oxygen-related filament follow the Panasonic technical paper; electrode materials and layer thicknesses are unspecified.'),
+    caveat:bi('限公開研究模型；40nm 研究載具不代表所有商品、量產節點或單元配方。','Limited to the published research model; a 40nm research vehicle does not establish every product, production node, or cell recipe.'),
     refs:['panaPat']
   },
   'tetramem-reram':{
-    name:bi('TetraMem CIM 多階連續線性電導 ReRAM 單元','TetraMem Analog Multi-Level Conductance CIM Cell'),
-    model:bi('多層金屬氧化物連續介面氧空缺工程 (Interfacial Vacancy Engineering)','Interfacial Defect Engineering with Continuous Multi-Level Conductance'),
-    mechanism:bi('連續介面空缺調變，實現 8-bit 高線性度類比突觸權重儲存','Continuous vacancy modulation achieving 8-bit high-linearity analog CIM weights'),
-    structure:bi('依 US11393527B2 專利繪製多層金屬氧化物介面障壁工程堆疊，非單一局部突變粗微絲。','Reconstructs the multi-layer metal oxide interface-engineered stack per US11393527B2.'),
-    caveat:bi('類比多階精度對溫度變化敏感；神經網路推理需搭配週期性背景權重校準電路。','Analog multi-level precision is susceptible to thermal variations; requires periodic background calibration.'),
+    name:bi('TetraMem 類比多階電導教學單元','TetraMem Analog Multi-Level Conductance Teaching Cell'),
+    model:bi('類比電導功能教學模型','Analog Conductance Teaching Model'),
+    mechanism:bi('以可調類比電導表達運算權重；微觀載子機制未核實','Adjustable analog conductance represents compute weights; microscopic carrier mechanism is unverified'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('原廠支持多階 RRAM 與類比運算；圖中相對電導與功能層不代表位元精度、氧空缺幾何或原廠材料堆疊。','The vendor supports multi-level RRAM and analog computing; relative conductance and functional layers do not establish bit precision, vacancy geometry, or vendor material stacks.'),
     refs:['tetraPat']
   },
   '4ds-reram':{
     name:bi('4DS Memory 非微絲面積型 PCMO ReRAM 單元','4DS Memory Non-Filamentary Area-Dependent PCMO Cell'),
-    model:bi('單晶圓級 Pr0.7Ca0.3MnO3 (PCMO) 介面肖特基障壁調變','Single-Wafer Pr0.7Ca0.3MnO3 (PCMO) Interface Schottky Barrier Modulation'),
-    mechanism:bi('介面氧空缺均勻調變肖特基能障，阻值隨接觸面積成反比微縮（免 Forming）','Uniform interface vacancy modulation; resistance scales inversely with contact area (Forming-free)'),
-    structure:bi('依 US10468591B2 專利繪製金屬接觸電極、單晶 PCMO 鈣鈦礦薄膜與歐姆底電極。','Reconstructs the metal contact, single-wafer PCMO perovskite film, and ohmic bottom electrode per US10468591B2.'),
-    caveat:bi('複雜多元鈣鈦礦沉積需嚴格控制晶體均勻度；高密度 3D 垂直堆疊加工技術持續演進中。','Complex perovskite deposition requires strict crystalline uniformity; 3D vertical stacking etch remains under active R&D.'),
+    model:bi('PCMO 介面阻態功能示意','PCMO Interface Resistance Teaching Model'),
+    mechanism:bi('介面氧分布改變阻態；障壁陰影僅作教學類比','Interface oxygen distribution changes resistance; barrier shading is only a teaching analogy'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('原廠描述氧進入位點時 SET、氧耗盡時 RESET；障壁陰影僅為定性阻態類比，不證明肖特基曲線、精確化學比例或免成形。','The vendor describes SET on oxygen site occupancy and RESET on depletion; barrier shading is only a qualitative resistance analogy and does not establish Schottky curves, exact stoichiometry, or forming-free behavior.'),
     refs:['fourdsPat']
   },
   'adesto-cbram':{
-    name:bi('Adesto 固態電解質微安培導電橋接 CBRAM 單元','Adesto Solid-Electrolyte Micro-Ampere CBRAM Cell'),
-    model:bi('銅活性陽極 ＋ 摻銅固態電解質 ＋ 惰性鎢陰極','Copper Active Anode + Copper-Doped Solid Electrolyte + Inert Tungsten Cathode'),
-    mechanism:bi('電化學陽極氧化還原，微安培級銅奈米微橋生長與溶解','Electrochemical redox forming and dissolving microamp copper metallic nanobridges'),
-    structure:bi('依 US8824194B2 專利繪製 Cu 陽極、超薄固態電解質與 W 陰極。','Reconstructs the Cu anode, thin solid electrolyte, and W cathode per US8824194B2.'),
-    caveat:bi('高溫熱應力下金屬離子存在自發熱擴散風險；車規 125°C+ 級長效保持需搭配特殊陽極摻雜工藝。','Metallic ions face spontaneous thermal diffusion; automotive retention requires stabilized alloy anodes.'),
+    name:bi('Adesto CBRAM 導電橋功能教學單元','Adesto CBRAM Conductive-Bridge Teaching Cell'),
+    model:bi('活性金屬／電解質／對向電極功能示意','Active Metal / Electrolyte / Counter-Electrode Functional Model'),
+    mechanism:bi('以金屬橋生成與溶解表達 CBRAM 家族機制','Metal-bridge formation and dissolution illustrate the CBRAM family mechanism'),
+    structure:bi('功能層僅作教學示意；材料、層序與專利對應尚未核實，不代表原廠單元剖面。','Functional layers are teaching abstractions; materials, layer order, and patent mapping remain unverified and do not represent a vendor cell cross-section.'),
+    caveat:bi('原廠公告支持 CBRAM 與歷史產品；此為家族機制示意，未指定銅／鎢配方、電流、TΩ 電阻或現行 MCU 整合。','The vendor announcement supports CBRAM and historical products; this family-level model does not assign a copper/tungsten recipe, current, tera-ohm resistance, or current MCU integration.'),
     refs:['adestoPat']
   }
 };
@@ -168,38 +168,24 @@ function flow(c,direction,read=false) {
 }
 function mtj(c,id,angle,on,bias,drive=0,read=false,torque=false) {
   let out='';
-  if(id==='everspin-mram') {
-    out+=c.line(265,22,265,48)+c.t(248,38,'BL','end')+c.t(282,38,bias);
-    out+=c.rect(180,48,170,28,C.oxide)+c.t(20,68,'Top MgO Cap');
-    out+=c.rect(180,76,170,40,'#d9efee')+c.t(20,102,'CoFeB i-FL');
-    out+=c.rect(180,116,170,28,C.oxide)+c.text(20,136,'穿隧障壁','Tunnel MgO');
-    out+=c.rect(180,144,170,40,'#e2e8f4')+c.t(20,169,'CoFeB RL');
-    out+=c.rect(180,184,170,28,'#edf0f7')+c.t(20,203,'Ru / SAF');
-    out+=c.moment(265,96,angle)+c.moment(265,164,90,C.ref);
-    out+=c.arrow(240,203,240,189,C.ref,2)+c.arrow(290,189,290,203,C.ref,2);
-    out+=access(c,on,212,'SL');
-  } else if(id==='avalanche-mram') {
-    out+=c.line(265,20,265,46)+c.t(248,36,'BL','end')+c.t(282,36,bias);
-    out+=c.rect(180,46,170,28,'#edf0f7')+c.t(20,65,'Top SAF');
-    out+=c.rect(180,74,170,24,C.oxide)+c.t(20,93,'Top MgO');
-    out+=c.rect(180,98,170,38,'#d9efee')+c.t(20,123,'Center FL');
-    out+=c.rect(180,136,170,24,C.oxide)+c.t(20,153,'Bottom MgO');
-    out+=c.rect(180,160,170,30,'#edf0f7')+c.t(20,181,'Bottom SAF');
-    out+=c.moment(265,117,angle)+c.moment(265,60,90,C.ref)+c.moment(265,175,-90,C.ref);
-    out+=access(c,on,190,'SL');
+  if(id==='everspin-mram'||id==='avalanche-mram') {
+    out+=c.line(265,40,265,79)+c.t(248,54,'A','end')+c.t(282,54,bias);
+    out+=c.rect(180,79,170,42,'#d9efee')+c.text(20,108,'自由層 FL','Free Layer');
+    out+=c.rect(180,121,170,27,C.oxide)+c.text(20,141,'穿隧障壁','Barrier');
+    out+=c.rect(180,148,170,42,'#e2e8f4')+c.text(20,177,'參考層 RL','Reference');
+    out+=c.moment(265,100,angle)+c.moment(265,169,90,C.ref)+access(c,on,190,'B');
   } else if(id==='spinmem-mram') {
-    out+=c.line(265,20,265,46)+c.t(248,36,'BL','end')+c.t(282,36,bias);
-    out+=c.rect(180,46,170,30,'#ebdcf5')+c.t(20,68,'PSC Polarizer');
-    out+=c.arrow(235,61,295,61,C.spin,3.5);
-    out+=c.rect(180,76,170,24,C.metal)+c.t(20,96,'Spacer');
-    out+=c.rect(180,100,170,38,'#d9efee')+c.t(20,126,'p-FL');
-    out+=c.rect(180,138,170,26,C.oxide)+c.text(20,157,'穿隧障壁','Tunnel MgO');
-    out+=c.rect(180,164,170,38,'#e2e8f4')+c.t(20,190,'SAF RL');
-    out+=c.moment(265,119,angle)+c.moment(265,183,90,C.ref);
-    out+=access(c,on,202,'SL');
+    out+=c.line(265,20,265,46)+c.t(248,36,'A','end')+c.t(282,36,bias);
+    out+=c.rect(180,46,170,24,'#ebdcf5')+c.t(20,65,'PSC');
+    out+=c.rect(180,70,170,22,C.metal)+c.text(20,88,'耦合功能','Coupling');
+    out+=c.rect(180,92,170,22,'#e3d4eb')+c.text(20,110,'增強功能','Enhancement');
+    out+=c.rect(180,114,170,32,'#d9efee')+c.t(20,137,'FL');
+    out+=c.rect(180,146,170,24,C.oxide)+c.text(20,165,'穿隧障壁','Barrier');
+    out+=c.rect(180,170,170,32,'#e2e8f4')+c.t(20,192,'RL');
+    out+=c.moment(265,130,angle)+c.moment(265,186,90,C.ref)+access(c,on,202,'B');
   } else if(id==='crocus-mram') {
     out+=c.line(265,20,265,46)+c.t(248,36,'BL','end')+c.t(282,36,bias);
-    out+=c.rect(180,46,170,28,'#fbe6d4')+c.t(20,66,'Heater Line');
+    out+=c.rect(180,46,170,28,'#fbe6d4')+c.text(20,66,'加熱功能','Heating');
     out+=c.rect(180,74,170,28,'#ebd0d0')+c.t(20,95,'AFM (Tb)');
     out+=c.rect(180,102,170,38,'#d9efee')+c.t(20,127,'Storage FL');
     out+=c.rect(180,140,170,26,C.oxide)+c.text(20,158,'穿隧障壁','Barrier');
@@ -230,10 +216,10 @@ function ion(c,x,y,kind) {
 function reram(c,id,on,bias,stage,operation,drive=0) {
   let out=c.line(265,47,265,79)+c.t(20,54,'TE')+c.t(286,55,bias);
   if(id==='panasonic-reram') {
-    out+=c.rect(180,79,170,28,C.metal)+c.t(20,98,'Pt/TiN TE');
-    out+=c.rect(180,107,170,32,'#fdeee2')+c.t(20,128,'Ta2O5 (~5nm)');
-    out+=c.rect(180,139,170,72,'#e5eff4')+c.t(20,182,'TaOx (~30nm)');
-    out+=c.rect(180,211,170,28,C.metal)+c.t(20,231,'TiN BE');
+    out+=c.rect(180,79,170,28,C.metal)+c.t(20,98,'TE');
+    out+=c.rect(180,107,170,32,'#fdeee2')+c.t(20,128,'Ta2O5');
+    out+=c.rect(180,139,170,72,'#e5eff4')+c.t(20,182,'TaOx');
+    out+=c.rect(180,211,170,28,C.metal)+c.t(20,231,'BE');
     out+=access(c,on,239,'BE / SL');
     const set=operation==='write',read=operation==='read'||operation==='structure';
     const gap=read?false:set?stage<=1:stage>=2;
@@ -248,23 +234,31 @@ function reram(c,id,on,bias,stage,operation,drive=0) {
     out+=c.rect(180,145,170,66,'#eaf2f8')+c.t(20,185,'Oxide Medium');
     out+=c.rect(180,211,170,28,C.metal)+c.t(20,231,'Bottom Electrode');
     out+=access(c,on,239,'BE / SL');
-    for(const [x,y] of [[220,125],[245,128],[270,123],[295,127],[320,124]]) out+=ion(c,x,y,'vacancy');
-    out+=c.rect(200,160,130,30,'#f3e8cb','rx="4" stroke="none"')+c.text(210,182,'多階電導 G','Multi-Level G');
+    const g=operation==='read'||operation==='structure'?0.65:(operation==='erase'?[0.8,0.5,0.2,0.2]:[0.2,0.5,0.8,0.8])[stage];
+    out+=`<g data-state="analog-conductance" data-g="${g}">`;
+    out+=c.rect(202,158,126,28,C.oxide)+c.rect(202,158,126*g,28,C.free);
+    out+=c.text(365,160,'相對電導 G','Relative G')+c.t(365,190,g.toFixed(2));
+    out+='</g>';
   } else if(id==='4ds-reram') {
-    out+=c.rect(180,79,170,28,C.metal)+c.t(20,98,'Top Contact');
-    out+=c.rect(180,107,170,104,'#efe6f3')+c.t(20,165,'PCMO Perovskite');
-    out+=c.rect(180,211,170,28,C.metal)+c.t(20,231,'Ohmic BE');
+    out+=c.rect(180,79,170,28,C.metal)+c.text(20,98,'上接點','Top Contact');
+    out+=c.rect(180,107,170,104,'#efe6f3')+c.t(20,165,'PCMO');
+    out+=c.rect(180,211,170,28,C.metal)+c.text(20,231,'下接點','Bottom Contact');
     out+=access(c,on,239,'BE / SL');
-    out+=c.path('M210 115Q265 135 320 115',C.current,2.5)+c.text(360,130,'肖特基障壁','Schottky Barrier');
+    const barrier=operation==='read'||operation==='structure'?0.25:(operation==='erase'?[0.25,0.5,0.8,0.8]:[0.8,0.5,0.25,0.25])[stage];
+    const height=12+barrier*60;
+    out+=`<g data-state="interface-barrier" data-barrier="${barrier}">`;
+    out+=c.rect(200,111,130,height,'#efd7bb')+c.path(`M200 ${111+height}Q265 ${115+height} 330 ${111+height}`,C.current,3);
+    out+=c.text(365,130,'介面障壁','Interface Barrier')+c.t(365,160,barrier.toFixed(2));
+    out+='</g>';
   } else if(id==='adesto-cbram') {
-    out+=c.rect(180,79,170,28,'#f2d0ba')+c.t(20,98,'Cu Anode');
-    out+=c.rect(180,107,170,104,'#eef6f6')+c.t(20,165,'Solid Electrolyte');
-    out+=c.rect(180,211,170,28,'#ccd5de')+c.t(20,231,'W Cathode');
+    out+=c.rect(180,79,170,28,'#f2d0ba')+c.t(20,98,'Active Metal');
+    out+=c.rect(180,107,170,104,'#eef6f6')+c.text(20,165,'電解質','Electrolyte');
+    out+=c.rect(180,211,170,28,'#ccd5de')+c.t(20,231,'BE');
     out+=access(c,on,239,'BE / SL');
     const read=operation==='read'||operation==='structure',set=operation==='write';
     const end=read?205:set?[140,165,205,205][stage]:[205,175,140,140][stage];
     for(let y=115;y<=end;y+=15) out+=ion(c,265+(y%4-1.5)*2,y,'copper');
-    if((set||operation==='erase')&&stage===1) out+=c.arrow(302,set?120:190,302,set?190:120,C.copper,3)+c.t(363,165,'Cu+');
+    if((set||operation==='erase')&&stage===1) out+=c.arrow(302,set?120:190,302,set?190:120,C.copper,3)+c.t(363,165,'M+');
     if(end<180) out+=c.text(365,190,'奈米橋間隙','Bridge Gap');
   } else {
     const wb=id==='weebit-reram';
@@ -302,25 +296,20 @@ const MRAM_LEGEND=[
   ['τSTT',bi('自旋轉移力矩；中間箭頭只是翻轉過程示意','Spin-transfer torque; the intermediate arrow only illustrates reversal')]
 ];
 const EVERSPIN_LEGEND=[
-  ['Top/Bottom MgO',bi('雙 MgO 界面誘導垂直磁各向異性 (i-PMA)','Dual MgO interfaces induce perpendicular magnetic anisotropy (i-PMA)')],
-  ['CoFeB FL / RL',bi('CoFeB 垂直自由層與參考層；超薄穿隧障壁','CoFeB perpendicular free/reference layers with ultrathin tunnel barrier')],
-  ['Ru / SAF',bi('合成反鐵磁釘扎層固定參考層磁化','Synthetic antiferromagnet (SAF) pinning stabilizes reference layer')],
-  ['Ic / e−',bi('雙向自旋轉矩穿隧翻轉電流','Bidirectional spin-transfer torque switching current')]
+  ['FL / RL',bi('自由層與參考層；箭頭表示磁矩','Free and reference layers; arrows represent magnetic moments')],
+  ['Barrier',bi('穿隧障壁；材料與厚度未指定','Tunnel barrier; material and thickness are unspecified')],
+  ['Ic / e−',bi('傳統電流與電子流方向相反','Conventional current and electron flow have opposite directions')]
 ];
-const AVALANCHE_LEGEND=[
-  ['Top / Bottom SAF',bi('上下雙對稱 SAF 抵消自由層雜散偶極場偏置','Dual symmetric SAFs cancel stray dipole fields on the free layer')],
-  ['Center CoFeB FL',bi('中心垂直自由層夾置於雙 MgO 障壁之間','Central perpendicular free layer flanked by dual MgO tunnel barriers')],
-  ['Ic (Dual STT)',bi('雙重自旋轉矩注入，臨界翻轉電流降低約 50%','Dual spin-torque injection reducing critical switching current by ~50%')]
-];
+const AVALANCHE_LEGEND=EVERSPIN_LEGEND;
 const SPINMEM_LEGEND=[
-  ['PSC Polarizer',bi('面內極化自旋流產生層提供正交進動轉矩','In-plane precessional spin polarizer supplies orthogonal torque')],
-  ['Spacer',bi('非磁性交換去耦間隔層','Non-magnetic exchange-decoupling spacer layer')],
-  ['p-FL / SAF RL',bi('垂直 MTJ 儲存單元，消除熱起伏隨機延遲','Perpendicular MTJ eliminating thermal incubation delay')]
+  ['PSC',bi('專利實施例的進動自旋流功能','Precessional spin-current function in the patent embodiment')],
+  ['Coupling / Enhancement',bi('耦合與 skyrmionic 增強功能；非原廠比例剖面','Coupling and skyrmionic enhancement functions; not a scaled vendor cross-section')],
+  ['FL / RL',bi('儲存與參考磁矩；中間角度只作操作示意','Storage and reference moments; intermediate angles are only schematic')]
 ];
 const CROCUS_LEGEND=[
-  ['Heater Line',bi('加熱電阻脈衝將局域溫度升高超過阻斷溫度 Tb','Heating pulse raises temperature above blocking temperature Tb')],
+  ['Heating',bi('加熱電阻脈衝將局域溫度升高超過阻斷溫度 Tb','Heating pulse raises temperature above blocking temperature Tb')],
   ['AFM (Tb)',bi('反鐵磁層在常溫下以交換偏置場鎖定儲存層','Antiferromagnetic layer locks storage layer via exchange bias below Tb')],
-  ['Storage FL',bi('短脈衝加熱解鎖後翻轉，冷卻後凍結狀態','Switches while thermally unlocked, then freezes state upon cooling')]
+  ['Hwrite / Storage FL',bi('加熱解鎖後由外加寫入場定向；冷卻鎖定後撤場','An applied write field orients thermally unlocked storage; remove the field after cooling locks it')]
 ];
 const WB_LEGEND=[
   ['Ti / SiOx / TiN',bi('上電極／切換氧化物／下電極；僅限公開 CEA 範例','Top electrode/switching oxide/bottom electrode, limited to the public CEA example')],
@@ -329,19 +318,19 @@ const WB_LEGEND=[
   ['Ic / e−',bi('傳統電流與電子流方向相反；不是氧離子移動方向','Conventional current and electrons flow oppositely; neither denotes oxygen motion')]
 ];
 const PANA_LEGEND=[
-  ['Pt/TiN TE / BE',bi('惰性電極夾置雙層鉭氧化物阻變堆疊','Inert electrodes sandwiching the bilayer tantalum oxide stack')],
-  ['Ta2O5 (~5nm)',bi('超薄化學計量絕緣層，局域富鉭微絲活化區','Ultrathin stoichiometric insulator where Ta-rich conductive filament forms')],
-  ['TaOx (~30nm)',bi('缺氧導電層作為氧離子庫，串聯電阻自限制微絲粗細','Oxygen-deficient layer acting as oxygen reservoir with self-limiting resistance')]
+  ['TE / BE',bi('上、下電極；材料未指定','Top and bottom electrodes; materials unspecified')],
+  ['Ta2O5 / TaOx',bi('公開研究的雙層氧化鉭示意；厚度非比例','Published-research tantalum-oxide bilayer; thicknesses not to scale')],
+  ['O / VO',bi('氧與氧空缺表達微絲模型','Oxygen and vacancies illustrate the filament model')]
 ];
 const TETRA_LEGEND=[
-  ['Barrier / Oxide',bi('多層金屬氧化物連續介面障壁工程堆疊','Interface-engineered multi-layer metal oxide stack')],
-  ['Multi-Level G',bi('連續調變介面氧空缺分布，實現 8-bit 高線性度電導','Continuous vacancy tuning delivering 8-bit linear analog conductance')],
-  ['CIM In-Memory',bi('類比記憶體運算乘加權重，極低弛豫漂移','Analog compute-in-memory weights with minimal conductance drift')]
+  ['Barrier / Oxide',bi('功能層示意；材料與層序尚未核實','Functional-layer abstraction; materials and layer order remain unverified')],
+  ['Relative G',bi('相對類比電導；長條與數值不是量測或精度規格','Relative analog conductance; bar and values are not measurements or precision specifications')],
+  ['CIM',bi('以電導表示類比運算權重','Conductance represents an analog compute weight')]
 ];
 const FOURDS_LEGEND=[
-  ['PCMO Perovskite',bi('單晶圓級 Pr0.7Ca0.3MnO3 鈣鈦礦過渡金屬氧化物','Single-wafer Pr0.7Ca0.3MnO3 perovskite transition metal oxide')],
-  ['Schottky Barrier',bi('介面肖特基障壁高度均勻調變，非局部崩潰微絲','Uniform interface Schottky barrier modulation without localized filaments')],
-  ['Forming-free',bi('免高壓電氣 Forming，阻值隨接觸面積成反比微縮','Forming-free operation; resistance scales inversely with junction area')]
+  ['PCMO',bi('原廠所述介面記憶體材料；不指定未核實化學比例','Vendor-described interface-memory material; unverified chemical ratios are omitted')],
+  ['Interface Barrier',bi('陰影僅表示阻態變化；非已核實肖特基能障量測','Shading represents resistance change, not verified Schottky-barrier measurements')],
+  ['O',bi('氧進入位點對應 SET，氧耗盡對應 RESET；幾何非比例','Oxygen entering sites corresponds to SET; depletion corresponds to RESET; geometry is not to scale')]
 ];
 const CB_LEGEND=[
   ['Ag / a-Si / p+ poly-Si',bi('銀上電極／非晶矽／選定的下端緩衝與接點實施例','Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment')],
@@ -350,9 +339,9 @@ const CB_LEGEND=[
   ['Ic / e−',bi('傳統電流與電子方向相反；電子可在相鄰粒子間穿隧','Conventional current opposes electron motion; electrons may tunnel between neighboring particles')]
 ];
 const ADESTO_LEGEND=[
-  ['Cu Anode / W Cathode',bi('銅活性陽極與惰性鎢陰極夾置超薄固態電解質','Copper active anode and inert tungsten cathode flanking solid electrolyte')],
-  ['Cu+ / Cu Bridge',bi('電化學氧化還原形成微安培級金屬銅奈米微橋','Electrochemical redox growing microamp-level copper metallic nanobridge')],
-  ['Sub-Volt RESET',bi('低壓反向偏壓電離溶解金屬橋，恢復太歐姆高阻態','Low reverse bias dissolves copper bridge, restoring tera-ohm high-resistance state')]
+  ['Active Metal',bi('活性金屬功能；未指定銅配方','Active-metal function; no copper recipe is assigned')],
+  ['Electrolyte',bi('離子移動介質的功能示意','Functional illustration of the ion-transport medium')],
+  ['Bridge',bi('導電橋生成與溶解；不指定電流或阻值規格','Bridge formation and dissolution; no current or resistance specification is assigned')]
 ];
 const legendFor=(id,language)=>{
   if(id==='everspin-mram') return EVERSPIN_LEGEND.map(([s,m])=>({symbol:s,meaning:pick(m,language)}));
@@ -371,6 +360,36 @@ const legendFor=(id,language)=>{
 function record(c,title,caption,state,stimulus,body,language,sourceIds) {
   const localTitle=pick(title,language),localCaption=pick(caption,language);
   return {id:c.prefix,title:localTitle,state:pick(state,language),stimulus:pick(stimulus,language),caption:localCaption,svg:svg(c,localTitle,localCaption,body),sourceIds};
+}
+
+// TAS 採獨立加熱／外加場序列；磁矩箭頭不代表電荷流。
+function tasFrames(id,operation,language,sourceIds) {
+  const read=operation==='read',reverse=operation==='erase';
+  const titles=read?[bi('鎖定磁態待讀','Locked State Awaits Read'),bi('小偏壓感測 MTJ','Sense MTJ at Small Bias'),bi('撤去讀取偏壓','Remove Read Bias')]:[bi('低於 Tb：儲存磁態鎖定','Below Tb: Storage State Locked'),bi('加熱越過 Tb：解除鎖定','Heat above Tb: Unlock Storage'),bi('外加寫入場翻轉磁矩','Applied Write Field Reverses Moment'),bi('保留寫入場並冷卻鎖定','Cool and Lock with Write Field Held'),bi('移除寫入場，磁態保留','Remove Write Field; Retain State')];
+  const initial=reverse?90:-90,target=reverse?-90:90;
+  return titles.map((title,i)=>{
+    const c=canvas(id,operation,language,i+1),hot=!read&&(i===1||i===2),field=!read&&(i===2||i===3);
+    const angle=read?90:i<2?initial:target,active=read?i===1:hot;
+    let body=mtj(c,id,angle,active,read&&active?'Vr':hot?'HEAT':'0',read&&active?1:0,read,false);
+    body+=`<g data-state="tas" data-temperature="${hot?'above-tb':'below-tb'}" data-field="${field?(reverse?'reverse':'forward'):'off'}" data-moment="${angle}">`;
+    body+=c.rect(365,74,170,44,hot?'#fbe6d4':'#edf6f4','rx="6"')+c.t(450,103,hot?'T > Tb':'T < Tb','middle');
+    body+=c.text(365,150,hot?'已解鎖':'已鎖定',hot?'Unlocked':'Locked');
+    if(field) body+=c.arrow(405,reverse?183:228,405,reverse?228:183,C.ref,4)+c.t(428,211,'Hwrite');
+    body+='</g>';
+    const caption=read?bi('以小偏壓感測既有電阻態；不加熱解鎖，不施加寫入場。','Sense the retained resistance with small bias; do not unlock thermally or apply a write field.'):i===0?bi('交換偏置在低於 Tb 時鎖定儲存磁矩。','Exchange bias locks the storage moment below Tb.'):i===1?bi('加熱使儲存層相關釘扎解除；此步不表示 STT 翻轉。','Heating releases storage-layer pinning; this step does not represent STT switching.'):i===2?bi('在已解鎖的狀態下，外加寫入場設定儲存磁矩方向。','With storage unlocked, the applied write field sets the storage moment direction.'):i===3?bi('停止加熱並維持寫入場，冷卻低於 Tb 後重新鎖定。','Stop heating and hold the write field while cooling below Tb to restore pinning.'):bi('鎖定後移除寫入場；以相反場方向執行反向覆寫。','After pinning is restored, remove the field; the opposite field performs reverse overwrite.');
+    return record(c,title,caption,bi(hot?'熱解鎖':'磁態鎖定',hot?'Thermally unlocked':'Magnetic state locked'),bi(read?(active?'小讀取偏壓':'偏壓為零'):hot?'加熱中':field?'冷卻；寫入場保持':'加熱與寫入場關閉',read?(active?'Small read bias':'Zero bias'):hot?'Heating':field?'Cooling; write field held':'Heating and write field off'),body,language,sourceIds);
+  });
+}
+
+function interfaceFrames(id,operation,language,sourceIds) {
+  const analog=id==='tetramem-reram',read=operation==='read',reverse=operation==='erase';
+  const titles=read?[bi('既有狀態待感測','Retained State Awaits Sensing'),bi('施加小讀取偏壓','Apply Small Read Bias'),bi('鎖存並撤去偏壓','Latch and Remove Bias')]:analog?[bi('既有類比電導','Initial Analog Conductance'),bi('脈衝逐步調整電導','Pulses Gradually Adjust Conductance'),bi('到達目標電導','Reach Target Conductance'),bi('撤壓保留電導','Remove Bias and Retain Conductance')]:[bi('既有介面阻態','Initial Interface Resistance'),bi('脈衝調變介面障壁','Pulse Modulates Interface Barrier'),bi('到達目標阻態','Reach Target Resistance'),bi('撤壓保留阻態','Remove Bias and Retain Resistance')];
+  return titles.map((title,i)=>{
+    const c=canvas(id,operation,language,i+1),active=read?i===1:i===1||i===2;
+    const caption=analog?bi(read?'小偏壓讀出既有電導；示意 G 保持不變。':'長條表示逐步調整的相對類比電導；數字為教學座標，不代表量測值、位元精度或特定微觀材料機制。',read?'Small bias reads retained conductance; schematic G remains unchanged.':'The bar represents gradual adjustment of relative analog conductance; values are teaching coordinates, not measurements, bit precision, or a specific microscopic mechanism.'):bi(read?'小偏壓感測既有介面阻態；障壁示意保持不變。':'陰影高度表示介面障壁的定性變化；不是金屬微橋，也不代表實測能障或原廠層序。',read?'Small bias senses retained interface resistance; the schematic barrier remains unchanged.':'Shading height represents qualitative interface-barrier modulation, not a metallic bridge, measured barrier, or vendor layer order.');
+    const body=reram(c,id,active,active?(read?'Vr':reverse?'ADJUST B':'ADJUST A'):'0',i,operation,0);
+    return record(c,title,caption,bi(analog?'相對類比電導':'介面障壁示意',analog?'Relative analog conductance':'Schematic interface barrier'),bi(active?(read?'小讀取偏壓':'調整脈衝；極性未指定'):'偏壓為零',active?(read?'Small read bias':'Adjustment pulse; polarity unspecified'):'Zero bias'),body,language,sourceIds);
+  });
 }
 
 function magneticFrames(id,operation,language,sourceIds) {
@@ -438,9 +457,9 @@ export function getIPStudy(id,language='en') {
   let structureBody=magnetic?mtj(c,id,90,false,'0'):reram(c,id,false,'0',3,'structure');
   structureBody+=c.text(28,338,'原創結構示意；非比例剖面','Original Structure Model; Not to Scale');
   const operations=['write','erase','read'].map(operationId=>{
-    const action=operationId==='read'?bi('讀取','Read'):operationId==='erase'?(magnetic?bi('反向覆寫','Reverse Overwrite'):bi('反向 RESET','Reverse RESET')):(magnetic?bi('寫入','Write'):bi('SET 寫入','SET Write'));
-    const frames=magnetic?magneticFrames(id,operationId,language,sourceIds):resistiveFrames(id,operationId,language,sourceIds);
-    const summary=operationId==='read'?pick(bi('選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。','Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.'),language):operationId==='erase'?pick(bi(magnetic?'以另一方向的 MTJ 驅動覆寫磁態。':'反向 TE 偏壓使導電路徑中斷，形成高阻。',magnetic?'Use the opposite MTJ drive to overwrite magnetization.':'Reverse TE bias interrupts the conduction path and produces high resistance.'),language):pick(bi(magnetic?'以自旋轉移力矩寫入自由層磁態。':'正 TE 偏壓重建導電路徑，形成低阻。',magnetic?'Write free-layer magnetization through spin-transfer torque.':'Positive TE bias restores the conduction path and produces low resistance.'),language);
+    const action=operationId==='read'?bi('讀取','Read'):operationId==='erase'?(magnetic?bi('反向覆寫','Reverse Overwrite'):(id==='tetramem-reram'?bi('降低電導','Decrease Conductance'):bi('反向 RESET','Reverse RESET'))):(magnetic?bi('寫入','Write'):(id==='tetramem-reram'?bi('提高電導','Increase Conductance'):bi('SET 寫入','SET Write')));
+    const frames=id==='crocus-mram'?tasFrames(id,operationId,language,sourceIds):['tetramem-reram','4ds-reram'].includes(id)?interfaceFrames(id,operationId,language,sourceIds):magnetic?magneticFrames(id,operationId,language,sourceIds):resistiveFrames(id,operationId,language,sourceIds);
+    const summary=id==='crocus-mram'?pick(bi(operationId==='read'?'小偏壓讀出鎖定磁態。':'加熱越過 Tb、外加寫入場定向、冷卻鎖定後移除場。',operationId==='read'?'Read the locked state at small bias.':'Heat above Tb, orient with an applied write field, cool to lock, then remove the field.'),language):['tetramem-reram','4ds-reram'].includes(id)?pick(bi(id==='tetramem-reram'?'以相對類比電導呈現逐步調整與讀取；不指定載子機制。':'以介面障壁變化呈現阻態調整與讀取；數值與幾何僅為教學示意。',id==='tetramem-reram'?'Show gradual analog-conductance adjustment and reading without assigning a carrier mechanism.':'Show interface-barrier modulation and reading; values and geometry are teaching abstractions.'),language):operationId==='read'?pick(bi('選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。','Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.'),language):operationId==='erase'?pick(bi(magnetic?'以另一方向的 MTJ 驅動覆寫磁態。':'反向 TE 偏壓使導電路徑中斷，形成高阻。',magnetic?'Use the opposite MTJ drive to overwrite magnetization.':'Reverse TE bias interrupts the conduction path and produces high resistance.'),language):pick(bi(magnetic?'以自旋轉移力矩寫入自由層磁態。':'正 TE 偏壓重建導電路徑，形成低阻。',magnetic?'Write free-layer magnetization through spin-transfer torque.':'Positive TE bias restores the conduction path and produces low resistance.'),language);
     return {topicId:`ip-${id}`,operationId,title:`${title} — ${pick(action,language)}`,summary,sources,variants:[{id:'published-model',title:pick(meta.model,language),mechanism:pick(meta.mechanism,language),summary,frames,legend,sources,caveat:pick(meta.caveat,language)}]};
   });
   return {id,structure:{title,svg:svg(c,title,caption,structureBody),caption,legend,sourceIds},operations};

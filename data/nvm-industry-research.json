@@ -1449,75 +1449,83 @@
     },
     {
       "id": "ip-chingis-pfusion",
-      "label": "常億科技：pFusion eFlash 產品技術",
-      "url": "https://www.chingistek.com",
-      "locator": "P-Channel 浮閘 PMOS eFlash；以能帶至能帶穿隧誘發熱電洞注入 (BBHH) 寫入與 FN 抹除；極低寫入電流，標準 CMOS 相容。",
-      "kind": "原廠技術規格",
-      "date": "2026-09-16 查核",
-      "limit": "適用於微控制器與智慧卡；不以單一規格書代表全節點 PDK。"
+      "label": "常憶科技 pFusion：原廠資料待核實",
+      "url": "https://www.chingistek.com/",
+      "locator": "本次原廠入口未提供可核對的技術本文。",
+      "kind": "待核實原廠入口",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-chingis-pm25",
-      "label": "常億科技：pFlash SPI NOR Flash",
-      "url": "https://www.chingistek.com",
-      "locator": "Pm25 系列獨立式 NOR Flash；晶豪科技 ESMT 產品線。",
-      "kind": "原廠產品手冊",
-      "date": "2026-09-16 查核",
-      "limit": "獨立式封裝不等於所有嵌入式巨集。"
+      "label": "常憶科技 Pm25：產品資料待核實",
+      "url": "https://www.chingistek.com/",
+      "locator": "未取得可核對的現行產品文件；不作 pFusion 機制證據。",
+      "kind": "待核實原廠入口",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvoflash",
-      "label": "智憶科技：SilvoFlash 超低壓 eFlash",
-      "url": "https://iotmemory.com/en",
-      "locator": "SilvoFlash 原生 0.9V–1.2V 超低壓 eFlash；支援 40nm SoC 與 DDR5 SPD IC 供應鏈。",
-      "kind": "原廠技術白皮書",
-      "date": "2026-09-16 查核",
-      "limit": "核心電壓原生讀取不代表抹除無需內部升壓；量產驗證按具名產品核對。"
+      "label": "智憶科技：SilvoFlash 技術概況",
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "locator": "Technology Overview 與 Advantages；浮閘、單低供電及僅 Vdd 讀取。",
+      "kind": "原廠技術頁",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvofe",
-      "label": "智憶科技：SilvoFE 嵌入式 eEEPROM",
-      "url": "https://iotmemory.com/en",
-      "locator": "單一製程整合 Code eFlash 與 Data eEEPROM。",
-      "kind": "原廠技術白皮書",
-      "date": "2026-09-16 查核",
-      "limit": "兩者在同一晶片上共存需核對具名巨集組織。"
+      "label": "智憶科技：SilvoFlash 與 SilvoFE 技術導覽",
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "locator": "此頁提供 SilvoFE 導覽；本次未據此核實雙模共存或位元組更新。",
+      "kind": "原廠技術頁",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-SPINMEM-PSC",
-      "label": "Spin Memory 進動自旋流 PSC 極速翻轉專利",
-      "url": "https://patents.google.com/patent/US9287500B2/en",
-      "locator": "圖 2、4；權利項 1；次 3ns 翻轉與非共線轉矩",
+      "label": "Spin Memory：PSC 與 skyrmionic 增強層專利",
+      "url": "https://patents.google.com/patent/US10468588B2/en",
+      "locator": "圖 3；權利項 1、8、20；原始申請人 Spin Memory Inc",
       "kind": "公開專利",
-      "date": "2016-03-15",
-      "limit": "專利揭露極速翻轉元件物理；商業樣品進展不代表全行業標配。"
+      "date": "2019-11-05",
+      "limit": "限定含 PSC、耦合層與增強層的實施例；不保證次 3ns、耐久或商用量產。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-CROCUS-TAS",
-      "label": "Crocus 熱輔助 TAS-MRAM 高選擇性專利",
-      "url": "https://patents.google.com/patent/US7916526B2/en",
-      "locator": "圖 2、3；權利項 1；阻塞溫度 TB 熱解鎖翻轉方法",
+      "label": "Crocus：具加熱元件與熱障壁的 TAS-MRAM 專利",
+      "url": "https://patents.google.com/patent/US8717812B2/en",
+      "locator": "圖 1、2；權利項 1；TAS 寫入與冷卻鎖定說明",
       "kind": "公開專利",
-      "date": "2011-03-29",
-      "limit": "專利限定熱輔助阻塞機制；每次寫入具備熱循環延遲。"
+      "date": "2014-05-06",
+      "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-4DS-PCMO",
-      "label": "4DS Memory 結晶 PCMO 無微絲界面型 SCM 專利",
-      "url": "https://patents.google.com/patent/US10468591B2/en",
-      "locator": "圖 2、3；權利項 1；面積型肖特基能障無 Forming 調製",
-      "kind": "公開專利",
-      "date": "2019-11-05",
-      "limit": "專利揭露非細絲面積型界面開關；高溫退火熱預算需與 BEOL 相容。"
+      "label": "4DS：PCMO 面積型介面切換技術",
+      "url": "https://www.4dsmemory.com/technology/4ds-technology/",
+      "locator": "PCMO and Area Based Interface Switching",
+      "kind": "原廠技術說明",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "原廠描述氧進入位點時 SET、氧耗盡時 RESET；不支持精確化學比例、通用肖特基曲線或無 Forming 保證。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-ADESTO-CBRAM",
-      "label": "Adesto 銅離子固態電解質微安培 CBRAM 專利",
-      "url": "https://patents.google.com/patent/US8824194B2/en",
-      "locator": "圖 1、3；權利項 1；微安培銅奈米金屬橋接操作",
-      "kind": "公開專利",
-      "date": "2014-09-02",
-      "limit": "專利揭露超低功耗電解質導電橋；GF 22FDX 嵌入式規格需以代工手冊為準。"
+      "label": "Adesto：CBRAM 可靠度研究公告",
+      "url": "https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive",
+      "locator": "CBRAM 研究與歷史 IoT 商品敘述",
+      "kind": "原廠研究公告",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。",
+      "accessedAt": "2026-10-09"
     }
   ],
   "landscape": [
@@ -2288,37 +2296,37 @@
     },
     {
       "id": "chingistek-pfusion",
-      "name": "常億科技 Chingis Technology",
-      "technology": "pFusion PMOS eFlash",
+      "name": "常憶科技 Chingis Technology",
+      "technology": "pFusion eFlash",
       "family": "NOR / eFlash / SONOS",
       "role": "利基 eFlash IP 供應商",
-      "maturity": "成熟量產與廣泛授權",
-      "claim": "專利 pFusion 架構採 P-Channel PMOS 浮閘，利用能帶間穿隧誘發熱電洞注入 (BBHH) 進行微安培級寫入，並以高電場 FN 穿隧抹除；具備低功耗寫入與標準 CMOS 相容特徵，廣泛授權於 MCU、智慧卡與周邊晶片。",
-      "limit": "微安培寫入電流為 PMOS 特性，不代表抹除無需內部升壓；製程支援與額外光罩道數依目標代工廠 PDK 授權合約。",
-      "dateLabel": "2024–2026 技術手冊 · 查核 2026-09-16",
+      "maturity": "機制與商用資格待核實",
+      "claim": "保留 pFusion 具名技術入口；本次未取得足以核實載子機制、浮閘結構及讀寫極性的可讀原廠文件。",
+      "limit": "先前 BBHH、FN、微安培與閾值方向缺少可核對的一手依據，已撤下。圖示只保留功能狀態，不當作原廠剖面重建。",
+      "dateLabel": "2026-10-09",
       "sourceIds": [
         "ip-chingis-pfusion",
         "ip-chingis-pm25"
       ],
       "target": "ip-chingis-pfusion",
-      "search": "常億科技 Chingis Technology pFusion PMOS eFlash BBHH 能帶間穿隧 熱電洞注入 低寫入電流 智慧卡 MCU ESMT 晶豪科技"
+      "search": "常憶科技 pFusion：eFlash 技術待核實 保留 pFusion 具名技術入口；本次未取得足以核實載子機制、浮閘結構及讀寫極性的可讀原廠文件。"
     },
     {
       "id": "iotmemory-silvoflash",
       "name": "智憶科技 IOTMemory",
-      "technology": "SilvoFlash 原生超低壓 eFlash",
+      "technology": "SilvoFlash eFlash",
       "family": "NOR / eFlash / SONOS",
       "role": "利基超低壓 eFlash IP 供應商",
-      "maturity": "量產出貨與商用驗證",
-      "claim": "專利 SilvoFlash 架構採單層多晶矽／低光罩 CMOS 浮閘技術，實現原生 0.9V–1.2V 核心邏輯電壓直接高速感測讀取，無須常時啟動升壓電荷泵；支援 Code Flash 與 Data EEPROM (SilvoFE) 雙模共存，已於 40nm 等節點量產並打入 DDR5 SPD 晶片供應鏈。",
-      "limit": "核心電壓原生讀取不代表寫抹操作無需內部升壓電荷泵；具體耐久與保持性按代工廠 PDK 驗證為準。",
-      "dateLabel": "2024–2026 商業手冊 · 查核 2026-09-16",
+      "maturity": "原廠技術介紹；具名產品資格另核",
+      "claim": "原廠技術頁描述浮閘 NOR 與單一低電源讀取；操作電壓與製程版本需按具名巨集核對。",
+      "limit": "公開資料支持單低電源與浮閘，未支持本頁先前的單層多晶矽、固定 0.9–1.2V、DDR5 SPD 量產或特定穿隧結構。SilvoFE 的組織應另依版本核對。",
+      "dateLabel": "2026-10-09",
       "sourceIds": [
         "ip-iotmemory-silvoflash",
         "ip-iotmemory-silvofe"
       ],
       "target": "ip-iotmemory-silvoflash",
-      "search": "智憶科技 IOTMemory SilvoFlash SilvoFE 原生超低壓 0.9V 1.2V DDR5 SPD EEPROM eFlash 40nm 低功耗"
+      "search": "智憶科技 SilvoFlash：單低電源浮閘 eFlash 原廠技術頁描述浮閘 NOR 與單一低電源讀取；操作電壓與製程版本需按具名巨集核對。"
     },
     {
       "id": "industry-st-estm",
@@ -2877,14 +2885,14 @@
     {
       "id": "spin-memory-psc",
       "name": "Spin Memory (Spin Transfer Technologies)",
-      "technology": "Precessional Spin Current (PSC) Ultra-Fast STT-MRAM",
+      "technology": "Spin Memory：PSC 與 skyrmionic 增強層專利",
       "family": "MRAM",
-      "role": "先進 MRAM 矽智財與元件架構創新先驅",
-      "maturity": "專利授權與 Applied Materials 機台聯合開發；展示次 3ns 翻轉",
-      "claim": "專利 US9287500B2 揭露進動自旋流（PSC）極化層技術；在垂直自由層上方引入非共線自旋極化，消除熱起伏隨機孵育延遲，實現次 3ns 極速寫入與 10^12 次耐久，為 SRAM 快取替換提供物理證明。",
-      "limit": "商業化進程受限於先進物理氣相沉積（PVD）多層膜堆疊良率與公司重組；專利技術被業界視為極速 MRAM 原理經典。",
-      "dateLabel": "2016–2026 專利與研發進程",
-      "search": "Spin Memory Spin Transfer Technologies PSC Precessional Spin Current US9287500B2 SRAM Cache Replacement Applied Materials 進動自旋流",
+      "role": "具名記憶體技術研究與產品案例",
+      "maturity": "公開專利實施例；不等於產品量產",
+      "claim": "圖 3；權利項 1、8、20；原始申請人 Spin Memory Inc。限定含 PSC、耦合層與增強層的實施例；不保證次 3ns、耐久或商用量產。",
+      "limit": "限定含 PSC、耦合層與增強層的實施例；不保證次 3ns、耐久或商用量產。",
+      "dateLabel": "2026-10-09",
+      "search": "Spin Memory：PSC 與 skyrmionic 增強層專利 圖 3；權利項 1、8、20；原始申請人 Spin Memory Inc",
       "sourceIds": [
         "RES-P-SPINMEM-PSC"
       ],
@@ -2893,14 +2901,14 @@
     {
       "id": "crocus-tas-mram",
       "name": "Crocus Technology (Allegro MicroSystems)",
-      "technology": "Thermally-Assisted Switching (TAS-MRAM) & Magnetic Sensors",
+      "technology": "Crocus：具加熱元件與熱障壁的 TAS-MRAM 專利",
       "family": "MRAM",
-      "role": "高安全抗干擾磁性記憶體與 XtremeSense TMR 感測器原廠",
-      "maturity": "商用 TMR 感測器大量出貨；TAS 記憶體專利授權車規與國防安全晶片",
-      "claim": "專利 US7916526B2 揭露熱輔助磁翻轉（TAS-MRAM）；利用反鐵磁層阻塞溫度（TB）特性，寫入時加熱解鎖並定向切換，冷卻後磁鎖定，達成超高外部磁場抗擾力與物理防竄改能力。",
-      "limit": "受熱循環延遲限制，寫入時間約數十奈秒，不適合 GHz 級超高速快取；現行營收主要聚焦於 TMR 電流與角度磁感測器。",
-      "dateLabel": "2011–2026 商業與專利產品",
-      "search": "Crocus Technology Allegro MicroSystems TAS-MRAM Thermally-Assisted Switching US7916526B2 TMR XtremeSense Magnetic Sensor 熱輔助磁翻轉",
+      "role": "具名記憶體技術研究與產品案例",
+      "maturity": "公開專利實施例；不等於產品量產",
+      "claim": "圖 1、2；權利項 1；TAS 寫入與冷卻鎖定說明。加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。",
+      "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。",
+      "dateLabel": "2026-10-09",
+      "search": "Crocus：具加熱元件與熱障壁的 TAS-MRAM 專利 圖 1、2；權利項 1；TAS 寫入與冷卻鎖定說明",
       "sourceIds": [
         "RES-P-CROCUS-TAS"
       ],
@@ -2909,14 +2917,14 @@
     {
       "id": "4ds-memory-pcmo",
       "name": "4DS Memory Limited",
-      "technology": "Interface-Type Non-Filamentary PCMO ReRAM / SCM",
+      "technology": "4DS：PCMO 面積型介面切換技術",
       "family": "ReRAM",
-      "role": "存儲級記憶體（SCM）與 DRAM-NAND 差距填補創新廠家",
-      "maturity": "與 imec 聯合開發 1兆位元陣列驗證；次 20nm 單元功能性展示",
-      "claim": "專利 US10468591B2 揭露非細絲型結晶 PCMO 阻變機制；利用全接觸面積均勻氧離子遷移調控肖特基能障，實現完全無微絲、無高壓 Forming、耐久達 10^5 次且微縮至 20nm 以下的界面 SCM 單元。",
-      "limit": "結晶 PCMO 沉積與退火熱預算需嚴格適配先進 BEOL 互連；阻變開關比約 10~50x，需專屬高靈敏度感測放大器架構支援。",
-      "dateLabel": "2019–2026 imec 聯合驗證平台",
-      "search": "4DS Memory PCMO Non-Filamentary Interface ReRAM SCM imec US10468591B2 Forming-Free DRAM Cache Replacement 結晶鈣鈦礦",
+      "role": "具名記憶體技術研究與產品案例",
+      "maturity": "公開技術資料；當前供貨與資格另核",
+      "claim": "PCMO and Area Based Interface Switching。原廠描述氧進入位點時 SET、氧耗盡時 RESET；不支持精確化學比例、通用肖特基曲線或無 Forming 保證。",
+      "limit": "原廠描述氧進入位點時 SET、氧耗盡時 RESET；不支持精確化學比例、通用肖特基曲線或無 Forming 保證。",
+      "dateLabel": "2026-10-09",
+      "search": "4DS：PCMO 面積型介面切換技術 PCMO and Area Based Interface Switching",
       "sourceIds": [
         "RES-P-4DS-PCMO"
       ],
@@ -2925,14 +2933,14 @@
     {
       "id": "adesto-cbram-iot",
       "name": "Adesto Technologies (Dialog / Renesas)",
-      "technology": "Conductive Bridging RAM (CBRAM) / Solid-Electrolyte eNVM",
+      "technology": "Adesto：CBRAM 可靠度研究公告",
       "family": "ReRAM",
-      "role": "超低功耗物聯網與邊緣嵌入式 NVM 領導廠商",
-      "maturity": "商業產品持續出貨（Mavriq 系列）；GlobalFoundries 22FDX eCBRAM 嵌入式驗證",
-      "claim": "專利 US8824194B2 揭露固態電解質銅奈米金屬橋切換機制；在次微安培（<1uA）電流下實現微秒級快速可逆寫入，待機功耗低於 1uA，為物聯網與能量收集晶片提供超低功耗記憶體方案。",
-      "limit": "細微金屬奈米橋的高溫熱穩定性需權衡；AEC-Q100 車規高溫等級（Grade 1/0）整合需依據代工廠 PDK 規範嚴格測試。",
-      "dateLabel": "2014–2026 商用與代工 IP",
-      "search": "Adesto Technologies Renesas Dialog CBRAM Mavriq US8824194B2 GF 22FDX eCBRAM Sub-Microampere IoT NVM 導電橋記憶體",
+      "role": "具名記憶體技術研究與產品案例",
+      "maturity": "公開技術資料；當前供貨與資格另核",
+      "claim": "CBRAM 研究與歷史 IoT 商品敘述。支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。",
+      "limit": "支持 CBRAM 技術與歷史商品；此公告不揭露通用銅堆疊、1µA、TΩ 或現行 MCU 整合。",
+      "dateLabel": "2026-10-09",
+      "search": "Adesto：CBRAM 可靠度研究公告 CBRAM 研究與歷史 IoT 商品敘述",
       "sourceIds": [
         "RES-P-ADESTO-CBRAM"
       ],

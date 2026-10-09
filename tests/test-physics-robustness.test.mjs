@@ -267,14 +267,14 @@ test('Physical Calculators: Suite 7 - Sub-Kelvin & Extreme Plasma Temperature Bo
   }
 });
 
-test('Physical Calculators: Suite 8 - 3D Vertical Staircase Extreme Tiers & Substrate Thinning Fuzzing', () => {
+test('物理計算器：Suite 8－3D 階梯極端層數與既有節點預設邊界', () => {
   const extreme3DConfigs = [
-    { tierCount: 32, metalThicknessNm: 40.0, substrateThicknessUm: 775.0 },
-    { tierCount: 64, metalThicknessNm: 25.0, substrateThicknessUm: 100.0 },
-    { tierCount: 128, metalThicknessNm: 15.0, substrateThicknessUm: 10.0 },
-    { tierCount: 256, metalThicknessNm: 10.0, substrateThicknessUm: 5.0 },
-    { tierCount: 512, metalThicknessNm: 5.0, substrateThicknessUm: 1.0 },
-    { tierCount: 1024, metalThicknessNm: 2.0, substrateThicknessUm: 0.1 },
+    { tierCount: 32, metalThicknessNm: 40.0, nodeKey: 'tsmc_n2_nanosheet' },
+    { tierCount: 64, metalThicknessNm: 25.0, nodeKey: 'tsmc_a16_spr' },
+    { tierCount: 128, metalThicknessNm: 15.0, nodeKey: 'intel_18a_powervia' },
+    { tierCount: 256, metalThicknessNm: 10.0, nodeKey: 'foundry_14a_advanced' },
+    { tierCount: 512, metalThicknessNm: 5.0, nodeKey: 'tsmc_a16_spr' },
+    { tierCount: 1024, metalThicknessNm: 2.0, nodeKey: 'foundry_14a_advanced' },
   ];
 
   for (const { name, fn } of allCalculators) {
@@ -286,44 +286,43 @@ test('Physical Calculators: Suite 8 - 3D Vertical Staircase Extreme Tiers & Subs
           arrayLengthUm: 200.0,
           customArrayMb: 8.0,
           customActivityRatePct: 25.0,
-          substrateThicknessUm: cfg.substrateThicknessUm,
+          nodeKey: cfg.nodeKey,
         });
-        assert.ok(res !== undefined, `${name} must handle 3D tier config ${cfg.tierCount}L safely`);
+        assert.ok(res !== undefined, `${name} 必須安全處理 ${cfg.tierCount} 層配置`);
         checkNoNaN(res, `${name}_3DTiers_${cfg.tierCount}L`);
       } catch (err) {
-        assert.fail(`${name} crashed on 3D tier config ${cfg.tierCount}L: ${err.message}`);
+        assert.fail(`${name} 處理 ${cfg.tierCount} 層配置時失敗：${err.message}`);
       }
     }
   }
 });
 
-test('Physical Calculators: Suite 9 - CiM MAC Sparsity, PQC Noise Injection & PUF Entropy Boundary Fuzzing', () => {
+test('物理計算器：Suite 9－CiM 漂移、PQC 雜訊與 PUF 熵邊界', () => {
   const extremeSecurityCiMConfigs = [
-    { noiseSigma: 0.0, sparsity: 0.0, eccCapabilityT: 0, agingYears: 0 },
-    { noiseSigma: 0.1, sparsity: 0.25, eccCapabilityT: 4, agingYears: 1 },
-    { noiseSigma: 2.5, sparsity: 0.5, eccCapabilityT: 12, agingYears: 10 },
-    { noiseSigma: 10.0, sparsity: 0.9, eccCapabilityT: 18, agingYears: 20 },
-    { noiseSigma: 50.0, sparsity: 0.99, eccCapabilityT: 24, agingYears: 30 },
-    { noiseSigma: 100.0, sparsity: 1.0, eccCapabilityT: 30, agingYears: 50 },
+    { noiseSigma: 0.0, driftTimeHours: 1, eccCapabilityT: 0, agingYears: 0 },
+    { noiseSigma: 0.1, driftTimeHours: 10, eccCapabilityT: 4, agingYears: 1 },
+    { noiseSigma: 2.5, driftTimeHours: 100, eccCapabilityT: 12, agingYears: 10 },
+    { noiseSigma: 10.0, driftTimeHours: 1000, eccCapabilityT: 18, agingYears: 20 },
+    { noiseSigma: 50.0, driftTimeHours: 10000, eccCapabilityT: 24, agingYears: 30 },
+    { noiseSigma: 100.0, driftTimeHours: 87600, eccCapabilityT: 30, agingYears: 50 },
   ];
 
   for (const { name, fn } of allCalculators) {
     for (const cfg of extremeSecurityCiMConfigs) {
       try {
         const res = fn({
-          noiseSigma: cfg.noiseSigma,
           customNoise: cfg.noiseSigma,
-          sparsity: cfg.sparsity,
           eccCapabilityT: cfg.eccCapabilityT,
           agingYears: cfg.agingYears,
           wireResistanceOhm: 5.0,
-          adcResolutionBits: 8,
-          driftHours: 1000,
+          ...(name === 'calculateCimAnalogMac' ? { nominalAdcBits: 8 } :
+            ['calculateCimMacMetrics', 'calculateCimNnDegradation'].includes(name) ? { adcResolutionBits: 8 } : {}),
+          driftTimeHours: cfg.driftTimeHours,
         });
-        assert.ok(res !== undefined, `${name} must handle Suite 9 fuzzing safely`);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 9 邊界條件`);
         checkNoNaN(res, `${name}_Suite9_Noise_${cfg.noiseSigma}`);
       } catch (err) {
-        assert.fail(`${name} crashed on Suite 9 fuzzing sample: ${err.message}`);
+        assert.fail(`${name} 處理 Suite 9 邊界條件時失敗：${err.message}`);
       }
     }
   }
