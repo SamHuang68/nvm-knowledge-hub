@@ -134,6 +134,19 @@ export async function inspectSite(siteRoot = root) {
         }
       }
     }
+    for (const node of document.nodes) {
+      if (node.tag === "script" && "src" in node.attributes) {
+        const src = node.attributes.src.split(/[?#]/u)[0];
+        const isModule = (node.attributes.type ?? "").toLowerCase() === "module";
+        const scriptPath = path.resolve(path.dirname(path.join(siteRoot, page)), src);
+        if (!isModule && fs.existsSync(scriptPath) && fs.statSync(scriptPath).isFile()) {
+          const scriptContent = fs.readFileSync(scriptPath, "utf8");
+          if (/^\s*export(?:\s+default|\s+\*|\s+\{|\s+const|\s+let|\s+var|\s+function|\s+class|\s+async)\b/mu.test(scriptContent)) {
+            fail(`${page}：<script src="${node.attributes.src}"> 引用的模組含有 export 語句，必須宣告 type="module"`);
+          }
+        }
+      }
+    }
     if (runtime) return;
     if (/[^\x00-\x7F]/u.test(page)) fail(`${page}：公開頁面路徑必須為純英文 ASCII`);
     const colorScheme = document.nodes.find(node => node.tag === "meta" && (node.attributes.name ?? "").toLowerCase() === "color-scheme")?.attributes.content;
