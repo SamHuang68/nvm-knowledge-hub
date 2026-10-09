@@ -1449,75 +1449,83 @@
     },
     {
       "id": "ip-chingis-pfusion",
-      "label": "Chingis Technology: pFusion eFlash Technology",
-      "url": "https://www.chingistek.com",
-      "locator": "P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program and FN erase; microamp-level write current, standard CMOS compatible.",
-      "kind": "Manufacturer Specification",
-      "date": "Reviewed 2026-09-16",
-      "limit": "Targeted at microcontrollers and smart cards; a single datasheet does not represent all node PDKs."
+      "label": "Chingis pFusion: Vendor Documentation Unverified",
+      "url": "https://www.chingistek.com/",
+      "locator": "The vendor entry point did not provide verifiable technical text in this review.",
+      "kind": "Unverified vendor entry point",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "Bias, endurance, retention, update granularity and production qualification require a named product and version; this lesson does not invent undisclosed specifications.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-chingis-pm25",
-      "label": "Chingis Technology: pFlash SPI NOR Flash",
-      "url": "https://www.chingistek.com",
-      "locator": "Pm25 series standalone NOR Flash; ESMT product line.",
-      "kind": "Manufacturer Product Manual",
-      "date": "Reviewed 2026-09-16",
-      "limit": "Standalone packages are not identical to all embedded macros."
+      "label": "Chingis Pm25: Product Documentation Unverified",
+      "url": "https://www.chingistek.com/",
+      "locator": "No verifiable current product document was obtained; not evidence for pFusion physics.",
+      "kind": "Unverified vendor entry point",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "Bias, endurance, retention, update granularity and production qualification require a named product and version; this lesson does not invent undisclosed specifications.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvoflash",
-      "label": "IOTMemory: SilvoFlash Ultra-Low Voltage eFlash",
-      "url": "https://iotmemory.com/en",
-      "locator": "SilvoFlash native 0.9V-1.2V ultra-low-voltage eFlash; deployed in 40nm SoC and DDR5 SPD IC supply chains.",
-      "kind": "Manufacturer Whitepaper",
-      "date": "Reviewed 2026-09-16",
-      "limit": "Native core-voltage read does not eliminate internal charge pumps for write/erase; volume qualification verified per product."
+      "label": "IOTMemory: SilvoFlash Technology Overview",
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "locator": "Technology Overview and Advantages: floating gates, single low supply and Vdd-only reading.",
+      "kind": "Vendor technology page",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "Bias, endurance, retention, update granularity and production qualification require a named product and version; this lesson does not invent undisclosed specifications.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvofe",
-      "label": "IOTMemory: SilvoFE Embedded eEEPROM",
-      "url": "https://iotmemory.com/en",
-      "locator": "Single-process integration for Code eFlash and Data eEEPROM.",
-      "kind": "Manufacturer Whitepaper",
-      "date": "Reviewed 2026-09-16",
-      "limit": "Coexistence on the same die requires macro-specific arrangement check."
+      "label": "IOTMemory: SilvoFlash and SilvoFE Technology Navigation",
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "locator": "This page links to SilvoFE; it does not verify dual-mode coexistence or byte updates in this review.",
+      "kind": "Vendor technology page",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "Bias, endurance, retention, update granularity and production qualification require a named product and version; this lesson does not invent undisclosed specifications.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-SPINMEM-PSC",
-      "label": "Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent",
-      "url": "https://patents.google.com/patent/US9287500B2/en",
-      "locator": "Figs. 2, 4; Claim 1; Sub-3ns Switching and Non-Collinear Torque",
-      "kind": "Public Patent",
-      "date": "2016-03-15",
-      "limit": "The patent discloses ultra-fast switching device physics; commercial sampling progress does not imply an industry default."
+      "label": "Spin Memory: PSC and Skyrmionic Enhancement Patent",
+      "url": "https://patents.google.com/patent/US10468588B2/en",
+      "locator": "Figure 3; claims 1, 8 and 20; original assignee Spin Memory Inc",
+      "kind": "Public patent",
+      "date": "2019-11-05",
+      "limit": "Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-CROCUS-TAS",
-      "label": "Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent",
-      "url": "https://patents.google.com/patent/US7916526B2/en",
-      "locator": "Figs. 2, 3; Claim 1; Blocking Temperature TB Thermal Unpinning Method",
-      "kind": "Public Patent",
-      "date": "2011-03-29",
-      "limit": "The patent specifies thermally-assisted pinned switching; write operations incur thermal cycling latency."
+      "label": "Crocus: TAS-MRAM with Heating Elements and Thermal Barriers",
+      "url": "https://patents.google.com/patent/US8717812B2/en",
+      "locator": "Figures 1 and 2; claim 1; TAS writing and cooling description",
+      "kind": "Public patent",
+      "date": "2014-05-06",
+      "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-4DS-PCMO",
-      "label": "4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent",
-      "url": "https://patents.google.com/patent/US10468591B2/en",
-      "locator": "Figs. 2, 3; Claim 1; Area-Distributed Schottky Barrier Forming-Free Modulation",
-      "kind": "Public Patent",
-      "date": "2019-11-05",
-      "limit": "The patent discloses non-filamentary area-type interfacial switching; annealing thermal budgets must remain compatible with BEOL."
+      "label": "4DS: PCMO Area-Based Interface Switching",
+      "url": "https://www.4dsmemory.com/technology/4ds-technology/",
+      "locator": "PCMO and Area Based Interface Switching",
+      "kind": "Vendor technology explanation",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "The vendor describes SET when oxygen occupies sites and RESET on oxygen depletion; no exact stoichiometry, universal Schottky curve or forming-free guarantee is established.",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "RES-P-ADESTO-CBRAM",
-      "label": "Adesto Copper-Ion Solid Electrolyte Sub-Microampere CBRAM Patent",
-      "url": "https://patents.google.com/patent/US8824194B2/en",
-      "locator": "Figs. 1, 3; Claim 1; Sub-Microampere Copper Conductive Bridge Operation",
-      "kind": "Public Patent",
-      "date": "2014-09-02",
-      "limit": "The patent discloses ultra-low-power solid-electrolyte bridges; embedded eCBRAM specifications on GF 22FDX depend on foundry manuals."
+      "label": "Adesto: CBRAM Reliability Research Announcement",
+      "url": "https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive",
+      "locator": "CBRAM research and historical IoT commercialization paragraphs",
+      "kind": "Vendor research announcement",
+      "date": "Publication date not stated; checked 2026-10-09",
+      "limit": "Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.",
+      "accessedAt": "2026-10-09"
     }
   ],
   "landscape": [
@@ -2289,36 +2297,36 @@
     {
       "id": "chingistek-pfusion",
       "name": "Chingis Technology",
-      "technology": "pFusion PMOS eFlash",
+      "technology": "pFusion eFlash",
       "family": "NOR / eFlash / SONOS",
       "role": "Niche eFlash IP Provider",
-      "maturity": "Volume Production and Broad Licensing",
-      "claim": "Patented pFusion architecture uses P-Channel PMOS floating gates, using band-to-band tunneling induced hot-hole injection (BBHH) for microamp-level write current and high-field FN tunneling erase; provides ultra-low write power and standard CMOS compatibility, widely licensed in MCUs, smart cards, and touch controllers.",
-      "limit": "Microamp write current is a PMOS floating-gate characteristic and does not eliminate internal charge pumps during erase; node support depends on target foundry PDK license agreements.",
-      "dateLabel": "2024-2026 Technical Manual; reviewed 2026-09-16",
+      "maturity": "Physics and commercial qualification unverified",
+      "claim": "The named pFusion entry is retained; this review did not obtain readable vendor documentation sufficient to verify carriers, floating-gate structure or read/write polarity.",
+      "limit": "The earlier BBHH, FN, microamp and threshold-direction claims lacked verifiable primary evidence and have been withdrawn. The drawing retains functional states only, not a reconstructed vendor cross-section.",
+      "dateLabel": "2026-10-09",
       "sourceIds": [
         "ip-chingis-pfusion",
         "ip-chingis-pm25"
       ],
       "target": "ip-chingis-pfusion",
-      "search": "Chingis Technology pFusion PMOS eFlash BBHH band-to-band tunneling hot-hole injection low write current smart card MCU ESMT"
+      "search": "Chingis pFusion: eFlash Technology Awaiting Verification The named pFusion entry is retained; this review did not obtain readable vendor documentation sufficient to verify carriers, floating-gate structure or read/write polarity."
     },
     {
       "id": "iotmemory-silvoflash",
       "name": "IOTMemory",
-      "technology": "SilvoFlash Native Low-Voltage eFlash",
+      "technology": "SilvoFlash eFlash",
       "family": "NOR / eFlash / SONOS",
       "role": "Ultra-Low-Voltage eFlash IP Provider",
-      "maturity": "Volume Shipments and Commercial Qualification",
-      "claim": "Patented SilvoFlash architecture uses single-poly / low-mask CMOS floating gates to achieve native 0.9V-1.2V core logic voltage high-speed sensing and reading without continuous charge pump operation; supports dual-mode Code Flash and Data EEPROM (SilvoFE), in volume production at 40nm and qualified in DDR5 SPD ICs.",
-      "limit": "Native core-voltage read does not mean write and erase operations operate without internal charge pumps; endurance and retention are qualified per foundry PDK.",
-      "dateLabel": "2024-2026 Commercial Manual; reviewed 2026-09-16",
+      "maturity": "Vendor technology description; product qualification separate",
+      "claim": "The vendor technology page describes floating-gate NOR and single low-voltage reading; voltages and process versions must be tied to a named macro.",
+      "limit": "Public evidence supports a low single supply and floating gates, not the earlier single-poly, fixed 0.9–1.2V, DDR5 SPD production or specific tunneling-stack claims. Verify SilvoFE organization separately by version.",
+      "dateLabel": "2026-10-09",
       "sourceIds": [
         "ip-iotmemory-silvoflash",
         "ip-iotmemory-silvofe"
       ],
       "target": "ip-iotmemory-silvoflash",
-      "search": "IOTMemory SilvoFlash SilvoFE native ultra-low voltage 0.9V 1.2V DDR5 SPD EEPROM eFlash 40nm low power"
+      "search": "IOTMemory SilvoFlash: Single-Supply Floating-Gate eFlash The vendor technology page describes floating-gate NOR and single low-voltage reading; voltages and process versions must be tied to a named macro."
     },
     {
       "id": "industry-st-estm",
@@ -2877,14 +2885,14 @@
     {
       "id": "spin-memory-psc",
       "name": "Spin Memory (Spin Transfer Technologies)",
-      "technology": "Precessional Spin Current (PSC) Ultra-Fast STT-MRAM",
+      "technology": "Spin Memory: PSC and Skyrmionic Enhancement Patent",
       "family": "MRAM",
-      "role": "Advanced MRAM Silicon IP & Device Architecture Pioneer",
-      "maturity": "IP licensing & Applied Materials joint tool development; demonstrated sub-3ns switching",
-      "claim": "Patent US9287500B2 discloses Precessional Spin Current (PSC) polarizer technology; introduces non-collinear spin polarization above the perpendicular free layer, eliminating stochastic thermal incubation delay to achieve sub-3ns switching and 10^12 endurance, establishing physical feasibility for SRAM cache replacement.",
-      "limit": "Commercialization bounded by advanced PVD multi-layer thin-film stack yield and corporate restructuring; widely referenced as a foundational fast-MRAM patent.",
-      "dateLabel": "2016–2026 Patents & R&D Progress",
-      "search": "Spin Memory Spin Transfer Technologies PSC Precessional Spin Current US9287500B2 SRAM Cache Replacement Applied Materials Fast MRAM",
+      "role": "Named memory technology research and product case",
+      "maturity": "Public patent embodiment; not product production",
+      "claim": "Figure 3; claims 1, 8 and 20; original assignee Spin Memory Inc. Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee.",
+      "limit": "Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee.",
+      "dateLabel": "2026-10-09",
+      "search": "Spin Memory: PSC and Skyrmionic Enhancement Patent Figure 3; claims 1, 8 and 20; original assignee Spin Memory Inc",
       "sourceIds": [
         "RES-P-SPINMEM-PSC"
       ],
@@ -2893,14 +2901,14 @@
     {
       "id": "crocus-tas-mram",
       "name": "Crocus Technology (Allegro MicroSystems)",
-      "technology": "Thermally-Assisted Switching (TAS-MRAM) & Magnetic Sensors",
+      "technology": "Crocus: TAS-MRAM with Heating Elements and Thermal Barriers",
       "family": "MRAM",
-      "role": "High-Security Anti-Tamper Magnetic Memory & XtremeSense TMR Sensor Vendor",
-      "maturity": "Volume shipments of commercial TMR sensors; TAS memory patented for automotive & defense SoCs",
-      "claim": "Patent US7916526B2 discloses Thermally-Assisted Switching (TAS-MRAM); leverages antiferromagnetic blocking temperature (TB) to thermally unpin and switch under low fields, re-locking upon cooling to provide extreme magnetic immunity and physical anti-tamper resilience.",
-      "limit": "Constrained by thermal cycling latency with write times in tens of nanoseconds, unsuited for GHz-scale L1/L2 caches; current commercial revenue focuses on TMR current and angle sensors.",
-      "dateLabel": "2011–2026 Commercial & Patent Portfolio",
-      "search": "Crocus Technology Allegro MicroSystems TAS-MRAM Thermally-Assisted Switching US7916526B2 TMR XtremeSense Magnetic Sensor Anti-Tamper",
+      "role": "Named memory technology research and product case",
+      "maturity": "Public patent embodiment; not product production",
+      "claim": "Figures 1 and 2; claim 1; TAS writing and cooling description. Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.",
+      "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.",
+      "dateLabel": "2026-10-09",
+      "search": "Crocus: TAS-MRAM with Heating Elements and Thermal Barriers Figures 1 and 2; claim 1; TAS writing and cooling description",
       "sourceIds": [
         "RES-P-CROCUS-TAS"
       ],
@@ -2909,14 +2917,14 @@
     {
       "id": "4ds-memory-pcmo",
       "name": "4DS Memory Limited",
-      "technology": "Interface-Type Non-Filamentary PCMO ReRAM / SCM",
+      "technology": "4DS: PCMO Area-Based Interface Switching",
       "family": "ReRAM",
-      "role": "Storage-Class Memory (SCM) & DRAM-NAND Gap-Bridging Innovator",
-      "maturity": "Joint 1-megabit array qualification with imec; sub-20nm functional cell demonstrations",
-      "claim": "Patent US10468591B2 discloses non-filamentary crystalline PCMO switching; modulates interfacial Schottky barriers via area-distributed oxygen ion drift across the entire contact area, achieving forming-free, non-filamentary switching with 10^5 endurance scalable below 20nm.",
-      "limit": "Crystalline PCMO deposition and annealing thermal budgets must integrate with advanced BEOL; modest on/off resistance ratio (10–50x) requires specialized high-sensitivity sense amplifier designs.",
-      "dateLabel": "2019–2026 imec Joint Platform",
-      "search": "4DS Memory PCMO Non-Filamentary Interface ReRAM SCM imec US10468591B2 Forming-Free DRAM Cache Replacement Perovskite",
+      "role": "Named memory technology research and product case",
+      "maturity": "Public technology material; current availability and qualification separate",
+      "claim": "PCMO and Area Based Interface Switching. The vendor describes SET when oxygen occupies sites and RESET on oxygen depletion; no exact stoichiometry, universal Schottky curve or forming-free guarantee is established.",
+      "limit": "The vendor describes SET when oxygen occupies sites and RESET on oxygen depletion; no exact stoichiometry, universal Schottky curve or forming-free guarantee is established.",
+      "dateLabel": "2026-10-09",
+      "search": "4DS: PCMO Area-Based Interface Switching PCMO and Area Based Interface Switching",
       "sourceIds": [
         "RES-P-4DS-PCMO"
       ],
@@ -2925,14 +2933,14 @@
     {
       "id": "adesto-cbram-iot",
       "name": "Adesto Technologies (Dialog / Renesas)",
-      "technology": "Conductive Bridging RAM (CBRAM) / Solid-Electrolyte eNVM",
+      "technology": "Adesto: CBRAM Reliability Research Announcement",
       "family": "ReRAM",
-      "role": "Ultra-Low-Power IoT & Edge Embedded NVM Leader",
-      "maturity": "Ongoing commercial product shipments (Mavriq family); embedded qualification on GlobalFoundries 22FDX eCBRAM",
-      "claim": "Patent US8824194B2 discloses copper solid-electrolyte conductive bridge mechanisms; achieves microsecond-scale reversible programming under sub-microampere (<1uA) write currents and sub-1uA standby, enabling ultra-low-power non-volatile storage for IoT and energy-harvesting nodes.",
-      "limit": "Thermal stability of thin metallic bridges presents retention tradeoffs; AEC-Q100 Grade 1/0 automotive qualification must be verified against foundry PDK design rules.",
-      "dateLabel": "2014–2026 Commercial & Foundry IP",
-      "search": "Adesto Technologies Renesas Dialog CBRAM Mavriq US8824194B2 GF 22FDX eCBRAM Sub-Microampere IoT NVM Conductive Bridge",
+      "role": "Named memory technology research and product case",
+      "maturity": "Public technology material; current availability and qualification separate",
+      "claim": "CBRAM research and historical IoT commercialization paragraphs. Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.",
+      "limit": "Supports CBRAM and historical products; the announcement does not disclose a universal copper stack, 1µA, TΩ or current MCU integration.",
+      "dateLabel": "2026-10-09",
+      "search": "Adesto: CBRAM Reliability Research Announcement CBRAM research and historical IoT commercialization paragraphs",
       "sourceIds": [
         "RES-P-ADESTO-CBRAM"
       ],

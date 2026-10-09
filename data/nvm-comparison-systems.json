@@ -602,7 +602,7 @@
           {
             "id": "sst-superflash",
             "name": "SST · SuperFlash (ESF1/2/3)",
-            "map": "三代分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自對準雙閘極）、ESF3（自對準頂部耦合 4 閘極，SG+CG+FG+EG）。源側注入寫入、專用 EG 閘極間 FN 抹除。代工節點涵蓋 500 nm 至 28 nm（TSMC 28HPC+、GF、UMC）。"
+            "map": "原廠 DS00001425F 說明三代單元：前兩代朝字元線多晶矽抹除，第三代引入專用抹除閘與耦合閘。 第三代獨立閘極提供不同功能分工。2018 年手冊把量產與平台／設計範圍分列，不能據此宣稱 28nm 跨廠量產；本圖不提供通用偏壓、氧化層或 FinFET 配方。"
           }
         ]
       },
@@ -623,18 +623,18 @@
         ]
       },
       {
-        "leaf": "低功耗與超低壓 eFlash（常億 pFusion／智憶 SilvoFlash）",
-        "leafNote": "常億以 PMOS 浮閘 BBHH 熱電洞注入達成微安級寫入；智憶以專利浮閘結構達成原生 0.9V–1.2V 核心電壓讀取。",
+        "leaf": "利基 eFlash（常憶 pFusion／智憶 SilvoFlash）",
+        "leafNote": "SilvoFlash 有原廠浮閘與單低供電說明；pFusion 機制待核實。",
         "items": [
           {
             "id": "chingis-pfusion",
-            "name": "常億科技 · pFusion eFlash",
-            "map": "P-Channel 浮閘；BBHH 帶帶穿隧熱電洞注入寫入、FN 穿隧抹除；微安培級寫入電流，標準 CMOS 相容。"
+            "name": "常憶科技 · pFusion eFlash",
+            "map": "保留 pFusion 具名技術入口；本次未取得足以核實載子機制、浮閘結構及讀寫極性的可讀原廠文件。 先前 BBHH、FN、微安培與閾值方向缺少可核對的一手依據，已撤下。圖示只保留功能狀態，不當作原廠剖面重建。"
           },
           {
             "id": "iotmemory-silvoflash",
             "name": "智憶科技 · SilvoFlash eFlash",
-            "map": "專利單層／低光罩 CMOS 浮閘；原生 0.9V–1.2V 核心電壓直接讀取，消除讀取升壓電荷泵；驗證於 DDR5 SPD IC 與 40nm SoC。"
+            "map": "原廠技術頁描述浮閘 NOR 與單一低電源讀取；操作電壓與製程版本需按具名巨集核對。 公開資料支持單低電源與浮閘，未支持本頁先前的單層多晶矽、固定 0.9–1.2V、DDR5 SPD 量產或特定穿隧結構。SilvoFE 的組織應另依版本核對。"
           }
         ]
       }

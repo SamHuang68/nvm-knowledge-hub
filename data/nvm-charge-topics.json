@@ -362,39 +362,43 @@
     },
     {
       "id": "ip-chingis-pfusion",
-      "url": "https://www.chingistek.com",
-      "label": "常億科技：pFusion eFlash 產品技術",
-      "kind": "原廠技術規格",
-      "locator": "P-Channel 浮閘 PMOS eFlash；以能帶至能帶穿隧誘發熱電洞注入 (BBHH) 寫入與 FN 抹除；極低寫入電流，標準 CMOS 相容。",
-      "date": "2026-09-16 查核",
-      "limit": "適用於微控制器與智慧卡；不以單一規格書代表全節點 PDK。"
+      "url": "https://www.chingistek.com/",
+      "label": "常憶科技 pFusion：原廠資料待核實",
+      "kind": "待核實原廠入口",
+      "locator": "本次原廠入口未提供可核對的技術本文。",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-chingis-pm25",
-      "url": "https://www.chingistek.com",
-      "label": "常億科技：pFlash SPI NOR Flash",
-      "kind": "原廠產品手冊",
-      "locator": "Pm25 系列獨立式 NOR Flash；晶豪科技 ESMT 產品線。",
-      "date": "2026-09-16 查核",
-      "limit": "獨立式封裝不等於所有嵌入式巨集。"
+      "url": "https://www.chingistek.com/",
+      "label": "常憶科技 Pm25：產品資料待核實",
+      "kind": "待核實原廠入口",
+      "locator": "未取得可核對的現行產品文件；不作 pFusion 機制證據。",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvoflash",
-      "url": "https://iotmemory.com/en",
-      "label": "智憶科技：SilvoFlash 超低壓 eFlash",
-      "kind": "原廠技術白皮書",
-      "locator": "SilvoFlash 原生 0.9V–1.2V 超低壓 eFlash；支援 40nm SoC 與 DDR5 SPD IC 供應鏈。",
-      "date": "2026-09-16 查核",
-      "limit": "核心電壓原生讀取不代表抹除無需內部升壓；量產驗證按具名產品核對。"
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "label": "智憶科技：SilvoFlash 技術概況",
+      "kind": "原廠技術頁",
+      "locator": "Technology Overview 與 Advantages；浮閘、單低供電及僅 Vdd 讀取。",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     },
     {
       "id": "ip-iotmemory-silvofe",
-      "url": "https://iotmemory.com/en",
-      "label": "智憶科技：SilvoFE 嵌入式 eEEPROM",
-      "kind": "原廠技術白皮書",
-      "locator": "單一製程整合 Code eFlash 與 Data eEEPROM。",
-      "date": "2026-09-16 查核",
-      "limit": "兩者在同一晶片上共存需核對具名巨集組織。"
+      "url": "https://www.iotmemory.com/en/technology/4",
+      "label": "智憶科技：SilvoFlash 與 SilvoFE 技術導覽",
+      "kind": "原廠技術頁",
+      "locator": "此頁提供 SilvoFE 導覽；本次未據此核實雙模共存或位元組更新。",
+      "date": "未標發布日期；查核 2026-10-09",
+      "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
+      "accessedAt": "2026-10-09"
     }
   ],
   "topics": [
@@ -880,7 +884,7 @@
       "family": "快閃陣列／隨機讀取／本題以浮動閘極為例",
       "storage": "NOR 描述陣列的連接與存取組織，並不限定唯一儲存材料。本題以浮動閘極 NOR 說明：電荷改變單元臨界電壓，受選單元經位元線與源極路徑被感測。堆疊閘極與分離閘極都可服務 NOR，但選擇通道、寫入效率及抹除控制不同。",
       "structure": "堆疊閘極例由控制閘極、閘間介電層、浮動閘極及通道上下排列；分離閘極例把部分通道交給獨立選擇作用控制，與儲存區通道串接。等效圖須把兩段通道與共用位元線畫清楚。NOR 單元可各自接入位元線，與一串多顆串接的 NAND 不同；代價是接點與配線攤提較高。",
-      "summary": "NOR 常用於需要直接、可預測讀取的程式碼儲存。除了主流 SST SuperFlash 分裂閘極（ESF1/2/3 演進與 28nm 量產）外，成熟代工與專業 IP 廠提供多元利基 eFlash 架構：常億科技 (Chingistek) pFusion 採 PMOS 浮閘與能帶間穿隧熱電洞注入 (BBHH)，提供微安培級寫入電流；智憶科技 (IOTMemory) SilvoFlash 採專利單層/低光罩架構，原生 0.9V–1.2V 核心電壓直接讀取，打破傳統 eFlash ≥1.8V 門檻並量產於 DDR5 SPD IC。堆疊閘極、分離閘極與利基低壓/PMOS 浮閘各有取捨，是否支援原地執行還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。",
+      "summary": "NOR 用於程式碼儲存；原地執行能力仍取決於介面、控制器與時序。SST SuperFlash 以具名手冊說明三代分裂閘極，SilvoFlash 原廠說明單低供電浮閘技術；pFusion 的載子機制與偏壓尚待一手文件核實。不同架構的節點、資格與可靠度需分別核對。",
       "maturity": {
         "stage": "已量產",
         "claim": "微芯科技 SST39SF020A 在本次查核時標示量產中，公開摘要為 2 Mb、4.5–5.5 V 平行快閃。SST 的 SuperFlash 技術手冊另提供分離閘極、源極側注入與閘極間 FN 抹除的具名技術脈絡，可作商用實作與機制教材的對照。",
@@ -894,26 +898,26 @@
       "implementations": [
         {
           "vendor": "SST／Microchip",
-          "title": "SuperFlash eFlash (ESF1 / ESF2 / ESF3)",
-          "polyLayers": "自對準 4 閘極 5 端子單元 (SG + CG + FG + EG)",
-          "storage": "多晶矽浮動閘極 (Floating Gate)",
-          "program": "源側注入 (SSI) 微安培級寫入電流",
-          "erase": "專用 Erase Gate (EG) 多晶矽間 FN 抹除，SG 0V 解耦",
-          "integration": "突破 40nm 壁壘微縮至 28nm；TSMC、GF、UMC 大規模量產",
-          "limit": "具名 28nm 為車規量產產品；實際額外光罩道數與熱預算依代工廠 PDK 授權合約。",
+          "title": "SST SuperFlash：三代分裂閘極 eFlash",
+          "polyLayers": "依具名來源；未公開者不指定層數。",
+          "storage": "原廠 DS00001425F 說明三代單元：前兩代朝字元線多晶矽抹除，第三代引入專用抹除閘與耦合閘。",
+          "program": "源極側注入（SSI）寫入",
+          "erase": "多晶矽間 FN 抹除；路徑依世代",
+          "integration": "第三代獨立閘極提供不同功能分工。2018 年手冊把量產與平台／設計範圍分列，不能據此宣稱 28nm 跨廠量產；本圖不提供通用偏壓、氧化層或 FinFET 配方。",
+          "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
           "sourceIds": [
             "ch-tech-superflash"
           ]
         },
         {
-          "vendor": "常億科技 Chingis Technology",
-          "title": "pFusion eFlash",
-          "polyLayers": "P-Channel PMOS 浮閘",
-          "storage": "多晶矽浮動閘極 (PMOS Floating Gate)",
-          "program": "能帶間穿隧誘發熱電洞注入 (BBHH) 微安培級寫入電流",
-          "erase": "高電場 FN 穿隧抹除",
-          "integration": "標準 CMOS 相容；廣泛授權於 MCU、智慧卡與觸控晶片",
-          "limit": "微安培寫入電流為 PMOS 浮閘特性，不代表抹除無需內部升壓；製程支援依目標 PDK。",
+          "vendor": "常憶科技 Chingis Technology",
+          "title": "常憶科技 pFusion：eFlash 技術待核實",
+          "polyLayers": "依具名來源；未公開者不指定層數。",
+          "storage": "保留 pFusion 具名技術入口；本次未取得足以核實載子機制、浮閘結構及讀寫極性的可讀原廠文件。",
+          "program": "寫入機制待核實",
+          "erase": "抹除機制待核實",
+          "integration": "先前 BBHH、FN、微安培與閾值方向缺少可核對的一手依據，已撤下。圖示只保留功能狀態，不當作原廠剖面重建。",
+          "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
           "sourceIds": [
             "ip-chingis-pfusion",
             "ip-chingis-pm25"
@@ -921,13 +925,13 @@
         },
         {
           "vendor": "智憶科技 IOTMemory",
-          "title": "SilvoFlash 原生超低壓 eFlash",
-          "polyLayers": "專利單層／低光罩 CMOS 浮閘",
-          "storage": "多晶矽浮動閘極 (CMOS Floating Gate)",
-          "program": "低功耗電荷泵輔助穿隧寫入",
-          "erase": "穿隧抹除；支援 Code Flash 與 Data EEPROM 雙模",
-          "integration": "原生 0.9V–1.2V 核心邏輯電壓直接感測，免升壓電荷泵；量產於 40nm SoC 與 DDR5 SPD IC",
-          "limit": "核心電壓原生讀取不代表寫抹無需內部升壓；實際保持性與抹寫耐久依代工廠 PDK 驗證。",
+          "title": "智憶科技 SilvoFlash：單低電源浮閘 eFlash",
+          "polyLayers": "依具名來源；未公開者不指定層數。",
+          "storage": "原廠技術頁描述浮閘 NOR 與單一低電源讀取；操作電壓與製程版本需按具名巨集核對。",
+          "program": "改變浮閘儲存電荷；載子路徑未公開",
+          "erase": "電性抹除；精確路徑未公開",
+          "integration": "公開資料支持單低電源與浮閘，未支持本頁先前的單層多晶矽、固定 0.9–1.2V、DDR5 SPD 量產或特定穿隧結構。SilvoFE 的組織應另依版本核對。",
+          "limit": "偏壓、循環次數、保持性、更新粒度及量產資格依具名產品與版本核對；本教案不補造未公開規格。",
           "sourceIds": [
             "ip-iotmemory-silvoflash",
             "ip-iotmemory-silvofe"
