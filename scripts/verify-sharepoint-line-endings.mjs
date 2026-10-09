@@ -20,6 +20,7 @@ const fixtures = [
   'scripts/build-oip-sharepoint.mjs', 'scripts/build-ai-nvm-sharepoint.mjs',
   'data/oip-secure-storage-knowledge.json', 'data/ai-nvm-opportunities-knowledge.json',
   'data/ai-nvm-opportunities-schema.json', 'data/institutional-pov-contract.json',
+  'data/assurance-knowledge-schema.json',
   'secure-storage.html', 'oip-secure-storage.html',
 ];
 
