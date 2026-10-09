@@ -292,6 +292,116 @@
       "date": "2026",
       "limit": "研究展示；不由台積電其他 MRAM 平台資格推定 SOT 已量產，面積與電流改善需保留比較基準。",
       "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-EVERSPIN-PMTJ",
+      "label": "Everspin pMTJ 界面垂直磁各向異性專利",
+      "url": "https://patents.google.com/patent/US8488371B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、4；權利項 1；CoFeB/MgO 界面 PMA 堆疊",
+      "date": "2013-07-16",
+      "limit": "專利揭露特定 pMTJ 界面；實際 1Gb/xSPI 商用晶片之退火配方與堆疊細節受商業秘密保護。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-AVALANCHE-SAF",
+      "label": "Avalanche 雙重合成反鐵磁 Dual-SAF 專利",
+      "url": "https://patents.google.com/patent/US9837603B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、3；權利項 1；Ru 奈米耦合偶極場補償結構",
+      "date": "2017-12-05",
+      "limit": "專利限定雜散場補償與雙 SAF 結構；代工廠 22nm/16nm PDK 實際整合參數依授權條款核對。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-SPINMEM-PSC",
+      "label": "Spin Memory 進動自旋流 PSC 極速翻轉專利",
+      "url": "https://patents.google.com/patent/US9287500B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、4；權利項 1；PSC 輔助大角度初始旋矩",
+      "date": "2016-03-15",
+      "limit": "專利揭露次奈秒輔助翻轉物理；應用材料結盟平台之商業樣品時程不等於全產業通用標配。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-NUMEM-SWT",
+      "label": "Numem 即時寫入自適應終止低功耗 MRAM 專利",
+      "url": "https://patents.google.com/patent/US10460788B2/en",
+      "kind": "公開專利",
+      "locator": "圖 3、5；權利項 1；TMR 階躍邊緣偵測與自適應切斷",
+      "date": "2019-10-29",
+      "limit": "專利聚焦電路架構與動態反饋；實際 NuMRAM IP 陣列宏面積與漏電需依目標代工 PDK 模擬。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-CROCUS-TAS",
+      "label": "Crocus 熱輔助 TAS-MRAM 高選擇性專利",
+      "url": "https://patents.google.com/patent/US7916526B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、3；權利項 1；阻塞溫度 TB 與熱解鎖翻轉方法",
+      "date": "2011-03-29",
+      "limit": "專利限定熱輔助釘扎翻轉；每次寫入具備熱循環延遲，不適合超高頻 L1 快取替換。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-WEEBIT-SIOX",
+      "label": "Weebit Nano 氧化矽基 CMOS 相容 ReRAM 專利",
+      "url": "https://patents.google.com/patent/US10236442B2/en",
+      "kind": "公開專利",
+      "locator": "圖 1、3；權利項 1；SiOx 阻變層與氧吸附電極",
+      "date": "2019-03-19",
+      "limit": "專利揭露標準 CMOS 物料 SiOx 導電絲機制；SkyWater/DB HiTek 具體良率與車規認證以官方公告為準。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-CROSSBAR-FILAMENT",
+      "label": "CrossBar 局域成絲非晶矽 ReRAM 專利",
+      "url": "https://patents.google.com/patent/US8658467B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、4；權利項 1；Ag/a-Si 奈米微絲局域窗口限制",
+      "date": "2014-02-25",
+      "limit": "專利揭露高開關比微絲與選擇器整合；DARPA DARIC PUF 國防應用不等於商業通用儲存晶片。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-PANA-TAOX",
+      "label": "Panasonic 雙層缺氧氧化鉭百萬次 ReRAM 專利",
+      "url": "https://patents.google.com/patent/US8068356B2/en",
+      "kind": "公開專利",
+      "locator": "圖 1、5；權利項 1；Ta2O5/TaOx 雙極型可逆氧化還原",
+      "date": "2011-11-29",
+      "limit": "專利揭露雙層鉭氧化物自限制微絲；MN103S 工控 MCU 實測表現受具體封裝與溫區規範限制。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-ADESTO-CBRAM",
+      "label": "Adesto 銅離子固態電解質低功耗 CBRAM 專利",
+      "url": "https://patents.google.com/patent/US8824194B2/en",
+      "kind": "公開專利",
+      "locator": "圖 1、3；權利項 1；微安培銅奈米金屬橋接操作",
+      "date": "2014-09-02",
+      "limit": "專利揭露超低功耗電解質導電橋；GF 22FDX eCBRAM 嵌入式規格需以代工廠 PDK 手冊為準。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-TETRAMEM-CIM",
+      "label": "TetraMem 類比多階電導深度學習加速專利",
+      "url": "https://patents.google.com/patent/US11393527B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、4；權利項 1；8-12bit 線性電導閉迴路調控陣列",
+      "date": "2022-07-19",
+      "limit": "專利揭露類比 Memristor 矩陣乘加；實際能效比與算力受限於周邊 ADC/DAC 轉換開銷與 IR-drop 壓降。",
+      "accessedAt": "2026-10-09"
+    },
+    {
+      "id": "EMG-P-4DS-PCMO",
+      "label": "4DS Memory 結晶 PCMO 無微絲界面型 SCM 專利",
+      "url": "https://patents.google.com/patent/US10468591B2/en",
+      "kind": "公開專利",
+      "locator": "圖 2、3；權利項 1；面積型肖特基能障調製無 Forming 結構",
+      "date": "2019-11-05",
+      "limit": "專利揭露非細絲面積型界面開關；高溫退火熱預算與較小開關比（10~50x）需配合特定感測放大器。",
+      "accessedAt": "2026-10-09"
     }
   ],
   "topics": [
@@ -473,13 +583,77 @@
           "publication": "1997-12-09",
           "verifiedAt": "2026-09-10",
           "dateNote": "優先權、該美國案申請及所列公開號的公開／公告日期分列；依公開專利書目核對，不作法律權利狀態結論。"
+        },
+        {
+          "id": "US8488371B2",
+          "url": "https://patents.google.com/patent/US8488371B2/en",
+          "priority": "2010-09-15",
+          "assignee": "Everspin Technologies, Inc.",
+          "figures": "圖 2、4：垂直磁各向異性 CoFeB/MgO 自由層界面；圖 5：居里溫度與熱退火穩定性。",
+          "problem": "面內 MTJ 在次 40nm 節點遭遇超順磁退磁限制，無法兼顧高熱穩定性（Eb > 60 kBT）與次毫安培低翻轉電流 Ic。",
+          "mechanism": "利用 CoFeB/MgO 界面雜化垂直磁各向異性（i-PMA），結合 Ta/Ru 擴散阻擋層與高溫結晶退火，使自由層垂直於基底磁化，大幅消除形狀退磁場能耗。",
+          "claimReading": "權利項 1 界定包含過渡金屬-鐵-硼自由層、MgO 穿隧界面及特定厚度垂直各向異性誘導層；閱讀時應對照退火後 Fe-O 鍵軌道雜化條件，不可簡化為任意垂直材料。",
+          "limit": "專利揭露特定 pMTJ 界面；商用 1Gb DDR4/xSPI 晶片中多層 SAF 複合釘扎與缺陷補償配方受商業秘密保護。",
+          "filing": "2010-09-15",
+          "publication": "2013-07-16",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；實際量產元件之界面厚度精確到 0.1nm 級別。"
+        },
+        {
+          "id": "US9837603B2",
+          "url": "https://patents.google.com/patent/US9837603B2/en",
+          "priority": "2015-06-03",
+          "assignee": "Avalanche Technology, Inc.",
+          "figures": "圖 2、3：雙重合成反鐵磁 Dual-SAF 堆疊剖面；圖 4：雜散場偶極消除示意圖。",
+          "problem": "單一 SAF 參考層產生的非對稱雜散偶極磁場會偏置自由層，導致 P→AP 與 AP→P 翻轉電流嚴重不對稱，降低車規與抗輻照容限。",
+          "mechanism": "引入對稱的雙重合成反鐵磁（Dual-SAF）與 Ru 奈米耦合層，自抵消自由層受到的凈靜磁場，實現極端溫度（-40°C 至 125°C）與輻照下對稱翻轉。",
+          "claimReading": "權利項 1 強調上下雙 SAF 結構中反向排列的磁化向量與自由層的空間補償關係；需核對 Ru 耦合厚度與磁通閉合路徑。",
+          "limit": "專利限定偶極雜散場幾何對稱結構；UMC 22nm/16nm PDK 實際整合時的金屬互連與平坦化容限依代工廠手冊為準。",
+          "filing": "2015-06-03",
+          "publication": "2017-12-05",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；航太與車規抗輻照產品以此架構為物理基準。"
+        },
+        {
+          "id": "US9287500B2",
+          "url": "https://patents.google.com/patent/US9287500B2/en",
+          "priority": "2012-05-18",
+          "assignee": "Spin Memory, Inc. (Spin Transfer Technologies)",
+          "figures": "圖 2、4：進動自旋極化層（PSC）與垂直自由層的複合結構；圖 6：微磁學翻轉軌跡。",
+          "problem": "傳統 STT-MRAM 翻轉依賴熱起伏提供初始偏角，導致次 10ns 寫入時存在嚴重的隨機熱延遲（thermal incubation delay）。",
+          "mechanism": "在 MTJ 自由層上方整合一層垂直偏極化的進動自旋流（Precessional Spin Current, PSC）極化層，通電瞬間提供大角度非共線初始自旋力矩，將翻轉延遲壓制至次 3ns。",
+          "claimReading": "權利項 1 限制包含至少兩組具不同磁各向異性方向的自旋極化層，並要求特定進動轉矩耦合；閱讀時需注意非共線幾何條件。",
+          "limit": "專利揭露 PSC 物理翻轉機制；與應用材料（Applied Materials）合作之開關沉積機台與商業化授權進展不代表全行業標配。",
+          "filing": "2012-05-18",
+          "publication": "2016-03-15",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；次 3ns 翻轉為高速快取替代提供物理可行性證明。"
+        },
+        {
+          "id": "US10460788B2",
+          "url": "https://patents.google.com/patent/US10460788B2/en",
+          "priority": "2017-06-08",
+          "assignee": "Numem, Inc.",
+          "figures": "圖 3、5：智慧寫入自適應終止（Smart Write Termination）反饋電路與電流波形比較。",
+          "problem": "由於製程變異，MTJ 翻轉時間呈現寬分佈尾端；若採用固定脈衝寬度寫入，大多數單元會遭遇過度應力，導致穿隧障壁壽命退化且浪費動態功耗。",
+          "mechanism": "在寫入脈衝期間即時監控 MTJ 兩端 dV/dt 或 TMR 阻值突變階躍，一旦檢測到磁矩翻轉即刻在次奈秒內切斷寫入電流，實現自我終止與耐久度顯著提升（>10^10 次）。",
+          "claimReading": "權利項 1 明確定義具有動態阻值比較器與脈衝自適應中斷開關的 MRAM 控制器架構；閱讀時需區分靜態定時與動態反饋電路。",
+          "limit": "專利屬於周邊電路與控制器演算法層級；陣列巨集實際靜態漏電與面積開銷需配合代工廠 PDK 佈局驗證。",
+          "filing": "2017-06-08",
+          "publication": "2019-10-29",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；電路自適應控制補足了純材料層面的耐久性瓶頸。"
         }
       ],
       "sourceIds": [
         "EMG-SEC",
         "EMG-XSPI",
         "EMG-RA8",
-        "EMG-P-STT"
+        "EMG-P-STT",
+        "EMG-P-EVERSPIN-PMTJ",
+        "EMG-P-AVALANCHE-SAF",
+        "EMG-P-SPINMEM-PSC",
+        "EMG-P-NUMEM-SWT"
       ],
       "quiz": {
         "question": "為何 STT-MRAM 的讀取電流不能只為加快感測而一直增加？",
@@ -497,7 +671,11 @@
           "EMG-SEC",
           "EMG-XSPI",
           "EMG-RA8",
-          "EMG-P-STT"
+          "EMG-P-STT",
+          "EMG-P-EVERSPIN-PMTJ",
+          "EMG-P-AVALANCHE-SAF",
+          "EMG-P-SPINMEM-PSC",
+          "EMG-P-NUMEM-SWT"
         ]
       }
     },
@@ -579,13 +757,29 @@
           "publication": "2021-02-23",
           "verifiedAt": "2026-09-10",
           "dateNote": "優先權、該美國案申請及所列公開號的公開／公告日期分列；依公開專利書目核對，不作法律權利狀態結論。"
+        },
+        {
+          "id": "US7916526B2",
+          "url": "https://patents.google.com/patent/US7916526B2/en",
+          "priority": "2006-03-31",
+          "assignee": "Crocus Technology SA (Allegro Microsystems)",
+          "figures": "圖 2、3：熱輔助磁切換（TAS-MRAM）加熱線與反鐵磁釘扎層能帶；圖 5：溫度週期時序。",
+          "problem": "高密度 MRAM 在低溫與常溫下為確保 10 年保持性，需要極高能量位障，導致常溫寫入磁場或翻轉電流過大且易受熱擾動。",
+          "mechanism": "結合反鐵磁阻塞溫度（TB）特性；寫入時先施加短暫微安培加熱電流使儲存層解鎖（超過 TB），施加微弱定向場翻轉後迅速冷卻至 TB 以下重新鎖定，實現超高選擇性與高物理防竄改能力。",
+          "claimReading": "權利項 1 界定包含具反鐵磁耦合層之磁電阻單元、加熱電流路徑及在冷卻過程中維持目標磁場之翻轉時序；不可將常規純電自旋轉矩混入。",
+          "limit": "專利限定熱輔助阻塞機制；每次寫入具備加熱與冷卻時間（數奈秒至數十奈秒），不適合 GHz 級超高速快取替換。",
+          "filing": "2006-03-31",
+          "publication": "2011-03-29",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；熱輔助磁性切換奠定了高安全抗干擾磁記憶體物理架構。"
         }
       ],
       "sourceIds": [
         "EMG-SOT23",
         "EMG-SOT24",
         "EMG-P-SOT",
-        "EMG-TSMC-SOT"
+        "EMG-TSMC-SOT",
+        "EMG-P-CROCUS-TAS"
       ],
       "quiz": {
         "question": "SOT 把主要寫入電流移出 MTJ，為什麼巨集面積仍可能比 STT 大？",
@@ -603,7 +797,8 @@
           "EMG-SOT23",
           "EMG-SOT24",
           "EMG-P-SOT",
-          "EMG-TSMC-SOT"
+          "EMG-TSMC-SOT",
+          "EMG-P-CROCUS-TAS"
         ]
       }
     },
@@ -684,13 +879,77 @@
           "publication": "2012-12-11",
           "verifiedAt": "2026-09-10",
           "dateNote": "優先權、該美國案申請及所列公開號的公開／公告日期分列；依公開專利書目核對，不作法律權利狀態結論。"
+        },
+        {
+          "id": "US10236442B2",
+          "url": "https://patents.google.com/patent/US10236442B2/en",
+          "priority": "2016-04-14",
+          "assignee": "Weebit Nano Ltd. & CEA-Leti",
+          "figures": "圖 1、3：SiOx 阻變層與含氧吸附電極（Ti/TiN）介面微觀結構；圖 4：限流 Forming 與 SET 電流特徵。",
+          "problem": "傳統金屬氧化物（如 HfO2, Ta2O5）需要引入非標準沉積物料與污染隔離區，且高溫環境下氧空缺易隨機熱擴散導致阻值漂移。",
+          "mechanism": "採用標準 CMOS 原生材料多孔氧化矽（SiOx），透過局部強電場在 SiOx 介電質中誘發氧原子遷移至吸附層，形成穩定的富矽導電奈米微絲，並可透過反向電場完全溶解回復。",
+          "claimReading": "權利項 1 限定 SiOx 活性層厚度小於 20nm 且介於一對特定金屬電極間，明確排除含有鉿、鉭等特殊過渡金屬之依賴；需核對原生矽氧化物沈積化學計量比 x（0.5 < x < 2.0）。",
+          "limit": "專利揭露標準 CMOS 晶圓廠相容 SiOx 阻變機制；SkyWater 130nm 與 DB HiTek 130nm BCD 平台之實際良率、高溫保持與 AEC-Q100 認證依代工廠手冊為準。",
+          "filing": "2016-04-14",
+          "publication": "2019-03-19",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；標準矽氧化物免除重金屬前驅物污染疑慮。"
+        },
+        {
+          "id": "US8068356B2",
+          "url": "https://patents.google.com/patent/US8068356B2/en",
+          "priority": "2007-12-14",
+          "assignee": "Panasonic Corporation (RAMXEED)",
+          "figures": "圖 1、5：Ta2O5（高阻層）與 TaOx（缺氧導電層）雙層堆疊；圖 6：百萬次循環耐久度與電阻窗口。",
+          "problem": "單層金屬氧化物 ReRAM 形成的導電微絲粗細隨機失控，導致 RESET 需要極大電流且易引發不可逆的介電質硬崩潰，壽命受限於 10^4 次以內。",
+          "mechanism": "設計雙層氧化鉭結構，下層為氧不足的 TaOx（0.8 < x < 1.9）作為導電與氧儲集層，上層為奈米級超薄化學計量 Ta2O5 作為阻變勢壘層；將微絲局部限制在極薄 Ta2O5 中，實現自限制可逆切換與高達 10^6 次耐久度。",
+          "claimReading": "權利項 1 明確限定第一鉭氧化物層與第二鉭氧化物層之氧含量差異與氧分配比例；閱讀時需注意雙層界面氧原子可逆交換之邊界條件。",
+          "limit": "專利揭露百萬次耐久雙層鉭氧化物技術；Panasonic MN103S 工控 MCU 實測表現受特定封裝與工作溫區規範約束。",
+          "filing": "2007-12-14",
+          "publication": "2011-11-29",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；雙層鉭氧化物奠定量產級工控 ReRAM 壽命基準。"
+        },
+        {
+          "id": "US11393527B2",
+          "url": "https://patents.google.com/patent/US11393527B2/en",
+          "priority": "2020-04-20",
+          "assignee": "TetraMem Inc.",
+          "figures": "圖 2、4：多階類比電導線性調控架構；圖 5：存算一體閉迴路寫入-驗證脈衝演算法。",
+          "problem": "傳統數位 ReRAM 僅有 0/1 兩態，若用於類比深度學習神經網路加速（CIM），微絲隨機性會使電導狀態呈非線性、非對稱且具嚴重弛豫漂移，阻礙高精度權重儲存。",
+          "mechanism": "利用微弱離子遷移精確控制氧空缺微絲截面積，配合自適應閉迴路微步脈衝（Write-Verify），實現 8~12 位元（256~4096 階）高線性度、對稱度且低隨機漂移的連續類比電導陣列。",
+          "claimReading": "權利項 1 界定具有電導反饋比較與漸進調整階梯電壓之類比存算一體單元控制方法；不可將單純單脈衝寫入或數位兩態操作混淆。",
+          "limit": "專利揭露類比 Memristor 乘加運算單元調控；晶片整體計算能效比與吞吐量受限於周邊高速高精度 ADC/DAC 轉換開銷與陣列金屬線 IR-drop 壓降。",
+          "filing": "2020-04-20",
+          "publication": "2022-07-19",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；類比多階電導為存算一體（CIM）關鍵專利。"
+        },
+        {
+          "id": "US10468591B2",
+          "url": "https://patents.google.com/patent/US10468591B2/en",
+          "priority": "2016-08-31",
+          "assignee": "4DS Memory Limited",
+          "figures": "圖 2、3：非細絲型結晶 PCMO 阻變層剖面；圖 4：界面肖特基勢壘調製能帶圖。",
+          "problem": "微絲型 ReRAM 隨尺寸微縮面臨奈米尺度離子通道隨機截斷與過熱崩潰瓶頸，且需要破壞性的高壓電氣 Forming 步驟，阻礙先進儲存級記憶體（SCM）微縮。",
+          "mechanism": "採用結晶鈣鈦礦 Pr0.7Ca0.3MnO3 (PCMO) 氧化物薄膜，利用整個接觸面積上的氧離子均勻電遷移調控金屬/氧化物界面肖特基能障高度，實現完全無微絲（Non-Filamentary）、無 Forming 且面積極致微縮的界面切換。",
+          "claimReading": "權利項 1 強調結晶 PCMO 活性層與電極界面之整流特性調製及無導電細絲形成的操作條件；需核對退火結晶度與界面能帶工程。",
+          "limit": "專利揭露面積型肖特基能障界面切換；PCMO 高溫退火熱預算需與先進 BEOL 互連相容，且較小開關比（10~50x）對感測放大器靈敏度要求嚴苛。",
+          "filing": "2016-08-31",
+          "publication": "2019-11-05",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；面積型無細絲開關展示了高密度 SCM 替代路徑。"
         }
       ],
       "sourceIds": [
         "EMG-VCM08",
         "EMG-P-VCM",
         "EMG-DBH",
-        "EMG-S130"
+        "EMG-S130",
+        "EMG-P-WEEBIT-SIOX",
+        "EMG-P-PANA-TAOX",
+        "EMG-P-TETRAMEM-CIM",
+        "EMG-P-4DS-PCMO"
       ],
       "quiz": {
         "question": "看到有遲滯的電流—電壓曲線，為什麼還不能判定元件一定是氧空缺 VCM？",
@@ -708,7 +967,11 @@
           "EMG-VCM08",
           "EMG-P-VCM",
           "EMG-DBH",
-          "EMG-S130"
+          "EMG-S130",
+          "EMG-P-WEEBIT-SIOX",
+          "EMG-P-PANA-TAOX",
+          "EMG-P-TETRAMEM-CIM",
+          "EMG-P-4DS-PCMO"
         ]
       }
     },
@@ -788,11 +1051,43 @@
           "publication": "1998-06-02",
           "verifiedAt": "2026-09-10",
           "dateNote": "優先權、該美國案申請及所列公開號的公開／公告日期分列；依公開專利書目核對，不作法律權利狀態結論。"
+        },
+        {
+          "id": "US8658467B2",
+          "url": "https://patents.google.com/patent/US8658467B2/en",
+          "priority": "2010-06-08",
+          "assignee": "CrossBar, Inc.",
+          "figures": "圖 2、4：Ag/非晶矽（a-Si）奈米細絲局域穿透窗口；圖 6：高電阻比開關曲線與限流電路。",
+          "problem": "傳統非晶矽阻變元件中銀離子（Ag+）隨機擴散漂移形成多條雜散細絲，導致漏電過大、開關比惡化且無法實現高密度 1S1R 交叉點陣列整合。",
+          "mechanism": "在頂部活性銀電極與非晶矽主動層之間設置具奈米開孔（Nano-aperture）的緻密阻擋層，將電場與銀奈米微絲嚴格局域化在極小窗口內，實現極高開關比（>10^5）、低於 100nA 漏電及高物理亂度 PUF 特性。",
+          "claimReading": "權利項 1 強調包含頂部銀電極、含局域通孔之阻擋層及未摻雜或輕摻雜非晶矽阻變介質之三層單元結構；需核對奈米開孔幾何尺寸與銀離子局域成核條件。",
+          "limit": "專利揭露非晶矽銀微絲局域窗口機制；DARPA DARIC PUF 國防晶片應用之環境耐受力不代表民用大容量儲存商品之標準規格。",
+          "filing": "2010-06-08",
+          "publication": "2014-02-25",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；局域奈米窗口設計克服了非晶矽微絲漂移問題。"
+        },
+        {
+          "id": "US8824194B2",
+          "url": "https://patents.google.com/patent/US8824194B2/en",
+          "priority": "2012-07-27",
+          "assignee": "Adesto Technologies Corporation (Dialog / Renesas)",
+          "figures": "圖 1、3：固態電解質銅離子奈米橋接堆疊剖面；圖 5：次微安培寫入脈衝時序。",
+          "problem": "傳統金屬橋接記憶體寫入需要數毫安培電流，難以滿足超低功耗物聯網（IoT）節點與能量收集（Energy Harvesting）應用的超低能量預算。",
+          "mechanism": "採用含銅金屬合金陽極與含硫/硒硫屬化物固態電解質，藉由極低離子活化能促使銅奈米金屬橋在次微安培（<1uA）微弱偏壓下快速導通與電化學溶解，達成次微安級超低功耗與超快寫入速度。",
+          "claimReading": "權利項 1 明確限定包含銅源電極、固態離子電解質層及具受控電場極性之寫入/抹除電壓比較操作；閱讀時需注意電解質介質厚度與離子遷移能障。",
+          "limit": "專利揭露低電流固態電解質導電橋機制；GlobalFoundries 22FDX 平台 eCBRAM 嵌入式規格與車規認證以代工廠 PDK 手冊為準。",
+          "filing": "2012-07-27",
+          "publication": "2014-09-02",
+          "verifiedAt": "2026-10-09",
+          "dateNote": "公開專利書目核對；微安培固態電解質為超低功耗物聯網 CBRAM 之關鍵技術。"
         }
       ],
       "sourceIds": [
         "EMG-ADESTO",
-        "EMG-P-ECM"
+        "EMG-P-ECM",
+        "EMG-P-CROSSBAR-FILAMENT",
+        "EMG-P-ADESTO-CBRAM"
       ],
       "quiz": {
         "question": "ECM 的金屬橋在 RESET 後，為何仍可能影響下一次寫入？",
@@ -808,7 +1103,9 @@
         "limits": "這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。",
         "sourceIds": [
           "EMG-ADESTO",
-          "EMG-P-ECM"
+          "EMG-P-ECM",
+          "EMG-P-CROSSBAR-FILAMENT",
+          "EMG-P-ADESTO-CBRAM"
         ]
       }
     },

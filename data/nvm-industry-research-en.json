@@ -1482,6 +1482,42 @@
       "kind": "Manufacturer Whitepaper",
       "date": "Reviewed 2026-09-16",
       "limit": "Coexistence on the same die requires macro-specific arrangement check."
+    },
+    {
+      "id": "RES-P-SPINMEM-PSC",
+      "label": "Spin Memory Precessional Spin Current (PSC) Ultra-Fast Switching Patent",
+      "url": "https://patents.google.com/patent/US9287500B2/en",
+      "locator": "Figs. 2, 4; Claim 1; Sub-3ns Switching and Non-Collinear Torque",
+      "kind": "Public Patent",
+      "date": "2016-03-15",
+      "limit": "The patent discloses ultra-fast switching device physics; commercial sampling progress does not imply an industry default."
+    },
+    {
+      "id": "RES-P-CROCUS-TAS",
+      "label": "Crocus Thermally-Assisted Switching (TAS-MRAM) High-Selectivity Patent",
+      "url": "https://patents.google.com/patent/US7916526B2/en",
+      "locator": "Figs. 2, 3; Claim 1; Blocking Temperature TB Thermal Unpinning Method",
+      "kind": "Public Patent",
+      "date": "2011-03-29",
+      "limit": "The patent specifies thermally-assisted pinned switching; write operations incur thermal cycling latency."
+    },
+    {
+      "id": "RES-P-4DS-PCMO",
+      "label": "4DS Memory Crystalline PCMO Non-Filamentary Interface SCM Patent",
+      "url": "https://patents.google.com/patent/US10468591B2/en",
+      "locator": "Figs. 2, 3; Claim 1; Area-Distributed Schottky Barrier Forming-Free Modulation",
+      "kind": "Public Patent",
+      "date": "2019-11-05",
+      "limit": "The patent discloses non-filamentary area-type interfacial switching; annealing thermal budgets must remain compatible with BEOL."
+    },
+    {
+      "id": "RES-P-ADESTO-CBRAM",
+      "label": "Adesto Copper-Ion Solid Electrolyte Sub-Microampere CBRAM Patent",
+      "url": "https://patents.google.com/patent/US8824194B2/en",
+      "locator": "Figs. 1, 3; Claim 1; Sub-Microampere Copper Conductive Bridge Operation",
+      "kind": "Public Patent",
+      "date": "2014-09-02",
+      "limit": "The patent discloses ultra-low-power solid-electrolyte bridges; embedded eCBRAM specifications on GF 22FDX depend on foundry manuals."
     }
   ],
   "landscape": [
@@ -2835,6 +2871,70 @@
       "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation Silicon Lifecycle",
       "sourceIds": [
         "RES-RAMBUS-CRYPTOMANAGER-2025"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "spin-memory-psc",
+      "name": "Spin Memory (Spin Transfer Technologies)",
+      "technology": "Precessional Spin Current (PSC) Ultra-Fast STT-MRAM",
+      "family": "MRAM",
+      "role": "Advanced MRAM Silicon IP & Device Architecture Pioneer",
+      "maturity": "IP licensing & Applied Materials joint tool development; demonstrated sub-3ns switching",
+      "claim": "Patent US9287500B2 discloses Precessional Spin Current (PSC) polarizer technology; introduces non-collinear spin polarization above the perpendicular free layer, eliminating stochastic thermal incubation delay to achieve sub-3ns switching and 10^12 endurance, establishing physical feasibility for SRAM cache replacement.",
+      "limit": "Commercialization bounded by advanced PVD multi-layer thin-film stack yield and corporate restructuring; widely referenced as a foundational fast-MRAM patent.",
+      "dateLabel": "2016–2026 Patents & R&D Progress",
+      "search": "Spin Memory Spin Transfer Technologies PSC Precessional Spin Current US9287500B2 SRAM Cache Replacement Applied Materials Fast MRAM",
+      "sourceIds": [
+        "RES-P-SPINMEM-PSC"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "crocus-tas-mram",
+      "name": "Crocus Technology (Allegro MicroSystems)",
+      "technology": "Thermally-Assisted Switching (TAS-MRAM) & Magnetic Sensors",
+      "family": "MRAM",
+      "role": "High-Security Anti-Tamper Magnetic Memory & XtremeSense TMR Sensor Vendor",
+      "maturity": "Volume shipments of commercial TMR sensors; TAS memory patented for automotive & defense SoCs",
+      "claim": "Patent US7916526B2 discloses Thermally-Assisted Switching (TAS-MRAM); leverages antiferromagnetic blocking temperature (TB) to thermally unpin and switch under low fields, re-locking upon cooling to provide extreme magnetic immunity and physical anti-tamper resilience.",
+      "limit": "Constrained by thermal cycling latency with write times in tens of nanoseconds, unsuited for GHz-scale L1/L2 caches; current commercial revenue focuses on TMR current and angle sensors.",
+      "dateLabel": "2011–2026 Commercial & Patent Portfolio",
+      "search": "Crocus Technology Allegro MicroSystems TAS-MRAM Thermally-Assisted Switching US7916526B2 TMR XtremeSense Magnetic Sensor Anti-Tamper",
+      "sourceIds": [
+        "RES-P-CROCUS-TAS"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "4ds-memory-pcmo",
+      "name": "4DS Memory Limited",
+      "technology": "Interface-Type Non-Filamentary PCMO ReRAM / SCM",
+      "family": "ReRAM",
+      "role": "Storage-Class Memory (SCM) & DRAM-NAND Gap-Bridging Innovator",
+      "maturity": "Joint 1-megabit array qualification with imec; sub-20nm functional cell demonstrations",
+      "claim": "Patent US10468591B2 discloses non-filamentary crystalline PCMO switching; modulates interfacial Schottky barriers via area-distributed oxygen ion drift across the entire contact area, achieving forming-free, non-filamentary switching with 10^5 endurance scalable below 20nm.",
+      "limit": "Crystalline PCMO deposition and annealing thermal budgets must integrate with advanced BEOL; modest on/off resistance ratio (10–50x) requires specialized high-sensitivity sense amplifier designs.",
+      "dateLabel": "2019–2026 imec Joint Platform",
+      "search": "4DS Memory PCMO Non-Filamentary Interface ReRAM SCM imec US10468591B2 Forming-Free DRAM Cache Replacement Perovskite",
+      "sourceIds": [
+        "RES-P-4DS-PCMO"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "adesto-cbram-iot",
+      "name": "Adesto Technologies (Dialog / Renesas)",
+      "technology": "Conductive Bridging RAM (CBRAM) / Solid-Electrolyte eNVM",
+      "family": "ReRAM",
+      "role": "Ultra-Low-Power IoT & Edge Embedded NVM Leader",
+      "maturity": "Ongoing commercial product shipments (Mavriq family); embedded qualification on GlobalFoundries 22FDX eCBRAM",
+      "claim": "Patent US8824194B2 discloses copper solid-electrolyte conductive bridge mechanisms; achieves microsecond-scale reversible programming under sub-microampere (<1uA) write currents and sub-1uA standby, enabling ultra-low-power non-volatile storage for IoT and energy-harvesting nodes.",
+      "limit": "Thermal stability of thin metallic bridges presents retention tradeoffs; AEC-Q100 Grade 1/0 automotive qualification must be verified against foundry PDK design rules.",
+      "dateLabel": "2014–2026 Commercial & Foundry IP",
+      "search": "Adesto Technologies Renesas Dialog CBRAM Mavriq US8824194B2 GF 22FDX eCBRAM Sub-Microampere IoT NVM Conductive Bridge",
+      "sourceIds": [
+        "RES-P-ADESTO-CBRAM"
       ],
       "target": "research"
     }

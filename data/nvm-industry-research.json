@@ -1482,6 +1482,42 @@
       "kind": "原廠技術白皮書",
       "date": "2026-09-16 查核",
       "limit": "兩者在同一晶片上共存需核對具名巨集組織。"
+    },
+    {
+      "id": "RES-P-SPINMEM-PSC",
+      "label": "Spin Memory 進動自旋流 PSC 極速翻轉專利",
+      "url": "https://patents.google.com/patent/US9287500B2/en",
+      "locator": "圖 2、4；權利項 1；次 3ns 翻轉與非共線轉矩",
+      "kind": "公開專利",
+      "date": "2016-03-15",
+      "limit": "專利揭露極速翻轉元件物理；商業樣品進展不代表全行業標配。"
+    },
+    {
+      "id": "RES-P-CROCUS-TAS",
+      "label": "Crocus 熱輔助 TAS-MRAM 高選擇性專利",
+      "url": "https://patents.google.com/patent/US7916526B2/en",
+      "locator": "圖 2、3；權利項 1；阻塞溫度 TB 熱解鎖翻轉方法",
+      "kind": "公開專利",
+      "date": "2011-03-29",
+      "limit": "專利限定熱輔助阻塞機制；每次寫入具備熱循環延遲。"
+    },
+    {
+      "id": "RES-P-4DS-PCMO",
+      "label": "4DS Memory 結晶 PCMO 無微絲界面型 SCM 專利",
+      "url": "https://patents.google.com/patent/US10468591B2/en",
+      "locator": "圖 2、3；權利項 1；面積型肖特基能障無 Forming 調製",
+      "kind": "公開專利",
+      "date": "2019-11-05",
+      "limit": "專利揭露非細絲面積型界面開關；高溫退火熱預算需與 BEOL 相容。"
+    },
+    {
+      "id": "RES-P-ADESTO-CBRAM",
+      "label": "Adesto 銅離子固態電解質微安培 CBRAM 專利",
+      "url": "https://patents.google.com/patent/US8824194B2/en",
+      "locator": "圖 1、3；權利項 1；微安培銅奈米金屬橋接操作",
+      "kind": "公開專利",
+      "date": "2014-09-02",
+      "limit": "專利揭露超低功耗電解質導電橋；GF 22FDX 嵌入式規格需以代工手冊為準。"
     }
   ],
   "landscape": [
@@ -2835,6 +2871,70 @@
       "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation 晶片生命週期",
       "sourceIds": [
         "RES-RAMBUS-CRYPTOMANAGER-2025"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "spin-memory-psc",
+      "name": "Spin Memory (Spin Transfer Technologies)",
+      "technology": "Precessional Spin Current (PSC) Ultra-Fast STT-MRAM",
+      "family": "MRAM",
+      "role": "先進 MRAM 矽智財與元件架構創新先驅",
+      "maturity": "專利授權與 Applied Materials 機台聯合開發；展示次 3ns 翻轉",
+      "claim": "專利 US9287500B2 揭露進動自旋流（PSC）極化層技術；在垂直自由層上方引入非共線自旋極化，消除熱起伏隨機孵育延遲，實現次 3ns 極速寫入與 10^12 次耐久，為 SRAM 快取替換提供物理證明。",
+      "limit": "商業化進程受限於先進物理氣相沉積（PVD）多層膜堆疊良率與公司重組；專利技術被業界視為極速 MRAM 原理經典。",
+      "dateLabel": "2016–2026 專利與研發進程",
+      "search": "Spin Memory Spin Transfer Technologies PSC Precessional Spin Current US9287500B2 SRAM Cache Replacement Applied Materials 進動自旋流",
+      "sourceIds": [
+        "RES-P-SPINMEM-PSC"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "crocus-tas-mram",
+      "name": "Crocus Technology (Allegro MicroSystems)",
+      "technology": "Thermally-Assisted Switching (TAS-MRAM) & Magnetic Sensors",
+      "family": "MRAM",
+      "role": "高安全抗干擾磁性記憶體與 XtremeSense TMR 感測器原廠",
+      "maturity": "商用 TMR 感測器大量出貨；TAS 記憶體專利授權車規與國防安全晶片",
+      "claim": "專利 US7916526B2 揭露熱輔助磁翻轉（TAS-MRAM）；利用反鐵磁層阻塞溫度（TB）特性，寫入時加熱解鎖並定向切換，冷卻後磁鎖定，達成超高外部磁場抗擾力與物理防竄改能力。",
+      "limit": "受熱循環延遲限制，寫入時間約數十奈秒，不適合 GHz 級超高速快取；現行營收主要聚焦於 TMR 電流與角度磁感測器。",
+      "dateLabel": "2011–2026 商業與專利產品",
+      "search": "Crocus Technology Allegro MicroSystems TAS-MRAM Thermally-Assisted Switching US7916526B2 TMR XtremeSense Magnetic Sensor 熱輔助磁翻轉",
+      "sourceIds": [
+        "RES-P-CROCUS-TAS"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "4ds-memory-pcmo",
+      "name": "4DS Memory Limited",
+      "technology": "Interface-Type Non-Filamentary PCMO ReRAM / SCM",
+      "family": "ReRAM",
+      "role": "存儲級記憶體（SCM）與 DRAM-NAND 差距填補創新廠家",
+      "maturity": "與 imec 聯合開發 1兆位元陣列驗證；次 20nm 單元功能性展示",
+      "claim": "專利 US10468591B2 揭露非細絲型結晶 PCMO 阻變機制；利用全接觸面積均勻氧離子遷移調控肖特基能障，實現完全無微絲、無高壓 Forming、耐久達 10^5 次且微縮至 20nm 以下的界面 SCM 單元。",
+      "limit": "結晶 PCMO 沉積與退火熱預算需嚴格適配先進 BEOL 互連；阻變開關比約 10~50x，需專屬高靈敏度感測放大器架構支援。",
+      "dateLabel": "2019–2026 imec 聯合驗證平台",
+      "search": "4DS Memory PCMO Non-Filamentary Interface ReRAM SCM imec US10468591B2 Forming-Free DRAM Cache Replacement 結晶鈣鈦礦",
+      "sourceIds": [
+        "RES-P-4DS-PCMO"
+      ],
+      "target": "research"
+    },
+    {
+      "id": "adesto-cbram-iot",
+      "name": "Adesto Technologies (Dialog / Renesas)",
+      "technology": "Conductive Bridging RAM (CBRAM) / Solid-Electrolyte eNVM",
+      "family": "ReRAM",
+      "role": "超低功耗物聯網與邊緣嵌入式 NVM 領導廠商",
+      "maturity": "商業產品持續出貨（Mavriq 系列）；GlobalFoundries 22FDX eCBRAM 嵌入式驗證",
+      "claim": "專利 US8824194B2 揭露固態電解質銅奈米金屬橋切換機制；在次微安培（<1uA）電流下實現微秒級快速可逆寫入，待機功耗低於 1uA，為物聯網與能量收集晶片提供超低功耗記憶體方案。",
+      "limit": "細微金屬奈米橋的高溫熱穩定性需權衡；AEC-Q100 車規高溫等級（Grade 1/0）整合需依據代工廠 PDK 規範嚴格測試。",
+      "dateLabel": "2014–2026 商用與代工 IP",
+      "search": "Adesto Technologies Renesas Dialog CBRAM Mavriq US8824194B2 GF 22FDX eCBRAM Sub-Microampere IoT NVM 導電橋記憶體",
+      "sourceIds": [
+        "RES-P-ADESTO-CBRAM"
       ],
       "target": "research"
     }
