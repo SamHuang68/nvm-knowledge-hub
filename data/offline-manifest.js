@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "93ad1c60cbe5d932810b",
+  "version": "a61a84dcb046c5f9396d",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -160,7 +160,7 @@ self.NVMOfflineManifest = {
   ],
   "digests": {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
-    "advanced-finfet-gaa-simulator.js": "5aacb033ebcb977364d28047f32d304d6eacd90ba83118619f49cdd421409ccf",
+    "advanced-finfet-gaa-simulator.js": "9827e615b9c15c5d6972b8b4b77a7b7696411723faa1b2dfd8cadceccd079b54",
     "advanced-packaging-pdks-simulator.js": "8e5fa2046ab2afc2d1ded411f19bf6d8da186ad38bba879c042163a5a7e7768e",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
     "ai-nvm-opportunities.html": "94a0e50e0fe506443e86cfb3ebac7a34d968e31861a7add3efd5a0e5530b587b",
@@ -192,7 +192,7 @@ self.NVMOfflineManifest = {
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "8bf24e92982a221b3646d84cf331ae20dd3a8391eb81448e04694a64541e97c6",
     "chiplet-ucie-nvm-simulator.js": "6c754e3d72ab69b489ed8d3739133facb79f3151eb1a2a7c14fb5a0e7d40ee03",
-    "cim-analog-mac-simulator.js": "a946fb43386621846b82c5d237a0d6ab1f852f95e958b212b3a03838a0a5ac98",
+    "cim-analog-mac-simulator.js": "7297d2c4fc90ad9e12777f64f352e04a221b5cda42f0c260f7f727b8a1112d88",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
     "cim-neuromorphic-mac-simulator.js": "32882481cdfc05874c7d77ad607679502da2a86563b4028e5f7a1a2c3fa0857f",
     "cim-nn-accuracy-degradation-simulator.js": "da46154f186de39bd56aa83af0efd825072e80b97c52057a7163aa472a30514c",
@@ -268,7 +268,7 @@ self.NVMOfflineManifest = {
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "pqc-rot-dpa-simulator.js": "3af3274f118705c0907f47c0c775df459caf22c836b6f408e4c88f4857974137",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
-    "puf-reconstruction-simulator.js": "025dccf8752bf478187d02df11dbfde67a20715669958701a4dd889bb2648351",
+    "puf-reconstruction-simulator.js": "88df65b7d5af41a8155b77b22eb1d1f8be471a66a3bace0b8e3899dbe49d10d1",
     "quick-probe.js": "13857acf21a476d43ed5eb2baf42ba8b9f88ef823ae1f213d643a87b77223994",
     "rad-hard-nvm-simulator.js": "cc9ab29d21c278fff2f3d961afc9637003508d4c1062ae78087ab052265b4282",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
@@ -303,7 +303,7 @@ self.NVMOfflineManifest = {
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
     "tunneling-breakdown-simulator.js": "65f42eae42c4788464c17f379ed63065dd0c2acde2c61c2d629705350cc0999b",
-    "vertical-3d-nvm-simulator.js": "c9c63a51192d044a0fa851858b609e02dcd66e4e212a3a7f925a7973a73df151",
+    "vertical-3d-nvm-simulator.js": "ab5daab00c8ecab4571c9d04706dd90c890b85cf855e77226144d5744645a608",
     "wafer-cost-tco-calculator.js": "599678f88bd01b91d60841f695240bd5c0535e9a045c8f4fcb7c8fc21659e277",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "6c1693ead7aa2e1602fe8033e6a59b8f4e26aabce60b01c93df98b14c2d86689",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 14925559
+  "totalBytes": 14926528
 };

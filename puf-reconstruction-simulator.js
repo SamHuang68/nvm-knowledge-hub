@@ -280,23 +280,42 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
     }
   }
 
+  function readConfig() {
+    return {
+      tempC: parseFloat(tempSlider?.value || 25),
+      agingYears: parseFloat(ageSlider?.value || 0),
+      eccCapabilityT: parseInt(eccSlider?.value || 12, 10),
+      keyBits: parseInt(keyBitsSelect?.value || 256, 10),
+    };
+  }
+
   function update() {
-    const tempC = parseFloat(tempSlider?.value || 25);
-    const agingYears = parseFloat(ageSlider?.value || 0);
-    const eccCapabilityT = parseInt(eccSlider?.value || 12, 10);
-    const keyBits = parseInt(keyBitsSelect?.value || 256, 10);
+    const config = readConfig();
+    const { tempC, agingYears, eccCapabilityT, keyBits } = config;
 
     if (tempVal) tempVal.textContent = `${tempC} °C`;
     if (ageVal) ageVal.textContent = T(`${agingYears} Yrs`, `${agingYears} 年`);
     if (eccVal) eccVal.textContent = `${eccCapabilityT} bits / 128b`;
     if (eccSlider) eccSlider.setAttribute('aria-valuetext', T(`${eccCapabilityT} bits / 128b`, `${eccCapabilityT} 位元／128 位元區塊`));
 
-    const res = calculatePufReconstruction({
-      tempC,
-      agingYears,
-      eccCapabilityT,
-      keyBits,
-    });
+    const res = calculatePufReconstruction(config);
+    const exportControl = root.querySelector('#puf-export-csv-btn');
+    if (exportControl) {
+      exportControl.disabled = !res.valid;
+      exportControl.textContent = res.valid
+        ? T('📥 Export PUF Temperature and Aging Sweep CSV', '📥 匯出 PUF 溫度與老化掃描 CSV')
+        : T('Export Unavailable: Outside Model', '無法匯出：超出模型');
+      exportControl.setAttribute('aria-label', res.valid
+        ? T('Export SRAM PUF temperature and aging sweep as a CSV file', '匯出 SRAM PUF 溫度與老化掃描為 CSV 檔案')
+        : T('PUF CSV export unavailable: outside this simplified model', 'PUF CSV 無法匯出：超出此簡化模型'));
+      if (!res.valid && verdictElem) {
+        exportControl.setAttribute('aria-describedby', verdictElem.id);
+      } else {
+        exportControl.removeAttribute('aria-describedby');
+      }
+      exportControl.style.cursor = res.valid ? 'pointer' : 'not-allowed';
+      exportControl.style.opacity = res.valid ? '1' : '0.65';
+    }
 
     if (!res.valid) {
       [berDisplay, ferDisplay, helperDisplay, entropyDisplay].forEach(el => { if (el) el.textContent = '—'; });
@@ -340,11 +359,6 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
 
     // 複製狀態獨立呈現，不改動模型數值。
     syncMetricCopy([berDisplay, ferDisplay, helperDisplay, entropyDisplay]);
-    const exportControl = root.querySelector('#puf-export-csv-btn');
-    if (exportControl) {
-      exportControl.textContent = T('📥 Export PUF Reconstruction CSV', '📥 匯出 PUF 金鑰重構率 CSV');
-      exportControl.setAttribute('aria-label', T('Export SRAM PUF thermal/aging reconstruction rate and residual entropy dataset as CSV file', '匯出 SRAM PUF 在溫循與老化條件下之重構率與殘餘熵資料集為 CSV 檔案'));
-    }
   }
 
   // Export CSV Action for PUF Reconstruction Simulator
@@ -366,13 +380,16 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
     const exportBtn = document.createElement('button');
     exportBtn.id = 'puf-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
-    exportBtn.textContent = T('📥 Export PUF Reconstruction CSV', '📥 匯出 PUF 金鑰重構率 CSV');
-    exportBtn.setAttribute('aria-label', T('Export SRAM PUF thermal/aging reconstruction rate and residual entropy dataset as CSV file', '匯出 SRAM PUF 在溫循與老化條件下之重構率與殘餘熵資料集為 CSV 檔案'));
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
     exportBtn.addEventListener('click', () => {
-      const curEcc = parseInt(eccSlider?.value || 12, 10);
-      const curKeyBits = parseInt(keyBitsSelect?.value || 256, 10);
+      const config = readConfig();
+      if (!calculatePufReconstruction(config).valid) {
+        update();
+        return;
+      }
+      const { eccCapabilityT: curEcc, keyBits: curKeyBits } = config;
       let csv = 'Temp_C,AgingYears,EccT,KeyBits,RawBerPct,KeyFailRate,HelperBytes,ResidualEntropyBits,StatusGrade\n';
+      let rowCount = 0;
       const testTemps = [-40, -20, 0, 25, 85, 105, 125];
       const testAges = [0, 2, 5, 10, 15, 20];
       for (const t of testTemps) {
@@ -385,10 +402,12 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
           });
           if (r.valid) {
             csv += `${t},${a},${curEcc},${curKeyBits},${r.rawBerPct},${r.pKeyFailScientific},${r.helperDataBytes},${r.residualMinEntropy},${r.statusGrade}\n`;
+            rowCount++;
           }
         }
       }
-      downloadCsv(`puf_reconstruction_${curKeyBits}b_ecc${curEcc}.csv`, csv);
+      if (rowCount === 0) return;
+      downloadCsv(`PUF_溫度與老化掃描_${curKeyBits}位元_ECC${curEcc}.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }

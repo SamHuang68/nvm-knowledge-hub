@@ -458,13 +458,20 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
 
   let currentMode = 'tier_count_vs_rc_delay';
 
+  function readConfig() {
+    return {
+      presetId: presetSelect ? presetSelect.value : 'vert_3d_antifuse_64l',
+      conductorId: conductorSelect ? conductorSelect.value : 'molybdenum_mo_pvd',
+      tierCount: tierSlider ? parseInt(tierSlider.value, 10) : 64,
+      metalThicknessNm: thicknessSlider ? parseFloat(thicknessSlider.value) : 25.0,
+      arrayLengthUm: arrayLengthSlider ? parseFloat(arrayLengthSlider.value) : 120.0
+    };
+  }
+
   function update() {
     const isZh = document.documentElement.lang.startsWith('zh');
-    const presetId = presetSelect ? presetSelect.value : 'vert_3d_antifuse_64l';
-    const conductorId = conductorSelect ? conductorSelect.value : 'molybdenum_mo_pvd';
-    const tierCount = tierSlider ? parseInt(tierSlider.value, 10) : 64;
-    const metalThicknessNm = thicknessSlider ? parseFloat(thicknessSlider.value) : 25.0;
-    const arrayLengthUm = arrayLengthSlider ? parseFloat(arrayLengthSlider.value) : 120.0;
+    const config = readConfig();
+    const {tierCount, metalThicknessNm, arrayLengthUm} = config;
 
     if (tierVal) tierVal.textContent = `${tierCount} L`;
     if (thicknessVal) thicknessVal.textContent = `${metalThicknessNm} nm`;
@@ -474,13 +481,7 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     if (thicknessSlider) thicknessSlider.setAttribute('aria-valuetext', `${metalThicknessNm} nm`);
     if (arrayLengthSlider) arrayLengthSlider.setAttribute('aria-valuetext', `${arrayLengthUm} µm`);
 
-    const metrics = calculateVertical3dMetrics({
-      presetId,
-      conductorId,
-      tierCount,
-      metalThicknessNm,
-      arrayLengthUm
-    });
+    const metrics = calculateVertical3dMetrics(config);
 
     if (outResistivity) outResistivity.textContent = `${metrics.effectiveResistivityUohmCm.toFixed(2)} µΩ·cm`;
     if (outWorstDelay) {
@@ -511,8 +512,8 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     const exportControl = root.querySelector('#vert3d-export-csv-btn');
     if (exportControl) {
       const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-      exportControl.textContent = isZhLang ? '📥 匯出 3D 立體階梯延遲 CSV' : '📥 Export 3D Vertical Delay CSV';
-      exportControl.setAttribute('aria-label', isZhLang ? '匯出 3D 垂直堆疊階梯 RC 傳遞延遲資料集為 CSV 檔案' : 'Export 3D vertical stacked staircase RC delay dataset as CSV file');
+      exportControl.textContent = isZhLang ? '📥 匯出 3D 層數掃描 CSV' : '📥 Export 3D Tier-Count Sweep CSV';
+      exportControl.setAttribute('aria-label', isZhLang ? '保留目前導體、厚度與陣列長度，匯出 32 至 256 層的 RC 延遲掃描 CSV' : 'Export the 32-to-256-tier RC delay sweep with the current conductor, thickness and array length as CSV');
     }
   }
 
@@ -535,28 +536,20 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     const exportBtn = document.createElement('button');
     exportBtn.id = 'vert3d-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #a78bfa; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #a78bfa; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
-    exportBtn.textContent = isZhLang ? '📥 匯出 3D 立體階梯延遲 CSV' : '📥 Export 3D Vertical Delay CSV';
-    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 3D 垂直堆疊階梯 RC 傳遞延遲資料集為 CSV 檔案' : 'Export 3D vertical stacked staircase RC delay dataset as CSV file');
+    exportBtn.textContent = isZhLang ? '📥 匯出 3D 層數掃描 CSV' : '📥 Export 3D Tier-Count Sweep CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '保留目前導體、厚度與陣列長度，匯出 32 至 256 層的 RC 延遲掃描 CSV' : 'Export the 32-to-256-tier RC delay sweep with the current conductor, thickness and array length as CSV');
     exportBtn.addEventListener('click', () => {
-      const pid = presetSelect ? presetSelect.value : 'vert_3d_antifuse_64l';
-      const cid = conductorSelect ? conductorSelect.value : 'molybdenum_mo_pvd';
-      const mThick = thicknessSlider ? parseFloat(thicknessSlider.value) : 25.0;
-      const aLen = arrayLengthSlider ? parseFloat(arrayLengthSlider.value) : 120.0;
-      let csv = 'TierCount_L,EffectiveResistivity_uOhmCm,WorstDelay_ns,DelaySkew_ns,TotalAccessTime_ns\n';
+      const config = readConfig();
+      const {presetId, conductorId, metalThicknessNm, arrayLengthUm} = config;
+      let csv = 'TierCount_L,EffectiveResistivity_uOhmCm,WorstDelay_ns,DelaySkew_ns,TotalAccessTime_ns,金屬厚度_nm,陣列長度_um\n';
       const tierCounts = [32, 48, 64, 96, 128, 192, 256];
       for (const tCount of tierCounts) {
-        const m = calculateVertical3dMetrics({
-          presetId: pid,
-          conductorId: cid,
-          tierCount: tCount,
-          metalThicknessNm: mThick,
-          arrayLengthUm: aLen
-        });
-        csv += `${tCount},${m.effectiveResistivityUohmCm.toFixed(2)},${m.worstWlDelayNs.toFixed(3)},${m.tierDelaySkewNs.toFixed(3)},${m.totalAccessTimeNs.toFixed(2)}\n`;
+        const m = calculateVertical3dMetrics({...config, tierCount: tCount});
+        csv += `${tCount},${m.effectiveResistivityUohmCm.toFixed(2)},${m.worstWlDelayNs.toFixed(3)},${m.tierDelaySkewNs.toFixed(3)},${m.totalAccessTimeNs.toFixed(2)},${m.metalThicknessNm},${m.arrayLengthUm}\n`;
       }
-      downloadCsv(`vertical_3d_delay_${pid}_${cid}.csv`, csv);
+      downloadCsv(`3D_層數掃描_${presetId}_${conductorId}_厚度${metalThicknessNm}nm_長度${arrayLengthUm}um.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
   }
