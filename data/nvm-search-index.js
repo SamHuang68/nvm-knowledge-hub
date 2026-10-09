@@ -162,6 +162,54 @@ window.NVMTopicIndex = [
     "tags": "Crossbar Crossbar · Metallic-Path ReRAM Read Crossbar's public patent and historical embedded-macro materials through metallic-path extension, retraction and low-stimulus sensing. SET extends the metallic path RESET retracts or disconnects the path Conduction paths and interparticle transport 以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。"
   },
   {
+    "title_zh": "Everspin：pMTJ 垂直自旋轉矩 MRAM 單元",
+    "title_en": "Everspin: pMTJ STT-MRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-everspin-mram",
+    "tags": "Everspin Technologies Everspin · pMTJ MRAM Analyze interfacial perpendicular magnetic anisotropy (i-PMA) from dual MgO interfaces to understand high thermal stability with low switching current at sub-40nm nodes. Spin-transfer torque switching (P to AP) Reverse spin-polarized switching (AP to P) pMTJ tunneling magnetoresistance (TMR) 從雙 MgO 界面誘導的垂直磁各向異性 (i-PMA)，理解次 40nm 節點如何在保持高熱穩定性的同時降低翻轉電流。"
+  },
+  {
+    "title_zh": "Avalanche：雙對稱 SAF 雜散磁場補償 MRAM 單元",
+    "title_en": "Avalanche: Dual-SAF Stray Field Compensated MRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-avalanche-mram",
+    "tags": "Avalanche Technology Avalanche · Dual-SAF MRAM Analyze dual-SAF magnetic symmetry to understand cancellation of stray dipole fields on the free layer for rad-hard, reliable switching. Dual spin-torque injection switching Symmetric reverse spin switching Dual-barrier tunneling resistance sensing 從頂底對稱雙 SAF 結構，理解如何消除參考層偶極場對自由層的非對稱偏置，實現抗輻照與高可靠翻轉。"
+  },
+  {
+    "title_zh": "Spin Memory：PSC 自旋進動極速 MRAM 單元",
+    "title_en": "Spin Memory: PSC Precessional MRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-spinmem-mram",
+    "tags": "Spin Memory Spin Memory · PSC MRAM Analyze in-plane precessional spin polarizer providing orthogonal torque to eliminate thermal incubation delay for <3ns switching. Orthogonal precessional torque fast write Reverse current assisted fast switching Perpendicular MTJ resistance sensing 從面內自旋進動極化層 (PSC)，理解如何提供額外正交自旋轉矩，消除熱起伏延遲並實現次 3ns 極速確定性翻轉。"
+  },
+  {
+    "title_zh": "Crocus：TAS-MRAM 熱輔助阻變單元",
+    "title_en": "Crocus: TAS-MRAM Thermally Assisted Cell",
+    "url": "nvm-technology-atlas.html#ip-crocus-mram",
+    "tags": "Crocus Technology Crocus · TAS-MRAM Examine pulse heating past the AFM blocking temperature (Tb) to understand unpinned switching with room-temperature thermal stability. Thermal unlock + low-current switching Thermal unlock + reverse switching Unheated room-temperature MR readout 從加熱脈衝越過反鐵磁阻斷溫度 (Tb) 的解鎖機制，理解熱輔助磁阻記憶體如何在常溫保持超高抗干擾與高保持性。"
+  },
+  {
+    "title_zh": "Panasonic：雙層鉭氧化物 (Ta2O5/TaOx) ReRAM 單元",
+    "title_en": "Panasonic: Bilayer Ta2O5/TaOx ReRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-panasonic-reram",
+    "tags": "Panasonic / RAMXEED Panasonic · TaOx ReRAM Track reversible oxygen ion exchange across stoichiometric Ta2O5 and oxygen-deficient TaOx with self-limiting filament resistance. SET forms Ta-rich self-limiting filament RESET gently ruptures filament neck Small positive bias reads filament resistance 從化學計量絕緣層 Ta2O5 與缺氧儲庫層 TaOx 雙層堆疊，追蹤氧離子可逆交換與自限制微絲粗細機制。"
+  },
+  {
+    "title_zh": "TetraMem：CIM 多階連續線性電導 ReRAM 單元",
+    "title_en": "TetraMem: Multi-Level Linear CIM ReRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-tetramem-reram",
+    "tags": "TetraMem TetraMem · CIM ReRAM Analyze multi-layer interface defect engineering delivering continuous 8-bit linear analog synapse weights for in-memory computing. Incremental pulse linear potentiation Reverse micro-step linear depression Ultra-low voltage non-destructive analog MAC read 從多層介面障壁工程與連續氧空缺調控，理解 8-bit (256 階) 超高線性度類比突觸權重儲存。"
+  },
+  {
+    "title_zh": "4DS Memory：非微絲面積型 PCMO ReRAM 單元",
+    "title_en": "4DS Memory: Area-Dependent PCMO ReRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-4ds-reram",
+    "tags": "4DS Memory 4DS · PCMO ReRAM Understand non-filamentary Schottky barrier modulation across single-wafer PCMO for strict area-dependent scaling and forming-free operation. Low-voltage electric field vacancy modulation (SET) Reverse electric field vacancy extraction (RESET) Low-voltage area-dependent interface resistance sensing 從單晶圓級 PCMO 鈣鈦礦介質，理解非微絲肖特基能障調變如何實現電阻隨面積嚴格反比微縮並徹底免除高壓 Forming。"
+  },
+  {
+    "title_zh": "Adesto：固態電解質微安培導電橋接 CBRAM 單元",
+    "title_en": "Adesto: Micro-Ampere Conductive Bridging CBRAM Cell",
+    "url": "nvm-technology-atlas.html#ip-adesto-cbram",
+    "tags": "Adesto Technologies / Renesas Adesto · CBRAM Examine copper active anode and solid electrolyte to understand microamp (1-10uA) metallic nanobridge formation and electrochemical dissolution. Electrochemical redox growing Cu nanobridge (SET) Sub-volt electrochemical dissolution of Cu bridge (RESET) Tera-ohm off / low-ohm on resistance readout 從銅活性陽極與固態電解質，理解電化學金屬奈米微橋如何在 1–10µA 超低電流下生長與電離溶解。"
+  },
+  {
     "title_zh": "eFuse：以永久導通變化記住一個位元",
     "title_en": "eFuse: Permanent Conductance Programming",
     "url": "nvm-technology-atlas.html#topic-efuse",
