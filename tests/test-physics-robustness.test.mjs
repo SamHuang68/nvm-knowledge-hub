@@ -39,6 +39,13 @@ import { calculateGdpw300mm, calculateSramYieldRecovery } from '../sram-yield-bi
 import { calculateSubthresholdMetrics } from '../subthreshold-lowvoltage-nvm-simulator.js';
 import { calculateTddbWeibull } from '../tddb-weibull-simulator.js';
 import { calculateVertical3dMetrics } from '../vertical-3d-nvm-simulator.js';
+import { calculateCuCuBondingMetrics } from '../cu-cu-hybrid-bonding-stress-simulator.js';
+import { calculateAutomotiveHighTempSicGanMetrics } from '../automotive-high-temp-sic-gan-simulator.js';
+import { calculateTunnelingBreakdownMetrics } from '../tunneling-breakdown-simulator.js';
+import { calculateHardwareTrojanPemMetrics } from '../supply-chain-hardware-trojan-pem-simulator.js';
+import { calculatePufNistRandomness } from '../puf-nist-randomness-evaluator.js';
+import { calculateAttackPotential } from '../attack-resistance-evaluator.js';
+import { calculateWaferCostTco } from '../wafer-cost-tco-calculator.js';
 
 const allCalculators = [
   { name: 'calculateAdvancedFinfetGaa', fn: calculateAdvancedFinfetGaa },
@@ -78,7 +85,14 @@ const allCalculators = [
   { name: 'calculateSramYieldRecovery', fn: calculateSramYieldRecovery },
   { name: 'calculateSubthresholdMetrics', fn: calculateSubthresholdMetrics },
   { name: 'calculateTddbWeibull', fn: calculateTddbWeibull },
-  { name: 'calculateVertical3dMetrics', fn: calculateVertical3dMetrics }
+  { name: 'calculateVertical3dMetrics', fn: calculateVertical3dMetrics },
+  { name: 'calculateCuCuBondingMetrics', fn: calculateCuCuBondingMetrics },
+  { name: 'calculateAutomotiveHighTempSicGanMetrics', fn: calculateAutomotiveHighTempSicGanMetrics },
+  { name: 'calculateTunnelingBreakdownMetrics', fn: calculateTunnelingBreakdownMetrics },
+  { name: 'calculateHardwareTrojanPemMetrics', fn: calculateHardwareTrojanPemMetrics },
+  { name: 'calculatePufNistRandomness', fn: calculatePufNistRandomness },
+  { name: 'calculateAttackPotential', fn: calculateAttackPotential },
+  { name: 'calculateWaferCostTco', fn: calculateWaferCostTco }
 ];
 
 function checkNoNaN(obj, prefix = '') {
@@ -327,3 +341,71 @@ test('物理計算器：Suite 9－CiM 漂移、PQC 雜訊與 PUF 熵邊界', () 
     }
   }
 });
+
+test('物理計算器：Suite 10－Cu-Cu 混合鍵合、高溫 SiC/GaN、量子穿隧與硬體木馬極限物理應力', () => {
+  const extreme3DAndPowerConfigs = [
+    { annealTemp: 150, opTemp: -40, cmpDishing: 0.1, padHeight: 0.5, junctionTemp: 125, tox: 0.8, vox: 1.0 },
+    { annealTemp: 300, opTemp: 85, cmpDishing: 3.0, padHeight: 1.5, junctionTemp: 175, tox: 1.5, vox: 3.3 },
+    { annealTemp: 380, opTemp: 150, cmpDishing: 6.0, padHeight: 3.0, junctionTemp: 225, tox: 2.2, vox: 5.0 },
+    { annealTemp: 450, opTemp: 250, cmpDishing: 12.0, padHeight: 5.0, junctionTemp: 280, tox: 3.5, vox: 8.5 },
+    { annealTemp: 600, opTemp: 350, cmpDishing: 20.0, padHeight: 10.0, junctionTemp: 350, tox: 5.0, vox: 15.0 },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of extreme3DAndPowerConfigs) {
+      try {
+        const res = fn({
+          annealTemp: cfg.annealTemp,
+          opTemp: cfg.opTemp,
+          cmpDishing: cfg.cmpDishing,
+          padHeight: cfg.padHeight,
+          junctionTemp: cfg.junctionTemp,
+          tox: cfg.tox,
+          vox: cfg.vox,
+          substrateThickUm: 5.0,
+          opticalShieldDb: 30,
+          trojanPayloadPpm: 200,
+        });
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 10 極限應力條件`);
+        checkNoNaN(res, `${name}_Suite10_Tanneal_${cfg.annealTemp}`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 10 極限應力條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+
+test('物理計算器：Suite 11－PUF NIST 統計、AVA_VAN 攻擊潛力與晶圓 TCO 經濟學極值邊界', () => {
+  const extremeSecurityAndTcoConfigs = [
+    { presetId: 'antifuse_neopuf_quantum', annualWaferVolume: 500, dieAreaMm2: 2.0, customMaskAdders: 0 },
+    { presetId: 'sram_startup_uncompensated', annualWaferVolume: 5000, dieAreaMm2: 10.0, customMaskAdders: 2 },
+    { presetId: 'otp_differential_mismatch', annualWaferVolume: 30000, dieAreaMm2: 25.0, customMaskAdders: 4 },
+    { presetId: 'degraded_biased_source', annualWaferVolume: 100000, dieAreaMm2: 100.0, customMaskAdders: 8 },
+    { presetId: 'antifuse_neopuf_quantum', annualWaferVolume: 500000, dieAreaMm2: 200.0, customMaskAdders: 12 },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of extremeSecurityAndTcoConfigs) {
+      try {
+        const res = fn({
+          presetId: cfg.presetId,
+          annualWaferVolume: cfg.annualWaferVolume,
+          dieAreaMm2: cfg.dieAreaMm2,
+          customMaskAdders: cfg.customMaskAdders,
+          elapsedTime: 'ext',
+          expertise: 'multiple',
+          knowledge: 'critical',
+          access: 'unlimited',
+          equipment: 'multibespoke',
+          activeMesh: true,
+          zeroization: true,
+        });
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 11 邊界條件`);
+        checkNoNaN(res, `${name}_Suite11_TCOVol_${cfg.annualWaferVolume}`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 11 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+

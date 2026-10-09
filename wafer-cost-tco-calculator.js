@@ -143,8 +143,8 @@ export function calculateWaferCostTco(inputs = {}) {
   const process = FOUNDRY_PROCESS_PRESETS[processId] || FOUNDRY_PROCESS_PRESETS["28nm_hpc"];
   const envm = ENVM_COST_PROFILES[envmId] || ENVM_COST_PROFILES["antifuse_logic"];
 
-  const maskAdders = Number.isFinite(inputs.customMaskAdders) ? inputs.customMaskAdders : envm.maskAdders;
-  const totalMaskLayers = process.baseMaskLayers + maskAdders;
+  const maskAdders = Number.isFinite(inputs.customMaskAdders) ? Math.max(0, inputs.customMaskAdders) : envm.maskAdders;
+  const totalMaskLayers = Math.max(1, process.baseMaskLayers + maskAdders);
 
   // 1. Wafer Fabrication Cost
   const maskAdderRatio = (process.alphaMaskPercent / 100.0) * maskAdders;
