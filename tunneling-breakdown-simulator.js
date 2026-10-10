@@ -301,8 +301,7 @@ class TunnelingSimulator {
    * @return {number} Eox in MV/cm.
    */
   calculateEox(vox, tox) {
-    // E = V / (t_ox * 1e-7 cm) => V / (t_ox * 10^-7) * 1e-6 = V / (t_ox * 0.1) MV/cm
-    return vox / (tox * 0.1);
+    return calculateTunnelingBreakdownMetrics({ vox, tox }).eox;
   }
 
   /**
@@ -313,28 +312,7 @@ class TunnelingSimulator {
    * @return {number} log10(J).
    */
   calculateLogJ(v, t) {
-    if (v <= 0.05) return -18; // Thermal noise floor
-    const eox = this.calculateEox(v, t); // MV/cm
-    const phiB = SIM_CONSTANTS.BARRIER_HEIGHT_EV;
-
-    if (v < phiB) {
-      // Direct Tunneling regime (trapezoidal barrier, Simmons/WKB approx)
-      // J_DT ~ exp(-alpha * t_ox * sqrt(Phi_B - V/2))
-      const alpha = 1.025; // Constant for Si-SiO2
-      const barrierEff = Math.max(0.1, phiB - v * 0.5);
-      const exponent = -alpha * (t * 10) * Math.sqrt(barrierEff);
-      const jDirect = 1e3 * Math.pow(v / t, 2) * Math.exp(exponent);
-      const val = Math.log10(Math.max(jDirect, 1e-18));
-      return Math.min(6, Math.max(-18, val));
-    } else {
-      // Fowler-Nordheim Tunneling regime (triangular barrier)
-      // J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)
-      const eoxVcm = eox * 1e6;
-      const bfnVcm = SIM_CONSTANTS.B_FN_MV_PER_CM * 1e6;
-      const jFN = SIM_CONSTANTS.A_FN * Math.pow(eoxVcm, 2) * Math.exp(-bfnVcm / eoxVcm);
-      const val = Math.log10(Math.max(jFN, 1e-18));
-      return Math.min(6, Math.max(-18, val));
-    }
+    return calculateTunnelingBreakdownMetrics({ vox: v, tox: t }).logJ;
   }
 
   /**
@@ -353,8 +331,8 @@ class TunnelingSimulator {
     if (this.toxValBadge) this.toxValBadge.textContent = `${this.tox.toFixed(1)} nm`;
     if (this.voxValBadge) this.voxValBadge.textContent = `${this.vox.toFixed(1)} V`;
 
-    const eox = this.calculateEox(this.vox, this.tox);
-    const logJ = this.calculateLogJ(this.vox, this.tox);
+    // 讀值、機制、分區及曲線皆使用同一個既有純函式。
+    const { eox, logJ, mechanism, state } = calculateTunnelingBreakdownMetrics({ vox: this.vox, tox: this.tox });
 
     if (this.eoxDisplay) {
       this.eoxDisplay.textContent = `${eox.toFixed(2)} MV/cm`;
@@ -375,8 +353,10 @@ class TunnelingSimulator {
     let verdictIcon = '';
     let verdictMsg = '';
 
-    const phiB = SIM_CONSTANTS.BARRIER_HEIGHT_EV;
-    if (this.vox < phiB) {
+    if (mechanism === 'retention') {
+      mechText = isZh ? '低偏壓電流下限' : 'Low-Bias Current Floor';
+      mechDesc = isZh ? '教學模型的低偏壓下限' : 'Low-bias floor of the illustrative model';
+    } else if (mechanism === 'direct') {
       mechText = isZh ? '直接穿隧 (Direct Tunneling)' : 'Direct Tunneling';
       mechDesc = isZh ? '梯形能障 · 載子貫穿全厚度' : 'Trapezoidal Barrier · Full-depth Wave Penetration';
     } else {
@@ -388,31 +368,31 @@ class TunnelingSimulator {
       this.mechanismDisplay.textContent = mechText;
     }
 
-    // Determine breakdown / reliability verdict
-    if (eox < SIM_CONSTANTS.CRITICAL_RETENTION_MV) {
+    // 保留公開分區代碼與既有 CSS 映射；門檻僅作教學示意。
+    if (state === 'safe') {
       alertClass = 'retention';
       verdictIcon = '🛡️';
       verdictMsg = isZh
-        ? '【安全留存區】電場微弱，穿隧漏電在雜訊底限之下。電荷於浮閘或電荷陷阱中可保證 > 10 年高溫留存。'
-        : '[Safe Retention] Oxide field is subdued; leakage remains suppressed below noise floor. >10-year retention guaranteed.';
-    } else if (eox < SIM_CONSTANTS.CRITICAL_FN_MV) {
+        ? '【低電場教學區】電流由簡化穿隧公式估算；此模型未計算溫度、時間與老化，不能據此保證 10 年或高溫留存。請核對具名元件的保持條件與測試證據。'
+        : '[Low-Field Model Region] Current uses simplified tunneling equations. Temperature, time and aging are not modeled; this does not establish 10-year or high-temperature retention. Check named-device retention conditions and test evidence.';
+    } else if (state === 'stress') {
       alertClass = 'tunneling';
       verdictIcon = '⚡';
       verdictMsg = isZh
-        ? '【受控穿隧寫入區】高電場誘發足量 FN 穿隧電子流，適用於 EEPROM、MTP 與 eFlash 之編程／抹除電荷傳輸。'
-        : '[Controlled Tunneling] Moderate FN field induces carrier injection suitable for EEPROM, MTP and eFlash program/erase.';
-    } else if (eox < SIM_CONSTANTS.CRITICAL_BREAKDOWN_MV) {
+        ? '【穿隧應力教學區】本分區依電場門檻示意應力；直接或 FN 穿隧機制另依偏壓判定。EEPROM、MTP 與 eFlash 的實際寫入／抹除條件須核對具名製程與脈衝規格。'
+        : '[Tunneling-Stress Model Region] Field thresholds indicate model stress; bias separately determines direct or FN transport. Actual EEPROM, MTP and eFlash program/erase conditions require named-process and pulse specifications.';
+    } else if (state === 'injection') {
       alertClass = 'soft-breakdown';
       verdictIcon = '⚠️';
       verdictMsg = isZh
-        ? '【前兆滲透缺陷區 (Soft Breakdown)】氧化層中性陷阱密度累積達滲透臨界，引發應力誘發漏電 (SILC) 與隨機電報雜訊。'
-        : '[Soft Breakdown Warning] Neutral trap density approaches percolation threshold, causing SILC and Random Telegraph Noise.';
+        ? '【軟擊穿風險教學區】此門檻用於介紹軟擊穿、應力誘發漏電 (SILC) 與隨機電報雜訊；模型未計算缺陷累積，實際是否發生須依氧化層、應力時間與量測判定。'
+        : '[Soft-Breakdown Risk Model Region] This threshold introduces soft breakdown, SILC and random telegraph noise. Defect accumulation is not modeled; actual behavior requires oxide, stress-duration and measurement evidence.';
     } else {
       alertClass = 'hard-breakdown';
       verdictIcon = '💥';
       verdictMsg = isZh
-        ? '【介電層硬擊穿熔接 (AntiFuse Filamentation)】局部熱失控破壞晶格，矽原子再結晶熔合成永久導電微絲，完成不可逆硬編程！'
-        : '[Dielectric Hard Breakdown] Thermal runaway recrystallizes silicon conductive filament, completing permanent AntiFuse write!';
+        ? '【硬擊穿風險教學區】電場達到模型示意門檻；此模型未計算熱失控、導電微絲材料或永久寫入結果，不能據此判定 AntiFuse 已成功寫入。'
+        : '[Hard-Breakdown Risk Model Region] The field reaches an illustrative threshold. Thermal runaway, filament material and permanent programming are not modeled; this does not establish successful AntiFuse programming.';
     }
 
     if (this.verdictBanner) {

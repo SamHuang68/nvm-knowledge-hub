@@ -47,6 +47,81 @@ import { calculatePufNistRandomness } from '../puf-nist-randomness-evaluator.js'
 import { calculateAttackPotential } from '../attack-resistance-evaluator.js';
 import { calculateWaferCostTco } from '../wafer-cost-tco-calculator.js';
 
+// 本次契約案例獨立命名，可只執行受影響模型，不重跑整套回歸。
+test('模型契約：未知與繼承技術鍵完整備援至 AntiFuse', () => {
+  for (const junctionTemp of [125, 175]) {
+    const expected = calculateAutomotiveHighTempSicGanMetrics({ tech: 'antifuse', junctionTemp });
+    for (const tech of [undefined, null, '', 'unknown', '__proto__', 'constructor', 'toString', 'hasOwnProperty']) {
+      assert.deepEqual(calculateAutomotiveHighTempSicGanMetrics({ tech, junctionTemp }), expected,
+        `${String(tech)} 在 ${junctionTemp}°C 必須使用同一組有效技術參數與公式`);
+    }
+  }
+});
+
+test('模型契約：四種合法技術保留 125°C 基準', () => {
+  const expected = [
+    ['antifuse', 12000, 22, null, 1e-18],
+    ['mram', 10, 15, 60, 4.37825538134826e-27],
+    ['reram', 5, 14, null, 1e-12],
+    ['eflash', 15, 18, null, 1e-10],
+  ];
+  for (const [tech, lifetimeYears, senseMarginUa, deltaBarrier, ber] of expected) {
+    const result = calculateAutomotiveHighTempSicGanMetrics({ tech, junctionTemp: 125 });
+    assert.equal(result.af, 1);
+    assert.equal(result.lifetimeYears, lifetimeYears);
+    assert.equal(result.senseMarginUa, senseMarginUa);
+    assert.equal(result.deltaBarrier, deltaBarrier);
+    assert.ok(Math.abs(result.ber - ber) <= ber * 1e-12, `${tech} 位元錯誤率基準`);
+    assert.deepEqual(Object.keys(result).sort(), ['af', 'ber', 'deltaBarrier', 'desatLatencyNs', 'lifetimeYears', 'senseMarginUa', 'snrDb', 'tech'].sort());
+  }
+});
+
+test('模型契約：合法技術在 125 至 175°C 保留溫度方向性', () => {
+  for (const tech of ['antifuse', 'mram', 'reram', 'eflash']) {
+    const lower = calculateAutomotiveHighTempSicGanMetrics({ tech, junctionTemp: 125 });
+    const higher = calculateAutomotiveHighTempSicGanMetrics({ tech, junctionTemp: 175 });
+    assert.ok(higher.lifetimeYears < lower.lifetimeYears, `${tech} 模型壽命隨溫度下降`);
+    assert.ok(higher.senseMarginUa < lower.senseMarginUa, `${tech} 模型感測裕度隨溫度下降`);
+    assert.ok(higher.desatLatencyNs > lower.desatLatencyNs, `${tech} 模型讀取延遲隨溫度增加`);
+    if (tech === 'antifuse') assert.equal(higher.ber, lower.ber);
+    else assert.ok(higher.ber > lower.ber, `${tech} 模型位元錯誤率隨溫度增加`);
+  }
+});
+
+test('模型契約：穿隧數值與公開回傳欄位保留原版基準', () => {
+  // 固定值來自 fb2119f64f0fc13ef64ca5623ec46bdaa6dbcfc6 的正常情境；不在測試中重抄公式。
+  const cases = [
+    [{ tox: 2.2, vox: 3.5 }, 15.909090909090907, 1.7661838751272148],
+    [{ tox: 3.5, vox: 1.2 }, 3.428571428571428, -18],
+    [{ tox: 2, vox: 4.2 }, 21, 3.6617869066941604],
+    [{ tox: 1.8, vox: 7.5 }, 41.666666666666664, 6],
+    [{ tox: 10, vox: 1 }, 1, -18],
+    [{ tox: 0.1, vox: 15 }, 1500, 6],
+  ];
+  for (const [input, eox, logJ] of cases) {
+    const result = calculateTunnelingBreakdownMetrics(input);
+    assert.ok(Math.abs(result.eox - eox) < 1e-10);
+    assert.ok(Math.abs(result.logJ - logJ) < 1e-12);
+    assert.equal(result.tox, input.tox);
+    assert.equal(result.vox, input.vox);
+    assert.deepEqual(Object.keys(result).sort(), ['tox', 'vox', 'eox', 'logJ', 'mechanism', 'state'].sort());
+  }
+});
+
+test('模型契約：穿隧電場分區的公開代碼保留相容性', () => {
+  for (const [vox, state] of [[3.999, 'safe'], [4, 'stress'], [9.999, 'stress'], [10, 'injection'], [12.999, 'injection'], [13, 'breakdown']]) {
+    assert.equal(calculateTunnelingBreakdownMetrics({ tox: 10, vox }).state, state, `${vox} MV/cm 的分區`);
+  }
+});
+
+test('模型契約：穿隧機制與低偏壓電流下限保留相容性', () => {
+  for (const [vox, mechanism] of [[0, 'retention'], [0.05, 'retention'], [0.050001, 'direct'], [3.149999, 'direct'], [3.15, 'fn']]) {
+    const result = calculateTunnelingBreakdownMetrics({ tox: 2.2, vox });
+    assert.equal(result.mechanism, mechanism, `${vox} V 的機制`);
+    if (vox <= 0.05) assert.equal(result.logJ, -18);
+  }
+});
+
 const allCalculators = [
   { name: 'calculateAdvancedFinfetGaa', fn: calculateAdvancedFinfetGaa },
   { name: 'calculatePackagingPdkMetrics', fn: calculatePackagingPdkMetrics },

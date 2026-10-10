@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "585f56642f8994414812",
+  "version": "6c0d6d843b98e24128cd",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -180,7 +180,7 @@ self.NVMOfflineManifest = {
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-hbm4-scrubbing-simulator.js": "62fd9c07893d8d6d68872e91a1c2bd37aa80f28f449ff495af65e1c98a090fac",
-    "automotive-high-temp-sic-gan-simulator.js": "3d4d492c6efeb92e9b3caef929a9af4f1537fe4bf5e665089df3ebf668b23035",
+    "automotive-high-temp-sic-gan-simulator.js": "3023a4c4f0c0731475643c5827362fd8565aa3dc0cdeb8680b1cc18b4d03524f",
     "automotive-load-dump-clamp-simulator.js": "a835ec85e0f14e3efd446aa58d686c2ad1240c87844be4f03661a1829daef6a9",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
@@ -246,7 +246,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "0b44586ac4a101ff353a0bd7dcc20bb8c4c8d489eab7f06e620b1687d78aff44",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "5443ef940b22bceb4a073dec1718a050e16847e1fe9db9ddeb3743914bf21cf2",
+    "memory-physics.html": "4fe99c52b8215f9437770ab4ccec3705fbaace9aa0200c9498793bd8592a486a",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nanosheet-bspdn-nvm-simulator.js": "e29225b11117421ec1999425a1dc72f29ce4a190364f28f7deff1318dd2cf468",
@@ -301,8 +301,8 @@ self.NVMOfflineManifest = {
     "technology-comparison.html": "6cd56845a8dfb26784e302d8e202e756ec84e607a3708c2feec9e9cf6407b21e",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
-    "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
-    "tunneling-breakdown-simulator.js": "65c56fcfc94407171049d43aeb1c293a29226bfaf0565105b14c37f5bfa2048e",
+    "tunneling-breakdown-simulator.css": "e60f6f9a09bd72b73687ea50ad4f9c09054f560dc194d37bf9b2db063d9038f9",
+    "tunneling-breakdown-simulator.js": "90867f871371e5f61acc44dd9a346e66f0c5b4fda413d14b116e939e730c520b",
     "vertical-3d-nvm-simulator.js": "ab5daab00c8ecab4571c9d04706dd90c890b85cf855e77226144d5744645a608",
     "wafer-cost-tco-calculator.js": "82d07a7a9e906d70333e5396f6c5ff31e8e6c726e65d9d5c59cf3733e876b02a",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 14955092
+  "totalBytes": 14955151
 };
