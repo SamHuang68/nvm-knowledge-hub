@@ -142,6 +142,20 @@ try {
         assert.equal(await page.locator('#sic-out-ber').innerText(),`BER ~ ${expected.ber.toExponential(1)}`);
         record.高溫.push({技術:tech,結溫:temperature,輸出:await page.locator('#sic-gan-simulator-root [id^="sic-out-"]').evaluateAll(items=>items.map(e=>({id:e.id,text:e.innerText.trim()})))});
       }
+      // 全頁既有 overflow-x:hidden 會隱藏溢位；直接驗證模型內各元件邊界。
+      record.高溫版面=await page.locator('#sic-gan-simulator-root').evaluate(root=>{
+        const bounds=root.getBoundingClientRect();
+        return [...root.querySelectorAll('*')].map(el=>{
+          const box=el.getBoundingClientRect();
+          return {id:el.id,寬:box.width,高:box.height,左:box.left,右:box.right,可視:box.width>0&&box.height>0,
+            內容寬:el.scrollWidth,容器寬:el.clientWidth,容器內:box.left>=bounds.left-1&&box.right<=bounds.right+1};
+        }).filter(item=>item.可視);
+      });
+      assert.ok(record.高溫版面.every(item=>item.容器內),'高溫模型元件不得超出容器');
+      assert.ok(record.高溫版面.every(item=>item.容器寬===0||item.內容寬<=item.容器寬+1),'高溫模型不得裁切水平內容');
+      const charts=record.高溫版面.filter(item=>item.id.startsWith('sic-canvas-'));
+      assert.equal(charts.length,2,'兩個高溫圖表必須存在');
+      assert.ok(charts.every(item=>item.寬>0&&item.高>0),'兩個高溫圖表必須保留可見尺寸');
       await page.locator('#sic-gan-simulator-root').screenshot({path:path.join(output,`修正-高溫-${width}-${language}.png`)});
       }
       assert.deepEqual(record.頁面例外,[],'兩頁操作不應產生執行期例外');record.通過=true;

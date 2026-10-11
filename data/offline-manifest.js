@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "6c0d6d843b98e24128cd",
+  "version": "38d8a00bc3464598e046",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -180,7 +180,7 @@ self.NVMOfflineManifest = {
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-hbm4-scrubbing-simulator.js": "62fd9c07893d8d6d68872e91a1c2bd37aa80f28f449ff495af65e1c98a090fac",
-    "automotive-high-temp-sic-gan-simulator.js": "3023a4c4f0c0731475643c5827362fd8565aa3dc0cdeb8680b1cc18b4d03524f",
+    "automotive-high-temp-sic-gan-simulator.js": "434a9e30b8727fde242c1633fc2cbe1363b524903fbc7fbcf0c31b8a4c9faee1",
     "automotive-load-dump-clamp-simulator.js": "a835ec85e0f14e3efd446aa58d686c2ad1240c87844be4f03661a1829daef6a9",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 14955151
+  "totalBytes": 14955206
 };

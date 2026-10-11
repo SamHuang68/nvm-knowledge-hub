@@ -288,14 +288,14 @@ export class AutomotiveHighTempSicGanSimulator {
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
           <!-- Slider 1: Junction Temperature -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">功率開關常態結溫 (T_j)</span><span data-lang="en">Normal Junction Temp (T_j)</span></span>
               <span id="sic-val-temp" style="color: #f87171; font-family: monospace; font-weight: 700;">175 °C</span>
             </div>
-            <input type="range" id="sic-slide-temp" min="125" max="250" step="5" value="${this.state.junctionTemp}" aria-label="Junction Temperature" data-aria-en="Junction Temperature" data-aria-zh="功率開關常態結溫" style="width: 100%; accent-color: #dc2626;">
+            <input type="range" id="sic-slide-temp" min="125" max="250" step="5" value="${this.state.junctionTemp}" aria-label="Junction Temperature" data-aria-en="Junction Temperature" data-aria-zh="功率開關常態結溫" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
               <span><span data-lang="zh">125°C (車規 Grade 1)</span><span data-lang="en">125°C (Grade 1)</span></span>
               <span><span data-lang="zh">250°C (極限高溫)</span><span data-lang="en">250°C (Extreme Tj)</span></span>
@@ -308,7 +308,7 @@ export class AutomotiveHighTempSicGanSimulator {
               <span style="font-weight: 600;"><span data-lang="zh">短路/故障突波結溫 (T_surge)</span><span data-lang="en">Surge Peak Temp (T_surge)</span></span>
               <span id="sic-val-surge" style="color: #f87171; font-family: monospace; font-weight: 700;">200 °C</span>
             </div>
-            <input type="range" id="sic-slide-surge" min="140" max="280" step="5" value="${this.state.surgeTemp}" aria-label="Surge Peak Temp" data-aria-en="Surge Peak Temp" data-aria-zh="短路故障突波結溫" style="width: 100%; accent-color: #dc2626;">
+            <input type="range" id="sic-slide-surge" min="140" max="280" step="5" value="${this.state.surgeTemp}" aria-label="Surge Peak Temp" data-aria-en="Surge Peak Temp" data-aria-zh="短路故障突波結溫" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
               <span><span data-lang="zh">140°C (輕微突波)</span><span data-lang="en">140°C (Mild)</span></span>
               <span><span data-lang="zh">280°C (短路雪崩)</span><span data-lang="en">280°C (Severe)</span></span>
@@ -321,7 +321,7 @@ export class AutomotiveHighTempSicGanSimulator {
               <span style="font-weight: 600;"><span data-lang="zh">高壓母線電壓 (V_bus)</span><span data-lang="en">DC Bus Voltage (V_bus)</span></span>
               <span id="sic-val-vbus" style="color: #f87171; font-family: monospace; font-weight: 700;">800 V</span>
             </div>
-            <input type="range" id="sic-slide-vbus" min="300" max="1200" step="50" value="${this.state.busVoltage}" aria-label="DC Bus Voltage" data-aria-en="DC Bus Voltage" data-aria-zh="高壓母線電壓" style="width: 100%; accent-color: #dc2626;">
+            <input type="range" id="sic-slide-vbus" min="300" max="1200" step="50" value="${this.state.busVoltage}" aria-label="DC Bus Voltage" data-aria-en="DC Bus Voltage" data-aria-zh="高壓母線電壓" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
               <span><span data-lang="zh">300V (400V 系統)</span><span data-lang="en">300V (400V Sys)</span></span>
               <span><span data-lang="zh">1200V (超高壓 SiC)</span><span data-lang="en">1200V (High SiC)</span></span>
@@ -382,7 +382,7 @@ export class AutomotiveHighTempSicGanSimulator {
         </div>
 
         <!-- Dual Canvas Visualizations -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; margin-bottom: 20px;">
           <!-- Canvas 1: Arrhenius Log Lifetime Curve -->
           <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
