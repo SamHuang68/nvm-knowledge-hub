@@ -7,6 +7,139 @@
   padding-bottom: 60px;
 }
 
+/* 全景橫向對比總表 (Landscape Overview) */
+.nvm-vendor-landscape-overview {
+  margin: 28px 0 36px;
+  background: #ffffff;
+  border: 1px solid #cadbe6;
+  border-radius: 4px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.nvm-landscape-header {
+  border-bottom: 1px solid #e0ebf1;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.nvm-landscape-header h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  color: #113852;
+  margin: 4px 0 8px;
+}
+
+.nvm-landscape-lede {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #3b5a6f;
+  margin: 0;
+}
+
+.nvm-landscape-table-wrap {
+  margin-top: 16px;
+}
+
+.nvm-vendor-landscape-table th:first-child { width: 17%; }
+.nvm-vendor-landscape-table th:nth-child(2) { width: 18%; }
+.nvm-vendor-landscape-table th:nth-child(3) { width: 25%; }
+.nvm-vendor-landscape-table th:nth-child(4) { width: 22%; }
+.nvm-vendor-landscape-table th:nth-child(5) { width: 18%; }
+
+.nvm-vendor-landscape-table td {
+  padding: 14px 10px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.nvm-landscape-vendor-no {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #087f86;
+  background: #e3f1f3;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.nvm-landscape-vendor-link {
+  font-size: 16px;
+  color: #123e59;
+  text-decoration: underline;
+}
+
+.nvm-landscape-vendor-sub {
+  font-size: 13px;
+  color: #557285;
+  margin: 4px 0 6px;
+  line-height: 1.4;
+}
+
+.nvm-landscape-model {
+  display: block;
+  font-size: 12px;
+  color: #6a8292;
+  line-height: 1.4;
+}
+
+.nvm-landscape-family-item {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.nvm-landscape-physics-p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1a394d;
+  margin: 0 0 8px;
+}
+
+.nvm-landscape-physics-p:last-child {
+  margin-bottom: 0;
+}
+
+.nvm-landscape-patents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nvm-landscape-patent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #087f86;
+  background: #eef6f8;
+  border: 1px solid #c0dce0;
+  border-radius: 3px;
+  padding: 1px 5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nvm-landscape-patent-badge:hover {
+  background: #087f86;
+  color: #ffffff;
+  border-color: #087f86;
+}
+
+.nvm-landscape-foundry-p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #204054;
+  margin: 0 0 6px;
+}
+
+.nvm-landscape-foundry-p:last-child {
+  margin-bottom: 0;
+}
+
 /* 廠商索引快速導覽 */
 .nvm-vendor-nav {
   display: flex;
@@ -441,6 +574,67 @@
   color: #16364d;
 }
 
+/* 全景橫向對比總表卡片化響應式斷點 (覆蓋 1200px 以下所有螢幕，包含 1101px, 1100px, 901px, 900px) */
+@media (max-width: 1200px) {
+  .nvm-vendor-landscape-table {
+    display: block;
+    width: 100%;
+  }
+  .nvm-vendor-landscape-table thead {
+    display: none;
+  }
+  .nvm-vendor-landscape-table tbody {
+    display: block;
+    width: 100%;
+  }
+  .nvm-vendor-landscape-table tr {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cadbe6;
+    background: #ffffff;
+    margin: 0 0 20px;
+    padding: 20px 22px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  .nvm-vendor-landscape-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px dashed #d5e3eb;
+    overflow-wrap: anywhere;
+  }
+  .nvm-vendor-landscape-table td:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .nvm-vendor-landscape-table td:before {
+    content: attr(data-label);
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #48687e;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .nvm-vendor-landscape-table td:first-child {
+    padding-top: 0;
+    border-bottom: 2px solid #087f86;
+    padding-bottom: 14px;
+    margin-bottom: 6px;
+  }
+  .nvm-vendor-landscape-table td:first-child:before {
+    display: none;
+  }
+  .nvm-vendor-landscape-table .nvm-landscape-vendor-link {
+    font-size: 20px;
+  }
+}
+
 /* 響應式佈局斷點 */
 @media (max-width: 1100px) {
   .nvm-vendor-stats-grid {
@@ -465,6 +659,10 @@
 }
 
 @media (max-width: 800px) {
+  .nvm-vendor-landscape-overview {
+    padding: 16px 14px;
+    margin: 20px 0;
+  }
   .nvm-vendor-stats-grid {
     grid-template-columns: 1fr;
   }
@@ -497,6 +695,12 @@
 }
 
 @media (max-width: 390px) {
+  .nvm-vendor-landscape-overview {
+    padding: 12px 8px;
+  }
+  .nvm-vendor-landscape-table tr {
+    padding: 14px 12px;
+  }
   .nvm-patent-family {
     padding: 12px 10px;
     margin: 20px 0;
@@ -514,6 +718,12 @@
 }
 
 @media (max-width: 312px) {
+  .nvm-vendor-landscape-overview {
+    padding: 10px 6px;
+  }
+  .nvm-vendor-landscape-table tr {
+    padding: 10px 8px;
+  }
   .nvm-patent-family {
     padding: 10px 6px;
   }

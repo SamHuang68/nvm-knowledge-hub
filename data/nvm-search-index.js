@@ -18,10 +18,10 @@ window.NVMTopicIndex = [
     "tags": "Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON"
   },
   {
-    "title_zh": "廠商核心專利地圖 · 力旺電子 eMemory",
-    "title_en": "Vendor Patent Portfolios · eMemory Technology",
+    "title_zh": "涵蓋廠商與核心專利地圖全景盤點",
+    "title_en": "Global NVM Vendor Patent Landscape and Portfolios",
     "url": "nvm-technology-atlas.html#patent-maps",
-    "tags": "專利 力旺 eMemory NeoBit NeoFuse NeoEE NeoMTP NeoPUF patent map 0-mask antifuse PUFsecurity"
+    "tags": "專利 全景盤點 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity patent map landscape"
   },
   {
     "title_zh": "儲存物理專題",

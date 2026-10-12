@@ -47,14 +47,14 @@ export function validateVendorPatentMaps(data) {
  * 產生編輯式面板標頭
  */
 function editorialHeader(data, en) {
-  const title = en ? 'Global NVM Vendor Patent Maps' : '全球 NVM 廠商核心專利地圖';
+  const title = en ? 'Global NVM Vendor Patent Landscape and Portfolios' : '涵蓋廠商與核心專利地圖全景盤點';
   const intro = en
     ? 'Systematic tracking of core patent families, first-principles claims, foundry process compatibility, and commercial product lineage for leading NVM IP vendors. Every patent trace links back to authoritative patent gazettes, excluding unverified marketing claims.'
     : '系統性追蹤全球具名 NVM IP 供應商與記憶體晶圓廠商的核心專利家族、第一性原理權利項、晶圓代工製程相容性與商用產品承接脈絡。每一項專利均回溯至原始專利公報，排除未經驗證的行銷宣稱。';
   const totalPatents = data.vendors.reduce((acc, v) => acc + v.families.reduce((fAcc, f) => fAcc + f.patents.length, 0), 0);
   const totalFamilies = data.vendors.reduce((acc, v) => acc + v.families.length, 0);
 
-  return `<header class="nvm-editorial-header"><div><p class="nvm-kicker">${en ? 'NVM · VENDOR PATENT PORTFOLIOS' : 'NVM · 廠商核心專利地圖'}</p><h2 tabindex="-1">${esc(title)}</h2><div class="nvm-lede">${paragraphs(intro)}</div></div><aside class="nvm-editorial-stat" aria-label="${en ? 'Editorial coverage' : '編輯涵蓋範圍'}"><strong>${String(data.vendors.length).padStart(2, '0')}</strong><span>${en ? 'Leading Vendors' : '具名領導廠商'}</span><small>${en ? `${totalFamilies} Families · ${totalPatents} Key Patents` : `${totalFamilies} 個專利家族 · ${totalPatents} 件核心專利`}</small></aside></header>`;
+  return `<header class="nvm-editorial-header"><div><p class="nvm-kicker">${en ? 'NVM · VENDOR PATENT LANDSCAPE' : 'NVM · 廠商專利全景盤點'}</p><h2 tabindex="-1">${esc(title)}</h2><div class="nvm-lede">${paragraphs(intro)}</div></div><aside class="nvm-editorial-stat" aria-label="${en ? 'Editorial coverage' : '編輯涵蓋範圍'}"><strong>${String(data.vendors.length).padStart(2, '0')}</strong><span>${en ? 'Leading Vendors' : '具名領導廠商'}</span><small>${en ? `${totalFamilies} Families · ${totalPatents} Key Patents` : `${totalFamilies} 個專利家族 · ${totalPatents} 件核心專利`}</small></aside></header>`;
 }
 
 /**
@@ -166,6 +166,46 @@ function renderVendorStudy(vendor, en, cite) {
 }
 
 /**
+ * 渲染涵蓋廠商與核心專利地圖全景盤點一覽表
+ */
+function renderVendorPatentLandscape(data, en) {
+  const sectionTitle = en
+    ? 'Comprehensive Vendor Patent Landscape & Cross-Comparison'
+    : '涵蓋廠商與核心專利地圖全景盤點一覽';
+  const sectionIntro = en
+    ? 'Cross-comparison of core technology families, first-principles physical mechanisms, milestone patent gazettes, and foundry process compatibility across all 11 leading NVM IP vendors.'
+    : '橫向綜合盤點全球 11 家 NVM 領導廠商的核心技術類型、代表性專利家族、第一性原理物理機制、關鍵專利公報與晶圓代工製程相容性。';
+
+  const colLabels = en
+    ? [
+        'Vendor & Business Model',
+        'Technology & Key Families',
+        'First-Principles Physics & Mechanism',
+        'Milestone Patents & Gazettes',
+        'Foundry Compatibility & Volume'
+      ]
+    : [
+        '具名廠商與營運模式',
+        '核心技術與代表家族',
+        '第一性原理物理機制與實施手段',
+        '代表性里程碑專利公報',
+        '晶圓代工覆蓋與出貨實績'
+      ];
+
+  const rows = data.vendors.map((vendor, index) => {
+    const no = String(index + 1).padStart(2, '0');
+    const familiesSummary = vendor.families.map(f => `<span class="nvm-landscape-family-item"><strong>${esc(f.name.split(' ')[0])}</strong> <small>(${esc(f.technologyType)})</small></span>`).join('<br>');
+    const physicsSummary = vendor.families.map(f => `<p class="nvm-landscape-physics-p"><strong>${esc(f.name.split(' ')[0])}：</strong>${esc(f.physicalMechanism)}</p>`).join('');
+    const patentsSummary = vendor.families.flatMap(f => f.patents).map(p => `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="nvm-landscape-patent-badge" title="${esc(p.title)}">${esc(p.id)} <span aria-hidden="true">↗</span></a>`).join(' ');
+    const foundrySummary = `<p class="nvm-landscape-foundry-p"><strong>${en ? 'Foundries:' : '代工平台：'}</strong>${esc(vendor.patentStats.foundryCoverage)}</p><p class="nvm-landscape-foundry-p"><strong>${en ? 'Shipment:' : '量產實績：'}</strong>${esc(vendor.patentStats.waferShipment)}</p>`;
+
+    return `<tr><td data-label="${colLabels[0]}"><span class="nvm-landscape-vendor-no">${no}</span><a href="#vendor-${esc(vendor.id)}" class="nvm-landscape-vendor-link"><strong>${esc(vendor.shortName)}</strong></a><p class="nvm-landscape-vendor-sub">${esc(vendor.name)}</p><small class="nvm-landscape-model">${esc(vendor.businessModel)}</small></td><td data-label="${colLabels[1]}">${familiesSummary}</td><td data-label="${colLabels[2]}">${physicsSummary}</td><td data-label="${colLabels[3]}"><div class="nvm-landscape-patents">${patentsSummary}</div></td><td data-label="${colLabels[4]}">${foundrySummary}</td></tr>`;
+  }).join('');
+
+  return `<section id="vendor-patent-landscape-overview" class="nvm-vendor-landscape-overview" tabindex="-1"><header class="nvm-landscape-header"><p class="nvm-kicker">${en ? 'CROSS-VENDOR BENCHMARK' : '全行業橫向對比總表'}</p><h3>${esc(sectionTitle)}</h3><p class="nvm-landscape-lede">${esc(sectionIntro)}</p></header><div class="nvm-landscape-table-wrap"><table class="nvm-table nvm-tech-table nvm-vendor-landscape-table"><caption class="nvm-small">${esc(sectionTitle)}</caption><thead><tr>${colLabels.map(l => `<th scope="col">${esc(l)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></section>`;
+}
+
+/**
  * 渲染全頁廠商專利地圖面板
  * @param {object} data 專利資料物件
  * @param {string} language 語系 ('zh' | 'en')
@@ -175,7 +215,7 @@ export function renderVendorPatentMaps(data, language, cite) {
   const en = language === 'en';
   validateVendorPatentMaps(data);
 
-  return `<article id="patent-maps" class="nvm-panel nvm-patent-maps-editorial" data-nvm-panel>${editorialHeader(data, en)}<nav class="nvm-vendor-nav" aria-label="${en ? 'Vendor Directory' : '廠商目錄'}"><span class="nvm-vendor-nav-title">${en ? 'Vendors:' : '廠商專題：'}</span>${data.vendors.map(v => `<a href="#vendor-${esc(v.id)}"><strong>${esc(v.shortName)}</strong><span>(${v.families.length} ${en ? 'families' : '大家族'})</span></a>`).join('')}</nav><div class="nvm-vendor-studies">${data.vendors.map(v => renderVendorStudy(v, en, cite)).join('')}</div><nav class="nvm-bottom-nav" aria-label="${en ? 'Patent Maps Navigation' : '專利地圖章節導覽'}"><a href="#panorama">${en ? 'Return to the Atlas Overview' : '回到技術全景目錄'}</a><a href="#ip-directory">${en ? 'Continue to IP Cells Directory' : '接著讀：IP 單元與操作原理'}</a></nav></article>`;
+  return `<article id="patent-maps" class="nvm-panel nvm-patent-maps-editorial" data-nvm-panel>${editorialHeader(data, en)}${renderVendorPatentLandscape(data, en)}<nav class="nvm-vendor-nav" aria-label="${en ? 'Vendor Directory' : '廠商目錄'}"><span class="nvm-vendor-nav-title">${en ? 'Vendors:' : '廠商專題：'}</span>${data.vendors.map(v => `<a href="#vendor-${esc(v.id)}"><strong>${esc(v.shortName)}</strong><span>(${v.families.length} ${en ? 'families' : '大家族'})</span></a>`).join('')}</nav><div class="nvm-vendor-studies">${data.vendors.map(v => renderVendorStudy(v, en, cite)).join('')}</div><nav class="nvm-bottom-nav" aria-label="${en ? 'Patent Maps Navigation' : '專利地圖章節導覽'}"><a href="#panorama">${en ? 'Return to the Atlas Overview' : '回到技術全景目錄'}</a><a href="#ip-directory">${en ? 'Continue to IP Cells Directory' : '接著讀：IP 單元與操作原理'}</a></nav></article>`;
 }
 
 /**
@@ -184,6 +224,20 @@ export function renderVendorPatentMaps(data, language, cite) {
 export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
   const en = language === 'en';
   let md = `\n\n## ${en ? data.title : data.title}\n\n${data.intro}\n\n`;
+
+  md += `### ${en ? 'Comprehensive Vendor Patent Landscape Table' : '涵蓋廠商與核心專利地圖全景盤點一覽表'}\n\n`;
+  md += `| ${en ? 'No. & Vendor' : '序號與廠商'} | ${en ? 'Technology & Key Families' : '核心技術與代表家族'} | ${en ? 'First-Principles Physics & Mechanism' : '第一性原理物理機制'} | ${en ? 'Milestone Patents' : '代表專利公報'} | ${en ? 'Foundry & Shipment' : '代工平台與量產實績'} |\n`;
+  md += `| :--- | :--- | :--- | :--- | :--- |\n`;
+  for (let i = 0; i < data.vendors.length; i++) {
+    const v = data.vendors[i];
+    const no = String(i + 1).padStart(2, '0');
+    const fam = v.families.map(f => `${f.name.split(' ')[0]} (${f.technologyType})`).join('；');
+    const phy = v.families.map(f => `${f.name.split(' ')[0]}: ${f.physicalMechanism}`).join('；');
+    const pat = v.families.flatMap(f => f.patents).map(p => `[${p.id}](${p.url})`).join(', ');
+    const fnd = `${v.patentStats.foundryCoverage} (${v.patentStats.waferShipment})`;
+    md += `| ${no}. ${v.shortName} | ${fam} | ${phy} | ${pat} | ${fnd} |\n`;
+  }
+  md += '\n\n';
 
   for (const v of data.vendors) {
     md += `### ${v.name} (${v.shortName})\n\n`;
