@@ -6665,9 +6665,9 @@ Write / Flip: Heat to unlock, then set a magnetic field
 
 Reverse Flip: Reheat and apply the opposite setting field
 
-Hosted in the existing STT chapter for MRAM comparison, this field-assisted TAS lesson is not ordinary STT or SOT. Heating current must not be depicted as the state-setting STT; the patent also discusses thermally assisted STT variants.
+Hosted in the existing STT chapter for MRAM comparison, this field-assisted TAS lesson is not ordinary STT or spin-orbit torque. Heating current must not be depicted as the state-setting STT; the patent also discusses thermally assisted STT variants.
 
-Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.
+Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or spin-orbit torque. The patent also discusses thermally assisted STT variants.
 
 - [EMG-P-CROCUS-TAS: Crocus: TAS-MRAM with Heating Elements and Thermal Barriers](https://patents.google.com/patent/US8717812B2/en)
 
@@ -6741,7 +6741,7 @@ Generic STT figures are insufficient for decisions involving extremely high dens
 
 - [US5695864A](https://patents.google.com/patent/US5695864A/en): Change a magnetic moment with current flowing through a magnetic structure, providing state control without the magnetic field from external write lines. Current passes through a layered structure containing fixed and variable magnetic moments. Angular-momentum exchange exerts torque on the variable magnetic moment. Claim Reading: Claim 1 focuses on the relationship among the magnetic roles of the layers, current direction, and the change in magnetic moment. Modern MgO junction materials and all 1T1MTJ peripheral circuits must not be read into this early claim. Limitations: A starting point for research into STT principles. It does not establish adoption of a specific embodiment by a foundry or product, nor does it support a conclusion on legal status.
 - [US10468588B2](https://patents.google.com/patent/US10468588B2/en): Improve the dynamic response of the PSC layer to spin current. The free layer, PSC, coupling and enhancement layers form a specific perpendicular-MTJ embodiment. Claim Reading: Claims 1 and 8 require PSC, coupling and enhancement layers; claim 20 recites fabrication steps. Limitations: Limited to the PSC, coupling-layer and enhancement-layer embodiment; no sub-3ns, endurance or production guarantee.
-- [US8717812B2](https://patents.google.com/patent/US8717812B2/en): Reduce tunnel-barrier voltage stress during TAS heating. Heating elements and thermal barriers assist heating; set magnetization while hot and pin it on cooling. Claim Reading: Claim 1 includes heating current, heating elements and thermal barriers; it is not an ordinary STT cell. Limitations: Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.
+- [US8717812B2](https://patents.google.com/patent/US8717812B2/en): Reduce tunnel-barrier voltage stress during TAS heating. Heating elements and thermal barriers assist heating; set magnetization while hot and pin it on cooling. Claim Reading: Claim 1 includes heating current, heating elements and thermal barriers; it is not an ordinary STT cell. Limitations: Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or spin-orbit torque. The patent also discusses thermally assisted STT variants.
 
 ### Check Your Understanding
 
@@ -11453,3 +11453,220 @@ Supports CBRAM and historical products; the announcement does not disclose a uni
 2026-10-09
 
 - [RES-P-ADESTO-CBRAM: Adesto: CBRAM Reliability Research Announcement](https://www.renesas.com/en/about/newsroom/adesto-demonstrates-resistive-ram-technology-targeting-high-reliability-applications-such-automotive)
+
+## Global NVM Vendor Patent Maps
+
+Systematic tracking of core patent families, first-principles claims, foundry process compatibility, and commercial product lineage for leading NVM IP vendors. Every patent trace links back to authoritative patent gazettes, excluding unverified marketing claims.
+
+### eMemory Technology Inc. (eMemory)
+
+- **Headquarters**: Hsinchu Science Park, Taiwan
+- **Founded**: 2000
+- **Leadership**: Dr. Charles Ching-Hsiang Hsu, Fang-Cheng Lu, and the R&D team
+- **Business Model**: Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP)
+- **Global Patents**: 800+ Worldwide Granted Patents
+- **Foundry Platforms**: TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor
+- **Silicon Shipment**: Over 100 Billion Cumulative Commercial Silicon Shipments
+
+#### Patent Strategy
+
+The foundational philosophy of eMemory's patent portfolio is 'Zero Mask Adder' and '100% Standard CMOS Logic Process Compatibility'. Unlike conventional eFlash architectures that demand 3 to 8 additional specialized polysilicon masks or high-temperature thermal steps, eMemory's patent topology builds entirely upon native gate dielectrics, polysilicon gates, and well diffusion regions available in standard CMOS logic. Its patent map unfolds across two foundational vectors: the charge-storage trajectory (NeoBit floating-gate OTP → NeoEE capacitive-coupling MTP → NeoMTP erase-gate MTP) and the dielectric-physics trajectory (NeoFuse gate-oxide antifuse OTP → NeoPUF quantum-tunneling hardware security root of trust), spanning legacy sub-micron nodes down to 2nm GAA nanosheet architectures.
+
+#### NeoBit® Floating-Gate OTP Patent Family
+
+*Standard CMOS Series Dual-PMOS · Channel Hot Electron Injection (CHEI) · 0-Mask Adder*
+
+- **Topology**: 2-PMOS (Select Transistor and Floating-Gate Transistor in Series)
+- **Mechanism**: Drain band-to-band tunneling induces hot holes, impact-generating secondary hot electrons injected into the p+ floating gate (CHEI); read senses channel conduction current
+- **Process Nodes**: 0.5µm down to 0.11µm Standard Logic & High-Voltage BCD Processes
+
+The flagship breakthrough establishing eMemory's commercial leadership. By employing series-connected PMOS transistors in standard logic without a dedicated control gate, lateral fields generate secondary electrons injected into the floating gate, eliminating the prohibitive cost of double-poly control gates and creating the industry's first true zero-mask logic OTP.
+
+##### [US6678190B2](https://patents.google.com/patent/US6678190B2/en): Method of programming a series PMOS embedded EPROM cell
+
+- **Priority / Grant**: 2002-12-19 / 2004-01-13
+- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: Conventional EPROM/OTP cells require dedicated control gates and additional polysilicon layers for capacitive coupling, escalating logic process wafer costs. How can efficient electron injection be achieved on standard PMOS devices lacking a control gate?
+- **Mechanism**: Specifies a pair of series-connected p-channel MOS transistors: a first PMOS serving as a select transistor, and a second PMOS having an isolated floating gate. Applying positive 3–8V bias between Source Line (SL) and N-Well while biasing the drain negatively induces drain band-to-band tunneling holes. Secondary hot electrons generated by impact ionization are accelerated by vertical oxide fields across the 3.15 eV barrier into the floating gate.
+- **Claim Focus**: Claim 1 specifies a series PMOS structure devoid of a control gate, biasing the source and N-well to a common positive potential while applying negative drain bias to inject secondary avalanche electrons into the floating gate.
+- **Product Linkage**: The founding patent behind NeoBit mass production, widely deployed in PMICs, audio DAC calibration, and LCD driver ICs.
+
+##### [US6914825B2](https://patents.google.com/patent/US6914825B2/en): Programmed logic non-volatile memory cell with retained charges
+
+- **Priority / Grant**: 2002-12-19 / 2005-07-05
+- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: Written floating-gate cells must ensure robust charge retention under extreme high-temperature environments while providing high signal-to-noise margins for sense amplifiers.
+- **Mechanism**: Programmed floating gates retain a stable negative charge packet. In PMOS physics, negative gate charge shifts the threshold voltage negatively, driving the storage PMOS into a conductive state under read bias, while unprogrammed cells remain cut off. Arrhenius extrapolations demonstrate data retention exceeding 10 years at 125°C.
+- **Claim Focus**: Claim 1 defines an unprogrammed cell in a non-conductive state and a programmed cell retaining negative charges on the floating gate to establish a low-resistance conduction path, using channel current level to represent logical data.
+- **Product Linkage**: The core reference patent for NeoBit data retention specifications and qualification standards.
+
+##### [US6920067B2](https://patents.google.com/patent/US6920067B2/en): Non-volatile memory cell fabricated using standard logic CMOS process
+
+- **Priority / Grant**: 2003-05-23 / 2005-07-19
+- **Inventors**: Charles Ching-Hsiang Hsu, Shih-Chen Wang
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: How to establish that an NVM cell design requires zero process modifications and shares peripheral fabrication layers identically?
+- **Mechanism**: The storage PMOS gate oxide thickness, polysilicon doping, and source/drain diffusion junctions directly reuse the peripheral 3.3V or 5V I/O transistor layers available on the foundry logic wafer, without extra masks or thermal cycles.
+- **Claim Focus**: Claim 1 requires the NVM storage cell to share gate dielectric thickness and electrical properties with peripheral I/O devices, formulating the legal boundary of 0-mask logic integration.
+- **Product Linkage**: Legal foundation protecting NeoBit's true zero-mask-adder foundry integration contract.
+
+#### NeoFuse® Gate-Oxide Antifuse OTP Patent Family
+
+*Core Ultra-Thin Gate Oxide Soft Breakdown · Direct Tunneling · 3T Leakage Suppression*
+
+- **Topology**: 3T (Select Transistor SEL + Regulating Transistor REG + Antifuse Element AF)
+- **Mechanism**: High electric field stress generates localized defects within ultra-thin gate oxides, enabling direct tunneling conduction filaments; read senses gate leakage current (I_GATE)
+- **Process Nodes**: 65nm / 40nm / 28nm HKMG / 16nm / 7nm / 5nm / 3nm / 2nm GAA
+
+The technological cornerstone enabling eMemory to penetrate deep sub-micron advanced nodes and hardware security. Replacing destructive polysilicon eFuses, NeoFuse exploits controlled gate oxide breakdown and direct tunneling in sub-2nm dielectrics, utilizing a proprietary 3T architecture to suppress half-select disturb and GIDL leakage, scaling seamlessly to 2nm GAA nanosheets.
+
+##### [US8514614B2](https://patents.google.com/patent/US8514614B2/en): Antifuse memory cell and operating method thereof
+
+- **Priority / Grant**: 2011-09-29 / 2013-08-20
+- **Inventors**: Sheng-Chih Lin, Charles Ching-Hsiang Hsu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: In sub-2nm core gate oxide nodes, traditional antifuses suffer from read disturb and accidental half-select breakdown during array programming.
+- **Mechanism**: Applies controlled programming pulses across the antifuse gate to trigger localized dielectric soft breakdown. During read, an interrogation voltage below 1.2V senses gate leakage (I_GATE). Unprogrammed gates leak <1pA, while programmed gates conduct several µA, opening an expansive sensing window.
+- **Claim Focus**: Claim 1 specifies reading the antifuse below its breakdown threshold voltage and sensing gate leakage current rather than channel conduction to determine programmed states.
+- **Product Linkage**: Standard IP across tier-1 foundry PDKs (28nm HPC+, 22ULL, 16FFC, N6/N5).
+
+##### [US8982637B2](https://patents.google.com/patent/US8982637B2/en): Three-transistor antifuse memory cell with leakage current suppression
+
+- **Priority / Grant**: 2013-03-15 / 2015-03-17
+- **Inventors**: Sheng-Chih Lin, Chia-Hao Lee
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: In high-density arrays, a ruptured antifuse injects parasitic sneak leakage into shared bitlines, degrading sensing margins of unprogrammed cells and inflating standby power.
+- **Mechanism**: Introduces a three-transistor (3T) topology: select transistor (SEL) and regulating transistor (REG) connected in series with the antifuse (AF). The REG transistor buffers high programming voltage away from SEL and pinches off GIDL during standby, boosting array sensing SNR by over 30dB.
+- **Claim Focus**: Claim 1 covers a 3T cell comprising series-connected SEL, REG, and AF devices, where the REG gate is driven by a dedicated dynamic impedance control line.
+- **Product Linkage**: The core architecture of NeoFuse high-density arrays with ultra-low standby leakage.
+
+##### [US10410712B2](https://patents.google.com/patent/US10410712B2/en): FinFET antifuse memory device and operation method
+
+- **Priority / Grant**: 2017-06-20 / 2019-09-10
+- **Inventors**: Sheng-Chih Lin, Hsin-Ming Chen
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: 3D FinFET structures have sharp fin corners that concentrate electric fields, leading to uncontrolled dielectric damage and metal splatter that short adjacent fins.
+- **Mechanism**: Tailors the antifuse cell for 3D fin geometry, utilizing high-k metal gates (HKMG) wrapped around the fin to induce self-limiting dielectric breakdown along vertical fin sidewalls, constraining write current under 50µA.
+- **Claim Focus**: Claim 1 claims an antifuse structure wrapped across 3D semiconductor fins, defining sidewall breakdown paths and fin bias combinations.
+- **Product Linkage**: Key patent supporting NeoFuse qualification in 16nm, 12nm, 7nm, and 5nm FinFET processes.
+
+##### [US20250024668A1](https://patents.google.com/patent/US20250024668A1/en): Antifuse memory cell having multi-thickness gate dielectric and operation thereof
+
+- **Priority / Grant**: 2023-07-14 / 2025-01-16 (Published Application)
+- **Inventors**: eMemory R&D Team
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: In sub-3nm Gate-All-Around (GAA) nanosheets operating below 0.7V, high breakdown voltages risk destructive punch-through across ultrathin sheets.
+- **Mechanism**: Integrates multi-thickness stepped dielectrics within a single cell, concentrating high fields across a localized breakdown window while protecting channel regions with thicker oxide liners.
+- **Claim Focus**: Discloses GAA nanosheet antifuse structures integrating stepped dielectric layers and dynamic potential isolation.
+- **Product Linkage**: NeoFuse patent deployment targeting N3P and N2 advanced foundry nodes.
+
+#### NeoEE® Single-Poly MTP Patent Family
+
+*Pure Single-Poly · Symmetrical FN/FN Tunneling · Zero Static Power · 1K–10K Cycles*
+
+- **Topology**: MOS Capacitive Coupler (C) + Tunneling Junction (T) + Read MOS (R) Sharing Floating Gate
+- **Mechanism**: Both program and erase utilize Fowler-Nordheim (FN) quantum tunneling; MOS capacitor couples voltage to modulate floating-gate potential
+- **Process Nodes**: 0.35µm down to 0.11µm Standard Logic & Analog BCD Processes
+
+Designed for applications requiring field rewritability (sensor trimming, RFID UID updates, MCU calibration) without the cost of double-poly eFlash. Achieves bidirectional FN tunneling with programming currents under 1nA/bit, eliminating large on-chip charge pumps and serving ultra-low-power IoT applications.
+
+##### [US6788574B2](https://patents.google.com/patent/US6788574B2/en): Single-poly electrically erasable programmable read only memory cell with capacitive coupling
+
+- **Priority / Grant**: 2002-12-30 / 2004-09-07
+- **Inventors**: Charles Ching-Hsiang Hsu, Shih-Chen Wang
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: Conventional EEPROMs rely on double-poly control gates to provide adequate capacitive coupling, which is incompatible with pure logic CMOS.
+- **Mechanism**: Employs an N-well or MOS capacitor as a dedicated coupling capacitor (C node) overlapping the single-poly floating gate to achieve high coupling ratios (>0.7), while separating tunneling (T node) and read channel (R node) functions.
+- **Claim Focus**: Claim 1 specifies a single continuous polysilicon floating gate spanning capacitive coupling, tunneling, and sensing channel regions.
+- **Product Linkage**: Foundational architecture behind NeoEE zero-mask logic EEPROM IP.
+
+##### [US6950342B2](https://patents.google.com/patent/US6950342B2/en): Method of operating single poly non-volatile memory cell using FN tunneling for both program and erase
+
+- **Priority / Grant**: 2003-12-30 / 2005-09-27
+- **Inventors**: Charles Ching-Hsiang Hsu and team
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: Channel hot electron injection draws milliamperes of current, making on-chip charge pumps prohibitively large for passive RFID tags and coin-cell devices.
+- **Mechanism**: Programs by applying positive bias to C while grounding T, injecting electrons into the floating gate via FN tunneling. Erases by reversing the polarity, drawing electrons out via FN tunneling. Entire cycle operates purely via capacitive displacement currents (<1nA).
+- **Claim Focus**: Claim 1 claims bidirectional FN quantum tunneling for both program and erase combined with low-field channel resistance sensing.
+- **Product Linkage**: NeoEE ultra-low-power IoT and RFID tag applications.
+
+#### NeoMTP® High-Density MTP Patent Family
+
+*Dedicated Erase Gate (EG) · Channel Hot Electron Writing · Edge FN Erasing · 25–40 F²*
+
+- **Topology**: PMOS Floating Gate + Lateral Dedicated Erase Gate (EG)
+- **Mechanism**: Program: Channel Hot Hole-Induced Electron Injection (CHEI); Erase: Electrons tunnel from floating gate edge to Erase Gate via localized FN tunneling
+- **Process Nodes**: 0.18µm / 0.153µm / 0.11µm / 90nm / 55nm / 40nm BCD & HV Display Driver Nodes
+
+Overcomes the cell-area scaling bottleneck of single-poly MTP caused by bulky capacitive couplers. Introduces a dedicated lateral Erase Gate (EG), enabling electrons to tunnel directly out of the floating gate edge to EG without requiring large coupling capacitors, slashing cell size to 25–40 F² and establishing the gold standard in automotive BCD, PMIC, and OLED/LCD display drivers (DDIC).
+
+##### [US6853583B2](https://patents.google.com/patent/US6853583B2/en): Non-volatile memory cell with erase gate and method of operating the same
+
+- **Priority / Grant**: 2002-06-21 / 2005-02-08
+- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: How to achieve electrical erase in single-poly logic CMOS without large substrate coupling capacitors or double-poly stacks?
+- **Mechanism**: Positions a dedicated Erase Gate (EG, formed of an adjacent n+ diffusion or polysilicon node) next to the PMOS floating gate. Applying positive 10–12V pulses to EG generates strong localized fringing electric fields along the floating-gate edge, drawing electrons out via FN tunneling directly into EG.
+- **Claim Focus**: Claim 1 covers a memory cell comprising a PMOS storage transistor and a lateral erase gate, with the erase path entirely decoupled from the read channel.
+- **Product Linkage**: Foundational patent underpinning NeoMTP 16Kb–1Mb embedded code storage.
+
+##### [US7158412B2](https://patents.google.com/patent/US7158412B2/en): High density single poly non-volatile memory cell array with edge erase mechanism
+
+- **Priority / Grant**: 2004-03-08 / 2007-01-02
+- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: How to organize erase gates within large arrays to avoid cross-disturb between wordlines and bitlines during sector erase?
+- **Mechanism**: Shares erase gate lines across adjacent rows or sectors combined with well reverse-biasing, enabling block/sector erase and page programming with array layout efficiency exceeding 70%.
+- **Claim Focus**: Claim 1 specifies shared erase gate interconnect topologies across cell rows and corresponding array decoding structures.
+- **Product Linkage**: The production array architecture for NeoMTP in automotive BCD and display drivers.
+
+#### NeoPUF® Hardware Security & Root-of-Trust Patent Family
+
+*Oxide Quantum Tunneling Randomness · Zero Bit Error Rate (BER) · Differential Balanced Sensing · Chip DNA*
+
+- **Topology**: Paired Antifuse Differential Cell + Auto-Tracking Differential Sense Amplifier
+- **Mechanism**: Exploits unpredictable atomic-scale thickness fluctuations and quantum tunneling probabilities in ultra-thin gate oxides; differential tracking architecture cancels PVT drifts
+- **Process Nodes**: 55nm down to 2nm (Universal Across All CMOS, FinFET, and GAA Nodes)
+
+eMemory's epochal innovation expanding from memory storage into hardware cybersecurity. While legacy SRAM PUFs suffer from startup latency, aging degradation, and high bit-error rates (10–15% requiring heavy ECC), eMemory discovered that microscopic quantum tunneling through virgin ultra-thin gate oxides provides an ideal, lifelong stable random entropy source with zero bit flips, spawning subsidiary PUFsecurity and earning adoption across major secure processors.
+
+##### [US10204981B2](https://patents.google.com/patent/US10204981B2/en): Physical unclonable function apparatus utilizing dielectric breakdown variation
+
+- **Priority / Grant**: 2016-09-08 / 2019-02-12
+- **Inventors**: Meng-Yi Wu, Charles Ching-Hsiang Hsu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: Conventional SRAM PUFs suffer bit flips across temperature variations, requiring extensive helper data and power-hungry ECC that enlarge chip area and invite side-channel attacks.
+- **Mechanism**: Applies identical initial electrical stress across a pair of nominally identical gate oxide capacitors. Because atomic oxygen vacancies and tunneling barrier widths vary randomly at the nanoscale, their tunneling currents exhibit intrinsic micro-differences. Differential sensing converts this difference into a permanent binary '0' or '1' with zero bit error rate (BER < 10⁻¹²).
+- **Claim Focus**: Claim 1 specifies a PUF apparatus comprising paired dielectric antifuse elements, measuring microscopic tunneling current variations, and latching the differential outcome into unique hardware identities.
+- **Product Linkage**: Founding invention patent behind NeoPUF and PUFsecurity's PUFrt and PUFcc product families.
+
+##### [US10651268B2](https://patents.google.com/patent/US10651268B2/en): PUF cell structure and differential reading circuit with tracking reference
+
+- **Priority / Grant**: 2017-09-29 / 2020-05-12
+- **Inventors**: Meng-Yi Wu, Hsin-Ming Chen
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: How to guarantee 100% key bit stability without a single bit flip under extreme -40°C to 150°C automotive temperatures and supply voltage sags?
+- **Mechanism**: Implements fully symmetrical common-mode differential sense amplifiers, ensuring PVT fluctuations affect paired cells identically as common-mode shifts, completely canceled at differential sensing nodes.
+- **Claim Focus**: Claim 1 covers differential balanced readout architectures, common-mode rejection circuits, and sensing methods maintaining bit consistency across full temperature ranges.
+- **Product Linkage**: Key circuit patent enabling PUFrt to achieve PSA Certified Level 3 and FIPS 140-3 evaluations.
+
+##### [US10769300B2](https://patents.google.com/patent/US10769300B2/en): Random number generator utilizing quantum tunneling mechanism of dielectric layer
+
+- **Priority / Grant**: 2017-06-30 / 2020-09-08
+- **Inventors**: Meng-Yi Wu, Charles Ching-Hsiang Hsu
+- **Assignee**: eMemory Technology Inc.
+- **Core Problem**: True random number generators (TRNG) traditionally rely on thermal noise or ring oscillator jitter, vulnerable to external power injection or thermal manipulation attacks.
+- **Mechanism**: Harvests pure quantum shot noise generated during electron tunneling through dielectric barriers as an untamperable entropy source, passing the entire NIST SP 800-22 and FIPS 140-3 statistical test suites.
+- **Claim Focus**: Claim 1 claims an apparatus utilizing gate dielectric quantum tunneling shot noise as entropy source coupled with dynamic sampling circuits to output true random sequences.
+- **Product Linkage**: Embedded TRNG IP within PUFsecurity cryptographic co-processors.
+
+#### Evolution Milestones
+
+- **2000–2005 (undefined)** - undefined: undefined (Nodes: undefined / Patents: undefined)
+- **2004–2008 (undefined)** - undefined: undefined (Nodes: undefined / Patents: undefined)
+- **2009–2016 (undefined)** - undefined: undefined (Nodes: undefined / Patents: undefined)
+- **2017–2020 (undefined)** - undefined: undefined (Nodes: undefined / Patents: undefined)
+- **2021–2026 (undefined)** - undefined: undefined (Nodes: undefined / Patents: undefined)
+

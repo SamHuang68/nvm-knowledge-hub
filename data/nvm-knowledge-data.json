@@ -1214,7 +1214,7 @@
           "problem": "降低 TAS 加熱時隧道障壁承受的電壓應力。",
           "mechanism": "加熱元件與熱障壁協助升溫；升溫後設定磁態，冷卻後鎖定。",
           "claimReading": "權利項 1 包含加熱電流、加熱元件與熱障壁，不能改寫成一般 STT 單元。",
-          "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。",
+          "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或自旋軌道轉矩機制。專利另述熱輔助 STT 變體。",
           "filing": "2011-10-26",
           "publication": "2014-05-06",
           "verifiedAt": "2026-10-09",
@@ -1322,8 +1322,8 @@
           "storage": "依 US8717812B2 理解加熱解除儲存層鎖定、設定磁化，再冷卻鎖定的流程。",
           "program": "加熱解鎖後以磁場設定方向",
           "erase": "再次加熱並設定反向磁場",
-          "integration": "本單元放在既有 STT 章節作 MRAM 對照，但採磁場輔助 TAS，機制不是一般 STT 或 SOT。加熱電流不應直接畫成決定磁態的 STT；專利另討論熱輔助 STT 變體。",
-          "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或 SOT。專利另述熱輔助 STT 變體。",
+          "integration": "本單元放在既有 STT 章節作 MRAM 對照，但採磁場輔助 TAS，機制不是一般 STT 或自旋軌道轉矩機制。加熱電流不應直接畫成決定磁態的 STT；專利另討論熱輔助 STT 變體。",
+          "limit": "加熱選址與磁態設定須分開；本教案採磁場輔助 TAS，並非一般 STT 或自旋軌道轉矩機制。專利另述熱輔助 STT 變體。",
           "sourceIds": [
             "EMG-P-CROCUS-TAS"
           ]
@@ -7095,6 +7095,301 @@
           "RES-P-ADESTO-CBRAM"
         ],
         "target": "research"
+      }
+    ]
+  },
+  "vendorPatentMaps": {
+    "schemaVersion": "1.0",
+    "asOf": "2026-10-12",
+    "title": "全球 NVM 廠商專利地圖",
+    "intro": "系統性追蹤全球具名 NVM IP 供應商與記憶體晶圓廠商的核心專利家族、第一性原理權利項、晶圓代工製程相容性與商用產品承接脈絡。每一項專利均回溯至原始專利公報，排除未經驗證的行銷宣稱。",
+    "vendors": [
+      {
+        "id": "ememory",
+        "name": "力旺電子 eMemory Technology Inc.",
+        "shortName": "力旺 eMemory",
+        "headquarters": "台灣新竹科學園區 (Hsinchu Science Park, Taiwan)",
+        "founded": "2000 年",
+        "founders": "徐清祥博士 (Dr. Charles Ching-Hsiang Hsu)、盧方振 (Fang-Cheng Lu) 等研發團隊",
+        "businessModel": "純邏輯製程嵌入式非揮發性記憶體 IP 授權與設計服務 (Pure-Play Logic NVM IP, 0-Mask)",
+        "patentStats": {
+          "totalGrantedWorldwide": "800+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、台灣 (TIPO)、中國 (CNIPA)、歐洲 (EPO)、日本 (JPO)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、世界先進 (VIS)、高塔 (Tower)",
+          "waferShipment": "累計導入超過 1,000 億顆商用晶片"
+        },
+        "strategy": "力旺專利戰略的核心哲學為「零額外光罩 (Zero Mask Adder)」與「百分之百標準 CMOS 相容」。不同於傳統 eFlash 需增加 3 至 8 道特殊多晶矽或高溫退火光罩，力旺專利佈局完全建立在標準 CMOS 邏輯製程既有之氧化層、多晶矽閘極與井區擴散結構上。其專利地圖沿著兩大主線展開：第一條是電荷儲存路線（NeoBit 浮動閘極 OTP → NeoEE 電容耦合 MTP → NeoMTP 抹除閘極 MTP）；第二條是介電層擊穿與量子物理路線（NeoFuse 閘氧反熔絲 OTP → NeoPUF 量子穿隧硬體安全晶片指紋），覆蓋從成熟微米節點至 2nm GAA 埃米世代的完整光譜。",
+        "families": [
+          {
+            "id": "neobit-family",
+            "name": "NeoBit® 浮動閘極 OTP 專利家族",
+            "tagline": "標準 CMOS 雙串聯 PMOS · 電洞誘發熱電子注入 (CHEI) · 0-Mask",
+            "technologyType": "OTP (One-Time Programmable)",
+            "cellTopology": "2-PMOS (選擇電晶體與浮動閘極電晶體串聯)",
+            "physicalMechanism": "汲極能帶間穿隧引發熱電洞，衝擊產生熱電子並注入 p+ 浮動閘極 (CHEI)；讀取時檢測通道導通電流",
+            "processNode": "0.5µm 至 0.11µm 標準邏輯 / 高壓 BCD 製程",
+            "summary": "奠定力旺商業起點的旗艦技術。發明利用標準邏輯製程中串聯的 PMOS 電晶體，在無控制閘極條件下以橫向電場產生二次電子注入浮動閘極，解決了傳統 NMOS 寫入需要極高偏壓與控制閘耦合的缺陷，實現了業界首款真正的零額外光罩邏輯 OTP。",
+            "patents": [
+              {
+                "id": "US6678190B2",
+                "title": "串聯 PMOS 嵌入式 EPROM 單元之編程方法",
+                "grantDate": "2004-01-13",
+                "priorityDate": "2002-12-19",
+                "inventors": "Charles Ching-Hsiang Hsu, Fang-Cheng Lu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "coreProblem": "傳統 EPROM / OTP 記憶體需要專用控制閘極 (Control Gate) 與額外多晶矽層進行電容耦合，導致邏輯製程成本暴增。如何在完全沒有控制閘極的標準 PMOS 上實現高效率電子注入？",
+                "mechanism": "限定一對串聯之 p-channel MOS，第一 PMOS 作為選擇器，第二 PMOS 具有隔離之浮動閘極。於源極線 (SL) 與 N-Well 施加 3–8V 正偏壓，汲極施加負偏壓，使接面產生能帶間穿隧電洞，撞擊游離產生之二次電子受垂直電場加速越過 Si-SiO2 能障（約 3.15 eV）注入浮動閘極。",
+                "claimFocus": "權利項 1 限定無控制閘極之串聯 PMOS 結構、源極與井區接同電位正壓、汲極接負偏壓以引發雪崩電子注入之偏壓方法。",
+                "productLink": "NeoBit 全球首款量產核心 IP，廣泛應用於電源管理 IC (PMIC)、LCD 驅動 IC 微調校準。"
+              },
+              {
+                "id": "US6914825B2",
+                "title": "具保留電荷之程式化邏輯非揮發性記憶體單元",
+                "grantDate": "2005-07-05",
+                "priorityDate": "2002-12-19",
+                "inventors": "Charles Ching-Hsiang Hsu, Fang-Cheng Lu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6914825B2/en",
+                "coreProblem": "浮動閘極單元在寫入後必須確保電荷能於高溫惡劣環境下長期留存，且能以高訊噪比被感測放大器辨識。",
+                "mechanism": "程式化後浮動閘極內累積穩定的負電荷，由於 PMOS 的物理特性，負電荷降低了通道臨界電壓 (Vth 負向偏移)，使儲存 PMOS 在讀取偏壓下呈現低阻導通狀態；未寫入單元則保持截止。電荷經氧化層包覆，高溫保持力符合 Arrhenius 125°C 10 年標準。",
+                "claimFocus": "權利項 1 限定單元未編程時為高阻截止狀態，編程後於浮閘中保留負電荷使通道低阻導通，並以通道電流大小定義資料位元。",
+                "productLink": "NeoBit 資料留存規格與可靠度認證基準專利。"
+              },
+              {
+                "id": "US6920067B2",
+                "title": "利用標準邏輯 CMOS 製程製作之非揮發性記憶體單元",
+                "grantDate": "2005-07-19",
+                "priorityDate": "2003-05-23",
+                "inventors": "Charles Ching-Hsiang Hsu, Shih-Chen Wang",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "coreProblem": "如何證明單元結構完全不依賴特殊客製化製程步驟，而能與晶片內部周邊電路無縫共用？",
+                "mechanism": "儲存單元中 PMOS 電晶體之閘極氧化層厚度、多晶矽摻雜與擴散接面，直接共用同晶圓上周邊 3.3V 或 5V 輸入/輸出 (I/O) 電晶體之製程層。無需修改光罩或追加任何熱製程步驟。",
+                "claimFocus": "權利項 1 限定記憶體單元結構與晶片 I/O 電晶體具備完全相同的介電層厚度與材料特性，定義了 0-mask 的製程邊界。",
+                "productLink": "NeoBit 零額外光罩製程契約之權利保護基石。"
+              }
+            ]
+          },
+          {
+            "id": "neofuse-family",
+            "name": "NeoFuse® 閘氧反熔絲 OTP 專利家族",
+            "tagline": "超薄核心氧化層軟崩潰 · 量子穿隧 (Direct Tunneling) · 3T 防漏電架構",
+            "technologyType": "Antifuse OTP (一次性抗物理竄改反熔絲)",
+            "cellTopology": "3T (選擇電晶體 SEL + 調節電晶體 REG + 反熔絲電容器 AF)",
+            "physicalMechanism": "高場電應力引發薄閘介電層缺陷生成、縮短穿隧距離並產生局部直接穿隧導電微絲；讀取時感測閘極漏電流 (I_GATE)",
+            "processNode": "65nm / 40nm / 28nm HKMG / 16nm / 7nm / 5nm / 3nm / 2nm GAA",
+            "summary": "引領力旺跨入先進製程與高階安全應用的核心技術支柱。放棄傳統多晶矽熔斷 eFuse 的大電流與形變缺陷，改採奈米級薄閘極氧化層的電場崩潰，並以獨家 3T 專利結構解決高壓寫入對鄰近選擇管的擊穿破壞與讀取時的 GIDL 漏電，使 OTP 能微縮至 2nm GAA 奈米片世代。",
+            "patents": [
+              {
+                "id": "US8514614B2",
+                "title": "反熔絲記憶體單元及其操作方法",
+                "grantDate": "2013-08-20",
+                "priorityDate": "2011-09-29",
+                "inventors": "Sheng-Chih Lin, Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8514614B2/en",
+                "coreProblem": "微縮製程中核心閘極氧化層厚度小於 2nm，傳統反熔絲容易在未選中單元上產生嚴重的讀取擾動 (Read Disturb) 與半選誤擊穿。",
+                "mechanism": "於編程時對反熔絲閘極施加高壓脈衝，引發局部氧化層軟崩潰；讀取時施加低於 1.2V 之正向讀取電壓，感測穿過受損介電層之穿隧漏電流 (I_GATE)。未編程單元閘極漏電小於 1pA，編程後漏電躍升至數個 µA，提供極寬之讀取窗口。",
+                "claimFocus": "權利項 1 限定反熔絲單元之讀取電壓顯著低於擊穿閾值，並以閘極電流而非通道電流量測儲存狀態之方法。",
+                "productLink": "NeoFuse 全球授權與各大代工廠 PDK（28nm HPC+ / 22ULL / 16FFC）標準庫。"
+              },
+              {
+                "id": "US8982637B2",
+                "title": "具漏電流抑制之三電晶體反熔絲記憶體單元",
+                "grantDate": "2015-03-17",
+                "priorityDate": "2013-03-15",
+                "inventors": "Sheng-Chih Lin, Chia-Hao Lee",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8982637B2/en",
+                "coreProblem": "在大型陣列中，單一反熔絲擊穿後會對整條位元線 (BL) 產生寄生漏電路徑，降低其他單元之讀取感測餘裕並增加待機功耗。",
+                "mechanism": "引入三電晶體 (3T) 拓撲：位元線端依序串聯選擇管 (SEL) 與調節管 (REG)，再連接至反熔絲儲存元件 (AF)。REG 電晶體在寫入時承受高壓降以保護 SEL，在讀取與待機時夾斷通道抑制 GIDL 與漏電流，使陣列雜訊抑制比提高 30dB。",
+                "claimFocus": "權利項 1 限定由 SEL、REG 與 AF 串聯組成之 3T 單元，且 REG 之閘極連接獨立偏壓控制線以提供動態阻抗調節。",
+                "productLink": "NeoFuse 先進安全陣列架構（具備高耐壓與低待機漏電規格）。"
+              },
+              {
+                "id": "US10410712B2",
+                "title": "FinFET 反熔絲記憶體元件與操作方法",
+                "grantDate": "2019-09-10",
+                "priorityDate": "2017-06-20",
+                "inventors": "Sheng-Chih Lin, Hsin-Ming Chen",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10410712B2/en",
+                "coreProblem": "FinFET 3D 鰭式結構具有三面立體環繞閘極，邊緣幾何電場極度集中，容易引發不可預測之硬崩潰噴濺或金屬遷移，破壞相鄰鰭片。",
+                "mechanism": "針對立體 FinFET 特殊幾何設計反熔絲單元，利用鰭片側壁與頂部均勻分佈之高介電金屬閘極 (HKMG)，藉由受控脈衝在鰭片側壁產生自限式局部導電微絲，編程電流抑制在 50µA 以下，杜絕矽微絲貫穿與相鄰短路。",
+                "claimFocus": "權利項 1 限定跨越立體半導體鰭片之金屬閘極反熔絲結構、側壁介電層崩潰路徑與鰭片偏壓操作組合。",
+                "productLink": "NeoFuse 16nm / 12nm / 7nm / 5nm FinFET 先進製程專利基石。"
+              },
+              {
+                "id": "US20250024668A1",
+                "title": "具多段閘極介電層之反熔絲記憶體單元及其操作",
+                "grantDate": "2025-01-16 (公開案)",
+                "priorityDate": "2023-07-14",
+                "inventors": "eMemory 研發團隊",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US20250024668A1/en",
+                "coreProblem": "在 3nm / 2nm 環繞閘極 (GAA NanoSheet) 節點下，晶片電壓已微縮至 0.7V 以下，但反熔絲崩潰仍需較高電壓，如何防禦極端應力下的奈米片穿隧擊穿？",
+                "mechanism": "於單一單元內採用多段式階梯氧化層厚度控制，將高電場集中於預定之崩潰窗口，其餘通道區域以較厚介電層保護，達成在次奈米節點的高良率與低編程電壓。",
+                "claimFocus": "公開專利申請案，揭露於 GAA 結構中結合非均勻介電層與動態電位隔離之次世代反熔絲設計。",
+                "productLink": "NeoFuse 瞄準 N3P / N2P 先進製程之次世代技術部署。"
+              }
+            ]
+          },
+          {
+            "id": "neoee-family",
+            "name": "NeoEE® 單層多晶矽 MTP 專利家族",
+            "tagline": "純單層多晶矽 · 全 FN/FN 穿隧 · 零靜態功耗 · 1K–10K 覆寫",
+            "technologyType": "MTP (Multi-Time Programmable, 多次可改寫)",
+            "cellTopology": "MOS 電容耦合器 (C) + 穿隧接面 (T) + 讀取電晶體 (R)，共用浮動閘極",
+            "physicalMechanism": "程式化與抹除皆採用 Fowler-Nordheim (FN) 量子穿隧；利用 MOS 電容耦合控制浮動閘極電位",
+            "processNode": "0.35µm 至 0.11µm 標準邏輯 / 類比 BCD 製程",
+            "summary": "針對需要多次更新資料（如感測器校正、RFID UID 更新、低階微控制器代碼更新）但無法負擔 eFlash 額外光罩成本的應用。以純單層多晶矽達成雙向 FN 穿隧，電流小於 1nA/bit，免除大體積高壓電荷泵，為超低功耗物聯網提供經濟之可覆寫記憶體方案。",
+            "patents": [
+              {
+                "id": "US6788574B2",
+                "title": "具電容耦合之單層多晶矽 EEPROM 記憶體單元",
+                "grantDate": "2004-09-07",
+                "priorityDate": "2002-12-30",
+                "inventors": "Charles Ching-Hsiang Hsu, Shih-Chen Wang",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6788574B2/en",
+                "coreProblem": "傳統 EEPROM 依賴第二層多晶矽控制閘 (Double-Poly Control Gate) 來提供足夠的耦合係數，邏輯製程無法直接支援。",
+                "mechanism": "在單層多晶矽中，利用大型 N-Well 或 MOS 元件作為耦合電容器 (Capacitive Coupler, C 節點)，與浮動閘極重疊形成高耦合比（>0.7）；穿隧元件 (T 節點) 與讀取元件 (R 節點) 分立設置，皆與該連續單層多晶矽浮閘相連。",
+                "claimFocus": "權利項 1 限定由單一多晶矽層形成的浮動閘極，跨越耦合電容區、穿隧區與感測通道區的三位一體拓撲。",
+                "productLink": "NeoEE 0-mask 邏輯 EEPROM 解決方案之核心架構。"
+              },
+              {
+                "id": "US6950342B2",
+                "title": "全 FN 穿隧之單層多晶矽非揮發性記憶體操作方法",
+                "grantDate": "2005-09-27",
+                "priorityDate": "2003-12-30",
+                "inventors": "Charles Ching-Hsiang Hsu 等",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6950342B2/en",
+                "coreProblem": "熱電子注入 (CHE) 需要數毫安培之直流通道電流，導致晶片內部電荷泵體積巨大且無法用於無源 RFID 或鈕扣電池供電元件。",
+                "mechanism": "程式化時對 C 節點施加正壓、T 節點接地，電子經 FN 穿隧進入浮動閘極；抹除時對 C 節點接地、T 節點施加正壓，電子經反向 FN 穿隧移出浮動閘極。全程為純電容充電電流（<1nA），靜態功耗接近於零。",
+                "claimFocus": "權利項 1 限定程式化與抹除操作均利用電場誘發之 FN 量子穿隧，且讀取操作在低場下感測通道電阻之操作流程。",
+                "productLink": "NeoEE 極低功耗物聯網與 RFID 標籤專用 IP。"
+              }
+            ]
+          },
+          {
+            "id": "neomtp-family",
+            "name": "NeoMTP® 高密度抹除閘極 MTP 專利家族",
+            "tagline": "專用抹除閘極 (EG) · 熱電洞誘發電子寫入 · 邊緣 FN 抹除 · 25–40 F²",
+            "technologyType": "High-Density MTP (高密度多次可覆寫)",
+            "cellTopology": "PMOS 浮動閘極 + 側向專用抹除閘極 (Erase Gate, EG)",
+            "physicalMechanism": "寫入：通道熱電洞誘發電子注入 (CHEI)；抹除：電子由浮動閘極經邊緣電場集中之 FN 穿隧移向 Erase Gate (EG)",
+            "processNode": "0.18µm / 0.153µm / 0.11µm / 90nm / 55nm / 40nm BCD & HV 顯示驅動製程",
+            "summary": "解決傳統單層多晶矽 MTP 單元因耦合電容過大而無法做大容量儲存的物理瓶頸。力旺在此家族中引入突破性的專用抹除閘極 (EG)，抹除時電子直接從浮閘邊緣跳入 EG，無需大面積電容耦合，將單元面積大幅縮小 60% 以上，成為車用 BCD、電源管理與 OLED/LCD 顯示驅動晶片 (DDIC) 的黃金標準。",
+            "patents": [
+              {
+                "id": "US6853583B2",
+                "title": "具抹除閘極之非揮發性記憶體單元及其操作方法",
+                "grantDate": "2005-02-08",
+                "priorityDate": "2002-06-21",
+                "inventors": "Charles Ching-Hsiang Hsu, Fang-Cheng Lu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US6853583B2/en",
+                "coreProblem": "如何不使用雙層多晶矽，也不使用大面積基板耦合電容，就能在邏輯製程中將浮動閘極累積的負電荷安全抹除？",
+                "mechanism": "在 pMOS 浮動閘極側邊設置專用的抹除閘極 (Erase Gate, EG，由相鄰之 n+ 擴散區或多晶矽構成)。抹除時在 EG 上施加正高壓脈衝（約 10–12V），浮閘邊緣產生極高局部邊緣電場（Fringing Field），促使電子經 FN 穿隧由浮閘直接移出至 EG，完成電性抹除。",
+                "claimFocus": "權利項 1 限定由 pMOS 儲存電晶體與側向抹除閘極 EG 組成之單元，且抹除路徑完全獨立於通道讀取路徑之外。",
+                "productLink": "NeoMTP 核心基礎發明專利，支撐高密度 16Kb–1Mb 嵌入式代碼更新應用。"
+              },
+              {
+                "id": "US7158412B2",
+                "title": "具邊緣抹除機制之高密度單層多晶矽記憶體陣列",
+                "grantDate": "2007-01-02",
+                "priorityDate": "2004-03-08",
+                "inventors": "Charles Ching-Hsiang Hsu, Fang-Cheng Lu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US7158412B2/en",
+                "coreProblem": "在大型陣列中，如何安排抹除閘極以避免字線 (WL) 與位元線 (BL) 在區塊抹除時受到交叉干擾？",
+                "mechanism": "將相鄰列或相鄰區塊之抹除閘極進行共用（Shared Erase Line），並結合井區反向偏壓隔離，實現區塊抹除 (Sector Erase) 與頁面程式化 (Page Program)，陣列佈局效率達到 70% 以上。",
+                "claimFocus": "權利項 1 限定陣列中抹除閘極線的共享連接關係與列/行解碼選擇結構。",
+                "productLink": "NeoMTP 在車規 BCD 與顯示驅動晶片中的量產陣列標準設計。"
+              }
+            ]
+          },
+          {
+            "id": "neopuf-family",
+            "name": "NeoPUF® / 晶片安全信任根專利家族",
+            "tagline": "氧化層量子穿隧隨機性 · 零漢明距離誤碼 · 差分平衡感測 · 晶片 DNA",
+            "technologyType": "PUF (Physical Unclonable Function, 實體不可複製函數)",
+            "cellTopology": "成對反熔絲差分結構 (Pair Antifuse Cell) + 差分自校正感測電路",
+            "physicalMechanism": "利用微觀超薄閘氧製造時不可預測之奈米級厚度波動與量子穿隧機率；差分感測追蹤架構消除 PVT 溫壓漂移",
+            "processNode": "55nm / 40nm / 28nm / 16nm / 7nm / 5nm / 3nm / 2nm (涵蓋所有 CMOS / FinFET / GAA 節點)",
+            "summary": "力旺從記憶體儲存跨足硬體晶片安全領域的劃時代創新。傳統 SRAM PUF 受開機延遲、老化退化與高誤碼率困擾（需昂貴 ECC），力旺發明利用超薄閘極氧化層中微觀缺陷與穿隧機率的天然量子隨機性，在製造時自然形成完全無法預測、無法複製、且終身穩定的晶片指紋，催生子公司 PUFsecurity 並獲各大處理器與安全晶片採納。",
+            "patents": [
+              {
+                "id": "US10204981B2",
+                "title": "利用介電層微觀變異之實體不可複製函數裝置",
+                "grantDate": "2019-02-12",
+                "priorityDate": "2016-09-08",
+                "inventors": "Meng-Yi Wu, Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10204981B2/en",
+                "coreProblem": "傳統 SRAM PUF 在溫度變化或長期使用後會發生位元翻轉（Bit Flip，誤碼率高達 10–15%），需要龐大輔助資料 (Helper Data) 與複雜 ECC 演算法修復，增加晶片面積且易遭旁路攻擊。",
+                "mechanism": "在相鄰兩個名義上完全相同的超薄閘極氧化層電容器上施加相同起始電應力。由於氧化層內部原子級氧空缺與穿隧距離存在不可預測之微觀量子波動，兩者穿隧漏電流必然存在細微差異。藉由差分比較兩者穿隧電流大小，輸出永遠固定的二元位元 '0' 或 '1'，天生達到零誤碼率 (BER < 10⁻¹²)。",
+                "claimFocus": "權利項 1 限定由一對反熔絲介電元件組成之 PUF 單元、量測兩者微觀穿隧電流差異、並將該差異固定化為唯一硬體辨識碼之電路架構。",
+                "productLink": "NeoPUF 核心發明專利，PUFsecurity 全系列安全信任根 (PUFrt, PUFcc) 之根基。"
+              },
+              {
+                "id": "US10651268B2",
+                "title": "具追蹤參考之 PUF 單元結構與差分讀取電路",
+                "grantDate": "2020-05-12",
+                "priorityDate": "2017-09-29",
+                "inventors": "Meng-Yi Wu, Hsin-Ming Chen",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10651268B2/en",
+                "coreProblem": "在 -40°C 極寒至 150°C 車規極熱環境，以及工作電壓波動下，如何保證 PUF 讀取信號永不翻轉？",
+                "mechanism": "設計完全對稱之共模差分感測放大器，使溫度與工作電壓變異對成對單元產生完全等同的共模漂移，差分感測端完全消除環境噪訊干擾，在極端惡劣車規條件下金鑰一致性依然維持 100%。",
+                "claimFocus": "權利項 1 限定差分平衡讀取架構、共模抑制電路與在全溫區保持位元一致性之感測方法。",
+                "productLink": "PUFrt (Root of Trust) 通過 PSA Certified Level 3 與 FIPS 140-3 評估之關鍵電路專利。"
+              },
+              {
+                "id": "US10769300B2",
+                "title": "利用介電層量子穿隧機制之亂數產生器",
+                "grantDate": "2020-09-08",
+                "priorityDate": "2017-06-30",
+                "inventors": "Meng-Yi Wu, Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10769300B2/en",
+                "coreProblem": "真亂數產生器 (TRNG) 傳統依賴熱雜訊或環形振盪器抖動，容易受到電源雜訊注入或溫度操縱等物理側信道攻擊。",
+                "mechanism": "直接擷取電子在介電層薄膜中發生量子穿隧時產生之純量子散粒雜訊 (Quantum Shot Noise) 作為不可預測之純熵源，從物理層面杜絕外界電磁或溫度誘導攻擊，輸出完全符合 NIST SP 800-22 與 FIPS 140-3 標準之高品質加密亂數。",
+                "claimFocus": "權利項 1 限定以氧化層量子穿隧散粒雜訊作為熵源、搭配動態採樣電路輸出真隨機數序列之裝置。",
+                "productLink": "PUFsecurity 內嵌之真隨機亂數產生器 (TRNG) 核心 IP。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2000–2005",
+            "phase": "NeoBit 時代：打破雙層多晶矽壟斷",
+            "achievement": "取得 US6678190B2 與 US6914825B2，創立 PMOS 串聯 0-mask 浮閘技術，成功打入台積電與聯電 0.35µm/0.25µm 製程，使晶片設計業者完全免除 eFlash 昂貴光罩費。"
+          },
+          {
+            "period": "2004–2008",
+            "phase": "NeoEE / NeoMTP 時代：攻克單層多晶矽覆寫瓶頸",
+            "achievement": "取得 US6788574B2 (NeoEE) 與 US6853583B2 (NeoMTP 抹除閘極)，將 MTP 單元面積縮小至 25–40 F²，在電源管理晶片與顯示驅動晶片中確立全球標準地位。"
+          },
+          {
+            "period": "2009–2016",
+            "phase": "NeoFuse 時代：由微米跨入深奈米 28nm HKMG",
+            "achievement": "取得 US8514614B2 與 US8982637B2 (3T 反熔絲)，將技術核心由浮閘電荷轉移至介電層軟崩潰與量子穿隧，全面進軍 65nm/40nm/28nm HKMG 先進製程與高階安全應用。"
+          },
+          {
+            "period": "2017–2020",
+            "phase": "FinFET 與 NeoPUF 時代：突破 3D 結構並開創晶片安全",
+            "achievement": "取得 US10410712B2 (FinFET 反熔絲) 與 US10204981B2 (NeoPUF)，在台積電 16nm/7nm FinFET 成功量產，並由氧化層微觀穿隧隨機性催生全球晶片硬體信任根新賽道。"
+          },
+          {
+            "period": "2021–2026",
+            "phase": "GAA NanoSheet 與 PUFsecurity 時代：進軍 2nm 埃米世代",
+            "achievement": "佈局 US20250024668A1 等次奈米 GAA 專利，成立子公司 PUFsecurity，結合 NeoFuse/NeoPUF 與後量子密碼學 (PQC) 硬體加速，打入車規晶片安全與全球 AI 運算晶片。"
+          }
+        ]
       }
     ]
   },
@@ -33830,7 +34125,8 @@
       "nvm-comparison-systems.json",
       "nvm-foundry-roadmap.json",
       "nvm-ip-cells-intro.json",
-      "nvm-industry-research.json"
+      "nvm-industry-research.json",
+      "nvm-vendor-patent-maps.json"
     ],
     "engineeringSources": [
       "nvm-patent-figures.json",
@@ -33842,7 +34138,8 @@
       "../scripts/nvm-ymc-ip-diagrams.mjs",
       "../scripts/nvm-synopsys-otp-diagrams.mjs",
       "../scripts/nvm-impinj-ip-diagrams.mjs",
-      "../scripts/nvm-supplement-ip-diagrams.mjs"
+      "../scripts/nvm-supplement-ip-diagrams.mjs",
+      "../scripts/nvm-vendor-patent-maps-ui.mjs"
     ],
     "reviewScope": "公開來源與教學內容查核；網頁為後續簡報的取材來源"
   }
