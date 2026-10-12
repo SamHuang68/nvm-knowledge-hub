@@ -247,6 +247,11 @@ try {
       return bodies.join('\n');
     }, cacheName);
     check(!cached.includes('cloudflareinsights') && cached.includes('home-ok') && cached.includes('memory-physics-ok'), '快取保存去掉 beacon 的作者內文', { hasBeacon: cached.includes('cloudflareinsights') });
+    const reloadBypass = await page.evaluate(async () => {
+      const response = await fetch('memory-physics.html', { cache: 'reload' });
+      return response.status === 200;
+    });
+    check(reloadBypass, '強制重整 (cache: reload) 可穿透 Service Worker 快取並取得資源');
     await context.close();
   }
 

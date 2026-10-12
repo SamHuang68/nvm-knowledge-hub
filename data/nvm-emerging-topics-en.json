@@ -608,7 +608,7 @@
           "problem": "Reduce tunnel-barrier voltage stress during TAS heating.",
           "mechanism": "Heating elements and thermal barriers assist heating; set magnetization while hot and pin it on cooling.",
           "claimReading": "Claim 1 includes heating current, heating elements and thermal barriers; it is not an ordinary STT cell.",
-          "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.",
+          "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or spin-orbit torque. The patent also discusses thermally assisted STT variants.",
           "filing": "2011-10-26",
           "publication": "2014-05-06",
           "verifiedAt": "2026-10-09",
@@ -713,8 +713,8 @@
           "storage": "US8717812B2 explains heating to unlock the storage layer, setting its magnetization and cooling to pin it again.",
           "program": "Heat to unlock, then set a magnetic field",
           "erase": "Reheat and apply the opposite setting field",
-          "integration": "Hosted in the existing STT chapter for MRAM comparison, this field-assisted TAS lesson is not ordinary STT or SOT. Heating current must not be depicted as the state-setting STT; the patent also discusses thermally assisted STT variants.",
-          "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or SOT. The patent also discusses thermally assisted STT variants.",
+          "integration": "Hosted in the existing STT chapter for MRAM comparison, this field-assisted TAS lesson is not ordinary STT or spin-orbit torque. Heating current must not be depicted as the state-setting STT; the patent also discusses thermally assisted STT variants.",
+          "limit": "Separate thermal selection from magnetic setting; this lesson uses field-assisted TAS, not ordinary STT or spin-orbit torque. The patent also discusses thermally assisted STT variants.",
           "sourceIds": [
             "EMG-P-CROCUS-TAS"
           ]

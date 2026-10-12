@@ -13,7 +13,7 @@ const data = JSON.parse(fs.readFileSync(path.join(root, 'data', 'nvm-knowledge-d
 const failures = [];
 const audits = [];
 const browser = await chromium.launch({ headless: true });
-const routes = ['panorama','ip-directory','ip-lineage','physics-library','comparison','foundry','ecosystem','research',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
+const routes = ['panorama','ip-directory','ip-lineage','patent-maps','physics-library','comparison','foundry','ecosystem','research',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
 const widths = [1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 
 try {
@@ -97,12 +97,16 @@ try {
   if (await page.locator('[data-foundry]:visible').evaluateAll(items=>items.some(item=>item.dataset.foundry!=='GF'))) failures.push('晶圓代工篩選顯示其他公司');
   const patentId=data.topics.find(topic=>topic.id==='stt').patents[0].id;
   await page.goto(base+'#patent-'+patentId,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.getElementById('patents').hidden && document.querySelectorAll('[data-nvm-panel]:not([hidden])').length === 1);
   if (await page.locator('[data-nvm-panel]:visible').getAttribute('id')!=='patents' || !await page.locator('#patent-'+patentId).evaluate(item=>item.open)) failures.push('專利深層連結未展開');
   const sourceId=data.sources[0].id;
   await page.goto(base+'#source-'+sourceId,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.getElementById('sources').hidden && document.querySelectorAll('[data-nvm-panel]:not([hidden])').length === 1);
   if (await page.locator('[data-nvm-panel]:visible').getAttribute('id')!=='sources' || !await page.locator('#source-'+sourceId).evaluate(item=>item.open)) failures.push('來源深層連結未展開');
   await page.goto(base+'#topic-sonos',{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>!document.getElementById('topic-sonos').hidden && document.querySelectorAll('[data-nvm-panel]:not([hidden])').length === 1);
   await page.reload({waitUntil:'networkidle'});
+  await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced') && !document.getElementById('topic-sonos').hidden && document.querySelectorAll('[data-nvm-panel]:not([hidden])').length === 1);
   if (await page.locator('[data-nvm-panel]:visible').getAttribute('id')!=='topic-sonos') failures.push('重新載入遺失專題');
   await page.locator('.nvm-sidebar a[href="#topic-stt"]').click();
   await page.goBack();

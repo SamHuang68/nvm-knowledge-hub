@@ -174,8 +174,10 @@ self.addEventListener('fetch', event => {
   };
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
+    const isReload = request.cache === 'reload' || Boolean(request.headers.get('cache-control')?.includes('no-cache')) || Boolean(request.headers.get('pragma')?.includes('no-cache'));
     // HTML 與其程式、樣式、圖解和正式資料均取同版快取，不以新版 HTML 混用舊腳本。
-    if (assetURLs.has(key)) {
+    // 強制重整時跳過快取命中，優先嘗試從網路取得最新資源並刷新快取。
+    if (assetURLs.has(key) && !isReload) {
       const cached = await cache.match(key);
       if (cached) return cached;
     }
