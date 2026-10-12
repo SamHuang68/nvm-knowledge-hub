@@ -290,6 +290,941 @@
           "achievement": "Filed US20250024668A1 for GAA nodes, launched subsidiary PUFsecurity combining NeoFuse/NeoPUF with Post-Quantum Cryptography (PQC) hardware acceleration for AI and automotive."
         }
       ]
+    },
+    {
+      "id": "kilopass",
+      "name": "Kilopass Technology Inc. (Acquired by Synopsys in 2018)",
+      "shortName": "Kilopass (Synopsys)",
+      "headquarters": "Santa Clara, California, USA",
+      "founded": "2001 (Acquired by Synopsys in 2018)",
+      "founders": "Dr. Jack Z. Peng and R&D Engineering Team",
+      "businessModel": "Standard CMOS Logic 2T Gate-Oxide Breakdown Antifuse OTP IP (Standard Logic 2T Antifuse OTP IP)",
+      "patentStats": {
+        "totalGrantedWorldwide": "60+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
+        "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, DB HiTek",
+        "waferShipment": "Over 150 customer design wins, cumulative shipment exceeding 10 billion chips"
+      },
+      "strategy": "The foundational core of Kilopass's patent portfolio pioneered the 'Controlled Gate-Oxide Hard Breakdown' architecture in standard CMOS logic. Moving away from traditional polysilicon eFuses with their high-current explosion, metal splatter, and visible optical microscope traces, Kilopass built an array patent network centered on a 2T/1.5T crosspoint topology. By connecting a select transistor and an antifuse transistor in series, Kilopass eliminated parasitic channel conduction and half-select disturb during high-voltage programming. Extending this to split-well bias isolation, Kilopass established the earliest industry patent standards for embedded logic antifuse OTP.",
+      "families": [
+        {
+          "id": "kilopass-xpm-family",
+          "name": "XPM™ Crosspoint 2T Antifuse OTP Patent Family",
+          "tagline": "Standard CMOS 2T Cell · Core Gate-Oxide Permanent Breakdown · 0-Mask Adder",
+          "technologyType": "Antifuse OTP (Tamper-Evident One-Time Programmable)",
+          "cellTopology": "2T (Access Transistor + Antifuse Capacitor in Series)",
+          "physicalMechanism": "Localized dielectric breakdown in ultra-thin gate oxide induced by high vertical electric field, forming a permanent ohmic silicon filament from poly gate to substrate; read senses conductive on-current",
+          "processNode": "180nm / 130nm / 90nm / 65nm / 40nm / 28nm Standard Logic",
+          "summary": "The foundational patent family establishing Kilopass's market standing. By leveraging standard logic thin core oxide to induce irreversible breakdown under 5–7V programming bias, the naturally insulating high-impedance gate transforms into a conductive path of several hundred ohms. The 2T topology ensures unselected cells in large arrays remain free from disturbance, with the breakdown spot buried deep beneath metal interconnect layers, providing natural resistance against optical reverse engineering.",
+          "patents": [
+            {
+              "id": "US6992925B2",
+              "title": "Non-volatile memory cell using gate oxide breakdown and method of manufacturing and operating the same",
+              "grantDate": "2006-01-31",
+              "priorityDate": "2002-12-05",
+              "inventors": "Jack Z. Peng",
+              "assignee": "Kilopass Technology, Inc.",
+              "url": "https://patents.google.com/patent/US6992925B2/en",
+              "coreProblem": "Conventional laser fuses and polysilicon eFuses require heavy programming currents and create conspicuous physical destruction easily reverse-engineered under microscopes. How can standard CMOS gate dielectric be used for microscopic, anti-tamper storage?",
+              "mechanism": "Configures an access transistor and an antifuse capacitor at the intersection of a word line and bit line. Turning on the access transistor while applying high voltage stress across the antifuse gate creates percolating defect clusters forming a stable conductive filament. Read mode applies standard low operating voltage to sense microampere-level read currents.",
+              "claimFocus": "Claim 1 claims an array cell and bias control method comprising a standard CMOS access transistor connected in series with an antifuse transistor utilizing controlled gate oxide breakdown as its memory state.",
+              "productLink": "Kilopass XPM™ (Extra Permanent Memory) flagship product line, widely deployed in DTV decoders and HDMI HDCP root key storage."
+            },
+            {
+              "id": "US6777766B2",
+              "title": "Low cost non-volatile memory cell with low programming voltage",
+              "grantDate": "2004-08-17",
+              "priorityDate": "2002-04-18",
+              "inventors": "Jack Z. Peng",
+              "assignee": "Kilopass Technology, Inc.",
+              "url": "https://patents.google.com/patent/US6777766B2/en",
+              "coreProblem": "Early antifuse cells required programming voltages exceeding 7V, necessitating bulky on-chip charge pumps and causing collateral breakdown damage to series select transistors.",
+              "mechanism": "Directly utilizes the ultra-thin core gate oxide (sub-2.5nm) of advanced logic nodes, reducing breakdown voltages below 5.5V while optimizing drain junction diffusion profiles to minimize hot-carrier stress.",
+              "claimFocus": "Claim 1 specifies a low-voltage 2T antifuse architecture utilizing thin core gate oxide with programming voltages below 6V.",
+              "productLink": "Gusto™ high-density OTP array standard cell architecture."
+            }
+          ]
+        },
+        {
+          "id": "kilopass-secretcode-family",
+          "name": "SecretCode™ Split-Well High-Security OTP Patent Family",
+          "tagline": "Split-Well Bias Isolation · Differential Power Analysis (DPA) Defense · Hardware Root Key Protection",
+          "technologyType": "Secure Antifuse OTP (Hardware Security Root Key Antifuse)",
+          "cellTopology": "2T Split-Well (Isolated Well Segmentation Cell)",
+          "physicalMechanism": "Dynamic switching and electrical isolation of substrate well potentials to prevent substrate leakage and hot-carrier disturb to adjacent cells, combined with balanced dummy currents against DPA side channels",
+          "processNode": "65nm / 40nm / 28nm HKMG Advanced Processes",
+          "summary": "Strategic patent family targeting high-assurance security in Pay-TV and set-top box hardware roots of trust. Split-well segmentation eliminates half-select disturb in high-density key arrays while rendering unprogrammed and programmed cells identical in external impedance profile, preventing differential power analysis.",
+          "patents": [
+            {
+              "id": "US7643333B2",
+              "title": "Non-volatile memory cell with split well configuration and method of operation",
+              "grantDate": "2010-01-05",
+              "priorityDate": "2006-11-20",
+              "inventors": "Jack Z. Peng",
+              "assignee": "Kilopass Technology, Inc.",
+              "url": "https://patents.google.com/patent/US7643333B2/en",
+              "coreProblem": "In deep sub-micron nodes, common well structures cause substrate leakage from high-voltage programming to spill into neighboring cells, inducing severe half-select disturb and yield loss.",
+              "mechanism": "Physically partitions the memory array into multiple electrically isolated split-wells. During write, only selected wells receive inhibitory bias while unselected wells remain grounded, cutting off substrate carrier propagation paths.",
+              "claimFocus": "Claim 1 claims a split-well architecture with independent electrical bias control and operating method for suppressing half-select disturb in antifuse arrays.",
+              "productLink": "SecretCode™ hardware security IP, widely embedded in Conditional Access Systems (CAS) and DRM controllers."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2001–2005",
+          "era": "Founding & 2T Inception",
+          "theme": "XPM Core Patents Granted",
+          "summary": "Formulated controlled core gate oxide breakdown in standard CMOS, establishing foundational 2T antifuse patent barriers.",
+          "nodes": "0.18µm / 0.13µm",
+          "keyPatents": "US6777766B2, US6992925B2"
+        },
+        {
+          "period": "2006–2010",
+          "era": "Gusto High Density & SecretCode Security",
+          "theme": "Split-Well Architecture Breakthrough",
+          "summary": "Solved large-array half-select disturb, scaling into 65nm/40nm and opening premium Pay-TV security markets.",
+          "nodes": "65nm / 40nm",
+          "keyPatents": "US7643333B2"
+        },
+        {
+          "period": "2011–2017",
+          "era": "Advanced Nodes & Legal Confrontation",
+          "theme": "Scaling to 28nm/20nm HKMG",
+          "summary": "Engaged in landmark 1T vs 2T patent litigation against Sidense, defining the technological patent boundaries of embedded antifuse.",
+          "nodes": "28nm HKMG / 20nm",
+          "keyPatents": "US8130541B2"
+        },
+        {
+          "period": "2018–2026",
+          "era": "Synopsys Acquisition & Integration",
+          "theme": "DesignWare Portfolio Integration",
+          "summary": "Synopsys completed acquisition of Kilopass, consolidating XPM and SecretCode into the DesignWare OTP portfolio.",
+          "nodes": "28nm and below mature support",
+          "keyPatents": "Synopsys DesignWare integration"
+        }
+      ]
+    },
+    {
+      "id": "sidense",
+      "name": "Sidense Corporation (Acquired by Synopsys in 2017)",
+      "shortName": "Sidense (Synopsys)",
+      "headquarters": "Ottawa, Ontario, Canada",
+      "founded": "2004 (Acquired by Synopsys in 2017)",
+      "founders": "Wlodek Kurjanowicz and R&D Engineering Team",
+      "businessModel": "Standard CMOS Single-Transistor Split-Channel 1T-Fuse Antifuse IP Licensing (1T Split-Channel Antifuse OTP IP)",
+      "patentStats": {
+        "totalGrantedWorldwide": "100+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Canada (CIPO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
+        "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS)",
+        "waferShipment": "Over 500 commercial production tape-outs, tens of billions of silicon units shipped"
+      },
+      "strategy": "The core of Sidense's patent portfolio was the invention of the 'Single-Transistor Split-Channel Antifuse (1T-Fuse)'. Whereas Kilopass required two transistors in series, Sidense crafted an asymmetric split-channel underneath a single polysilicon gate: one section functioning as a thick-oxide/high-threshold access channel switch, and the adjacent section acting as a thin-oxide breakdown node. This innovation eliminated the separate access transistor, reducing cell area by over 50% compared to 2T cells. Combined with asymmetric lightly doped drain (LDD) masking and differential ultra-low-voltage sensing patents, Sidense eradicated read disturb and filament self-healing, becoming one of the foundry ecosystem's premier 1T OTP architectures.",
+      "families": [
+        {
+          "id": "sidense-1tfuse-family",
+          "name": "1T-Fuse™ Split-Channel Single-Transistor Antifuse Patent Family",
+          "tagline": "Single Polysilicon Gate · Split-Channel Asymmetric Breakdown · Ultra-Compact Cell Area",
+          "technologyType": "1T Antifuse OTP (Single-Transistor One-Time Programmable)",
+          "cellTopology": "1T Split-Channel (Single Gate spanning dual channel regions with single BL diffusion)",
+          "physicalMechanism": "Electric field concentrates at breakdown edge during high-voltage write to induce localized conductive filament in thin oxide; access channel provides natural cutoff barrier during read",
+          "processNode": "180nm down to 16nm / 7nm FinFET",
+          "summary": "A landmark milestone in OTP silicon miniaturization. By combining access gating and antifuse storage into a single transistor without secondary gates or external capacitors, Sidense achieved the smallest standard logic OTP cell area in the industry. Its asymmetric channel design ensures unprogrammed cutoff leakage below 10pA and robust ohmic conductivity once written, delivering unmatched density for advanced logic nodes.",
+          "patents": [
+            {
+              "id": "US7402855B2",
+              "title": "Non-volatile memory cell with split channel and method of operation",
+              "grantDate": "2008-07-22",
+              "priorityDate": "2005-09-02",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US7402855B2/en",
+              "coreProblem": "Conventional 2T antifuse cells are bulky and require two separate polysilicon gates with complex interconnect routing, hindering code storage scaling in embedded SoCs.",
+              "mechanism": "Arranges a single polysilicon gate over a single active region split into two channel regions of differing threshold voltages: a high-Vt access switch region and a low-Vt antifuse breakdown region adjacent to the bit line diffusion. Writing applies high voltage across the breakdown segment while read mode operates the switch segment under controlled conduction.",
+              "claimFocus": "Claim 1 claims a 1T antifuse cell structure having a single polysilicon gate spanning a split channel, a single diffusion bit line contact, and no separate access transistor.",
+              "productLink": "Sidense 1T-Fuse™ (SLP - Small Low Power) flagship licensed IP, the industry standard benchmark for 1T antifuse."
+            },
+            {
+              "id": "US7880216B2",
+              "title": "Single transistor antifuse memory cell with asymmetric diffusion junction",
+              "grantDate": "2011-02-01",
+              "priorityDate": "2007-06-29",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US7880216B2/en",
+              "coreProblem": "Under extreme automotive temperatures above 150°C, 1T antifuse junctions suffer severe band-to-band tunneling (BTBT) and gate-induced drain leakage (GIDL), degrading read SNR.",
+              "mechanism": "Employs an asymmetric lightly doped drain (LDD) masking structure: enhances localized lateral field at the breakdown end for uniform filament formation, while reducing doping at the bitline diffusion to suppress high-temperature junction leakage, maintaining read margins above 100nA.",
+              "claimFocus": "Claim 1 claims an asymmetric source/drain doping profile and single-ended diffusion sensing 1T antifuse structure for high-temperature reliability.",
+              "productLink": "1T-ULP ultra-low-power automotive Grade-1 OTP array architecture."
+            },
+            {
+              "id": "US8325516B2",
+              "title": "Safe low voltage sensing method for single transistor antifuse arrays",
+              "grantDate": "2012-12-04",
+              "priorityDate": "2009-03-31",
+              "inventors": "Wlodek Kurjanowicz, Valery Likhachev",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US8325516B2/en",
+              "coreProblem": "Over billions of read cycles, sub-nanometer filament paths risk re-oxidation self-healing or unintended secondary breakdown in unprogrammed cells under sustained read voltage stress.",
+              "mechanism": "Introduces a differential high-speed pulsed sensing scheme with pulse widths under 10ns and bias constrained below 0.9V. Sense amplifiers perform microampere differential comparisons, bringing read disturb failure rates down to 0 FIT.",
+              "claimFocus": "Claim 1 claims a non-disturbing sensing method for 1T arrays using read voltages below 1.0V, pulse widths below 15ns, and dynamic precharge-discharge cycles.",
+              "productLink": "Synopsys DesignWare 1T-OTP core sensing and control architecture."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2004–2008",
+          "era": "1T-Fuse Invention & Commercial Launch",
+          "theme": "Split-Channel Foundational Patents Granted",
+          "summary": "Pioneered single-transistor split-channel antifuse, cutting area by >50% versus 2T and securing cornerstone patent protection.",
+          "nodes": "180nm / 130nm / 90nm",
+          "keyPatents": "US7402855B2"
+        },
+        {
+          "period": "2009–2014",
+          "era": "Expansion into 28nm HKMG & FinFET",
+          "theme": "Asymmetric LDD & Automotive High-Temp",
+          "summary": "Mitigated GIDL leakage and high-temperature drift, qualifying across TSMC, UMC, and GF foundry PDKs.",
+          "nodes": "40nm / 28nm HKMG / 16nm",
+          "keyPatents": "US7880216B2, US8325516B2"
+        },
+        {
+          "period": "2015–2017",
+          "era": "Patent Vindication & Synopsys Acquisition",
+          "theme": "Definitive 1T Antifuse Legal Validation",
+          "summary": "Secured final non-infringement verdict in long-standing Kilopass litigation, followed by full acquisition by Synopsys.",
+          "nodes": "16nm / 7nm FinFET",
+          "keyPatents": "US8804443B2"
+        },
+        {
+          "period": "2018–2026",
+          "era": "Synopsys DesignWare Flagship Era",
+          "theme": "Industry Mainstream 1T-OTP Standard",
+          "summary": "Integrated into Synopsys DesignWare OTP, serving as the dominant antifuse solution in advanced compute and automotive SoCs.",
+          "nodes": "7nm / 5nm / 3nm FinFET",
+          "keyPatents": "DesignWare 1T-Fuse series"
+        }
+      ]
+    },
+    {
+      "id": "ymc",
+      "name": "Yield Microelectronics Corp. (YMC)",
+      "shortName": "YMC",
+      "headquarters": "Zhubei City, Hsinchu County, Taiwan",
+      "founded": "2000",
+      "founders": "Hsi-Pin Kuo, Ching-Yuan Lin, and R&D Engineering Team",
+      "businessModel": "Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services",
+      "patentStats": {
+        "totalGrantedWorldwide": "100+ Worldwide Granted Patents",
+        "keyJurisdictions": "Taiwan (TIPO), United States (USPTO), China (CNIPA)",
+        "foundryCoverage": "UMC, SMIC, Vanguard (VIS), HHGrace, DB HiTek",
+        "waferShipment": "Hundreds of mass-produced commercial tape-outs, cumulative volume exceeding tens of billions of chips"
+      },
+      "strategy": "The core of Yield Microelectronics Corp. (YMC)'s patent portfolio centers on 'Ultra-High-Density Single-Poly MTP Architectures' and 'Corner-Edge Enhanced Localized Tunneling'. Conventional single-poly MTP cells require large footprints (50–100 F²) to achieve adequate capacitive coupling. YMC's patent network utilizes lateral coplanar coupling and corner-tip electric field enhancement, delivering 0-mask MTP cells below 30 F² in standard CMOS logic with 1,000 to 10,000 write/erase cycles. This creates an unassailable patent moat across MCUs, automotive display drivers, and power management ICs.",
+      "families": [
+        {
+          "id": "ymc-mtp-family",
+          "name": "YMC High-Density Coplanar Single-Poly MTP Patent Family",
+          "tagline": "Single-Poly Logic · Corner Electric Field Enhanced Erase · 0-Mask High-Density MTP",
+          "technologyType": "MTP (Multiple-Time Programmable)",
+          "cellTopology": "Single-Poly Interdigitated (Interdigitated Coplanar Coupling Cell)",
+          "physicalMechanism": "Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission",
+          "processNode": "0.35µm down to 55nm / 40nm Standard Logic and High-Voltage BCD",
+          "summary": "Cost-effective MTP technology tailored for mature logic and analog BCD processes. By innovating interdigitated polysilicon layouts, horizontal coupling area between floating gate and control gate is dramatically increased without extra masks, while corner electric field concentration reduces erase voltage, achieving 10K endurance.",
+          "patents": [
+            {
+              "id": "US7835188B2",
+              "title": "Multiple time programmable non-volatile memory cell structure and method for fabricating the same",
+              "grantDate": "2010-11-16",
+              "priorityDate": "2007-07-27",
+              "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+              "assignee": "Yield Microelectronics Corp.",
+              "url": "https://patents.google.com/patent/US7835188B2/en",
+              "coreProblem": "Single-poly MTP cells traditionally suffer from low capacitive coupling ratios, forcing large silicon cell areas that restrict adoption in cost-sensitive MCUs.",
+              "mechanism": "Constructs interdigitated coplanar lateral coupling capacitors in a single polysilicon layer, utilizing surrounding inter-dielectric layers to form dense horizontal coupling, raising coupling ratios above 0.75 and shrinking cell size to 25–35 F².",
+              "claimFocus": "Claim 1 claims a single-poly coplanar interdigitated coupling electrode and 0-mask adder logic manufacturing method.",
+              "productLink": "YMC 1K/10K flagship MTP product line, widely embedded for firmware code in general-purpose 8-bit/32-bit MCUs."
+            },
+            {
+              "id": "US8184485B2",
+              "title": "Non-volatile memory cell with enhanced erase efficiency and operating method thereof",
+              "grantDate": "2012-05-22",
+              "priorityDate": "2009-08-25",
+              "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+              "assignee": "Yield Microelectronics Corp.",
+              "url": "https://patents.google.com/patent/US8184485B2/en",
+              "coreProblem": "Tunnel oxide accumulates interface trap charges after repeated cycling, slowing erase speeds and causing threshold voltage drift.",
+              "mechanism": "Exploits polysilicon geometric corner tips to induce sharp field emission tunneling, generating 3x higher tunneling current density at equivalent applied voltages, cutting erase duration by 60% and extending endurance to 10,000 cycles.",
+              "claimFocus": "Claim 1 specifies bias conditions for localized corner-tip tunneling erase utilizing polysilicon geometric corners.",
+              "productLink": "High-endurance YMC Automotive Grade-1 MTP macros."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2000–2006",
+          "era": "Inception & Single-Poly R&D",
+          "theme": "Coplanar Coupling Architecture Breakthrough",
+          "summary": "Overcame single-poly coupling limitations, securing inaugural 0-mask MTP patents.",
+          "nodes": "0.35µm / 0.25µm",
+          "keyPatents": "US7835188B2"
+        },
+        {
+          "period": "2007–2013",
+          "era": "Foundry Mass Production Proliferation",
+          "theme": "Edge Erase & 10K Endurance",
+          "summary": "Qualified across SMIC, UMC, VIS, and HHGrace, becoming a vital MTP supplier in Greater China foundries.",
+          "nodes": "0.18µm / 0.15µm / 0.11µm",
+          "keyPatents": "US8184485B2"
+        },
+        {
+          "period": "2014–2026",
+          "era": "BCD High Voltage & Advanced Scaling",
+          "theme": "Automotive PMIC & 55nm/40nm Scaling",
+          "summary": "Expanded into automotive high-voltage BCD with -40°C to 150°C wide-temperature trimming, scaling to 40nm logic.",
+          "nodes": "55nm / 40nm BCD",
+          "keyPatents": "YMC BCD MTP Series"
+        }
+      ]
+    },
+    {
+      "id": "impinj-aeon",
+      "name": "Impinj / Virage Logic / Synopsys (AEON®)",
+      "shortName": "AEON (Synopsys)",
+      "headquarters": "Seattle, WA / Mountain View, CA, USA",
+      "founded": "2000 (Impinj founded; NVM division acquired by Virage Logic in 2008; Virage acquired by Synopsys in 2010)",
+      "founders": "Dr. Chris Diorio (Carnegie Mellon Professor / Impinj Co-founder) and R&D Team",
+      "businessModel": "Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP",
+      "patentStats": {
+        "totalGrantedWorldwide": "80+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Europe (EPO), Japan (JPO), Taiwan (TIPO)",
+        "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC",
+        "waferShipment": "Billions of passive RFID tags and ultra-low-power IoT chips shipped"
+      },
+      "strategy": "The core of AEON's patent strategy pioneered 'Ultra-Low-Power Bidirectional Balanced Fowler-Nordheim (FN/FN) Tunneling'. Unlike traditional Channel Hot Electron Injection (CHEI) programming which demands milliamperes of DC channel current, AEON relies on a symmetric dual-well capacitive-coupled floating-gate architecture. Both program and erase depend solely on displacement currents tunneling through the quantum energy barrier (<100pA). This breakthrough enabled MTP to be written reliably on battery-free passive RFID chips powered exclusively by ambient RF waves, subsequently scaled by Virage Logic and Synopsys into the gold standard for ULP IoT MCUs.",
+      "families": [
+        {
+          "id": "aeon-fnfn-family",
+          "name": "AEON® Pure FN-Tunneling Ultra-Low-Power MTP Patent Family",
+          "tagline": "Standard Logic Single-Poly · Bidirectional FN/FN Tunneling · Picoampere Zero-Channel Write Current",
+          "technologyType": "Ultra-Low Power MTP (Multiple-Time Programmable)",
+          "cellTopology": "Dual-Well Balanced Single-Poly (Symmetric Dual-Well Single-Poly Balanced Cell)",
+          "physicalMechanism": "Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write",
+          "processNode": "0.18µm / 0.13µm / 90nm / 65nm / 40nm / 28nm",
+          "summary": "A landmark invention in green IoT and RFID. Symmetrical dual-well capacitive coupling reduces write energy by over 1,000x compared to conventional floating gates, enabling miniature on-chip charge pumps to cycle hundreds of times under passive RF energy harvesting constraints.",
+          "patents": [
+            {
+              "id": "US6166953A",
+              "title": "Nonvolatile memory cell with balanced capacitive coupling and method of operation",
+              "grantDate": "2000-12-26",
+              "priorityDate": "1999-04-30",
+              "inventors": "Chris Diorio, Christopher J. Todd",
+              "assignee": "Impinj, Inc.",
+              "url": "https://patents.google.com/patent/US6166953A/en",
+              "coreProblem": "Passive RFID tags have zero batteries; conventional EEPROM write currents of several milliamperes collapse antenna RF rectifier voltages, terminating communication.",
+              "mechanism": "Features a symmetric dual-well capacitive-coupling architecture with floating gate spanning two independent diffusion wells. Program and erase apply symmetric electric fields inducing pure quantum FN tunneling without impact ionization, consuming zero DC channel current.",
+              "claimFocus": "Claim 1 claims a symmetric dual-well capacitive coupled floating-gate structure and bidirectional full FN tunneling operating method devoid of DC channel current.",
+              "productLink": "Core AEON® IP powering billions of Impinj Monza series RFID tag ICs worldwide."
+            },
+            {
+              "id": "US6388918B1",
+              "title": "Ultralow-power nonvolatile memory and low-current programming method",
+              "grantDate": "2002-05-14",
+              "priorityDate": "2000-06-20",
+              "inventors": "Chris Diorio, Troy Brand",
+              "assignee": "Impinj, Inc.",
+              "url": "https://patents.google.com/patent/US6388918B1/en",
+              "coreProblem": "On-chip charge pumps exhibit poor efficiency under faint RF inputs. How can parallel multi-bit programming be achieved with microampere total power budgets?",
+              "mechanism": "Utilizes stepped micro-pulse voltage ramps combined with pure tunneling high-impedance characteristics, reducing memory macro write power to microwatt levels at 1.2V core supply.",
+              "claimFocus": "Claim 1 claims a low-power nonvolatile storage architecture driven by on-chip charge pumps via pure tunneling injection.",
+              "productLink": "Synopsys DesignWare AEON MTP ULP standard product library."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "1999–2004",
+          "era": "Impinj Inception & RFID Revolution",
+          "theme": "FN/FN Tunneling Patent Genesis",
+          "summary": "Prof. Diorio's team formulated zero-channel-current floating-gate tunneling, establishing core IP for passive RFID.",
+          "nodes": "0.25µm / 0.18µm",
+          "keyPatents": "US6166953A, US6388918B1"
+        },
+        {
+          "period": "2005–2008",
+          "era": "AEON Commercial Licensing & Spin-Off",
+          "theme": "Expansion into IoT MCUs",
+          "summary": "AEON emerged as a standalone logic NVM IP brand, acquired by IP giant Virage Logic in 2008.",
+          "nodes": "0.13µm / 90nm / 65nm",
+          "keyPatents": "SEC acquisition filings"
+        },
+        {
+          "period": "2009–2017",
+          "era": "Virage Integration into Synopsys",
+          "theme": "Consolidation into DesignWare",
+          "summary": "Synopsys acquired Virage Logic in 2010, establishing AEON as the premier DesignWare AEON MTP ULP product line.",
+          "nodes": "55nm / 40nm / 28nm",
+          "keyPatents": "DesignWare AEON ULP"
+        },
+        {
+          "period": "2018–2026",
+          "era": "Continued Service in Ultra-Low-Leakage Nodes",
+          "theme": "Standard for ULL/ULP Platforms",
+          "summary": "Maintains active production licensing on TSMC, UMC, and GF ultra-low-leakage (ULL/ULP) nodes worldwide.",
+          "nodes": "22ULL / 28HPC+ qualified",
+          "keyPatents": "Synopsys ULP MTP portfolio"
+        }
+      ]
+    },
+    {
+      "id": "attopsemi",
+      "name": "Attopsemi Technology Inc.",
+      "shortName": "Attopsemi",
+      "headquarters": "Zhubei City, Hsinchu County, Taiwan",
+      "founded": "2010",
+      "founders": "Dr. Shine C. Chung (Former TSMC Senior Director of NVM R&D) and Engineering Team",
+      "businessModel": "Thermal-Assisted Controlled Electromigration Fuse (I-fuse®) Logic OTP IP Licensing & Design Services",
+      "patentStats": {
+        "totalGrantedWorldwide": "70+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO), Japan (JPO)",
+        "foundryCoverage": "TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor",
+        "waferShipment": "Hundreds of automotive and IoT customer tape-outs, billions of units shipped"
+      },
+      "strategy": "Attopsemi's patent portfolio pioneered the 'Non-Explosive Thermal-Assisted Electromigration Fuse (I-fuse®)'. Conventional eFuses rely on high-current thermal runaway explosions during programming, fracturing passivation layers, producing conductive debris, and risking post-burn re-growth. Antifuse technologies face dielectric breakdown uniformity challenges. Dr. Shine Chung invented a mechanism operating in 'Sub-Thermal Runaway' conditions, where precisely controlled electron wind forces drive mass transport of polysilicon or metal atoms to form a permanent, irreversible ohmic open state. This invention delivers 0-mask integration, ultra-low programming voltage/current, and exceptional tolerance from -40°C to 175°C automotive extremes across 0.35µm down to 2nm GAA nodes.",
+      "families": [
+        {
+          "id": "attopsemi-ifuse-family",
+          "name": "I-fuse® Non-Explosive Electromigration High-Reliability Fuse Patent Family",
+          "tagline": "Sub-Thermal Runaway · Controlled Electromigration Mass Transport · -40°C to 175°C Automotive Extremes",
+          "technologyType": "Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)",
+          "cellTopology": "1T/1D + I-fuse Element (Standard Transistor or Diode + Nanoscale Poly/Metal Fuse Link)",
+          "physicalMechanism": "Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation",
+          "processNode": "0.35µm down to 3nm / 2nm GAA across all nodes",
+          "summary": "Revolutionary patent family in automotive and IoT security. Replacing catastrophic thermal explosion with solid-state electromigration creates a permanent high-resistance state, eliminating eFuse re-growth defects and ultra-thin gate oxide leakage limits, delivering 0 FIT failure rates and century-scale data retention.",
+          "patents": [
+            {
+              "id": "US9165979B2",
+              "title": "Programmable resistive device using electromigration and method of operating the same",
+              "grantDate": "2015-10-20",
+              "priorityDate": "2012-07-26",
+              "inventors": "Shine C. Chung",
+              "assignee": "Attopsemi Technology Inc.",
+              "url": "https://patents.google.com/patent/US9165979B2/en",
+              "coreProblem": "Conventional eFuse thermal runaway exceeds 1400°C, causing passivation rupture, molten metal splatter, and recrystallization re-growth that induce severe automotive reliability failures.",
+              "mechanism": "Controls programming current density and pulse duration within a sub-thermal runaway thermal equilibrium regime. Pure electron wind electromigration drives solid-state mass diffusion, forming an intact, voided nano-scale open circuit without rupturing surrounding dielectric passivation.",
+              "claimFocus": "Claim 1 claims an electromigration fuse element and programming method forming an irreversible high-resistance state below thermal runaway thresholds without rupture.",
+              "productLink": "I-fuse™ flagship IP, certified to AEC-Q100 Grade-0 (-40°C to 150°C/175°C) automotive standard."
+            },
+            {
+              "id": "US9613943B2",
+              "title": "Programmable resistive memory using metal gate and contact plug electromigration",
+              "grantDate": "2017-04-04",
+              "priorityDate": "2015-05-08",
+              "inventors": "Shine C. Chung",
+              "assignee": "Attopsemi Technology Inc.",
+              "url": "https://patents.google.com/patent/US9613943B2/en",
+              "coreProblem": "Advanced HKMG, FinFET, and GAA nodes lack traditional polysilicon layers. How can advanced metal gates and micro-contacts be shared directly for 0-mask OTP?",
+              "mechanism": "Establishes the electromigration path directly within advanced metal gate materials (TiN, TaN, or tungsten/copper contact plugs), utilizing nanoscale electromigration to achieve seamless scaling to 7nm/5nm/3nm/2nm.",
+              "claimFocus": "Claim 1 claims a programmable resistive memory device utilizing metal electromigration in advanced metal gates and conductive vias.",
+              "productLink": "Advanced FinFET/GAA I-fuse solution for AI processor secure root ID and repair."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2010–2014",
+          "era": "Inception & Physical Modeling",
+          "theme": "I-fuse Electromigration Concept Born",
+          "summary": "Dr. Shine Chung founded Attopsemi, modeling sub-thermal runaway electromigration and filing core patents.",
+          "nodes": "0.18µm / 0.15µm",
+          "keyPatents": "US9165979B2"
+        },
+        {
+          "period": "2015–2018",
+          "era": "Automotive Qualification & Foundry Rollout",
+          "theme": "AEC-Q100 Grade-0 Certification",
+          "summary": "Established PDKs at TSMC, UMC, and VIS, passing 175°C automotive qualification with zero burst defects.",
+          "nodes": "0.11µm / 55nm / 40nm",
+          "keyPatents": "US9613943B2"
+        },
+        {
+          "period": "2019–2026",
+          "era": "Advanced FinFET & GAA Scaling",
+          "theme": "Scaling into 7nm/5nm/3nm/2nm Angstrom Era",
+          "summary": "Expanded metal electromigration into FinFET and GAA nodes, joining TSMC OIP as a key OTP ecosystem partner.",
+          "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
+          "keyPatents": "Advanced metal electromigration series"
+        }
+      ]
+    },
+    {
+      "id": "floadia",
+      "name": "Floadia Corporation",
+      "shortName": "Floadia",
+      "headquarters": "Kodaira, Tokyo, Japan",
+      "founded": "2011",
+      "founders": "Kosuke Okuyama and former Renesas Memory R&D Team",
+      "businessModel": "Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing",
+      "patentStats": {
+        "totalGrantedWorldwide": "90+ Worldwide Granted Patents",
+        "keyJurisdictions": "Japan (JPO), United States (USPTO), Taiwan (TIPO), China (CNIPA)",
+        "foundryCoverage": "TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek",
+        "waferShipment": "Deployed across automotive MCUs and edge AI analog computing processors"
+      },
+      "strategy": "The core of Floadia's patent strategy encompasses 'Zero-Mask Floating-Gate MTP (LEE Flash ZT)' and 'Ultra-Low-Mask Split-Gate Charge-Trap SONOS (LEE Flash G1/G2)'. Founded by senior Hitachi/Renesas memory engineers, Floadia focused on dismantling the 8–12 mask adder penalty of traditional eFlash. Its ZT family employs standard logic thick gate oxide for bidirectional uniform low-field FN/FN tunneling 0-mask MTP. Its G1/G2 family integrates localized silicon nitride charge trapping into sidewall split-gates, requiring only 2–3 additional masks to deliver 175°C automotive retention and 100K endurance, scaling into ultra-low-power neuromorphic compute-in-memory (CIM) architectures.",
+      "families": [
+        {
+          "id": "floadia-zt-family",
+          "name": "LEE Flash ZT Zero-Mask Floating-Gate MTP Patent Family",
+          "tagline": "Standard CMOS 0-Mask · Bidirectional Uniform Low-Field FN Tunneling · 10,000 Endurance Cycles",
+          "technologyType": "0-Mask MTP (Zero Additional Mask Logic MTP)",
+          "cellTopology": "2T Single-Poly (Thick-Oxide Select Transistor + Floating-Gate Storage Transistor)",
+          "physicalMechanism": "Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance",
+          "processNode": "180nm / 130nm / 55nm / 40nm Standard Logic and BCD",
+          "summary": "Zero-mask MTP technology engineered for cost-effective microcontrollers and PMICs. Adds zero masks, utilizing standard I/O oxides for bidirectional tunneling to achieve 10,000 write cycles and 10-year data retention at 125°C.",
+          "patents": [
+            {
+              "id": "US9214470B2",
+              "title": "Nonvolatile semiconductor memory device fabricated by standard CMOS logic process and operating method thereof",
+              "grantDate": "2015-12-15",
+              "priorityDate": "2012-06-21",
+              "inventors": "Kosuke Okuyama",
+              "assignee": "Floadia Corp.",
+              "url": "https://patents.google.com/patent/US9214470B2/en",
+              "coreProblem": "Traditional single-poly floating gates using hot electron injection accelerate oxide degradation, capping endurance under 1,000 cycles with high programming power.",
+              "mechanism": "Constrains oxide fields below 8 MV/cm, applying bidirectional uniform FN tunneling to suppress defect generation and SILC leakage, boosting 0-mask endurance to 10,000 cycles.",
+              "claimFocus": "Claim 1 claims a single-poly memory structure and bias timing utilizing standard logic I/O oxide with uniform FN tunneling for program and erase.",
+              "productLink": "LEE Flash ZT (Zero-Mask 10K MTP), licensed to major foundries across Asia."
+            }
+          ]
+        },
+        {
+          "id": "floadia-g1g2-family",
+          "name": "LEE Flash G1/G2 Charge-Trap SONOS eFlash Patent Family",
+          "tagline": "Sidewall Split-Gate · Silicon Nitride (Si3N4) Charge Trap · Only 2–3 Mask Adders · 175°C Automotive 100K Cycles",
+          "technologyType": "Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)",
+          "cellTopology": "Split-Gate SONOS (Sidewall Split-Gate Silicon Nitride Trap Cell)",
+          "physicalMechanism": "Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress",
+          "processNode": "55nm / 40nm / 28nm Automotive and Advanced Nodes",
+          "summary": "Automotive-grade high-reliability embedded flash. Unlike traditional SST eFlash requiring substantial mask additions, Floadia integrates SONOS into a sidewall split-gate requiring only 2–3 mask adders. Dispersed trap storage provides outstanding radiation hardness, SILC immunity, and 175°C data retention.",
+          "patents": [
+            {
+              "id": "US9847343B2",
+              "title": "Charge trap memory cell with embedded SONOS structure and integrated fabrication method",
+              "grantDate": "2017-12-19",
+              "priorityDate": "2014-07-29",
+              "inventors": "Kosuke Okuyama, Shintaro Kume",
+              "assignee": "Floadia Corp.",
+              "url": "https://patents.google.com/patent/US9847343B2/en",
+              "coreProblem": "Automotive eFlash requires excessive mask additions (typically 6–10 masks), inflating wafer costs at 40nm/28nm, while floating gates risk full charge loss through single oxide defects at 175°C.",
+              "mechanism": "Uses sidewall split-gate processing to form ultra-thin ONO dielectric stacks beside switching transistors, trapping charge in silicon nitride films with only 2–3 additional masks.",
+              "claimFocus": "Claim 1 claims a sidewall split-gate charge-trap structure with low mask adders and symmetric FN tunneling manufacturing process.",
+              "productLink": "LEE Flash G1/G2, adopted by leading automotive semiconductor manufacturers in Japan and worldwide."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2011–2015",
+          "era": "Inception & LEE Flash ZT Breakthrough",
+          "theme": "Zero-Mask 10K MTP Patents Granted",
+          "summary": "Former Renesas engineers established Floadia, creating bidirectional uniform FN tunneling 0-mask MTP IP.",
+          "nodes": "0.18µm / 0.13µm",
+          "keyPatents": "US9214470B2"
+        },
+        {
+          "period": "2016–2020",
+          "era": "LEE Flash G1/G2 Automotive Milestone",
+          "theme": "Low-Mask SONOS & 175°C Qualification",
+          "summary": "Unveiled split-gate SONOS eFlash requiring only 2–3 masks, qualifying 100K endurance and 175°C automotive retention.",
+          "nodes": "55nm / 40nm BCD",
+          "keyPatents": "US9847343B2"
+        },
+        {
+          "period": "2021–2026",
+          "era": "Analog CIM Compute-in-Memory Scaling",
+          "theme": "Scaling to 28nm & Edge AI Analog Compute",
+          "summary": "Extended ultra-low-leakage SONOS charge traps to compute-in-memory (CIM), enabling high-precision edge AI neural inference.",
+          "nodes": "40nm / 28nm",
+          "keyPatents": "Floadia Analog AI Patent Series"
+        }
+      ]
+    },
+    {
+      "id": "sst",
+      "name": "Silicon Storage Technology, Inc. (SST / Microchip Technology)",
+      "shortName": "SST (Microchip)",
+      "headquarters": "San Jose, California, USA",
+      "founded": "1989 (Acquired by Microchip Technology in 2010)",
+      "founders": "Bing Yeh and R&D Engineering Team",
+      "businessModel": "Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer",
+      "patentStats": {
+        "totalGrantedWorldwide": "400+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), Europe (EPO), Japan (JPO), China (CNIPA)",
+        "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, HHGrace",
+        "waferShipment": "Over 100 billion cumulative SuperFlash commercial units shipped worldwide"
+      },
+      "strategy": "The cornerstone of SST (SuperFlash®)'s patent strategy was the invention of the 'Split-Gate Flash Memory Cell Architecture' evolving into the 'Independent Erase Gate ESF3 Generation'. Conventional 1T stacked-gate flash memories risk 'Over-Erase', turning cells into depletion mode and paralyzing bitlines. Bing Yeh's split-gate invention extends the control gate over a portion of the silicon channel to serve as an integrated select switch, eliminating over-erase risks. The 3rd generation (ESF3) added dedicated erase gates (EG) and coupling gates (CG), utilizing sharp floating-gate poly tips for localized high-field tunneling. This achieved microsecond-speed erase, low write energy, and 100K automotive endurance, becoming the dominant embedded flash architecture across global foundries.",
+      "families": [
+        {
+          "id": "sst-superflash-family",
+          "name": "SuperFlash® Split-Gate eFlash Patent Family",
+          "tagline": "Split-Gate · Tip Field-Emission Tunneling Erase · Over-Erase Immunity · 1.5T Architecture",
+          "technologyType": "Split-Gate eFlash (Split-Gate Embedded Flash Memory)",
+          "cellTopology": "ESF1 (1T Control/Floating shared channel) / ESF3 (1.5T with Erase Gate EG, Coupling Gate CG, Select Gate SG)",
+          "physicalMechanism": "Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG)",
+          "processNode": "0.5µm down to 28nm HKMG across global foundry platforms",
+          "summary": "Classic patent architecture dominating automotive and microcontroller embedded flash for three decades. From ESF1 establishing over-erase immunity to ESF3 introducing dedicated erase gates and Source-Side Injection (SSI), write efficiency increased by 3 orders of magnitude while erase time dropped to milliseconds, offering 100K cycles and 20-year retention.",
+          "patents": [
+            {
+              "id": "US5029130A",
+              "title": "Flash EPROM memory cell with split gate structure and method of operating the same",
+              "grantDate": "1991-07-02",
+              "priorityDate": "1989-08-07",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US5029130A/en",
+              "coreProblem": "Conventional stacked-gate flash memory cells risk over-erase: extracting excessive electrons turns floating-gate transistors into depletion mode, causing massive bitline leakage.",
+              "mechanism": "Foundational split-gate patent. The control gate extends laterally over a portion of the channel while the floating gate covers another portion. Even if the floating gate becomes depleted, the adjacent control gate channel segment can be fully turned off, permanently eliminating over-erase hazards.",
+              "claimFocus": "Claim 1 claims a split-gate structure where the control gate covers a portion of the channel surface as a select switch and another portion covers the floating gate.",
+              "productLink": "SuperFlash® ESF1, laying the patent foundation for split-gate flash worldwide."
+            },
+            {
+              "id": "US6747310B2",
+              "title": "Split-gate flash memory cell with separate erase gate and source-side injection",
+              "grantDate": "2004-06-08",
+              "priorityDate": "2002-04-18",
+              "inventors": "Xian Liu, Binh Nguyen, Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US6747310B2/en",
+              "coreProblem": "Conventional split-gate erase to the control gate requires high voltages, limiting scaling while write currents remain substantial.",
+              "mechanism": "Core patent for 3rd generation SuperFlash (ESF3). Configures dedicated Erase Gate (EG) and Coupling Gate (CG) in a 1.5T cell. Sharp polysilicon tips on the floating gate concentrate electric fields toward the EG, lowering erase voltages, while Source-Side Injection (SSI) boosts injection efficiency 1,000x over conventional CHEI.",
+              "claimFocus": "Claim 1 claims a four-gate 1.5T split-gate structure comprising select gate, coupling gate, floating gate, and dedicated erase gate with tip tunneling erase.",
+              "productLink": "SuperFlash® ESF3, qualified at TSMC 40nm/28nm, UMC 55nm/40nm, GF 55nm automotive platforms."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "1989–1995",
+          "era": "SuperFlash Invention & Founding",
+          "theme": "Split-Gate ESF1 Inception",
+          "summary": "Bing Yeh formulated over-erase immune split-gate cells, resolving flash memory's core physical vulnerability.",
+          "nodes": "0.5µm / 0.35µm",
+          "keyPatents": "US5029130A"
+        },
+        {
+          "period": "1996–2005",
+          "era": "ESF2/ESF3 Evolution & Foundry Alliance",
+          "theme": "Dedicated Erase Gate EG & Source-Side Injection SSI",
+          "summary": "Unveiled ESF3 architecture, accelerating erase speeds by 1,000x and licensing TSMC, UMC, and Sanyo.",
+          "nodes": "0.25µm / 0.18µm / 90nm",
+          "keyPatents": "US6747310B2"
+        },
+        {
+          "period": "2006–2010",
+          "era": "Microchip Acquisition & Integration",
+          "theme": "Global MCU eFlash Dominance",
+          "summary": "Microchip completed $300M acquisition of SST, solidifying SuperFlash as the core advantage for PIC/AVR MCUs.",
+          "nodes": "65nm / 55nm",
+          "keyPatents": "Microchip Integration Series"
+        },
+        {
+          "period": "2011–2026",
+          "era": "Automotive 28nm HKMG & Neuromorphic CIM",
+          "theme": "Advanced Node Mass Production & memBrain™ Analog AI",
+          "summary": "Scaled SuperFlash to 28nm HKMG automotive volume production and launched memBrain™ analog AI compute IP.",
+          "nodes": "40nm / 28nm HKMG",
+          "keyPatents": "memBrain Analog AI Series"
+        }
+      ]
+    },
+    {
+      "id": "everspin",
+      "name": "Everspin Technologies, Inc.",
+      "shortName": "Everspin",
+      "headquarters": "Chandler, Arizona, USA",
+      "founded": "2008 (Spun off from Motorola / Freescale Semiconductor)",
+      "founders": "Leonid Savtchenko, Saied Tehrani, Brad Engel, and Motorola MRAM Team",
+      "businessModel": "Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing",
+      "patentStats": {
+        "totalGrantedWorldwide": "600+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Europe (EPO), Japan (JPO), Taiwan (TIPO), China (CNIPA)",
+        "foundryCoverage": "GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab",
+        "waferShipment": "Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history"
+      },
+      "strategy": "Everspin's patent portfolio pioneered 'Savtchenko Toggle MRAM' and guided the evolution into 'Perpendicular Magnetic Anisotropy Spin-Torque Transfer (pMTJ STT-MRAM)'. Early field-switched MRAM suffered severe half-select disturb. Dr. Savtchenko invented Toggle switching using Synthetic Antiferromagnet (SAF) free layers and orthogonal pulse timing, achieving the world's first commercial MRAM. As nodes scaled, Everspin established patents across high thermal stability perpendicular magnetic tunnel junctions (pMTJ), heavy-metal spin-orbit torque interfaces, and high-density DDR/xSPI architectures, securing a comprehensive patent moat from aerospace radiation environments and datacenter power-loss protection (PLP) to 22nm foundry eMRAM.",
+      "families": [
+        {
+          "id": "everspin-toggle-family",
+          "name": "Toggle MRAM Synthetic Antiferromagnet Switching Patent Family",
+          "tagline": "Synthetic Antiferromagnet (SAF) · Savtchenko Dual-Pulse Rotation · Immune to Half-Select · Unlimited Endurance (10¹⁴)",
+          "technologyType": "Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)",
+          "cellTopology": "1T-1MTJ (Synthetic Antiferromagnet Cell at dual current line intersection)",
+          "physicalMechanism": "Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch",
+          "processNode": "0.18µm / 0.13µm / 90nm Specialty BEOL Magnetic Process",
+          "summary": "Landmark patent establishing the commercial viability of MRAM. Eradicated first-generation MRAM vulnerabilities to stray magnetic field disturb, providing infinite 10¹⁴ endurance, >20-year retention, and radiation hardness for aerospace and critical industrial automation.",
+          "patents": [
+            {
+              "id": "US6545906B1",
+              "title": "Method of writing to a magnetic random access memory using rotating magnetic fields",
+              "grantDate": "2003-04-08",
+              "priorityDate": "2001-11-21",
+              "inventors": "Leonid Savtchenko",
+              "assignee": "Motorola, Inc. (Assigned to Everspin Technologies, Inc.)",
+              "url": "https://patents.google.com/patent/US6545906B1/en",
+              "coreProblem": "Conventional Stoner-Wohlfarth field switching exhibits wide astroid curves, making half-selected cells highly susceptible to unintended data flipping.",
+              "mechanism": "Employs a tri-layer Synthetic Antiferromagnet (SAF: magnetic layer / non-magnetic Ru spacer / magnetic layer) free layer. Orthogonal lines fire pulses with a minor phase lag, rotating the SAF net moment 180°. Half-selected cells receive single-axis fields and spring back to their original state upon pulse termination.",
+              "claimFocus": "Claim 1 claims a method of toggle switching magnetic memory cells utilizing a synthetic antiferromagnetic free layer and sequentially applied orthogonal magnetic field pulses.",
+              "productLink": "MR2A16A / MR0A08A classic Toggle MRAM chips, embedded in satellite telemetry, flight recorders, and medical devices."
+            }
+          ]
+        },
+        {
+          "id": "everspin-stt-family",
+          "name": "STT-MRAM Perpendicular Magnetic Anisotropy (pMTJ) Patent Family",
+          "tagline": "Perpendicular Magnetic Tunnel Junction (pMTJ) · Spin-Transfer Torque (STT) · Low Critical Current (Jc) · Gigabit Densities",
+          "technologyType": "STT-MRAM (Spin-Transfer Torque Magnetic Memory)",
+          "cellTopology": "1T-1MTJ (Nanoscale Perpendicular Tunnel Junction Cell)",
+          "physicalMechanism": "Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR)",
+          "processNode": "40nm / 28nm / 22nm / 12nm Advanced Foundry Platforms",
+          "summary": "Core patent family leading MRAM into dense deep-submicron geometries. Dispensing with external write lines, interfacial perpendicular magnetic anisotropy (PMA) slashes switching current density, allowing scaling below 20nm with 1Gb density, DDR4 speeds, and battery-free datacenter power-loss protection (PLP).",
+          "patents": [
+            {
+              "id": "US7599207B2",
+              "title": "Spin transfer torque magnetic memory element with perpendicular magnetic anisotropy",
+              "grantDate": "2009-10-06",
+              "priorityDate": "2005-09-30",
+              "inventors": "Jian-Gang Zhu, Dmytro Apalkov",
+              "assignee": "Grandis, Inc. (Assigned to Everspin Technologies, Inc.)",
+              "url": "https://patents.google.com/patent/US7599207B2/en",
+              "coreProblem": "In-plane MTJs scaled below 40nm suffer severe thermal stability degradation from demagnetization fields, unable to balance 10-year retention with low switching currents.",
+              "mechanism": "Harnesses interfacial perpendicular magnetic anisotropy (PMA) at the CoFeB/MgO interface to cancel demagnetization energy loss, cutting switching current (Ic) by 80% while preserving thermal stability factor Delta > 60.",
+              "claimFocus": "Claim 1 claims a pMTJ stack comprising perpendicular free layer, dielectric tunnel barrier, and perpendicular reference layer, operated by spin-torque switching.",
+              "productLink": "Everspin 256Mb / 1Gb STT-MRAM (EMxxLX series, DDR/xSPI), widely deployed in enterprise SSD power-loss protection (PLP)."
+            },
+            {
+              "id": "US8488373B2",
+              "title": "Magnetic random access memory multilayer structure with high tunneling magnetoresistance and thermal stability",
+              "grantDate": "2013-07-16",
+              "priorityDate": "2010-06-25",
+              "inventors": "Renu Dhamdhere, Dmytro Apalkov, Sanjeev Aggarwal",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8488373B2/en",
+              "coreProblem": "Advanced back-end-of-line (BEOL) processing subjects wafers to 400°C annealing thermal budgets, causing atomic interdiffusion that degrades MgO tunneling interfaces and lowers TMR.",
+              "mechanism": "Introduces refractory diffusion barriers and multi-anneal stabilized multilayers, allowing pMTJ stacks to sustain 400°C 90-minute thermal budgets while preserving TMR read ratios exceeding 180%.",
+              "claimFocus": "Claim 1 claims a high-temperature MTJ stack withstanding 400°C BEOL thermal budget with TMR > 150%.",
+              "productLink": "GlobalFoundries 22FDX eMRAM volume production baseline qualification patent."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2001–2007",
+          "era": "Motorola R&D & Toggle Genesis",
+          "theme": "Savtchenko Toggle Patent Granted",
+          "summary": "Invented Toggle switching, unveiling the first commercial 4Mb MRAM in 2006 to inaugurate commercial MRAM.",
+          "nodes": "0.18µm Specialty Magnetic Process",
+          "keyPatents": "US6545906B1"
+        },
+        {
+          "period": "2008–2014",
+          "era": "Everspin Spin-Off & STT Breakthrough",
+          "theme": "Independence & Grandis Patent Acquisition",
+          "summary": "Spun off from Freescale, acquired Grandis perpendicular STT patents, and demonstrated first STT-MRAM samples.",
+          "nodes": "90nm / 65nm",
+          "keyPatents": "US7599207B2, US8488373B2"
+        },
+        {
+          "period": "2015–2020",
+          "era": "1Gb pMTJ & Foundry Volume Production",
+          "theme": "GF 22FDX eMRAM & 1Gb Discrete Shipments",
+          "summary": "Partnered with GlobalFoundries for 22FDX eMRAM production, shipping discrete 1Gb STT-MRAM components.",
+          "nodes": "40nm / 28nm / 22FDX",
+          "keyPatents": "US9087588B2"
+        },
+        {
+          "period": "2021–2026",
+          "era": "Industrial & Datacenter Penetration",
+          "theme": "xSPI / DDR Expansion & Automotive Grade",
+          "summary": "Launched PERSYST™ brand and high-reliability xSPI MRAM for datacenter PLP and aerospace radiation-tolerant systems.",
+          "nodes": "22nm / 12LP Process Extensions",
+          "keyPatents": "EMxxLX Product Family Series"
+        }
+      ]
+    },
+    {
+      "id": "weebit",
+      "name": "Weebit Nano Limited",
+      "shortName": "Weebit Nano",
+      "headquarters": "Hod HaSharon, Israel / Melbourne, Australia",
+      "founded": "2015",
+      "founders": "Coby Hanoch (CEO), Prof. James Tour (Rice University Nanotech Pioneer), and Engineering Team",
+      "businessModel": "Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services",
+      "patentStats": {
+        "totalGrantedWorldwide": "50+ Worldwide Granted Patents",
+        "keyJurisdictions": "United States (USPTO), Israel (ILPO), Europe (EPO), Taiwan (TIPO), China (CNIPA)",
+        "foundryCoverage": "SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification)",
+        "waferShipment": "Customer validation runs and tape-outs delivered across tier-1 and specialty foundries"
+      },
+      "strategy": "The core of Weebit Nano's patent strategy encompasses 'Standard CMOS-Compatible Silicon Oxide (SiOx / ReRAM)' and 'Adaptive Multi-Level Neuromorphic Compute-in-Memory (CIM)'. Conventional metal-oxide ReRAMs (HfOx, TaOx) often require exotic heavy metal precursors, requiring dedicated fab deposition tools with cross-contamination concerns. Collaborating with Rice University's Prof. James Tour, Weebit's patents utilize porosity-controlled standard silicon dioxide (SiOx) or standard hafnia to form conductive oxygen vacancy filaments. This delivers 100% BEOL contamination-free integration with only 2 mask adders, alongside adaptive conductance compensation patents for analog edge AI.",
+      "families": [
+        {
+          "id": "weebit-oxram-family",
+          "name": "Weebit Silicon-Oxide Resistive RAM (OxRAM) Patent Family",
+          "tagline": "Standard CMOS Oxide (SiOx/HfOx) · Nanoscale Conductive Filament · 2 BEOL Masks · Zero Contamination",
+          "technologyType": "OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)",
+          "cellTopology": "1T1R (One Select Transistor + One Nanoscale MIM Variable Resistor)",
+          "physicalMechanism": "Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS)",
+          "processNode": "130nm BCD down to 28nm / 22nm FD-SOI Advanced Nodes",
+          "summary": "Disruptive embedded non-volatile memory technology. Adding only 2 low-temperature masks in the back-end-of-line (BEOL) without altering front-end transistors, Weebit ReRAM switches in nanoseconds under sub-2V voltages with 100K endurance and 10-year retention at 150°C.",
+          "patents": [
+            {
+              "id": "US10141505B2",
+              "title": "Resistive random access memory devices using porous silicon oxide and methods of fabrication and operation",
+              "grantDate": "2018-11-27",
+              "priorityDate": "2014-06-20",
+              "inventors": "James Tour, Gunuk Wang",
+              "assignee": "Rice University (Exclusively licensed to Weebit Nano Ltd.)",
+              "url": "https://patents.google.com/patent/US10141505B2/en",
+              "coreProblem": "Conventional ReRAM requires exotic noble metal electrodes and unverified oxides, introducing fab contamination risks and inability to withstand front-end thermal budgets.",
+              "mechanism": "Employs standard semiconductor silicon dioxide (SiO2) with engineered deposition porosity to establish silicon-rich nano-channels. Reversible formation of silicon nano-filaments achieves 100% CMOS-compatible resistive switching.",
+              "claimFocus": "Claim 1 claims a resistive switching device comprising porous silicon-rich dielectric thin film disposed between conductive electrodes and bidirectional switching method.",
+              "productLink": "Core Weebit ReRAM technology, qualified for PDK availability at SkyWater 130nm and DB HiTek 130nm BCD."
+            },
+            {
+              "id": "US10580980B2",
+              "title": "Method of operating neuromorphic computing using resistive memory arrays",
+              "grantDate": "2020-03-03",
+              "priorityDate": "2017-08-31",
+              "inventors": "Amir Regev, Ishai Naveh",
+              "assignee": "Weebit Nano Ltd.",
+              "url": "https://patents.google.com/patent/US10580980B2/en",
+              "coreProblem": "In analog compute-in-memory (CIM), ReRAM conductance drifts over time and temperature, degrading vector-matrix multiplication accuracy in neural inference.",
+              "mechanism": "Implements adaptive multi-level cell (MLC) pulse compensation: senses drift with low probe currents prior to matrix multiplication and applies incremental tuning pulses to restore exact synaptic weights.",
+              "claimFocus": "Claim 1 claims a neuromorphic computing architecture executing vector-matrix multiplication with dynamic conductance calibration on multi-level ReRAM arrays.",
+              "productLink": "Weebit Neuromorphic ReRAM analog AI accelerator IP."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2015–2018",
+          "era": "Inception & Rice University Exclusive License",
+          "theme": "SiOx ReRAM Proof of Concept",
+          "summary": "Secured global exclusive license to Rice University SiOx ReRAM patents and completed CEA-Leti collaborative validation.",
+          "nodes": "Leti R&D Wafer Line",
+          "keyPatents": "US10141505B2"
+        },
+        {
+          "period": "2019–2022",
+          "era": "Foundry Commercialization & SkyWater Qualification",
+          "theme": "Automotive Reliability Qualification",
+          "summary": "Completed full-array reliability qualification on SkyWater 130nm CMOS, demonstrating 150°C retention and 100K endurance.",
+          "nodes": "SkyWater 130nm",
+          "keyPatents": "US10580980B2"
+        },
+        {
+          "period": "2023–2026",
+          "era": "DB HiTek Agreement & 22nm Scaling",
+          "theme": "BCD Foundry Volume & Neuromorphic AI",
+          "summary": "Executed volume licensing agreement with DB HiTek, advancing into 28nm/22nm and edge AI analog in-memory compute.",
+          "nodes": "DB HiTek 130nm / 22FDX",
+          "keyPatents": "Weebit Volume Production Series"
+        }
+      ]
+    },
+    {
+      "id": "pufsecurity",
+      "name": "PUFsecurity Corp.",
+      "shortName": "PUFsecurity",
+      "headquarters": "Zhubei City, Hsinchu County, Taiwan",
+      "founded": "2019 (Hardware Security Subsidiary of eMemory Technology Inc.)",
+      "founders": "Dr. Evans Ching-Song Yang, Dr. Charles Hsu, and Engineering Team",
+      "businessModel": "Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP",
+      "patentStats": {
+        "totalGrantedWorldwide": "100+ Worldwide Granted Patents (Shared core patent pool with parent eMemory)",
+        "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
+        "foundryCoverage": "TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS)",
+        "waferShipment": "Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships"
+      },
+      "strategy": "The core of PUFsecurity's patent portfolio transformed eMemory's 'Quantum Tunneling Microscopic Dielectric Variation (NeoPUF)' into 'Zero-Error Hardware Roots of Trust (PUFrt)' and 'Integrated Security Cryptographic Processors (PUFcc)'. Conventional SRAM PUFs suffer 5%–15% bit error rates under temperature and aging, necessitating complex ECC helper data that incurs silicon area overhead and side-channel leakage risks. PUFsecurity's patents surround 'Dynamic Differential Symmetry Tracking Circuits' and 'Quantum Shot Noise True Random Number Generators (Quantum TRNG)', achieving native 0% Bit Error Rate (BER) directly in hardware, earning PSA Certified Level 3 and SESIP Level 3 accreditations.",
+      "families": [
+        {
+          "id": "pufsecurity-rot-family",
+          "name": "PUFrt / PUFcc Hardware Root of Trust & Quantum Security Patent Family",
+          "tagline": "Differential Symmetry Tracking · Native 0% Bit Error Rate (Zero BER) · Quantum Shot Noise TRNG · 0-Mask",
+          "technologyType": "Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)",
+          "cellTopology": "Dual-Tunneling Differential Pair (Symmetric Paired Dielectric Tunneling Differential Cell)",
+          "physicalMechanism": "Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints",
+          "processNode": "55nm down to 3nm / 2nm GAA Advanced Logic and HPC Platforms",
+          "summary": "Pinnacle innovation in semiconductor hardware security. Eliminating external key injection and vulnerable helper data, chips extract unclonable private keys at power-up directly from silicon atomic structures, integrating post-quantum cryptography (PQC) accelerators and secure OTP.",
+          "patents": [
+            {
+              "id": "US10651268B2",
+              "title": "Physical unclonable function device and differential reading circuit with tracking reference",
+              "grantDate": "2020-05-12",
+              "priorityDate": "2018-03-12",
+              "inventors": "Evans Ching-Song Yang, Meng-Yi Wu",
+              "assignee": "eMemory Technology Inc. (Exclusively licensed to PUFsecurity Corp.)",
+              "url": "https://patents.google.com/patent/US10651268B2/en",
+              "coreProblem": "Conventional SRAM or delay-chain PUFs experience bit flipping across -40°C to 150°C temperature swings, requiring costly ECC engines and risking helper data leakage.",
+              "mechanism": "Pairs symmetric thin oxide tunneling cells, using common-mode rejection to cancel environmental voltage and thermal shifts. Differential sense amplifiers compare minute quantum tunneling currents, achieving native 0% BER without ECC helper calibration.",
+              "claimFocus": "Claim 1 claims a differential tracking sensing circuit comprising paired dielectric quantum tunneling cells and zero-error key extraction method.",
+              "productLink": "PUFrt™ Hardware Root of Trust, winner of TSMC OIP Best IP Partner Award for Security IP."
+            },
+            {
+              "id": "US10769300B2",
+              "title": "True random number generator utilizing quantum tunneling shot noise in dielectric layers",
+              "grantDate": "2020-09-08",
+              "priorityDate": "2018-09-14",
+              "inventors": "Meng-Yi Wu, Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc. (Exclusively licensed to PUFsecurity Corp.)",
+              "url": "https://patents.google.com/patent/US10769300B2/en",
+              "coreProblem": "Ring oscillator jitter TRNGs are susceptible to injection locking and electromagnetic side-channel manipulation attacks.",
+              "mechanism": "Harnesses intrinsic quantum electron shot noise in gate oxide tunneling as the sole entropy source. Pure quantum effects cannot be controlled by external RF or thermal interference, passing NIST SP 800-22 and SP 800-90B suites.",
+              "claimFocus": "Claim 1 claims a true random number generator circuit utilizing gate oxide quantum tunneling shot noise with live health test monitoring.",
+              "productLink": "PUFcc™ Crypto Co-Processor, integrating NIST CAVP-certified cryptographic engines."
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "period": "2019–2020",
+          "era": "PUFsecurity Inception & Zero-BER PUF",
+          "theme": "PUFrt Core Differential Patent Granted",
+          "summary": "Spun off from eMemory, unveiling native zero-BER PUFrt root of trust with differential tracking patents.",
+          "nodes": "55nm / 40nm / 28nm",
+          "keyPatents": "US10651268B2, US10769300B2"
+        },
+        {
+          "period": "2021–2023",
+          "era": "Integrated PUFcc & Global Security Certifications",
+          "theme": "PSA Certified Level 3 & SESIP Level 3",
+          "summary": "Launched integrated crypto co-processor PUFcc, awarded TSMC Best IP Partner and top security accreditations.",
+          "nodes": "16nm / 7nm / 5nm",
+          "keyPatents": "PUFcc Security Architecture Series"
+        },
+        {
+          "period": "2024–2026",
+          "era": "Post-Quantum Cryptography & 3nm/2nm GAA",
+          "theme": "2nm Angstrom Scaling & PQC Trust Anchor",
+          "summary": "Integrated NIST FIPS 203/204 PQC acceleration, completing hardware validation on TSMC N3/N2 GAA processes.",
+          "nodes": "3nm / 2nm GAA",
+          "keyPatents": "PQC PUF Root-of-Trust Series"
+        }
+      ]
     }
   ]
 }

@@ -7390,6 +7390,941 @@
             "achievement": "佈局 US20250024668A1 等次奈米 GAA 專利，成立子公司 PUFsecurity，結合 NeoFuse/NeoPUF 與後量子密碼學 (PQC) 硬體加速，打入車規晶片安全與全球 AI 運算晶片。"
           }
         ]
+      },
+      {
+        "id": "kilopass",
+        "name": "Kilopass Technology Inc. (2018 年併入 Synopsys)",
+        "shortName": "Kilopass (Synopsys)",
+        "headquarters": "美國加州聖塔克拉拉 (Santa Clara, California, USA)",
+        "founded": "2001 年 (2018 年由 Synopsys 新思科技收購)",
+        "founders": "Jack Z. Peng (彭自修博士) 研發團隊",
+        "businessModel": "標準 CMOS 邏輯製程 2T 閘極氧化層擊穿反熔絲 IP (Standard CMOS 2T Antifuse OTP IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "60+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、台灣 (TIPO)、中國 (CNIPA)、歐洲 (EPO)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、東部高科 (DB HiTek)",
+          "waferShipment": "累計授權導入逾 150 家客戶，出貨超過 100 億顆晶片"
+        },
+        "strategy": "Kilopass 專利戰略的核心為開創「標準邏輯閘極氧化層受控硬擊穿 (Controlled Gate-Oxide Hard Breakdown)」架構。擺脫了傳統多晶矽熔斷器 (eFuse) 的大電流爆破、金屬碎屑反彈與顯微鏡可見光學破綻，Kilopass 佈局了以 2T/1.5T 拓撲為核心的交叉點記憶體專利網。透過選擇電晶體與反熔絲電晶體的串聯架構，解決了高壓寫入時的寄生通道導通與相鄰單元半選干擾 (Half-Select Disturb)，並延伸至分割井區 (Split-Well) 偏壓隔離技術，為全球嵌入式反熔絲奠定了最早的產業專利標準。",
+        "families": [
+          {
+            "id": "kilopass-xpm-family",
+            "name": "XPM™ 交叉點 2T 反熔絲 OTP 專利家族",
+            "tagline": "標準 CMOS 2T 單元 · 核心閘極氧化層永久崩潰 · 0-Mask",
+            "technologyType": "Antifuse OTP (一次性抗物理竄改反熔絲)",
+            "cellTopology": "2T (選擇電晶體 Access Tr + 反熔絲電容器 Antifuse Cap)",
+            "physicalMechanism": "高電場引發薄閘極氧化層局部介電質崩潰 (Dielectric Breakdown)，生成多晶矽至矽基底之永久歐姆微絲 (Ohmic Filament)；讀取時感測導通電流",
+            "processNode": "180nm / 130nm / 90nm / 65nm / 40nm / 28nm 標準邏輯",
+            "summary": "奠定 Kilopass 產業地位的基礎專利家族。利用標準邏輯製程的薄閘氧化層在 5–7V 偏壓下產生不可逆擊穿，將原本絕緣的高阻抗閘極轉換為數百歐姆之導電路徑。2T 拓撲確保在大型陣列中未選中單元不受干擾，且擊穿點深藏於金屬層與多晶矽之下，具備天然抗顯微鏡物理逆向工程能力。",
+            "patents": [
+              {
+                "id": "US6992925B2",
+                "title": "利用電晶體閘極氧化層崩潰之一刻式可程式化記憶體及其製造操作方法",
+                "grantDate": "2006-01-31",
+                "priorityDate": "2002-12-05",
+                "inventors": "Jack Z. Peng",
+                "assignee": "Kilopass Technology, Inc.",
+                "url": "https://patents.google.com/patent/US6992925B2/en",
+                "coreProblem": "傳統雷射熔絲與多晶矽 eFuse 需要龐大電流且物理破壞顯而易見，容易被光學與電子顯微鏡逆向還原金鑰，如何利用標準邏輯閘極介電層實現微型化抗竄改儲存？",
+                "mechanism": "字元線與位元線交會處配置一選擇管與一反熔絲電容。編程時選擇管導通，並在反熔絲閘極施加高於氧化層臨界擊穿場強之電應力，使局部點缺陷串聯形成穩定導電微絲；讀取時施加常規低電壓感測微安培級電流。",
+                "claimFocus": "權利項 1 限定由標準 CMOS 選擇管與利用閘氧化層受控崩潰作為記憶態之反熔絲管串聯構成之陣列單元與偏壓控制方法。",
+                "productLink": "Kilopass XPM™ (Extra Permanent Memory) 旗艦產品線，廣泛用於 DTV 解碼晶片、HDMI HDCP 金鑰儲存。"
+              },
+              {
+                "id": "US6777766B2",
+                "title": "具低編程電壓之低成本非揮發性記憶體單元結構",
+                "grantDate": "2004-08-17",
+                "priorityDate": "2002-04-18",
+                "inventors": "Jack Z. Peng",
+                "assignee": "Kilopass Technology, Inc.",
+                "url": "https://patents.google.com/patent/US6777766B2/en",
+                "coreProblem": "早期反熔絲單元編程需要 7V 以上高壓，導致晶片內部電荷泵面積龐大且選擇管易被連帶打穿損壞。",
+                "mechanism": "直接共用先進邏輯製程中超薄核心氧化層 (Core Oxide，小於 2.5nm)，顯著降低擊穿電壓至 5.5V 以下，並優化汲極接面擴散區以降低熱載子注入應力。",
+                "claimFocus": "權利項 1 限定薄閘極核心氧化層與低於 6V 編程偏壓之低壓 2T 反熔絲架構。",
+                "productLink": "Gusto™ 高密度 OTP 陣列標準單元。"
+              }
+            ]
+          },
+          {
+            "id": "kilopass-secretcode-family",
+            "name": "SecretCode™ 分割井高安全 OTP 專利家族",
+            "tagline": "分割井區 (Split-Well) 偏壓隔離 · 抗側信道功耗分析 (DPA) · 安全密鑰防禦",
+            "technologyType": "Secure Antifuse OTP (硬體安全金鑰反熔絲)",
+            "cellTopology": "2T Split-Well (分離井隔離單元)",
+            "physicalMechanism": "井區電位動態切換與隔離，杜絕相鄰單元基板漏電與基板熱載子干擾，配合假寫入與平衡電流抗差分功耗分析",
+            "processNode": "65nm / 40nm / 28nm HKMG 先進製程",
+            "summary": "專注於高階資安防護與付費電視、機上盒根信任的專利佈局。透過分割井區專利技術，徹底解決大型高密度安全金鑰陣列中的半選干擾，並使未寫入單元與已寫入單元在外部測試介面上呈現完全相同的阻抗分佈與功耗特徵，杜絕側信道攻擊。",
+            "patents": [
+              {
+                "id": "US7643333B2",
+                "title": "具分割井配置之非揮發性記憶體單元及其操作方法",
+                "grantDate": "2010-01-05",
+                "priorityDate": "2006-11-20",
+                "inventors": "Jack Z. Peng",
+                "assignee": "Kilopass Technology, Inc.",
+                "url": "https://patents.google.com/patent/US7643333B2/en",
+                "coreProblem": "深次微米下共用井區使得高壓寫入時基板漏電流擴散至鄰近未選單元，產生嚴重的半選干擾與良率損耗。",
+                "mechanism": "將記憶體陣列在實體佈局上劃分為多個電氣隔離之分割井區，寫入時僅被選中行/列之分割井施加抑制偏壓，未選中井維持接地，完全切斷基板寄生載子傳播路徑。",
+                "claimFocus": "權利項 1 限定具備獨立電氣偏壓控制之分割井架構及其於反熔絲陣列中抑制半選干擾之操作方法。",
+                "productLink": "SecretCode™ 安全金鑰硬體 IP，廣泛應用於條件接收系統 (CAS) 與 DRM 晶片。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2001–2005",
+            "era": "創立與 2T 奠基",
+            "theme": "XPM 核心專利獲准",
+            "summary": "提出標準 CMOS 核心氧化層受控擊穿概念，奠定 2T 反熔絲基礎專利壁壘。",
+            "nodes": "0.18µm / 0.13µm",
+            "keyPatents": "US6777766B2, US6992925B2"
+          },
+          {
+            "period": "2006–2010",
+            "era": "Gusto 高密度與 SecretCode 安全",
+            "theme": "分割井架構突破",
+            "summary": "解決大型陣列半選干擾，跨入 65nm/40nm 並開闢付費電視高安全市場。",
+            "nodes": "65nm / 40nm",
+            "keyPatents": "US7643333B2"
+          },
+          {
+            "period": "2011–2017",
+            "era": "先進節點與 3D 訴訟戰",
+            "theme": "全面微縮至 28nm/20nm HKMG",
+            "summary": "與 Sidense 展開長達數年的 1T vs 2T 專利侵權爭訟，確立了兩大技術路線之專利邊界。",
+            "nodes": "28nm HKMG / 20nm",
+            "keyPatents": "US8130541B2"
+          },
+          {
+            "period": "2018–2026",
+            "era": "Synopsys 收購整合",
+            "theme": "併入 DesignWare 產品組合",
+            "summary": "Synopsys 完成對 Kilopass 的全資收購，將 XPM 與 SecretCode 整合至 DesignWare OTP 體系。",
+            "nodes": "28nm 及以下成熟支援",
+            "keyPatents": "Synopsys DesignWare 承接"
+          }
+        ]
+      },
+      {
+        "id": "sidense",
+        "name": "Sidense Corporation (2017 年併入 Synopsys)",
+        "shortName": "Sidense (Synopsys)",
+        "headquarters": "加拿大安大略省渥太華 (Ottawa, Ontario, Canada)",
+        "founded": "2004 年 (2017 年由 Synopsys 新思科技收購)",
+        "founders": "Wlodek Kurjanowicz (庫揚諾維奇) 研發團隊",
+        "businessModel": "標準 CMOS 單電晶體裂通道反熔絲 1T-Fuse 專利 IP 授權 (1T Split-Channel Antifuse OTP IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "100+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、加拿大 (CIPO)、台灣 (TIPO)、中國 (CNIPA)、歐洲 (EPO)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、世界先進 (VIS)",
+          "waferShipment": "超過 500 款商用晶片導入量產，出貨逾數百億顆"
+        },
+        "strategy": "Sidense 專利戰略的核心為發明「單電晶體裂通道反熔絲 (Single-Transistor Split-Channel 1T-Fuse)」。相較於 Kilopass 必須使用 2 個電晶體串聯，Sidense 在單一多晶矽閘極下創造了非對稱的裂通道分區：一端作為厚氧/高閾值通道選擇開關，另一端作為薄氧/低阻擊穿節點。這種結構消除了獨立選擇電晶體，使單元面積相較 2T 縮小達 50% 以上，並以非對稱輕摻雜汲極 (LDD) 遮蔽與差分極低壓感測專利，徹底解決了反熔絲讀取干擾與微絲自癒風險，成為晶圓代工廠 1T OTP 最主要的架構來源之一。",
+        "families": [
+          {
+            "id": "sidense-1tfuse-family",
+            "name": "1T-Fuse™ 裂通道單電晶體反熔絲專利家族",
+            "tagline": "單一多晶矽閘極 · 裂通道 (Split-Channel) 非對稱擊穿 · 超小單元面積",
+            "technologyType": "1T Antifuse OTP (單電晶體一次性反熔絲)",
+            "cellTopology": "1T Split-Channel (單一閘極跨越雙通道區，單一 BL 擴散接面)",
+            "physicalMechanism": "高壓編程時電場集中於擊穿區邊界引發薄氧化層局部微絲導通；讀取時選擇通道提供天然截止屏障感測單元電阻",
+            "processNode": "180nm 至 16nm / 7nm FinFET",
+            "summary": "顛覆性縮小 OTP 面積的里程碑技術。發明將選擇功能與反熔絲儲存功能融合於單一電晶體內部，無需額外選擇管或外部電容，實現了業界最小的邏輯 OTP 單元面積。其非對稱通道設計確保未編程時截止漏電小於 10pA，編程後形成穩固歐姆導電性，為先進製程提供極高整合密度。",
+            "patents": [
+              {
+                "id": "US7402855B2",
+                "title": "具裂通道之非揮發性記憶體單元及其操作方法",
+                "grantDate": "2008-07-22",
+                "priorityDate": "2005-09-02",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7402855B2/en",
+                "coreProblem": "傳統 2T 反熔絲單元面積大，且需要兩個獨立多晶矽閘極與額外金屬連線，無法滿足大型嵌入式程式碼儲存的微縮要求。",
+                "mechanism": "在單一主動區上配置單一多晶矽閘極，通道內部形成厚度或雜質濃度不同之兩區段：第一區段為高臨界電壓之通道選擇區，第二區段為低臨界電壓且鄰近擴散接面之反熔絲崩潰區。寫入時閘極施加高壓於第二區段誘發介電層微絲，讀取時第一區段負責受控導通感測。",
+                "claimFocus": "權利項 1 限定由單一多晶矽閘極跨越裂通道、具備單一擴散位元線接面且無獨立選擇管之 1T 反熔絲單元結構。",
+                "productLink": "Sidense 1T-Fuse™ (SLP - Small Low Power) 旗艦授權 IP，業界 1T 反熔絲公認標竿。"
+              },
+              {
+                "id": "US7880216B2",
+                "title": "具非對稱擴散接面之單電晶體反熔絲記憶體單元",
+                "grantDate": "2011-02-01",
+                "priorityDate": "2007-06-29",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7880216B2/en",
+                "coreProblem": "在 150°C 以上惡劣車用高溫環境下，單電晶體反熔絲接面容易發生能帶間穿隧 (BTBT) 與閘極引發汲極漏電 (GIDL)，劣化讀取信噪比。",
+                "mechanism": "利用非對稱輕摻雜汲極 (LDD) 遮蔽結構，於反熔絲擊穿端強化橫向局域電場以確保寫入微絲均勻，並在位元線擴散端降低雜質濃度以抑制高溫接面漏電，確保高溫讀取窗口裕度大於 100nA。",
+                "claimFocus": "權利項 1 限定非對稱源極/汲極摻雜輪廓與單端擴散感測之高可靠度 1T 反熔絲結構。",
+                "productLink": "1T-ULP 超低功耗車用等級 OTP 陣列。"
+              },
+              {
+                "id": "US8325516B2",
+                "title": "單電晶體反熔絲陣列之安全低壓感測方法",
+                "grantDate": "2012-12-04",
+                "priorityDate": "2009-03-31",
+                "inventors": "Wlodek Kurjanowicz, Valery Likhachev",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8325516B2/en",
+                "coreProblem": "奈米級薄氧化層反熔絲微絲在數十億次讀取電壓應力下，可能引發金屬微絲再氧化自癒 (Self-Healing) 或引發相鄰未寫入單元二次誤擊穿。",
+                "mechanism": "提出差分快速脈衝感測架構，讀取脈衝寬度壓低至 10ns 以下且偏壓限制在 0.9V 以下，感測放大器以微安培級電流差分比較，使讀取干擾失效率降至 0 FIT。",
+                "claimFocus": "權利項 1 限定讀取電壓低於 1.0V、脈衝寬度小於 15ns 且採用動態預充放電之 1T 陣列無擾動感測方法。",
+                "productLink": "Synopsys DesignWare 1T-OTP 核心感測控制電路。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2004–2008",
+            "era": "1T-Fuse 發明與商業起飛",
+            "theme": "裂通道基礎專利獲准",
+            "summary": "首創單電晶體裂通道反熔絲架構，面積較傳統 2T 縮小逾 50%，取得基礎專利保護。",
+            "nodes": "180nm / 130nm / 90nm",
+            "keyPatents": "US7402855B2"
+          },
+          {
+            "period": "2009–2014",
+            "era": "全面進軍 28nm HKMG 與 FinFET",
+            "theme": "非對稱 LDD 與車用超高溫",
+            "summary": "解決先進製程 GIDL 漏電與高溫保持力，大舉獲台積電、聯電、GF 等晶圓廠 PDK 驗證認證。",
+            "nodes": "40nm / 28nm HKMG / 16nm",
+            "keyPatents": "US7880216B2, US8325516B2"
+          },
+          {
+            "period": "2015–2017",
+            "era": "專利勝訴與 Synopsys 併購",
+            "theme": "確立 1T 反熔絲法律地位",
+            "summary": "在與 Kilopass 的漫長專利訴訟中贏得最終非侵權判決，隨後獲新思科技 (Synopsys) 全資收購。",
+            "nodes": "16nm / 7nm FinFET",
+            "keyPatents": "US8804443B2"
+          },
+          {
+            "period": "2018–2026",
+            "era": "Synopsys DesignWare 旗艦時代",
+            "theme": "成為全行業主流標準 1T-OTP",
+            "summary": "融入 Synopsys DesignWare OTP 產品線，成為先進運算與車用晶片中最通用的反熔絲解決方案。",
+            "nodes": "7nm / 5nm / 3nm FinFET",
+            "keyPatents": "DesignWare 1T-Fuse 系列"
+          }
+        ]
+      },
+      {
+        "id": "ymc",
+        "name": "億而得微電子 Yield Microelectronics Corp. (YMC)",
+        "shortName": "億而得 YMC",
+        "headquarters": "台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)",
+        "founded": "2000 年",
+        "founders": "何慶平 (Hsi-Pin Kuo)、林慶元 (Ching-Yuan Lin) 等研發團隊",
+        "businessModel": "標準邏輯製程多晶矽嵌入式多次燒寫 MTP IP 授權與設計服務 (Logic MTP IP Licensing)",
+        "patentStats": {
+          "totalGrantedWorldwide": "100+ 件全球核准專利",
+          "keyJurisdictions": "台灣 (TIPO)、美國 (USPTO)、中國 (CNIPA)",
+          "foundryCoverage": "聯電 (UMC)、中芯國際 (SMIC)、世界先進 (VIS)、華虹宏力 (HHGrace)、東部高科 (DB HiTek)",
+          "waferShipment": "累計授權導入逾數百款量產晶片，總出貨超過數百億顆"
+        },
+        "strategy": "億而得 (YMC) 專利戰略的核心為「超高密度單層多晶矽 (Single-Poly) MTP 架構」與「邊緣高電場局域穿隧技術」。傳統單層多晶矽 MTP 為了獲得足夠的電容耦合率，通常需要非常大的單元面積 (50–100 F²)。YMC 專利佈局圍繞於多晶矽側向共面耦合與轉角邊緣電場集中效應，使 MTP 單元在標準 CMOS 邏輯製程中實現 0-Mask、小於 30 F² 的極高密度，並具備 1,000 至 10,000 次擦寫能力，在微控制器 (MCU)、車用面板驅動與電源晶片中建立了強大的專利防禦壁壘。",
+        "families": [
+          {
+            "id": "ymc-mtp-family",
+            "name": "YMC 高密度共面耦合單層多晶矽 MTP 專利家族",
+            "tagline": "單層多晶矽 (Single-Poly) · 邊緣電場集中抹除 · 0-Mask 高密度 MTP",
+            "technologyType": "MTP (Multiple-Time Programmable)",
+            "cellTopology": "Single-Poly Interdigitated (指狀交錯共面耦合單元)",
+            "physicalMechanism": "通道熱電子注入 (CHEI) 編程；利用多晶矽轉角邊界電場發射效應進行 Fowler-Nordheim (FN) 邊緣穿隧抹除",
+            "processNode": "0.35µm 至 55nm / 40nm 標準邏輯與高壓 BCD",
+            "summary": "專注於成熟邏輯與類比 BCD 製程的高性價比多次燒寫技術。透過創新的多晶矽指狀交錯佈局，大幅提升浮閘與控制閘極間的水平耦合面積，無需任何額外光罩即可實現高壓耦合效率，並以多晶矽幾何邊緣集中電場降低抹除電壓，實現 10K 耐久度。",
+            "patents": [
+              {
+                "id": "US7835188B2",
+                "title": "可多次程式化之非揮發性記憶體單元結構與製造方法",
+                "grantDate": "2010-11-16",
+                "priorityDate": "2007-07-27",
+                "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US7835188B2/en",
+                "coreProblem": "單層多晶矽 MTP 單元通常受限於耦合率不足而必須佔用極大晶片面積，限制了在低成本 MCU 中的應用。",
+                "mechanism": "在單層多晶矽層中設計指狀交錯的共面側向耦合電容，直接利用周邊介電層形成高密度水平耦合結構，使耦合率提升至 0.75 以上，單元面積壓低至 25–35 F²。",
+                "claimFocus": "權利項 1 限定單層多晶矽共面指狀耦合電極與零額外光罩邏輯製程製造方法。",
+                "productLink": "YMC 1K/10K 旗艦 MTP 產品線，廣泛用於通用型 8-bit/32-bit MCU 韌體儲存。"
+              },
+              {
+                "id": "US8184485B2",
+                "title": "具增進抹除效率之非揮發性記憶體單元及其操作方法",
+                "grantDate": "2012-05-22",
+                "priorityDate": "2009-08-25",
+                "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US8184485B2/en",
+                "coreProblem": "多次擦寫後隧道氧化層累積界面陷阱電荷，使抹除速度變慢並導致臨界電壓分佈漂移。",
+                "mechanism": "利用多晶矽邊緣幾何轉角（Corner Tip）引發尖端場發射強化穿隧效應，在相同外加電壓下提供高出 3 倍之穿隧電流密度，將抹除時間縮短 60% 並提升耐久度至 10,000 次。",
+                "claimFocus": "權利項 1 限定多晶矽邊緣幾何轉角之局域穿隧抹除操作偏壓條件。",
+                "productLink": "高耐受度 YMC Automotive Grade-1 MTP 巨集。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2000–2006",
+            "era": "創立與單層 MTP 研發",
+            "theme": "共面耦合架構突破",
+            "summary": "克服單層多晶矽耦合率低下缺陷，取得首批 0-Mask MTP 專利。",
+            "nodes": "0.35µm / 0.25µm",
+            "keyPatents": "US7835188B2"
+          },
+          {
+            "period": "2007–2013",
+            "era": "大中華區代工廠量產普及",
+            "theme": "邊緣抹除與 10K 耐久度",
+            "summary": "全面導入中芯國際、聯電、世界先進與華虹，成為華人晶圓代工市場重要 MTP 供應商。",
+            "nodes": "0.18µm / 0.15µm / 0.11µm",
+            "keyPatents": "US8184485B2"
+          },
+          {
+            "period": "2014–2026",
+            "era": "BCD 高壓與先進節點深耕",
+            "theme": "車用 PMIC 與微縮至 55nm/40nm",
+            "summary": "拓展至車規高壓 BCD 製程，支援 -40°C 至 150°C 寬溫微調校準，並持續微縮至 40nm 邏輯節點。",
+            "nodes": "55nm / 40nm BCD",
+            "keyPatents": "YMC BCD MTP 系列"
+          }
+        ]
+      },
+      {
+        "id": "impinj-aeon",
+        "name": "Impinj / Virage Logic / Synopsys (AEON®)",
+        "shortName": "AEON (Synopsys)",
+        "headquarters": "美國華盛頓州西雅圖 / 加州山景城 (Seattle, WA / Mountain View, CA, USA)",
+        "founded": "2000 年 (Impinj 創立，2008 年 NVM 部門轉讓 Virage Logic，2010 年併入 Synopsys)",
+        "founders": "Dr. Chris Diorio (卡內基美隆大學教授 / Impinj 創辦人) 研發團隊",
+        "businessModel": "標準 CMOS 超低功耗雙向全 FN 穿隧單層多晶矽 MTP IP (Ultra-Low-Power FN/FN MTP IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "80+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、歐洲 (EPO)、日本 (JPO)、台灣 (TIPO)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)",
+          "waferShipment": "累計導入數十億顆無源 RFID 標籤與超低功耗物聯網晶片"
+        },
+        "strategy": "AEON 專利戰略的核心為開創「超低功耗雙向全 Fowler-Nordheim (FN/FN) 穿隧平衡操作」。不同於傳統熱電子注入 (CHEI) 寫入時動輒數毫安培的龐大通道直流電流，AEON 利用對稱雙井電容耦合浮動閘極架構，程式化與抹除完全依賴穿隧量子位能障的位移電流 (電流小於 100pA)。這項突破使 MTP 首次能在無電池、完全由射頻電磁波 (RF) 供電的無源 RFID 標籤晶片中可靠寫入，隨後被 Virage Logic 與 Synopsys 擴展為全行業超低功耗 (ULP) 物聯網 MCU 的黃金標準。",
+        "families": [
+          {
+            "id": "aeon-fnfn-family",
+            "name": "AEON® 全 FN 穿隧超低功耗 MTP 專利家族",
+            "tagline": "標準邏輯單層多晶矽 · 雙向全 FN 穿隧 (FN/FN) · 微微安培級無通道寫入電流",
+            "technologyType": "Ultra-Low Power MTP (超低功耗多次可程式化)",
+            "cellTopology": "Dual-Well Balanced Single-Poly (對稱雙井單層多晶矽平衡單元)",
+            "physicalMechanism": "編程與抹除均採用雙向 Fowler-Nordheim (FN) 穿隧注入/釋放電荷；無直流通道導通電流",
+            "processNode": "0.18µm / 0.13µm / 90nm / 65nm / 40nm / 28nm",
+            "summary": "綠色物聯網與射頻識別 (RFID) 領域的里程碑發明。透過平衡的雙井電容耦合結構，將寫入能量消耗壓低至傳統浮閘的千分之一以下，單晶片微型電荷泵即可完成百次以上重複編程，滿足無源射頻能量採集的嚴格功耗限制。",
+            "patents": [
+              {
+                "id": "US6166953A",
+                "title": "具平衡電容耦合之非揮發性記憶體單元及其操作方法",
+                "grantDate": "2000-12-26",
+                "priorityDate": "1999-04-30",
+                "inventors": "Chris Diorio, Christopher J. Todd",
+                "assignee": "Impinj, Inc.",
+                "url": "https://patents.google.com/patent/US6166953A/en",
+                "coreProblem": "無源 RFID 標籤完全沒有電池，傳統 EEPROM 寫入所需之數毫安培電流會直接拉垮射頻整流天線電壓導致通訊中斷。",
+                "mechanism": "採用對稱的雙井電容耦合結構，浮動閘極跨越兩個獨立的擴散井區，寫入與抹除均以對稱電場誘發純量子 FN 穿隧，避免通道載子碰撞熱發射，直流電流消耗完全為零。",
+                "claimFocus": "權利項 1 限定對稱雙井電容耦合浮閘結構與無直流通道電流之雙向全 FN 穿隧操作方法。",
+                "productLink": "AEON® 核心 IP，支撐 Impinj Monza 系列全球數十億顆 RFID 晶片量產。"
+              },
+              {
+                "id": "US6388918B1",
+                "title": "超低功耗非揮發性記憶體及其微弱電流編程方法",
+                "grantDate": "2002-05-14",
+                "priorityDate": "2000-06-20",
+                "inventors": "Chris Diorio, Troy Brand",
+                "assignee": "Impinj, Inc.",
+                "url": "https://patents.google.com/patent/US6388918B1/en",
+                "coreProblem": "晶片內建升壓電荷泵在微弱射頻能量輸入時效率極低，如何以微安培級總功耗完成陣列多位元並行寫入？",
+                "mechanism": "利用微脈衝電壓梯級注入法，配合純穿隧高阻抗特性，使整個記憶體巨集在 1.2V 核心電壓下寫入功耗僅需微瓦 (µW) 等級。",
+                "claimFocus": "權利項 1 限定由微型片上電荷泵驅動之純穿隧注入低功耗非揮發性儲存架構。",
+                "productLink": "Synopsys DesignWare AEON MTP ULP 標準產品庫。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "1999–2004",
+            "era": "Impinj 創立與 RFID 革命",
+            "theme": "全 FN/FN 穿隧專利奠基",
+            "summary": "Diorio 教授團隊提出無直流通道電流之浮閘穿隧模型，奠定無源 RFID 晶片核心技術。",
+            "nodes": "0.25µm / 0.18µm",
+            "keyPatents": "US6166953A, US6388918B1"
+          },
+          {
+            "period": "2005–2008",
+            "era": "AEON 商用授權與業務轉讓",
+            "theme": "擴展至一般物聯網 MCU",
+            "summary": "AEON 成為獨立邏輯 NVM IP 品牌，2008 年由矽智財大廠 Virage Logic 斥資收購接手運營。",
+            "nodes": "0.13µm / 90nm / 65nm",
+            "keyPatents": "SEC 申報收購承接"
+          },
+          {
+            "period": "2009–2017",
+            "era": "Virage 入主與 Synopsys 整合",
+            "theme": "併入 Synopsys DesignWare",
+            "summary": "2010 年 Synopsys 收購 Virage Logic，AEON 正式成為 DesignWare AEON MTP ULP 產品主力。",
+            "nodes": "55nm / 40nm / 28nm",
+            "keyPatents": "DesignWare AEON ULP"
+          },
+          {
+            "period": "2018–2026",
+            "era": "持續服務低功耗 IoT 節點",
+            "theme": "超低漏電節點標準配備",
+            "summary": "在 TSMC、UMC、GF 等代工廠超低漏電 (ULL/ULP) 節點持續為全球物聯網客戶提供量產授權。",
+            "nodes": "22ULL / 28HPC+ 支援",
+            "keyPatents": "Synopsys ULP MTP 體系"
+          }
+        ]
+      },
+      {
+        "id": "attopsemi",
+        "name": "寬緯科技 Attopsemi Technology Inc.",
+        "shortName": "寬緯 Attopsemi",
+        "headquarters": "台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)",
+        "founded": "2010 年",
+        "founders": "鍾世緯博士 (Dr. Shine C. Chung - 前台積電 NVM 研發處長) 團隊",
+        "businessModel": "熱輔助受控電遷移熔絲 (I-fuse®) 邏輯 OTP IP 授權與設計服務 (Electromigration I-fuse OTP IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "70+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、台灣 (TIPO)、中國 (CNIPA)、歐洲 (EPO)、日本 (JPO)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS)、力積電 (PSMC)、Tower",
+          "waferShipment": "累計授權導入逾數百款車用與物聯網晶片，量產出貨數十億顆"
+        },
+        "strategy": "Attopsemi (寬緯科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。",
+        "families": [
+          {
+            "id": "attopsemi-ifuse-family",
+            "name": "I-fuse® 電遷移非爆破型高可靠度熔絲專利家族",
+            "tagline": "亞熱失控 (Sub-Thermal Runaway) · 受控電遷移質量傳輸 · -40°C~175°C 車規極限",
+            "technologyType": "Electromigration OTP (熱輔助電遷移不可逆熔絲)",
+            "cellTopology": "1T/1D + I-fuse Element (標準電晶體或二極體 + 奈米級多晶矽/金屬熔絲條)",
+            "physicalMechanism": "精準控制電流密度使電子風推動晶格原子遷移形成微觀空洞 (Void)，阻值由數百歐姆永久跳升至兆歐姆；不破壞鈍化層",
+            "processNode": "0.35µm 至 3nm / 2nm GAA 全節點覆蓋",
+            "summary": "高可靠度車用與物聯網安全領域的革命性專利。放棄毀滅性熱失控爆破，以固態物理電遷移機制建立永久高阻態，徹底解決了傳統 eFuse 的再接通 (Re-growth) 缺陷與 AntiFuse 的超薄閘氧漏電限制，具備 0 FIT失效率與百年資料留存壽命。",
+            "patents": [
+              {
+                "id": "US9165979B2",
+                "title": "利用電遷移機制之非爆破型可程式化電阻元件與操作方法",
+                "grantDate": "2015-10-20",
+                "priorityDate": "2012-07-26",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Inc.",
+                "url": "https://patents.google.com/patent/US9165979B2/en",
+                "coreProblem": "傳統 eFuse 熔斷時熱失控溫度超過 1400°C，造成鈍化層龜裂、金屬氣化飛濺與材料重新結晶回接，導致車規晶片嚴重可靠性失效。",
+                "mechanism": "設定編程電流密度與脈衝寬度，使熔絲條維持在熱平衡與亞熱失控溫度區間，利用純電子風電遷移驅動矽/金屬原子產生固態質量擴散，形成永久、穩定且周圍鈍化層完好無損的奈米級斷路。",
+                "claimFocus": "權利項 1 限定在非爆破與低於熱失控臨界值條件下以電遷移形成不可逆高阻態之熔絲元件與編程方法。",
+                "productLink": "I-fuse™ 旗艦核心 IP，獲 AEC-Q100 Grade-0 (-40°C 至 150°C/175°C) 車規最高可靠性認證。"
+              },
+              {
+                "id": "US9613943B2",
+                "title": "利用金屬閘極與接觸插塞電遷移之可程式化電阻記憶體",
+                "grantDate": "2017-04-04",
+                "priorityDate": "2015-05-08",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Inc.",
+                "url": "https://patents.google.com/patent/US9613943B2/en",
+                "coreProblem": "在 HKMG、FinFET 與 GAA 先進節點中已無傳統多晶矽層，如何直接共用先進金屬閘極與微型通孔實現零光罩 OTP？",
+                "mechanism": "將電遷移路徑直接建立在先進金屬閘極材料（TiN、TaN 或鎢/銅接觸插塞）上，利用奈米尺度金屬電遷移形成高阻斷路，實現 7nm/5nm/3nm/2nm 的無縫微縮相容。",
+                "claimFocus": "權利項 1 限定利用先進製程金屬閘極/導電通孔之金屬電遷移形成儲存態之元件結構。",
+                "productLink": "先進 FinFET/GAA 節點 I-fuse 解決方案，支援 AI 處理器晶片安全 ID 與修補。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2010–2014",
+            "era": "創立與物理模型建立",
+            "theme": "I-fuse 電遷移概念誕生",
+            "summary": "鍾世緯博士創立 Attopsemi，建立亞熱失控電遷移物理數學模型並申請基礎專利。",
+            "nodes": "0.18µm / 0.15µm",
+            "keyPatents": "US9165979B2"
+          },
+          {
+            "period": "2015–2018",
+            "era": "車規認證與代工廠導入",
+            "theme": "AEC-Q100 Grade-0 認證通過",
+            "summary": "於 TSMC、UMC、VIS 建立量產 PDK，通過極端車規 175°C 認證，確立零爆破可靠度標竿。",
+            "nodes": "0.11µm / 55nm / 40nm",
+            "keyPatents": "US9613943B2"
+          },
+          {
+            "period": "2019–2026",
+            "era": "先進節點 FinFET/GAA 擴張",
+            "theme": "跨入 7nm/5nm/3nm/2nm 埃米世代",
+            "summary": "以金屬電遷移專利技術成功導入先進 FinFET 與 GAA 製程，成為台積電 OIP 與各大代工廠主要 OTP 夥伴。",
+            "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
+            "keyPatents": "金屬電遷移先進專利群"
+          }
+        ]
+      },
+      {
+        "id": "floadia",
+        "name": "Floadia Corporation (株式会社フローディア)",
+        "shortName": "Floadia (フローディア)",
+        "headquarters": "日本東京都小平市 (Kodaira, Tokyo, Japan)",
+        "founded": "2011 年",
+        "founders": "Kosuke Okuyama (奧山幸祐) 等前瑞薩 (Renesas) 記憶體研發團隊",
+        "businessModel": "嵌入式快閃記憶體與超低功耗電荷陷阱 MTP/SONOS IP 授權 (Embedded Charge-Trap eFlash & MTP IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "90+ 件全球核准專利",
+          "keyJurisdictions": "日本 (JPO)、美國 (USPTO)、台灣 (TIPO)、中國 (CNIPA)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、世界先進 (VIS)、華虹宏力 (HHGrace)、東部高科 (DB HiTek)",
+          "waferShipment": "累積導入數十款車用微控制器與邊緣 AI 類比運算晶片"
+        },
+        "strategy": "Floadia 專利戰略的核心為「零額外光罩浮動閘極 MTP (LEE Flash ZT)」與「超低光罩分離閘極電荷陷阱 SONOS (LEE Flash G1/G2)」。由日立/瑞薩資深團隊創立的 Floadia，專利佈局專注於打破傳統 eFlash 需高達 8–12 道光罩的成本枷鎖。其 ZT 家族利用標準邏輯厚閘氧實現雙向低電場 FN/FN 穿隧 0-Mask MTP；其 G1/G2 家族則利用分散式氮化矽電荷陷阱與創新的側壁分離閘極，僅需追加 2–3 道光罩即可實現耐受 175°C 車規極限與 100K 擦寫次數的嵌入式快閃記憶體，更進一步延伸至超低功耗神經擬態 (CIM) 類比計算專利。",
+        "families": [
+          {
+            "id": "floadia-zt-family",
+            "name": "LEE Flash ZT 零光罩浮閘 MTP 專利家族",
+            "tagline": "標準 CMOS 0-Mask · 雙向均勻低場 FN 穿隧 · 10,000 次寫抹",
+            "technologyType": "0-Mask MTP (零額外光罩多晶矽 MTP)",
+            "cellTopology": "2T Single-Poly (厚閘氧選擇管 + 浮動閘極儲存管)",
+            "physicalMechanism": "編程與抹除均採用低電場 Fowler-Nordheim (FN) 穿隧，避免衝擊游離缺陷生成，延長閘氧壽命",
+            "processNode": "180nm / 130nm / 55nm / 40nm 標準邏輯與 BCD",
+            "summary": "專為低成本微控制器與電源管理 IC 設計的 0-Mask MTP 技術。完全不增加任何額外光罩，利用標準 I/O 氧化層實現雙向穿隧，提供高達 1 萬次寫抹壽命與 125°C 10 年資料保持力。",
+            "patents": [
+              {
+                "id": "US9214470B2",
+                "title": "利用標準 CMOS 邏輯製程製作之非揮發性半導體記憶體元件及其操作方法",
+                "grantDate": "2015-12-15",
+                "priorityDate": "2012-06-21",
+                "inventors": "Kosuke Okuyama",
+                "assignee": "Floadia Corp.",
+                "url": "https://patents.google.com/patent/US9214470B2/en",
+                "coreProblem": "傳統單層浮動閘極使用熱電子注入會加速介電層退化，限制了寫抹次數小於 1,000 次，且功耗過大。",
+                "mechanism": "限制氧化層電場低於 8 MV/cm，雙向均勻施加 FN 穿隧電壓，大幅減少氧化層中陷阱生成與 SILC 漏電，使 0-mask 單元耐久度突破至 10,000 次。",
+                "claimFocus": "權利項 1 限定由標準邏輯 I/O 氧化層構成、寫入與抹除均採均勻 FN 穿隧之單層多晶矽記憶體單元結構與偏壓時序。",
+                "productLink": "LEE Flash ZT (Zero-Mask 10K MTP)，廣泛授權大中華區代工廠。"
+              }
+            ]
+          },
+          {
+            "id": "floadia-g1g2-family",
+            "name": "LEE Flash G1/G2 電荷陷阱 SONOS eFlash 專利家族",
+            "tagline": "側壁分離閘極 · 氮化矽 (Si3N4) 電荷陷阱 · 僅增 2~3 道光罩 · 175°C 車規 100K 次",
+            "technologyType": "Charge-Trap eFlash (電荷陷阱嵌入式快閃記憶體)",
+            "cellTopology": "Split-Gate SONOS (分離閘極氮化矽電荷陷阱單元)",
+            "physicalMechanism": "電子儲存於絕緣氮化矽層之局域陷阱能階中，避免單一微絲漏電引發全閘放電；耐高溫高應力",
+            "processNode": "55nm / 40nm / 28nm 車規與先進節點",
+            "summary": "車用等級高可靠度嵌入式快閃記憶體。相較於傳統 SST eFlash 需增加多道光罩，Floadia 將 SONOS 結構整合於電晶體側壁分離閘極中，僅需追加 2–3 道光罩，且因電荷分散於無數微觀絕緣陷阱中，具備絕佳抗放射線、抗應力穿隧漏電 (SILC) 與高溫 175°C 留存能力。",
+            "patents": [
+              {
+                "id": "US9847343B2",
+                "title": "具嵌入式 SONOS 結構之電荷陷阱記憶體單元及其整合工藝方法",
+                "grantDate": "2017-12-19",
+                "priorityDate": "2014-07-29",
+                "inventors": "Kosuke Okuyama, Shintaro Kume",
+                "assignee": "Floadia Corp.",
+                "url": "https://patents.google.com/patent/US9847343B2/en",
+                "coreProblem": "車用 eFlash 光罩增加數過多 (通常 6–10 道)，在 40nm/28nm 節點造成晶圓成本飆升，且浮動閘極在 175°C 高溫下易因單一氧化層缺陷漏光電荷。",
+                "mechanism": "利用側壁分離閘極工藝，在開關電晶體一側形成超薄 ONO (氧化物-氮化物-氧化物) 複合絕緣層，電荷捕獲於氮化矽薄膜中，即使氧化層局部受損亦不影響整體儲存狀態，僅需 2–3 道附加光罩。",
+                "claimFocus": "權利項 1 限定側壁分離閘極電荷陷阱結構、低光罩增加道數與對稱 FN 穿隧之製造工藝。",
+                "productLink": "LEE Flash G1/G2，獲得日本及國際各大車用半導體大廠授權導入。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2011–2015",
+            "era": "創立與 LEE Flash ZT 突破",
+            "theme": "零光罩 10K MTP 專利獲准",
+            "summary": "奧山幸祐等瑞薩資深團隊創立 Floadia，確立雙向均勻 FN 穿隧 0-Mask MTP 專利壁壘。",
+            "nodes": "0.18µm / 0.13µm",
+            "keyPatents": "US9214470B2"
+          },
+          {
+            "period": "2016–2020",
+            "era": "LEE Flash G1/G2 車規攻堅",
+            "theme": "超低光罩 SONOS 與 175°C 驗證",
+            "summary": "發表僅需 2~3 道額外光罩的分離閘極 SONOS eFlash，通過車規 100K 擦寫與 175°C 高溫驗證。",
+            "nodes": "55nm / 40nm BCD",
+            "keyPatents": "US9847343B2"
+          },
+          {
+            "period": "2021–2026",
+            "era": "類比 CIM 記憶體計算延伸",
+            "theme": "跨入 28nm 與邊緣 AI 類比運算",
+            "summary": "將超低漏電 SONOS 電荷陷阱擴展至記憶體內計算 (CIM)，實現高精度、超低功耗神經網路權重儲存。",
+            "nodes": "40nm / 28nm",
+            "keyPatents": "Floadia 類比 AI 專利群"
+          }
+        ]
+      },
+      {
+        "id": "sst",
+        "name": "Silicon Storage Technology, Inc. (SST / Microchip Technology)",
+        "shortName": "SST (Microchip)",
+        "headquarters": "美國加州聖荷西 (San Jose, California, USA)",
+        "founded": "1989 年 (2010 年由 Microchip Technology 微芯科技收購)",
+        "founders": "Bing Yeh (葉炳) 等研發團隊",
+        "businessModel": "分離閘極 (Split-Gate) 嵌入式快閃記憶體 SuperFlash® IP 授權與技術轉讓 (Embedded SuperFlash eFlash IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "400+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、台灣 (TIPO)、歐洲 (EPO)、日本 (JPO)、中國 (CNIPA)",
+          "foundryCoverage": "台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、華虹宏力 (HHGrace)",
+          "waferShipment": "全球累計出貨超過 1,000 億顆商用 SuperFlash 晶片"
+        },
+        "strategy": "SST (SuperFlash®) 專利戰略的核心為發明「分離閘極 (Split-Gate) 快閃記憶體單元架構」並持續演進至「具獨立抹除閘極之 ESF3 三代架構」。傳統 1T 堆疊閘極 (Stacked-Gate) 快閃記憶體在抹除時極易引發「過度抹除 (Over-Erase)」導致通道永久導通失效。葉炳博士發明的分離閘極架構，使控制閘極的一部分覆蓋於矽通道之上形成天然串聯選擇器，徹底杜絕了過度抹除風險；第三代 (ESF3) 更獨立出專用抹除閘極 (EG) 與耦合閘極 (CG)，利用浮閘尖端 (Tip) 高電場穿隧，實現了微秒級高速抹除、極低寫入功耗與卓越的 100K 次車規耐久度，成為全球晶圓代工廠嵌入式快閃記憶體最普及的專利架構。",
+        "families": [
+          {
+            "id": "sst-superflash-family",
+            "name": "SuperFlash® 分離閘極 (Split-Gate) eFlash 專利家族",
+            "tagline": "分離閘極 (Split-Gate) · 尖端場發射抹除 (Tip Tunneling) · 杜絕過度抹除 · 1.5T 架構",
+            "technologyType": "Split-Gate eFlash (分離閘極嵌入式快閃記憶體)",
+            "cellTopology": "ESF1 (1T 控制/浮動共用通道) / ESF3 (1.5T 含獨立抹除閘 EG、耦合閘 CG、選擇閘 SG)",
+            "physicalMechanism": "源極側注入 (SSI) 高速低功耗熱電子寫入；浮動閘極多晶矽尖端向抹除閘極 (EG) 進行局部高場 FN 穿隧抹除",
+            "processNode": "0.5µm 至 28nm HKMG (各大晶圓廠量產節點)",
+            "summary": "統治全球車用與微控制器嵌入式快閃記憶體達三十年的經典專利。從 ESF1 奠定抗過度抹除基礎，到 ESF3 引入專用抹除閘極與源極側注入 (SSI)，將寫入效率提升三個數量級，抹除時間縮短至數毫秒以內，並具備 100,000 次寫抹壽命與 20 年高溫保持力，為車用晶片提供最可靠的非揮發性程式碼儲存。",
+            "patents": [
+              {
+                "id": "US5029130A",
+                "title": "具分離閘極結構之快閃 EPROM 記憶體單元及其操作方法",
+                "grantDate": "1991-07-02",
+                "priorityDate": "1989-08-07",
+                "inventors": "Bing Yeh",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US5029130A/en",
+                "coreProblem": "傳統堆疊閘極快閃記憶體抹除時，若電子抽出過多會導致浮閘變為正電位使電晶體變成空乏型 (Depletion Mode)，造成整條位元線漏電癱瘓。",
+                "mechanism": "分離閘極開創專利。控制閘極橫向跨越通道的一部分，浮動閘極覆蓋通道的另一部分。即使浮閘過度抹除變成空乏型，相鄰的控制閘極通道區依然能受控完全截止，徹底消除了過度抹除隱患，免除了複雜的抹除後再修復演算法。",
+                "claimFocus": "權利項 1 限定控制閘極一部分覆蓋矽通道表面作為選擇開關、另一部分覆蓋浮動閘極上表面之分離閘極結構。",
+                "productLink": "SuperFlash® ESF1，奠定全球分離閘極快閃記憶體專利基石。"
+              },
+              {
+                "id": "US6747310B2",
+                "title": "具獨立抹除閘極與源極側注入之分離閘極快閃記憶體單元",
+                "grantDate": "2004-06-08",
+                "priorityDate": "2002-04-18",
+                "inventors": "Xian Liu, Binh Nguyen, Bing Yeh",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US6747310B2/en",
+                "coreProblem": "傳統分離閘極向控制閘極抹除時需要高壓偏壓，限制了電晶體微縮，且寫入電流仍然偏大。",
+                "mechanism": "第三代 SuperFlash (ESF3) 核心專利。獨立設置一抹除閘極 (EG) 與耦合閘極 (CG)，形成 1.5T 單元。浮動閘極邊緣形成銳利多晶矽尖角 (Sharp Tip)，抹除時高電場局域集中於尖端向 EG 穿隧放電，抹除電壓顯著降低；寫入時利用源極側注入 (SSI) 使注入效率較常規 CHEI 躍升 1,000 倍。",
+                "claimFocus": "權利項 1 限定由選擇閘、耦合閘、浮動閘與獨立抹除閘組成之四閘極 1.5T 分離閘極結構與尖端穿隧抹除操作。",
+                "productLink": "SuperFlash® ESF3，授權台積電 40nm/28nm、聯電 55nm/40nm、格芯 55nm 等各大代工廠車規核心平台。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "1989–1995",
+            "era": "SuperFlash 發明與創立",
+            "theme": "分離閘極 ESF1 基礎專利誕生",
+            "summary": "葉炳博士提出抗過度抹除的分離閘極單元，徹底解決快閃記憶體核心物理痛點。",
+            "nodes": "0.5µm / 0.35µm",
+            "keyPatents": "US5029130A"
+          },
+          {
+            "period": "1996–2005",
+            "era": "ESF2/ESF3 演進與代工廠聯盟",
+            "theme": "獨立抹除閘 EG 與源極側注入 SSI",
+            "summary": "發表 ESF3 專利架構，抹除速度躍升千倍，大舉授權台積電、聯電、三洋等國際大廠。",
+            "nodes": "0.25µm / 0.18µm / 90nm",
+            "keyPatents": "US6747310B2"
+          },
+          {
+            "period": "2006–2010",
+            "era": "Microchip 收購整合",
+            "theme": "成為全球微控制器 eFlash 霸主",
+            "summary": "Microchip 完成對 SST 的 3 億美元收購，將 SuperFlash 確立為 PIC/AVR MCU 的核心競爭優勢。",
+            "nodes": "65nm / 55nm",
+            "keyPatents": "Microchip 整合專利群"
+          },
+          {
+            "period": "2011–2026",
+            "era": "車用 28nm HKMG 與神經擬態 CIM",
+            "theme": "先進節點量產與 memBrain 類比 AI",
+            "summary": "SuperFlash 成功微縮至 28nm HKMG 車規量產平台，並基於 ESF3 浮閘電導發表 memBrain™ 神經擬態計算 IP。",
+            "nodes": "40nm / 28nm HKMG",
+            "keyPatents": "memBrain 類比計算專利"
+          }
+        ]
+      },
+      {
+        "id": "everspin",
+        "name": "Everspin Technologies, Inc.",
+        "shortName": "Everspin",
+        "headquarters": "美國亞利桑那州錢德勒 (Chandler, Arizona, USA)",
+        "founded": "2008 年 (自 Motorola / Freescale 飛思卡爾半導體分拆獨立)",
+        "founders": "Leonid Savtchenko, Saied Tehrani, Brad Engel 等 Motorola MRAM 創始團隊",
+        "businessModel": "商用獨立式與嵌入式自旋磁性記憶體 (MRAM) 設計、製造與 IP 授權 (Discrete & Embedded MRAM)",
+        "patentStats": {
+          "totalGrantedWorldwide": "600+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、歐洲 (EPO)、日本 (JPO)、台灣 (TIPO)、中國 (CNIPA)",
+          "foundryCoverage": "格芯 (GlobalFoundries 22FDX / 12LP)、聯電 (UMC 22ULL)、Everspin 自有後端磁性晶圓廠",
+          "waferShipment": "全球累積出貨超過 1.5 億顆商用 MRAM 晶片，業界唯一具備二十年量產紀錄之 MRAM 領導者"
+        },
+        "strategy": "Everspin 專利戰略的核心為開創「Savtchenko 翻轉 (Toggle MRAM)」並主導演進至「垂直磁各向異性自旋轉矩 (pMTJ STT-MRAM)」。早期磁場寫入 MRAM 面臨嚴重的半選干擾 (Half-Select Disturb) 難題，Savtchenko 博士發明了利用合成反鐵磁 (SAF) 自由層與雙正交脈衝時差的 Toggle 翻轉專利，成就了全球首款商業量產 MRAM；隨著製程微縮，Everspin 進一步佈局了高熱穩定性垂直磁性穿隧接面 (pMTJ)、重金屬界面自旋轉矩注入以及高密度 DDR/xSPI 介面專利網，構建了從航太極限環境、資料中心斷電保護 (PLP) 到 22nm 晶圓代工 eMRAM 的完整專利護城河。",
+        "families": [
+          {
+            "id": "everspin-toggle-family",
+            "name": "Toggle MRAM 合成反鐵磁磁場翻轉專利家族",
+            "tagline": "合成反鐵磁 (SAF) · Savtchenko 雙脈衝旋轉翻轉 · 杜絕半選干擾 · 無限耐久度 (10¹⁴)",
+            "technologyType": "Field-Assisted MRAM (磁場輔助切換磁記憶體)",
+            "cellTopology": "1T-1MTJ (雙電流線交會之合成反鐵磁單元)",
+            "physicalMechanism": "利用兩條正交導線依序發送電流脈衝產生旋轉磁場，使 SAF 自由層磁矩順時針翻轉 180°；未選中單元磁場不足完全不翻轉",
+            "processNode": "0.18µm / 0.13µm / 90nm 特殊 BEOL 磁性製程",
+            "summary": "確立 MRAM 商業可行性的劃時代專利。徹底解決了一代 MRAM 容易被交叉磁場誤翻轉的致命弱點，提供無限制讀寫次數 (10¹⁴ 次)、大於 20 年高溫保持力與抗輻射/抗磁場干擾能力，至今仍是航空航天與關鍵工業控制系統的不可替代標準。",
+            "patents": [
+              {
+                "id": "US6545906B1",
+                "title": "具旋轉切換模式之磁阻式隨機存取記憶體及其寫入方法",
+                "grantDate": "2003-04-08",
+                "priorityDate": "2001-11-21",
+                "inventors": "Leonid Savtchenko",
+                "assignee": "Motorola, Inc. (轉讓予 Everspin Technologies, Inc.)",
+                "url": "https://patents.google.com/patent/US6545906B1/en",
+                "coreProblem": "傳統 Stoner-Wohlfarth 磁場翻轉在位元線與字元線交叉處具有廣泛的星狀曲線 (Astroid Curve)，半選單元受相鄰磁場干擾極易意外翻轉資料。",
+                "mechanism": "自由層改採三層合成反鐵磁 (SAF：磁層/非磁性 Ru 耦合層/磁層) 結構。寫入時字元線與位元線依微小時差發送雙脈衝，合成磁場引導 SAF 磁化向量旋轉 180° (Toggle)。半選單元僅受到單一方向磁場作用，磁矩在脈衝結束後彈回原態，完全免疫半選干擾。",
+                "claimFocus": "權利項 1 限定利用合成反鐵磁自由層與依序施加之正交磁場脈衝實現 Toggle 旋轉翻轉之方法。",
+                "productLink": "MR2A16A / MR0A08A 等經典 Toggle MRAM 晶片，廣泛用於衛星導航、黑盒子飛行記錄器與醫療設備。"
+              }
+            ]
+          },
+          {
+            "id": "everspin-stt-family",
+            "name": "STT-MRAM 垂直磁各向異性 (pMTJ) 專利家族",
+            "tagline": "垂直磁性穿隧接面 (pMTJ) · 自旋轉矩傳遞 (STT) · 低翻轉電流 (Jc) · Gb 級容量",
+            "technologyType": "STT-MRAM (自旋轉矩傳遞磁記憶體)",
+            "cellTopology": "1T-1MTJ (奈米級垂直穿隧接面單元)",
+            "physicalMechanism": "自旋極化電流直接穿過 MgO 隧道障壁，將角動量傳遞給 CoFeB 垂直自由層引發磁化翻轉；讀取時檢測穿隧磁阻 (TMR)",
+            "processNode": "40nm / 28nm / 22nm / 12nm 先進晶圓代工平台",
+            "summary": "引領 MRAM 進入深次微米高密度時代的核心專利技術。放棄外部電流線產生磁場的傳統模式，利用界面垂直磁各向異性 (PMA) 大幅降低翻轉電流密度，使單元能微縮至 20nm 以下，實現高達 1Gb 容量、DDR4 級傳輸速度與無電池資料中心斷電保護 (PLP)。",
+            "patents": [
+              {
+                "id": "US7599207B2",
+                "title": "具垂直磁各向異性之自旋轉矩傳遞磁阻記憶體元件",
+                "grantDate": "2009-10-06",
+                "priorityDate": "2005-09-30",
+                "inventors": "Jian-Gang Zhu, Dmytro Apalkov",
+                "assignee": "Grandis, Inc. (轉讓予 Everspin Technologies, Inc.)",
+                "url": "https://patents.google.com/patent/US7599207B2/en",
+                "coreProblem": "平面 (In-Plane) MTJ 在節點微縮至 40nm 以下時，退磁場導致熱穩定性能障急劇崩塌，無法兼顧 10 年保持力與低翻轉電流。",
+                "mechanism": "利用 CoFeB/MgO 界面產生的強大垂直磁各向異性 (PMA)，消除平面退磁場能量損耗，使翻轉電流 (Ic) 降低 80%，同時維持熱穩定性因數 Delta > 60，支援 10 年以上高溫留存。",
+                "claimFocus": "權利項 1 限定由垂直自由層、介電穿隧障壁與垂直參考層構成之 pMTJ 堆疊結構及自旋翻轉操作。",
+                "productLink": "Everspin 256Mb / 1Gb STT-MRAM (EMxxLX, DDR/xSPI 介面)，企業級 SSD 斷電保護 (PLP)。"
+              },
+              {
+                "id": "US8488373B2",
+                "title": "具高穿隧磁阻與熱穩定性之磁阻隨機存取記憶體多層膜結構",
+                "grantDate": "2013-07-16",
+                "priorityDate": "2010-06-25",
+                "inventors": "Renu Dhamdhere, Dmytro Apalkov, Sanjeev Aggarwal",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US8488373B2/en",
+                "coreProblem": "先進晶圓後端金屬互連製程 (BEOL) 需要承受 400°C 退火熱預算，高溫容易導致金屬原子擴散破壞 MgO 穿隧界面並削弱 TMR 比率。",
+                "mechanism": "引進高耐熱擴散阻擋層與多重退火穩定多層膜，使 pMTJ 在承受 400°C 90 分鐘熱預算後仍維持大於 180% 的 TMR 讀取信號比率。",
+                "claimFocus": "權利項 1 限定承受 400°C BEOL 熱預算且 TMR > 150% 之耐高溫 MTJ 堆疊結構。",
+                "productLink": "格芯 (GlobalFoundries) 22FDX eMRAM 量產驗證核心基礎專利。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2001–2007",
+            "era": "Motorola 研發與 Toggle 誕生",
+            "theme": "Savtchenko Toggle 專利獲准",
+            "summary": "發明 Toggle 翻轉技術，2006 年發表全球首款 4Mb 商用 MRAM 晶片，奠定 MRAM 商業化起點。",
+            "nodes": "0.18µm 特殊磁性製程",
+            "keyPatents": "US6545906B1"
+          },
+          {
+            "period": "2008–2014",
+            "era": "Everspin 獨立與 STT 突破",
+            "theme": "分拆獨立並收購 Grandis 專利",
+            "summary": "自 Freescale 獨立創立 Everspin，收購 Grandis 垂直 STT 專利，發表首款 STT-MRAM 樣品。",
+            "nodes": "90nm / 65nm",
+            "keyPatents": "US7599207B2, US8488373B2"
+          },
+          {
+            "period": "2015–2020",
+            "era": "1Gb pMTJ 與代工廠量產",
+            "theme": "GF 22FDX eMRAM 與 1Gb 晶片出貨",
+            "summary": "攜手 GlobalFoundries 於 22FDX 實現 eMRAM 量產，商用獨立式 1Gb STT-MRAM 晶片出貨。",
+            "nodes": "40nm / 28nm / 22FDX",
+            "keyPatents": "US9087588B2"
+          },
+          {
+            "period": "2021–2026",
+            "era": "工業與數據中心全面滲透",
+            "theme": "xSPI / DDR 擴展與高可靠車規",
+            "summary": "發表 PERSYST™ 品牌與高可靠 xSPI MRAM，成為數據中心儲存 PLP 與航太工業抗輻射不可或缺的核心。",
+            "nodes": "22nm / 12LP 製程延伸",
+            "keyPatents": "EMxxLX 產品系列專利"
+          }
+        ]
+      },
+      {
+        "id": "weebit",
+        "name": "Weebit Nano Limited",
+        "shortName": "Weebit Nano",
+        "headquarters": "以色列霍德夏沙隆 / 澳洲墨爾本 (Hod HaSharon, Israel / Melbourne, Australia)",
+        "founded": "2015 年",
+        "founders": "Coby Hanoch (執行長)、Prof. James Tour (萊斯大學奈米科學先驅) 團隊",
+        "businessModel": "氧化物電阻式記憶體 (OxRAM / ReRAM) 嵌入式 IP 授權與神經擬態設計 (Embedded ReRAM IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "50+ 件全球核准專利",
+          "keyJurisdictions": "美國 (USPTO)、以色列 (ILPO)、歐洲 (EPO)、台灣 (TIPO)、中國 (CNIPA)",
+          "foundryCoverage": "SkyWater Technology (S130)、東部高科 (DB HiTek 130nm BCD)、格芯 (GF 22FDX 合作驗證)",
+          "waferShipment": "累積多批晶圓代工廠客戶驗證與測試晶片交付"
+        },
+        "strategy": "Weebit Nano 專利戰略的核心為發明「標準 CMOS 相容矽基氧化物 (SiOx / ReRAM)」與「自適應多階電導類比記憶體計算 (Neuromorphic CIM)」。傳統金屬氧化物 ReRAM（如 HfOx、TaOx）往往需要引入外來特殊重金屬前驅物，代工廠需要額外購買專用沉積機台且有交叉污染晶圓廠前端之疑慮。Weebit 與萊斯大學 James Tour 教授團隊合作，專利直接利用標準 CMOS 製程既有的多孔二氧化矽 (Porosity-controlled SiOx) 或成熟氧化鉿，透過電場誘發氧空缺通道重組形成導電細絲，達到 100% 後端 (BEOL) 零污染低成本整合；更進一步佈局了類比神經突觸權重自適應補償專利，開創邊緣 AI 類比運算的專利新版圖。",
+        "families": [
+          {
+            "id": "weebit-oxram-family",
+            "name": "Weebit 矽基/氧化物電阻式 (OxRAM) 記憶體專利家族",
+            "tagline": "標準 CMOS 氧化物 (SiOx/HfOx) · 奈米導電細絲 (Filament) · 後端 2 道光罩 · 100% 零前驅物污染",
+            "technologyType": "OxRAM / ReRAM (氧化物電阻式非揮發性記憶體)",
+            "cellTopology": "1T1R (一選擇電晶體 + 一奈米級可變電阻 MIM 堆疊)",
+            "physicalMechanism": "電場驅動氧陰離子與氧空缺遷移，局部形成或斷開富矽/氧缺陷奈米導電細絲 (Filament)，在高阻態 (HRS) 與低阻態 (LRS) 間雙向切換",
+            "processNode": "130nm BCD 至 28nm / 22nm FD-SOI 先進節點",
+            "summary": "深具顛覆性的嵌入式非揮發性記憶體技術。相較於傳統 eFlash 需增加多達 8–10 道高溫光罩，Weebit ReRAM 僅需在後端金屬層 (BEOL) 增加 2 道低溫光罩，完全不干擾前端基板電晶體，能在 sub-2V 極低電壓下進行納秒級快速寫入，具備 100K 擦寫次數與 10 年 150°C 保持力。",
+            "patents": [
+              {
+                "id": "US10141505B2",
+                "title": "利用多孔氧化矽之電阻式隨機存取記憶體元件及其製作操作方法",
+                "grantDate": "2018-11-27",
+                "priorityDate": "2014-06-20",
+                "inventors": "James Tour, Gunuk Wang",
+                "assignee": "Rice University (獨家授權予 Weebit Nano Ltd.)",
+                "url": "https://patents.google.com/patent/US10141505B2/en",
+                "coreProblem": "常規 ReRAM 需要特殊貴金屬電極與未經驗證之外來氧化物，代工廠導入風險高且無法承受傳統前端高溫熱預算。",
+                "mechanism": "直接以標準半導體二氧化矽 (SiO2) 為母體，透過調控沉積孔隙率形成富矽奈米通道，在外加偏壓下促使矽奈米微絲進行可逆連接與斷續，實現無污染、100% CMOS 既有材料兼容之阻變儲存。",
+                "claimFocus": "權利項 1 限定由多孔富矽介電薄膜夾於兩導電電極間構成之電阻式切換元件與雙向電壓切換操作。",
+                "productLink": "Weebit ReRAM 核心技術，於 SkyWater 130nm 與 DB HiTek 130nm BCD 平台獲 PDK 資格驗證。"
+              },
+              {
+                "id": "US10580980B2",
+                "title": "利用電阻式記憶體陣列進行神經擬態計算之操作方法",
+                "grantDate": "2020-03-03",
+                "priorityDate": "2017-08-31",
+                "inventors": "Amir Regev, Ishai Naveh",
+                "assignee": "Weebit Nano Ltd.",
+                "url": "https://patents.google.com/patent/US10580980B2/en",
+                "coreProblem": "ReRAM 在神經擬態類比記憶體計算 (Analog In-Memory Computing) 中，阻值隨時間容易發生電導漂移 (Drift)，破壞神經網絡矩陣權重推論精度。",
+                "mechanism": "設計專屬多階電導 (MLC) 脈衝調適補償電路，在每次矩陣乘法運算前以微弱探測電流檢測電導漂移，並自動施加微幅修正脈衝恢復原突觸權重，維持類比運算精確度。",
+                "claimFocus": "權利項 1 限定利用多階電阻式記憶體陣列執行向量矩陣乘法 (VMM) 並具備動態電導校準之神經擬態操作架構。",
+                "productLink": "Weebit Neuromorphic ReRAM 類比 AI 加速 IP。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2015–2018",
+            "era": "創立與萊斯大學專利獨家授權",
+            "theme": "SiOx ReRAM 原理驗證",
+            "summary": "取得萊斯大學 James Tour 教授矽基 ReRAM 全球獨家專利授權，完成 CEA-Leti 合作驗證。",
+            "nodes": "Leti 研發晶圓線",
+            "keyPatents": "US10141505B2"
+          },
+          {
+            "period": "2019–2022",
+            "era": "代工廠商業化與 SkyWater 認證",
+            "theme": "通過車規高溫可靠性驗證",
+            "summary": "於 SkyWater 130nm CMOS 完成全陣列可靠性認證，展示 150°C 10 年留存與 100K 耐久度。",
+            "nodes": "SkyWater 130nm",
+            "keyPatents": "US10580980B2"
+          },
+          {
+            "period": "2023–2026",
+            "era": "DB HiTek 簽約與先進 22nm 邁進",
+            "theme": "BCD 量產磁吸與神經擬態 AI 拓展",
+            "summary": "與南韓 DB HiTek 簽訂大規模商業晶圓授權協議，並跨入 28nm/22nm 先進節點與邊緣 AI 類比運算。",
+            "nodes": "DB HiTek 130nm / 22FDX",
+            "keyPatents": "Weebit 商業量產專利群"
+          }
+        ]
+      },
+      {
+        "id": "pufsecurity",
+        "name": "PUFsecurity Corp. (熵碼科技股份有限公司)",
+        "shortName": "熵碼 PUFsecurity",
+        "headquarters": "台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)",
+        "founded": "2019 年 (力旺電子 eMemory 旗下硬體安全子公司)",
+        "founders": "楊青松博士 (Dr. Evans Ching-Song Yang)、徐清祥博士 (Dr. Charles Hsu) 團隊",
+        "businessModel": "基於量子穿隧物理不可複製函數 (PUF) 之晶片安全信任根與密碼協同處理器 IP (Hardware Root-of-Trust IP)",
+        "patentStats": {
+          "totalGrantedWorldwide": "100+ 件全球核准專利 (與母公司力旺共用核心專利池)",
+          "keyJurisdictions": "美國 (USPTO)、台灣 (TIPO)、中國 (CNIPA)、歐洲 (EPO)",
+          "foundryCoverage": "台積電 (TSMC N6/N5/N3)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS)",
+          "waferShipment": "累計授權導入全球數十款高階 AI、車用、物聯網與 FPGA 旗艦晶片"
+        },
+        "strategy": "PUFsecurity (熵碼科技) 專利戰略的核心為將力旺母公司的「量子穿隧微觀介電質變異 (NeoPUF)」轉化為「零誤碼硬體信任根 (Zero-Error Root of Trust, PUFrt)」與「全集成硬體密碼安全處理器 (PUFcc)」。傳統靜態隨機存取記憶體 (SRAM PUF) 隨環境溫度與老化容易產生高達 5%–15% 的位元翻轉，必須依賴龐大複雜的糾錯碼 (ECC 輔助資料) 進行後處理，不僅消耗面積且存在側信道外洩風險。熵碼專利佈局圍繞於「動態差分對稱追蹤電路」與「量子散粒雜訊真隨機亂數產生器 (Quantum TRNG)」，在源頭硬體層面實現原生 0 誤碼率 (Native 0% BER)，獲得了 PSA Certified Level 3、SESIP Level 3 等國際最高資安認證。",
+        "families": [
+          {
+            "id": "pufsecurity-rot-family",
+            "name": "PUFrt / PUFcc 硬體信任根與量子安全密碼專利家族",
+            "tagline": "差分對稱追蹤 · 原生 0% 誤碼率 (Zero BER) · 量子穿隧散粒雜訊 TRNG · 0-Mask",
+            "technologyType": "Hardware Security Root-of-Trust (晶片硬體安全信任根)",
+            "cellTopology": "Dual-Tunneling Differential Pair (對稱成對介電層穿隧差分單元)",
+            "physicalMechanism": "採集閘極氧化層原子級初始厚度與微觀缺陷微小變異，利用差分共模放大電路消除溫度漂移，直接輸出穩定晶片 DNA 指紋",
+            "processNode": "55nm 至 3nm / 2nm 先進邏輯與 HPC 平台",
+            "summary": "半導體硬體安全領域的最高殿堂發明。完全擺脫外部金鑰寫入與脆弱的輔助資料，讓晶片在通電瞬間由矽原子結構直接孕育出不可複製的私密金鑰，更融合了抗量子密碼 (PQC) 協同加速器與安全 OTP，為次世代雲端伺服器與 AI 處理器建立堅不可摧的硬體信任錨點。",
+            "patents": [
+              {
+                "id": "US10651268B2",
+                "title": "實體不可複製函數裝置及其具追蹤參考之差分讀取電路",
+                "grantDate": "2020-05-12",
+                "priorityDate": "2018-03-12",
+                "inventors": "Evans Ching-Song Yang, Meng-Yi Wu",
+                "assignee": "eMemory Technology Inc. (專屬授權 PUFsecurity Corp.)",
+                "url": "https://patents.google.com/patent/US10651268B2/en",
+                "coreProblem": "傳統基於 SRAM 或延遲鏈的 PUF 在極端高低溫 (-40°C 至 150°C) 與電源波動下容易翻轉位元，需要極昂貴複雜的 ECC 電路修復，造成晶片面積膨脹與輔助資料洩漏風險。",
+                "mechanism": "配置一對對稱的薄氧化層穿隧單元，利用共模抑制比抵消環境溫度與電源波動，感測放大器只比對兩者間由量子微觀幾何決定的微弱穿隧電流勝負，原生誤碼率直接達到物理 0%，終生無需 ECC 輔助校準。",
+                "claimFocus": "權利項 1 限定由成對介電層量子穿隧單元組成之差分感測追蹤電路及零誤碼金鑰提取方法。",
+                "productLink": "PUFrt™ 硬體信任根，榮獲台積電 OIP Open Innovation Platform 年度最佳安全 IP 獎。"
+              },
+              {
+                "id": "US10769300B2",
+                "title": "利用介電層量子穿隧散粒雜訊之真隨機亂數產生器",
+                "grantDate": "2020-09-08",
+                "priorityDate": "2018-09-14",
+                "inventors": "Meng-Yi Wu, Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc. (專屬授權 PUFsecurity Corp.)",
+                "url": "https://patents.google.com/patent/US10769300B2/en",
+                "coreProblem": "傳統振盪器抖動 (Ring Oscillator Jitter) TRNG 容易受到注入鎖定 (Injection Locking) 與側信道電磁干擾操縱攻擊。",
+                "mechanism": "直接以量子穿隧效應固有的電子散粒雜訊 (Shot Noise) 為唯一物理熵源，純量子現象在熱力學上完全無法被外部電磁波或溫度干擾所控制，天然通過 NIST SP 800-22 與 SP 800-90B 全套隨機性標準測試。",
+                "claimFocus": "權利項 1 限定以閘氧化層量子穿隧散粒雜訊為熵源並具備即時健康測試 (Health Test) 之真隨機亂數產生器電路架構。",
+                "productLink": "PUFcc™ 晶片安全協同處理器，整合 NIST CAVP 認證密碼引擎。"
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2019–2020",
+            "era": "熵碼成立與零誤碼 PUF 突破",
+            "theme": "PUFrt 核心差分專利獲准",
+            "summary": "自力旺分拆獨立，推出全球首款原生零誤碼率 PUFrt 硬體信任根，取得關鍵差分追蹤專利。",
+            "nodes": "55nm / 40nm / 28nm",
+            "keyPatents": "US10651268B2, US10769300B2"
+          },
+          {
+            "period": "2021–2023",
+            "era": "全整合 PUFcc 與國際資安認證",
+            "theme": "獲得 PSA Level 3 與 SESIP Level 3",
+            "summary": "發表全集成安全協同處理器 PUFcc，榮獲台積電最佳安全 IP 夥伴獎，並通過全球最高階安全認證。",
+            "nodes": "16nm / 7nm / 5nm",
+            "keyPatents": "PUFcc 安全架構專利群"
+          },
+          {
+            "period": "2024–2026",
+            "era": "後量子密碼 (PQC) 與 3nm/2nm GAA",
+            "theme": "跨入 2nm 埃米世代與 PQC 信任錨點",
+            "summary": "進軍美國 NIST FIPS 203/204 後量子密碼硬體加速，並於台積電 N3/N2 先進製程完成硬體驗證。",
+            "nodes": "3nm / 2nm GAA",
+            "keyPatents": "PQC PUF 晶片安全信任根"
+          }
+        ]
       }
     ]
   },

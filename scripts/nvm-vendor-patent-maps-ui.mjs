@@ -60,7 +60,7 @@ function editorialHeader(data, en) {
 /**
  * 渲染單一專利卡片
  */
-function renderPatentRecord(patent, en) {
+function renderPatentRecord(patent, familyId, en) {
   const labels = en
     ? {
         problem: 'Core Physical & Engineering Problem',
@@ -85,7 +85,7 @@ function renderPatentRecord(patent, en) {
         viewFull: '開啟 Google Patents 原始專利公報全文'
       };
 
-  return `<details class="nvm-disclosure nvm-vendor-patent-record" id="vendor-patent-${esc(patent.id)}"><summary><span class="nvm-patent-id">${esc(patent.id)}</span><strong>${esc(patent.title)}</strong><span class="nvm-patent-meta">${esc(patent.grantDate)} · ${esc(patent.assignee)}</span></summary><div class="nvm-patent-details-body"><div class="nvm-vendor-patent-grid"><div><dt>${labels.problem}</dt><dd>${esc(patent.coreProblem)}</dd></div><div><dt>${labels.mechanism}</dt><dd>${esc(patent.mechanism)}</dd></div><div><dt>${labels.claim}</dt><dd>${esc(patent.claimFocus)}</dd></div><div><dt>${labels.product}</dt><dd>${esc(patent.productLink)}</dd></div><div class="nvm-patent-link-row"><dt>${labels.assignee}</dt><dd>${esc(patent.inventors)} · ${labels.priority}: ${esc(patent.priorityDate)} · ${labels.grant}: ${esc(patent.grantDate)} · <a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">${labels.viewFull} <span aria-hidden="true">↗</span></a></dd></div></div></div></details>`;
+  return `<details class="nvm-disclosure nvm-vendor-patent-record" id="vendor-patent-${esc(familyId)}-${esc(patent.id)}"><summary><span class="nvm-patent-id">${esc(patent.id)}</span><strong>${esc(patent.title)}</strong><span class="nvm-patent-meta">${esc(patent.grantDate)} · ${esc(patent.assignee)}</span></summary><div class="nvm-patent-details-body"><div class="nvm-vendor-patent-grid"><div><dt>${labels.problem}</dt><dd>${esc(patent.coreProblem)}</dd></div><div><dt>${labels.mechanism}</dt><dd>${esc(patent.mechanism)}</dd></div><div><dt>${labels.claim}</dt><dd>${esc(patent.claimFocus)}</dd></div><div><dt>${labels.product}</dt><dd>${esc(patent.productLink)}</dd></div><div class="nvm-patent-link-row"><dt>${labels.assignee}</dt><dd>${esc(patent.inventors)} · ${labels.priority}: ${esc(patent.priorityDate)} · ${labels.grant}: ${esc(patent.grantDate)} · <a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">${labels.viewFull} <span aria-hidden="true">↗</span></a></dd></div></div></div></details>`;
 }
 
 /**
@@ -110,7 +110,7 @@ function renderPatentFamily(family, en) {
     ? `${family.patents.length} Representative Milestone Patents`
     : `${family.patents.length} 件代表性里程碑專利`;
 
-  return `<article class="nvm-patent-family" id="family-${esc(family.id)}"><header class="nvm-family-header"><p class="nvm-family-tagline">${esc(family.tagline)}</p><h4>${esc(family.name)}</h4></header><div class="nvm-family-specs"><dl>${specs.map(item => `<div><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl></div><div class="nvm-family-summary"><p>${esc(family.summary)}</p></div><h5 class="nvm-family-patents-title">${patentCountLabel}</h5><div class="nvm-family-patent-records">${family.patents.map(patent => renderPatentRecord(patent, en)).join('')}</div></article>`;
+  return `<article class="nvm-patent-family" id="family-${esc(family.id)}"><header class="nvm-family-header"><p class="nvm-family-tagline">${esc(family.tagline)}</p><h4>${esc(family.name)}</h4></header><div class="nvm-family-specs"><dl>${specs.map(item => `<div><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl></div><div class="nvm-family-summary"><p>${esc(family.summary)}</p></div><h5 class="nvm-family-patents-title">${patentCountLabel}</h5><div class="nvm-family-patent-records">${family.patents.map(patent => renderPatentRecord(patent, family.id, en)).join('')}</div></article>`;
 }
 
 /**
