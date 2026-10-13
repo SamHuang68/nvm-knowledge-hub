@@ -79,8 +79,10 @@ export function calculateCimMetrics({
   deviceKey = "reram",
   adcBits = 6,
   freqMHz = 100,
-}) {
-  const profile = CIM_DEVICE_PROFILES[deviceKey] || CIM_DEVICE_PROFILES.reram;
+} = {}) {
+  const profile = (deviceKey && Object.prototype.hasOwnProperty.call(CIM_DEVICE_PROFILES, deviceKey))
+    ? CIM_DEVICE_PROFILES[deviceKey]
+    : CIM_DEVICE_PROFILES.reram;
   const N = Math.max(32, Math.min(1024, Number(arraySize) || 256));
   const M = N; // Square crossbar
   const B_adc = [4, 6, 8].includes(Number(adcBits)) ? Number(adcBits) : 6;

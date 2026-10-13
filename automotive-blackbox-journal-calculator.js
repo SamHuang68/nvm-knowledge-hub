@@ -154,8 +154,12 @@ export function calculateBlackboxJournal({
   safetyMargin = 1.35,
   junctionTempC = 125,
 } = {}) {
-  const fault = AUTOMOTIVE_FAULT_PRESETS[faultPresetKey] || AUTOMOTIVE_FAULT_PRESETS.powertrain_inverter;
-  const nvm = AUTO_NVM_TECH_PROFILES[nvmTechKey] || AUTO_NVM_TECH_PROFILES.logic_mtp_ee;
+  const fault = (faultPresetKey && Object.prototype.hasOwnProperty.call(AUTOMOTIVE_FAULT_PRESETS, faultPresetKey))
+    ? AUTOMOTIVE_FAULT_PRESETS[faultPresetKey]
+    : AUTOMOTIVE_FAULT_PRESETS.powertrain_inverter;
+  const nvm = (nvmTechKey && Object.prototype.hasOwnProperty.call(AUTO_NVM_TECH_PROFILES, nvmTechKey))
+    ? AUTO_NVM_TECH_PROFILES[nvmTechKey]
+    : AUTO_NVM_TECH_PROFILES.logic_mtp_ee;
 
   const totalBytesToLog = fault.recordSizeBytes * fault.recordCount;
   const pagesToWrite = Math.ceil(totalBytesToLog / 32.0); // 32-byte page granularity
@@ -268,11 +272,16 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
   ctx.clearRect(0, 0, width, height);
 
   // Background
+  // Background: Surgical Light Mode Slate
   const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, "#101923");
-  bgGrad.addColorStop(1, "#070c12");
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f1f5f9");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0, 0, width, height);
 
   const padLeft = 40;
   const padRight = 24;
@@ -291,7 +300,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
     const yUvlo = padTop + plotH * 0.78;
 
     // UVLO line (Red)
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.45)";
+    ctx.strokeStyle = "rgba(220, 38, 38, 0.45)";
     ctx.lineWidth = 1;
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
@@ -299,8 +308,8 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
     ctx.lineTo(padLeft + plotW, yUvlo);
     ctx.stroke();
 
-    // PLD trigger line (Yellow)
-    ctx.strokeStyle = "rgba(245, 158, 11, 0.45)";
+    // PLD trigger line (Amber)
+    ctx.strokeStyle = "rgba(217, 119, 6, 0.45)";
     ctx.beginPath();
     ctx.moveTo(padLeft, yPld);
     ctx.lineTo(padLeft + plotW, yPld);
@@ -309,7 +318,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
 
     // Discharge Voltage Curve: V(t) = sqrt(V_pld^2 - 2 * P * t / (C * eta))
     ctx.beginPath();
-    ctx.strokeStyle = results.isTimeCompliant ? "#10b981" : "#ef4444";
+    ctx.strokeStyle = results.isTimeCompliant ? "#059669" : "#dc2626";
     ctx.lineWidth = 2.5;
 
     let writeEndPx = 0;
@@ -340,7 +349,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
 
     // Safe write complete vertical marker
     if (writeEndPx > 0) {
-      ctx.strokeStyle = results.isTimeCompliant ? "#34d399" : "#f87171";
+      ctx.strokeStyle = results.isTimeCompliant ? "#059669" : "#dc2626";
       ctx.lineWidth = 1.5;
       ctx.setLineDash([4, 3]);
       ctx.beginPath();
@@ -350,7 +359,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
       ctx.setLineDash([]);
 
       ctx.font = "700 9px 'IBM Plex Mono', monospace";
-      ctx.fillStyle = results.isTimeCompliant ? "#34d399" : "#f87171";
+      ctx.fillStyle = results.isTimeCompliant ? "#047857" : "#b91c1c";
       ctx.fillText(
         `${results.burstWriteTimeMs}ms`,
         Math.max(padLeft, writeEndPx - 15),
@@ -360,12 +369,12 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
 
     // Text labels
     ctx.font = "600 8.5px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#fbbf24";
+    ctx.fillStyle = "#b45309";
     ctx.fillText("V_PLD (9.0V)", padLeft + 4, yPld - 3);
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#dc2626";
     ctx.fillText("UVLO (4.5V)", padLeft + 4, yUvlo - 3);
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#64748b";
     ctx.fillText(isZh ? "時間 (ms)" : "Time (ms)", padLeft + plotW - 40, height - 10);
 
   } else {
@@ -385,33 +394,33 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
       ctx.arc(centerX, centerY, radius - 16, endAngle, startAngle, true);
       ctx.closePath();
 
-      ctx.fillStyle = s < 6 ? "#059669" : (s < 12 ? "#0284c7" : "#334155");
+      ctx.fillStyle = s < 6 ? "#059669" : (s < 12 ? "#0284c7" : "#cbd5e1");
       ctx.fill();
     }
 
     // Center circular hub
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius - 20, 0, Math.PI * 2);
-    ctx.fillStyle = "#0c151f";
+    ctx.fillStyle = "#ffffff";
     ctx.fill();
-    ctx.strokeStyle = "#1e293b";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 2;
     ctx.stroke();
 
     ctx.font = "700 11px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#f8fafc";
+    ctx.fillStyle = "#0f172a";
     ctx.textAlign = "center";
     ctx.fillText(`${results.recordsPerBuffer}`, centerX, centerY - 2);
     ctx.font = "500 8.5px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#475569";
     ctx.fillText(isZh ? "槽位容量" : "Slots", centerX, centerY + 12);
     ctx.textAlign = "left";
 
     // Legend
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#34d399";
+    ctx.fillStyle = "#047857";
     ctx.fillText(isZh ? "● 活躍日誌區" : "● Active Log", padLeft + plotW * 0.72, padTop + 20);
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0369a1";
     ctx.fillText(isZh ? "● 備援循環區" : "● Spare Buffer", padLeft + plotW * 0.72, padTop + 38);
     ctx.fillStyle = "#64748b";
     ctx.fillText(isZh ? "● 空閒槽位" : "● Free Slots", padLeft + plotW * 0.72, padTop + 56);
@@ -419,7 +428,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
 
   // Canvas Title
   ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
-  ctx.fillStyle = "#f1f5f9";
+  ctx.fillStyle = "#0f172a";
   ctx.fillText(
     mode === "discharge_curve"
       ? (isZh ? `斷電放電與寫入窗口 (持電電容: ${results.holdupCapacitanceUf} μF)` : `Power-Loss Discharge (Hold-Up: ${results.holdupCapacitanceUf} μF)`)

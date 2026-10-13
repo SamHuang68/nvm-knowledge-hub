@@ -529,8 +529,16 @@ function initializePatentMap() {
   form.hidden = false;
   form.addEventListener('submit',event=>event.preventDefault());
   form.addEventListener('reset',event=>{event.preventDefault();reset(true);query.focus();});
+  root.querySelector('[data-map-reset]')?.addEventListener('click',()=>{reset(true);query.focus();});
+  query.addEventListener('keydown',event=>{if(event.key==='Escape'&&query.value){event.preventDefault();query.value='';apply();writeURL(true);}});
   query.addEventListener('input',()=>{apply();writeURL(true);});
   for (const select of [company,technology,status]) select.addEventListener('change',()=>{apply();writeURL(true);});
+  root.querySelector('.nvm-entity-pills')?.addEventListener('click',event=>{
+    const pill=event.target.closest('a[href^="#vendor-"]');
+    if(!pill)return;
+    const target=document.getElementById(pill.getAttribute('href').slice(1));
+    if(target)setTimeout(()=>{try{target.focus({preventScroll:true});}catch{target.focus();}},100);
+  });
   window.addEventListener('popstate',()=>{readURL();apply();});
   readURL(); apply();
   return {reveal(anchor) {

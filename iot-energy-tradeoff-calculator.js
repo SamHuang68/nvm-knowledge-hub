@@ -79,8 +79,12 @@ export const BATTERY_PRESETS = Object.freeze({
  * @return {Object} Computed energy breakdown and battery lifetime.
  */
 export function calculateIotEnergyBudget(options = {}) {
-  const profile = IOT_MCU_PROFILES[options.profileId] || IOT_MCU_PROFILES.tiered_antifuse;
-  const battery = BATTERY_PRESETS[options.batteryId] || BATTERY_PRESETS.cr2032;
+  const profile = (options.profileId && Object.prototype.hasOwnProperty.call(IOT_MCU_PROFILES, options.profileId))
+    ? IOT_MCU_PROFILES[options.profileId]
+    : IOT_MCU_PROFILES.tiered_antifuse;
+  const battery = (options.batteryId && Object.prototype.hasOwnProperty.call(BATTERY_PRESETS, options.batteryId))
+    ? BATTERY_PRESETS[options.batteryId]
+    : BATTERY_PRESETS.cr2032;
   const wakeIntervalSec = Math.max(0.1, parseFloat(options.wakeIntervalSec) || 10.0);
   const activeDurationMs = Math.max(0.1, parseFloat(options.activeDurationMs) || 5.0);
 

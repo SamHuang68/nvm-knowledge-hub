@@ -46,6 +46,11 @@ import { calculateHardwareTrojanPemMetrics } from '../supply-chain-hardware-troj
 import { calculatePufNistRandomness } from '../puf-nist-randomness-evaluator.js';
 import { calculateAttackPotential } from '../attack-resistance-evaluator.js';
 import { calculateWaferCostTco } from '../wafer-cost-tco-calculator.js';
+import { calculateBlackboxJournal } from '../automotive-blackbox-journal-calculator.js';
+import { calculateCimMetrics } from '../cim-efficiency-calculator.js';
+import { calculateDemuraLutStorage } from '../demura-lut-calculator.js';
+import { calculateIotEnergyBudget } from '../iot-energy-tradeoff-calculator.js';
+import { calculatePqcRotBudget } from '../pqc-rot-budget-calculator.js';
 
 // 本次契約案例獨立命名，可只執行受影響模型，不重跑整套回歸。
 test('模型契約：未知與繼承技術鍵完整備援至 AntiFuse', () => {
@@ -167,7 +172,12 @@ const allCalculators = [
   { name: 'calculateHardwareTrojanPemMetrics', fn: calculateHardwareTrojanPemMetrics },
   { name: 'calculatePufNistRandomness', fn: calculatePufNistRandomness },
   { name: 'calculateAttackPotential', fn: calculateAttackPotential },
-  { name: 'calculateWaferCostTco', fn: calculateWaferCostTco }
+  { name: 'calculateWaferCostTco', fn: calculateWaferCostTco },
+  { name: 'calculateBlackboxJournal', fn: calculateBlackboxJournal },
+  { name: 'calculateCimMetrics', fn: calculateCimMetrics },
+  { name: 'calculateDemuraLutStorage', fn: calculateDemuraLutStorage },
+  { name: 'calculateIotEnergyBudget', fn: calculateIotEnergyBudget },
+  { name: 'calculatePqcRotBudget', fn: calculatePqcRotBudget }
 ];
 
 function checkNoNaN(obj, prefix = '') {
@@ -483,4 +493,51 @@ test('物理計算器：Suite 11－PUF NIST 統計、AVA_VAN 攻擊潛力與晶�
     }
   }
 });
+
+test('物理計算器：Suite 12－車規黑盒子日誌、CIM 陣列效率與 De-Mura 顯示儲存邊界', () => {
+  const suite12Configs = [
+    { faultPresetKey: 'powertrain_inverter', nvmTechKey: 'logic_mtp_ee', bufferSizeKb: 128 },
+    { faultPresetKey: 'adas_radar_fail', nvmTechKey: 'embedded_flash', bufferSizeKb: 256 },
+    { faultPresetKey: 'bms_thermal_runaway', nvmTechKey: 'antifuse_otp', bufferSizeKb: 512 },
+    { arraySize: 128, deviceKey: 'reram', adcBits: 4, freqMHz: 50 },
+    { arraySize: 512, deviceKey: 'mram', adcBits: 8, freqMHz: 200 },
+    { width: 1920, height: 1080, planes: 3, binSize: 4, bitsPerChannel: 8 },
+    { width: 3840, height: 2160, planes: 4, binSize: 2, bitsPerChannel: 10 },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite12Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 12 邊界條件`);
+        checkNoNaN(res, `${name}_Suite12`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 12 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+
+test('物理計算器：Suite 13－超低功耗 IoT 節點能耗折衝與 PQC 信任根預算極限', () => {
+  const suite13Configs = [
+    { profileId: 'tiered_antifuse', batteryId: 'cr2032', wakeIntervalSec: 1.0, activeDurationMs: 2.0 },
+    { profileId: 'logic_mtp_heavy', batteryId: 'aa_lithium', wakeIntervalSec: 60.0, activeDurationMs: 10.0 },
+    { dsaId: 'ml_dsa_65', kemId: 'ml_kem_768', certDepth: 2, keySlots: 4, rollbackBits: 128 },
+    { dsaId: 'slh_dsa_128s', kemId: null, pubKeyMode: 'hash', certDepth: 1, keySlots: 2, pufHelperBytes: 512 },
+    { dsaId: 'ml_dsa_87', kemId: 'ml_kem_1024', includeClassical: true, includeStatefulHash: true, keySlots: 8 },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite13Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 13 邊界條件`);
+        checkNoNaN(res, `${name}_Suite13`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 13 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+
 
