@@ -540,4 +540,40 @@ test('物理計算器：Suite 13－超低功耗 IoT 節點能耗折衝與 PQC �
   }
 });
 
+test('物理計算器：Suite 14－先進封裝異質整合、深低溫量子與極限輻射硬化極限壓力測試', () => {
+  const suite14Configs = [
+    // 先進封裝與背面供電 (BSPDN, Hetero Chiplet, Nanosheet)
+    { interconnectPitchUm: 0.5, powerDensityWcm2: 150.0, layerCount: 4, dieThicknessUm: 20 },
+    { interconnectPitchUm: 35.0, powerDensityWcm2: 5.0, layerCount: 16, dieThicknessUm: 150 },
+    { bspdnResistanceMohm: 0.05, irDropTargetMv: 5.0, nanosheetWidthNm: 12.0, nanosheetCount: 3 },
+    // 深低溫量子與深太空 (Cryo Qubit Readout, Deep Space SEL)
+    { temperatureKelvin: 0.015, qubitCount: 128, readoutFrequencyGhz: 6.5, magneticFieldTesla: 0.0 },
+    { temperatureKelvin: 4.2, qubitCount: 1024, readoutFrequencyGhz: 8.0, magneticFieldTesla: 2.5 },
+    { missionYears: 25.0, heavyIonFluxCm2: 1e8, tidDoseKrad: 2500.0, temperatureKelvin: 40.0 },
+    // 後量子密碼硬體信任根 (PQC Key Storage, RoT DPA Defense)
+    { algoKey: 'ml_kem_1024', mediaKey: 'antifuse_append_log', customUpdateCycles: 1e6, customArrayCapacityKb: 256 },
+    { algoKey: 'slh_dsa_256f', mediaKey: 'embedded_flash_high_wear', customUpdateCycles: 50000, customArrayCapacityKb: 512 },
+    { presetId: 'fips140_3_lvl4', topologyId: 'antifuse_rot_puf', customNoise: 5.0, customDiff: true, customBlinding: true },
+    // 輻射硬化、超低壓次臨界與 3D 垂直 NVM (Rad-hard, Subthreshold, Vertical 3D)
+    { tidDoseKrad: 5000.0, heavyIonLet: 120.0, presetKey: 'deep_space_jupiter', techKey: 'antifuse_ohmic' },
+    { customVdd: 0.28, customTempC: -40.0, customCapacityKb: 128, topologyId: 'antifuse_lowvoltage' },
+    { customVdd: 1.15, customTempC: 125.0, customCapacityKb: 1024, topologyId: 'sonos_lowvoltage' },
+    { tierCount: 192, metalThicknessNm: 15.0, arrayLengthUm: 250.0, conductorId: 'ruthenium_ru_ald' },
+    { tierCount: 16, metalThicknessNm: 40.0, arrayLengthUm: 50.0, conductorId: 'molybdenum_mo_pvd' }
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite14Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 14 邊界條件`);
+        checkNoNaN(res, `${name}_Suite14`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 14 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+
+
 

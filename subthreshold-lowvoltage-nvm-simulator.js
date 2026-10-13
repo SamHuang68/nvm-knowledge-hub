@@ -385,15 +385,24 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       nextY += 15;
       return row;
     }));
-    const height = nextY + 10;
     canvas.style.height = `${height}px`;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#0a101d';
+
+    // Background - Surgical Light Mode (Rule 0003)
+    const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+    bgGrad.addColorStop(0, '#f8fafc');
+    bgGrad.addColorStop(1, '#f1f5f9');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     for (let i = 0; i <= 5; i++) {
@@ -407,7 +416,7 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       ctx.lineTo(x, padTop + plotH);
     }
     ctx.stroke();
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
     ticks.forEach(tick => ctx.fillText(tick.text, tick.left, padTop + plotH + 16 + tick.lane * 15));
@@ -418,7 +427,7 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       const text = energyMode ? `${value < 10000 ? value.toFixed(0) : value.toExponential(1)} fJ` : `10^${logMax - i} ns`;
       ctx.fillText(text, padLeft - 8, padTop + plotH * i / tickCount + 4);
     }
-    ctx.fillStyle = energyMode ? '#10b981' : '#f59e0b';
+    ctx.fillStyle = energyMode ? '#059669' : '#d97706';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     titleLines.forEach((text, i) => ctx.fillText(text, 8, 15 + i * 15));
@@ -426,7 +435,7 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
 
     if (energyMode) {
       const cliffX = toX(metrics.topology.minFunctionalVdd);
-      ctx.strokeStyle = 'rgba(239, 68, 68, 0.4)';
+      ctx.strokeStyle = 'rgba(220, 38, 38, 0.5)';
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
       ctx.moveTo(cliffX, padTop);
@@ -446,24 +455,26 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       ctx.stroke();
     };
     if (energyMode) {
-      drawCurve('activeEnergyFj', 'rgba(56, 189, 248, 0.45)', 1.8);
-      drawCurve('totalEnergyFj', '#10b981', 2.5);
-    } else drawCurve('senseLatencyNs', '#f59e0b', 2.5);
-    ctx.fillStyle = energyMode ? (metrics.vdd < metrics.topology.minFunctionalVdd ? '#ef4444' : '#10b981') : '#f59e0b';
+      drawCurve('activeEnergyFj', 'rgba(2, 132, 199, 0.65)', 1.8);
+      drawCurve('totalEnergyFj', '#059669', 2.5);
+    } else drawCurve('senseLatencyNs', '#d97706', 2.5);
+    ctx.fillStyle = energyMode ? (metrics.vdd < metrics.topology.minFunctionalVdd ? '#dc2626' : '#059669') : '#d97706';
     ctx.beginPath();
     ctx.arc(toX(metrics.vdd), toY(energyMode ? metrics.totalEnergyFj : metrics.senseLatencyNs), 5, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 1.5;
     ctx.stroke();
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+
+    // Legend Backdrop Card
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
     ctx.fillRect(8, legendY, width - 16, nextY - legendY + 2);
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.strokeRect(8, legendY, width - 16, nextY - legendY + 2);
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
     legendLines.forEach(row => {
-      ctx.fillStyle = row.color;
+      ctx.fillStyle = row.color === '#10b981' ? '#059669' : (row.color === '#38bdf8' ? '#0284c7' : (row.color === '#fbbf24' ? '#d97706' : '#475569'));
       ctx.fillText(row.text, 16, row.y);
     });
 
@@ -472,7 +483,7 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       const sample = sampleAtVoltage(probedVdd);
       const value = energyMode ? sample.totalEnergyFj : sample.senseLatencyNs;
       const hx = toX(probedVdd), hy = toY(value);
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+      ctx.strokeStyle = 'rgba(2, 132, 199, 0.75)';
       ctx.lineWidth = 1;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
@@ -487,11 +498,11 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
       const lines = wrap(text, width - 32), pillH = lines.length * 14 + 10;
       const pillY = Math.min(padTop + plotH - pillH, Math.max(padTop, hy - pillH - 8));
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
       ctx.fillRect(8, pillY, width - 16, pillH);
-      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeStyle = '#0284c7';
       ctx.strokeRect(8, pillY, width - 16, pillH);
-      ctx.fillStyle = '#38bdf8';
+      ctx.fillStyle = '#0284c7';
       ctx.textAlign = 'left';
       lines.forEach((line, i) => ctx.fillText(line, 16, pillY + 15 + i * 14));
     }
@@ -703,11 +714,29 @@ export function initSubthresholdSimulator(containerId) {
   if (tempSlider) tempSlider.addEventListener('input', handleSliderInput);
   if (capacitySlider) capacitySlider.addEventListener('input', update);
 
+  function syncSubvtModeBtnStyles() {
+    if (modeEnergyBtn) {
+      const isActive = currentMode === 'voltage_energy_curve';
+      modeEnergyBtn.style.background = isActive ? '#0284c7' : '#f1f5f9';
+      modeEnergyBtn.style.color = isActive ? '#ffffff' : '#475569';
+      modeEnergyBtn.style.borderColor = isActive ? '#0284c7' : '#cbd5e1';
+      modeEnergyBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    }
+    if (modeLatencyBtn) {
+      const isActive = currentMode === 'read_latency_failure';
+      modeLatencyBtn.style.background = isActive ? '#0284c7' : '#f1f5f9';
+      modeLatencyBtn.style.color = isActive ? '#ffffff' : '#475569';
+      modeLatencyBtn.style.borderColor = isActive ? '#0284c7' : '#cbd5e1';
+      modeLatencyBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    }
+  }
+
   if (modeEnergyBtn) {
     modeEnergyBtn.addEventListener('click', () => {
       currentMode = 'voltage_energy_curve';
       modeEnergyBtn.classList.add('active');
       if (modeLatencyBtn) modeLatencyBtn.classList.remove('active');
+      syncSubvtModeBtnStyles();
       update();
     });
   }
@@ -717,9 +746,12 @@ export function initSubthresholdSimulator(containerId) {
       currentMode = 'read_latency_failure';
       modeLatencyBtn.classList.add('active');
       if (modeEnergyBtn) modeEnergyBtn.classList.remove('active');
+      syncSubvtModeBtnStyles();
       update();
     });
   }
+
+  syncSubvtModeBtnStyles();
 
   // Export CSV Action
   function downloadCsv(filename, csvContent) {
@@ -740,7 +772,7 @@ export function initSubthresholdSimulator(containerId) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'subvt-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
     const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
     exportBtn.textContent = lang === 'zh' ? '📥 匯出 CSV' : '📥 Export CSV';
     exportBtn.addEventListener('click', () => {
