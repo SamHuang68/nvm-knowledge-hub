@@ -59,6 +59,12 @@ measureHeader();
 
 // 只保存本頁各歷史項目的座標；查詢參數由各自控制器管理，不改全域 scrollRestoration。
 const readingStateKey = '__nvmReadingPosition';
+// Navigation API 也會為純 history.state 寫入發出 replace 事件。
+// 只隔離本頁內部座標書記的事件；保留原生寫入及真正的 query／hash 導覽。
+let writingReadingState = false;
+window.navigation?.addEventListener('navigate', event => {
+  if (writingReadingState && event.navigationType === 'replace' && event.destination.url === location.href) event.stopImmediatePropagation();
+}, {capture:true});
 const readingRoute = () => location.pathname + location.hash;
 let readingTimer, restoreFrame, pendingRoute, poppedRoute, routedReadingRoute = readingRoute();
 function recordReadingPosition() {
@@ -70,7 +76,10 @@ function recordReadingPosition() {
   if (state !== null && Object.prototype.toString.call(state) !== '[object Object]') return;
   const panel = panels.find(item => !item.hidden);
   if (!panel) return;
-  history.replaceState({...state, [readingStateKey]:{version:1, route:readingRoute(), panelId:panel.id, x:Math.round(scrollX), y:Math.round(scrollY)}}, '');
+  writingReadingState = true;
+  try {
+    history.replaceState({...state, [readingStateKey]:{version:1, route:readingRoute(), panelId:panel.id, x:Math.round(scrollX), y:Math.round(scrollY)}}, '');
+  } finally { writingReadingState = false; }
 }
 function savedReadingPosition(state) {
   const position = state?.[readingStateKey];

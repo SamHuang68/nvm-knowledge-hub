@@ -170,7 +170,7 @@ try {
   }
   const context=await browser.newContext({javaScriptEnabled:false});
   const page=await context.newPage();
-  await page.goto(`${server.base}nvm-technology-atlas.html#patent-maps`);
+  await page.goto(`${server.base}nvm-technology-atlas.html#${recordIDs(data.en)[0]}`);
   assert.equal(await page.locator('#patent-maps [data-map-record]').count(),totalRecords,'未啟用 JS 仍保留全案卷');
   assert.ok(await page.locator('[data-map-controls]').isHidden(),'無 JS 不顯示不可操作的搜尋');
   await page.locator('[data-map-return]').first().click();

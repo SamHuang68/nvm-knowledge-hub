@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "9011ec36c84035f4e418be1b58b9391c2f5a4efe",
+  "baseCommit": "5ee6afb438373472e1e0de835f8f81ef974f9ebf",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md"
@@ -57,7 +57,7 @@
         "nvm-ip-cells.css",
         "nvm-engineering-diagrams.css"
       ],
-      "reason": "修正案卷閱讀後變更篩選的網址重整；新增廠商精確篩選與返回結果，保留全部案卷、全文搜尋及外部深層連結。",
+      "reason": "閱讀座標共用邏輯修正，驗證專利地圖新廠商與返回功能、篩選重整仍正確。",
       "prepare": [
         "node",
         "browser"
@@ -146,6 +146,57 @@
         "node"
       ],
       "timeoutSeconds": 20
+    },
+    {
+      "id": "閱讀座標與導覽隔離",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/驗證閱讀位置還原.mjs",
+        "--bundled",
+        "--filter=閱讀座標,前後章與選章返回"
+      ],
+      "targets": [
+        "scripts/驗證閱讀位置還原.mjs"
+      ],
+      "changes": [
+        "nvm-technology-atlas.js",
+        "scripts/驗證閱讀位置還原.mjs"
+      ],
+      "inputs": [
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "scripts/專利地圖驗證.mjs",
+        "scripts/test-server.mjs",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "nvm-technology-atlas.css",
+        "site-language.js",
+        "atlas-diagram-loader.js",
+        "package.json",
+        "package-lock.json",
+        "nvm-industry-research.css",
+        "editorial-reading-ui.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "章節閱讀導覽.css",
+        "nvm-bitcell-figures.css",
+        "nvm-ip-cells.css",
+        "nvm-engineering-diagrams.css",
+        "scripts/驗證閱讀位置還原.mjs"
+      ],
+      "reason": "WebKit正式卸載證明純座標replace事件誤觸發RUM；驗證最後座標保存、真正導航、前後章閱讀還原與事件邊界。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 90
     }
   ]
 }
