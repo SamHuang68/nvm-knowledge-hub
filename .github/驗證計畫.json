@@ -2,10 +2,11 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "e70888edbbd319183395144db7ad91349aa2fae0",
+  "baseCommit": "a090b65c4e824544f4751193b060f0413d0a1218",
   "documentation": [
     "docs/CI修訂歷史.md",
-    "docs/專利地圖修訂紀錄.md"
+    "docs/專利地圖修訂紀錄.md",
+    "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
@@ -20,20 +21,11 @@
         "scripts/專利地圖驗證.mjs"
       ],
       "changes": [
-        "data/nvm-technology-topics-en.md",
-        "data/nvm-technology-topics.md",
-        "data/nvm-vendor-patent-maps-en.json",
-        "data/nvm-vendor-patent-maps.json",
-        "data/nvm-knowledge-data-en.json",
-        "data/nvm-knowledge-data.json",
         "nvm-technology-atlas-zh.html",
         "nvm-technology-atlas.html",
         "nvm-technology-atlas.js",
         "nvm-vendor-patent-maps.css",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/update-stage5-dossiers.mjs",
-        "scripts/專利地圖驗證.mjs"
+        "scripts/nvm-vendor-patent-maps-ui.mjs"
       ],
       "inputs": [
         "data/nvm-technology-topics-en.md",
@@ -65,7 +57,7 @@
         "data/nvm-knowledge-data-en.json",
         "scripts/update-stage5-dossiers.mjs"
       ],
-      "reason": "閱讀座標共用邏輯修正，驗證專利地圖新廠商與返回功能、篩選重整仍正確。",
+      "reason": "專利地圖新增一鍵重設按鈕與 Escape 清除搜尋，強化 WCAG 焦點委託與按鈕點擊高度標記。",
       "prepare": [
         "node",
         "browser"
@@ -80,10 +72,6 @@
       ],
       "changes": [
         "scripts/專利地圖產物核對.mjs",
-        "scripts/check-release-gates.mjs",
-        "data/public-release-policy.json",
-        "data/nvm-vendor-patent-maps.json",
-        "data/nvm-vendor-patent-maps-en.json",
         "package.json",
         "package-lock.json",
         "data/offline-manifest.js",
@@ -156,6 +144,83 @@
         "node"
       ],
       "timeoutSeconds": 20
+    },
+    {
+      "id": "物理模型與計算器強健度",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "targets": [
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "changes": [
+        "automotive-blackbox-journal-calculator.js",
+        "cim-efficiency-calculator.js",
+        "demura-lut-calculator.js",
+        "iot-energy-tradeoff-calculator.js",
+        "pqc-rot-budget-calculator.js",
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "inputs": [
+        "tests/test-physics-robustness.test.mjs",
+        "automotive-blackbox-journal-calculator.js",
+        "cim-efficiency-calculator.js",
+        "demura-lut-calculator.js",
+        "iot-energy-tradeoff-calculator.js",
+        "pqc-rot-budget-calculator.js",
+        "advanced-finfet-gaa-simulator.js",
+        "advanced-packaging-pdks-simulator.js",
+        "automotive-asild-ecc-simulator.js",
+        "automotive-hbm4-scrubbing-simulator.js",
+        "automotive-load-dump-clamp-simulator.js",
+        "bcd-trimming-simulator.js",
+        "bspdn-envm-ir-drop-simulator.js",
+        "chiplet-3d-hetero-nvm-simulator.js",
+        "chiplet-ucie-nvm-simulator.js",
+        "cim-analog-mac-simulator.js",
+        "cim-neuromorphic-mac-simulator.js",
+        "cim-nn-accuracy-degradation-simulator.js",
+        "cpo-optical-trim-simulator.js",
+        "cpo-siph-nvm-simulator.js",
+        "cryo-cmos-quantum-nvm-simulator.js",
+        "cryo-qubit-readout-simulator.js",
+        "cryo-radhard-nvm-simulator.js",
+        "cryogenic-nvm-physics-simulator.js",
+        "cxl-memory-pooling-simulator.js",
+        "deep-space-sel-retention-simulator.js",
+        "differential-sensing-simulator.js",
+        "dpa-cpa-leakage-simulator.js",
+        "hbm4-base-die-repair-probe-simulator.js",
+        "hybrid-bonding-tsv-kgd-simulator.js",
+        "mcu-vector-patch-simulator.js",
+        "nanosheet-bspdn-nvm-simulator.js",
+        "normally-off-energy-harvesting-simulator.js",
+        "pqc-hardware-rot-ledger-simulator.js",
+        "pqc-key-storage-simulator.js",
+        "pqc-rot-dpa-simulator.js",
+        "puf-reconstruction-simulator.js",
+        "rad-hard-nvm-simulator.js",
+        "space-radiation-hardening-simulator.js",
+        "sram-yield-bira-simulator.js",
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "tddb-weibull-simulator.js",
+        "vertical-3d-nvm-simulator.js",
+        "cu-cu-hybrid-bonding-stress-simulator.js",
+        "automotive-high-temp-sic-gan-simulator.js",
+        "tunneling-breakdown-simulator.js",
+        "supply-chain-hardware-trojan-pem-simulator.js",
+        "puf-nist-randomness-evaluator.js",
+        "attack-resistance-evaluator.js",
+        "wafer-cost-tco-calculator.js"
+      ],
+      "reason": "加固新世代車規黑盒子、CIM 陣列、De-Mura、IoT 與 PQC 信任根計算器邊界防護與原型繼承鍵防呆，全 49 款計算器物理契約通過。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 60
     }
   ]
 }

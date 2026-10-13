@@ -130,8 +130,12 @@ export const PQC_PRESETS = Object.freeze({
  * @return {Object} Computed budget, byte breakdown, and silicon feasibility.
  */
 export function calculatePqcRotBudget(options = {}) {
-  const dsaAlgo = PQC_ALGORITHMS[options.dsaId] || PQC_ALGORITHMS.ml_dsa_65;
-  const kemAlgo = options.kemId ? PQC_ALGORITHMS[options.kemId] : null;
+  const dsaAlgo = (options.dsaId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, options.dsaId))
+    ? PQC_ALGORITHMS[options.dsaId]
+    : PQC_ALGORITHMS.ml_dsa_65;
+  const kemAlgo = (options.kemId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, options.kemId))
+    ? PQC_ALGORITHMS[options.kemId]
+    : null;
   const pubKeyMode = options.pubKeyMode || 'raw'; // 'raw' or 'hash'
   const certDepth = Math.max(0, parseInt(options.certDepth, 10) || 0);
   const keySlots = Math.max(1, parseInt(options.keySlots, 10) || 1);

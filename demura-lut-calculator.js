@@ -84,13 +84,18 @@ export const DMA_INTERFACES = Object.freeze({
  * @return {Object} Computed storage metrics and architectural comparison.
  */
 export function calculateDemuraLutStorage(inputs = {}) {
-  const preset = DEMURA_PRESETS[inputs.presetId] || DEMURA_PRESETS.smartphone_wqhd;
+  const preset = (inputs.presetId && Object.prototype.hasOwnProperty.call(DEMURA_PRESETS, inputs.presetId))
+    ? DEMURA_PRESETS[inputs.presetId]
+    : DEMURA_PRESETS.smartphone_wqhd;
   const width = Math.max(100, parseInt(inputs.width, 10) || preset.width);
   const height = Math.max(100, parseInt(inputs.height, 10) || preset.height);
   const planes = Math.max(1, parseInt(inputs.planes, 10) || preset.planes);
   const binSize = Math.max(1, parseInt(inputs.binSize, 10) || preset.binSize);
   const bitsPerChannel = Math.max(6, parseInt(inputs.bitsPerChannel, 10) || preset.bitsPerChannel);
-  const iface = DMA_INTERFACES[inputs.dmaInterface] || DMA_INTERFACES[preset.dmaInterface] || DMA_INTERFACES.octal_133;
+  const ifaceKey = inputs.dmaInterface || preset.dmaInterface;
+  const iface = (ifaceKey && Object.prototype.hasOwnProperty.call(DMA_INTERFACES, ifaceKey))
+    ? DMA_INTERFACES[ifaceKey]
+    : DMA_INTERFACES.octal_133;
 
   const totalPixels = width * height;
   const blockFactor = binSize * binSize;
