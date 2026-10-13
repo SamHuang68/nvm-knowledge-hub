@@ -1049,3 +1049,70 @@
 }
 
 
+
+/* 專利地圖：總覽、篩選與保留案卷的閱讀入口。 */
+#patent-maps [hidden] { display: none !important; }
+.nvm-map-header { align-items: center; gap: 24px; }
+.nvm-map-header h2 { max-width: 22ch; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; }
+.nvm-map-header .nvm-lede { max-width: 65ch; font-size: 1.05rem; line-height: 1.6; }
+.nvm-map-asof { font-size: .82rem; color: #456171; }
+.nvm-map-stats { display: grid; grid-template-columns: repeat(2,minmax(90px,1fr)); gap: 16px 24px; min-width: 220px; margin: 0; }
+.nvm-map-stats div { border-top: 1px solid #aac7c8; padding-top: 8px; }
+.nvm-map-stats dt { font-size: .75rem; color: #456171; }
+.nvm-map-stats dd { margin: 0; color: #00686c; font-size: 2rem; font-weight: 650; line-height: 1.3; }
+.nvm-map-explorer { margin: 28px 0; }
+.nvm-map-explorer h3 { margin: 4px 0 8px; font-size: 1.5rem; }
+.nvm-map-explorer header > p:last-child { margin-top: 0; color: #456171; }
+.nvm-map-controls { display: grid; grid-template-columns: minmax(220px,2fr) minmax(130px,1fr) minmax(170px,1fr) auto; gap: 12px; align-items: end; padding: 20px; background: #eef5f5; border: 1px solid #c6dada; }
+.nvm-map-controls label { display: flex; flex-direction: column; gap: 6px; font-size: .82rem; font-weight: 650; min-width: 0; }
+.nvm-map-controls input, .nvm-map-controls select, .nvm-map-controls button { box-sizing: border-box; width: 100%; min-height: 44px; border: 1px solid #91adb8; border-radius: 3px; background: white; color: #163f53; font: inherit; padding: 9px 10px; }
+.nvm-map-controls button { cursor: pointer; font-size: .85rem; }
+#nvm-map-count { min-height: 1.5em; margin: 14px 0; font-size: .88rem; font-weight: 650; color: #315a69; }
+.nvm-map-matrix-wrap { overflow-x: auto; border: 1px solid #c8d8df; border-radius: 4px; }
+.nvm-map-matrix { border-collapse: collapse; width: 100%; min-width: 630px; font-size: .86rem; }
+.nvm-map-matrix caption { text-align: left; padding: 14px; color: #456171; background: #f2f6f7; line-height: 1.5; }
+.nvm-map-matrix th, .nvm-map-matrix td { padding: 4px 8px; border-bottom: 1px solid #dce6e9; text-align: center; }
+.nvm-map-matrix thead th { padding-block: 12px; color: #456171; font-weight: 600; }
+.nvm-map-matrix th:first-child { text-align: left; width: 26%; }
+.nvm-map-matrix tbody th { background: #f6f9f9; }
+.nvm-map-matrix a { display: inline-flex; min-width: 40px; min-height: 40px; align-items: center; justify-content: center; color: #00696d; text-underline-offset: 4px; }
+.nvm-map-matrix tbody th a { justify-content: flex-start; }
+.nvm-map-matrix tbody tr:hover { background: #edf6f5; }
+.nvm-map-reading-links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 14px 0; }
+.nvm-map-reading-links a { min-height: 44px; display: inline-flex; align-items: center; text-underline-offset: 4px; font-size: .9rem; }
+.nvm-map-empty { padding: 24px; border: 1px solid #bc9366; background: #fff8ee; }
+#nvm-map-results { border-left: 3px solid #087f86; padding: 8px 20px; margin-top: 20px; }
+#nvm-map-results ul { padding-left: 1.1em; }
+#nvm-map-results li { padding: 10px 0; }
+#nvm-map-results li span { display: block; color: #456171; font-size: .85rem; }
+.nvm-map-evidence { padding: 20px 24px; background: #f8f4ec; border-left: 3px solid #9b6c31; font-size: .9rem; line-height: 1.65; }
+.nvm-map-evidence h3 { font-size: 1.05rem; margin: 0 0 8px; }
+.nvm-map-evidence p { margin: 8px 0 0; }
+#patent-maps :is(input,select,button,a,[tabindex]):focus-visible { outline: 3px solid #a15d17; outline-offset: 3px; }
+#patent-maps :is(.nvm-vendor-study,.nvm-patent-portfolio-group,.nvm-vendor-patent-card,.nvm-map-evidence,#nvm-map-dossiers) { scroll-margin-top: var(--nvm-anchor-top,150px); }
+#patent-maps :is(p,dd,h3,h4,h5,h6,.nvm-patent-card-badges) { overflow-wrap: anywhere; }
+#patent-maps .nvm-patent-card-body { margin: 0; }
+@media (max-width: 1100px) {
+  .nvm-map-controls { grid-template-columns: 1fr 1fr; }
+  .nvm-map-controls label:first-child { grid-column: 1 / -1; }
+  .nvm-map-controls button { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .nvm-map-header { display: block; padding: 20px; }
+  .nvm-map-stats { grid-template-columns: repeat(4,minmax(0,1fr)); min-width: 0; gap: 10px; margin-top: 20px; }
+  .nvm-map-stats dt { font-size: .65rem; min-height: 2.8em; }
+  .nvm-map-stats dd { font-size: 1.6rem; }
+  .nvm-map-controls { padding: 14px; gap: 12px; }
+  .nvm-map-controls label { font-size: .8rem; }
+  .nvm-map-controls select { padding-inline: 5px; }
+  .nvm-map-evidence { padding: 16px; }
+  .nvm-map-matrix-wrap { max-width: 100%; }
+  .nvm-map-matrix th:first-child { position: sticky; left: 0; background: #f1f6f6; z-index: 1; box-shadow: 2px 0 0 #dce6e9; }
+  .nvm-map-reading-links { gap: 0 16px; }
+}
+@media (prefers-reduced-motion: reduce) { #patent-maps * { scroll-behavior: auto; transition: none; } }
+#patent-maps > .nvm-map-header { grid-template-columns: minmax(0,1fr) 230px; }
+#patent-maps .nvm-map-header > div { min-width: 0; }
+#patent-maps [tabindex="-1"]:focus-visible { outline: none; }
+.nvm-keyboard-navigation #patent-maps [tabindex="-1"]:focus-visible { outline: 3px solid #a15d17; outline-offset: 3px; }
+@media (max-width: 700px) { #patent-maps > .nvm-map-header { grid-template-columns: 1fr; } }

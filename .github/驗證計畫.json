@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "scope": "targeted",
+  "project": "SamHuang68/nvm-knowledge-hub",
+  "baseCommit": "3ca524ab2baa932f5dcfb0356d4ef43230f8d414",
+  "documentation": [
+    "docs/CI修訂歷史.md",
+    "docs/專利地圖修訂紀錄.md"
+  ],
+  "cases": [
+    {
+      "id": "專利地圖互動",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/專利地圖驗證.mjs",
+        "--engine=chromium"
+      ],
+      "targets": [
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "changes": [
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "inputs": [
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "scripts/專利地圖驗證.mjs",
+        "scripts/test-server.mjs",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "nvm-technology-atlas.css",
+        "site-language.js",
+        "atlas-diagram-loader.js",
+        "package.json",
+        "package-lock.json",
+        "nvm-industry-research.css",
+        "editorial-reading-ui.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "章節閱讀導覽.css",
+        "nvm-bitcell-figures.css",
+        "nvm-ip-cells.css",
+        "nvm-engineering-diagrams.css"
+      ],
+      "reason": "專利地圖新增搜尋、分類、狀態與結果導航；保留雙語全部案卷及既有錨點。Linux Chromium 與本機平台分開驗證。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 90
+    },
+    {
+      "id": "局部CI契約",
+      "kind": "command",
+      "command": [
+        "python",
+        "-B",
+        "scripts/驗證局部CI契約.py"
+      ],
+      "targets": [
+        "scripts/驗證局部CI契約.py"
+      ],
+      "changes": [
+        ".github/workflows/validate-and-deploy.yml",
+        ".github/workflows/完整驗證.yml",
+        ".github/工具/完整驗證.mjs",
+        ".github/工具/準備完整驗證計畫.py",
+        "tools/codex/verification_gate.py",
+        "tools/codex/變更驗證.py",
+        "tools/codex/完整驗證入口.py",
+        "scripts/verify-site-regression.mjs",
+        "scripts/驗證局部CI契約.py"
+      ],
+      "inputs": [
+        ".github/workflows/validate-and-deploy.yml",
+        ".github/workflows/完整驗證.yml",
+        ".github/工具/完整驗證.mjs",
+        ".github/工具/準備完整驗證計畫.py",
+        "tools/codex/verification_gate.py",
+        "tools/codex/變更驗證.py",
+        "tools/codex/完整驗證入口.py",
+        "scripts/verify-site-regression.mjs",
+        "scripts/驗證局部CI契約.py",
+        "scripts/test-server.mjs"
+      ],
+      "reason": "導入既有明列變更入口，驗證未知變更拒絕、相同輸入重用、CI 不能繞過完整授權。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "專利地圖產物保全",
+      "kind": "node",
+      "targets": [
+        "scripts/專利地圖產物核對.mjs"
+      ],
+      "changes": [
+        "scripts/專利地圖產物核對.mjs",
+        "scripts/check-release-gates.mjs",
+        "data/public-release-policy.json",
+        "package.json",
+        "package-lock.json",
+        "data/offline-manifest.js",
+        "data/release-lineage.json"
+      ],
+      "inputs": [
+        "scripts/專利地圖產物核對.mjs",
+        "scripts/check-release-gates.mjs",
+        "data/public-release-policy.json",
+        "package.json",
+        "package-lock.json",
+        "data/offline-manifest.js",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "docs/模型與證據修正紀錄-20261008.md",
+        "scripts/儲存狀態圖解.mjs",
+        "scripts/圖面基線探測.mjs",
+        "scripts/操作圖步進驗證.mjs",
+        "scripts/驗證圖解與章節導覽.mjs",
+        "scripts/驗證搜尋分類與焦點.mjs",
+        "scripts/驗證模型動畫生命週期.mjs",
+        "儲存狀態導讀.css",
+        "儲存狀態導讀.js",
+        "操作圖步進演示.js",
+        "生命週期圖解.css",
+        "章節閱讀導覽.css",
+        "docs/網站分階段優化紀錄-20261008.md",
+        "scripts/驗證導讀分享與焦點.mjs",
+        "scripts/驗證搜尋網址還原.mjs",
+        "scripts/驗證生命週期分支與連結.mjs",
+        "scripts/驗證閱讀位置還原.mjs",
+        "scripts/驗證閱讀樣式套用.mjs",
+        "scripts/驗證靜態閱讀韌性.mjs",
+        "scripts/驗證導讀非同步分享.mjs",
+        "scripts/驗證差動模型邊界.mjs",
+        "scripts/驗證工具輸入與窄螢幕.mjs",
+        "scripts/驗證進階節點模型邊界.mjs",
+        "scripts/驗證側信道模型邊界.mjs",
+        "scripts/驗證低溫與供電圖表.mjs",
+        "模型數值複製.js",
+        "scripts/驗證模型數值複製.mjs",
+        "scripts/驗證模型曲線與匯出.mjs",
+        "scripts/驗證特種製程匯出.mjs",
+        "scripts/驗證最新模型匯出.mjs",
+        "scripts/驗證審查匯出修正.mjs",
+        "scripts/驗證審查圖解狀態.mjs",
+        "scripts/驗證續審匯出邊界.mjs",
+        "scripts/驗證新增模型複製狀態.mjs",
+        "scripts/驗證資料來源與模型判讀.mjs",
+        "scripts/驗證穿隧與高溫模型契約.mjs",
+        ".github/驗證計畫.json",
+        ".github/工具/完整驗證.mjs",
+        "tools/codex/完整驗證入口.py",
+        ".github/工具/準備完整驗證計畫.py",
+        ".github/workflows/完整驗證.yml",
+        "tools/codex/變更驗證.py",
+        "docs/CI修訂歷史.md",
+        "scripts/專利地圖驗證.mjs",
+        "scripts/驗證局部CI契約.py",
+        "docs/專利地圖修訂紀錄.md",
+        "data/release-lineage.json",
+        "scripts/build-release-lineage.mjs"
+      ],
+      "reason": "版本與離線資源更新須一致；核對原始資料、其他 Atlas 章節及公開附件限制完整保留。 發行來源紀錄綁定確切內容提交。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 20
+    }
+  ]
+}

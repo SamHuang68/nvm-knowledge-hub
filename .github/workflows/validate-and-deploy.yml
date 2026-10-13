@@ -1,22 +1,25 @@
-name: 知識中心完整驗證
+name: 知識中心變更驗證與發布
 "on":
   push:
     branches: ['**']
   pull_request:
     branches: [main]
-  workflow_dispatch: {}
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: 驗證-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   validate:
+    # 保留 main 既有必要檢查名稱；案例範圍由明列計畫決定。
     name: 生成一致性與瀏覽器回歸
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
       NVM_QA_BROWSER: chromium
+      PYTHONDONTWRITEBYTECODE: '1'
+      VALIDATION_BASE: ${{ github.event.pull_request.base.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -26,40 +29,44 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            tools/whitepaper-studio/package-lock.json
-      - name: 安裝鎖定相依套件
+      - name: 安裝鎖定相依套件而不執行生命週期腳本
         run: |
-          npm ci
-          npm ci --prefix tools/whitepaper-studio
-          npx playwright install --with-deps chromium
-      - name: 驗證已提交來源與產物
-        run: npm run check
-      - name: 重新建置並確認沒有差異
+          npm ci --ignore-scripts
+          npm ci --ignore-scripts --prefix tools/whitepaper-studio
+      - name: 核對變更計畫
+        id: plan
+        run: python tools/codex/變更驗證.py --plan .github/驗證計畫.json --evidence-dir "$RUNNER_TEMP/變更驗證證據" --check
+      - name: 僅為計畫指定案例準備瀏覽器
+        if: steps.plan.outputs.browser == 'true' && steps.plan.outputs.deferred != 'true'
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: 執行或沿用相同輸入的案例
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/codex/變更驗證.py --plan .github/驗證計畫.json --evidence-dir "$RUNNER_TEMP/變更驗證證據" --restore-ci 變更驗證證據 --ci-workflow validate-and-deploy.yml
+      - name: 保留原有生成產物一致性檢查
         run: |
           npm run build
           git diff --exit-code
           test -z "$(git ls-files --others --exclude-standard)"
-      - name: 驗證修正與失敗情境
-        env:
-          NVM_QA_BROWSER: chromium
-        run: |
-          npm run qa:regression
-          npm test --prefix tools/whitepaper-studio
-          node --test scripts/release-artifact-regression.test.mjs
-      - name: 封裝同一提交的公開內容
+      - name: 封裝同一提交並核對公開內容與位元組
         run: |
           mkdir "$RUNNER_TEMP/site"
           git archive HEAD | tar -x --directory "$RUNNER_TEMP/site"
           node scripts/verify-release-artifact.mjs "$RUNNER_TEMP/site"
           node "$RUNNER_TEMP/site/scripts/check-release-gates.mjs"
-      - name: 保存通過驗證的發布產物
+      - name: 保存可發布產物
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ${{ runner.temp }}/site
-      - name: 保存本次驗證證據
+      - name: 保存變更案例收據
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: 變更驗證證據
+          path: ${{ runner.temp }}/變更驗證證據/
+          if-no-files-found: ignore
+      - name: 保存瀏覽器原始證據
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
@@ -91,6 +98,6 @@ jobs:
         run: |
           ACTUAL_SHA=$(gh api "repos/$REPOSITORY/git/ref/heads/main" --jq .object.sha)
           test "$ACTUAL_SHA" = "$EXPECTED_SHA"
-      - name: 發布本次完整驗證的產物
+      - name: 發布本次已驗證的產物
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

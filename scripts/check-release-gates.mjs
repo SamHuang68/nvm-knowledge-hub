@@ -30,7 +30,7 @@ const localizedSourcePaths = new Set();
 for (const exception of policy.localizedSourcePathExceptions ?? []) {
   const relative = exception.path;
   const resolved = typeof relative === 'string' ? path.resolve(root, relative) : '';
-  if (!relative || !exception.basis || !/\.(?:css|js|mjs|md)$/u.test(relative) || relative.includes('\\') || relative.split('/').includes('..') || !resolved.startsWith(root + path.sep) || !fs.existsSync(resolved) || !fs.lstatSync(resolved).isFile() || localizedSourcePaths.has(relative)) {
+  if (!relative || !exception.basis || !/\.(?:css|js|mjs|md|py|json|yml)$/u.test(relative) || relative.includes('\\') || relative.split('/').includes('..') || !resolved.startsWith(root + path.sep) || !fs.existsSync(resolved) || !fs.lstatSync(resolved).isFile() || localizedSourcePaths.has(relative)) {
     failures.push(`繁體中文來源路徑例外無效：${relative ?? '未指定'}`);
     continue;
   }
