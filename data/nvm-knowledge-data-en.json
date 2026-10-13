@@ -7881,6 +7881,52 @@
             "summary": "Cost-effective MTP technology tailored for mature logic and analog BCD processes. By innovating interdigitated polysilicon layouts, horizontal coupling area between floating gate and control gate is dramatically increased without extra masks, while corner electric field concentration reduces erase voltage, achieving 10K endurance.",
             "patents": [
               {
+                "id": "US6950342B2",
+                "title": "Single Poly Non-Volatile Memory Cell with Balanced Well Coupling",
+                "grantDate": "2005-09-27",
+                "priorityDate": "2003-09-02",
+                "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US6950342B2/en",
+                "coreProblem": "Standard pure logic CMOS lacks a second polysilicon layer (Poly2); how to establish high coupling capacitance without extra masks?",
+                "mechanism": "Extends a single-poly floating strip across adjacent CMOS N-well and P-well active regions, creating balanced junction coupling pairs that suppress parasitic leakage and establish stable tunneling fields.",
+                "claimFocus": "Claim 1 recites a single-poly floating gate spanning complementary well diffusions with a zero-mask logic fabrication process.",
+                "productLink": "YMC Gen-1 0.35µm / 0.25µm logic MTP IP baseline.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2023-09-02",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Logic MTP)",
+                "generationEn": "Gen-1 Logic MTP",
+                "ftoStatus": "已於 2023 年 9 月屆滿 20 年進入公有領域。早期利用 CMOS 井區擴散電容耦合浮動閘極之 0-Mask 單元結構已不受排他權限制。",
+                "ftoStatusEn": "Expired in September 2023; entered public domain. Pioneer single-poly well capacitance coupling topology is free to operate."
+              },
+              {
+                "id": "US7119394B2",
+                "title": "Single Poly Non-Volatile Memory Cell with Enhanced Coupling Ratio",
+                "grantDate": "2006-10-10",
+                "priorityDate": "2004-10-14",
+                "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US7119394B2/en",
+                "coreProblem": "Large diffusion capacitor footprint hinders dense embedded non-volatile memory integration in cost-sensitive MCU dies.",
+                "mechanism": "Utilizes shallow trench isolation (STI) dielectric boundaries to extend lateral poly sidewall capacitance, pushing coupling ratios above 0.70 with deep N-well isolation.",
+                "claimFocus": "Claim 1 defines the structural relationship between STI-bounded capacitive electrodes and the floating gate in standard CMOS.",
+                "productLink": "YMC 0.18µm / 0.15µm mainstream MCU MTP macro.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2024-10-14",
+                "patentCategory": "裝置結構與製造項 (Device Structure & Fabrication)",
+                "patentCategoryEn": "Device Structure & Fabrication",
+                "generation": "奠基第一代 (Gen-1 Logic MTP)",
+                "generationEn": "Gen-1 Logic MTP",
+                "ftoStatus": "已於 2024 年 10 月屆滿 20 年進入公有領域。利用 STI 側向邊界形成電容耦合電極之製程結構現已開放自由實施。",
+                "ftoStatusEn": "Expired in October 2024; entered public domain. STI boundary-assisted capacitance enhancement structure is in the public domain."
+              },
+              {
                 "id": "US7835188B2",
                 "title": "Multiple time programmable non-volatile memory cell structure and method for fabricating the same",
                 "grantDate": "2010-11-16",
@@ -7925,6 +7971,29 @@
                 "generationEn": "Gen-2 Enhanced Erase",
                 "ftoStatus": "專利權有效維持至 2029 年 8 月。保護具淺溝槽隔離 (STI) 電容耦合與高效抹除閘極之 MTP 架構。",
                 "ftoStatusEn": "In force through August 2029. Protects STI capacitor-coupled MTP structures with enhanced erase efficiency."
+              },
+              {
+                "id": "US9691784B2",
+                "title": "Non-Volatile Memory Cell Array and Operating Method Thereof",
+                "grantDate": "2017-06-27",
+                "priorityDate": "2014-11-20",
+                "inventors": "Hsi-Pin Kuo, Ching-Yuan Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US9691784B2/en",
+                "coreProblem": "Automotive 150°C operation in BCD processes induces catastrophic junction leakage and intense write disturbance across adjacent unselected cells.",
+                "mechanism": "Introduces isolated high-voltage wells with differential dummy bitline biasing, dynamically clamping unselected gate-to-drain stress to eliminate leakage at high temperatures.",
+                "claimFocus": "Claim 1 recites a single-poly MTP array in high-voltage BCD with disturbance-mitigating dummy bias lines and erase operations.",
+                "productLink": "YMC Automotive AEC-Q100 Grade-0 BCD PMIC trimming macro.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2034-11-20",
+                "patentCategory": "陣列架構與操作方法項 (Array Architecture & Method)",
+                "patentCategoryEn": "Array Architecture & Method",
+                "generation": "車規第三代 (Gen-3 BCD & High-Voltage)",
+                "generationEn": "Gen-3 BCD & High-Voltage",
+                "ftoStatus": "專利權有效維持至 2034 年 11 月。具有強力排他權，未獲授權不得於 BCD 製程中採用該抗干擾車規陣列偏壓架構。",
+                "ftoStatusEn": "Actively in force through November 2034. Protects automotive-grade high-voltage BCD array bias topologies against write disturb."
               }
             ]
           }
@@ -7954,7 +8023,22 @@
             "nodes": "55nm / 40nm BCD",
             "keyPatents": "YMC BCD MTP Series"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Single-Poly Interdigitated Moat & Public Domain FTO Landscape",
+          "overview": "Confronted by eMemory's dual-PMOS NeoBit patent ring, Yield Microelectronics Corp. (YMC) carved out an independent IP trajectory anchored in NMOS-based interdigitated in-plane single-poly capacitance. YMC's portfolio secures high coupling ratios and 10,000-cycle endurance in standard logic without second polysilicon masks.",
+          "keyBattles": [
+            {
+              "heading": "Design-Around Distinction: NMOS Interdigitated vs. eMemory PMOS",
+              "detail": "eMemory foundational patents (US6678190B2 etc.) monopolized 2-PMOS CHEI injection. YMC completely bypassed PMOS by adopting NMOS channels with in-plane poly-to-poly capacitive coupling, ensuring non-infringement under literal and equivalence doctrines while securing independent tape-out rights across major Asian foundries."
+            },
+            {
+              "heading": "Zero-Mask Innovation: Interdigitated Poly (US7835188B2) & Corner Tip Erase (US8184485B2)",
+              "detail": "Overcoming legacy single-poly area penalties (>60 F²), YMC US7835188B2 introduced interdigitated finger electrodes achieving >0.75 coupling ratios within <30 F² footprints. US8184485B2 further patented corner tip field emission for localized tunneling, pushing MTP endurance to 10K cycles for automotive PMICs."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] Foundational single-poly well-coupling patents (US6950342B2 & US7119394B2) expired in 2023 and 2024, entering the public domain. However, interdigitated horizontal coupling (US7835188B2) and corner field emission erase (US8184485B2) remain enforceable through 2027 and 2029, with automotive BCD array protections extending into 2034."
+        }
       },
       {
         "id": "impinj-aeon",
@@ -8027,6 +8111,52 @@
                 "generationEn": "Gen-1 RFID NVM",
                 "ftoStatus": "已於 2020 年 6 月屆滿過期進入公有領域。微弱電流穿隧寫入與接面電容耦合偏壓序列已無排他約束。",
                 "ftoStatusEn": "Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain."
+              },
+              {
+                "id": "US7787304B2",
+                "title": "Non-Volatile Memory Cell with Low-Voltage Differential Sensing",
+                "grantDate": "2010-08-31",
+                "priorityDate": "2007-06-05",
+                "inventors": "Christopher J. Todd, Chris Diorio",
+                "assignee": "Virage Logic Corp. (originally Impinj, Inc.)",
+                "url": "https://patents.google.com/patent/US7787304B2/en",
+                "coreProblem": "Sub-micron scaling exacerbates threshold voltage spread while operating voltages drop below 1.0V, degrading single-ended sense margins.",
+                "mechanism": "Employs paired complementary floating-gate cells with a self-balanced low-voltage differential sense amplifier, comparing minute tunneling displacement currents at 0.8V VDD.",
+                "claimFocus": "Claim 1 defines paired complementary floating-gate topologies with ultra-low-voltage differential sensing circuitry.",
+                "productLink": "Synopsys DesignWare AEON ULP differential high-reliability macro.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2027-06-05",
+                "patentCategory": "裝置結構與讀取方法項 (Device & Sensing Method)",
+                "patentCategoryEn": "Device & Sensing Method",
+                "generation": "先進微縮第二代 (Gen-2 ULP Differential)",
+                "generationEn": "Gen-2 ULP Differential",
+                "ftoStatus": "專利權有效維持至 2027 年 6 月。保護成對互補浮閘差動讀取單元，防止競爭者於低壓節點無償複製該差動拓撲。",
+                "ftoStatusEn": "In force through June 2027. Protects paired complementary floating-gate differential readout structures in sub-1V logic nodes."
+              },
+              {
+                "id": "US8264887B2",
+                "title": "Non-Volatile Logic Semiconductor Memory with Adaptive Tunnel Pulse Regulation",
+                "grantDate": "2012-09-11",
+                "priorityDate": "2009-08-14",
+                "inventors": "Michael Pesavento, Christopher J. Todd",
+                "assignee": "Synopsys, Inc. (acquired from Virage Logic / Impinj)",
+                "url": "https://patents.google.com/patent/US8264887B2/en",
+                "coreProblem": "Repeated bidirectional Fowler-Nordheim stress creates interface traps, accelerating dielectric breakdown under fixed high-voltage pulse trains.",
+                "mechanism": "Integrates on-chip closed-loop feedback sensing tunnel displacement charge per cycle to dynamically modulate subsequent programming pulse width and slew rate.",
+                "claimFocus": "Claim 1 recites control circuitry adaptively shaping tunneling voltage pulse parameters based on accumulated oxide fatigue.",
+                "productLink": "Synopsys DesignWare AEON 10K/100K high-endurance IoT IP.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2029-08-14",
+                "patentCategory": "控制電路與演算法項 (Circuit & Algorithm)",
+                "patentCategoryEn": "Circuit & Algorithm",
+                "generation": "高可靠度第二代 (Gen-2 Pulse Regulation)",
+                "generationEn": "Gen-2 Pulse Regulation",
+                "ftoStatus": "專利權有效維持至 2029 年 8 月。具有強力排他權，保護全 FN 穿隧自適應脈衝寬度回饋控制技術。",
+                "ftoStatusEn": "In force through August 2029. Grants exclusivity over adaptive tunneling pulse-width feedback regulation circuits."
               }
             ]
           }
@@ -8063,6 +8193,188 @@
             "summary": "Maintains active production licensing on TSMC, UMC, and GF ultra-low-leakage (ULL/ULP) nodes worldwide.",
             "nodes": "22ULL / 28HPC+ qualified",
             "keyPatents": "Synopsys ULP MTP portfolio"
+          }
+        ],
+        "litigationDefense": {
+          "title": "All-FN Zero-Channel-Current Moat & Passive RFID Patent Fortress",
+          "overview": "AEON® represents the ultimate IP paradigm for ultra-low-power logic NVM. While conventional Flash and EEPROM designs rely on channel hot-electron injection (CHEI) drawing milliamperes of DC current, Dr. Chris Diorio's team engineered pure quantum bidirectional Fowler-Nordheim (FN/FN) tunneling displacement currents (<100pA), establishing the global standard for passive RFID and battery-free IoT nodes.",
+          "keyBattles": [
+            {
+              "heading": "Overcoming the RFID Power Cliff: Zero-DC-Current Tunneling (US6166953A)",
+              "detail": "Passive RF tags harvest energy strictly from weak ambient electromagnetic fields; milliampere surges collapse tag power supplies. Impinj patented dual-well balanced capacitive structures where floating gates couple across isolated wells, restricting programming power to picoampere displacement currents and dominating the EPC Gen2 UHF RFID standard."
+            },
+            {
+              "heading": "Strategic Acquisitions & IP Consolidation: Impinj to Virage Logic to Synopsys",
+              "detail": "In 2008, Virage Logic acquired Impinj's NVM business and 80+ patents; in 2010, EDA titan Synopsys acquired Virage Logic for $315M. Fully integrated into Synopsys DesignWare, AEON continued expanding into sub-1V differential sensing (US7787304B2) and adaptive pulse modulation (US8264887B2), spanning mature logic down to 28nm/22ULL IoT nodes."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] Impinj foundational pioneer patents (US6166953A & US6388918B1) expired in April 2019 and June 2020, entering the public domain. Industry may freely practice standard CMOS dual-well capacitance coupling and all-FN tunneling zero-channel current structures. However, Synopsys low-voltage differential sensing and adaptive pulse shaping patents remain active through 2027 and 2029."
+        }
+      },
+      {
+        "id": "nscore",
+        "name": "NSCore, Inc.",
+        "shortName": "NSCore (TwinBit®)",
+        "headquarters": "Kawasaki, Kanagawa, Japan",
+        "founded": "2001",
+        "founders": "Satoshi Seo (CEO / Founder), Kenji Hokazono and former NEC memory R&D core engineering team",
+        "businessModel": "Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS)",
+        "patentStats": {
+          "totalGrantedWorldwide": "50+ Granted Worldwide Patents",
+          "keyJurisdictions": "Japan (JPO), United States (USPTO), Taiwan (TIPO), China (CNIPA)",
+          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, DB HiTek",
+          "waferShipment": "Licensed across hundreds of automotive MCUs, smartcards, and industrial IoT designs; billions of units in volume shipment"
+        },
+        "strategy": "NSCore's patent strategy fundamentally eliminates reliance on dedicated floating-gate poly masks or expensive thermal steps. The founding team recognized that the native silicon nitride/oxide sidewall spacers inherently deposited on standard CMOS gates serve naturally as deep-level charge-trapping media. By controlling localized hot-carrier injection under 100% standard CMOS compatibility (zero extra masks, zero process changes), NSCore stores independent charges on both spacers of a single transistor to deliver 2-bit/cell (TwinBit®), advancing to P-channel Schottky MTP architectures in 40nm to 22nm nodes.",
+        "families": [
+          {
+            "id": "nscore-spacer-family",
+            "name": "NSCore TwinBit® Native Spacer Charge-Trapping Patent Portfolio",
+            "tagline": "Standard CMOS Native Sidewall Spacer · 2-bit/cell Storage · Zero-Mask High-Temperature Automotive MTP",
+            "technologyType": "Charge-Trapping MTP (Multiple-Time Programmable)",
+            "cellTopology": "Native Sidewall Spacer Split-Storage (1.5T/2T)",
+            "physicalMechanism": "Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing",
+            "processNode": "0.18µm / 0.13µm / 90nm / 65nm / 55nm / 40nm / 28nm / 22nm Standard CMOS",
+            "summary": "Masterpiece of native CMOS non-volatile memory engineering. Completely eliminates extra mask layers by directly utilizing native transistor sidewall spacers as non-volatile charge traps. Independent 2-bit/cell (TwinBit) storage reduces bitcell silicon area by up to 40%, while deep traps provide superior 150°C automotive data retention.",
+            "patents": [
+              {
+                "id": "US6930349B2",
+                "title": "Nonvolatile Semiconductor Memory Device and Method of Manufacturing the Same",
+                "grantDate": "2005-08-16",
+                "priorityDate": "2002-12-05",
+                "inventors": "Satoshi Seo, Kenji Hokazono",
+                "assignee": "NSCore, Inc.",
+                "url": "https://patents.google.com/patent/US6930349B2/en",
+                "coreProblem": "Embedded flash traditionally requires 3 to 8 additional masks, drastically escalating wafer costs in advanced and mature logic chips.",
+                "mechanism": "Utilizes standard CMOS transistor gate sidewall spacers (silicon nitride/oxide) as non-volatile charge storage layers without altering foundry process flows.",
+                "claimFocus": "Claim 1 recites a non-volatile memory cell using standard transistor sidewall spacers as charge-trapping layers and its zero-extra-mask fabrication method.",
+                "productLink": "NSCore Gen-1 TwinBit® 0.18µm / 0.13µm logic MTP IP baseline.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-12-05",
+                "patentCategory": "裝置結構與製造項 (Device Structure & Fabrication)",
+                "patentCategoryEn": "Device Structure & Fabrication",
+                "generation": "奠基第一代 (Gen-1 Spacer Trapping)",
+                "generationEn": "Gen-1 Spacer Trapping",
+                "ftoStatus": "已於 2022 年 12 月屆滿 20 年進入公有領域。利用標準 CMOS 電晶體天然閘極側壁間隔層 (Spacer) 作為電荷捕捉介質之基礎結構已開放自由實施。",
+                "ftoStatusEn": "Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering native CMOS sidewall spacer as charge-trapping medium is free to operate."
+              },
+              {
+                "id": "US7245532B2",
+                "title": "Nonvolatile Semiconductor Memory Device Having Two Charge Storage Regions per Cell",
+                "grantDate": "2007-07-17",
+                "priorityDate": "2004-03-24",
+                "inventors": "Satoshi Seo, Tomoya Saito",
+                "assignee": "NSCore, Inc.",
+                "url": "https://patents.google.com/patent/US7245532B2/en",
+                "coreProblem": "How to achieve multi-bit storage in a single standard CMOS transistor to reduce silicon cost in mature geometries?",
+                "mechanism": "Employs asymmetric channel hot-electron injection (CHEI) into Source-side and Drain-side spacers independently, reading via reverse-bias sensing to achieve 2-bit/cell (TwinBit) without cross-talk.",
+                "claimFocus": "Claim 1 defines independent two-charge storage region programming and reverse-read operations in a single transistor.",
+                "productLink": "NSCore mainstream TwinBit 2-bit/cell dense MCU macro.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2024-03-24",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 TwinBit 2-bit/cell)",
+                "generationEn": "Gen-1 TwinBit 2-bit/cell",
+                "ftoStatus": "已於 2024 年 3 月屆滿 20 年進入公有領域。單晶體雙側壁獨立注入與逆向讀取達成 2-bit/cell 之操作方法已無專利排他權。",
+                "ftoStatusEn": "Expired in March 2024; entered public domain. 2-bit/cell independent spacer programming and reverse-read operations are in the public domain."
+              },
+              {
+                "id": "US7768832B2",
+                "title": "Nonvolatile Semiconductor Memory Device with Improved Disturb Immunity",
+                "grantDate": "2010-08-03",
+                "priorityDate": "2007-06-15",
+                "inventors": "Satoshi Seo, Tomoya Saito",
+                "assignee": "NSCore, Inc.",
+                "url": "https://patents.google.com/patent/US7768832B2/en",
+                "coreProblem": "High-voltage pulses during massive array cycling induce unexpected charge leakage or soft disturb on unselected wordlines.",
+                "mechanism": "Implements three-level stepped wordline biasing and substrate reverse-biasing to dynamically boost surface potential of unselected cells, improving disturb margin tenfold.",
+                "claimFocus": "Claim 1 recites segmented bias circuitry and methods suppressing disturb in spacer charge-trapping memory arrays.",
+                "productLink": "NSCore Industrial and Automotive AEC-Q100 Grade-1 TwinBit array.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2027-06-15",
+                "patentCategory": "陣列架構項 (Array Architecture)",
+                "patentCategoryEn": "Array Architecture",
+                "generation": "微縮第二代 (Gen-2 Anti-Disturb)",
+                "generationEn": "Gen-2 Anti-Disturb",
+                "ftoStatus": "專利權有效維持至 2027 年 6 月。具有強力排他權，保護側壁電荷捕捉陣列之防干擾分段偏壓控制技術。",
+                "ftoStatusEn": "In force through June 2027. Protects array bias regulation topologies suppressing soft-disturb in spacer charge-trapping matrices."
+              },
+              {
+                "id": "US8760927B2",
+                "title": "Nonvolatile Semiconductor Memory Device Using Schottky Barrier Diode or P-Channel Carrier Trapping",
+                "grantDate": "2014-06-24",
+                "priorityDate": "2013-05-15",
+                "inventors": "Satoshi Seo, Kenji Hokazono",
+                "assignee": "NSCore, Inc.",
+                "url": "https://patents.google.com/patent/US8760927B2/en",
+                "coreProblem": "Scaling to 40nm/28nm thin oxides degrades under NMOS hot-electron stress; how to sustain high cycling endurance in sub-40nm?",
+                "mechanism": "Advances into TwinBit Gen-2, utilizing P-channel Schottky transistors with hot-hole write and hot-electron erase, eliminating high-field oxide fatigue for zero-mask 40nm–22nm MTP.",
+                "claimFocus": "Claim 1 defines a P-channel Schottky junction cell with hot-hole write and hot-electron erase nonvolatile operation.",
+                "productLink": "NSCore TwinBit Gen-2 40nm–22nm advanced PDK portfolio.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2033-05-15",
+                "patentCategory": "裝置與操作項 (Device & Operation)",
+                "patentCategoryEn": "Device & Operation",
+                "generation": "先進第三代 (Gen-3 Schottky MTP)",
+                "generationEn": "Gen-3 Schottky MTP",
+                "ftoStatus": "專利權有效維持至 2033 年 5 月。保護 TwinBit Gen-2 Pch Schottky 熱電洞寫入/熱電子抹除架構，覆蓋 40nm 至 22nm 節點。",
+                "ftoStatusEn": "Actively in force through May 2033. Protects TwinBit Gen-2 P-channel Schottky hot-hole write and hot-electron erase architecture across 40nm–22nm nodes."
+              }
+            ]
+          }
+        ],
+        "litigationDefense": {
+          "title": "Native Sidewall Spacer Trapping Moat & 2-bit/cell Public Domain Opening",
+          "overview": "Founded in 2001 by former NEC memory technology leader Satoshi Seo, NSCore established a revolutionary logic NVM route that overturned conventional floating-gate paradigms. Standard logic CMOS intrinsically deposits silicon nitride/oxide sidewall spacers to block LDD implants; NSCore discovered that spacers naturally act as deep-level silicon nitride charge traps (SiN Trap Layer), eliminating specialized floating gate poly masks.",
+          "keyBattles": [
+            {
+              "heading": "Zero-Extra-Mask Extreme Compatibility: Spacer Trapping vs. eFlash",
+              "detail": "Conventional embedded flash (e.g., SST SuperFlash, Infineon SONOS) requires 3 to 8 additional masks and specialized high-temperature annealing, stalling logic node migration. NSCore pioneer patent US6930349B2 strictly utilizes native CMOS spacers as physical storage nodes, requiring zero DRC modifications or SPICE model changes from silicon foundries."
+            },
+            {
+              "heading": "Symmetric Dual-Bit Physical Separation (TwinBit US7245532B2)",
+              "detail": "Unlike traditional 1-bit OTP/MTP bitcells, NSCore patented forward CHEI injection into source-side and drain-side spacers independently, combined with reverse-bias sensing to evaluate threshold shifts. This achieves 2 independent bits per single standard transistor (TwinBit), shrinking core cell area by over 40%."
+            },
+            {
+              "heading": "Gen-2 Pch Schottky Evolution (US8760927B2) & Automotive High-Temp Retention",
+              "detail": "Overcoming oxide wearout in sub-40nm scaling, NSCore engineered TwinBit Gen-2 with Pch Schottky bitcells using hot-hole write and hot-electron erase. Deep dielectric traps tightly confine charges, preventing global charge leakage and delivering outstanding 150°C automotive data retention."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] NSCore foundational patent US6930349B2 (native CMOS sidewall spacer charge storage) expired in December 2022 after its 20-year term. Dual-bit independent reverse-read patent US7245532B2 also expired in March 2024. The semiconductor industry may freely practice native spacer storage topologies. However, array anti-disturb bias (US7768832B2) and Gen-2 Pch Schottky MTP (US8760927B2) remain actively protected through 2027 and 2033."
+        },
+        "milestones": [
+          {
+            "period": "2001–2005",
+            "era": "Founding & Native Spacer Storage Invention",
+            "theme": "Zero-Mask TwinBit Pioneer",
+            "summary": "Former NEC engineers invent TwinBit utilizing native CMOS sidewall spacers, securing foundational patents US6930349B2 and US7245532B2.",
+            "nodes": "0.18µm / 0.13µm",
+            "keyPatents": "US6930349B2, US7245532B2"
+          },
+          {
+            "period": "2006–2012",
+            "era": "Foundry Proliferation & Volume Tape-outs",
+            "theme": "Qualification across TSMC, UMC, and GF",
+            "summary": "TwinBit MTP and PermSRAM OTP proliferate across TSMC, UMC, GlobalFoundries, SMIC, and DB HiTek for smartcards and MCU designs.",
+            "nodes": "90nm / 65nm / 55nm",
+            "keyPatents": "US7768832B2"
+          },
+          {
+            "period": "2013–2026",
+            "era": "Gen-2 Pch Schottky Breakthrough & Automotive Nodes",
+            "theme": "Scaling to 40nm/28nm/22nm and Automotive 150°C",
+            "summary": "Launches TwinBit Gen-2 Pch Schottky architecture using hot-hole write and hot-electron erase to overcome nanometer oxide wearout.",
+            "nodes": "40nm / 28nm / 22nm",
+            "keyPatents": "US8760927B2"
           }
         ]
       },
