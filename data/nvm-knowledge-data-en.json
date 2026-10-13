@@ -9322,6 +9322,52 @@
             "summary": "Pinnacle innovation in semiconductor hardware security. Eliminating external key injection and vulnerable helper data, chips extract unclonable private keys at power-up directly from silicon atomic structures, integrating post-quantum cryptography (PQC) accelerators and secure OTP.",
             "patents": [
               {
+                "id": "US7243236B2",
+                "title": "Physical Unclonable Functions and Semiconductor Device Identification Methods",
+                "grantDate": "2007-07-10",
+                "priorityDate": "2002-12-06",
+                "inventors": "G. Edward Suh, Srinivas Devadas",
+                "assignee": "Massachusetts Institute of Technology (MIT)",
+                "url": "https://patents.google.com/patent/US7243236B2/en",
+                "coreProblem": "Conventional cryptographic keys require burning into external non-volatile memories, vulnerable to physical probe theft during packaging or assembly.",
+                "mechanism": "Foundational MIT pioneer patent. Translates microscopic, uncontrollable, manufacturing process variations at nanometer scales into unique, deterministic, and physically unclonable digital signatures.",
+                "claimFocus": "Claim 1 defines physical unclonable circuit architectures generating unpredictable responses from random semiconductor manufacturing variations with identification methods.",
+                "productLink": "Foundational pioneer patent establishing the global physical unclonable function (PUF) semiconductor industry.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-12-06",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 MIT PUF Pioneer)",
+                "generationEn": "Gen-1 MIT PUF Pioneer",
+                "ftoStatus": "已於 2022 年 12 月屆滿 20 年進入公有領域。利用半導體製造隨機物理變異作為實體不可複製身分指紋之基礎概念已成為全球免費公有財。",
+                "ftoStatusEn": "Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering semiconductor process variations as physical unclonable identifiers is free to operate."
+              },
+              {
+                "id": "US7840804B2",
+                "title": "Physical Unclonable Function System Based on Memory Startup States",
+                "grantDate": "2010-11-23",
+                "priorityDate": "2004-03-31",
+                "inventors": "Jorge Guajardo, Sandeep Kumar, Geert-Jan Schrijen",
+                "assignee": "Koninklijke Philips Electronics N.V. (assigned to Intrinsic ID)",
+                "url": "https://patents.google.com/patent/US7840804B2/en",
+                "coreProblem": "Dedicated PUF bitcells demand non-standard layouts or custom fabrication steps; how to extract unclonable keys directly from standard memory macros?",
+                "mechanism": "Pioneer Philips / Intrinsic ID SRAM PUF patent. Harvests random metastable power-up states of static random access memory (SRAM) caused by threshold voltage mismatches of cross-coupled inverter pairs.",
+                "claimFocus": "Claim 1 defines systems extracting chip-unique cryptographic keys from the unwritten initial power-up tendencies of memory cells.",
+                "productLink": "Foundational SRAM PUF patent; theoretical baseline for Intrinsic ID QuiddiKey.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2024-03-31",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 SRAM PUF Startup)",
+                "generationEn": "Gen-1 SRAM PUF Startup",
+                "ftoStatus": "已於 2024 年 3 月屆滿 20 年進入公有領域。利用記憶體通電初始隨機狀態提取密碼金鑰之基礎操作方法已無專利排他權。",
+                "ftoStatusEn": "Expired in March 2024; entered public domain. Foundational methodology extracting cryptographic keys from memory startup states is in the public domain."
+              },
+              {
                 "id": "US10651268B2",
                 "title": "Physical unclonable function device and differential reading circuit with tracking reference",
                 "grantDate": "2020-05-12",
@@ -9366,6 +9412,52 @@
                 "generationEn": "Gen-1 Quantum TRNG",
                 "ftoStatus": "專利權有效維持至 2038 年 9 月。保護利用介電層直接穿隧量子散粒雜訊產生高熵隨機數之真隨機亂數產生器 (TRNG)。",
                 "ftoStatusEn": "In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise."
+              },
+              {
+                "id": "US11394553B2",
+                "title": "Hardware Security Engine Integrating Physical Unclonable Function and Cryptographic Co-Processor",
+                "grantDate": "2022-07-19",
+                "priorityDate": "2020-04-20",
+                "inventors": "Evans Ching-Song Yang, Meng-Yi Wu, Charles Ching-Hsiang Hsu",
+                "assignee": "PUFsecurity Corp.",
+                "url": "https://patents.google.com/patent/US11394553B2/en",
+                "coreProblem": "Discrete PUFs, OTPs, and cryptographic engines connected via on-chip buses expose plaintext keys to physical microprobing and differential power analysis (DPA).",
+                "mechanism": "PUFsecurity flagship PUFcc core patent. Monolithically couples NeoPUF zero-error hardware roots, secure OTP storage, quantum TRNG, and NIST-certified crypto accelerators behind a deep hardware firewall, ensuring keys are born and utilized purely within secure boundaries.",
+                "claimFocus": "Claim 1 recites an integrated hardware security engine monolithically coupling a quantum tunneling PUF, secure nonvolatile memory, and cryptographic hardware accelerators.",
+                "productLink": "PUFcc™ Crypto Co-processor certified under PSA Certified Level 3 and SESIP Level 3.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2040-04-20",
+                "patentCategory": "陣列架構項 (Array Architecture)",
+                "patentCategoryEn": "Array Architecture",
+                "generation": "全集成第二代 (Gen-2 Integrated PUFcc)",
+                "generationEn": "Gen-2 Integrated PUFcc",
+                "ftoStatus": "專利權有效維持至 2040 年 4 月。具有強力排他權，保護結合量子穿隧 PUF、安全 OTP 與密碼加速器之單晶片硬體信任根引擎架構。",
+                "ftoStatusEn": "In force through April 2040. Protects tightly-coupled hardware security engines integrating quantum PUF, secure OTP, and cryptographic accelerators."
+              },
+              {
+                "id": "US11880479B2",
+                "title": "Hardware Root-of-Trust with Quantum Tunneling PUF and Anti-Tamper Non-Volatile Key Storage",
+                "grantDate": "2024-01-23",
+                "priorityDate": "2021-09-08",
+                "inventors": "Meng-Yi Wu, Evans Ching-Song Yang",
+                "assignee": "PUFsecurity Corp.",
+                "url": "https://patents.google.com/patent/US11880479B2/en",
+                "coreProblem": "Next-gen AI and defense processors face focused ion beam (FIB) delayering and laser voltage probing (LVP) risking optical key reconstruction.",
+                "mechanism": "Exploits the irreversible physics of dielectric quantum tunneling, integrating active mesh shields and automated zeroization circuits that permanently collapse antifuses to ground states upon detecting tamper events within microseconds.",
+                "claimFocus": "Claim 1 defines a hardware root-of-trust with physical anti-tamper sensing and active quantum tunneling key zeroization operations.",
+                "productLink": "Mission-critical defense and automotive ISO 26262 ASIL-D / ISO 21434 root-of-trust baseline.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2041-09-08",
+                "patentCategory": "裝置與操作項 (Device & Operation)",
+                "patentCategoryEn": "Device & Operation",
+                "generation": "防篡改第三代 (Gen-3 Anti-Tamper RoT)",
+                "generationEn": "Gen-3 Anti-Tamper RoT",
+                "ftoStatus": "專利權有效維持至 2041 年 9 月。具有強力排他權，保護結合量子穿隧與主動防探針金鑰自毀之防篡改硬體信任根技術。",
+                "ftoStatusEn": "In force through September 2041. Enforces exclusivity over anti-tamper hardware root-of-trust architectures with active zeroization."
               }
             ]
           }
@@ -9395,7 +9487,30 @@
             "nodes": "3nm / 2nm GAA",
             "keyPatents": "PQC PUF Root-of-Trust Series"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Quantum Tunneling Geometric Mismatch (NeoPUF) vs. SRAM PUF Zero-BER Moat",
+          "overview": "Spun out of eMemory Technology under Chairman Dr. Charles Hsu and CEO Dr. Evans Yang, PUFsecurity revolutionized semiconductor hardware security. Traditional root-of-trust relies on injected keys (susceptible to supply-chain sniffing) or SRAM startup states. However, SRAM PUF suffers from a severe physical defect: temperature fluctuations and aging induce 5%–15% bit error rates (BER), requiring bulky error-correcting codes (ECC helper data) that consume die area and introduce side-channel vulnerabilities. PUFsecurity discarded fragile ECC post-processing, engineering native Zero-BER NeoPUF and PUFrt/PUFcc patent fortress from quantum tunneling physics.",
+          "keyBattles": [
+            {
+              "heading": "Quantum Geometric Mismatch vs. SRAM Metastable Flipping Risk",
+              "detail": "SRAM PUF relies on subtle inverter threshold mismatches that flip under extreme temperature (-40°C to 150°C) and supply noise. NeoPUF captures structural variations of atomic defects across paired antifuse dielectric layers; tunneling resistance differences span orders of magnitude, remaining 100% stable under thermal stress and radiation, delivering physical 0% native BER."
+            },
+            {
+              "heading": "Complete Elimination of Helper Data & Side-Channel Attack Surface (US10651268B2)",
+              "detail": "Because native BER is strictly zero, chips require zero helper data stored in off-chip flash. Attackers cannot reconstruct keys by eavesdropping helper data or analyzing mathematical error distributions, shutting down physical and side-channel vulnerability surfaces."
+            },
+            {
+              "heading": "Quantum Shot Noise TRNG Patent Exclusivity (US10769300B2)",
+              "detail": "Conventional ring oscillator TRNGs are susceptible to electromagnetic injection locking. PUFsecurity patented entropy harvesting directly from quantum tunneling shot noise, an unmanipulable quantum mechanical phenomenon certified under NIST SP 800-22 and SP 800-90B standards."
+            },
+            {
+              "heading": "Monolithic PUFcc Security Engine & TSMC Advanced Nodes (US11394553B2 / US11880479B2)",
+              "detail": "Monolithically integrating NeoPUF, secure OTP, quantum TRNG, and post-quantum cryptography (PQC) into PUFcc, PUFsecurity won TSMC OIP Partner of the Year, deploying into N5/N3/N2 nodes. Patented active zeroization circuits destroy keys within microseconds of physical optical tamper detection, securing PSA Certified Level 3 and SESIP Level 3 certifications."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] Early 2002–2004 MIT foundational PUF patent (US7243236B2) and Philips SRAM power-up PUF patent (US7840804B2) expired in 2022 and 2024, entering the public domain. Industry may freely practice standard SRAM startup state fingerprinting. However, PUFsecurity/eMemory quantum tunneling zero-BER differential tracking (US10651268B2), shot noise TRNG (US10769300B2), integrated PUFcc security engine (US11394553B2), and anti-tamper zeroization architecture (US11880479B2) remain actively protected through 2038–2041."
+        }
       }
     ]
   },

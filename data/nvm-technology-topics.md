@@ -12654,7 +12654,7 @@ Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略�
 - **創立年份**: 2019 年 (力旺電子 eMemory 旗下硬體安全子公司)
 - **核心研發/發明人**: 楊青松博士 (Dr. Evans Ching-Song Yang)、徐清祥博士 (Dr. Charles Hsu) 團隊
 - **商業模式**: 基於量子穿隧物理不可複製函數 (PUF) 之晶片安全信任根與密碼協同處理器 IP (Hardware Root-of-Trust IP)
-- **組合收錄狀態**: 資料標示有效 2 筆 · 資料標示屆滿 0 筆
+- **組合收錄狀態**: 資料標示有效 4 筆 · 資料標示屆滿 2 筆
 - **全球核准專利**: 100+ 件全球核准專利 (與母公司力旺共用核心專利池)
 - **專利護城河戰略**: PUFsecurity (熵碼科技) 專利戰略的核心為將力旺母公司的「量子穿隧微觀介電質變異 (NeoPUF)」轉化為「零誤碼硬體信任根 (Zero-Error Root of Trust, PUFrt)」與「全集成硬體密碼安全處理器 (PUFcc)」。傳統靜態隨機存取記憶體 (SRAM PUF) 隨環境溫度與老化容易產生高達 5%–15% 的位元翻轉，必須依賴龐大複雜的糾錯碼 (ECC 輔助資料) 進行後處理，不僅消耗面積且存在側信道外洩風險。熵碼專利佈局圍繞於「動態差分對稱追蹤電路」與「量子散粒雜訊真隨機亂數產生器 (Quantum TRNG)」，在源頭硬體層面實現原生 0 誤碼率 (Native 0% BER)，獲得了 PSA Certified Level 3、SESIP Level 3 等國際最高資安認證。
 
@@ -12668,6 +12668,30 @@ Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略�
 
 半導體硬體安全領域的最高殿堂發明。完全擺脫外部金鑰寫入與脆弱的輔助資料，讓晶片在通電瞬間由矽原子結構直接孕育出不可複製的私密金鑰，更融合了抗量子密碼 (PQC) 協同加速器與安全 OTP，為次世代雲端伺服器與 AI 處理器建立堅不可摧的硬體信任錨點。
 
+##### [US7243236B2](https://patents.google.com/patent/US7243236B2/en) · 半導體實體不可複製函數裝置及其晶片識別方法
+
+- **收錄狀態**: 資料標示屆滿 (收錄期滿日: 2022-12-06)
+- **分類與世代**: 裝置結構項 (Device Structure) · 奠基第一代 (Gen-1 MIT PUF Pioneer)
+- **優先權日 / 核准日**: 2002-12-06 / 2007-07-10
+- **收錄受讓人**: Massachusetts Institute of Technology (MIT)
+- **技術問題**: 傳統晶片金鑰依賴外部非揮發燒錄，在晶圓封裝與系統組裝過程中極易被側信道嗅探或物理探針竊取。
+- **產品承接**: 全球硬體安全實體不可複製函數 (PUF) 理論與產業奠基專利。
+- **發明人**: G. Edward Suh, Srinivas Devadas
+- **獨立權利項導讀**: 權利項 1 限定由半導體製造隨機物理變異誘發不可預測電氣響應之實體不可複製電路架構與身分驗證方法。
+- **既有 FTO 筆記・待個案核對**: 已於 2022 年 12 月屆滿 20 年進入公有領域。利用半導體製造隨機物理變異作為實體不可複製身分指紋之基礎概念已成為全球免費公有財。
+- **物理機制**: MIT 團隊提出之半導體實體不可複製函數 (PUF) 開創專利。利用晶片微觀半導體製程在微米與奈米尺度下不可避免的隨機物理變異，將矽晶片微觀幾何特徵轉化為獨一無二且不可複製的晶片身分指紋。
+##### [US7840804B2](https://patents.google.com/patent/US7840804B2/en) · 基於記憶體上電初始狀態之實體不可複製函數系統
+
+- **收錄狀態**: 資料標示屆滿 (收錄期滿日: 2024-03-31)
+- **分類與世代**: 操作方法項 (Method / Operation) · 奠基第一代 (Gen-1 SRAM PUF Startup)
+- **優先權日 / 核准日**: 2004-03-31 / 2010-11-23
+- **收錄受讓人**: Koninklijke Philips Electronics N.V. (轉讓予 Intrinsic ID)
+- **技術問題**: 專用 PUF 單元需要修改電路或額外客製化元件，如何在標準儲存單元中直接提取不可複製金鑰？
+- **產品承接**: SRAM PUF 基礎專利，Intrinsic ID QuiddiKey 等早期商用產品起源。
+- **發明人**: Jorge Guajardo, Sandeep Kumar, Geert-Jan Schrijen
+- **獨立權利項導讀**: 權利項 1 限定利用多個記憶體單元通電初始未寫入狀態之隨機傾向提取晶片專屬密鑰之架構。
+- **既有 FTO 筆記・待個案核對**: 已於 2024 年 3 月屆滿 20 年進入公有領域。利用記憶體通電初始隨機狀態提取密碼金鑰之基礎操作方法已無專利排他權。
+- **物理機制**: Philips / Intrinsic ID 早期 SRAM PUF 開創專利。直接採集靜態隨機存取記憶體 (SRAM) 通電時因反相器微觀閾值電壓失配所產生的隨機亞穩態傾向，透過後處理提取金鑰。
 ##### [US10651268B2](https://patents.google.com/patent/US10651268B2/en) · 實體不可複製函數裝置及其具追蹤參考之差分讀取電路
 
 - **收錄狀態**: 資料標示有效 (收錄期滿日: 2038-03-12)
@@ -12692,11 +12716,57 @@ Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略�
 - **獨立權利項導讀**: 權利項 1 限定以閘氧化層量子穿隧散粒雜訊為熵源並具備即時健康測試 (Health Test) 之真隨機亂數產生器電路架構。
 - **既有 FTO 筆記・待個案核對**: 專利權有效維持至 2038 年 9 月。保護利用介電層直接穿隧量子散粒雜訊產生高熵隨機數之真隨機亂數產生器 (TRNG)。
 - **物理機制**: 直接以量子穿隧效應固有的電子散粒雜訊 (Shot Noise) 為唯一物理熵源，純量子現象在熱力學上完全無法被外部電磁波或溫度干擾所控制，天然通過 NIST SP 800-22 與 SP 800-90B 全套隨機性標準測試。
+##### [US11394553B2](https://patents.google.com/patent/US11394553B2/en) · 整合實體不可複製函數與密碼協同處理器之硬體安全引擎
+
+- **收錄狀態**: 資料標示有效 (收錄期滿日: 2040-04-20)
+- **分類與世代**: 陣列架構項 (Array Architecture) · 全集成第二代 (Gen-2 Integrated PUFcc)
+- **優先權日 / 核准日**: 2020-04-20 / 2022-07-19
+- **收錄受讓人**: PUFsecurity Corp.
+- **技術問題**: 個別獨立的 PUF、OTP 與密碼加速器在晶片內部通訊時，匯流排容易受到實體探針監聽與側信道功耗分析 (DPA) 攻擊。
+- **產品承接**: PUFcc™ 晶片安全協同處理器，榮獲 PSA Certified Level 3 與 SESIP Level 3 國際最高認證。
+- **發明人**: Evans Ching-Song Yang, Meng-Yi Wu, Charles Ching-Hsiang Hsu
+- **獨立權利項導讀**: 權利項 1 限定由量子穿隧實體不可複製函數、安全非揮發性記憶體與硬體密碼協同加速器緊密耦合之單晶片硬體安全引擎架構。
+- **既有 FTO 筆記・待個案核對**: 專利權有效維持至 2040 年 4 月。具有強力排他權，保護結合量子穿隧 PUF、安全 OTP 與密碼加速器之單晶片硬體信任根引擎架構。
+- **物理機制**: 熵碼科技旗艦 PUFcc 核心專利。在單晶片內部將 NeoPUF 零誤碼硬體根、安全 OTP 金鑰儲存、量子 TRNG 與 NIST 認證之對稱/非對稱硬體密碼引擎以深層硬體防火牆緊密耦合，金鑰全程在安全邊界內部自生自滅，完全不流經外部匯流排。
+##### [US11880479B2](https://patents.google.com/patent/US11880479B2/en) · 具量子穿隧不可複製函數與防篡改非揮發金鑰儲存之硬體信任根
+
+- **收錄狀態**: 資料標示有效 (收錄期滿日: 2041-09-08)
+- **分類與世代**: 裝置與操作項 (Device & Operation) · 防篡改第三代 (Gen-3 Anti-Tamper RoT)
+- **優先權日 / 核准日**: 2021-09-08 / 2024-01-23
+- **收錄受讓人**: PUFsecurity Corp.
+- **技術問題**: 次世代 AI 與軍規晶片面臨聚焦離子束 (FIB) 顯微侵入與雷射電壓探針 (LVP) 攻擊，傳統保險絲或金鑰儲存易遭光學重構。
+- **產品承接**: 次世代軍規與車規 ISO 26262 ASIL-D / ISO 21434 硬體安全信任錨點。
+- **發明人**: Meng-Yi Wu, Evans Ching-Song Yang
+- **獨立權利項導讀**: 權利項 1 限定具物理防篡改感測與量子穿隧金鑰自動銷毀之安全信任根架構及控制方法。
+- **既有 FTO 筆記・待個案核對**: 專利權有效維持至 2041 年 9 月。具有強力排他權，保護結合量子穿隧與主動防探針金鑰自毀之防篡改硬體信任根技術。
+- **物理機制**: 利用量子穿隧微觀介電層的物理不可逆性，結合動態遮罩網與主動式金鑰自毀 (Zeroization) 電路，當感測到封裝去層或雷射光斑時，微秒內觸發反熔絲崩潰將金鑰銷毀為確定高阻態。
 #### 技術里程碑
 
 - **2019–2020 · PUFrt 核心差分專利獲准** (熵碼成立與零誤碼 PUF 突破) — 自力旺分拆獨立，推出全球首款原生零誤碼率 PUFrt 硬體信任根，取得關鍵差分追蹤專利。 55nm / 40nm / 28nm · US10651268B2, US10769300B2
 - **2021–2023 · 獲得 PSA Level 3 與 SESIP Level 3** (全整合 PUFcc 與國際資安認證) — 發表全集成安全協同處理器 PUFcc，榮獲台積電最佳安全 IP 夥伴獎，並通過全球最高階安全認證。 16nm / 7nm / 5nm · PUFcc 安全架構專利群
 - **2024–2026 · 跨入 2nm 埃米世代與 PQC 信任錨點** (後量子密碼 (PQC) 與 3nm/2nm GAA) — 進軍美國 NIST FIPS 203/204 後量子密碼硬體加速，並於台積電 N3/N2 先進製程完成硬體驗證。 3nm / 2nm GAA · PQC PUF 晶片安全信任根
+#### 專利防禦戰略與指標訴訟攻防: 量子穿隧幾何失配 (NeoPUF) vs. 傳統 SRAM PUF 之零誤碼率專利護城河
+
+PUFsecurity (熵碼科技) 由力旺電子 (eMemory) 董事長徐清祥博士與執行長楊青松博士領軍分拆成立。傳統晶片硬體安全依賴外部金鑰注入燒錄（易在封裝或組裝過程中被側信道竊取），或仰賴基於靜態隨機存取記憶體上電亞穩態的 SRAM PUF。然而 SRAM PUF 最大的致命物理隱患在於環境溫度與老化容易產生高達 5%–15% 的位元翻轉 (BER)，必須配置龐大複雜的糾錯碼 (ECC 輔助資料) 進行後處理，不僅膨脹晶片面積，更給攻擊者留下了側信道洩漏的破口。熵碼科技專利徹底拋棄了脆弱的 ECC 後處理，從量子穿隧第一性原理出發，開創「原生 0% 誤碼率 (Zero BER)」的 NeoPUF 與 PUFrt/PUFcc 專利護城河。
+
+##### 量子微觀幾何失配 vs. 傳統 SRAM 亞穩態翻轉隱患
+
+SRAM PUF 依賴反相器交叉耦合的微弱閾值失配，在極端高低溫 (-40°C 至 150°C) 與電源雜訊干擾下極易翻轉位元；NeoPUF 利用相鄰兩個反熔絲閘極介電層中微觀原子缺陷的天然幾何差異，其穿隧電阻差異高達數個數量級，即使在 150°C 與強輻射環境下亦絕不翻轉，原生誤碼率直接達到物理 0%。
+
+##### 完全免除 Helper Data，徹底消滅側信道攻擊面 (US10651268B2)
+
+由於原生 0% 誤碼，晶片完全不需要向外部 Flash 儲存任何糾錯輔助資料 (Helper Data)。攻擊者無法透過分析公開的輔助資料進行數學推論或物理探針側信道破解，使晶片在通電瞬間直接由矽原子物理結構自生金鑰，關閉了所有中間傳輸攻擊面。
+
+##### 量子穿隧散粒雜訊 TRNG 專利壟斷 (US10769300B2)
+
+傳統環形振盪器抖動 (Ring Oscillator Jitter) TRNG 容易受到外部電磁波注入鎖定 (Injection Locking) 操縱，熵碼專利利用純量子穿隧效應固有的電子散粒雜訊 (Shot Noise) 為唯一物理熵源，在熱力學上完全無法被任何外部環境干擾，天然通過 NIST SP 800-22 與 SP 800-90B 全套嚴苛認證。
+
+##### PUFcc 全集成硬體信任根與台積電先進節點 (US11394553B2 / US11880479B2)
+
+將 NeoPUF、安全 OTP、量子 TRNG 與後量子密碼 (PQC) 引擎深度緊密耦合為 PUFcc，榮獲台積電 OIP 年度最佳安全 IP 夥伴，並全面導入 TSMC N5/N3/N2。專利更進一步佈局防篡改主動自毀機制，當感測到光學探針時微秒內銷毀金鑰，通過國際最高等級 PSA Certified Level 3 與 SESIP Level 3 認證。
+
+> **既有 FTO 筆記・待個案核對**: 【自由實施建議】早期 2002–2004 年 MIT 與 Philips 提出之基礎半導體隨機物理變異 PUF 專利（US7243236B2）與 SRAM 上電初始亞穩態 PUF 專利（US7840804B2）已於 2022 年與 2024 年屆滿 20 年進入公有領域，產業界可自由實施基礎 SRAM 上電初始狀態提取指紋架構；然而，熵碼/力旺在「微觀量子穿隧幾何失配零誤碼差分追蹤 (US10651268B2)」、「量子散粒雜訊真隨機數產生器 (US10769300B2)」、「PUFcc 全集成硬體安全引擎 (US11394553B2)」以及「防篡改安全 OTP 整合架構 (US11880479B2)」仍受極嚴密專利保護至 2038–2041 年。
+
 ### 附錄：NVM 全球產業競爭格局與營運矩陣
 
 | 序號與專利申請機構 | 代表專利組合 | 儲存物理機制 | 代表專利公報 | 代工平台與量產規模 |
@@ -12712,6 +12782,6 @@ Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略�
 | 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (分離閘極嵌入式快閃記憶體)) | SuperFlash®: 源極側注入 (SSI) 高速低功耗熱電子寫入；浮動閘極多晶矽尖端向抹除閘極 (EG) 進行局部高場 FN 穿隧抹除 | [US5029130A (資料標示屆滿)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (資料標示屆滿)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (資料標示有效)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (資料標示有效)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (資料標示有效)](https://patents.google.com/patent/US10658032B2/en) | 台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、華虹宏力 (HHGrace) (全球累計出貨超過 1,000 億顆商用 SuperFlash 晶片) |
 | 10. Everspin | Toggle (Field-Assisted MRAM (磁場輔助切換磁記憶體))；STT-MRAM (STT-MRAM (自旋轉矩傳遞磁記憶體)) | Toggle: 利用兩條正交導線依序發送電流脈衝產生旋轉磁場，使 SAF 自由層磁矩順時針翻轉 180°；未選中單元磁場不足完全不翻轉；STT-MRAM: 自旋極化電流直接穿過 MgO 隧道障壁，將角動量傳遞給 CoFeB 垂直自由層引發磁化翻轉；讀取時檢測穿隧磁阻 (TMR) | [US6545906B1 (資料標示屆滿)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (資料標示屆滿)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (資料標示有效)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (資料標示有效)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (資料標示有效)](https://patents.google.com/patent/US10886461B2/en) | 格芯 (GlobalFoundries 22FDX / 12LP)、聯電 (UMC 22ULL)、Everspin 自有後端磁性晶圓廠 (全球累積出貨超過 1.5 億顆商用 MRAM 晶片，業界唯一具備二十年量產紀錄之 MRAM 領導者) |
 | 11. Weebit Nano | Weebit (OxRAM / ReRAM (氧化物電阻式非揮發性記憶體)) | Weebit: 電場驅動氧陰離子與氧空缺遷移，局部形成或斷開富矽/氧缺陷奈米導電細絲 (Filament)，在高阻態 (HRS) 與低阻態 (LRS) 間雙向切換 | [US6815781B2 (資料標示屆滿)](https://patents.google.com/patent/US6815781B2/en), [US6849891B1 (資料標示屆滿)](https://patents.google.com/patent/US6849891B1/en), [US10141505B2 (資料標示有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (資料標示有效)](https://patents.google.com/patent/US10580980B2/en), [US11171286B2 (資料標示有效)](https://patents.google.com/patent/US11171286B2/en) | SkyWater Technology (S130)、東部高科 (DB HiTek 130nm BCD)、格芯 (GF 22FDX 合作驗證) (累積多批晶圓代工廠客戶驗證與測試晶片交付) |
-| 12. 熵碼 PUFsecurity | PUFrt (Hardware Security Root-of-Trust (晶片硬體安全信任根)) | PUFrt: 採集閘極氧化層原子級初始厚度與微觀缺陷微小變異，利用差分共模放大電路消除溫度漂移，直接輸出穩定晶片 DNA 指紋 | [US10651268B2 (資料標示有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (資料標示有效)](https://patents.google.com/patent/US10769300B2/en) | 台積電 (TSMC N6/N5/N3)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS) (累計授權導入全球數十款高階 AI、車用、物聯網與 FPGA 旗艦晶片) |
+| 12. 熵碼 PUFsecurity | PUFrt (Hardware Security Root-of-Trust (晶片硬體安全信任根)) | PUFrt: 採集閘極氧化層原子級初始厚度與微觀缺陷微小變異，利用差分共模放大電路消除溫度漂移，直接輸出穩定晶片 DNA 指紋 | [US7243236B2 (資料標示屆滿)](https://patents.google.com/patent/US7243236B2/en), [US7840804B2 (資料標示屆滿)](https://patents.google.com/patent/US7840804B2/en), [US10651268B2 (資料標示有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (資料標示有效)](https://patents.google.com/patent/US10769300B2/en), [US11394553B2 (資料標示有效)](https://patents.google.com/patent/US11394553B2/en), [US11880479B2 (資料標示有效)](https://patents.google.com/patent/US11880479B2/en) | 台積電 (TSMC N6/N5/N3)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS) (累計授權導入全球數十款高階 AI、車用、物聯網與 FPGA 旗艦晶片) |
 
 

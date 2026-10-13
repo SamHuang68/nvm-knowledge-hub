@@ -7,12 +7,28 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='5ee6afb438373472e1e0de835f8f81ef974f9ebf';
+const base='e70888edbbd319183395144db7ad91349aa2fae0';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.4.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.0'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
-for (const suffix of ['','-en']) assert.equal(read(`data/nvm-vendor-patent-maps${suffix}.json`),original(`data/nvm-vendor-patent-maps${suffix}.json`),'原始技術與研究資料完整保留');
+for (const suffix of ['','-en']) {
+  const currentMaps = JSON.parse(read(`data/nvm-vendor-patent-maps${suffix}.json`));
+  const baseMaps = JSON.parse(original(`data/nvm-vendor-patent-maps${suffix}.json`));
+  assert.equal(currentMaps.vendors.length, baseMaps.vendors.length, '廠商數量維持 12 家');
+  for (const baseVendor of baseMaps.vendors) {
+    const curVendor = currentMaps.vendors.find(v => v.id === baseVendor.id);
+    assert.ok(curVendor, `廠商 ${baseVendor.id} 必須存在`);
+    if (baseVendor.id !== 'pufsecurity') {
+      assert.deepEqual(curVendor, baseVendor, `廠商 ${baseVendor.id} 原始資料無未授權變更`);
+    } else {
+      assert.equal(curVendor.families[0].patents.length, baseVendor.families[0].patents.length + 4, 'PUFsecurity 擴充 4 件案卷');
+      for (const bp of baseVendor.families[0].patents) {
+        assert.ok(curVendor.families[0].patents.some(p => p.id === bp.id), `PUFsecurity 原案卷 ${bp.id} 完整保留`);
+      }
+    }
+  }
+}
 function withoutMap(html) {
   const start=html.indexOf('<article id="patent-maps"'); assert.ok(start>=0);
   const tags=html.slice(start).matchAll(/<\/?article\b[^>]*>/gu);
