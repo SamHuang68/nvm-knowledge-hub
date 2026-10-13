@@ -18,10 +18,10 @@ window.NVMTopicIndex = [
     "tags": "Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON"
   },
   {
-    "title_zh": "涵蓋廠商與核心專利地圖全景盤點",
-    "title_en": "Global NVM Vendor Patent Landscape and Portfolios",
+    "title_zh": "具名機構核心專利地圖（By Filing Company 分析）",
+    "title_en": "NVM Patent Maps · By Filing Company",
     "url": "nvm-technology-atlas.html#patent-maps",
-    "tags": "專利 全景盤點 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity patent map landscape"
+    "tags": "專利地圖 By Filing Company 專利申請機構 專利所有權人 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity patent map landscape"
   },
   {
     "title_zh": "儲存物理專題",

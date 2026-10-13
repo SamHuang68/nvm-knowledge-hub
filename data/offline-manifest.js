@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "7cedc843fe6277c2605c",
+  "version": "fadd046adf186b186e34",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -209,7 +209,7 @@ self.NVMOfflineManifest = {
     "cxl-memory-pooling-simulator.js": "5b4bc8968a4011c64878d936d1658ec7a88054e8ed3d72f7b95efde9134fe18b",
     "data/ai-nvm-opportunities-knowledge.json": "59d32fe8e88e96654440951b1ec176161e28855a21019162d3c58cd17d4108a1",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
-    "data/nvm-search-index.js": "c0d5d77bf2a9dced23ac9507980d98649d6f60471d8bdba060edbff2db515a2a",
+    "data/nvm-search-index.js": "40eb8e1386958df61db156291d6ed1a7deb1ed7290d2915d96adcbd91bcacf13",
     "deep-space-sel-retention-simulator.js": "242079610b2f2dddbec870ac0326a816490459f9d702fd514b523fd04591628f",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
@@ -258,11 +258,11 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "f9fa5ecb7a48dcb04b52f3a7889f02d275c3d292ef03d651fdb8ac3509a6b472",
+    "nvm-technology-atlas-zh.html": "628a3aa75b9a2edbb6ec5c58c567650258eb952850229d8b95e53ef8221abdd6",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "75e5b50970257c6c19a03889cae848795071939f5f5635a13385b6a17da8e6e4",
+    "nvm-technology-atlas.html": "7b1342b45c1cea0de263cc00600595075141009277f6395db7625cf6ed30e137",
     "nvm-technology-atlas.js": "7ba90c8f62c0b4146eb491c90abb2857e547613ed4da1ddec8bd1fce6b18c817",
-    "nvm-vendor-patent-maps.css": "53c8a8ae53f121c84ef0b20dc67be58e8aa9303e7289b3cb8901cee87abfa8f5",
+    "nvm-vendor-patent-maps.css": "2313a1def04072aedb76fde95e11e4af47c0360c8b0f7d8ac9eb01d8c29349a9",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
     "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 15298138
+  "totalBytes": 15406126
 };

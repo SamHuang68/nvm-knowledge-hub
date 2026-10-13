@@ -1,205 +1,115 @@
 /* ==========================================================================
-   NVM Vendor Patent Maps (全球 NVM 廠商核心專利地圖)
-   涵蓋力旺電子 (eMemory) 等廠商專利家族、第一性原理權利項、晶圓代工相容性與演進時序
+   NVM Vendor Patent Maps (具名機構核心專利地圖 · By Filing Company 分析)
+   以專利申請機構 (Assignee) 為核心單位，深度呈現專利組合、獨立權利項 (Claim 1) 邊界、
+   第一性原理物理機制與晶圓代工落地；扁平化架構杜絕多層過度嵌套。
    ========================================================================== */
 
 .nvm-patent-maps-editorial {
   padding-bottom: 60px;
 }
 
-/* 全景橫向對比總表 (Landscape Overview) */
-.nvm-vendor-landscape-overview {
-  margin: 28px 0 36px;
-  background: #ffffff;
-  border: 1px solid #cadbe6;
-  border-radius: 4px;
-  padding: 24px 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.nvm-landscape-header {
-  border-bottom: 1px solid #e0ebf1;
-  padding-bottom: 16px;
-  margin-bottom: 20px;
-}
-
-.nvm-landscape-header h3 {
-  font-size: clamp(22px, 2.5vw, 28px);
-  color: #113852;
-  margin: 4px 0 8px;
-}
-
-.nvm-landscape-lede {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #3b5a6f;
-  margin: 0;
-}
-
-.nvm-landscape-table-wrap {
-  margin-top: 16px;
-}
-
-.nvm-vendor-landscape-table th:first-child { width: 17%; }
-.nvm-vendor-landscape-table th:nth-child(2) { width: 18%; }
-.nvm-vendor-landscape-table th:nth-child(3) { width: 25%; }
-.nvm-vendor-landscape-table th:nth-child(4) { width: 22%; }
-.nvm-vendor-landscape-table th:nth-child(5) { width: 18%; }
-
-.nvm-vendor-landscape-table td {
-  padding: 14px 10px;
-  vertical-align: top;
-  overflow-wrap: anywhere;
-}
-
-.nvm-landscape-vendor-no {
-  display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: #087f86;
-  background: #e3f1f3;
-  padding: 1px 6px;
-  border-radius: 2px;
-  margin-right: 6px;
-}
-
-.nvm-landscape-vendor-link {
-  font-size: 16px;
-  color: #123e59;
-  text-decoration: underline;
-}
-
-.nvm-landscape-vendor-sub {
-  font-size: 13px;
-  color: #557285;
-  margin: 4px 0 6px;
-  line-height: 1.4;
-}
-
-.nvm-landscape-model {
-  display: block;
-  font-size: 12px;
-  color: #6a8292;
-  line-height: 1.4;
-}
-
-.nvm-landscape-family-item {
-  display: inline-block;
-  margin-bottom: 4px;
-  font-size: 14px;
-}
-
-.nvm-landscape-physics-p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #1a394d;
-  margin: 0 0 8px;
-}
-
-.nvm-landscape-physics-p:last-child {
-  margin-bottom: 0;
-}
-
-.nvm-landscape-patents {
+/* 專利申請機構快速選單 (Filing Entity Navigation) */
+.nvm-entity-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.nvm-landscape-patent-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
-  font-weight: 600;
-  color: #087f86;
-  background: #eef6f8;
-  border: 1px solid #c0dce0;
-  border-radius: 3px;
-  padding: 1px 5px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.nvm-landscape-patent-badge:hover {
-  background: #087f86;
-  color: #ffffff;
-  border-color: #087f86;
-}
-
-.nvm-landscape-foundry-p {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #204054;
-  margin: 0 0 6px;
-}
-
-.nvm-landscape-foundry-p:last-child {
-  margin-bottom: 0;
-}
-
-/* 廠商索引快速導覽 */
-.nvm-vendor-nav {
-  display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
-  margin: 24px 0 32px;
-  padding: 14px 18px;
-  background: #f1f5f8;
-  border: 1px solid #c8d8e4;
+  margin: 20px 0 32px;
+  padding: 16px 20px;
+  background: #f1f6f9;
+  border: 1px solid #c8dbe6;
   border-radius: 4px;
 }
 
-.nvm-vendor-nav-title {
+.nvm-entity-nav .nvm-vendor-nav-title {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #244b67;
+  color: #17425e;
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
 }
 
-.nvm-vendor-nav a {
+.nvm-entity-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.nvm-entity-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 8px 14px;
   background: #ffffff;
-  border: 1px solid #b3c9d7;
+  border: 1px solid #b8cee0;
   border-radius: 3px;
   font-size: 14px;
-  font-weight: 600;
-  color: #154562;
+  color: #123e59;
   text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   transition: all 0.15s ease-in-out;
 }
 
-.nvm-vendor-nav a:hover,
-.nvm-vendor-nav a:focus {
+.nvm-entity-pill span {
+  font-size: 12px;
+  color: #557285;
+  font-weight: 500;
+}
+
+.nvm-entity-pill:hover,
+.nvm-entity-pill:focus {
   background: #087f86;
   border-color: #087f86;
   color: #ffffff;
 }
 
-/* 廠商主專題卡片 */
-.nvm-vendor-study {
-  margin-top: 40px;
+.nvm-entity-pill:hover span,
+.nvm-entity-pill:focus span {
+  color: #d1eff2;
+}
+
+/* 專利地圖檔案 (Patent Map Dossier by Company) */
+.nvm-patent-dossier {
+  margin-top: 48px;
   padding-top: 36px;
-  border-top: 2px solid #1a425a;
+  border-top: 3px solid #14425d;
 }
 
-.nvm-vendor-profile-header {
-  margin-bottom: 28px;
+.nvm-dossier-kicker-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
 }
 
-.nvm-vendor-profile-header h3 {
-  font-size: clamp(26px, 3.2vw, 36px);
+.nvm-dossier-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  color: #087f86;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nvm-dossier-model {
+  font-size: 12px;
+  color: #4f6b7d;
+  background: #e6eef3;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.nvm-dossier-title {
+  font-size: clamp(24px, 3vw, 34px);
   line-height: 1.3;
-  margin: 6px 0 14px;
-  color: #10344d;
+  margin: 6px 0 12px;
+  color: #0f3047;
+}
+
+.nvm-dossier-title small {
+  font-size: 0.75em;
+  color: #507185;
+  font-weight: 500;
 }
 
 .nvm-vendor-meta-strip {
@@ -222,19 +132,19 @@
   color: #17425e;
 }
 
-/* 廠商統計數據看板 */
+/* 公司專利指標看板 (Stats Grid) */
 .nvm-vendor-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  margin: 24px 0 32px;
+  margin: 20px 0 28px;
 }
 
 .nvm-vendor-stat-card {
   background: #f7fafc;
   border: 1px solid #ccdbe5;
   border-top: 3px solid #087f86;
-  padding: 16px 18px;
+  padding: 14px 16px;
   border-radius: 2px;
 }
 
@@ -244,7 +154,7 @@
   color: #556e80;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .nvm-vendor-stat-card dd {
@@ -256,50 +166,49 @@
   overflow-wrap: anywhere;
 }
 
-.nvm-vendor-stat-card dd strong {
-  display: block;
-  font-size: 20px;
-  color: #087f86;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-/* 策略區塊 */
+/* 專利戰略護城河說明 (Patent Moat Strategy) */
 .nvm-vendor-strategy {
-  background: #f0f6f8;
-  border-left: 4px solid #1a5c7a;
-  padding: 20px 24px;
-  margin: 28px 0 36px;
+  background: #f0f7f9;
+  border-left: 4px solid #087f86;
+  padding: 18px 22px;
+  margin: 24px 0 32px;
 }
 
 .nvm-vendor-strategy h4 {
-  font-size: 18px;
-  color: #123e59;
-  margin: 0 0 10px;
+  font-size: 17px;
+  color: #103850;
+  margin: 0 0 8px;
 }
 
 .nvm-vendor-strategy p {
   font-size: 15px;
   line-height: 1.8;
-  color: #214358;
+  color: #23465b;
   margin: 0;
 }
 
-/* 專利家族導覽 */
+/* 專利組合群組跳轉導覽 */
 .nvm-family-jump-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
-  margin: 24px 0 20px;
+  margin: 20px 0 24px;
+}
+
+.nvm-family-jump-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2b4f67;
 }
 
 .nvm-family-jump-nav a {
-  padding: 6px 12px;
-  background: #eef4f7;
-  border: 1px solid #cad9e2;
+  padding: 5px 12px;
+  background: #eaf1f5;
+  border: 1px solid #c2d6e3;
   border-radius: 3px;
   font-size: 13px;
-  color: #1d4661;
+  color: #174360;
   text-decoration: none;
   font-weight: 600;
 }
@@ -310,430 +219,735 @@
   border-color: #087f86;
 }
 
-/* 專利家族卡片 */
-.nvm-patent-family {
+/* 專利組合區塊 (Patent Portfolio Group) */
+.nvm-patent-portfolio-group {
   background: #ffffff;
   border: 1px solid #cadbe6;
   border-radius: 4px;
-  margin: 32px 0;
+  margin: 28px 0 36px;
   padding: 24px 28px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
-.nvm-family-header {
+.nvm-portfolio-group-header {
   border-bottom: 1px solid #e0ebf1;
-  padding-bottom: 18px;
-  margin-bottom: 20px;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
 }
 
-.nvm-family-header h4 {
-  font-size: 22px;
-  color: #123a54;
-  margin: 4px 0 8px;
-}
-
-.nvm-family-tagline {
-  font-size: 14px;
-  font-weight: 600;
-  color: #087f86;
-  letter-spacing: 0.02em;
-  margin: 0;
-}
-
-/* 家族物理與製程規格網格 */
-.nvm-family-specs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 24px;
-  background: #f7fafc;
-  padding: 16px 20px;
-  border: 1px solid #dbe6ee;
-  border-radius: 3px;
-  margin: 18px 0;
-}
-
-.nvm-family-specs dl {
-  margin: 0;
-  display: contents;
-}
-
-.nvm-family-specs dt {
+.nvm-portfolio-tagline {
+  display: inline-block;
   font-size: 13px;
   font-weight: 700;
-  color: #385d75;
-  margin-bottom: 3px;
+  color: #087f86;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
 }
 
-.nvm-family-specs dd {
-  margin: 0 0 10px;
+.nvm-portfolio-group-header h4 {
+  font-size: 22px;
+  color: #10344d;
+  margin: 2px 0 12px;
+}
+
+.nvm-portfolio-specs {
+  background: #f7fafc;
+  padding: 14px 18px;
+  border: 1px solid #dce7ee;
+  border-radius: 3px;
+}
+
+.nvm-portfolio-specs dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+  margin: 0;
+}
+
+.nvm-portfolio-specs dt {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4d6d82;
+  margin-bottom: 2px;
+}
+
+.nvm-portfolio-specs dd {
+  margin: 0;
   font-size: 14px;
-  line-height: 1.6;
-  color: #1a364a;
+  line-height: 1.5;
+  color: #14354c;
   overflow-wrap: anywhere;
 }
 
-.nvm-family-summary {
+.nvm-portfolio-summary {
   font-size: 15px;
   line-height: 1.75;
-  color: #27475c;
+  color: #27485c;
   margin: 16px 0 24px;
 }
 
-/* 家族專利清單 */
-.nvm-family-patents-title {
+.nvm-portfolio-patents-heading {
   font-size: 16px;
   font-weight: 700;
-  color: #16405c;
-  margin: 22px 0 14px;
+  color: #133c56;
+  margin: 20px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2edf2;
+}
+
+/* 核心專利分析卡片 (Patent Card - 扁平直呈，不搞多層 details/summary 隱藏) */
+.nvm-patent-cards-stack {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.nvm-vendor-patent-record {
-  border: 1px solid #cadbe6;
-  border-radius: 3px;
-  margin-bottom: 14px;
-  background: #fbfdfe;
+.nvm-vendor-patent-card {
+  background: #fdfefe;
+  border: 1px solid #c2d7e5;
+  border-radius: 4px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 3px rgba(16, 52, 77, 0.04);
+  transition: border-color 0.15s ease-in-out;
 }
 
-.nvm-vendor-patent-record[open] {
-  background: #ffffff;
-  border-color: #9cbccc;
-  box-shadow: 0 2px 6px rgba(16, 52, 77, 0.08);
+.nvm-vendor-patent-card:hover {
+  border-color: #8bb5cc;
+  box-shadow: 0 2px 8px rgba(16, 52, 77, 0.07);
 }
 
-.nvm-vendor-patent-record summary {
-  padding: 14px 18px;
-  cursor: pointer;
-  background: #f4f8fb;
-  font-size: 15px;
-  line-height: 1.5;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+.nvm-patent-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e1edf3;
+  margin-bottom: 16px;
+}
+
+.nvm-patent-card-identity {
+  display: flex;
   align-items: baseline;
-  gap: 8px 16px;
-  border-bottom: 1px solid transparent;
-  min-width: 0;
-  overflow-wrap: anywhere;
+  gap: 12px;
+  flex: 1 1 500px;
 }
 
-.nvm-vendor-patent-record[open] summary {
-  background: #eaf2f7;
-  border-bottom-color: #cadbe6;
-}
-
-.nvm-vendor-patent-record .nvm-patent-id {
+.nvm-patent-id-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 13px;
   font-weight: 700;
   color: #087f86;
-  background: #e3f1f3;
-  padding: 2px 8px;
+  background: #e4f2f4;
+  border: 1px solid #a8d5d9;
+  padding: 3px 8px;
   border-radius: 3px;
-  border: 1px solid #b7dada;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.nvm-vendor-patent-record summary strong {
-  color: #133852;
-  font-size: 15px;
-  font-weight: 650;
-  min-width: 0;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+.nvm-patent-id-badge:hover {
+  background: #087f86;
+  color: #ffffff;
+  border-color: #087f86;
 }
 
-.nvm-vendor-patent-record .nvm-patent-meta {
-  font-size: 13px;
-  color: #557082;
-  overflow-wrap: anywhere;
-}
-
-.nvm-vendor-patent-record .nvm-patent-details-body {
-  padding: 18px 22px;
-}
-
-.nvm-vendor-patent-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.nvm-vendor-patent-grid>div {
-  border-left: 3px solid #b7d1e0;
-  padding-left: 14px;
-}
-
-.nvm-vendor-patent-grid dt {
-  font-size: 13px;
-  font-weight: 750;
-  color: #1a4d6f;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.nvm-vendor-patent-grid dd {
+.nvm-patent-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10334a;
   margin: 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #1e384b;
-  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
-.nvm-vendor-patent-grid .nvm-patent-link-row dd a {
+/* 專利卡片頭部標籤組 */
+.nvm-patent-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.nvm-patent-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.nvm-status-active {
+  background: #e6f6ee;
+  color: #0d6e3c;
+  border: 1px solid #a3dfbe;
+}
+
+.nvm-status-expired {
+  background: #fbf1e4;
+  color: #8c5b16;
+  border: 1px solid #edd1a4;
+}
+
+.nvm-status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.nvm-status-active .nvm-status-indicator {
+  background: #199451;
+}
+
+.nvm-status-expired .nvm-status-indicator {
+  background: #bf7e24;
+}
+
+.nvm-patent-expiry-tag {
+  font-size: 12px;
+  color: #557285;
+  background: #f0f5f8;
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid #d4e3eb;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.nvm-patent-badge-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.nvm-badge-cat {
+  background: #edf3f7;
+  color: #2b536f;
+  border: 1px solid #cadbe6;
+}
+
+.nvm-badge-gen {
+  background: #f3f0f7;
+  color: #553b75;
+  border: 1px solid #dcd4ea;
+}
+
+/* 專利卡片活動與過期外框差別 */
+.nvm-card-active {
+  border-left: 4px solid #199451;
+}
+
+.nvm-card-expired {
+  border-left: 4px solid #bf7e24;
+}
+
+.nvm-patent-card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #557285;
+}
+
+.nvm-patent-card-meta strong {
+  color: #27495e;
+}
+
+/* 自由實施 (FTO) 評估行 */
+.nvm-patent-fto-row {
+  background: #faf6ee;
+  border-left: 3px solid #b38030;
+  padding: 10px 14px;
+  border-radius: 0 3px 3px 0;
+}
+
+.nvm-patent-fto-row dt {
+  color: #805615;
+  font-weight: 800;
+}
+
+.nvm-patent-fto-text p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #3b2b11;
+}
+
+/* 機構頭部狀態摘要 */
+.nvm-meta-status-pill {
+  background: #eef5f8;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid #c9dce6;
+}
+
+.nvm-meta-active {
+  color: #0d6e3c;
+  font-weight: 700;
+}
+
+.nvm-meta-expired {
+  color: #8c5b16;
+  font-weight: 700;
+}
+
+/* 附錄表格狀態標籤與圖例 */
+.nvm-patent-status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 13px;
+  color: #35586f;
+  background: #f4f8fa;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid #d3e4ed;
+  margin: 12px 0 16px;
+}
+
+.nvm-legend-item {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 600;
+}
+
+.nvm-legend-dot {
+  font-size: 11px;
+}
+
+.nvm-legend-active {
+  color: #0d6e3c;
+}
+
+.nvm-legend-expired {
+  color: #8c5b16;
+}
+
+.nvm-patent-tag-active {
+  background: #eef8f2 !important;
+  color: #0c6a39 !important;
+  border-color: #a7e0c0 !important;
+}
+
+.nvm-patent-tag-expired {
+  background: #fbf5eb !important;
+  color: #885715 !important;
+  border-color: #ecd5ae !important;
+}
+
+/* 專利分析網格行 */
+.nvm-patent-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nvm-patent-grid-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.nvm-patent-grid-row dt {
+  font-weight: 700;
+  color: #3b5c71;
+}
+
+.nvm-patent-grid-row dd {
+  margin: 0;
+  color: #1a384c;
+  overflow-wrap: anywhere;
+}
+
+/* 獨立權利項 (Claim 1) 專門高亮導讀樣式 */
+.nvm-patent-claim-row {
+  background: #f0f7f8;
+  border-left: 3px solid #087f86;
+  padding: 12px 14px;
+  border-radius: 0 3px 3px 0;
+}
+
+.nvm-patent-claim-row dt {
   color: #087f86;
+  font-weight: 800;
+}
+
+.nvm-patent-claim-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #0d2e42;
+  font-weight: 500;
+}
+
+.nvm-patent-footer-meta {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px dashed #d5e5ee;
+  font-size: 13px;
+  color: #506d80;
+}
+
+.nvm-patent-footer-meta dt {
+  font-weight: 700;
+  color: #4b6a7f;
+}
+
+.nvm-patent-footer-meta dd {
+  margin: 0;
+}
+
+.nvm-patent-footer-meta a {
+  color: #087f86;
+  font-weight: 600;
   text-decoration: underline;
 }
 
-/* 歷史時序演進表 (Timeline) */
+/* 專利演進時序線 (Timeline) */
 .nvm-patent-timeline-section {
-  margin-top: 44px;
-  padding-top: 28px;
-  border-top: 1px solid #c8d8e4;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid #dbe6ee;
 }
 
 .nvm-patent-timeline-section h4 {
-  font-size: 20px;
-  color: #123750;
-  margin: 0 0 8px;
+  font-size: 18px;
+  color: #11364e;
+  margin: 0 0 6px;
 }
 
-.nvm-patent-timeline-section p.nvm-timeline-intro {
-  font-size: 15px;
-  color: #436074;
-  margin: 0 0 24px;
+.nvm-timeline-intro {
+  font-size: 14px;
+  color: #4e6c80;
+  margin: 0 0 20px;
 }
 
 .nvm-patent-timeline {
-  display: grid;
-  gap: 18px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .nvm-timeline-node {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
+  grid-template-columns: 140px 1fr;
   gap: 20px;
-  background: #f9fbfd;
-  border: 1px solid #ccdce6;
-  border-left: 4px solid #087f86;
-  padding: 16px 20px;
-  border-radius: 2px;
+  background: #f7fafc;
+  border: 1px solid #d5e3ed;
+  border-radius: 3px;
+  padding: 14px 18px;
 }
 
 .nvm-timeline-period {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nvm-timeline-period span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 14px;
-  font-weight: 750;
+  font-weight: 800;
   color: #087f86;
-  line-height: 1.4;
 }
 
 .nvm-timeline-period small {
-  display: block;
   font-size: 12px;
-  font-weight: 500;
-  color: #5d788a;
-  margin-top: 4px;
+  color: #587487;
+  line-height: 1.3;
 }
 
 .nvm-timeline-content h5 {
-  font-size: 17px;
-  color: #143750;
-  margin: 0 0 8px;
+  font-size: 15px;
+  color: #133951;
+  margin: 0 0 6px;
 }
 
 .nvm-timeline-content p {
   font-size: 14px;
-  line-height: 1.65;
-  color: #244358;
-  margin: 0 0 8px;
+  line-height: 1.6;
+  color: #27495d;
+  margin: 0 0 10px;
 }
 
 .nvm-timeline-content dl {
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr);
-  gap: 6px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
   font-size: 13px;
-  margin: 8px 0 0;
-  padding-top: 8px;
-  border-top: 1px dashed #cad9e2;
 }
 
 .nvm-timeline-content dt {
-  font-weight: 700;
-  color: #3b5f77;
+  color: #537083;
+  font-weight: 600;
 }
 
 .nvm-timeline-content dd {
   margin: 0;
-  color: #16364d;
+  color: #13354b;
+  font-weight: 600;
 }
 
-/* 全景橫向對比總表卡片化響應式斷點 (覆蓋 1200px 以下所有螢幕，包含 1101px, 1100px, 901px, 900px) */
+/* 附錄：產業競爭格局矩陣 (Competitive Landscape Appendix) */
+.nvm-competitive-appendix {
+  margin-top: 60px;
+  background: #fbfdfd;
+  border: 1px solid #cbdde7;
+  border-top: 3px solid #6b889c;
+  border-radius: 4px;
+  padding: 24px 28px;
+}
+
+.nvm-competitive-appendix .nvm-landscape-header {
+  border-bottom: 1px solid #e1edf3;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.nvm-competitive-appendix .nvm-landscape-header h3 {
+  font-size: 20px;
+  color: #143c56;
+  margin: 4px 0 6px;
+}
+
+.nvm-competitive-appendix .nvm-landscape-lede {
+  font-size: 14px;
+  color: #4b6a7f;
+  margin: 0;
+}
+
+.nvm-vendor-landscape-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+}
+
+.nvm-vendor-landscape-table th {
+  background: #edf4f8;
+  color: #18415c;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid #c8dbe6;
+  font-size: 13px;
+}
+
+.nvm-vendor-landscape-table th:nth-child(1) { width: 18%; }
+.nvm-vendor-landscape-table th:nth-child(2) { width: 20%; }
+.nvm-vendor-landscape-table th:nth-child(3) { width: 24%; }
+.nvm-vendor-landscape-table th:nth-child(4) { width: 23%; }
+.nvm-vendor-landscape-table th:nth-child(5) { width: 15%; }
+
+.nvm-vendor-landscape-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0ecf3;
+  vertical-align: top;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.nvm-landscape-patents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 5px;
+  align-items: center;
+}
+
+.nvm-landscape-vendor-no {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #087f86;
+  background: #e3f1f3;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.nvm-landscape-vendor-link {
+  font-weight: 700;
+  color: #113c56;
+  text-decoration: underline;
+}
+
+.nvm-landscape-vendor-sub {
+  font-size: 12px;
+  color: #59778a;
+  margin: 2px 0;
+}
+
+.nvm-landscape-model {
+  font-size: 12px;
+  color: #688597;
+}
+
+.nvm-landscape-family-item {
+  font-size: 13px;
+}
+
+.nvm-landscape-physics-p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #1b3d52;
+  margin: 0 0 6px;
+}
+
+.nvm-landscape-physics-p:last-child {
+  margin-bottom: 0;
+}
+
+.nvm-landscape-patent-badge {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #087f86;
+  background: #edf6f8;
+  border: 1px solid #bedee3;
+  border-radius: 2px;
+  padding: 1px 5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nvm-landscape-patent-badge:hover {
+  background: #087f86;
+  color: #ffffff;
+}
+
+.nvm-landscape-foundry-p {
+  font-size: 13px;
+  color: #1f4257;
+  margin: 0 0 4px;
+}
+
+.nvm-landscape-foundry-p:last-child {
+  margin-bottom: 0;
+}
+
+/* 響應式佈局適配 (Responsive Breakpoints) */
 @media (max-width: 1200px) {
-  .nvm-vendor-landscape-table {
-    display: block;
-    width: 100%;
-  }
-  .nvm-vendor-landscape-table thead {
-    display: none;
-  }
-  .nvm-vendor-landscape-table tbody {
-    display: block;
-    width: 100%;
-  }
-  .nvm-vendor-landscape-table tr {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #cadbe6;
-    background: #ffffff;
-    margin: 0 0 20px;
-    padding: 20px 22px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-  }
+  .nvm-vendor-landscape-table,
+  .nvm-vendor-landscape-table tbody,
+  .nvm-vendor-landscape-table tr,
   .nvm-vendor-landscape-table td {
     display: block;
     width: 100%;
     box-sizing: border-box;
+  }
+  .nvm-vendor-landscape-table thead {
+    display: none;
+  }
+  .nvm-vendor-landscape-table tr {
+    background: #ffffff;
+    border: 1px solid #cadbe6;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  .nvm-vendor-landscape-table td {
     padding: 10px 0;
     border: 0;
-    border-bottom: 1px dashed #d5e3eb;
-    overflow-wrap: anywhere;
+    border-bottom: 1px dashed #e1edf3;
   }
   .nvm-vendor-landscape-table td:last-child {
     border-bottom: 0;
-    padding-bottom: 0;
+  }
+  .nvm-vendor-landscape-table td:first-child {
+    font-size: 17px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #cadbe6;
   }
   .nvm-vendor-landscape-table td:before {
     content: attr(data-label);
     display: block;
     font-size: 12px;
     font-weight: 700;
-    color: #48687e;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
-  .nvm-vendor-landscape-table td:first-child {
-    padding-top: 0;
-    border-bottom: 2px solid #087f86;
-    padding-bottom: 14px;
-    margin-bottom: 6px;
+    color: #43657a;
+    margin-bottom: 5px;
+    letter-spacing: 0.03em;
   }
   .nvm-vendor-landscape-table td:first-child:before {
     display: none;
   }
-  .nvm-vendor-landscape-table .nvm-landscape-vendor-link {
-    font-size: 20px;
-  }
 }
 
-/* 響應式佈局斷點 */
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
   .nvm-vendor-stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .nvm-vendor-patent-record summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 12px 14px;
-  }
-  .nvm-vendor-patent-record .nvm-patent-id,
-  .nvm-vendor-patent-record .nvm-patent-meta {
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-  .nvm-vendor-patent-record summary strong {
-    width: 100%;
-    margin: 2px 0;
-  }
-}
-
-@media (max-width: 800px) {
-  .nvm-vendor-landscape-overview {
-    padding: 16px 14px;
-    margin: 20px 0;
-  }
-  .nvm-vendor-stats-grid {
+  .nvm-portfolio-specs dl {
     grid-template-columns: 1fr;
   }
-  .nvm-family-specs {
+  .nvm-patent-grid-row,
+  .nvm-patent-footer-meta {
     grid-template-columns: 1fr;
+    gap: 4px;
   }
   .nvm-timeline-node {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-  .nvm-patent-family {
-    padding: 18px 18px;
+}
+
+@media (max-width: 620px) {
+  .nvm-vendor-stats-grid {
+    grid-template-columns: 1fr;
   }
-  .nvm-vendor-patent-record summary {
-    display: flex;
+  .nvm-patent-card-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .nvm-patent-card-identity {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
-    padding: 12px 14px;
+    flex: auto;
   }
-  .nvm-vendor-patent-record .nvm-patent-id,
-  .nvm-vendor-patent-record .nvm-patent-meta {
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-  .nvm-vendor-patent-record summary strong {
-    width: 100%;
-    margin: 2px 0;
-  }
-}
-
-@media (max-width: 390px) {
-  .nvm-vendor-landscape-overview {
-    padding: 12px 8px;
-  }
-  .nvm-vendor-landscape-table tr {
-    padding: 14px 12px;
-  }
-  .nvm-patent-family {
-    padding: 12px 10px;
-    margin: 20px 0;
-  }
-  .nvm-vendor-patent-record summary {
-    padding: 10px 10px;
-  }
-  .nvm-vendor-patent-record .nvm-patent-details-body {
-    padding: 12px 10px;
-  }
-  .nvm-timeline-content dl {
-    grid-template-columns: 1fr;
+  .nvm-patent-card-meta {
+    flex-direction: column;
     gap: 4px;
   }
-}
-
-@media (max-width: 312px) {
-  .nvm-vendor-landscape-overview {
-    padding: 10px 6px;
+  .nvm-vendor-patent-card {
+    padding: 14px 12px;
   }
-  .nvm-vendor-landscape-table tr {
-    padding: 10px 8px;
-  }
-  .nvm-patent-family {
-    padding: 10px 6px;
-  }
-  .nvm-vendor-patent-record summary {
-    padding: 8px 8px;
-  }
-  .nvm-vendor-patent-record .nvm-patent-details-body {
-    padding: 10px 8px;
-  }
-  .nvm-vendor-stat-card {
+  .nvm-entity-nav {
     padding: 12px 10px;
   }
+  .nvm-entity-pills {
+    gap: 6px;
+  }
+  .nvm-entity-pill {
+    padding: 6px 10px;
+    font-size: 13px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .nvm-patent-portfolio-group {
+    padding: 16px 12px;
+  }
+  .nvm-patent-status-legend {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 10px;
+  }
 }
+
+
