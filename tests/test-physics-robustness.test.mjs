@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-// Import all 38 physical calculation functions
+// Import all 49 physical calculation functions
 import { calculateAdvancedFinfetGaa } from '../advanced-finfet-gaa-simulator.js';
 import { calculatePackagingPdkMetrics } from '../advanced-packaging-pdks-simulator.js';
 import { calculateAutomotiveAsilMetrics } from '../automotive-asild-ecc-simulator.js';

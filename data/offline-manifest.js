@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "7d5a9e8c65d6c0e9527b",
+  "version": "8a387c0a9259fcf3a90f",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -234,7 +234,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "hybrid-bonding-tsv-kgd-simulator.js": "d9ad69c05389b5b5c13f0181ec3bb24c8a904639a24e7632bc308331da2a3b2f",
-    "index.html": "187407e9e052d5d2fdb260e474b3014913db69df9a8892c2d9439b55cea437a0",
+    "index.html": "0a3e8c87ef7c38dcccf6b35dbe879d70771bc31a6c7d596aae1197350b8f6c9e",
     "iot-energy-tradeoff-calculator.js": "057bce8aa8ccc9a8c94224ed4816b36879b3b304428f4b54389d043f10be15db",
     "iot-mcu-envm.html": "ce085226d7da83f9ab6ac105c88f290b5a719bd0cbc93263bd9ee0cba17e047b",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
