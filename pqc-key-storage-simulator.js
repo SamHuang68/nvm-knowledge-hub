@@ -268,11 +268,20 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
   const w = width;
   const h = height;
 
-  ctx.fillStyle = "#090d16";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Subtle grid
-  ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -298,7 +307,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
 
   if (mode === "endurance_wearout") {
     // Mode A: Key Update Cycles (0 to 100,000) vs Array Wearout (%)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -306,7 +315,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Wearout (%)", 6, plotY0 + 6);
     ctx.fillText("0", plotX0, plotY1 + 16);
@@ -345,9 +354,9 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
       ctx.setLineDash([]);
     };
 
-    drawWearCurve("embedded_flash_sector", "#ef4444", "eFlash Sector", metrics.mediaKey === "embedded_flash_sector");
-    drawWearCurve("spintronic_mram", "#a855f7", "STT-MRAM", metrics.mediaKey === "spintronic_mram");
-    drawWearCurve("antifuse_append_log", "#06b6d4", "AntiFuse Append Log", metrics.mediaKey === "antifuse_append_log");
+    drawWearCurve("embedded_flash_sector", "#dc2626", "eFlash Sector", metrics.mediaKey === "embedded_flash_sector");
+    drawWearCurve("spintronic_mram", "#7c3aed", "STT-MRAM", metrics.mediaKey === "spintronic_mram");
+    drawWearCurve("antifuse_append_log", "#0284c7", "AntiFuse Append Log", metrics.mediaKey === "antifuse_append_log");
 
     // Current Operating Point Marker
     const currCyc = Math.min(maxCycles, metrics.updateCycles);
@@ -355,21 +364,21 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     const markerX = plotX0 + (currCyc / maxCycles) * plotW;
     const markerY = plotY1 - (currWear / 100.0) * plotH;
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#0284c7";
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#06b6d4";
+    ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#06b6d4";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Updates: ${currCyc} | Wear: ${currWear}%`, Math.min(markerX + 8, plotX1 - 150), Math.max(markerY - 8, plotY0 + 12));
 
   } else {
     // Mode B: Active Tamper Zeroization Latency & Waveform
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -377,7 +386,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Key State", 6, plotY0 + 6);
     ctx.fillText("0 ns", plotX0, plotY1 + 16);
@@ -386,7 +395,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
 
     // Draw Tamper Event Trigger line
     const tamperX = plotX0 + 15;
-    ctx.strokeStyle = "#ef4444";
+    ctx.strokeStyle = "#dc2626";
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(tamperX, plotY0);
@@ -394,14 +403,14 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#dc2626";
     ctx.font = "bold 9.5px 'IBM Plex Mono', monospace";
     ctx.fillText("Tamper Alarm", tamperX + 4, plotY0 + 12);
 
     // Draw Destruction Curve
     // If AntiFuse: drops to zero at 12ns
     // If eFlash: stays high across entire nanosecond window
-    ctx.strokeStyle = metrics.mediaKey === "antifuse_append_log" ? "#10b981" : (metrics.mediaKey === "spintronic_mram" ? "#a855f7" : "#ef4444");
+    ctx.strokeStyle = metrics.mediaKey === "antifuse_append_log" ? "#059669" : (metrics.mediaKey === "spintronic_mram" ? "#7c3aed" : "#dc2626");
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -425,7 +434,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     }
     ctx.stroke();
 
-    ctx.fillStyle = metrics.mediaKey === "antifuse_append_log" ? "#10b981" : "#ef4444";
+    ctx.fillStyle = metrics.mediaKey === "antifuse_append_log" ? "#047857" : "#dc2626";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Zeroization Delay: ${metrics.zeroizeNs}`, plotX0 + 25, plotY1 - 25);
     ctx.fillText(`Grade: ${metrics.complianceGradeEn}`, plotX0 + 25, plotY1 - 10);
@@ -542,13 +551,13 @@ export function initPqcKeyStorageSimulator(container) {
       btnWear.setAttribute("aria-pressed", "true");
       btnWear.style.background = "#0284c7";
       btnWear.style.color = "#ffffff";
-      btnWear.style.borderColor = "#38bdf8";
+      btnWear.style.borderColor = "#0284c7";
       if (btnTiming) {
         btnTiming.classList.remove("active");
         btnTiming.setAttribute("aria-pressed", "false");
-        btnTiming.style.background = "#1e293b";
-        btnTiming.style.color = "#94a3b8";
-        btnTiming.style.borderColor = "#475569";
+        btnTiming.style.background = "#f1f5f9";
+        btnTiming.style.color = "#475569";
+        btnTiming.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -561,13 +570,13 @@ export function initPqcKeyStorageSimulator(container) {
       btnTiming.setAttribute("aria-pressed", "true");
       btnTiming.style.background = "#0284c7";
       btnTiming.style.color = "#ffffff";
-      btnTiming.style.borderColor = "#38bdf8";
+      btnTiming.style.borderColor = "#0284c7";
       if (btnWear) {
         btnWear.classList.remove("active");
         btnWear.setAttribute("aria-pressed", "false");
-        btnWear.style.background = "#1e293b";
-        btnWear.style.color = "#94a3b8";
-        btnWear.style.borderColor = "#475569";
+        btnWear.style.background = "#f1f5f9";
+        btnWear.style.color = "#475569";
+        btnWear.style.borderColor = "#cbd5e1";
       }
       update();
     });

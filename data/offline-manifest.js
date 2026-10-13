@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "b787fb4020c4186ad5b0",
+  "version": "237f6904b584133e70d1",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -202,7 +202,7 @@ self.NVMOfflineManifest = {
     "cpo-optical-trim-simulator.js": "0f1e4b5f039c0b5b268f2a08e242b8d4ee61ba5eb9becff0e7cf57293f67f91b",
     "cpo-siph-nvm-simulator.js": "f49276b8c39c23770c61e3990a133df51e46e02a04b8143c9ac4814676a07e6f",
     "cryo-cmos-quantum-nvm-simulator.js": "3da07a0c1967a17915ca31b420cbd6958736f65efe5cb432740ba362a0a23607",
-    "cryo-qubit-readout-simulator.js": "129ce5d193d1be53fe15175f523d17a3f762b24266e575fcbcb33cf6be6a4ed9",
+    "cryo-qubit-readout-simulator.js": "de06a20c5f8495e72594aa156f6490d202e28bc71b7d1ebd97d50717ae9fdbeb",
     "cryo-radhard-nvm-simulator.js": "f21148468e263bb84f089821be3fc8590e3a4a9e8f396b789c83c327352db474",
     "cryogenic-nvm-physics-simulator.js": "c9e359a321695f088b7f205707e12e5ebebedec018a03dff2a2cd5cfaa640fb0",
     "cu-cu-hybrid-bonding-stress-simulator.js": "522c411ca6d015d028b60e6340983c240dcf4c16f79ed0d58bc0890beb51e61b",
@@ -210,7 +210,7 @@ self.NVMOfflineManifest = {
     "data/ai-nvm-opportunities-knowledge.json": "59d32fe8e88e96654440951b1ec176161e28855a21019162d3c58cd17d4108a1",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
     "data/nvm-search-index.js": "40eb8e1386958df61db156291d6ed1a7deb1ed7290d2915d96adcbd91bcacf13",
-    "deep-space-sel-retention-simulator.js": "242079610b2f2dddbec870ac0326a816490459f9d702fd514b523fd04591628f",
+    "deep-space-sel-retention-simulator.js": "21e5f080691e3bf5b866eb5fbb5a75ebdf0c697627c0eeb4b0dc551e5ffacc44",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "c0a98cb709f50a393093f7c71e4c56fb9e0bd50961666f803b30f926f0a2fd53",
     "differential-sensing-simulator.js": "b37533dd83f96dd1ddb0cd898e8343d3362a7141e3fb6594c45e0c08bab378b1",
@@ -250,7 +250,7 @@ self.NVMOfflineManifest = {
     "memory-physics.html": "4fe99c52b8215f9437770ab4ccec3705fbaace9aa0200c9498793bd8592a486a",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
-    "nanosheet-bspdn-nvm-simulator.js": "e29225b11117421ec1999425a1dc72f29ce4a190364f28f7deff1318dd2cf468",
+    "nanosheet-bspdn-nvm-simulator.js": "a5087c715c97c114f7c9278af488dd3f20eb53ba4396301fa9ff2ebea52bf0d6",
     "normally-off-energy-harvesting-simulator.js": "4f58ae7c86832b0e39fc371540ca3316dbd7329766b17c104ed5ffe4b5b433a1",
     "nvm-bitcell-figures.css": "ac12451c77cd8117a60d7efb222a809c6a8575d538eda1843c3c195bb39ff60a",
     "nvm-engineering-diagrams.css": "34bfd2ef34cdba6c61514a2166dbce664c59256a044fdc89673c0f506fec75c4",
@@ -265,8 +265,8 @@ self.NVMOfflineManifest = {
     "nvm-vendor-patent-maps.css": "9a80b7abdfdac6c9d80a6ed6073c80a2cb7cde409e7a8c830b32f5377993bb8e",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
-    "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
-    "pqc-key-storage-simulator.js": "9f05e72b2d67b9f0567c5146b79b498887b778e89a9ca8bd010c4679e94a7433",
+    "pqc-hardware-rot-ledger-simulator.js": "5a3e023fc42601572e78dbc794a3e9808804629e2d08d7ee5337b0c54e22c8f2",
+    "pqc-key-storage-simulator.js": "78d2e3166cec560e4e1c224f9c67e9e24848129c900b08bc49e338609244c4ab",
     "pqc-rot-budget-calculator.js": "8d4812b03325f0939fca6b091617ee6e093bb8c1ec2421f6831ad8be02118bda",
     "pqc-rot-dpa-simulator.js": "8e01c9a0dec5ec2d60ce6ae6d30eba562d7ebb18b7b0856b2979130247c298d8",
     "puf-nist-randomness-evaluator.js": "c9eab2f6c2d1b15d478b4679b86abe2009192df74d54fefc84fecb4cb8d12481",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 15870450
+  "totalBytes": 15872060
 };
