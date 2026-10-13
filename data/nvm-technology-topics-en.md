@@ -12437,7 +12437,7 @@ By licensing SuperFlash across TSMC, UMC, GlobalFoundries, SMIC, and HHGrace, SS
 - **Founded**: 2008 (Spun off from Motorola / Freescale Semiconductor)
 - **Leadership**: Leonid Savtchenko, Saied Tehrani, Brad Engel, and Motorola MRAM Team
 - **Business Model**: Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing
-- **Recorded Portfolio Status**: 1 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
 - **Global Patents**: 600+ Worldwide Granted Patents
 - **Patent Strategy**: Everspin's patent portfolio pioneered 'Savtchenko Toggle MRAM' and guided the evolution into 'Perpendicular Magnetic Anisotropy Spin-Torque Transfer (pMTJ STT-MRAM)'. Early field-switched MRAM suffered severe half-select disturb. Dr. Savtchenko invented Toggle switching using Synthetic Antiferromagnet (SAF) free layers and orthogonal pulse timing, achieving the world's first commercial MRAM. As nodes scaled, Everspin established patents across high thermal stability perpendicular magnetic tunnel junctions (pMTJ), heavy-metal spin-orbit torque interfaces, and high-density DDR/xSPI architectures, securing a comprehensive patent moat from aerospace radiation environments and datacenter power-loss protection (PLP) to 22nm foundry eMRAM.
 
@@ -12497,19 +12497,61 @@ Core patent family leading MRAM into dense deep-submicron geometries. Dispensing
 - **Claim 1 Reading**: Claim 1 claims a high-temperature MTJ stack withstanding 400°C BEOL thermal budget with TMR > 150%.
 - **Existing FTO Note · Requires Case Review**: In force through June 2030. Strongly protects high-TMR perpendicular MTJ (pMTJ) multi-layer stack structures.
 - **Physical Solution**: Introduces refractory diffusion barriers and multi-anneal stabilized multilayers, allowing pMTJ stacks to sustain 400°C 90-minute thermal budgets while preserving TMR read ratios exceeding 180%.
+##### [US9087588B2](https://patents.google.com/patent/US9087588B2/en) · Magnetic Memory Element with Enhanced Spin-Orbit Torque and Spin Transfer Torque Switching
+
+- **Recorded Status**: Recorded active (Recorded term date: 2033-03-14)
+- **Category & Generation**: Device & Operation · Gen-4 SOT/STT Hybrid
+- **Priority / Grant**: 2013-03-14 / 2015-07-21
+- **Assignee**: Everspin Technologies, Inc.
+- **Technical Problem**: Pure STT switching at sub-10ns write speeds requires excessive tunnel-barrier voltages, risking dielectric breakdown of ultra-thin MgO layers.
+- **Product Linkage**: Everspin PERSYST™ ultra-high-speed low-latency MRAM architecture.
+- **Inventors**: Sanjeev Aggarwal, Dmytro Apalkov
+- **Claim 1 Reading**: Claim 1 defines a magnetic memory cell combining a spin-orbit torque heavy-metal line with a perpendicular spin-transfer torque junction and its operating method.
+- **Existing FTO Note · Requires Case Review**: In force through March 2033. Grants exclusivity over hybrid spin-orbit torque (SOT) and spin-transfer torque (STT) magnetic memory cells.
+- **Physical Solution**: Integrates a heavy-metal spin-orbit torque (SOT) underlayer with a perpendicular STT MTJ, using planar SOT current for rapid initial torque and low-voltage STT current for deterministic final alignment, slashing write voltage by 60% and enabling sub-2ns speeds.
+##### [US10886461B2](https://patents.google.com/patent/US10886461B2/en) · Perpendicular MTJ Stack with Dual MgO Tunneling Barrier and Synthetic Antiferromagnetic Pinning
+
+- **Recorded Status**: Recorded active (Recorded term date: 2038-08-20)
+- **Category & Generation**: Material Structure · Gen-5 Dual-MgO pMTJ
+- **Priority / Grant**: 2018-08-20 / 2021-01-05
+- **Assignee**: Everspin Technologies, Inc.
+- **Technical Problem**: In sub-22nm nodes, single-interface perpendicular magnetic anisotropy (PMA) degrades under thermal agitation, impairing 10-year retention.
+- **Product Linkage**: Everspin 1Gb STT-MRAM and GlobalFoundries 22FDX eMRAM volume baseline.
+- **Inventors**: Dmytro Apalkov, Mohamad Krounbi
+- **Claim 1 Reading**: Claim 1 recites a perpendicular pMTJ stack comprising a synthetic antiferromagnetic reference layer, a first MgO barrier, a free layer, and a second MgO barrier.
+- **Existing FTO Note · Requires Case Review**: In force through August 2038. Protects dual-MgO interface perpendicular MTJ stacks across sub-22nm foundry nodes.
+- **Physical Solution**: Configures dual MgO dielectric layers flanking the free layer, creating symmetrical double-interface PMA boosting thermal stability (Delta) by >50% while stabilizing TMR >200%.
 #### Technology Milestones
 
 - **2001–2007 · Savtchenko Toggle Patent Granted** (Motorola R&D & Toggle Genesis) — Invented Toggle switching, unveiling the first commercial 4Mb MRAM in 2006 to inaugurate commercial MRAM. 0.18µm Specialty Magnetic Process · US6545906B1
 - **2008–2014 · Independence & Grandis Patent Acquisition** (Everspin Spin-Off & STT Breakthrough) — Spun off from Freescale, acquired Grandis perpendicular STT patents, and demonstrated first STT-MRAM samples. 90nm / 65nm · US7599207B2, US8488373B2
 - **2015–2020 · GF 22FDX eMRAM & 1Gb Discrete Shipments** (1Gb pMTJ & Foundry Volume Production) — Partnered with GlobalFoundries for 22FDX eMRAM production, shipping discrete 1Gb STT-MRAM components. 40nm / 28nm / 22FDX · US9087588B2
 - **2021–2026 · xSPI / DDR Expansion & Automotive Grade** (Industrial & Datacenter Penetration) — Launched PERSYST™ brand and high-reliability xSPI MRAM for datacenter PLP and aerospace radiation-tolerant systems. 22nm / 12LP Process Extensions · EMxxLX Product Family Series
+#### Patent Defense Strategy & Landmark Litigation: Toggle Magnetic Switching Moat & Perpendicular STT-MRAM Patent Evolution
+
+Everspin Technologies stands as the first semiconductor company to achieve commercial volume production of MRAM (spun out of Motorola Laboratories and Freescale Semiconductor). Early MRAM was chronically plagued by "half-select disturb," which Motorola physicist Leonid Savtchenko resolved through the landmark "Toggle MRAM (US6545906B1)" using synthetic antiferromagnetic (SAF) rotation. Everspin subsequently acquired pioneer Grandis to master perpendicular magnetic tunnel junctions (pMTJ), dominating high-reliability mission-critical non-volatile markets.
+
+##### Savtchenko Toggle Patent Fortress & Half-Select Immunity (US6545906B1)
+
+Conventional magnetic field-switched MRAM suffered unintended bit-flips on half-selected cells along common bitlines or wordlines. Savtchenko patented timed orthogonal magnetic pulses driving 180-degree rotation of a 3-layer SAF stack (ferromagnet/Ru/ferromagnet); unselected cells spring back elastically after pulses subside, securing flawless half-select immunity and locking down the field-switched MRAM roadmap for two decades.
+
+##### Grandis Acquisition & Perpendicular STT-MRAM Transition (US7599207B2)
+
+Because field-switched line currents could not scale beyond 90nm, Everspin acquired spintronics pioneer Grandis and its patent estate in 2011, transitioning to spin-transfer torque where spin-polarized currents flip states via angular momentum transfer. CoFeB/MgO/CoFeB perpendicular magnetic anisotropy (pMTJ) eliminated in-plane demagnetization penalties, cutting switching currents by 80% and enabling 1Gb densities across GlobalFoundries 22FDX.
+
+##### Dual-MgO Tunneling Barriers & 400°C BEOL Thermal Budget (US8488373B2 / US10886461B2)
+
+Integrating magnetic MTJs into standard CMOS back-end-of-line (BEOL) metal stacks requires surviving harsh 400°C sintering. Everspin patented high-temperature diffusion barriers and dual-MgO interfaces, sustaining TMR ratios >180% post-anneal to certify automotive Grade-1 and radiation-hard aerospace qualifications.
+
+> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Everspin pioneer Toggle MRAM patent US6545906B1 expired in November 2021 after its 20-year term. Foundational STT-MRAM switching patent US7599207B2 also entered the public domain in September 2025. The semiconductor industry may freely practice synthetic antiferromagnetic Toggle switching and foundational STT tunneling injection. However, 400°C BEOL stacks (US8488373B2), hybrid SOT/STT switching (US9087588B2), and dual-MgO perpendicular pMTJ architectures (US10886461B2) remain actively enforceable through 2030–2038.
+
 ### Weebit Nano Limited (Weebit Nano)
 
 - **Headquarters**: Hod HaSharon, Israel / Melbourne, Australia
 - **Founded**: 2015
 - **Leadership**: Coby Hanoch (CEO), Prof. James Tour (Rice University Nanotech Pioneer), and Engineering Team
 - **Business Model**: Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services
-- **Recorded Portfolio Status**: 2 Recorded active · 0 Recorded expired
+- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
 - **Global Patents**: 50+ Worldwide Granted Patents
 - **Patent Strategy**: The core of Weebit Nano's patent strategy encompasses 'Standard CMOS-Compatible Silicon Oxide (SiOx / ReRAM)' and 'Adaptive Multi-Level Neuromorphic Compute-in-Memory (CIM)'. Conventional metal-oxide ReRAMs (HfOx, TaOx) often require exotic heavy metal precursors, requiring dedicated fab deposition tools with cross-contamination concerns. Collaborating with Rice University's Prof. James Tour, Weebit's patents utilize porosity-controlled standard silicon dioxide (SiOx) or standard hafnia to form conductive oxygen vacancy filaments. This delivers 100% BEOL contamination-free integration with only 2 mask adders, alongside adaptive conductance compensation patents for analog edge AI.
 
@@ -12523,6 +12565,30 @@ Core patent family leading MRAM into dense deep-submicron geometries. Dispensing
 
 Disruptive embedded non-volatile memory technology. Adding only 2 low-temperature masks in the back-end-of-line (BEOL) without altering front-end transistors, Weebit ReRAM switches in nanoseconds under sub-2V voltages with 100K endurance and 10-year retention at 150°C.
 
+##### [US6815781B2](https://patents.google.com/patent/US6815781B2/en) · Resistive Memory Element with Transition Metal Oxide and Operation Method
+
+- **Recorded Status**: Recorded expired (Recorded term date: 2022-09-17)
+- **Category & Generation**: Device Structure · Gen-1 Metal-Oxide ReRAM Pioneer
+- **Priority / Grant**: 2002-09-17 / 2004-11-09
+- **Assignee**: Sharp Laboratories of America, Inc.
+- **Technical Problem**: Conventional flash requires high-voltage tunneling; how to achieve reversible non-volatile resistance switching at low voltages in thin films?
+- **Product Linkage**: Core foundational patent for transition metal-oxide ReRAM / OxRAM physics.
+- **Inventors**: David R. Evans et al.
+- **Claim 1 Reading**: Claim 1 recites a thin-film resistive switching cell comprising a bottom electrode, a transition metal oxide layer, and a top electrode with bipolar switching operations.
+- **Existing FTO Note · Requires Case Review**: Expired in September 2022; entered public domain. Pioneer metal-oxide bipolar conductive filament switching topology is free to operate.
+- **Physical Solution**: Pioneer transition metal-oxide switching patent. A metal/oxide/metal (MIM) thin-film stack forms or dissolves localized conductive filaments under bipolar electric fields, switching between low-resistance (LRS) and high-resistance (HRS) states.
+##### [US6849891B1](https://patents.google.com/patent/US6849891B1/en) · Nonvolatile Memory Device with Electric-Pulse-Induced Resistance Change
+
+- **Recorded Status**: Recorded expired (Recorded term date: 2023-04-15)
+- **Category & Generation**: Method / Operation · Gen-1 Electric-Pulse ReRAM
+- **Priority / Grant**: 2003-04-15 / 2005-02-01
+- **Assignee**: University of Houston
+- **Technical Problem**: How to reliably modulate thin-film resistance states using non-destructive short electric pulses without dielectric breakdown wearout?
+- **Product Linkage**: Electric-pulse induced resistance switching (EPIR) foundational operation baseline.
+- **Inventors**: Shangqing Liu, Alex Ignatiev
+- **Claim 1 Reading**: Claim 1 defines methods of reversibly altering thin-film nonvolatile resistance via room-temperature electric pulse trains.
+- **Existing FTO Note · Requires Case Review**: Expired in April 2023; entered public domain. Electric pulse induced resistance switching methods are in the public domain.
+- **Physical Solution**: Foundational electric-pulse induced resistance (EPIR) patent. Applies microsecond-scale bipolar electric pulses at room temperature to drive interfacial oxygen vacancy migrations, altering resistance states non-destructively.
 ##### [US10141505B2](https://patents.google.com/patent/US10141505B2/en) · Resistive random access memory devices using porous silicon oxide and methods of fabrication and operation
 
 - **Recorded Status**: Recorded active (Recorded term date: 2034-06-20)
@@ -12547,11 +12613,41 @@ Disruptive embedded non-volatile memory technology. Adding only 2 low-temperatur
 - **Claim 1 Reading**: Claim 1 claims a neuromorphic computing architecture executing vector-matrix multiplication with dynamic conductance calibration on multi-level ReRAM arrays.
 - **Existing FTO Note · Requires Case Review**: In force through August 2037. Protects neuromorphic in-memory computing synaptic analog weight updating methods on ReRAM arrays.
 - **Physical Solution**: Implements adaptive multi-level cell (MLC) pulse compensation: senses drift with low probe currents prior to matrix multiplication and applies incremental tuning pulses to restore exact synaptic weights.
+##### [US11171286B2](https://patents.google.com/patent/US11171286B2/en) · Bidirectional Selector Device for Cross-Point Resistive Memory Array and Integration Method
+
+- **Recorded Status**: Recorded active (Recorded term date: 2039-05-10)
+- **Category & Generation**: Device & Fabrication · Gen-3 1S1R Cross-Point
+- **Priority / Grant**: 2019-05-10 / 2021-11-09
+- **Assignee**: Weebit Nano Ltd.
+- **Technical Problem**: In high-density cross-point ReRAM arrays, cumulative sneak-path leakage from unselected cells collapses sense margins and corrupts programming.
+- **Product Linkage**: Weebit Nano high-density 1S1R cross-point discrete and embedded ReRAM portfolio.
+- **Inventors**: Alon Malek, Amir Regev
+- **Claim 1 Reading**: Claim 1 recites a 1S1R cross-point cell comprising a bidirectional non-linear threshold selector in series with an oxide switching layer and its BEOL integration process.
+- **Existing FTO Note · Requires Case Review**: Actively in force through May 2039. Protects bidirectional threshold selector 1S1R cross-point architectures and BEOL integration flows.
+- **Physical Solution**: Engineers a bidirectional threshold switch selector exhibiting extreme off-state non-linearity (>10^5) that turns on only above threshold voltages, suppressing sneak-path currents in dense 1S1R arrays.
 #### Technology Milestones
 
 - **2015–2018 · SiOx ReRAM Proof of Concept** (Inception & Rice University Exclusive License) — Secured global exclusive license to Rice University SiOx ReRAM patents and completed CEA-Leti collaborative validation. Leti R&D Wafer Line · US10141505B2
 - **2019–2022 · Automotive Reliability Qualification** (Foundry Commercialization & SkyWater Qualification) — Completed full-array reliability qualification on SkyWater 130nm CMOS, demonstrating 150°C retention and 100K endurance. SkyWater 130nm · US10580980B2
 - **2023–2026 · BCD Foundry Volume & Neuromorphic AI** (DB HiTek Agreement & 22nm Scaling) — Executed volume licensing agreement with DB HiTek, advancing into 28nm/22nm and edge AI analog in-memory compute. DB HiTek 130nm / 22FDX · Weebit Volume Production Series
+#### Patent Defense Strategy & Landmark Litigation: Silicon-Oxide ReRAM BEOL Moat & Conductive Filament Public Domain FTO
+
+Founded by Israeli and Australian semiconductor veterans, Weebit Nano constructed its IP strategy to overturn the heavy-metal precursor contamination barriers of legacy ReRAM (TaOx, TiO2, HfOx). Traditional foundries dread foreign metals migrating into front-end CMOS gates; Weebit secured exclusive rights to Rice University Professor James Tour's foundational patents, directly utilizing standard CMOS-native porous silicon oxide (SiOx) requiring only 2 low-temperature BEOL masks for 100% zero-contamination foundry qualification across SkyWater and DB HiTek.
+
+##### Porous Silicon Oxide (SiOx) vs. Exotic Metal Contamination (US10141505B2)
+
+Conventional ReRAM demands unproven noble metals and exotic targets, forcing foundries to establish costly segregated fabrication lines. Weebit's core patent confines switching to porosity-tuned silicon oxide, electro-forming and dissolving reversible silicon nanofilaments using standard foundry PECVD tools, reducing wafer cost by ~70% compared to eFlash.
+
+##### Neuromorphic Analog Conductance Calibration Moat (US10580980B2)
+
+Analog in-memory computing (CIM) using ReRAM synapses suffers from spontaneous oxygen vacancy relaxation known as conductance drift, corrupting neural network inference accuracy. Weebit patented closed-loop sensing that detects drift with micro-probes before vector-matrix multiplications, applying dynamic restore pulses to preserve inference precision.
+
+##### Bidirectional Threshold Selector 1S1R Cross-Point Array (US11171286B2)
+
+To bypass the scaling area limit of 1T1R select transistors, Weebit patented highly non-linear bidirectional threshold selectors (>10^5 selectivity), completely suffocating sneak-path leakage in dense cross-point matrices and enabling dense 3D stacking.
+
+> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Early 2002–2003 foundational metal-oxide resistance switching and electric pulse-induced filament patents (US6815781B2 & US6849891B1) expired in 2022 and 2023, entering the public domain. Industry may freely practice standard 1T1R bipolar switching physics. However, Weebit's proprietary porous SiOx patent (US10141505B2), neuromorphic dynamic conductance calibration (US10580980B2), and 1S1R threshold selector topologies (US11171286B2) remain actively enforceable through 2034, 2037, and 2039.
+
 ### PUFsecurity Corp. (PUFsecurity)
 
 - **Headquarters**: Zhubei City, Hsinchu County, Taiwan
@@ -12614,8 +12710,8 @@ Pinnacle innovation in semiconductor hardware security. Eliminating external key
 | 07. Attopsemi | I-fuse® (Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)) | I-fuse®: Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation | [US9165979B2 (Recorded active)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (Recorded active)](https://patents.google.com/patent/US9613943B2/en) | TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor (Hundreds of automotive and IoT customer tape-outs, billions of units shipped) |
 | 08. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (Recorded active)](https://patents.google.com/patent/US9214470B2/en), [US6388293B1 (Recorded expired)](https://patents.google.com/patent/US6388293B1/en), [US6853583B2 (Recorded expired)](https://patents.google.com/patent/US6853583B2/en), [US9847343B2 (Recorded active)](https://patents.google.com/patent/US9847343B2/en), [US10840251B2 (Recorded active)](https://patents.google.com/patent/US10840251B2/en) | TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek (Deployed across automotive MCUs and edge AI analog computing processors) |
 | 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (Recorded expired)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (Recorded expired)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (Recorded active)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (Recorded active)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (Recorded active)](https://patents.google.com/patent/US10658032B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
-| 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (Recorded expired)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (Recorded expired)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (Recorded active)](https://patents.google.com/patent/US8488373B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
-| 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US10141505B2 (Recorded active)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (Recorded active)](https://patents.google.com/patent/US10580980B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
+| 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (Recorded expired)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (Recorded expired)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (Recorded active)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (Recorded active)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (Recorded active)](https://patents.google.com/patent/US10886461B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
+| 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US6815781B2 (Recorded expired)](https://patents.google.com/patent/US6815781B2/en), [US6849891B1 (Recorded expired)](https://patents.google.com/patent/US6849891B1/en), [US10141505B2 (Recorded active)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (Recorded active)](https://patents.google.com/patent/US10580980B2/en), [US11171286B2 (Recorded active)](https://patents.google.com/patent/US11171286B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
 | 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US10651268B2 (Recorded active)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (Recorded active)](https://patents.google.com/patent/US10769300B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
 
 
