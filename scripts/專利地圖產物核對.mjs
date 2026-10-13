@@ -7,7 +7,7 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='3374f2a064815f0dc96e850c469b0710b19db828';
+const base='3ca524ab2baa932f5dcfb0356d4ef43230f8d414';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
 assert.equal(pkg.version,'1.4.0'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
@@ -37,3 +37,4 @@ const originalPolicy=JSON.parse(original('data/public-release-policy.json'));
 for (const key of ['allowedClassifications','blockedClassifications','blockedAttachmentExtensions','allowedAttachmentExceptions','attachmentExceptionEvidence']) assert.deepEqual(policy[key],originalPolicy[key],'公開資料／附件限制未降低');
 for (const item of policy.localizedSourcePathExceptions) assert.ok(item.basis && fs.statSync(path.join(root,item.path)).isFile(),'來源路徑例外均有實體檔與說明');
 console.log('專利地圖產物核對通過：版本一致、原始資料保留、其他章節不變、四項離線資源同步與公開範圍保持。');
+execFileSync(process.execPath,['scripts/build-release-lineage.mjs','--check'],{cwd:root,stdio:'inherit'});

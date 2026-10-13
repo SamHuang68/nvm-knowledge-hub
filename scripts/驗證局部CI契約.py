@@ -16,6 +16,48 @@ spec.loader.exec_module(runner)
 
 
 class CIContract(unittest.TestCase):
+    def test_交錯分支收據收齊並保留最近失敗(self):
+        with tempfile.TemporaryDirectory(prefix='nvm-receipts-') as temporary:
+            evidence = Path(temporary) / '證據'
+            key_a, key_b = 'a' * 64, 'b' * 64
+            runs = [{'id': i, 'conclusion': 'success', 'event': 'push', 'head_repository': {'full_name': 'fixture/nvm'}} for i in (4, 3, 2, 1)]
+            downloads = []
+            def response(command):
+                if 'per_page=20' in command[-1]:
+                    return json.dumps({'workflow_runs': runs}).encode()
+                return json.dumps({'artifacts': [{'name': '收據', 'expired': False}]}).encode()
+            def download(command, **kwargs):
+                run_id = int(command[3]); downloads.append(run_id)
+                folder = Path(command[-1]); folder.mkdir()
+                records = {4: {'c'*64: 'passed'}, 3: {key_a: 'failed'}, 2: {key_a: 'passed', key_b: 'passed'}}[run_id]
+                for key, status in records.items():
+                    (folder / (key + '.json')).write_text(json.dumps({'status': status}), encoding='utf-8')
+            with patch.dict(os.environ, {'GITHUB_REPOSITORY': 'fixture/nvm', 'GH_TOKEN': 'fixture'}), patch.object(runner.subprocess, 'check_output', side_effect=response), patch.object(runner.subprocess, 'run', side_effect=download):
+                runner.restore_ci_receipts(evidence, '收據', 'validate-and-deploy.yml', {key_a, key_b})
+            self.assertEqual(downloads, [4, 3, 2], '收齊前不停止，收齊後不擴大讀取')
+            self.assertEqual(json.loads((evidence / (key_a + '.json')).read_text())['status'], 'failed')
+            self.assertTrue((evidence / (key_b + '.json')).is_file())
+
+    def test_舊進行中紀錄不污染較新成功(self):
+        with tempfile.TemporaryDirectory(prefix='nvm-receipts-') as temporary:
+            evidence = Path(temporary) / '證據'
+            key_a, key_b = 'a' * 64, 'b' * 64
+            runs = [{'id': i, 'conclusion': 'success', 'event': 'push', 'head_repository': {'full_name': 'fixture/nvm'}} for i in (2, 1)]
+            def response(command):
+                return json.dumps({'workflow_runs': runs} if 'per_page=20' in command[-1] else {'artifacts': [{'name': '收據', 'expired': False}]}).encode()
+            def download(command, **kwargs):
+                folder = Path(command[-1]); folder.mkdir()
+                if command[3] == '2':
+                    (folder / (key_a + '.json')).write_text('{"status":"passed"}')
+                else:
+                    (folder / (key_a + '.active')).write_text('{"pid":123}')
+                    (folder / (key_b + '.json')).write_text('{"status":"passed"}')
+                    (folder / (key_b + '.active')).write_text('{"pid":456}')
+            with patch.dict(os.environ, {'GITHUB_REPOSITORY': 'fixture/nvm', 'GH_TOKEN': 'fixture'}), patch.object(runner.subprocess, 'check_output', side_effect=response), patch.object(runner.subprocess, 'run', side_effect=download):
+                runner.restore_ci_receipts(evidence, '收據', 'validate-and-deploy.yml', {key_a, key_b})
+            self.assertFalse((evidence / (key_a + '.active')).exists(), '舊 run 的 active 不得污染新成功')
+            self.assertTrue((evidence / (key_b + '.active')).is_file(), '同一 run 的 active 必須保留以阻擋不完整案例')
+
     def test_明列案例及相同輸入重用(self):
         with tempfile.TemporaryDirectory(prefix='nvm-ci-') as temporary:
             folder = Path(temporary)

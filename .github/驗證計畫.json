@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "3374f2a064815f0dc96e850c469b0710b19db828",
+  "baseCommit": "3ca524ab2baa932f5dcfb0356d4ef43230f8d414",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md"
@@ -57,7 +57,7 @@
         "nvm-ip-cells.css",
         "nvm-engineering-diagrams.css"
       ],
-      "reason": "專利地圖新增搜尋、分類、狀態與結果導航；保留雙語 52 筆案卷及既有錨點。Linux Chromium 與本機平台分開驗證。",
+      "reason": "專利地圖新增搜尋、分類、狀態與結果導航；保留雙語全部案卷及既有錨點。Linux Chromium 與本機平台分開驗證。",
       "prepare": [
         "node",
         "browser"
@@ -116,7 +116,8 @@
         "data/public-release-policy.json",
         "package.json",
         "package-lock.json",
-        "data/offline-manifest.js"
+        "data/offline-manifest.js",
+        "data/release-lineage.json"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -176,9 +177,11 @@
         "docs/CI修訂歷史.md",
         "scripts/專利地圖驗證.mjs",
         "scripts/驗證局部CI契約.py",
-        "docs/專利地圖修訂紀錄.md"
+        "docs/專利地圖修訂紀錄.md",
+        "data/release-lineage.json",
+        "scripts/build-release-lineage.mjs"
       ],
-      "reason": "版本與離線資源更新須一致；核對原始資料、其他 Atlas 章節及公開附件限制完整保留。",
+      "reason": "版本與離線資源更新須一致；核對原始資料、其他 Atlas 章節及公開附件限制完整保留。 發行來源紀錄綁定確切內容提交。",
       "prepare": [
         "node"
       ],

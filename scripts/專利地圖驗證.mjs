@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import path from 'node:path';
 import {chromium, webkit} from 'playwright';
 import {startTestServer} from './test-server.mjs';
@@ -12,12 +13,16 @@ const out = path.join(root,'qa','專利地圖',engine);
 fs.mkdirSync(out,{recursive:true});
 const data = Object.fromEntries(['en','zh'].map(locale=>[locale,JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'))]));
 const recordIDs = value=>value.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>`vendor-patent-${f.id}-${p.id}`)));
+const totalRecords=recordIDs(data.en).length;
+const uniquePublications=new Set(data.en.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>p.id)))).size;
+const baseline=JSON.parse(execFileSync('git',['show','3374f2a064815f0dc96e850c469b0710b19db828:data/nvm-vendor-patent-maps.json'],{cwd:root,encoding:'utf8'}));
+for(const id of recordIDs(baseline)) assert.ok(recordIDs(data.en).includes(id),'保留 Stage 3 所有原始案卷');
 assert.deepEqual(recordIDs(data.en),recordIDs(data.zh),'雙語案卷識別一致');
 for (const [locale,value] of Object.entries(data)) {
   validateVendorPatentMaps(value);
   const html=renderVendorPatentMaps(value,locale,()=>''), md=vendorPatentMapsMarkdown(value,()=>'',locale);
-  assert.equal(recordIDs(value).length,52,'保留 Stage 3 的 52 筆收錄');
-  assert.equal(new Set(value.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>p.id)))).size,48);
+  assert.ok(recordIDs(value).length>=52,'保留 Stage 3 收錄並容納後續新增');
+  assert.equal(new Set(value.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>p.id)))).size,uniquePublications);
   for (const vendor of value.vendors) for (const family of vendor.families) for (const patent of family.patents) {
     assert.ok(html.includes(`id="vendor-patent-${family.id}-${patent.id}"`),'保留既有公報錨點');
     for (const field of ['id','title','claimFocus','mechanism','coreProblem','productLink','assignee']) assert.ok(md.includes(patent[field]),`匯出保留 ${field}`);
@@ -42,21 +47,23 @@ try {
     await map.locator('[data-map-controls]').waitFor({state:'visible'});
     assert.equal(await page.locator('html').getAttribute('lang'),locale==='en'?'en':'zh-Hant');
     const visible=()=>map.locator('[data-map-record]:visible').count();
-    assert.equal(await visible(),52);
+    assert.equal(await visible(),totalRecords);
     assert.equal(await map.locator('[data-map-vendor]:visible').count(),12);
     assert.equal(await map.locator('[data-map-family]:visible').count(),19);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'整頁不得橫向溢位');
     await page.screenshot({path:path.join(out,`${locale}-${width}-總覽.png`)});
+    assert.deepEqual(await map.locator('[data-map-record]').evaluateAll(nodes=>nodes.map(n=>n.id)),recordIDs(data[locale]));
+    fs.writeFileSync(path.join(out,`${locale}-${width}-可見文字.txt`),await map.innerText());
     const search=map.locator('#nvm-map-query');
     await search.fill('US10651268B2');
     assert.equal(await visible(),2,'同一公報跨組合收錄不漏列');
     assert.ok((await map.locator('#nvm-map-count').innerText()).includes(locale==='en'?'1 distinct':'1 個不同'));
     await search.fill('eMeMoRy');
-    assert.equal(await visible(),16,'大小寫不影響搜尋；包含 14 筆 eMemory 與 2 筆提及 eMemory 的 PUFsecurity 紀錄');
+    assert.ok(await visible()>=14,'大小寫不影響搜尋，涵蓋 eMemory 與其他提及它的紀錄');
     assert.equal(await map.locator('#vendor-ememory [data-map-record]:visible').count(),14);
     await search.fill('');
     await map.locator('#nvm-map-technology').selectOption('mram');
-    assert.equal(await visible(),3,'MRAM 兩組合共三筆');
+    assert.equal(await visible(),data[locale].vendors.find(v=>v.id==='everspin').families.reduce((sum,f)=>sum+f.patents.length,0),'MRAM 含主分支新增案卷');
     await map.locator('#nvm-map-status').selectOption('active');
     const expected=data[locale].vendors.flatMap(v=>v.families.filter(f=>patentMapTechnology(f)==='mram').flatMap(f=>f.patents.filter(p=>p.legalStatus==='active'))).length;
     assert.equal(await visible(),expected,'技術與狀態可交集篩選');
@@ -73,7 +80,7 @@ try {
     assert.equal(await visible(),0);
     assert.ok(await map.locator('#nvm-map-empty').isVisible());
     await map.locator('button[type=reset]').click();
-    assert.equal(await visible(),52);
+    assert.equal(await visible(),totalRecords);
     await search.focus(); await page.keyboard.press('Tab');
     assert.equal(await page.evaluate(()=>document.activeElement.id),'nvm-map-technology','鍵盤順序可達技術篩選');
     await map.locator('#nvm-map-status').selectOption('active');
@@ -94,15 +101,15 @@ try {
     await page.evaluate(()=>document.documentElement.style.fontSize='200%');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'200% 文字放大沒有整頁橫向溢位');
     assert.deepEqual(errors,[],'專利地圖流程無瀏覽器例外');
-    observations.push({locale,width,engine,records:52,uniquePublications:48,search:true,filters:true,deepLinks:true,history:true,language:true,keyboard:true,semantics:true,textZoom:true});
+    observations.push({locale,width,engine,records:totalRecords,uniquePublications,search:true,filters:true,deepLinks:true,history:true,language:true,keyboard:true,semantics:true,textZoom:true});
     await context.close();
   }
   const context=await browser.newContext({javaScriptEnabled:false});
   const page=await context.newPage();
   await page.goto(`${server.base}nvm-technology-atlas.html#patent-maps`);
-  assert.equal(await page.locator('#patent-maps [data-map-record]').count(),52,'未啟用 JS 仍保留全案卷');
+  assert.equal(await page.locator('#patent-maps [data-map-record]').count(),totalRecords,'未啟用 JS 仍保留全案卷');
   assert.ok(await page.locator('[data-map-controls]').isHidden(),'無 JS 不顯示不可操作的搜尋');
   await context.close();
 } finally { await browser.close(); await server.close(); }
 fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify(observations,null,2));
-console.log(`專利地圖局部驗證通過：${engine}，雙語 × 桌面／手機共 ${observations.length} 組，52 筆案卷與 48 個公報完整保留。`);
+console.log(`專利地圖局部驗證通過：${engine}，雙語 × 桌面／手機共 ${observations.length} 組，${totalRecords} 筆案卷與 ${uniquePublications} 個公報完整保留。`);

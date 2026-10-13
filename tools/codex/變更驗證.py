@@ -323,13 +323,19 @@ def run_plan(root, plan_path, evidence_dir, *, base_root=None, target_commit=Non
     return {'schemaVersion': SCHEMA, 'status': 'passed', **plan['_context'], 'cases': results}
 
 
-def restore_ci_receipts(evidence, artifact_name, workflow='ci.yml'):
+def restore_ci_receipts(evidence, artifact_name, workflow='ci.yml', required_fingerprints=None):
     """取同倉庫已完成 ci 的案例收據；成功可沿用，失敗紀錄保留以阻擋盲目重跑。"""
     repository = os.environ.get('GITHUB_REPOSITORY')
     require(repository and os.environ.get('GH_TOKEN'), '缺少 GitHub 證據讀取環境。')
     require(re.fullmatch(r'[\w.-]+\.ya?ml', workflow), '必須指定工作流程檔名，不接受路徑。')
+    pending = set(required_fingerprints or [])
+    require(all(re.fullmatch('[0-9a-f]{64}', key) for key in pending), '案例收據指紋格式無效。')
+    pending = {key for key in pending if not any((evidence / (key + suffix)).exists() for suffix in ('.json', '.active'))}
+    if required_fingerprints is not None and not pending:
+        return
     response = subprocess.check_output(['gh', 'api', f'repos/{repository}/actions/workflows/{workflow}/runs?status=completed&per_page=20'])
     runs = json.loads(response)['workflow_runs']
+    seen = {path.stem for path in evidence.iterdir() if re.fullmatch('[0-9a-f]{64}\\.(json|active)', path.name)} if evidence.exists() else set()
     for run in runs:
         if (run.get('conclusion') not in ('success', 'failure') or run.get('event') not in ('push', 'pull_request')
                 or (run.get('head_repository') or {}).get('full_name') != repository):
@@ -340,16 +346,23 @@ def restore_ci_receipts(evidence, artifact_name, workflow='ci.yml'):
         destination = evidence.parent / ('匯入-' + str(run['id']))
         subprocess.run(['gh', 'run', 'download', str(run['id']), '--repo', repository, '--name', artifact_name, '--dir', str(destination)], check=True)
         evidence.mkdir(parents=True, exist_ok=True)
+        imported = set()
         for path in destination.iterdir():
-            if not re.fullmatch('[0-9a-f]{64}\\.(json|active)', path.name):
+            if not re.fullmatch('[0-9a-f]{64}\\.(json|active)', path.name) or path.stem in seen:
                 continue
             # 不丟棄失敗／毀損／進行中紀錄來製造「沒有證據」；
             # run_plan 對命中指紋的收據做嚴格核對，只有成功可以 REUSE。
             target = evidence / path.name
             if not target.exists():
                 target.write_bytes(path.read_bytes())
-        # 最近一個同平台收據已包含本次之前沿用的成功案例，避免下載多份。
-        break
+            imported.add(path.stem)
+            pending.discard(path.stem)
+        # 以指紋鎖定首個命中 run；保留同 run 的 json/active，不混入舊 run 的另一副檔名。
+        seen.update(imported)
+        # 並行分支的最新產物未必含較早案例；最多查 20 次，收齊所需指紋即停止。
+        # 首次命中的新紀錄優先，失敗或 active 也保留並交由 run_plan 阻擋重跑。
+        if required_fingerprints is not None and not pending:
+            break
 
 
 def main():
@@ -379,7 +392,9 @@ def main():
             raise SystemExit(3)
         return
     if args.restore_ci:
-        restore_ci_receipts(Path(args.evidence_dir).resolve(), args.restore_ci, args.ci_workflow)
+        planned = read_plan(root, root / args.plan)
+        required = {digest(identity_for(root, case)) for case in planned['cases']}
+        restore_ci_receipts(Path(args.evidence_dir).resolve(), args.restore_ci, args.ci_workflow, required)
     result = run_plan(root, root / args.plan, args.evidence_dir, reuse_only=args.reuse_only)
     Path(args.evidence_dir, '執行收據.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'status': result['status'], 'cases': [{'id': c['id'], 'decision': c['decision']} for c in result['cases']]}, ensure_ascii=False))
