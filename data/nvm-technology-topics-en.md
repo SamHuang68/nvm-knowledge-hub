@@ -12047,7 +12047,7 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 - **Founded**: 2011
 - **Leadership**: Kosuke Okuyama and former Renesas Memory R&D Team
 - **Business Model**: Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing
-- **Patent Portfolio Status**: 2 In-Force · 0 Public Domain
+- **Patent Portfolio Status**: 3 In-Force · 2 Public Domain
 - **Global Patents**: 90+ Worldwide Granted Patents
 - **Patent Strategy**: The core of Floadia's patent strategy encompasses 'Zero-Mask Floating-Gate MTP (LEE Flash ZT)' and 'Ultra-Low-Mask Split-Gate Charge-Trap SONOS (LEE Flash G1/G2)'. Founded by senior Hitachi/Renesas memory engineers, Floadia focused on dismantling the 8–12 mask adder penalty of traditional eFlash. Its ZT family employs standard logic thick gate oxide for bidirectional uniform low-field FN/FN tunneling 0-mask MTP. Its G1/G2 family integrates localized silicon nitride charge trapping into sidewall split-gates, requiring only 2–3 additional masks to deliver 175°C automotive retention and 100K endurance, scaling into ultra-low-power neuromorphic compute-in-memory (CIM) architectures.
 
@@ -12076,6 +12076,24 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 - **Physical Mechanism**: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress
 - **Process Node**: 55nm / 40nm / 28nm Automotive and Advanced Nodes
 
+##### [US6388293B1](https://patents.google.com/patent/US6388293B1/en) · Non-Volatile Semiconductor Memory Device with Sidewall Split Gate and Charge-Trapping Dielectric
+
+- **Legal Status**: Expired · Public Domain (Term: 2019-10-18)
+- **Category & Generation**: Device Structure · Gen-1 MONOS Pioneer
+- **Priority / Grant**: 1999-10-18 / 2002-05-14
+- **Inventors**: Shinichi Minami, Kosuke Okuyama et al. (Hitachi / Renesas R&D Team)
+- **Claim 1 Reading**: Claim 1 defines a memory cell formed by an access gate and an adjacent sidewall charge-trapping split gate with its manufacturing method.
+- **FTO Assessment**: Expired in October 2019; entered public domain. Foundational sidewall silicon nitride charge-trapping split-gate architecture is free to operate.
+- **Physical Solution**: Floadia founders pioneer invention at Hitachi/Renesas. Replaces conductive poly with an insulating silicon nitride (Si3N4) sidewall spacer, trapping electrons within isolated localized potential wells to eliminate global leakage.
+##### [US6853583B2](https://patents.google.com/patent/US6853583B2/en) · Operating Method for Charge-Trap Non-Volatile Memory Using Bidirectional Uniform Electric Fields
+
+- **Legal Status**: Expired · Public Domain (Term: 2022-09-17)
+- **Category & Generation**: Method / Operation · Gen-1 Uniform FN Operation
+- **Priority / Grant**: 2002-09-17 / 2005-02-08
+- **Inventors**: Kosuke Okuyama et al. (Hitachi / Renesas R&D Team)
+- **Claim 1 Reading**: Claim 1 recites bias sequences executing programming and erasing via uniform bidirectional low-field FN tunneling in a charge-trap split-gate cell.
+- **FTO Assessment**: Expired in September 2022; entered public domain. Uniform bidirectional low-field FN tunneling for charge-trap cells is in the public domain.
+- **Physical Solution**: Replaces damaging hot-carrier injection with uniform bidirectional low-field Fowler-Nordheim (FN) tunneling across the entire trapped region, preventing interface damage and dramatically extending dielectric lifetime.
 ##### [US9847343B2](https://patents.google.com/patent/US9847343B2/en) · Charge trap memory cell with embedded SONOS structure and integrated fabrication method
 
 - **Legal Status**: In-Force / Active (Term: 2034-07-29)
@@ -12085,13 +12103,40 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 - **Claim 1 Reading**: Claim 1 claims a sidewall split-gate charge-trap structure with low mask adders and symmetric FN tunneling manufacturing process.
 - **FTO Assessment**: In force through July 2034. Covers ultra-low power FN tunneling SONOS fabrication flow and operating methods.
 - **Physical Solution**: Uses sidewall split-gate processing to form ultra-thin ONO dielectric stacks beside switching transistors, trapping charge in silicon nitride films with only 2–3 additional masks.
+##### [US10840251B2](https://patents.google.com/patent/US10840251B2/en) · Sidewall Split-Gate Charge-Trap Memory Cell with Micro-Stress Erase and Operating Method
+
+- **Legal Status**: In-Force / Active (Term: 2038-05-18)
+- **Category & Generation**: Device & Operation · Gen-3 µStressFlash 175°C
+- **Priority / Grant**: 2018-05-18 / 2020-11-17
+- **Inventors**: Kosuke Okuyama, Shintaro Kume
+- **Claim 1 Reading**: Claim 1 recites sidewall split-gate ONO cells operated with micro-stress negative stepped erase pulses.
+- **FTO Assessment**: Actively in force through May 2038. Protects µStressFlash low-stress erase algorithms and automotive 175°C retention structures.
+- **Physical Solution**: Floadia flagship µStressFlash core patent. Deploys micro-stress erase algorithms capping peak electric fields strictly below dielectric damage thresholds, using negative substrate-assisted extraction to achieve 175°C 100K-cycle zero-degradation endurance.
+#### Patent Defense Strategy & Landmark Litigation: Ultra-Low Mask SONOS Moat & Automotive 175°C µStressFlash Patent Fortress
+
+Founded in 2011 by former Renesas memory R&D chief Kosuke Okuyama, Floadia engineered an IP strategy to overturn the 6–10 extra mask cost penalty of conventional eFlash. By coupling sidewall split-gate processing with localized silicon nitride (Si3N4) charge-trapping dielectrics, Floadia achieved AEC-Q100 Grade-0 175°C automotive retention and 100K endurance with only 2–3 additional masks.
+
+##### Silicon Nitride Trapping vs. Poly Floating Gate Leakage Barrier
+
+Polysilicon floating gates are conductive equipotential bodies; a single stress-induced leakage path (SILC) catastrophically discharges the entire cell. Floadia uses insulating silicon nitride ONO stacks where electrons are trapped in millions of isolated nanoscopic energy wells. Localized dielectric defects cannot drain neighboring traps, ensuring flawless data retention under 175°C automotive baking.
+
+##### µStressFlash Micro-Stress Erase Technology (US10840251B2)
+
+Conventional flash erases with destructive 10–12 MV/cm electric fields, tearing oxide bonds and generating interface traps. Floadia patented micro-stress uniform low-field FN tunneling that preserves dielectric elasticity across 100,000 cycles, passing rigorous Japanese tier-1 automotive qualifications.
+
+##### Neuromorphic Analog In-Memory Computing (CIM) Expansion
+
+Leveraging continuous analog conductance states in charge-trap cells, Floadia extended its IP moat into analog vector-matrix multiplication (VMM) for edge AI, executing multi-bit weight accumulations directly in flash cells at 1/10th the power of digital accelerators.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] Early 1999–2002 Hitachi/Renesas foundational sidewall SONOS split-gate patents (US6388293B1 & US6853583B2) expired in 2019 and 2022, entering the public domain. However, Floadia proprietary 2–3 mask sidewall flows (US9847343B2), 0-mask 10K MTP (US9214470B2), and µStressFlash erase algorithms (US10840251B2) remain actively enforceable through 2032, 2034, and 2038.
+
 ### Silicon Storage Technology, Inc. (SST / Microchip Technology) (SST (Microchip))
 
 - **Headquarters**: San Jose, California, USA
 - **Founded**: 1989 (Acquired by Microchip Technology in 2010)
 - **Leadership**: Bing Yeh and R&D Engineering Team
 - **Business Model**: Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer
-- **Patent Portfolio Status**: 0 In-Force · 2 Public Domain
+- **Patent Portfolio Status**: 3 In-Force · 2 Public Domain
 - **Global Patents**: 400+ Worldwide Granted Patents
 - **Patent Strategy**: The cornerstone of SST (SuperFlash®)'s patent strategy was the invention of the 'Split-Gate Flash Memory Cell Architecture' evolving into the 'Independent Erase Gate ESF3 Generation'. Conventional 1T stacked-gate flash memories risk 'Over-Erase', turning cells into depletion mode and paralyzing bitlines. Bing Yeh's split-gate invention extends the control gate over a portion of the silicon channel to serve as an integrated select switch, eliminating over-erase risks. The 3rd generation (ESF3) added dedicated erase gates (EG) and coupling gates (CG), utilizing sharp floating-gate poly tips for localized high-field tunneling. This achieved microsecond-speed erase, low write energy, and 100K automotive endurance, becoming the dominant embedded flash architecture across global foundries.
 
@@ -12121,6 +12166,51 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 - **Claim 1 Reading**: Claim 1 claims a four-gate 1.5T split-gate structure comprising select gate, coupling gate, floating gate, and dedicated erase gate with tip tunneling erase.
 - **FTO Assessment**: Expired in April 2022; entered public domain. Self-aligned split-gate structure with source-side injection is in the public domain.
 - **Physical Solution**: Core patent for 3rd generation SuperFlash (ESF3). Configures dedicated Erase Gate (EG) and Coupling Gate (CG) in a 1.5T cell. Sharp polysilicon tips on the floating gate concentrate electric fields toward the EG, lowering erase voltages, while Source-Side Injection (SSI) boosts injection efficiency 1,000x over conventional CHEI.
+##### [US8217444B2](https://patents.google.com/patent/US8217444B2/en) · Split-Gate Non-Volatile Memory Cell with Self-Aligned Erase Gate and Method of Fabrication
+
+- **Legal Status**: In-Force / Active (Term: 2030-01-20)
+- **Category & Generation**: Device & Fabrication · Gen-3 ESF3 Self-Aligned
+- **Priority / Grant**: 2010-01-20 / 2012-07-10
+- **Inventors**: Xian Liu, Chien-Sheng Su, Bing Yeh
+- **Claim 1 Reading**: Claim 1 defines an erase gate self-aligned over the floating gate tip and overlying the common source diffusion with its fabrication process.
+- **FTO Assessment**: In force through January 2030. Protects self-aligned erase-gate ESF3 1.5T cell structures and overlay-tolerant fabrication methods.
+- **Physical Solution**: Employs chemical mechanical polishing (CMP) and self-aligned spacer techniques to self-align the erase gate directly over the sharp floating gate poly tip, maintaining uniform tunneling fields across wafer dies.
+##### [US8946797B2](https://patents.google.com/patent/US8946797B2/en) · Split-Gate Flash Memory Cell for Advanced High-k Metal Gate Process Integration
+
+- **Legal Status**: In-Force / Active (Term: 2032-07-31)
+- **Category & Generation**: Device Structure · Gen-4 28nm HKMG eFlash
+- **Priority / Grant**: 2012-07-31 / 2015-02-03
+- **Inventors**: Chien-Sheng Su, Xian Liu
+- **Claim 1 Reading**: Claim 1 recites a hybrid split-gate cell with a metal select gate and polysilicon floating gate integrated into 28nm HKMG logic flows.
+- **FTO Assessment**: In force through July 2032. Enforces exclusivity over hybrid metal-gate/poly-FG split-gate cells in 28nm HKMG foundries.
+- **Physical Solution**: Engineers an embedded split-gate bitcell compatible with replacement metal gate flows, deploying an ultra-thin work-function metal select gate while preserving polysilicon floating-gate charge retention for 28nm automotive qualifications.
+##### [US10658032B2](https://patents.google.com/patent/US10658032B2/en) · Analog Neural Network Computing Array Based on Split-Gate Floating-Gate Memory Cells
+
+- **Legal Status**: In-Force / Active (Term: 2038-09-19)
+- **Category & Generation**: Array Architecture · Gen-5 memBrain CIM AI
+- **Priority / Grant**: 2018-09-19 / 2020-05-19
+- **Inventors**: Vipin Tiwari, Mark Reiten
+- **Claim 1 Reading**: Claim 1 defines an analog neuromorphic multiply-accumulate array topology using multi-level split-gate cells and weight-tuning operations.
+- **FTO Assessment**: In force through September 2038. Protects ESF3 multi-level conductance weights and in-memory computing architectures.
+- **Physical Solution**: Utilizes continuous multi-level conductance tuning of ESF3 floating gates to perform vector-matrix multiplication directly via analog current summation, slashing inference power by over 80%.
+#### Patent Defense Strategy & Landmark Litigation: Split-Gate Landmark Patent Moat & Public Domain Opening of ESF1/ESF3
+
+Founded in 1989 by Dr. Bing Yeh, Silicon Storage Technology (SST) introduced the "Split-Gate Flash Memory Cell," one of the most consequential breakthroughs in semiconductor memory history. Conventional 1T stacked-gate flash suffered chronically from "over-erase," where excessive electron extraction converted cells into depletion-mode switches that permanently shorted bitlines. SST's split-gate structure eliminated this fatal physics flaw, dominating automotive and microcontroller embedded flash for over three decades.
+
+##### Eliminating the 1T Stacked-Gate Over-Erase Bottleneck (ESF1 US5029130A)
+
+Legacy Intel/AMD/Toshiba stacked-gate architectures required massive on-chip pre-programming state machines before each erase cycle to prevent depletion-mode bitcell leakage. SST patented a split-gate topology where the control gate naturally overlies a dedicated segment of the silicon channel as an integrated access switch. Even if the floating gate is heavily over-erased into negative Vth, the adjacent select channel reliably pinches off, obsoleting complex recovery algorithms.
+
+##### Gen-3 ESF3 Dedicated Erase Gate (EG) & Source-Side Injection (SSI) Moat (US6747310B2)
+
+Early split-gate devices required high erase voltages applied to control gates. In 2002, SST patented the 1.5T ESF3 topology, introducing a dedicated erase gate (EG) coupled with a sharp polysilicon floating-gate tip. Erase operations utilize intense localized tip field emission, drastically cutting erase voltage; simultaneously, source-side injection (SSI) elevated programming efficiency by 1,000x compared to CHEI, yielding 100K-cycle automotive endurance.
+
+##### Global Foundry Licensing Consortium & $300M Microchip Acquisition
+
+By licensing SuperFlash across TSMC, UMC, GlobalFoundries, SMIC, and HHGrace, SST achieved ubiquity in embedded flash. In 2010, microcontroller giant Microchip acquired SST for ~$300M, establishing SuperFlash as the core hardware advantage for PIC/AVR MCUs with lifetime shipments surpassing 100 billion dies.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] SST pioneer split-gate patent US5029130A expired in August 2009 after completing its full 20-year term. Foundational ESF3 four-gate source-side injection patent US6747310B2 also entered the public domain in April 2022. The semiconductor industry may freely practice asymmetric split-gate and independent erase-gate tip tunneling structures. However, self-aligned 55nm/40nm manufacturing (US8217444B2), 28nm HKMG integration (US8946797B2), and memBrain analog CIM patents (US10658032B2) remain actively enforceable through 2030–2038.
+
 ### Everspin Technologies, Inc. (Everspin)
 
 - **Headquarters**: Chandler, Arizona, USA
@@ -12257,8 +12347,8 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 | 05. AEON (Synopsys) | AEON® (Ultra-Low Power MTP (Multiple-Time Programmable)) | AEON®: Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write | [US6166953A (過期)](https://patents.google.com/patent/US6166953A/en), [US6388918B1 (過期)](https://patents.google.com/patent/US6388918B1/en), [US7787304B2 (有效)](https://patents.google.com/patent/US7787304B2/en), [US8264887B2 (有效)](https://patents.google.com/patent/US8264887B2/en) | TSMC, UMC, GlobalFoundries, SMIC (Billions of passive RFID tags and ultra-low-power IoT chips shipped) |
 | 06. NSCore (TwinBit®) | NSCore (Charge-Trapping MTP (Multiple-Time Programmable)) | NSCore: Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing | [US6930349B2 (過期)](https://patents.google.com/patent/US6930349B2/en), [US7245532B2 (過期)](https://patents.google.com/patent/US7245532B2/en), [US7768832B2 (有效)](https://patents.google.com/patent/US7768832B2/en), [US8760927B2 (有效)](https://patents.google.com/patent/US8760927B2/en) | TSMC, UMC, GlobalFoundries, SMIC, DB HiTek (Licensed across hundreds of automotive MCUs, smartcards, and industrial IoT designs; billions of units in volume shipment) |
 | 07. Attopsemi | I-fuse® (Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)) | I-fuse®: Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation | [US9165979B2 (有效)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (有效)](https://patents.google.com/patent/US9613943B2/en) | TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor (Hundreds of automotive and IoT customer tape-outs, billions of units shipped) |
-| 08. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (有效)](https://patents.google.com/patent/US9214470B2/en), [US9847343B2 (有效)](https://patents.google.com/patent/US9847343B2/en) | TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek (Deployed across automotive MCUs and edge AI analog computing processors) |
-| 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
+| 08. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (有效)](https://patents.google.com/patent/US9214470B2/en), [US6388293B1 (過期)](https://patents.google.com/patent/US6388293B1/en), [US6853583B2 (過期)](https://patents.google.com/patent/US6853583B2/en), [US9847343B2 (有效)](https://patents.google.com/patent/US9847343B2/en), [US10840251B2 (有效)](https://patents.google.com/patent/US10840251B2/en) | TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek (Deployed across automotive MCUs and edge AI analog computing processors) |
+| 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (有效)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (有效)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (有效)](https://patents.google.com/patent/US10658032B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
 | 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
 | 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
 | 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
