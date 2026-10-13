@@ -1901,6 +1901,52 @@
               "generationEn": "Gen-3 Perpendicular pMTJ",
               "ftoStatus": "專利權有效維持至 2030 年 6 月。保護具垂直磁各向異性 (pMTJ) 與 CoFeB/MgO/CoFeB 高 TMR 多層膜界面結構，具嚴密排他性。",
               "ftoStatusEn": "In force through June 2030. Strongly protects high-TMR perpendicular MTJ (pMTJ) multi-layer stack structures."
+            },
+            {
+              "id": "US9087588B2",
+              "title": "具自旋軌道矩與自旋轉矩輔助翻轉之磁記憶體元件",
+              "grantDate": "2015-07-21",
+              "priorityDate": "2013-03-14",
+              "inventors": "Sanjeev Aggarwal, Dmytro Apalkov",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9087588B2/en",
+              "coreProblem": "純 STT 翻轉在高寫入速度 (<10ns) 時需要施加極高電壓，容易引發超薄 MgO 穿隧障壁之電應力擊穿。",
+              "mechanism": "結合自旋軌道矩 (SOT) 重金屬底層與垂直 STT 穿隧接面，以平面 SOT 電流提供初始大角度翻轉力矩，再以微弱 STT 電流完成確定性翻轉，將寫入電壓降低 60% 並突破 2ns 極限寫入速度。",
+              "claimFocus": "權利項 1 限定由自旋軌道矩 (SOT) 重金屬線路與垂直自旋轉矩 (STT) 穿隧接面複合構成之超高速磁記憶單元結構與操作方法。",
+              "productLink": "Everspin PERSYST™ 超高速下一代低延遲 MRAM 系列。",
+              "legalStatus": "active",
+              "legalStatusZh": "有效專利 (In-Force / Active)",
+              "legalStatusEn": "In-Force / Active",
+              "expirationDate": "2033-03-14",
+              "patentCategory": "裝置與操作項 (Device & Operation)",
+              "patentCategoryEn": "Device & Operation",
+              "generation": "先進第四代 (Gen-4 SOT/STT Hybrid)",
+              "generationEn": "Gen-4 SOT/STT Hybrid",
+              "ftoStatus": "專利權有效維持至 2033 年 3 月。具有強力排他權，保護 SOT 重金屬線路與垂直 MTJ 複合結構之雙重自旋輔助翻轉技術。",
+              "ftoStatusEn": "In force through March 2033. Grants exclusivity over hybrid spin-orbit torque (SOT) and spin-transfer torque (STT) magnetic memory cells."
+            },
+            {
+              "id": "US10886461B2",
+              "title": "具雙 MgO 穿隧障壁與合成反鐵磁釘選之垂直磁性穿隧接面",
+              "grantDate": "2021-01-05",
+              "priorityDate": "2018-08-20",
+              "inventors": "Dmytro Apalkov, Mohamad Krounbi",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10886461B2/en",
+              "coreProblem": "節點微縮至 28nm/22nm 以下時，單一 MgO 界面之垂直磁各向異性 (PMA) 不足以抵抗微縮熱擾動，導致資料保存壽命急劇下降。",
+              "mechanism": "在自由層兩側配置上下雙層 MgO 穿隧介電層，形成對稱雙界面垂直磁各向異性強化結構，使熱穩定性係數 (Delta) 提升逾 50%，同時將讀取信號比 (TMR) 穩定維持於 200% 以上。",
+              "claimFocus": "權利項 1 限定由合成反鐵磁參考層、第一 MgO 障壁、自由層與第二 MgO 障壁構成之雙界面垂直 pMTJ 多層膜結構。",
+              "productLink": "Everspin 1Gb STT-MRAM 與格芯 (GlobalFoundries) 22FDX eMRAM 量產架構。",
+              "legalStatus": "active",
+              "legalStatusZh": "有效專利 (In-Force / Active)",
+              "legalStatusEn": "In-Force / Active",
+              "expirationDate": "2038-08-20",
+              "patentCategory": "材料結構項 (Material Structure)",
+              "patentCategoryEn": "Material Structure",
+              "generation": "埃米第五代 (Gen-5 Dual-MgO pMTJ)",
+              "generationEn": "Gen-5 Dual-MgO pMTJ",
+              "ftoStatus": "專利權有效維持至 2038 年 8 月。保護雙 MgO 界面垂直磁各向異性強化多層膜結構，覆蓋 22nm 及以下代工 PDK。",
+              "ftoStatusEn": "In force through August 2038. Protects dual-MgO interface perpendicular MTJ stacks across sub-22nm foundry nodes."
             }
           ]
         }
@@ -1938,7 +1984,26 @@
           "nodes": "22nm / 12LP 製程延伸",
           "keyPatents": "EMxxLX 產品系列專利"
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "Toggle 磁場翻轉壁壘與垂直 STT-MRAM (pMTJ) 之專利代際更迭",
+        "overview": "Everspin Technologies 是全球首家實現 MRAM 商業量產的半導體公司（源自摩托羅拉 Motorola 實驗室與飛思卡爾半導體 Freescale 分拆）。早期 MRAM 長年受「半選干擾 (Half-Select Disturb)」困擾，摩托羅拉物理學家 Leonid Savtchenko 發明了著名的「Toggle MRAM (US6545906B1)」，以合成反鐵磁 (SAF) 雙軸旋轉翻轉徹底解決了半選干擾；隨後 Everspin 透過收購 Grandis 垂直自旋轉矩 (STT) 專利池，成功跨入垂直磁性穿隧接面 (pMTJ) 時代，成為全球高可靠 MRAM 絕對領導者。",
+        "keyBattles": [
+          {
+            "heading": "Savtchenko Toggle 專利高牆與抗干擾壟斷 (US6545906B1)",
+            "detail": "傳統磁場翻轉 MRAM 在交叉點讀寫時，同一字元線或位元線上的未選取單元極易被單軸磁場誤觸發翻轉。Savtchenko 專利限定利用 45 度微小時差正交脈衝引導三層 SAF (磁層/Ru/磁層) 進行 180 度旋轉翻轉，半選單元在脈衝結束後自然彈回原位，徹底消除了半選干擾，封鎖了磁場翻轉 MRAM 的最佳商業路徑達二十年。"
+          },
+          {
+            "heading": "Grandis 垂直 STT 專利收購與 pMTJ 突破 (US7599207B2)",
+            "detail": "由於磁場翻轉所需的電流線無法隨微影節點微縮，Everspin 於 2011 年收購自旋電子學先鋒 Grandis 公司及其核心專利，轉向利用自旋極化電流直接傳遞角動量的 STT 機制。透過 CoFeB/MgO/CoFeB 垂直磁各向異性 (pMTJ)，消除了平面退磁場能量損耗，將翻轉電流降低 80%，實現了 1Gb 容量與格芯 (GlobalFoundries) 22FDX 代工平台量產。"
+          },
+          {
+            "heading": "雙 MgO 穿隧障壁與 400°C BEOL 熱預算整合 (US8488373B2 / US10886461B2)",
+            "detail": "將磁性多層膜整合進晶圓代工廠後端金屬層 (BEOL) 必須耐受 400°C 長時間退火。Everspin 專利限定的高耐熱擴散阻擋層與雙 MgO 界面結構，使 pMTJ 在承受退火後仍維持大於 180% 的 TMR 讀取信號比，奠定車規 Grade-1 與航太防輻射的絕對優勢。"
+          }
+        ],
+        "ftoVerdict": "【重大產業里程碑】Everspin 奠基之初代 Toggle 磁場翻轉 MRAM 專利 US6545906B1 已於 2021 年 11 月屆滿 20 年進入公有領域！早期平面 STT-MRAM 翻轉母案 US7599207B2 亦於 2025 年 9 月屆滿進入公有領域！這代表全球半導體業界現已可合法免費實施「合成反鐵磁 Toggle 翻轉」與「基礎 STT 電流穿隧注入」架構；然而，Everspin 在 400°C BEOL 耐溫多層膜 (US8488373B2)、SOT/STT 混合翻轉 (US9087588B2) 與雙 MgO 垂直 pMTJ 先進結構 (US10886461B2) 仍受專利保護至 2030–2038 年。"
+      }
     },
     {
       "id": "weebit",
@@ -1966,6 +2031,52 @@
           "processNode": "130nm BCD 至 28nm / 22nm FD-SOI 先進節點",
           "summary": "深具顛覆性的嵌入式非揮發性記憶體技術。相較於傳統 eFlash 需增加多達 8–10 道高溫光罩，Weebit ReRAM 僅需在後端金屬層 (BEOL) 增加 2 道低溫光罩，完全不干擾前端基板電晶體，能在 sub-2V 極低電壓下進行納秒級快速寫入，具備 100K 擦寫次數與 10 年 150°C 保持力。",
           "patents": [
+            {
+              "id": "US6815781B2",
+              "title": "具過渡金屬氧化物之電阻式記憶體元件及其操作方法",
+              "grantDate": "2004-11-09",
+              "priorityDate": "2002-09-17",
+              "inventors": "David R. Evans et al.",
+              "assignee": "Sharp Laboratories of America, Inc.",
+              "url": "https://patents.google.com/patent/US6815781B2/en",
+              "coreProblem": "傳統浮閘快閃記憶體需要高壓穿隧，如何利用薄膜材料在極低電壓下實現可逆電阻非揮發切換？",
+              "mechanism": "早期過渡金屬氧化物電阻切換奠基專利。金屬/金屬氧化物/金屬 (MIM) 三明治薄膜在外加雙極性電壓下，電場驅動氧缺陷遷移局部形成或熔斷奈米導電細絲 (Conductive Filament)，在低阻態 (LRS) 與高阻態 (HRS) 間可逆轉換。",
+              "claimFocus": "權利項 1 限定由底電極、過渡金屬氧化物阻變層與頂電極組成之薄膜電阻切換結構及其雙向電壓寫抹方法。",
+              "productLink": "全球金屬氧化物電阻式記憶體 (OxRAM / ReRAM) 核心理論與結構奠基專利。",
+              "legalStatus": "expired",
+              "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+              "legalStatusEn": "Expired · Public Domain",
+              "expirationDate": "2022-09-17",
+              "patentCategory": "裝置結構項 (Device Structure)",
+              "patentCategoryEn": "Device Structure",
+              "generation": "奠基第一代 (Gen-1 Metal-Oxide ReRAM Pioneer)",
+              "generationEn": "Gen-1 Metal-Oxide ReRAM Pioneer",
+              "ftoStatus": "已於 2022 年 9 月屆滿 20 年進入公有領域。早期金屬氧化物雙極性奈米導電細絲電阻切換單元結構已成為免費公有技術。",
+              "ftoStatusEn": "Expired in September 2022; entered public domain. Pioneer metal-oxide bipolar conductive filament switching topology is free to operate."
+            },
+            {
+              "id": "US6849891B1",
+              "title": "電脈衝誘導電阻可逆切換之非揮發性記憶裝置",
+              "grantDate": "2005-02-01",
+              "priorityDate": "2003-04-15",
+              "inventors": "Shangqing Liu, Alex Ignatiev",
+              "assignee": "University of Houston",
+              "url": "https://patents.google.com/patent/US6849891B1/en",
+              "coreProblem": "如何以非破壞性的短脈衝電場精確調控氧化物薄膜內部阻值，免除傳統介電層硬擊穿之疲乏失效？",
+              "mechanism": "早期電脈衝誘導阻變 (EPIR) 開創專利。限定在室溫下施加短時微秒級正負電脈衝，誘發薄膜界面局部氧離子遷移與能障重塑，實現非破壞性可逆電阻調節。",
+              "claimFocus": "權利項 1 限定利用室溫短電脈衝誘導薄膜非揮發電阻可逆切換之操作方法。",
+              "productLink": "電脈衝誘導阻變 (EPIR) 核心方法，ReRAM 脈衝調控演算法前案。",
+              "legalStatus": "expired",
+              "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+              "legalStatusEn": "Expired · Public Domain",
+              "expirationDate": "2023-04-15",
+              "patentCategory": "操作方法項 (Method / Operation)",
+              "patentCategoryEn": "Method / Operation",
+              "generation": "奠基第一代 (Gen-1 Electric-Pulse ReRAM)",
+              "generationEn": "Gen-1 Electric-Pulse ReRAM",
+              "ftoStatus": "已於 2023 年 4 月屆滿 20 年進入公有領域。利用正負短脈衝電場調控薄膜氧化物電阻狀態之操作演算法已無專利排他權。",
+              "ftoStatusEn": "Expired in April 2023; entered public domain. Electric pulse induced resistance switching methods are in the public domain."
+            },
             {
               "id": "US10141505B2",
               "title": "利用多孔氧化矽之電阻式隨機存取記憶體元件及其製作操作方法",
@@ -2011,6 +2122,29 @@
               "generationEn": "Gen-2 Neuromorphic ReRAM",
               "ftoStatus": "專利權有效維持至 2037 年 8 月。保護利用 ReRAM 多階電導 (Multi-level Cell) 特性進行類神經網路突觸乘累加 (MAC) 運算之操作方法。",
               "ftoStatusEn": "In force through August 2037. Protects neuromorphic in-memory computing synaptic analog weight updating methods on ReRAM arrays."
+            },
+            {
+              "id": "US11171286B2",
+              "title": "適用於交叉點電阻式記憶體陣列之雙向選擇器及其整合製造方法",
+              "grantDate": "2021-11-09",
+              "priorityDate": "2019-05-10",
+              "inventors": "Alon Malek, Amir Regev",
+              "assignee": "Weebit Nano Ltd.",
+              "url": "https://patents.google.com/patent/US11171286B2/en",
+              "coreProblem": "高密度交叉點 (Cross-Point) ReRAM 陣列中，未選取單元之微弱漏電流疊加 (Sneak-Path Leakage) 會嚴重縮減讀取裕度並導致寫入癱瘓。",
+              "mechanism": "設計雙向對稱臨限開關選擇器 (Bidirectional Threshold Switch Selector)，在低電壓下具備超高電阻比 (>10^5)，僅在達到臨限電壓時瞬間導通，徹底封鎖交叉陣列漏電途徑，實現 1S1R 超高密度堆疊。",
+              "claimFocus": "權利項 1 限定由雙向非線性臨限選擇器與氧化物阻變層串聯構成之 1S1R 交叉單元結構與後端金屬層整合製造工藝。",
+              "productLink": "Weebit Nano 1S1R 高密度離散式與嵌入式 ReRAM 架構。",
+              "legalStatus": "active",
+              "legalStatusZh": "有效專利 (In-Force / Active)",
+              "legalStatusEn": "In-Force / Active",
+              "expirationDate": "2039-05-10",
+              "patentCategory": "裝置與製程項 (Device & Fabrication)",
+              "patentCategoryEn": "Device & Fabrication",
+              "generation": "先進第三代 (Gen-3 1S1R Cross-Point)",
+              "generationEn": "Gen-3 1S1R Cross-Point",
+              "ftoStatus": "專利權有效維持至 2039 年 5 月。保護具雙向非線性選擇器之 1S1R 交叉點 ReRAM 單元結構與 BEOL 整合工藝。",
+              "ftoStatusEn": "Actively in force through May 2039. Protects bidirectional threshold selector 1S1R cross-point architectures and BEOL integration flows."
             }
           ]
         }
@@ -2040,7 +2174,26 @@
           "nodes": "DB HiTek 130nm / 22FDX",
           "keyPatents": "Weebit 商業量產專利群"
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "矽基氧化物 (SiOx/OxRAM) 後端整合壁壘與金屬微絲公有領域 FTO",
+        "overview": "Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略的核心在於終結傳統金屬氧化物 ReRAM（如 TaOx、TiO2、HfOx）對「特殊外來重金屬化學前驅物」的依賴。傳統晶圓代工廠極度畏懼外來重金屬污染前端 CMOS 電晶體；Weebit 獨家取得萊斯大學 (Rice University) James Tour 教授專利授權，直接採用標準 CMOS 既有多孔二氧化矽 (SiOx)，在後端金屬層 (BEOL) 僅需增加 2 道低溫光罩即可達成 100% 零污染相容，順利獲得 SkyWater 與 DB HiTek 商業晶圓代工授權。",
+        "keyBattles": [
+          {
+            "heading": "多孔富矽氧化物 (SiOx) 奈米細絲 vs. 傳統重金屬氧化物污染風險 (US10141505B2)",
+            "detail": "傳統 ReRAM 需引進未經驗證的貴金屬或特殊過渡金屬，晶圓廠需設置昂貴的防污染隔離區。Weebit 核心專利限定以受控孔隙率的二氧化矽薄膜為阻變介質，在外加電壓下利用矽原子在奈米缺陷中可逆凝聚形成導電細絲，代工廠可直接沿用現有標準 PECVD 機台與材料量產，晶圓成本較傳統 eFlash 驟降 70%。"
+          },
+          {
+            "heading": "神經擬態 CIM 類比電導校準專利 (US10580980B2)",
+            "detail": "電阻式記憶體在類比乘加運算 (Vector-Matrix Multiplication) 中容易受到氧空缺自發弛豫引發的「電導漂移 (Drift)」，破壞神經網路權重精度。Weebit 專利保護了在陣列運算前以微弱探測電流感測漂移、並施加自適應微脈衝動態補償之方法，確保邊緣 AI 類比運算的確定性精度。"
+          },
+          {
+            "heading": "雙向臨限選擇器 1S1R 交叉點陣列專利 (US11171286B2)",
+            "detail": "為突破 1T1R 結構中電晶體面積對微縮的限制，Weebit 佈局了高非線性雙向臨限選擇器 (Selector)，在未達到寫入閾值時呈現百萬倍超高阻態，徹底消除交叉陣列的偷漏電流 (Sneak-Path Leakage)，支援高密度三維堆疊。"
+          }
+        ],
+        "ftoVerdict": "【自由實施建議】早期 2002–2003 年提出之基礎金屬氧化物電阻切換與電脈衝誘導導電細絲專利（US6815781B2 與 US6849891B1）已於 2022 年與 2023 年相繼屆滿進入公有領域，業界可自由實施基礎 1T1R 雙極性電阻切換機制；但 Weebit 獨家多孔二氧化矽 SiOx 專利 (US10141505B2)、神經擬態動態電導校準 (US10580980B2) 以及 1S1R 雙向選擇器架構 (US11171286B2) 仍處於強力有效保護期（分別保護至 2034、2037 與 2039 年）。"
+      }
     },
     {
       "id": "pufsecurity",
