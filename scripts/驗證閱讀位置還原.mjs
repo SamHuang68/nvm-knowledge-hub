@@ -74,7 +74,7 @@ async function restored(page, expected) {
 try {
   await check('閱讀座標不觸發導覽攔截', {}, async (page, trace) => {
     await visit(page,'patent-maps');
-    // 正式 Cloudflare 在頁面程式之後訂閱導覽事件；模擬相同的消費者順序。
+    // 本輪主站候選觀測中，Cloudflare 在本頁 guard 之後訂閱；模擬此消費者順序。
     // 已經先收到事件的任意外部監聽器，不在本頁可回溯取消的範圍。
     await page.evaluate(() => {
       window.__navigationWrites=0;
