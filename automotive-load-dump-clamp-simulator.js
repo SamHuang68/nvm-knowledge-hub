@@ -139,8 +139,8 @@ export function calculateAutomotiveLoadDumpClamp({
   temperatureC = 175,
   clampLimitV = 18.0,
 } = {}) {
-  const pulse = LOAD_DUMP_PRESETS[pulseKey] || LOAD_DUMP_PRESETS.iso16750_pulse5a_unsuppressed;
-  const topology = CLAMP_PROTECTION_TOPOLOGIES[topologyKey] || CLAMP_PROTECTION_TOPOLOGIES.active_fet_surge_stopper;
+  const pulse = (pulseKey && Object.hasOwn(LOAD_DUMP_PRESETS, pulseKey)) ? LOAD_DUMP_PRESETS[pulseKey] : LOAD_DUMP_PRESETS.iso16750_pulse5a_unsuppressed;
+  const topology = (topologyKey && Object.hasOwn(CLAMP_PROTECTION_TOPOLOGIES, topologyKey)) ? CLAMP_PROTECTION_TOPOLOGIES[topologyKey] : CLAMP_PROTECTION_TOPOLOGIES.active_fet_surge_stopper;
 
   const tj = Math.max(-40, Math.min(200, Number(temperatureC) || 175));
   const is48v = pulse.nominalV > 30.0;
@@ -154,7 +154,7 @@ export function calculateAutomotiveLoadDumpClamp({
 
   // Peak Clamping Current:
   // I_clamp_peak = (V_surge_peak - V_clamp_eff) / (R_source + R_dyn)
-  const totalR = pulse.sourceResistanceOhm + topology.dynamicResistanceOhm;
+  const totalR = Math.max(0.001, (pulse.sourceResistanceOhm || 1.0) + (topology.dynamicResistanceOhm || 0.025));
   const peakClampedV = Math.min(pulse.peakSurgeV, effectiveClampV + (pulse.peakSurgeV - effectiveClampV) * (topology.dynamicResistanceOhm / totalR));
   const peakClampCurrentA = Math.max(0, (pulse.peakSurgeV - effectiveClampV) / totalR);
 
@@ -237,12 +237,20 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
   const w = width / (window.devicePixelRatio || 1);
   const h = height / (window.devicePixelRatio || 1);
 
-  // Background
-  ctx.fillStyle = "#080d16";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Grid
-  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)";
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let x = 40; x < w - 20; x += 50) {
@@ -265,7 +273,7 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     const maxScaleV = Math.max(100, metrics.peakSurgeV * 1.15);
 
     // 1. Unsuppressed surge curve (Red dashed)
-    ctx.strokeStyle = "#ef4444";
+    ctx.strokeStyle = "#dc2626";
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -282,8 +290,8 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // 2. Clamped voltage curve (Green / Blue solid)
-    ctx.strokeStyle = metrics.isCompliant ? "#10b981" : "#f59e0b";
+    // 2. Clamped voltage curve (Green / Amber solid)
+    ctx.strokeStyle = metrics.isCompliant ? "#059669" : "#d97706";
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let i = 0; i <= points; i++) {
@@ -298,7 +306,7 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     ctx.stroke();
 
     // Axis Labels
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText("0ms", plotX0, h - 20);
     ctx.fillText("100ms", plotX0 + 0.25 * (plotX1 - plotX0) - 10, h - 20);
@@ -309,7 +317,7 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     ctx.fillText("0V", 20, plotY0);
 
     // Callout badge
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Clamped: ${metrics.peakClampedV}V | Peak Current: ${metrics.peakClampCurrentA}A`, plotX0, 18);
   } else {
@@ -329,12 +337,12 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#dc2626";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText("Oxide Breakdown Limit (Vbd = 14.5V)", plotX0 + 5, plotYTop + 8);
 
     // Charge pump multi-stage ramp waveform
-    ctx.strokeStyle = metrics.isCompliant ? "#0284c7" : "#f59e0b";
+    ctx.strokeStyle = metrics.isCompliant ? "#0284c7" : "#d97706";
     ctx.lineWidth = 2.0;
     ctx.beginPath();
     const stages = 5;
@@ -359,7 +367,7 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
     ctx.stroke();
 
     // Callout
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#047857";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText(`VPP Target: 8.5V | Transient Stress: ${metrics.vPumpStressPeak}V | Margin: ${metrics.dielectricMarginPct}%`, plotX0, h - 14);
   }
@@ -416,8 +424,8 @@ export function initAutomotiveLoadDumpSimulator(container) {
   }
 
   function update() {
-    const pulseKey = pulseSelect ? pulseSelect.value : "iso16750_pulse5a_unsuppressed";
-    const topologyKey = topologySelect ? topologySelect.value : "active_fet_surge_stopper";
+    const pulseKey = (pulseSelect && Object.hasOwn(LOAD_DUMP_PRESETS, pulseSelect.value)) ? pulseSelect.value : "iso16750_pulse5a_unsuppressed";
+    const topologyKey = (topologySelect && Object.hasOwn(CLAMP_PROTECTION_TOPOLOGIES, topologySelect.value)) ? topologySelect.value : "active_fet_surge_stopper";
     const temp = tempSlider ? Number(tempSlider.value) : 175;
     const clampV = clampSlider ? Number(clampSlider.value) : 18.0;
 
@@ -473,13 +481,13 @@ export function initAutomotiveLoadDumpSimulator(container) {
       btnTrans.setAttribute("aria-pressed", "true");
       btnTrans.style.background = "#059669";
       btnTrans.style.color = "#ffffff";
-      btnTrans.style.borderColor = "#10b981";
+      btnTrans.style.borderColor = "#059669";
       if (btnPump) {
         btnPump.classList.remove("active");
         btnPump.setAttribute("aria-pressed", "false");
-        btnPump.style.background = "#1e293b";
-        btnPump.style.color = "#94a3b8";
-        btnPump.style.borderColor = "#475569";
+        btnPump.style.background = "#f1f5f9";
+        btnPump.style.color = "#475569";
+        btnPump.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -492,13 +500,13 @@ export function initAutomotiveLoadDumpSimulator(container) {
       btnPump.setAttribute("aria-pressed", "true");
       btnPump.style.background = "#059669";
       btnPump.style.color = "#ffffff";
-      btnPump.style.borderColor = "#10b981";
+      btnPump.style.borderColor = "#059669";
       if (btnTrans) {
         btnTrans.classList.remove("active");
         btnTrans.setAttribute("aria-pressed", "false");
-        btnTrans.style.background = "#1e293b";
-        btnTrans.style.color = "#94a3b8";
-        btnTrans.style.borderColor = "#475569";
+        btnTrans.style.background = "#f1f5f9";
+        btnTrans.style.color = "#475569";
+        btnTrans.style.borderColor = "#cbd5e1";
       }
       update();
     });

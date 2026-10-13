@@ -141,12 +141,14 @@ export function normalCdf(x) {
  * @return {Object} Computed yields, DAC quantization metrics, and comparison.
  */
 export function calculateBcdTrimming(inputs = {}) {
-  const preset = BCD_TRIM_PRESETS[inputs.presetId] || BCD_TRIM_PRESETS.pmic_bandgap;
-  const targetVal = parseFloat(inputs.targetVal) || preset.targetVal;
-  const specTolPct = parseFloat(inputs.specTolPct) || preset.specTolPct;
-  const rawSpreadPct = parseFloat(inputs.rawSpreadPct) || preset.rawSpreadPct;
-  const trimBits = parseInt(inputs.trimBits, 10) || preset.trimBits;
-  const trimRangePct = parseFloat(inputs.trimRangePct) || preset.trimRangePct;
+  const preset = (inputs && inputs.presetId && Object.hasOwn(BCD_TRIM_PRESETS, inputs.presetId))
+    ? BCD_TRIM_PRESETS[inputs.presetId]
+    : BCD_TRIM_PRESETS.pmic_bandgap;
+  const targetVal = Math.max(0.001, parseFloat(inputs.targetVal) || preset.targetVal);
+  const specTolPct = Math.max(0.01, parseFloat(inputs.specTolPct) || preset.specTolPct);
+  const rawSpreadPct = Math.max(0.01, parseFloat(inputs.rawSpreadPct) || preset.rawSpreadPct);
+  const trimBits = Math.max(1, Math.min(16, parseInt(inputs.trimBits, 10) || preset.trimBits));
+  const trimRangePct = Math.max(0.01, parseFloat(inputs.trimRangePct) || preset.trimRangePct);
 
   // Spec limits:
   const vHigh = targetVal * (1 + specTolPct / 100);
@@ -224,7 +226,7 @@ export function initBcdTrimmingSimulator(rootSelector = '#bcd-trimming-root') {
   const verdictEl = root.querySelector('#trim-verdict');
 
   function loadPreset(key) {
-    const p = BCD_TRIM_PRESETS[key] || BCD_TRIM_PRESETS.pmic_bandgap;
+    const p = (key && Object.hasOwn(BCD_TRIM_PRESETS, key)) ? BCD_TRIM_PRESETS[key] : BCD_TRIM_PRESETS.pmic_bandgap;
     if (bitsSelect) bitsSelect.value = String(p.trimBits);
     if (specSlider) specSlider.value = String(p.specTolPct);
     if (spreadSlider) spreadSlider.value = String(p.rawSpreadPct);

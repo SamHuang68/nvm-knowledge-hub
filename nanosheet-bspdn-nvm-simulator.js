@@ -265,11 +265,20 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
   const w = width;
   const h = height;
 
-  ctx.fillStyle = "#070e17";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Subtle grid
-  ctx.strokeStyle = "rgba(30, 41, 59, 0.6)";
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -296,7 +305,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
   if (mode === "thermal_ir_profile") {
     // Mode A: Cross-Section Silicon Stack & Thermal / IR-Drop Profile
     // Visualizing Backside Metal -> Substrate -> GAA Nanosheet Channels -> Frontside BEOL
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -304,7 +313,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Temp (°C)", 6, plotY0 + 6);
     ctx.fillText("Backside", plotX0, plotY1 + 16);
@@ -354,24 +363,24 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
       ctx.setLineDash([]);
     };
 
-    drawTempStack("embedded_stt_mram_beol", "#ef4444", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
-    drawTempStack("embedded_reram_oxram", "#f59e0b", "ReRAM", metrics.techKey === "embedded_reram_oxram");
-    drawTempStack("nanosheet_sram_macro", "#a855f7", "SRAM", metrics.techKey === "nanosheet_sram_macro");
-    drawTempStack("antifuse_nanosheet_logic", "#00f0ff", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
+    drawTempStack("embedded_stt_mram_beol", "#dc2626", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
+    drawTempStack("embedded_reram_oxram", "#d97706", "ReRAM", metrics.techKey === "embedded_reram_oxram");
+    drawTempStack("nanosheet_sram_macro", "#7c3aed", "SRAM", metrics.techKey === "nanosheet_sram_macro");
+    drawTempStack("antifuse_nanosheet_logic", "#0284c7", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
 
     // Current Operating Peak Callout
     const markerX = plotX0 + 0.65 * plotW;
     const markerY = plotY1 - ((metrics.junctionTempC - 25.0) / (maxTemp - 25.0)) * plotH;
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#0284c7";
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#00f0ff";
+    ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#00f0ff";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Peak Tj: ${metrics.junctionTempC}°C | IR-Drop: ${metrics.realizedIrDropMv}mV`, Math.min(markerX + 8, plotX1 - 180), Math.max(markerY - 8, plotY0 + 12));
 

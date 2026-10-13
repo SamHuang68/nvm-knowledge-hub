@@ -253,12 +253,12 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
   const axisRows = width < 360 ? 2 : 1;
   const legendTop = padTop + plotHeight + 28 + axisRows * 12;
   const labels = mode === 'transient_waveform' ? [
-    {color:'#f59e0b',text:'FSPDN Baseline (-' + metrics.totalDropBaselineMv.toFixed(0) + 'mV)'},
-    {color:'#38bdf8',text:'Active BSPDN (-' + metrics.totalDropCurrentMv.toFixed(0) + 'mV)'},
+    {color:'#d97706',text:'FSPDN Baseline (-' + metrics.totalDropBaselineMv.toFixed(0) + 'mV)'},
+    {color:'#0284c7',text:'Active BSPDN (-' + metrics.totalDropCurrentMv.toFixed(0) + 'mV)'},
   ] : [
-    {color:'#f59e0b',text:'FSPDN Baseline (+ ' + metrics.deltaTBaseline.toFixed(1) + '°C, θth=' + metrics.fspdnBaseline.thermalResistance + ' K/W)'},
-    {color:'#38bdf8',text:'Active BSPDN (+ ' + metrics.deltaTCurrent.toFixed(1) + '°C, θth=' + metrics.preset.thermalResistance + ' K/W)'},
-    {color:'#38bdf8',text:'Current Operating: Tj=' + metrics.tjActualCurrent.toFixed(1) + '°C @ Tamb=' + metrics.inputs.ambientTemp + '°C'},
+    {color:'#d97706',text:'FSPDN Baseline (+ ' + metrics.deltaTBaseline.toFixed(1) + '°C, θth=' + metrics.fspdnBaseline.thermalResistance + ' K/W)'},
+    {color:'#0284c7',text:'Active BSPDN (+ ' + metrics.deltaTCurrent.toFixed(1) + '°C, θth=' + metrics.preset.thermalResistance + ' K/W)'},
+    {color:'#0284c7',text:'Current Operating: Tj=' + metrics.tjActualCurrent.toFixed(1) + '°C @ Tamb=' + metrics.inputs.ambientTemp + '°C'},
   ];
   const legendRows = labels.map(item => ({...item,lines:wrapText(item.text,width - 44,font)}));
   const height = legendTop + legendRows.reduce((sum,item) => sum + item.lines.length * 12 + 6,0) + 12;
@@ -273,9 +273,17 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
   ctx.save();
   ctx.scale(dpr, dpr);
 
-  // Background
-  ctx.fillStyle = '#08131e';
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const plotWidth = width - padLeft - padRight;
   const drawLabel = (text,x,y,maxWidth = width - 24) => {
@@ -292,7 +300,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
   }
 
   // Draw Grid Lines
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.setLineDash([4, 4]);
 
@@ -316,7 +324,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
 
   // Axis Labels Helper
   ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = '#475569';
 
   if (mode === 'transient_waveform') {
     // Mode 1: Transient Voltage Waveform (0 to 6 ns)
@@ -394,7 +402,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     }
 
     // Draw FSPDN Baseline Curve (Amber / Warning Red)
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.0;
     ctx.beginPath();
     pointsFspdn.forEach((pt, idx) => {
@@ -403,8 +411,8 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     });
     ctx.stroke();
 
-    // Draw Current BSPDN Curve (Cyan / Emerald)
-    ctx.strokeStyle = '#38bdf8';
+    // Draw Current BSPDN Curve (High Contrast Blue)
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     pointsBspdn.forEach((pt, idx) => {
@@ -437,7 +445,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     }
 
     // Plot FSPDN Baseline Curve (Amber: lower theta_th from bulk Si)
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 1.8;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -452,8 +460,8 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Plot Active BSPDN Curve (Cyan: slight thermal trapping from wafer thinning)
-    ctx.strokeStyle = '#38bdf8';
+    // Plot Active BSPDN Curve (Blue: slight thermal trapping from wafer thinning)
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let i = 0; i <= numXGrids; i++) {
@@ -472,10 +480,13 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     const currX = padLeft + ((currTemp - tempMin) / (tempMax - tempMin)) * plotWidth;
     const currY = padTop + ((tjMax - currTj) / (tjMax - tjMin)) * plotHeight;
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.beginPath();
     ctx.arc(currX, currY, 5, 0, Math.PI * 2);
     ctx.fill();
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
   }
 
   let legendY = legendTop;
@@ -647,8 +658,8 @@ export function initBspdnSimulator() {
       if (btnModeThermal) {
         btnModeThermal.classList.remove('active');
         btnModeThermal.setAttribute('aria-pressed', 'false');
-        btnModeThermal.style.background = '#1e293b';
-        btnModeThermal.style.color = '#94a3b8';
+        btnModeThermal.style.background = '#f1f5f9';
+        btnModeThermal.style.color = '#475569';
       }
       update();
     });
@@ -665,8 +676,8 @@ export function initBspdnSimulator() {
       if (btnModeTransient) {
         btnModeTransient.classList.remove('active');
         btnModeTransient.setAttribute('aria-pressed', 'false');
-        btnModeTransient.style.background = '#1e293b';
-        btnModeTransient.style.color = '#94a3b8';
+        btnModeTransient.style.background = '#f1f5f9';
+        btnModeTransient.style.color = '#475569';
       }
       update();
     });

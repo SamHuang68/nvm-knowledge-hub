@@ -132,8 +132,12 @@ export const SENSING_ARCHITECTURES = Object.freeze({
  * @return {Object} Computed electrical and side-channel metrics.
  */
 export function calculateDifferentialSensing(inputs = {}) {
-  const preset = DIFF_SENSING_PRESETS[inputs.presetId] || DIFF_SENSING_PRESETS.automotive_grade0_28nm;
-  const arch = SENSING_ARCHITECTURES[inputs.archId] || SENSING_ARCHITECTURES.true_twin_cell;
+  const preset = (inputs && inputs.presetId && Object.hasOwn(DIFF_SENSING_PRESETS, inputs.presetId))
+    ? DIFF_SENSING_PRESETS[inputs.presetId]
+    : DIFF_SENSING_PRESETS.automotive_grade0_28nm;
+  const arch = (inputs && inputs.archId && Object.hasOwn(SENSING_ARCHITECTURES, inputs.archId))
+    ? SENSING_ARCHITECTURES[inputs.archId]
+    : SENSING_ARCHITECTURES.true_twin_cell;
 
   const vdd = parseFloat(inputs.vdd) || preset.vdd;
   const iprogUa = Math.max(5.0, parseFloat(inputs.iprog) || preset.iprog);
@@ -243,7 +247,7 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
   const verdictEl = root.querySelector('#diff-verdict');
 
   function loadPreset(key) {
-    const p = DIFF_SENSING_PRESETS[key] || DIFF_SENSING_PRESETS.automotive_grade0_28nm;
+    const p = (key && Object.hasOwn(DIFF_SENSING_PRESETS, key)) ? DIFF_SENSING_PRESETS[key] : DIFF_SENSING_PRESETS.automotive_grade0_28nm;
     if (tempSlider) tempSlider.value = String(p.tempC);
     if (noiseSlider) noiseSlider.value = String(p.cmNoiseMv);
     update();
