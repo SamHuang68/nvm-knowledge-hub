@@ -9001,6 +9001,52 @@
                 "generationEn": "Gen-3 Perpendicular pMTJ",
                 "ftoStatus": "專利權有效維持至 2030 年 6 月。保護具垂直磁各向異性 (pMTJ) 與 CoFeB/MgO/CoFeB 高 TMR 多層膜界面結構，具嚴密排他性。",
                 "ftoStatusEn": "In force through June 2030. Strongly protects high-TMR perpendicular MTJ (pMTJ) multi-layer stack structures."
+              },
+              {
+                "id": "US9087588B2",
+                "title": "Magnetic Memory Element with Enhanced Spin-Orbit Torque and Spin Transfer Torque Switching",
+                "grantDate": "2015-07-21",
+                "priorityDate": "2013-03-14",
+                "inventors": "Sanjeev Aggarwal, Dmytro Apalkov",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US9087588B2/en",
+                "coreProblem": "Pure STT switching at sub-10ns write speeds requires excessive tunnel-barrier voltages, risking dielectric breakdown of ultra-thin MgO layers.",
+                "mechanism": "Integrates a heavy-metal spin-orbit torque (SOT) underlayer with a perpendicular STT MTJ, using planar SOT current for rapid initial torque and low-voltage STT current for deterministic final alignment, slashing write voltage by 60% and enabling sub-2ns speeds.",
+                "claimFocus": "Claim 1 defines a magnetic memory cell combining a spin-orbit torque heavy-metal line with a perpendicular spin-transfer torque junction and its operating method.",
+                "productLink": "Everspin PERSYST™ ultra-high-speed low-latency MRAM architecture.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2033-03-14",
+                "patentCategory": "裝置與操作項 (Device & Operation)",
+                "patentCategoryEn": "Device & Operation",
+                "generation": "先進第四代 (Gen-4 SOT/STT Hybrid)",
+                "generationEn": "Gen-4 SOT/STT Hybrid",
+                "ftoStatus": "專利權有效維持至 2033 年 3 月。具有強力排他權，保護 SOT 重金屬線路與垂直 MTJ 複合結構之雙重自旋輔助翻轉技術。",
+                "ftoStatusEn": "In force through March 2033. Grants exclusivity over hybrid spin-orbit torque (SOT) and spin-transfer torque (STT) magnetic memory cells."
+              },
+              {
+                "id": "US10886461B2",
+                "title": "Perpendicular MTJ Stack with Dual MgO Tunneling Barrier and Synthetic Antiferromagnetic Pinning",
+                "grantDate": "2021-01-05",
+                "priorityDate": "2018-08-20",
+                "inventors": "Dmytro Apalkov, Mohamad Krounbi",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US10886461B2/en",
+                "coreProblem": "In sub-22nm nodes, single-interface perpendicular magnetic anisotropy (PMA) degrades under thermal agitation, impairing 10-year retention.",
+                "mechanism": "Configures dual MgO dielectric layers flanking the free layer, creating symmetrical double-interface PMA boosting thermal stability (Delta) by >50% while stabilizing TMR >200%.",
+                "claimFocus": "Claim 1 recites a perpendicular pMTJ stack comprising a synthetic antiferromagnetic reference layer, a first MgO barrier, a free layer, and a second MgO barrier.",
+                "productLink": "Everspin 1Gb STT-MRAM and GlobalFoundries 22FDX eMRAM volume baseline.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-08-20",
+                "patentCategory": "材料結構項 (Material Structure)",
+                "patentCategoryEn": "Material Structure",
+                "generation": "埃米第五代 (Gen-5 Dual-MgO pMTJ)",
+                "generationEn": "Gen-5 Dual-MgO pMTJ",
+                "ftoStatus": "專利權有效維持至 2038 年 8 月。保護雙 MgO 界面垂直磁各向異性強化多層膜結構，覆蓋 22nm 及以下代工 PDK。",
+                "ftoStatusEn": "In force through August 2038. Protects dual-MgO interface perpendicular MTJ stacks across sub-22nm foundry nodes."
               }
             ]
           }
@@ -9038,7 +9084,26 @@
             "nodes": "22nm / 12LP Process Extensions",
             "keyPatents": "EMxxLX Product Family Series"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Toggle Magnetic Switching Moat & Perpendicular STT-MRAM Patent Evolution",
+          "overview": "Everspin Technologies stands as the first semiconductor company to achieve commercial volume production of MRAM (spun out of Motorola Laboratories and Freescale Semiconductor). Early MRAM was chronically plagued by \"half-select disturb,\" which Motorola physicist Leonid Savtchenko resolved through the landmark \"Toggle MRAM (US6545906B1)\" using synthetic antiferromagnetic (SAF) rotation. Everspin subsequently acquired pioneer Grandis to master perpendicular magnetic tunnel junctions (pMTJ), dominating high-reliability mission-critical non-volatile markets.",
+          "keyBattles": [
+            {
+              "heading": "Savtchenko Toggle Patent Fortress & Half-Select Immunity (US6545906B1)",
+              "detail": "Conventional magnetic field-switched MRAM suffered unintended bit-flips on half-selected cells along common bitlines or wordlines. Savtchenko patented timed orthogonal magnetic pulses driving 180-degree rotation of a 3-layer SAF stack (ferromagnet/Ru/ferromagnet); unselected cells spring back elastically after pulses subside, securing flawless half-select immunity and locking down the field-switched MRAM roadmap for two decades."
+            },
+            {
+              "heading": "Grandis Acquisition & Perpendicular STT-MRAM Transition (US7599207B2)",
+              "detail": "Because field-switched line currents could not scale beyond 90nm, Everspin acquired spintronics pioneer Grandis and its patent estate in 2011, transitioning to spin-transfer torque where spin-polarized currents flip states via angular momentum transfer. CoFeB/MgO/CoFeB perpendicular magnetic anisotropy (pMTJ) eliminated in-plane demagnetization penalties, cutting switching currents by 80% and enabling 1Gb densities across GlobalFoundries 22FDX."
+            },
+            {
+              "heading": "Dual-MgO Tunneling Barriers & 400°C BEOL Thermal Budget (US8488373B2 / US10886461B2)",
+              "detail": "Integrating magnetic MTJs into standard CMOS back-end-of-line (BEOL) metal stacks requires surviving harsh 400°C sintering. Everspin patented high-temperature diffusion barriers and dual-MgO interfaces, sustaining TMR ratios >180% post-anneal to certify automotive Grade-1 and radiation-hard aerospace qualifications."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] Everspin pioneer Toggle MRAM patent US6545906B1 expired in November 2021 after its 20-year term. Foundational STT-MRAM switching patent US7599207B2 also entered the public domain in September 2025. The semiconductor industry may freely practice synthetic antiferromagnetic Toggle switching and foundational STT tunneling injection. However, 400°C BEOL stacks (US8488373B2), hybrid SOT/STT switching (US9087588B2), and dual-MgO perpendicular pMTJ architectures (US10886461B2) remain actively enforceable through 2030–2038."
+        }
       },
       {
         "id": "weebit",
@@ -9066,6 +9131,52 @@
             "processNode": "130nm BCD down to 28nm / 22nm FD-SOI Advanced Nodes",
             "summary": "Disruptive embedded non-volatile memory technology. Adding only 2 low-temperature masks in the back-end-of-line (BEOL) without altering front-end transistors, Weebit ReRAM switches in nanoseconds under sub-2V voltages with 100K endurance and 10-year retention at 150°C.",
             "patents": [
+              {
+                "id": "US6815781B2",
+                "title": "Resistive Memory Element with Transition Metal Oxide and Operation Method",
+                "grantDate": "2004-11-09",
+                "priorityDate": "2002-09-17",
+                "inventors": "David R. Evans et al.",
+                "assignee": "Sharp Laboratories of America, Inc.",
+                "url": "https://patents.google.com/patent/US6815781B2/en",
+                "coreProblem": "Conventional flash requires high-voltage tunneling; how to achieve reversible non-volatile resistance switching at low voltages in thin films?",
+                "mechanism": "Pioneer transition metal-oxide switching patent. A metal/oxide/metal (MIM) thin-film stack forms or dissolves localized conductive filaments under bipolar electric fields, switching between low-resistance (LRS) and high-resistance (HRS) states.",
+                "claimFocus": "Claim 1 recites a thin-film resistive switching cell comprising a bottom electrode, a transition metal oxide layer, and a top electrode with bipolar switching operations.",
+                "productLink": "Core foundational patent for transition metal-oxide ReRAM / OxRAM physics.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-09-17",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Metal-Oxide ReRAM Pioneer)",
+                "generationEn": "Gen-1 Metal-Oxide ReRAM Pioneer",
+                "ftoStatus": "已於 2022 年 9 月屆滿 20 年進入公有領域。早期金屬氧化物雙極性奈米導電細絲電阻切換單元結構已成為免費公有技術。",
+                "ftoStatusEn": "Expired in September 2022; entered public domain. Pioneer metal-oxide bipolar conductive filament switching topology is free to operate."
+              },
+              {
+                "id": "US6849891B1",
+                "title": "Nonvolatile Memory Device with Electric-Pulse-Induced Resistance Change",
+                "grantDate": "2005-02-01",
+                "priorityDate": "2003-04-15",
+                "inventors": "Shangqing Liu, Alex Ignatiev",
+                "assignee": "University of Houston",
+                "url": "https://patents.google.com/patent/US6849891B1/en",
+                "coreProblem": "How to reliably modulate thin-film resistance states using non-destructive short electric pulses without dielectric breakdown wearout?",
+                "mechanism": "Foundational electric-pulse induced resistance (EPIR) patent. Applies microsecond-scale bipolar electric pulses at room temperature to drive interfacial oxygen vacancy migrations, altering resistance states non-destructively.",
+                "claimFocus": "Claim 1 defines methods of reversibly altering thin-film nonvolatile resistance via room-temperature electric pulse trains.",
+                "productLink": "Electric-pulse induced resistance switching (EPIR) foundational operation baseline.",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2023-04-15",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 Electric-Pulse ReRAM)",
+                "generationEn": "Gen-1 Electric-Pulse ReRAM",
+                "ftoStatus": "已於 2023 年 4 月屆滿 20 年進入公有領域。利用正負短脈衝電場調控薄膜氧化物電阻狀態之操作演算法已無專利排他權。",
+                "ftoStatusEn": "Expired in April 2023; entered public domain. Electric pulse induced resistance switching methods are in the public domain."
+              },
               {
                 "id": "US10141505B2",
                 "title": "Resistive random access memory devices using porous silicon oxide and methods of fabrication and operation",
@@ -9111,6 +9222,29 @@
                 "generationEn": "Gen-2 Neuromorphic ReRAM",
                 "ftoStatus": "專利權有效維持至 2037 年 8 月。保護利用 ReRAM 多階電導 (Multi-level Cell) 特性進行類神經網路突觸乘累加 (MAC) 運算之操作方法。",
                 "ftoStatusEn": "In force through August 2037. Protects neuromorphic in-memory computing synaptic analog weight updating methods on ReRAM arrays."
+              },
+              {
+                "id": "US11171286B2",
+                "title": "Bidirectional Selector Device for Cross-Point Resistive Memory Array and Integration Method",
+                "grantDate": "2021-11-09",
+                "priorityDate": "2019-05-10",
+                "inventors": "Alon Malek, Amir Regev",
+                "assignee": "Weebit Nano Ltd.",
+                "url": "https://patents.google.com/patent/US11171286B2/en",
+                "coreProblem": "In high-density cross-point ReRAM arrays, cumulative sneak-path leakage from unselected cells collapses sense margins and corrupts programming.",
+                "mechanism": "Engineers a bidirectional threshold switch selector exhibiting extreme off-state non-linearity (>10^5) that turns on only above threshold voltages, suppressing sneak-path currents in dense 1S1R arrays.",
+                "claimFocus": "Claim 1 recites a 1S1R cross-point cell comprising a bidirectional non-linear threshold selector in series with an oxide switching layer and its BEOL integration process.",
+                "productLink": "Weebit Nano high-density 1S1R cross-point discrete and embedded ReRAM portfolio.",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2039-05-10",
+                "patentCategory": "裝置與製程項 (Device & Fabrication)",
+                "patentCategoryEn": "Device & Fabrication",
+                "generation": "先進第三代 (Gen-3 1S1R Cross-Point)",
+                "generationEn": "Gen-3 1S1R Cross-Point",
+                "ftoStatus": "專利權有效維持至 2039 年 5 月。保護具雙向非線性選擇器之 1S1R 交叉點 ReRAM 單元結構與 BEOL 整合工藝。",
+                "ftoStatusEn": "Actively in force through May 2039. Protects bidirectional threshold selector 1S1R cross-point architectures and BEOL integration flows."
               }
             ]
           }
@@ -9140,7 +9274,26 @@
             "nodes": "DB HiTek 130nm / 22FDX",
             "keyPatents": "Weebit Volume Production Series"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Silicon-Oxide ReRAM BEOL Moat & Conductive Filament Public Domain FTO",
+          "overview": "Founded by Israeli and Australian semiconductor veterans, Weebit Nano constructed its IP strategy to overturn the heavy-metal precursor contamination barriers of legacy ReRAM (TaOx, TiO2, HfOx). Traditional foundries dread foreign metals migrating into front-end CMOS gates; Weebit secured exclusive rights to Rice University Professor James Tour's foundational patents, directly utilizing standard CMOS-native porous silicon oxide (SiOx) requiring only 2 low-temperature BEOL masks for 100% zero-contamination foundry qualification across SkyWater and DB HiTek.",
+          "keyBattles": [
+            {
+              "heading": "Porous Silicon Oxide (SiOx) vs. Exotic Metal Contamination (US10141505B2)",
+              "detail": "Conventional ReRAM demands unproven noble metals and exotic targets, forcing foundries to establish costly segregated fabrication lines. Weebit's core patent confines switching to porosity-tuned silicon oxide, electro-forming and dissolving reversible silicon nanofilaments using standard foundry PECVD tools, reducing wafer cost by ~70% compared to eFlash."
+            },
+            {
+              "heading": "Neuromorphic Analog Conductance Calibration Moat (US10580980B2)",
+              "detail": "Analog in-memory computing (CIM) using ReRAM synapses suffers from spontaneous oxygen vacancy relaxation known as conductance drift, corrupting neural network inference accuracy. Weebit patented closed-loop sensing that detects drift with micro-probes before vector-matrix multiplications, applying dynamic restore pulses to preserve inference precision."
+            },
+            {
+              "heading": "Bidirectional Threshold Selector 1S1R Cross-Point Array (US11171286B2)",
+              "detail": "To bypass the scaling area limit of 1T1R select transistors, Weebit patented highly non-linear bidirectional threshold selectors (>10^5 selectivity), completely suffocating sneak-path leakage in dense cross-point matrices and enabling dense 3D stacking."
+            }
+          ],
+          "ftoVerdict": "[FTO Guidance] Early 2002–2003 foundational metal-oxide resistance switching and electric pulse-induced filament patents (US6815781B2 & US6849891B1) expired in 2022 and 2023, entering the public domain. Industry may freely practice standard 1T1R bipolar switching physics. However, Weebit's proprietary porous SiOx patent (US10141505B2), neuromorphic dynamic conductance calibration (US10580980B2), and 1S1R threshold selector topologies (US11171286B2) remain actively enforceable through 2034, 2037, and 2039."
+        }
       },
       {
         "id": "pufsecurity",

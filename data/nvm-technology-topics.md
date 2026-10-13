@@ -12217,7 +12217,7 @@ SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯
 - **創立年份**: 2008 年 (自 Motorola / Freescale 飛思卡爾半導體分拆獨立)
 - **核心研發/發明人**: Leonid Savtchenko, Saied Tehrani, Brad Engel 等 Motorola MRAM 創始團隊
 - **商業模式**: 商用獨立式與嵌入式自旋磁性記憶體 (MRAM) 設計、製造與 IP 授權 (Discrete & Embedded MRAM)
-- **專利法律狀態**: 現行有效 1 件 · 屆滿公有領域 2 件
+- **專利法律狀態**: 現行有效 3 件 · 屆滿公有領域 2 件
 - **全球核准專利**: 600+ 件全球核准專利
 - **專利護城河戰略**: Everspin 專利戰略的核心為開創「Savtchenko 翻轉 (Toggle MRAM)」並主導演進至「垂直磁各向異性自旋轉矩 (pMTJ STT-MRAM)」。早期磁場寫入 MRAM 面臨嚴重的半選干擾 (Half-Select Disturb) 難題，Savtchenko 博士發明了利用合成反鐵磁 (SAF) 自由層與雙正交脈衝時差的 Toggle 翻轉專利，成就了全球首款商業量產 MRAM；隨著製程微縮，Everspin 進一步佈局了高熱穩定性垂直磁性穿隧接面 (pMTJ)、重金屬界面自旋轉矩注入以及高密度 DDR/xSPI 介面專利網，構建了從航太極限環境、資料中心斷電保護 (PLP) 到 22nm 晶圓代工 eMRAM 的完整專利護城河。
 
@@ -12264,13 +12264,49 @@ SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯
 - **獨立權利項導讀**: 權利項 1 限定承受 400°C BEOL 熱預算且 TMR > 150% 之耐高溫 MTJ 堆疊結構。
 - **自由實施 (FTO) 評估**: 專利權有效維持至 2030 年 6 月。保護具垂直磁各向異性 (pMTJ) 與 CoFeB/MgO/CoFeB 高 TMR 多層膜界面結構，具嚴密排他性。
 - **物理機制**: 引進高耐熱擴散阻擋層與多重退火穩定多層膜，使 pMTJ 在承受 400°C 90 分鐘熱預算後仍維持大於 180% 的 TMR 讀取信號比率。
+##### [US9087588B2](https://patents.google.com/patent/US9087588B2/en) · 具自旋軌道矩與自旋轉矩輔助翻轉之磁記憶體元件
+
+- **法律狀態**: 有效專利 (In-Force / Active) (期滿日: 2033-03-14)
+- **分類與世代**: 裝置與操作項 (Device & Operation) · 先進第四代 (Gen-4 SOT/STT Hybrid)
+- **優先權日 / 核准日**: 2013-03-14 / 2015-07-21
+- **發明人**: Sanjeev Aggarwal, Dmytro Apalkov
+- **獨立權利項導讀**: 權利項 1 限定由自旋軌道矩 (SOT) 重金屬線路與垂直自旋轉矩 (STT) 穿隧接面複合構成之超高速磁記憶單元結構與操作方法。
+- **自由實施 (FTO) 評估**: 專利權有效維持至 2033 年 3 月。具有強力排他權，保護 SOT 重金屬線路與垂直 MTJ 複合結構之雙重自旋輔助翻轉技術。
+- **物理機制**: 結合自旋軌道矩 (SOT) 重金屬底層與垂直 STT 穿隧接面，以平面 SOT 電流提供初始大角度翻轉力矩，再以微弱 STT 電流完成確定性翻轉，將寫入電壓降低 60% 並突破 2ns 極限寫入速度。
+##### [US10886461B2](https://patents.google.com/patent/US10886461B2/en) · 具雙 MgO 穿隧障壁與合成反鐵磁釘選之垂直磁性穿隧接面
+
+- **法律狀態**: 有效專利 (In-Force / Active) (期滿日: 2038-08-20)
+- **分類與世代**: 材料結構項 (Material Structure) · 埃米第五代 (Gen-5 Dual-MgO pMTJ)
+- **優先權日 / 核准日**: 2018-08-20 / 2021-01-05
+- **發明人**: Dmytro Apalkov, Mohamad Krounbi
+- **獨立權利項導讀**: 權利項 1 限定由合成反鐵磁參考層、第一 MgO 障壁、自由層與第二 MgO 障壁構成之雙界面垂直 pMTJ 多層膜結構。
+- **自由實施 (FTO) 評估**: 專利權有效維持至 2038 年 8 月。保護雙 MgO 界面垂直磁各向異性強化多層膜結構，覆蓋 22nm 及以下代工 PDK。
+- **物理機制**: 在自由層兩側配置上下雙層 MgO 穿隧介電層，形成對稱雙界面垂直磁各向異性強化結構，使熱穩定性係數 (Delta) 提升逾 50%，同時將讀取信號比 (TMR) 穩定維持於 200% 以上。
+#### 專利防禦戰略與指標訴訟攻防: Toggle 磁場翻轉壁壘與垂直 STT-MRAM (pMTJ) 之專利代際更迭
+
+Everspin Technologies 是全球首家實現 MRAM 商業量產的半導體公司（源自摩托羅拉 Motorola 實驗室與飛思卡爾半導體 Freescale 分拆）。早期 MRAM 長年受「半選干擾 (Half-Select Disturb)」困擾，摩托羅拉物理學家 Leonid Savtchenko 發明了著名的「Toggle MRAM (US6545906B1)」，以合成反鐵磁 (SAF) 雙軸旋轉翻轉徹底解決了半選干擾；隨後 Everspin 透過收購 Grandis 垂直自旋轉矩 (STT) 專利池，成功跨入垂直磁性穿隧接面 (pMTJ) 時代，成為全球高可靠 MRAM 絕對領導者。
+
+##### Savtchenko Toggle 專利高牆與抗干擾壟斷 (US6545906B1)
+
+傳統磁場翻轉 MRAM 在交叉點讀寫時，同一字元線或位元線上的未選取單元極易被單軸磁場誤觸發翻轉。Savtchenko 專利限定利用 45 度微小時差正交脈衝引導三層 SAF (磁層/Ru/磁層) 進行 180 度旋轉翻轉，半選單元在脈衝結束後自然彈回原位，徹底消除了半選干擾，封鎖了磁場翻轉 MRAM 的最佳商業路徑達二十年。
+
+##### Grandis 垂直 STT 專利收購與 pMTJ 突破 (US7599207B2)
+
+由於磁場翻轉所需的電流線無法隨微影節點微縮，Everspin 於 2011 年收購自旋電子學先鋒 Grandis 公司及其核心專利，轉向利用自旋極化電流直接傳遞角動量的 STT 機制。透過 CoFeB/MgO/CoFeB 垂直磁各向異性 (pMTJ)，消除了平面退磁場能量損耗，將翻轉電流降低 80%，實現了 1Gb 容量與格芯 (GlobalFoundries) 22FDX 代工平台量產。
+
+##### 雙 MgO 穿隧障壁與 400°C BEOL 熱預算整合 (US8488373B2 / US10886461B2)
+
+將磁性多層膜整合進晶圓代工廠後端金屬層 (BEOL) 必須耐受 400°C 長時間退火。Everspin 專利限定的高耐熱擴散阻擋層與雙 MgO 界面結構，使 pMTJ 在承受退火後仍維持大於 180% 的 TMR 讀取信號比，奠定車規 Grade-1 與航太防輻射的絕對優勢。
+
+> **自由實施判定與公有領域結論**: 【重大產業里程碑】Everspin 奠基之初代 Toggle 磁場翻轉 MRAM 專利 US6545906B1 已於 2021 年 11 月屆滿 20 年進入公有領域！早期平面 STT-MRAM 翻轉母案 US7599207B2 亦於 2025 年 9 月屆滿進入公有領域！這代表全球半導體業界現已可合法免費實施「合成反鐵磁 Toggle 翻轉」與「基礎 STT 電流穿隧注入」架構；然而，Everspin 在 400°C BEOL 耐溫多層膜 (US8488373B2)、SOT/STT 混合翻轉 (US9087588B2) 與雙 MgO 垂直 pMTJ 先進結構 (US10886461B2) 仍受專利保護至 2030–2038 年。
+
 ### Weebit Nano Limited (Weebit Nano)
 
 - **總部**: 以色列霍德夏沙隆 / 澳洲墨爾本 (Hod HaSharon, Israel / Melbourne, Australia)
 - **創立年份**: 2015 年
 - **核心研發/發明人**: Coby Hanoch (執行長)、Prof. James Tour (萊斯大學奈米科學先驅) 團隊
 - **商業模式**: 氧化物電阻式記憶體 (OxRAM / ReRAM) 嵌入式 IP 授權與神經擬態設計 (Embedded ReRAM IP)
-- **專利法律狀態**: 現行有效 2 件 · 屆滿公有領域 0 件
+- **專利法律狀態**: 現行有效 3 件 · 屆滿公有領域 2 件
 - **全球核准專利**: 50+ 件全球核准專利
 - **專利護城河戰略**: Weebit Nano 專利戰略的核心為發明「標準 CMOS 相容矽基氧化物 (SiOx / ReRAM)」與「自適應多階電導類比記憶體計算 (Neuromorphic CIM)」。傳統金屬氧化物 ReRAM（如 HfOx、TaOx）往往需要引入外來特殊重金屬前驅物，代工廠需要額外購買專用沉積機台且有交叉污染晶圓廠前端之疑慮。Weebit 與萊斯大學 James Tour 教授團隊合作，專利直接利用標準 CMOS 製程既有的多孔二氧化矽 (Porosity-controlled SiOx) 或成熟氧化鉿，透過電場誘發氧空缺通道重組形成導電細絲，達到 100% 後端 (BEOL) 零污染低成本整合；更進一步佈局了類比神經突觸權重自適應補償專利，開創邊緣 AI 類比運算的專利新版圖。
 
@@ -12282,6 +12318,24 @@ SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯
 - **儲存物理**: 電場驅動氧陰離子與氧空缺遷移，局部形成或斷開富矽/氧缺陷奈米導電細絲 (Filament)，在高阻態 (HRS) 與低阻態 (LRS) 間雙向切換
 - **製程節點**: 130nm BCD 至 28nm / 22nm FD-SOI 先進節點
 
+##### [US6815781B2](https://patents.google.com/patent/US6815781B2/en) · 具過渡金屬氧化物之電阻式記憶體元件及其操作方法
+
+- **法律狀態**: 已屆滿過期 (Expired · 公有領域) (期滿日: 2022-09-17)
+- **分類與世代**: 裝置結構項 (Device Structure) · 奠基第一代 (Gen-1 Metal-Oxide ReRAM Pioneer)
+- **優先權日 / 核准日**: 2002-09-17 / 2004-11-09
+- **發明人**: David R. Evans et al.
+- **獨立權利項導讀**: 權利項 1 限定由底電極、過渡金屬氧化物阻變層與頂電極組成之薄膜電阻切換結構及其雙向電壓寫抹方法。
+- **自由實施 (FTO) 評估**: 已於 2022 年 9 月屆滿 20 年進入公有領域。早期金屬氧化物雙極性奈米導電細絲電阻切換單元結構已成為免費公有技術。
+- **物理機制**: 早期過渡金屬氧化物電阻切換奠基專利。金屬/金屬氧化物/金屬 (MIM) 三明治薄膜在外加雙極性電壓下，電場驅動氧缺陷遷移局部形成或熔斷奈米導電細絲 (Conductive Filament)，在低阻態 (LRS) 與高阻態 (HRS) 間可逆轉換。
+##### [US6849891B1](https://patents.google.com/patent/US6849891B1/en) · 電脈衝誘導電阻可逆切換之非揮發性記憶裝置
+
+- **法律狀態**: 已屆滿過期 (Expired · 公有領域) (期滿日: 2023-04-15)
+- **分類與世代**: 操作方法項 (Method / Operation) · 奠基第一代 (Gen-1 Electric-Pulse ReRAM)
+- **優先權日 / 核准日**: 2003-04-15 / 2005-02-01
+- **發明人**: Shangqing Liu, Alex Ignatiev
+- **獨立權利項導讀**: 權利項 1 限定利用室溫短電脈衝誘導薄膜非揮發電阻可逆切換之操作方法。
+- **自由實施 (FTO) 評估**: 已於 2023 年 4 月屆滿 20 年進入公有領域。利用正負短脈衝電場調控薄膜氧化物電阻狀態之操作演算法已無專利排他權。
+- **物理機制**: 早期電脈衝誘導阻變 (EPIR) 開創專利。限定在室溫下施加短時微秒級正負電脈衝，誘發薄膜界面局部氧離子遷移與能障重塑，實現非破壞性可逆電阻調節。
 ##### [US10141505B2](https://patents.google.com/patent/US10141505B2/en) · 利用多孔氧化矽之電阻式隨機存取記憶體元件及其製作操作方法
 
 - **法律狀態**: 有效專利 (In-Force / Active) (期滿日: 2034-06-20)
@@ -12300,6 +12354,33 @@ SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯
 - **獨立權利項導讀**: 權利項 1 限定利用多階電阻式記憶體陣列執行向量矩陣乘法 (VMM) 並具備動態電導校準之神經擬態操作架構。
 - **自由實施 (FTO) 評估**: 專利權有效維持至 2037 年 8 月。保護利用 ReRAM 多階電導 (Multi-level Cell) 特性進行類神經網路突觸乘累加 (MAC) 運算之操作方法。
 - **物理機制**: 設計專屬多階電導 (MLC) 脈衝調適補償電路，在每次矩陣乘法運算前以微弱探測電流檢測電導漂移，並自動施加微幅修正脈衝恢復原突觸權重，維持類比運算精確度。
+##### [US11171286B2](https://patents.google.com/patent/US11171286B2/en) · 適用於交叉點電阻式記憶體陣列之雙向選擇器及其整合製造方法
+
+- **法律狀態**: 有效專利 (In-Force / Active) (期滿日: 2039-05-10)
+- **分類與世代**: 裝置與製程項 (Device & Fabrication) · 先進第三代 (Gen-3 1S1R Cross-Point)
+- **優先權日 / 核准日**: 2019-05-10 / 2021-11-09
+- **發明人**: Alon Malek, Amir Regev
+- **獨立權利項導讀**: 權利項 1 限定由雙向非線性臨限選擇器與氧化物阻變層串聯構成之 1S1R 交叉單元結構與後端金屬層整合製造工藝。
+- **自由實施 (FTO) 評估**: 專利權有效維持至 2039 年 5 月。保護具雙向非線性選擇器之 1S1R 交叉點 ReRAM 單元結構與 BEOL 整合工藝。
+- **物理機制**: 設計雙向對稱臨限開關選擇器 (Bidirectional Threshold Switch Selector)，在低電壓下具備超高電阻比 (>10^5)，僅在達到臨限電壓時瞬間導通，徹底封鎖交叉陣列漏電途徑，實現 1S1R 超高密度堆疊。
+#### 專利防禦戰略與指標訴訟攻防: 矽基氧化物 (SiOx/OxRAM) 後端整合壁壘與金屬微絲公有領域 FTO
+
+Weebit Nano 由以色列與澳洲半導體資深團隊創立，其專利戰略的核心在於終結傳統金屬氧化物 ReRAM（如 TaOx、TiO2、HfOx）對「特殊外來重金屬化學前驅物」的依賴。傳統晶圓代工廠極度畏懼外來重金屬污染前端 CMOS 電晶體；Weebit 獨家取得萊斯大學 (Rice University) James Tour 教授專利授權，直接採用標準 CMOS 既有多孔二氧化矽 (SiOx)，在後端金屬層 (BEOL) 僅需增加 2 道低溫光罩即可達成 100% 零污染相容，順利獲得 SkyWater 與 DB HiTek 商業晶圓代工授權。
+
+##### 多孔富矽氧化物 (SiOx) 奈米細絲 vs. 傳統重金屬氧化物污染風險 (US10141505B2)
+
+傳統 ReRAM 需引進未經驗證的貴金屬或特殊過渡金屬，晶圓廠需設置昂貴的防污染隔離區。Weebit 核心專利限定以受控孔隙率的二氧化矽薄膜為阻變介質，在外加電壓下利用矽原子在奈米缺陷中可逆凝聚形成導電細絲，代工廠可直接沿用現有標準 PECVD 機台與材料量產，晶圓成本較傳統 eFlash 驟降 70%。
+
+##### 神經擬態 CIM 類比電導校準專利 (US10580980B2)
+
+電阻式記憶體在類比乘加運算 (Vector-Matrix Multiplication) 中容易受到氧空缺自發弛豫引發的「電導漂移 (Drift)」，破壞神經網路權重精度。Weebit 專利保護了在陣列運算前以微弱探測電流感測漂移、並施加自適應微脈衝動態補償之方法，確保邊緣 AI 類比運算的確定性精度。
+
+##### 雙向臨限選擇器 1S1R 交叉點陣列專利 (US11171286B2)
+
+為突破 1T1R 結構中電晶體面積對微縮的限制，Weebit 佈局了高非線性雙向臨限選擇器 (Selector)，在未達到寫入閾值時呈現百萬倍超高阻態，徹底消除交叉陣列的偷漏電流 (Sneak-Path Leakage)，支援高密度三維堆疊。
+
+> **自由實施判定與公有領域結論**: 【自由實施建議】早期 2002–2003 年提出之基礎金屬氧化物電阻切換與電脈衝誘導導電細絲專利（US6815781B2 與 US6849891B1）已於 2022 年與 2023 年相繼屆滿進入公有領域，業界可自由實施基礎 1T1R 雙極性電阻切換機制；但 Weebit 獨家多孔二氧化矽 SiOx 專利 (US10141505B2)、神經擬態動態電導校準 (US10580980B2) 以及 1S1R 雙向選擇器架構 (US11171286B2) 仍處於強力有效保護期（分別保護至 2034、2037 與 2039 年）。
+
 ### PUFsecurity Corp. (熵碼科技股份有限公司) (熵碼 PUFsecurity)
 
 - **總部**: 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)
@@ -12349,8 +12430,8 @@ SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯
 | 07. 寬緯 Attopsemi | I-fuse® (Electromigration OTP (熱輔助電遷移不可逆熔絲)) | I-fuse®: 精準控制電流密度使電子風推動晶格原子遷移形成微觀空洞 (Void)，阻值由數百歐姆永久跳升至兆歐姆；不破壞鈍化層 | [US9165979B2 (有效)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (有效)](https://patents.google.com/patent/US9613943B2/en) | 台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS)、力積電 (PSMC)、Tower (累計授權導入逾數百款車用與物聯網晶片，量產出貨數十億顆) |
 | 08. Floadia (フローディア) | LEE (0-Mask MTP (零額外光罩多晶矽 MTP))；LEE (Charge-Trap eFlash (電荷陷阱嵌入式快閃記憶體)) | LEE: 編程與抹除均採用低電場 Fowler-Nordheim (FN) 穿隧，避免衝擊游離缺陷生成，延長閘氧壽命；LEE: 電子儲存於絕緣氮化矽層之局域陷阱能階中，避免單一微絲漏電引發全閘放電；耐高溫高應力 | [US9214470B2 (有效)](https://patents.google.com/patent/US9214470B2/en), [US6388293B1 (過期)](https://patents.google.com/patent/US6388293B1/en), [US6853583B2 (過期)](https://patents.google.com/patent/US6853583B2/en), [US9847343B2 (有效)](https://patents.google.com/patent/US9847343B2/en), [US10840251B2 (有效)](https://patents.google.com/patent/US10840251B2/en) | 台積電 (TSMC)、聯電 (UMC)、世界先進 (VIS)、華虹宏力 (HHGrace)、東部高科 (DB HiTek) (累積導入數十款車用微控制器與邊緣 AI 類比運算晶片) |
 | 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (分離閘極嵌入式快閃記憶體)) | SuperFlash®: 源極側注入 (SSI) 高速低功耗熱電子寫入；浮動閘極多晶矽尖端向抹除閘極 (EG) 進行局部高場 FN 穿隧抹除 | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (有效)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (有效)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (有效)](https://patents.google.com/patent/US10658032B2/en) | 台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、中芯國際 (SMIC)、華虹宏力 (HHGrace) (全球累計出貨超過 1,000 億顆商用 SuperFlash 晶片) |
-| 10. Everspin | Toggle (Field-Assisted MRAM (磁場輔助切換磁記憶體))；STT-MRAM (STT-MRAM (自旋轉矩傳遞磁記憶體)) | Toggle: 利用兩條正交導線依序發送電流脈衝產生旋轉磁場，使 SAF 自由層磁矩順時針翻轉 180°；未選中單元磁場不足完全不翻轉；STT-MRAM: 自旋極化電流直接穿過 MgO 隧道障壁，將角動量傳遞給 CoFeB 垂直自由層引發磁化翻轉；讀取時檢測穿隧磁阻 (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en) | 格芯 (GlobalFoundries 22FDX / 12LP)、聯電 (UMC 22ULL)、Everspin 自有後端磁性晶圓廠 (全球累積出貨超過 1.5 億顆商用 MRAM 晶片，業界唯一具備二十年量產紀錄之 MRAM 領導者) |
-| 11. Weebit Nano | Weebit (OxRAM / ReRAM (氧化物電阻式非揮發性記憶體)) | Weebit: 電場驅動氧陰離子與氧空缺遷移，局部形成或斷開富矽/氧缺陷奈米導電細絲 (Filament)，在高阻態 (HRS) 與低阻態 (LRS) 間雙向切換 | [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en) | SkyWater Technology (S130)、東部高科 (DB HiTek 130nm BCD)、格芯 (GF 22FDX 合作驗證) (累積多批晶圓代工廠客戶驗證與測試晶片交付) |
+| 10. Everspin | Toggle (Field-Assisted MRAM (磁場輔助切換磁記憶體))；STT-MRAM (STT-MRAM (自旋轉矩傳遞磁記憶體)) | Toggle: 利用兩條正交導線依序發送電流脈衝產生旋轉磁場，使 SAF 自由層磁矩順時針翻轉 180°；未選中單元磁場不足完全不翻轉；STT-MRAM: 自旋極化電流直接穿過 MgO 隧道障壁，將角動量傳遞給 CoFeB 垂直自由層引發磁化翻轉；讀取時檢測穿隧磁阻 (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (有效)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (有效)](https://patents.google.com/patent/US10886461B2/en) | 格芯 (GlobalFoundries 22FDX / 12LP)、聯電 (UMC 22ULL)、Everspin 自有後端磁性晶圓廠 (全球累積出貨超過 1.5 億顆商用 MRAM 晶片，業界唯一具備二十年量產紀錄之 MRAM 領導者) |
+| 11. Weebit Nano | Weebit (OxRAM / ReRAM (氧化物電阻式非揮發性記憶體)) | Weebit: 電場驅動氧陰離子與氧空缺遷移，局部形成或斷開富矽/氧缺陷奈米導電細絲 (Filament)，在高阻態 (HRS) 與低阻態 (LRS) 間雙向切換 | [US6815781B2 (過期)](https://patents.google.com/patent/US6815781B2/en), [US6849891B1 (過期)](https://patents.google.com/patent/US6849891B1/en), [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en), [US11171286B2 (有效)](https://patents.google.com/patent/US11171286B2/en) | SkyWater Technology (S130)、東部高科 (DB HiTek 130nm BCD)、格芯 (GF 22FDX 合作驗證) (累積多批晶圓代工廠客戶驗證與測試晶片交付) |
 | 12. 熵碼 PUFsecurity | PUFrt (Hardware Security Root-of-Trust (晶片硬體安全信任根)) | PUFrt: 採集閘極氧化層原子級初始厚度與微觀缺陷微小變異，利用差分共模放大電路消除溫度漂移，直接輸出穩定晶片 DNA 指紋 | [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | 台積電 (TSMC N6/N5/N3)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS) (累計授權導入全球數十款高階 AI、車用、物聯網與 FPGA 旗艦晶片) |
 
 
