@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "releaseId": "NVM-WEB-f6375ce44855",
-  "canonicalCommit": "f6375ce44855cdcf685d7100ab064e2fe4d2b277",
-  "canonicalTree": "dcba1265b3c40eb87edb0a1e6203c0ffd963c730",
-  "canonicalCommitTime": "2026-10-13T23:19:58+08:00",
-  "generatedAt": "2026-10-13T23:19:58+08:00",
+  "releaseId": "NVM-WEB-59f8d2d4b67d",
+  "canonicalCommit": "59f8d2d4b67d4923a13fbba389569ae947f3f67e",
+  "canonicalTree": "6a7673755dc59cffd6aa448dcfbd2a224b7e67f5",
+  "canonicalCommitTime": "2026-10-13T23:31:32+08:00",
+  "generatedAt": "2026-10-13T23:31:32+08:00",
   "povContractId": "POV-NVM-WEB-2026-08-29",
   "artifactMode": "neutral-editorial",
   "authorOrganization": "NVM Knowledge Hub",
@@ -14,7 +14,7 @@
   "postCommitManifestRequired": false,
   "sourceSnapshot": {
     "trackedPathCount": 531,
-    "sourceSetSHA256": "a8b82c347eb2381f17852d10981c32a2cc6a444701bab708777ea9d27881832b",
+    "sourceSetSHA256": "68e951a158e4b19ab7f2b5cf135e78af5d920a7404f1a848d1c2bdbe243aa3e3",
     "hashContract": "path<NUL>git-blob-object-id<LF>；UTF-8 路徑依位元組排序；排除 release-lineage.json"
   },
   "governance": {
