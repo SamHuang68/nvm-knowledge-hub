@@ -11780,7 +11780,7 @@ Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense pate
 - **Founded**: 2000
 - **Leadership**: Hsi-Pin Kuo, Ching-Yuan Lin, and R&D Engineering Team
 - **Business Model**: Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services
-- **Patent Portfolio Status**: 2 In-Force · 0 Public Domain
+- **Patent Portfolio Status**: 3 In-Force · 2 Public Domain
 - **Global Patents**: 100+ Worldwide Granted Patents
 - **Patent Strategy**: The core of Yield Microelectronics Corp. (YMC)'s patent portfolio centers on 'Ultra-High-Density Single-Poly MTP Architectures' and 'Corner-Edge Enhanced Localized Tunneling'. Conventional single-poly MTP cells require large footprints (50–100 F²) to achieve adequate capacitive coupling. YMC's patent network utilizes lateral coplanar coupling and corner-tip electric field enhancement, delivering 0-mask MTP cells below 30 F² in standard CMOS logic with 1,000 to 10,000 write/erase cycles. This creates an unassailable patent moat across MCUs, automotive display drivers, and power management ICs.
 
@@ -11792,6 +11792,24 @@ Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense pate
 - **Physical Mechanism**: Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission
 - **Process Node**: 0.35µm down to 55nm / 40nm Standard Logic and High-Voltage BCD
 
+##### [US6950342B2](https://patents.google.com/patent/US6950342B2/en) · Single Poly Non-Volatile Memory Cell with Balanced Well Coupling
+
+- **Legal Status**: Expired · Public Domain (Term: 2023-09-02)
+- **Category & Generation**: Device Structure · Gen-1 Logic MTP
+- **Priority / Grant**: 2003-09-02 / 2005-09-27
+- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
+- **Claim 1 Reading**: Claim 1 recites a single-poly floating gate spanning complementary well diffusions with a zero-mask logic fabrication process.
+- **FTO Assessment**: Expired in September 2023; entered public domain. Pioneer single-poly well capacitance coupling topology is free to operate.
+- **Physical Solution**: Extends a single-poly floating strip across adjacent CMOS N-well and P-well active regions, creating balanced junction coupling pairs that suppress parasitic leakage and establish stable tunneling fields.
+##### [US7119394B2](https://patents.google.com/patent/US7119394B2/en) · Single Poly Non-Volatile Memory Cell with Enhanced Coupling Ratio
+
+- **Legal Status**: Expired · Public Domain (Term: 2024-10-14)
+- **Category & Generation**: Device Structure & Fabrication · Gen-1 Logic MTP
+- **Priority / Grant**: 2004-10-14 / 2006-10-10
+- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
+- **Claim 1 Reading**: Claim 1 defines the structural relationship between STI-bounded capacitive electrodes and the floating gate in standard CMOS.
+- **FTO Assessment**: Expired in October 2024; entered public domain. STI boundary-assisted capacitance enhancement structure is in the public domain.
+- **Physical Solution**: Utilizes shallow trench isolation (STI) dielectric boundaries to extend lateral poly sidewall capacitance, pushing coupling ratios above 0.70 with deep N-well isolation.
 ##### [US7835188B2](https://patents.google.com/patent/US7835188B2/en) · Multiple time programmable non-volatile memory cell structure and method for fabricating the same
 
 - **Legal Status**: In-Force / Active (Term: 2027-07-27)
@@ -11810,13 +11828,36 @@ Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense pate
 - **Claim 1 Reading**: Claim 1 specifies bias conditions for localized corner-tip tunneling erase utilizing polysilicon geometric corners.
 - **FTO Assessment**: In force through August 2029. Protects STI capacitor-coupled MTP structures with enhanced erase efficiency.
 - **Physical Solution**: Exploits polysilicon geometric corner tips to induce sharp field emission tunneling, generating 3x higher tunneling current density at equivalent applied voltages, cutting erase duration by 60% and extending endurance to 10,000 cycles.
+##### [US9691784B2](https://patents.google.com/patent/US9691784B2/en) · Non-Volatile Memory Cell Array and Operating Method Thereof
+
+- **Legal Status**: In-Force / Active (Term: 2034-11-20)
+- **Category & Generation**: Array Architecture & Method · Gen-3 BCD & High-Voltage
+- **Priority / Grant**: 2014-11-20 / 2017-06-27
+- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
+- **Claim 1 Reading**: Claim 1 recites a single-poly MTP array in high-voltage BCD with disturbance-mitigating dummy bias lines and erase operations.
+- **FTO Assessment**: Actively in force through November 2034. Protects automotive-grade high-voltage BCD array bias topologies against write disturb.
+- **Physical Solution**: Introduces isolated high-voltage wells with differential dummy bitline biasing, dynamically clamping unselected gate-to-drain stress to eliminate leakage at high temperatures.
+#### Patent Defense Strategy & Landmark Litigation: Single-Poly Interdigitated Moat & Public Domain FTO Landscape
+
+Confronted by eMemory's dual-PMOS NeoBit patent ring, Yield Microelectronics Corp. (YMC) carved out an independent IP trajectory anchored in NMOS-based interdigitated in-plane single-poly capacitance. YMC's portfolio secures high coupling ratios and 10,000-cycle endurance in standard logic without second polysilicon masks.
+
+##### Design-Around Distinction: NMOS Interdigitated vs. eMemory PMOS
+
+eMemory foundational patents (US6678190B2 etc.) monopolized 2-PMOS CHEI injection. YMC completely bypassed PMOS by adopting NMOS channels with in-plane poly-to-poly capacitive coupling, ensuring non-infringement under literal and equivalence doctrines while securing independent tape-out rights across major Asian foundries.
+
+##### Zero-Mask Innovation: Interdigitated Poly (US7835188B2) & Corner Tip Erase (US8184485B2)
+
+Overcoming legacy single-poly area penalties (>60 F²), YMC US7835188B2 introduced interdigitated finger electrodes achieving >0.75 coupling ratios within <30 F² footprints. US8184485B2 further patented corner tip field emission for localized tunneling, pushing MTP endurance to 10K cycles for automotive PMICs.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] Foundational single-poly well-coupling patents (US6950342B2 & US7119394B2) expired in 2023 and 2024, entering the public domain. However, interdigitated horizontal coupling (US7835188B2) and corner field emission erase (US8184485B2) remain enforceable through 2027 and 2029, with automotive BCD array protections extending into 2034.
+
 ### Impinj / Virage Logic / Synopsys (AEON®) (AEON (Synopsys))
 
 - **Headquarters**: Seattle, WA / Mountain View, CA, USA
 - **Founded**: 2000 (Impinj founded; NVM division acquired by Virage Logic in 2008; Virage acquired by Synopsys in 2010)
 - **Leadership**: Dr. Chris Diorio (Carnegie Mellon Professor / Impinj Co-founder) and R&D Team
 - **Business Model**: Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP
-- **Patent Portfolio Status**: 0 In-Force · 2 Public Domain
+- **Patent Portfolio Status**: 2 In-Force · 2 Public Domain
 - **Global Patents**: 80+ Worldwide Granted Patents
 - **Patent Strategy**: The core of AEON's patent strategy pioneered 'Ultra-Low-Power Bidirectional Balanced Fowler-Nordheim (FN/FN) Tunneling'. Unlike traditional Channel Hot Electron Injection (CHEI) programming which demands milliamperes of DC channel current, AEON relies on a symmetric dual-well capacitive-coupled floating-gate architecture. Both program and erase depend solely on displacement currents tunneling through the quantum energy barrier (<100pA). This breakthrough enabled MTP to be written reliably on battery-free passive RFID chips powered exclusively by ambient RF waves, subsequently scaled by Virage Logic and Synopsys into the gold standard for ULP IoT MCUs.
 
@@ -11846,6 +11887,110 @@ Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense pate
 - **Claim 1 Reading**: Claim 1 claims a low-power nonvolatile storage architecture driven by on-chip charge pumps via pure tunneling injection.
 - **FTO Assessment**: Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain.
 - **Physical Solution**: Utilizes stepped micro-pulse voltage ramps combined with pure tunneling high-impedance characteristics, reducing memory macro write power to microwatt levels at 1.2V core supply.
+##### [US7787304B2](https://patents.google.com/patent/US7787304B2/en) · Non-Volatile Memory Cell with Low-Voltage Differential Sensing
+
+- **Legal Status**: In-Force / Active (Term: 2027-06-05)
+- **Category & Generation**: Device & Sensing Method · Gen-2 ULP Differential
+- **Priority / Grant**: 2007-06-05 / 2010-08-31
+- **Inventors**: Christopher J. Todd, Chris Diorio
+- **Claim 1 Reading**: Claim 1 defines paired complementary floating-gate topologies with ultra-low-voltage differential sensing circuitry.
+- **FTO Assessment**: In force through June 2027. Protects paired complementary floating-gate differential readout structures in sub-1V logic nodes.
+- **Physical Solution**: Employs paired complementary floating-gate cells with a self-balanced low-voltage differential sense amplifier, comparing minute tunneling displacement currents at 0.8V VDD.
+##### [US8264887B2](https://patents.google.com/patent/US8264887B2/en) · Non-Volatile Logic Semiconductor Memory with Adaptive Tunnel Pulse Regulation
+
+- **Legal Status**: In-Force / Active (Term: 2029-08-14)
+- **Category & Generation**: Circuit & Algorithm · Gen-2 Pulse Regulation
+- **Priority / Grant**: 2009-08-14 / 2012-09-11
+- **Inventors**: Michael Pesavento, Christopher J. Todd
+- **Claim 1 Reading**: Claim 1 recites control circuitry adaptively shaping tunneling voltage pulse parameters based on accumulated oxide fatigue.
+- **FTO Assessment**: In force through August 2029. Grants exclusivity over adaptive tunneling pulse-width feedback regulation circuits.
+- **Physical Solution**: Integrates on-chip closed-loop feedback sensing tunnel displacement charge per cycle to dynamically modulate subsequent programming pulse width and slew rate.
+#### Patent Defense Strategy & Landmark Litigation: All-FN Zero-Channel-Current Moat & Passive RFID Patent Fortress
+
+AEON® represents the ultimate IP paradigm for ultra-low-power logic NVM. While conventional Flash and EEPROM designs rely on channel hot-electron injection (CHEI) drawing milliamperes of DC current, Dr. Chris Diorio's team engineered pure quantum bidirectional Fowler-Nordheim (FN/FN) tunneling displacement currents (<100pA), establishing the global standard for passive RFID and battery-free IoT nodes.
+
+##### Overcoming the RFID Power Cliff: Zero-DC-Current Tunneling (US6166953A)
+
+Passive RF tags harvest energy strictly from weak ambient electromagnetic fields; milliampere surges collapse tag power supplies. Impinj patented dual-well balanced capacitive structures where floating gates couple across isolated wells, restricting programming power to picoampere displacement currents and dominating the EPC Gen2 UHF RFID standard.
+
+##### Strategic Acquisitions & IP Consolidation: Impinj to Virage Logic to Synopsys
+
+In 2008, Virage Logic acquired Impinj's NVM business and 80+ patents; in 2010, EDA titan Synopsys acquired Virage Logic for $315M. Fully integrated into Synopsys DesignWare, AEON continued expanding into sub-1V differential sensing (US7787304B2) and adaptive pulse modulation (US8264887B2), spanning mature logic down to 28nm/22ULL IoT nodes.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] Impinj foundational pioneer patents (US6166953A & US6388918B1) expired in April 2019 and June 2020, entering the public domain. Industry may freely practice standard CMOS dual-well capacitance coupling and all-FN tunneling zero-channel current structures. However, Synopsys low-voltage differential sensing and adaptive pulse shaping patents remain active through 2027 and 2029.
+
+### NSCore, Inc. (NSCore (TwinBit®))
+
+- **Headquarters**: Kawasaki, Kanagawa, Japan
+- **Founded**: 2001
+- **Leadership**: Satoshi Seo (CEO / Founder), Kenji Hokazono and former NEC memory R&D core engineering team
+- **Business Model**: Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS)
+- **Patent Portfolio Status**: 2 In-Force · 2 Public Domain
+- **Global Patents**: 50+ Granted Worldwide Patents
+- **Patent Strategy**: NSCore's patent strategy fundamentally eliminates reliance on dedicated floating-gate poly masks or expensive thermal steps. The founding team recognized that the native silicon nitride/oxide sidewall spacers inherently deposited on standard CMOS gates serve naturally as deep-level charge-trapping media. By controlling localized hot-carrier injection under 100% standard CMOS compatibility (zero extra masks, zero process changes), NSCore stores independent charges on both spacers of a single transistor to deliver 2-bit/cell (TwinBit®), advancing to P-channel Schottky MTP architectures in 40nm to 22nm nodes.
+
+#### NSCore TwinBit® Native Spacer Charge-Trapping Patent Portfolio (Charge-Trapping MTP (Multiple-Time Programmable))
+
+*Standard CMOS Native Sidewall Spacer · 2-bit/cell Storage · Zero-Mask High-Temperature Automotive MTP*
+
+- **Cell Topology**: Native Sidewall Spacer Split-Storage (1.5T/2T)
+- **Physical Mechanism**: Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing
+- **Process Node**: 0.18µm / 0.13µm / 90nm / 65nm / 55nm / 40nm / 28nm / 22nm Standard CMOS
+
+##### [US6930349B2](https://patents.google.com/patent/US6930349B2/en) · Nonvolatile Semiconductor Memory Device and Method of Manufacturing the Same
+
+- **Legal Status**: Expired · Public Domain (Term: 2022-12-05)
+- **Category & Generation**: Device Structure & Fabrication · Gen-1 Spacer Trapping
+- **Priority / Grant**: 2002-12-05 / 2005-08-16
+- **Inventors**: Satoshi Seo, Kenji Hokazono
+- **Claim 1 Reading**: Claim 1 recites a non-volatile memory cell using standard transistor sidewall spacers as charge-trapping layers and its zero-extra-mask fabrication method.
+- **FTO Assessment**: Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering native CMOS sidewall spacer as charge-trapping medium is free to operate.
+- **Physical Solution**: Utilizes standard CMOS transistor gate sidewall spacers (silicon nitride/oxide) as non-volatile charge storage layers without altering foundry process flows.
+##### [US7245532B2](https://patents.google.com/patent/US7245532B2/en) · Nonvolatile Semiconductor Memory Device Having Two Charge Storage Regions per Cell
+
+- **Legal Status**: Expired · Public Domain (Term: 2024-03-24)
+- **Category & Generation**: Method / Operation · Gen-1 TwinBit 2-bit/cell
+- **Priority / Grant**: 2004-03-24 / 2007-07-17
+- **Inventors**: Satoshi Seo, Tomoya Saito
+- **Claim 1 Reading**: Claim 1 defines independent two-charge storage region programming and reverse-read operations in a single transistor.
+- **FTO Assessment**: Expired in March 2024; entered public domain. 2-bit/cell independent spacer programming and reverse-read operations are in the public domain.
+- **Physical Solution**: Employs asymmetric channel hot-electron injection (CHEI) into Source-side and Drain-side spacers independently, reading via reverse-bias sensing to achieve 2-bit/cell (TwinBit) without cross-talk.
+##### [US7768832B2](https://patents.google.com/patent/US7768832B2/en) · Nonvolatile Semiconductor Memory Device with Improved Disturb Immunity
+
+- **Legal Status**: In-Force / Active (Term: 2027-06-15)
+- **Category & Generation**: Array Architecture · Gen-2 Anti-Disturb
+- **Priority / Grant**: 2007-06-15 / 2010-08-03
+- **Inventors**: Satoshi Seo, Tomoya Saito
+- **Claim 1 Reading**: Claim 1 recites segmented bias circuitry and methods suppressing disturb in spacer charge-trapping memory arrays.
+- **FTO Assessment**: In force through June 2027. Protects array bias regulation topologies suppressing soft-disturb in spacer charge-trapping matrices.
+- **Physical Solution**: Implements three-level stepped wordline biasing and substrate reverse-biasing to dynamically boost surface potential of unselected cells, improving disturb margin tenfold.
+##### [US8760927B2](https://patents.google.com/patent/US8760927B2/en) · Nonvolatile Semiconductor Memory Device Using Schottky Barrier Diode or P-Channel Carrier Trapping
+
+- **Legal Status**: In-Force / Active (Term: 2033-05-15)
+- **Category & Generation**: Device & Operation · Gen-3 Schottky MTP
+- **Priority / Grant**: 2013-05-15 / 2014-06-24
+- **Inventors**: Satoshi Seo, Kenji Hokazono
+- **Claim 1 Reading**: Claim 1 defines a P-channel Schottky junction cell with hot-hole write and hot-electron erase nonvolatile operation.
+- **FTO Assessment**: Actively in force through May 2033. Protects TwinBit Gen-2 P-channel Schottky hot-hole write and hot-electron erase architecture across 40nm–22nm nodes.
+- **Physical Solution**: Advances into TwinBit Gen-2, utilizing P-channel Schottky transistors with hot-hole write and hot-electron erase, eliminating high-field oxide fatigue for zero-mask 40nm–22nm MTP.
+#### Patent Defense Strategy & Landmark Litigation: Native Sidewall Spacer Trapping Moat & 2-bit/cell Public Domain Opening
+
+Founded in 2001 by former NEC memory technology leader Satoshi Seo, NSCore established a revolutionary logic NVM route that overturned conventional floating-gate paradigms. Standard logic CMOS intrinsically deposits silicon nitride/oxide sidewall spacers to block LDD implants; NSCore discovered that spacers naturally act as deep-level silicon nitride charge traps (SiN Trap Layer), eliminating specialized floating gate poly masks.
+
+##### Zero-Extra-Mask Extreme Compatibility: Spacer Trapping vs. eFlash
+
+Conventional embedded flash (e.g., SST SuperFlash, Infineon SONOS) requires 3 to 8 additional masks and specialized high-temperature annealing, stalling logic node migration. NSCore pioneer patent US6930349B2 strictly utilizes native CMOS spacers as physical storage nodes, requiring zero DRC modifications or SPICE model changes from silicon foundries.
+
+##### Symmetric Dual-Bit Physical Separation (TwinBit US7245532B2)
+
+Unlike traditional 1-bit OTP/MTP bitcells, NSCore patented forward CHEI injection into source-side and drain-side spacers independently, combined with reverse-bias sensing to evaluate threshold shifts. This achieves 2 independent bits per single standard transistor (TwinBit), shrinking core cell area by over 40%.
+
+##### Gen-2 Pch Schottky Evolution (US8760927B2) & Automotive High-Temp Retention
+
+Overcoming oxide wearout in sub-40nm scaling, NSCore engineered TwinBit Gen-2 with Pch Schottky bitcells using hot-hole write and hot-electron erase. Deep dielectric traps tightly confine charges, preventing global charge leakage and delivering outstanding 150°C automotive data retention.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] NSCore foundational patent US6930349B2 (native CMOS sidewall spacer charge storage) expired in December 2022 after its 20-year term. Dual-bit independent reverse-read patent US7245532B2 also expired in March 2024. The semiconductor industry may freely practice native spacer storage topologies. However, array anti-disturb bias (US7768832B2) and Gen-2 Pch Schottky MTP (US8760927B2) remain actively protected through 2027 and 2033.
+
 ### Attopsemi Technology Inc. (Attopsemi)
 
 - **Headquarters**: Zhubei City, Hsinchu County, Taiwan
@@ -12108,13 +12253,14 @@ Because the fuse line remains intact, the silicide agglomeration creates stable 
 | 01. eMemory | NeoBit® (OTP (One-Time Programmable)); NeoFuse® (Antifuse OTP (Anti-Tamper One-Time Programmable)); NeoEE® (MTP (Multi-Time Programmable)); NeoMTP® (High-Density MTP (Multi-Time Programmable)); NeoPUF® (PUF (Physical Unclonable Function)) | NeoBit®: Drain band-to-band tunneling induces hot holes, impact-generating secondary hot electrons injected into the p+ floating gate (CHEI); read senses channel conduction current; NeoFuse®: High electric field stress generates localized defects within ultra-thin gate oxides, enabling direct tunneling conduction filaments; read senses gate leakage current (I_GATE); NeoEE®: Both program and erase utilize Fowler-Nordheim (FN) quantum tunneling; MOS capacitor couples voltage to modulate floating-gate potential; NeoMTP®: Program: Channel Hot Hole-Induced Electron Injection (CHEI); Erase: Electrons tunnel from floating gate edge to Erase Gate via localized FN tunneling; NeoPUF®: Exploits unpredictable atomic-scale thickness fluctuations and quantum tunneling probabilities in ultra-thin gate oxides; differential tracking architecture cancels PVT drifts | [US6678190B2 (過期)](https://patents.google.com/patent/US6678190B2/en), [US6914825B2 (過期)](https://patents.google.com/patent/US6914825B2/en), [US6920067B2 (過期)](https://patents.google.com/patent/US6920067B2/en), [US8514614B2 (有效)](https://patents.google.com/patent/US8514614B2/en), [US8982637B2 (有效)](https://patents.google.com/patent/US8982637B2/en), [US10410712B2 (有效)](https://patents.google.com/patent/US10410712B2/en), [US20250024668A1 (有效)](https://patents.google.com/patent/US20250024668A1/en), [US6788574B2 (過期)](https://patents.google.com/patent/US6788574B2/en), [US6950342B2 (過期)](https://patents.google.com/patent/US6950342B2/en), [US6853583B2 (過期)](https://patents.google.com/patent/US6853583B2/en), [US7158412B2 (過期)](https://patents.google.com/patent/US7158412B2/en), [US10204981B2 (有效)](https://patents.google.com/patent/US10204981B2/en), [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor (Over 100 Billion Cumulative Commercial Silicon Shipments) |
 | 02. Kilopass (Synopsys) | XPM™ (Antifuse OTP (Tamper-Evident One-Time Programmable)); SecretCode™ (Secure Antifuse OTP (Hardware Security Root Key Antifuse)) | XPM™: Localized dielectric breakdown in ultra-thin gate oxide induced by high vertical electric field, forming a permanent ohmic silicon filament from poly gate to substrate; read senses conductive on-current; SecretCode™: Dynamic switching and electrical isolation of substrate well potentials to prevent substrate leakage and hot-carrier disturb to adjacent cells, combined with balanced dummy currents against DPA side channels | [US6992925B2 (過期)](https://patents.google.com/patent/US6992925B2/en), [US6777766B2 (過期)](https://patents.google.com/patent/US6777766B2/en), [US7643333B2 (有效)](https://patents.google.com/patent/US7643333B2/en) | TSMC, UMC, GlobalFoundries, SMIC, DB HiTek (Over 150 customer design wins, cumulative shipment exceeding 10 billion chips) |
 | 03. Sidense (Synopsys) | 1T-Fuse™ (1T Antifuse OTP (Single-Transistor One-Time Programmable)) | 1T-Fuse™: Electric field concentrates at breakdown edge during high-voltage write to induce localized conductive filament in thin oxide; access channel provides natural cutoff barrier during read | [US7402855B2 (過期)](https://patents.google.com/patent/US7402855B2/en), [US7880216B2 (有效)](https://patents.google.com/patent/US7880216B2/en), [US8325516B2 (有效)](https://patents.google.com/patent/US8325516B2/en) | TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS) (Over 500 commercial production tape-outs, tens of billions of silicon units shipped) |
-| 04. YMC | YMC (MTP (Multiple-Time Programmable)) | YMC: Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission | [US7835188B2 (有效)](https://patents.google.com/patent/US7835188B2/en), [US8184485B2 (有效)](https://patents.google.com/patent/US8184485B2/en) | UMC, SMIC, Vanguard (VIS), HHGrace, DB HiTek (Hundreds of mass-produced commercial tape-outs, cumulative volume exceeding tens of billions of chips) |
-| 05. AEON (Synopsys) | AEON® (Ultra-Low Power MTP (Multiple-Time Programmable)) | AEON®: Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write | [US6166953A (過期)](https://patents.google.com/patent/US6166953A/en), [US6388918B1 (過期)](https://patents.google.com/patent/US6388918B1/en) | TSMC, UMC, GlobalFoundries, SMIC (Billions of passive RFID tags and ultra-low-power IoT chips shipped) |
-| 06. Attopsemi | I-fuse® (Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)) | I-fuse®: Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation | [US9165979B2 (有效)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (有效)](https://patents.google.com/patent/US9613943B2/en) | TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor (Hundreds of automotive and IoT customer tape-outs, billions of units shipped) |
-| 07. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (有效)](https://patents.google.com/patent/US9214470B2/en), [US9847343B2 (有效)](https://patents.google.com/patent/US9847343B2/en) | TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek (Deployed across automotive MCUs and edge AI analog computing processors) |
-| 08. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
-| 09. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
-| 10. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
-| 11. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
+| 04. YMC | YMC (MTP (Multiple-Time Programmable)) | YMC: Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission | [US6950342B2 (過期)](https://patents.google.com/patent/US6950342B2/en), [US7119394B2 (過期)](https://patents.google.com/patent/US7119394B2/en), [US7835188B2 (有效)](https://patents.google.com/patent/US7835188B2/en), [US8184485B2 (有效)](https://patents.google.com/patent/US8184485B2/en), [US9691784B2 (有效)](https://patents.google.com/patent/US9691784B2/en) | UMC, SMIC, Vanguard (VIS), HHGrace, DB HiTek (Hundreds of mass-produced commercial tape-outs, cumulative volume exceeding tens of billions of chips) |
+| 05. AEON (Synopsys) | AEON® (Ultra-Low Power MTP (Multiple-Time Programmable)) | AEON®: Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write | [US6166953A (過期)](https://patents.google.com/patent/US6166953A/en), [US6388918B1 (過期)](https://patents.google.com/patent/US6388918B1/en), [US7787304B2 (有效)](https://patents.google.com/patent/US7787304B2/en), [US8264887B2 (有效)](https://patents.google.com/patent/US8264887B2/en) | TSMC, UMC, GlobalFoundries, SMIC (Billions of passive RFID tags and ultra-low-power IoT chips shipped) |
+| 06. NSCore (TwinBit®) | NSCore (Charge-Trapping MTP (Multiple-Time Programmable)) | NSCore: Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing | [US6930349B2 (過期)](https://patents.google.com/patent/US6930349B2/en), [US7245532B2 (過期)](https://patents.google.com/patent/US7245532B2/en), [US7768832B2 (有效)](https://patents.google.com/patent/US7768832B2/en), [US8760927B2 (有效)](https://patents.google.com/patent/US8760927B2/en) | TSMC, UMC, GlobalFoundries, SMIC, DB HiTek (Licensed across hundreds of automotive MCUs, smartcards, and industrial IoT designs; billions of units in volume shipment) |
+| 07. Attopsemi | I-fuse® (Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)) | I-fuse®: Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation | [US9165979B2 (有效)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (有效)](https://patents.google.com/patent/US9613943B2/en) | TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor (Hundreds of automotive and IoT customer tape-outs, billions of units shipped) |
+| 08. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (有效)](https://patents.google.com/patent/US9214470B2/en), [US9847343B2 (有效)](https://patents.google.com/patent/US9847343B2/en) | TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek (Deployed across automotive MCUs and edge AI analog computing processors) |
+| 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
+| 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
+| 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
+| 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
 
 
