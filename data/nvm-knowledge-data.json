@@ -7529,7 +7529,22 @@
             "phase": "GAA NanoSheet 與 PUFsecurity 時代：進軍 2nm 埃米世代",
             "achievement": "佈局 US20250024668A1 等次奈米 GAA 專利，成立子公司 PUFsecurity，結合 NeoFuse/NeoPUF 與後量子密碼學 (PQC) 硬體加速，打入車規晶片安全與全球 AI 運算晶片。"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "專利階梯防禦戰略與公有領域生態",
+          "overview": "力旺電子的專利戰略展現了半導體 IP 領域極其經典的「雙軌階梯演進」模式。早期透過 NeoBit (US6678190B2 等) 奠定標準 CMOS 0-Mask 浮動閘極規範；當奠基專利於 2022–2023 年相繼屆滿進入公有領域時，力旺早已在先進節點完成 NeoFuse (US8514614B2 / US8982637B2 等) 與 NeoPUF (US10204981B2 等) 的嚴密專利網佈局。",
+          "keyBattles": [
+            {
+              "heading": "0-Mask 浮動閘極專利防禦圈 (NeoBit Era)",
+              "detail": "力旺早期以無控制閘極之串聯 PMOS 結構，徹底封鎖了「利用二次電子注入 (CHEI) 於標準 CMOS 製作 EPROM」的最佳技術路徑。競爭對手若欲在標準邏輯製程製作 0-mask OTP，必須繞道採用高壓 NMOS 崩潰或複雜偏壓泵浦，生產良率與面積難以匹敵。2022 年該專利滿 20 年期滿後，此基礎結構已成為全球代工廠免費公共財，但微縮極限止於 65nm。"
+            },
+            {
+              "heading": "2nm GAA / FinFET 先進反熔絲防禦網 (NeoFuse Era)",
+              "detail": "面對 28nm 以下先進製程，力旺以獨家 3T 反熔絲架構 (US8982637B2) 與閘極微觀漏電流讀取方法 (US8514614B2) 構建了全新法律壁壘。該專利權利項牢牢鎖定「低於介電層擊穿電壓之微弱直接穿隧電流判定」，成功阻止競爭者在先進 FinFET/GAA 節點無償複製其反熔絲讀取感測電路。"
+            }
+          ],
+          "ftoVerdict": "【自由實施建議】業界目前可完全合法、免授權實施 0.5µm 至 0.11µm 之初代 NeoBit 雙 PMOS 浮閘電路；但在 28nm 及以下先進節點，凡採用 3T 調壓抑制漏電或閘氧微觀穿隧讀取之反熔絲電路，仍受力旺有效專利嚴密保護至 2031–2037 年。"
+        }
       },
       {
         "id": "kilopass",
@@ -7674,7 +7689,22 @@
             "nodes": "28nm 及以下成熟支援",
             "keyPatents": "Synopsys DesignWare 承接"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Kilopass vs. Sidense 世紀專利訴訟與 1T 反熔絲權利邊界",
+          "overview": "2010 年至 2014 年間爆發的 Kilopass vs. Sidense 專利侵權訴訟，是半導體 IP 歷史上最具指標性的司法攻防。Kilopass 指控 Sidense 的 1T-Fuse 侵犯其 XPM 反熔絲核心專利 (US6992925B2 與 US6777766B2)，最終美國聯邦巡迴上訴法院 (CAFC) 裁定 Sidense 不侵權，確立了半導體專利迴避設計的重要法理邊界。",
+          "keyBattles": [
+            {
+              "heading": "核心爭點：交叉點單元 (Cross-Point Cell) 之文義涵蓋",
+              "detail": "Kilopass 核心專利 US6992925B2 Claim 1 限定記憶單元在列線 (WL) 與行線 (BL) 的交叉點由「單一電晶體構成」，且閘極與源極/汲極之交疊區均勻引發氧化層崩潰。Kilopass 主張 Sidense 的 1T-Fuse 同樣由單一電晶體構成且於交叉點工作，構成文義侵權。"
+            },
+            {
+              "heading": "CAFC 終審判決：Split-Channel 之實質物理不均等",
+              "detail": "Sidense 成功證明其專利 US7402855B2 採用「裂通道 (Split-Channel)」物理結構，同一電晶體通道分為厚閘/未擊穿區與薄閘擊穿區。厚閘區域本質上承擔了選擇開關功能，物理上並非均勻交叉點閘極。CAFC 判定 Sidense 未落入專利權利項保護範圍，均等論亦不成立。"
+            }
+          ],
+          "ftoVerdict": "【重大產業里程碑】Kilopass 訴訟主力武器專利 US6992925B2 已於 2023 年 3 月屆滿 20 年進入公有領域！這意味著當初纏訟多年的均勻交叉點 1T 閘氧擊穿基礎反熔絲架構，現已成為全球半導體產業界均可自由實施的公有技術。"
+        }
       },
       {
         "id": "sidense",
@@ -7807,7 +7837,22 @@
             "nodes": "7nm / 5nm / 3nm FinFET",
             "keyPatents": "DesignWare 1T-Fuse 系列"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "Split-Channel 迴避設計之專利典範與公有領域解鎖",
+          "overview": "Sidense 的 1T-Fuse 代表了半導體專利迴避設計 (Workaround Design) 的最高水準。面對 Kilopass 早先築起的 1T 交叉點專利高牆，Sidense 創辦團隊並未妥協，而是深入電晶體微觀結構，以「非對稱通道多晶矽覆蓋」成功開創出面積更小且完全自主合法的 1T-Fuse 專利家族。",
+          "keyBattles": [
+            {
+              "heading": "Split-Channel 1T 架構專利母案 (US7402855B2)",
+              "detail": "Sidense 核心專利限定在單一電晶體內部形成非對稱擴散接面與通道長度分割。薄閘極部分提供受控反熔絲擊穿，而未覆蓋高場薄氧化層的通道部分則保持高阻截止，在完全無需額外選擇電晶體的條件下消除了漏電流。此專利不僅贏得司法訴訟，更成為台積電、格芯等多家代工廠主流 OTP PDK 基準。"
+            },
+            {
+              "heading": "雙反熔絲差動感測演進 (US8325514B2 / US8325516B2)",
+              "detail": "為解決 40nm/28nm 先進節點反熔絲擊穿電阻離散過大之難題，Sidense 於 2009–2010 年佈局雙反熔絲互補單元專利，利用成對的兩顆反熔絲互補讀取，徹底擺脫對絕對參考電阻的依賴，大幅提升高溫車規可靠度。"
+            }
+          ],
+          "ftoVerdict": "【重大產業里程碑】Sidense 核心母案專利 US7402855B2 已於 2025 年 9 月屆滿 20 年進入公有領域！業界現在可自由、免專利金採用其標誌性的 Split-Channel 1T 反熔絲架構；但其雙反熔絲差動感測與無接面微縮專利仍有效維持至 2027–2030 年。"
+        }
       },
       {
         "id": "ymc",
@@ -8121,7 +8166,22 @@
             "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
             "keyPatents": "金屬電遷移先進專利群"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔",
+          "overview": "寬緯科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。",
+          "keyBattles": [
+            {
+              "heading": "打破傳統 eFuse 物理爆破專利邊界",
+              "detail": "傳統多晶矽熔絲 (如 IBM、台積電早期專利) 是利用大電流（>10mA）引發極端高溫熱應力，使熔絲劇烈爆斷。其缺點是會釋放矽蒸汽碎屑並撕裂鈍化層，極易受潮回春造成漏電。Attopsemi 核心專利 US9165979B2 與 US9613943B2 從根本上反向操作，限定編程電流被精確限縮於亞熱退火區間，完全不破壞多晶矽或介電層實體完整性。"
+            },
+            {
+              "heading": "0.4V 超低電壓讀取與車規 150°C 專利保護圈",
+              "detail": "由於熔絲未被物理炸碎，而是以金屬矽化物凝聚形成穩定的百兆歐姆高阻態，Attopsemi 專利鎖定了 0.4V 超低電壓無感測擾動讀取，並延伸申請了金屬閘極 HKMG 插塞界面電遷移專利 (US9613943B2) 與熱隔離差動結構 (US10410724B2)，有效覆蓋 0.35µm 至 7nm/5nm 先進製程。"
+            }
+          ],
+          "ftoVerdict": "【自由實施建議】傳統多晶矽爆破型 eFuse 大多數基礎專利已於 2010–2018 年過期；但 Attopsemi 的受控電流亞熱凝聚 (Non-explosive current-limited) 與 0.4V 讀取專利仍處於強固保護期（有效維持至 2032–2038 年），任何宣稱非破壞性退火熔斷之技術皆須嚴密審視其侵權風險。"
+        }
       },
       {
         "id": "floadia",

@@ -137,6 +137,15 @@ function renderPatentFamily(family, en) {
 }
 
 /**
+ * 渲染專利攻防、訴訟爭點與 FTO 深度案卷 (Patent Litigation & Defense Dossier)
+ */
+function renderLitigationDefense(lit, en) {
+  if (!lit) return '';
+  const title = lit.title || (en ? 'Patent Defense Strategy & Landmark Litigation' : '專利防禦戰略與指標訴訟攻防');
+  return `<section class="nvm-vendor-litigation-section"><header class="nvm-litigation-header"><span class="nvm-litigation-kicker">${en ? 'PATENT DEFENSE & LITIGATION DOSSIER' : '專利攻防與訴訟案卷'}</span><h4>${esc(title)}</h4><p class="nvm-litigation-overview">${esc(lit.overview)}</p></header><div class="nvm-litigation-battles">${(lit.keyBattles || []).map(b => `<article class="nvm-battle-card"><h5>${esc(b.heading)}</h5><p>${esc(b.detail)}</p></article>`).join('')}</div><div class="nvm-litigation-fto-box"><strong>${en ? 'FTO Guidance & Public Domain Verdict:' : '自由實施 (FTO) 判定與公有領域結論：'}</strong><p>${esc(lit.ftoVerdict)}</p></div></section>`;
+}
+
+/**
  * 渲染專利戰略演進時序線 (Patent Roadmap & Evolution Timeline)
  */
 function renderMilestones(milestones, en) {
@@ -189,7 +198,7 @@ function renderVendorStudy(vendor, en, cite) {
   const activeCount = allPatents.filter(p => p.legalStatus === 'active').length;
   const expiredCount = allPatents.filter(p => p.legalStatus === 'expired').length;
 
-  return `<section id="vendor-${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'PATENT FILING ENTITY' : '專利申請機構專題'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3><div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Portfolios Status:' : '專利狀態:'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'In-Force' : '件有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Public Domain' : '件公有領域'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p></div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, en)).join('')}</div>${renderMilestones(vendor.milestones, en)}</section>`;
+  return `<section id="vendor-${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'PATENT FILING ENTITY' : '專利申請機構專題'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3><div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Portfolios Status:' : '專利狀態:'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'In-Force' : '件有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Public Domain' : '件公有領域'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p></div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, en)).join('')}</div>${renderLitigationDefense(vendor.litigationDefense, en)}${renderMilestones(vendor.milestones, en)}</section>`;
 }
 
 /**
@@ -298,8 +307,17 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
         md += `- **${en ? 'Claim 1 Reading' : '獨立權利項導讀'}**: ${p.claimFocus}\n`;
         md += `- **${en ? 'FTO Assessment' : '自由實施 (FTO) 評估'}**: ${en ? p.ftoStatusEn : p.ftoStatus}\n`;
         md += `- **${en ? 'Physical Solution' : '物理機制'}**: ${p.mechanism}\n`;
-        md += `- **${en ? 'Commercial Silicon' : '商用產品承接'}**: ${p.productLink}\n\n`;
       }
+    }
+
+    if (v.litigationDefense) {
+      const lit = v.litigationDefense;
+      md += `#### ${en ? 'Patent Defense Strategy & Landmark Litigation' : '專利防禦戰略與指標訴訟攻防'}: ${lit.title}\n\n`;
+      md += `${lit.overview}\n\n`;
+      for (const b of (lit.keyBattles || [])) {
+        md += `##### ${b.heading}\n\n${b.detail}\n\n`;
+      }
+      md += `> **${en ? 'FTO & Public Domain Verdict' : '自由實施判定與公有領域結論'}**: ${lit.ftoVerdict}\n\n`;
     }
   }
 
