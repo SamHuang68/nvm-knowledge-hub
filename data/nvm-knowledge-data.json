@@ -7141,7 +7141,17 @@
                 "coreProblem": "傳統 EPROM / OTP 記憶體需要專用控制閘極 (Control Gate) 與額外多晶矽層進行電容耦合，導致邏輯製程成本暴增。如何在完全沒有控制閘極的標準 PMOS 上實現高效率電子注入？",
                 "mechanism": "限定一對串聯之 p-channel MOS，第一 PMOS 作為選擇器，第二 PMOS 具有隔離之浮動閘極。於源極線 (SL) 與 N-Well 施加 3–8V 正偏壓，汲極施加負偏壓，使接面產生能帶間穿隧電洞，撞擊游離產生之二次電子受垂直電場加速越過 Si-SiO2 能障（約 3.15 eV）注入浮動閘極。",
                 "claimFocus": "權利項 1 限定無控制閘極之串聯 PMOS 結構、源極與井區接同電位正壓、汲極接負偏壓以引發雪崩電子注入之偏壓方法。",
-                "productLink": "NeoBit 全球首款量產核心 IP，廣泛應用於電源管理 IC (PMIC)、LCD 驅動 IC 微調校準。"
+                "productLink": "NeoBit 全球首款量產核心 IP，廣泛應用於電源管理 IC (PMIC)、LCD 驅動 IC 微調校準。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-12-19",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "本專利保護期已於 2022 年 12 月屆滿 20 年，其核心技術已進入公有領域 (Public Domain)。全球晶圓代工廠與晶片設計商可自由實施其無控制閘極串聯 PMOS 之 CHEI 編程架構，無侵權風險。",
+                "ftoStatusEn": "Expired in December 2022 after full 20-year term; entered the public domain. Semiconductor foundries and IC designers may freely practice the 2-PMOS CHEI programming methodology without patent infringement liability."
               },
               {
                 "id": "US6914825B2",
@@ -7154,7 +7164,17 @@
                 "coreProblem": "浮動閘極單元在寫入後必須確保電荷能於高溫惡劣環境下長期留存，且能以高訊噪比被感測放大器辨識。",
                 "mechanism": "程式化後浮動閘極內累積穩定的負電荷，由於 PMOS 的物理特性，負電荷降低了通道臨界電壓 (Vth 負向偏移)，使儲存 PMOS 在讀取偏壓下呈現低阻導通狀態；未寫入單元則保持截止。電荷經氧化層包覆，高溫保持力符合 Arrhenius 125°C 10 年標準。",
                 "claimFocus": "權利項 1 限定單元未編程時為高阻截止狀態，編程後於浮閘中保留負電荷使通道低阻導通，並以通道電流大小定義資料位元。",
-                "productLink": "NeoBit 資料留存規格與可靠度認證基準專利。"
+                "productLink": "NeoBit 資料留存規格與可靠度認證基準專利。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-12-19",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "已於 2022 年 12 月屆滿過期進入公有領域。其利用 PMOS 浮動閘極保留負電荷以降低臨界電壓之單元結構特徵，已不受專利排他權約束。",
+                "ftoStatusEn": "Expired in December 2022; entered public domain. The structural claim defining negative charge storage in PMOS floating gate to lower threshold voltage is now open for public implementation."
               },
               {
                 "id": "US6920067B2",
@@ -7167,7 +7187,17 @@
                 "coreProblem": "如何證明單元結構完全不依賴特殊客製化製程步驟，而能與晶片內部周邊電路無縫共用？",
                 "mechanism": "儲存單元中 PMOS 電晶體之閘極氧化層厚度、多晶矽摻雜與擴散接面，直接共用同晶圓上周邊 3.3V 或 5V 輸入/輸出 (I/O) 電晶體之製程層。無需修改光罩或追加任何熱製程步驟。",
                 "claimFocus": "權利項 1 限定記憶體單元結構與晶片 I/O 電晶體具備完全相同的介電層厚度與材料特性，定義了 0-mask 的製程邊界。",
-                "productLink": "NeoBit 零額外光罩製程契約之權利保護基石。"
+                "productLink": "NeoBit 零額外光罩製程契約之權利保護基石。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2023-05-23",
+                "patentCategory": "製程整合項 (Process Integration)",
+                "patentCategoryEn": "Process Integration",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "已於 2023 年 5 月屆滿過期進入公有領域。其「共用標準 CMOS I/O 電晶體氧化層達成 0-Mask」之製程特徵已無專利排他權。",
+                "ftoStatusEn": "Expired in May 2023; entered public domain. The zero-mask fabrication concept sharing standard CMOS I/O gate oxide is now free to operate."
               }
             ]
           },
@@ -7192,7 +7222,17 @@
                 "coreProblem": "微縮製程中核心閘極氧化層厚度小於 2nm，傳統反熔絲容易在未選中單元上產生嚴重的讀取擾動 (Read Disturb) 與半選誤擊穿。",
                 "mechanism": "於編程時對反熔絲閘極施加高壓脈衝，引發局部氧化層軟崩潰；讀取時施加低於 1.2V 之正向讀取電壓，感測穿過受損介電層之穿隧漏電流 (I_GATE)。未編程單元閘極漏電小於 1pA，編程後漏電躍升至數個 µA，提供極寬之讀取窗口。",
                 "claimFocus": "權利項 1 限定反熔絲單元之讀取電壓顯著低於擊穿閾值，並以閘極電流而非通道電流量測儲存狀態之方法。",
-                "productLink": "NeoFuse 全球授權與各大代工廠 PDK（28nm HPC+ / 22ULL / 16FFC）標準庫。"
+                "productLink": "NeoFuse 全球授權與各大代工廠 PDK（28nm HPC+ / 22ULL / 16FFC）標準庫。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2031-09-29",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "先進第二代 (Gen-2 Advanced)",
+                "generationEn": "Gen-2 Advanced",
+                "ftoStatus": "專利權有效維持至 2031 年 9 月。具有強力排他權，任何利用低壓感測閘極穿隧漏電流 (I_GATE) 判定反熔絲軟崩潰狀態之操作方法均受此專利保護。",
+                "ftoStatusEn": "Actively in force through September 2031. Grants enforceable exclusivity over methods reading antifuse soft-breakdown state via sub-breakdown gate leakage current (I_GATE)."
               },
               {
                 "id": "US8982637B2",
@@ -7205,7 +7245,17 @@
                 "coreProblem": "在大型陣列中，單一反熔絲擊穿後會對整條位元線 (BL) 產生寄生漏電路徑，降低其他單元之讀取感測餘裕並增加待機功耗。",
                 "mechanism": "引入三電晶體 (3T) 拓撲：位元線端依序串聯選擇管 (SEL) 與調節管 (REG)，再連接至反熔絲儲存元件 (AF)。REG 電晶體在寫入時承受高壓降以保護 SEL，在讀取與待機時夾斷通道抑制 GIDL 與漏電流，使陣列雜訊抑制比提高 30dB。",
                 "claimFocus": "權利項 1 限定由 SEL、REG 與 AF 串聯組成之 3T 單元，且 REG 之閘極連接獨立偏壓控制線以提供動態阻抗調節。",
-                "productLink": "NeoFuse 先進安全陣列架構（具備高耐壓與低待機漏電規格）。"
+                "productLink": "NeoFuse 先進安全陣列架構（具備高耐壓與低待機漏電規格）。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2033-03-15",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "先進第二代 (Gen-2 Advanced)",
+                "generationEn": "Gen-2 Advanced",
+                "ftoStatus": "專利權有效維持至 2033 年 3 月。保護 3T 反熔絲單元之串聯調壓架構，防止先進節點漏電，未獲授權不得於 28nm 以下代工 PDK 中採用該結構。",
+                "ftoStatusEn": "In force through March 2033. Protects the 3T antifuse cell structure with intermediate regulator transistor to suppress leakage in advanced nodes."
               },
               {
                 "id": "US10410712B2",
@@ -7218,7 +7268,17 @@
                 "coreProblem": "FinFET 3D 鰭式結構具有三面立體環繞閘極，邊緣幾何電場極度集中，容易引發不可預測之硬崩潰噴濺或金屬遷移，破壞相鄰鰭片。",
                 "mechanism": "針對立體 FinFET 特殊幾何設計反熔絲單元，利用鰭片側壁與頂部均勻分佈之高介電金屬閘極 (HKMG)，藉由受控脈衝在鰭片側壁產生自限式局部導電微絲，編程電流抑制在 50µA 以下，杜絕矽微絲貫穿與相鄰短路。",
                 "claimFocus": "權利項 1 限定跨越立體半導體鰭片之金屬閘極反熔絲結構、側壁介電層崩潰路徑與鰭片偏壓操作組合。",
-                "productLink": "NeoFuse 16nm / 12nm / 7nm / 5nm FinFET 先進製程專利基石。"
+                "productLink": "NeoFuse 16nm / 12nm / 7nm / 5nm FinFET 先進製程專利基石。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2037-06-20",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "微縮第三代 (Gen-3 FinFET/GAA)",
+                "generationEn": "Gen-3 FinFET/GAA",
+                "ftoStatus": "專利權有效維持至 2037 年 6 月。保護 3D FinFET 三維鰭片架構下之反熔絲電容器與選擇管結構，覆蓋 16nm/7nm/5nm/3nm PDK。",
+                "ftoStatusEn": "In force through June 2037. Protects antifuse cell structures implemented on 3D FinFET architectures across 16nm down to 3nm nodes."
               },
               {
                 "id": "US20250024668A1",
@@ -7231,7 +7291,17 @@
                 "coreProblem": "在 3nm / 2nm 環繞閘極 (GAA NanoSheet) 節點下，晶片電壓已微縮至 0.7V 以下，但反熔絲崩潰仍需較高電壓，如何防禦極端應力下的奈米片穿隧擊穿？",
                 "mechanism": "於單一單元內採用多段式階梯氧化層厚度控制，將高電場集中於預定之崩潰窗口，其餘通道區域以較厚介電層保護，達成在次奈米節點的高良率與低編程電壓。",
                 "claimFocus": "公開專利申請案，揭露於 GAA 結構中結合非均勻介電層與動態電位隔離之次世代反熔絲設計。",
-                "productLink": "NeoFuse 瞄準 N3P / N2P 先進製程之次世代技術部署。"
+                "productLink": "NeoFuse 瞄準 N3P / N2P 先進製程之次世代技術部署。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (申請/公開審查中 In-Force)",
+                "legalStatusEn": "Pending Application / In-Force Rights",
+                "expirationDate": "2043-07-14",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "埃米第四代 (Gen-4 2nm GAA)",
+                "generationEn": "Gen-4 2nm GAA",
+                "ftoStatus": "公開審查中，鎖定 2nm GAA 環繞式閘極奈米片 (Nanosheet) 反熔絲，預期將延續力旺在埃米世代之排他性保護至 2043 年。",
+                "ftoStatusEn": "Published patent application targeting 2nm GAA nanosheet antifuse structures; expected to secure exclusivity into 2043."
               }
             ]
           },
@@ -7256,7 +7326,17 @@
                 "coreProblem": "傳統 EEPROM 依賴第二層多晶矽控制閘 (Double-Poly Control Gate) 來提供足夠的耦合係數，邏輯製程無法直接支援。",
                 "mechanism": "在單層多晶矽中，利用大型 N-Well 或 MOS 元件作為耦合電容器 (Capacitive Coupler, C 節點)，與浮動閘極重疊形成高耦合比（>0.7）；穿隧元件 (T 節點) 與讀取元件 (R 節點) 分立設置，皆與該連續單層多晶矽浮閘相連。",
                 "claimFocus": "權利項 1 限定由單一多晶矽層形成的浮動閘極，跨越耦合電容區、穿隧區與感測通道區的三位一體拓撲。",
-                "productLink": "NeoEE 0-mask 邏輯 EEPROM 解決方案之核心架構。"
+                "productLink": "NeoEE 0-mask 邏輯 EEPROM 解決方案之核心架構。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-12-30",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "已於 2022 年 12 月屆滿過期進入公有領域。單層多晶矽利用井區電容作為控制閘極之單元架構現已可自由合法實施。",
+                "ftoStatusEn": "Expired in December 2022; entered public domain. Single-poly EEPROM structures employing well capacitors as control gates are free to implement."
               },
               {
                 "id": "US6950342B2",
@@ -7269,7 +7349,17 @@
                 "coreProblem": "熱電子注入 (CHE) 需要數毫安培之直流通道電流，導致晶片內部電荷泵體積巨大且無法用於無源 RFID 或鈕扣電池供電元件。",
                 "mechanism": "程式化時對 C 節點施加正壓、T 節點接地，電子經 FN 穿隧進入浮動閘極；抹除時對 C 節點接地、T 節點施加正壓，電子經反向 FN 穿隧移出浮動閘極。全程為純電容充電電流（<1nA），靜態功耗接近於零。",
                 "claimFocus": "權利項 1 限定程式化與抹除操作均利用電場誘發之 FN 量子穿隧，且讀取操作在低場下感測通道電阻之操作流程。",
-                "productLink": "NeoEE 極低功耗物聯網與 RFID 標籤專用 IP。"
+                "productLink": "NeoEE 極低功耗物聯網與 RFID 標籤專用 IP。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2023-12-30",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "已於 2023 年 12 月屆滿過期進入公有領域。雙向 FN 穿隧之寫入與抹除偏壓控制方法已不受專利限制。",
+                "ftoStatusEn": "Expired in December 2023; entered public domain. Bi-directional FN tunneling write/erase bias sequences are now open technology."
               }
             ]
           },
@@ -7294,7 +7384,17 @@
                 "coreProblem": "如何不使用雙層多晶矽，也不使用大面積基板耦合電容，就能在邏輯製程中將浮動閘極累積的負電荷安全抹除？",
                 "mechanism": "在 pMOS 浮動閘極側邊設置專用的抹除閘極 (Erase Gate, EG，由相鄰之 n+ 擴散區或多晶矽構成)。抹除時在 EG 上施加正高壓脈衝（約 10–12V），浮閘邊緣產生極高局部邊緣電場（Fringing Field），促使電子經 FN 穿隧由浮閘直接移出至 EG，完成電性抹除。",
                 "claimFocus": "權利項 1 限定由 pMOS 儲存電晶體與側向抹除閘極 EG 組成之單元，且抹除路徑完全獨立於通道讀取路徑之外。",
-                "productLink": "NeoMTP 核心基礎發明專利，支撐高密度 16Kb–1Mb 嵌入式代碼更新應用。"
+                "productLink": "NeoMTP 核心基礎發明專利，支撐高密度 16Kb–1Mb 嵌入式代碼更新應用。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-06-21",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Foundational)",
+                "generationEn": "Gen-1 Foundational",
+                "ftoStatus": "已於 2022 年 6 月屆滿過期進入公有領域。利用獨立抹除閘極 (Erase Gate) 進行邊緣場穿隧之單元結構可自由實施。",
+                "ftoStatusEn": "Expired in June 2022; entered public domain. Dedicated erase gate topology for edge FN tunneling is in the public domain."
               },
               {
                 "id": "US7158412B2",
@@ -7307,7 +7407,17 @@
                 "coreProblem": "在大型陣列中，如何安排抹除閘極以避免字線 (WL) 與位元線 (BL) 在區塊抹除時受到交叉干擾？",
                 "mechanism": "將相鄰列或相鄰區塊之抹除閘極進行共用（Shared Erase Line），並結合井區反向偏壓隔離，實現區塊抹除 (Sector Erase) 與頁面程式化 (Page Program)，陣列佈局效率達到 70% 以上。",
                 "claimFocus": "權利項 1 限定陣列中抹除閘極線的共享連接關係與列/行解碼選擇結構。",
-                "productLink": "NeoMTP 在車規 BCD 與顯示驅動晶片中的量產陣列標準設計。"
+                "productLink": "NeoMTP 在車規 BCD 與顯示驅動晶片中的量產陣列標準設計。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2024-03-08",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "演進第二代 (Gen-2 Evolutionary)",
+                "generationEn": "Gen-2 Evolutionary",
+                "ftoStatus": "已於 2024 年 3 月屆滿過期進入公有領域。高密度 NeoMTP 陣列結構與多晶矽佈局已完全開放。",
+                "ftoStatusEn": "Expired in March 2024; entered public domain. High-density single-poly MTP array layout configurations are now free to operate."
               }
             ]
           },
@@ -7332,7 +7442,17 @@
                 "coreProblem": "傳統 SRAM PUF 在溫度變化或長期使用後會發生位元翻轉（Bit Flip，誤碼率高達 10–15%），需要龐大輔助資料 (Helper Data) 與複雜 ECC 演算法修復，增加晶片面積且易遭旁路攻擊。",
                 "mechanism": "在相鄰兩個名義上完全相同的超薄閘極氧化層電容器上施加相同起始電應力。由於氧化層內部原子級氧空缺與穿隧距離存在不可預測之微觀量子波動，兩者穿隧漏電流必然存在細微差異。藉由差分比較兩者穿隧電流大小，輸出永遠固定的二元位元 '0' 或 '1'，天生達到零誤碼率 (BER < 10⁻¹²)。",
                 "claimFocus": "權利項 1 限定由一對反熔絲介電元件組成之 PUF 單元、量測兩者微觀穿隧電流差異、並將該差異固定化為唯一硬體辨識碼之電路架構。",
-                "productLink": "NeoPUF 核心發明專利，PUFsecurity 全系列安全信任根 (PUFrt, PUFcc) 之根基。"
+                "productLink": "NeoPUF 核心發明專利，PUFsecurity 全系列安全信任根 (PUFrt, PUFcc) 之根基。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2036-09-08",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "先進安全代 (Gen-3 Security)",
+                "generationEn": "Gen-3 Security",
+                "ftoStatus": "有效維持至 2036 年 9 月。保護利用薄閘極氧化層不可預測微觀缺陷產生隨機靜態識別碼之物理結構，具極高排他壁壘。",
+                "ftoStatusEn": "In force through September 2036. Strictly protects PUF hardware structures exploiting microscopic oxide variations for static key generation."
               },
               {
                 "id": "US10651268B2",
@@ -7345,7 +7465,17 @@
                 "coreProblem": "在 -40°C 極寒至 150°C 車規極熱環境，以及工作電壓波動下，如何保證 PUF 讀取信號永不翻轉？",
                 "mechanism": "設計完全對稱之共模差分感測放大器，使溫度與工作電壓變異對成對單元產生完全等同的共模漂移，差分感測端完全消除環境噪訊干擾，在極端惡劣車規條件下金鑰一致性依然維持 100%。",
                 "claimFocus": "權利項 1 限定差分平衡讀取架構、共模抑制電路與在全溫區保持位元一致性之感測方法。",
-                "productLink": "PUFrt (Root of Trust) 通過 PSA Certified Level 3 與 FIPS 140-3 評估之關鍵電路專利。"
+                "productLink": "PUFrt (Root of Trust) 通過 PSA Certified Level 3 與 FIPS 140-3 評估之關鍵電路專利。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-03-12",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "先進安全代 (Gen-1 Quantum PUFrt)",
+                "generationEn": "Gen-1 Quantum PUFrt",
+                "ftoStatus": "專利權有效維持至 2038 年 3 月。保護微觀量子穿隧實體不可複製函數裝置及其具自適應追蹤參考之差分感測電路。",
+                "ftoStatusEn": "In force through March 2038. Protects quantum tunneling physical unclonable function devices with tracking differential sensing circuitry."
               },
               {
                 "id": "US10769300B2",
@@ -7358,7 +7488,17 @@
                 "coreProblem": "真亂數產生器 (TRNG) 傳統依賴熱雜訊或環形振盪器抖動，容易受到電源雜訊注入或溫度操縱等物理側信道攻擊。",
                 "mechanism": "直接擷取電子在介電層薄膜中發生量子穿隧時產生之純量子散粒雜訊 (Quantum Shot Noise) 作為不可預測之純熵源，從物理層面杜絕外界電磁或溫度誘導攻擊，輸出完全符合 NIST SP 800-22 與 FIPS 140-3 標準之高品質加密亂數。",
                 "claimFocus": "權利項 1 限定以氧化層量子穿隧散粒雜訊作為熵源、搭配動態採樣電路輸出真隨機數序列之裝置。",
-                "productLink": "PUFsecurity 內嵌之真隨機亂數產生器 (TRNG) 核心 IP。"
+                "productLink": "PUFsecurity 內嵌之真隨機亂數產生器 (TRNG) 核心 IP。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-09-14",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "先進安全代 (Gen-1 Quantum TRNG)",
+                "generationEn": "Gen-1 Quantum TRNG",
+                "ftoStatus": "專利權有效維持至 2038 年 9 月。保護利用介電層直接穿隧量子散粒雜訊產生高熵隨機數之真隨機亂數產生器 (TRNG)。",
+                "ftoStatusEn": "In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise."
               }
             ]
           }
@@ -7428,7 +7568,17 @@
                 "coreProblem": "傳統雷射熔絲與多晶矽 eFuse 需要龐大電流且物理破壞顯而易見，容易被光學與電子顯微鏡逆向還原金鑰，如何利用標準邏輯閘極介電層實現微型化抗竄改儲存？",
                 "mechanism": "字元線與位元線交會處配置一選擇管與一反熔絲電容。編程時選擇管導通，並在反熔絲閘極施加高於氧化層臨界擊穿場強之電應力，使局部點缺陷串聯形成穩定導電微絲；讀取時施加常規低電壓感測微安培級電流。",
                 "claimFocus": "權利項 1 限定由標準 CMOS 選擇管與利用閘氧化層受控崩潰作為記憶態之反熔絲管串聯構成之陣列單元與偏壓控制方法。",
-                "productLink": "Kilopass XPM™ (Extra Permanent Memory) 旗艦產品線，廣泛用於 DTV 解碼晶片、HDMI HDCP 金鑰儲存。"
+                "productLink": "Kilopass XPM™ (Extra Permanent Memory) 旗艦產品線，廣泛用於 DTV 解碼晶片、HDMI HDCP 金鑰儲存。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2023-03-07",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "奠基第一代 (Gen-1 1T-Antifuse)",
+                "generationEn": "Gen-1 1T-Antifuse",
+                "ftoStatus": "【重大產業里程碑】Kilopass 早期用以控告 Sidense 侵權之 1T 反熔絲交叉點核心專利，已於 2023 年 3 月屆滿 20 年進入公有領域！半導體業界現在可自由合法實施該 1T cross-point 閘氧擊穿基本結構。",
+                "ftoStatusEn": "[Landmark Milestone] The foundational 1T antifuse cross-point patent asserted in the historic Kilopass v. Sidense litigation expired in March 2023. The 1T antifuse cross-point structure is now free to operate globally."
               },
               {
                 "id": "US6777766B2",
@@ -7441,7 +7591,17 @@
                 "coreProblem": "早期反熔絲單元編程需要 7V 以上高壓，導致晶片內部電荷泵面積龐大且選擇管易被連帶打穿損壞。",
                 "mechanism": "直接共用先進邏輯製程中超薄核心氧化層 (Core Oxide，小於 2.5nm)，顯著降低擊穿電壓至 5.5V 以下，並優化汲極接面擴散區以降低熱載子注入應力。",
                 "claimFocus": "權利項 1 限定薄閘極核心氧化層與低於 6V 編程偏壓之低壓 2T 反熔絲架構。",
-                "productLink": "Gusto™ 高密度 OTP 陣列標準單元。"
+                "productLink": "Gusto™ 高密度 OTP 陣列標準單元。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-04-18",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 1T-Antifuse)",
+                "generationEn": "Gen-1 1T-Antifuse",
+                "ftoStatus": "已於 2022 年 4 月屆滿過期進入公有領域。利用薄閘極氧化層降低崩潰電壓之雙氧化層單元結構已無排他約束。",
+                "ftoStatusEn": "Expired in April 2022; entered public domain. The dual-oxide structure leveraging thin gate oxide for reduced breakdown voltage is free to implement."
               }
             ]
           },
@@ -7466,7 +7626,17 @@
                 "coreProblem": "深次微米下共用井區使得高壓寫入時基板漏電流擴散至鄰近未選單元，產生嚴重的半選干擾與良率損耗。",
                 "mechanism": "將記憶體陣列在實體佈局上劃分為多個電氣隔離之分割井區，寫入時僅被選中行/列之分割井施加抑制偏壓，未選中井維持接地，完全切斷基板寄生載子傳播路徑。",
                 "claimFocus": "權利項 1 限定具備獨立電氣偏壓控制之分割井架構及其於反熔絲陣列中抑制半選干擾之操作方法。",
-                "productLink": "SecretCode™ 安全金鑰硬體 IP，廣泛應用於條件接收系統 (CAS) 與 DRM 晶片。"
+                "productLink": "SecretCode™ 安全金鑰硬體 IP，廣泛應用於條件接收系統 (CAS) 與 DRM 晶片。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force · 2026 年底屆滿)",
+                "legalStatusEn": "In-Force (Expires late 2026)",
+                "expirationDate": "2026-11-20",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "演進第二代 (Gen-2 High-Voltage Control)",
+                "generationEn": "Gen-2 High-Voltage Control",
+                "ftoStatus": "專利權有效至 2026 年 11 月（即將屆滿）。保護利用分割井區 (Split-Well) 施加逆向偏壓以限制漏電與基板電流之高壓編程方法。",
+                "ftoStatusEn": "In force until November 2026 (near term completion). Covers high-voltage programming sequences using split-well biasing to suppress substrate disturbance."
               }
             ]
           }
@@ -7543,7 +7713,17 @@
                 "coreProblem": "傳統 2T 反熔絲單元面積大，且需要兩個獨立多晶矽閘極與額外金屬連線，無法滿足大型嵌入式程式碼儲存的微縮要求。",
                 "mechanism": "在單一主動區上配置單一多晶矽閘極，通道內部形成厚度或雜質濃度不同之兩區段：第一區段為高臨界電壓之通道選擇區，第二區段為低臨界電壓且鄰近擴散接面之反熔絲崩潰區。寫入時閘極施加高壓於第二區段誘發介電層微絲，讀取時第一區段負責受控導通感測。",
                 "claimFocus": "權利項 1 限定由單一多晶矽閘極跨越裂通道、具備單一擴散位元線接面且無獨立選擇管之 1T 反熔絲單元結構。",
-                "productLink": "Sidense 1T-Fuse™ (SLP - Small Low Power) 旗艦授權 IP，業界 1T 反熔絲公認標竿。"
+                "productLink": "Sidense 1T-Fuse™ (SLP - Small Low Power) 旗艦授權 IP，業界 1T 反熔絲公認標竿。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2025-09-02",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "奠基第一代 (Gen-1 Split-Channel)",
+                "generationEn": "Gen-1 Split-Channel",
+                "ftoStatus": "【重大產業里程碑】Sidense 於訴訟中成功擊潰 Kilopass 侵權主張之 Split-Channel 1T-Fuse 核心專利，已於 2025 年 9 月屆滿 20 年進入公有領域！Split-channel 1T 反熔絲結構現已可自由實施。",
+                "ftoStatusEn": "[Landmark Milestone] Sidense foundational Split-Channel 1T antifuse patent—which successfully defended against Kilopass claims in CAFC—expired in September 2025 and entered the public domain."
               },
               {
                 "id": "US7880216B2",
@@ -7556,7 +7736,17 @@
                 "coreProblem": "在 150°C 以上惡劣車用高溫環境下，單電晶體反熔絲接面容易發生能帶間穿隧 (BTBT) 與閘極引發汲極漏電 (GIDL)，劣化讀取信噪比。",
                 "mechanism": "利用非對稱輕摻雜汲極 (LDD) 遮蔽結構，於反熔絲擊穿端強化橫向局域電場以確保寫入微絲均勻，並在位元線擴散端降低雜質濃度以抑制高溫接面漏電，確保高溫讀取窗口裕度大於 100nA。",
                 "claimFocus": "權利項 1 限定非對稱源極/汲極摻雜輪廓與單端擴散感測之高可靠度 1T 反熔絲結構。",
-                "productLink": "1T-ULP 超低功耗車用等級 OTP 陣列。"
+                "productLink": "1T-ULP 超低功耗車用等級 OTP 陣列。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2027-06-29",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "微縮第二代 (Gen-2 Non-Junction)",
+                "generationEn": "Gen-2 Non-Junction",
+                "ftoStatus": "專利權有效維持至 2027 年 6 月。保護無接面 (Non-Junction) 與非對稱擴散之微型反熔絲單元，具排他性。",
+                "ftoStatusEn": "In force through June 2027. Enforces exclusivity over non-junction asymmetric diffusion antifuse bitcells for enhanced density."
               },
               {
                 "id": "US8325516B2",
@@ -7569,7 +7759,17 @@
                 "coreProblem": "奈米級薄氧化層反熔絲微絲在數十億次讀取電壓應力下，可能引發金屬微絲再氧化自癒 (Self-Healing) 或引發相鄰未寫入單元二次誤擊穿。",
                 "mechanism": "提出差分快速脈衝感測架構，讀取脈衝寬度壓低至 10ns 以下且偏壓限制在 0.9V 以下，感測放大器以微安培級電流差分比較，使讀取干擾失效率降至 0 FIT。",
                 "claimFocus": "權利項 1 限定讀取電壓低於 1.0V、脈衝寬度小於 15ns 且採用動態預充放電之 1T 陣列無擾動感測方法。",
-                "productLink": "Synopsys DesignWare 1T-OTP 核心感測控制電路。"
+                "productLink": "Synopsys DesignWare 1T-OTP 核心感測控制電路。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2029-03-31",
+                "patentCategory": "操作與感測項 (Sensing Method)",
+                "patentCategoryEn": "Sensing Method",
+                "generation": "微縮第二代 (Gen-2 Differential Sensing)",
+                "generationEn": "Gen-2 Differential Sensing",
+                "ftoStatus": "專利權有效維持至 2029 年 3 月。保護低電壓差動感測與雙反熔絲位元互補讀取架構。",
+                "ftoStatusEn": "In force through March 2029. Protects low-voltage differential sensing and complementary twin-antifuse cell reading architectures."
               }
             ]
           }
@@ -7646,7 +7846,17 @@
                 "coreProblem": "單層多晶矽 MTP 單元通常受限於耦合率不足而必須佔用極大晶片面積，限制了在低成本 MCU 中的應用。",
                 "mechanism": "在單層多晶矽層中設計指狀交錯的共面側向耦合電容，直接利用周邊介電層形成高密度水平耦合結構，使耦合率提升至 0.75 以上，單元面積壓低至 25–35 F²。",
                 "claimFocus": "權利項 1 限定單層多晶矽共面指狀耦合電極與零額外光罩邏輯製程製造方法。",
-                "productLink": "YMC 1K/10K 旗艦 MTP 產品線，廣泛用於通用型 8-bit/32-bit MCU 韌體儲存。"
+                "productLink": "YMC 1K/10K 旗艦 MTP 產品線，廣泛用於通用型 8-bit/32-bit MCU 韌體儲存。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2027-07-27",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 Logic MTP)",
+                "generationEn": "Gen-1 Logic MTP",
+                "ftoStatus": "專利權有效維持至 2027 年 7 月。保護無額外光罩之差動式單層多晶矽 MTP 單元結構。",
+                "ftoStatusEn": "In force through July 2027. Covers zero-mask differential single-poly MTP cell topologies."
               },
               {
                 "id": "US8184485B2",
@@ -7659,7 +7869,17 @@
                 "coreProblem": "多次擦寫後隧道氧化層累積界面陷阱電荷，使抹除速度變慢並導致臨界電壓分佈漂移。",
                 "mechanism": "利用多晶矽邊緣幾何轉角（Corner Tip）引發尖端場發射強化穿隧效應，在相同外加電壓下提供高出 3 倍之穿隧電流密度，將抹除時間縮短 60% 並提升耐久度至 10,000 次。",
                 "claimFocus": "權利項 1 限定多晶矽邊緣幾何轉角之局域穿隧抹除操作偏壓條件。",
-                "productLink": "高耐受度 YMC Automotive Grade-1 MTP 巨集。"
+                "productLink": "高耐受度 YMC Automotive Grade-1 MTP 巨集。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2029-08-25",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "微縮第二代 (Gen-2 Enhanced Erase)",
+                "generationEn": "Gen-2 Enhanced Erase",
+                "ftoStatus": "專利權有效維持至 2029 年 8 月。保護具淺溝槽隔離 (STI) 電容耦合與高效抹除閘極之 MTP 架構。",
+                "ftoStatusEn": "In force through August 2029. Protects STI capacitor-coupled MTP structures with enhanced erase efficiency."
               }
             ]
           }
@@ -7728,7 +7948,17 @@
                 "coreProblem": "無源 RFID 標籤完全沒有電池，傳統 EEPROM 寫入所需之數毫安培電流會直接拉垮射頻整流天線電壓導致通訊中斷。",
                 "mechanism": "採用對稱的雙井電容耦合結構，浮動閘極跨越兩個獨立的擴散井區，寫入與抹除均以對稱電場誘發純量子 FN 穿隧，避免通道載子碰撞熱發射，直流電流消耗完全為零。",
                 "claimFocus": "權利項 1 限定對稱雙井電容耦合浮閘結構與無直流通道電流之雙向全 FN 穿隧操作方法。",
-                "productLink": "AEON® 核心 IP，支撐 Impinj Monza 系列全球數十億顆 RFID 晶片量產。"
+                "productLink": "AEON® 核心 IP，支撐 Impinj Monza 系列全球數十億顆 RFID 晶片量產。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2019-04-30",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 RFID NVM)",
+                "generationEn": "Gen-1 RFID NVM",
+                "ftoStatus": "已於 2019 年 4 月屆滿過期進入公有領域。早期利用 CMOS 井區電容達成無控制閘極浮閘單元之專利已完全開放。",
+                "ftoStatusEn": "Expired in April 2019; entered public domain. Pioneer patent on well-capacitance-coupled floating gate NVM for RFID is free to operate."
               },
               {
                 "id": "US6388918B1",
@@ -7741,7 +7971,17 @@
                 "coreProblem": "晶片內建升壓電荷泵在微弱射頻能量輸入時效率極低，如何以微安培級總功耗完成陣列多位元並行寫入？",
                 "mechanism": "利用微脈衝電壓梯級注入法，配合純穿隧高阻抗特性，使整個記憶體巨集在 1.2V 核心電壓下寫入功耗僅需微瓦 (µW) 等級。",
                 "claimFocus": "權利項 1 限定由微型片上電荷泵驅動之純穿隧注入低功耗非揮發性儲存架構。",
-                "productLink": "Synopsys DesignWare AEON MTP ULP 標準產品庫。"
+                "productLink": "Synopsys DesignWare AEON MTP ULP 標準產品庫。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2020-06-20",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 RFID NVM)",
+                "generationEn": "Gen-1 RFID NVM",
+                "ftoStatus": "已於 2020 年 6 月屆滿過期進入公有領域。微弱電流穿隧寫入與接面電容耦合偏壓序列已無排他約束。",
+                "ftoStatusEn": "Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain."
               }
             ]
           }
@@ -7818,7 +8058,17 @@
                 "coreProblem": "傳統 eFuse 熔斷時熱失控溫度超過 1400°C，造成鈍化層龜裂、金屬氣化飛濺與材料重新結晶回接，導致車規晶片嚴重可靠性失效。",
                 "mechanism": "設定編程電流密度與脈衝寬度，使熔絲條維持在熱平衡與亞熱失控溫度區間，利用純電子風電遷移驅動矽/金屬原子產生固態質量擴散，形成永久、穩定且周圍鈍化層完好無損的奈米級斷路。",
                 "claimFocus": "權利項 1 限定在非爆破與低於熱失控臨界值條件下以電遷移形成不可逆高阻態之熔絲元件與編程方法。",
-                "productLink": "I-fuse™ 旗艦核心 IP，獲 AEC-Q100 Grade-0 (-40°C 至 150°C/175°C) 車規最高可靠性認證。"
+                "productLink": "I-fuse™ 旗艦核心 IP，獲 AEC-Q100 Grade-0 (-40°C 至 150°C/175°C) 車規最高可靠性認證。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2032-07-26",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "奠基第一代 (Gen-1 Sub-Thermal I-fuse)",
+                "generationEn": "Gen-1 Sub-Thermal I-fuse",
+                "ftoStatus": "專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。",
+                "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures."
               },
               {
                 "id": "US9613943B2",
@@ -7831,7 +8081,17 @@
                 "coreProblem": "在 HKMG、FinFET 與 GAA 先進節點中已無傳統多晶矽層，如何直接共用先進金屬閘極與微型通孔實現零光罩 OTP？",
                 "mechanism": "將電遷移路徑直接建立在先進金屬閘極材料（TiN、TaN 或鎢/銅接觸插塞）上，利用奈米尺度金屬電遷移形成高阻斷路，實現 7nm/5nm/3nm/2nm 的無縫微縮相容。",
                 "claimFocus": "權利項 1 限定利用先進製程金屬閘極/導電通孔之金屬電遷移形成儲存態之元件結構。",
-                "productLink": "先進 FinFET/GAA 節點 I-fuse 解決方案，支援 AI 處理器晶片安全 ID 與修補。"
+                "productLink": "先進 FinFET/GAA 節點 I-fuse 解決方案，支援 AI 處理器晶片安全 ID 與修補。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2035-05-08",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "演進第二代 (Gen-2 Metal Gate Contact)",
+                "generationEn": "Gen-2 Metal Gate Contact",
+                "ftoStatus": "專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。",
+                "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces."
               }
             ]
           }
@@ -7900,7 +8160,17 @@
                 "coreProblem": "傳統單層浮動閘極使用熱電子注入會加速介電層退化，限制了寫抹次數小於 1,000 次，且功耗過大。",
                 "mechanism": "限制氧化層電場低於 8 MV/cm，雙向均勻施加 FN 穿隧電壓，大幅減少氧化層中陷阱生成與 SILC 漏電，使 0-mask 單元耐久度突破至 10,000 次。",
                 "claimFocus": "權利項 1 限定由標準邏輯 I/O 氧化層構成、寫入與抹除均採均勻 FN 穿隧之單層多晶矽記憶體單元結構與偏壓時序。",
-                "productLink": "LEE Flash ZT (Zero-Mask 10K MTP)，廣泛授權大中華區代工廠。"
+                "productLink": "LEE Flash ZT (Zero-Mask 10K MTP)，廣泛授權大中華區代工廠。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2032-06-21",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 SONOS Split-Gate)",
+                "generationEn": "Gen-1 SONOS Split-Gate",
+                "ftoStatus": "專利權有效維持至 2032 年 6 月。保護側壁 ONO 電荷捕捉分離閘記憶單元，減少 3 道光罩之特徵受此專利排他保護。",
+                "ftoStatusEn": "In force through June 2032. Protects sidewall ONO charge-trap split-gate flash cell architecture reducing 3 masks compared to traditional eFlash."
               }
             ]
           },
@@ -7925,7 +8195,17 @@
                 "coreProblem": "車用 eFlash 光罩增加數過多 (通常 6–10 道)，在 40nm/28nm 節點造成晶圓成本飆升，且浮動閘極在 175°C 高溫下易因單一氧化層缺陷漏光電荷。",
                 "mechanism": "利用側壁分離閘極工藝，在開關電晶體一側形成超薄 ONO (氧化物-氮化物-氧化物) 複合絕緣層，電荷捕獲於氮化矽薄膜中，即使氧化層局部受損亦不影響整體儲存狀態，僅需 2–3 道附加光罩。",
                 "claimFocus": "權利項 1 限定側壁分離閘極電荷陷阱結構、低光罩增加道數與對稱 FN 穿隧之製造工藝。",
-                "productLink": "LEE Flash G1/G2，獲得日本及國際各大車用半導體大廠授權導入。"
+                "productLink": "LEE Flash G1/G2，獲得日本及國際各大車用半導體大廠授權導入。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2034-07-29",
+                "patentCategory": "製程整合與方法項 (Process & Method)",
+                "patentCategoryEn": "Process & Method",
+                "generation": "演進第二代 (Gen-2 Low-Power FN CFX)",
+                "generationEn": "Gen-2 Low-Power FN CFX",
+                "ftoStatus": "專利權有效維持至 2034 年 7 月。保護超低功耗 FN 穿隧 SONOS 製程整合與偏壓控制方法。",
+                "ftoStatusEn": "In force through July 2034. Covers ultra-low power FN tunneling SONOS fabrication flow and operating methods."
               }
             ]
           }
@@ -7994,7 +8274,17 @@
                 "coreProblem": "傳統堆疊閘極快閃記憶體抹除時，若電子抽出過多會導致浮閘變為正電位使電晶體變成空乏型 (Depletion Mode)，造成整條位元線漏電癱瘓。",
                 "mechanism": "分離閘極開創專利。控制閘極橫向跨越通道的一部分，浮動閘極覆蓋通道的另一部分。即使浮閘過度抹除變成空乏型，相鄰的控制閘極通道區依然能受控完全截止，徹底消除了過度抹除隱患，免除了複雜的抹除後再修復演算法。",
                 "claimFocus": "權利項 1 限定控制閘極一部分覆蓋矽通道表面作為選擇開關、另一部分覆蓋浮動閘極上表面之分離閘極結構。",
-                "productLink": "SuperFlash® ESF1，奠定全球分離閘極快閃記憶體專利基石。"
+                "productLink": "SuperFlash® ESF1，奠定全球分離閘極快閃記憶體專利基石。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2009-08-07",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 SuperFlash)",
+                "generationEn": "Gen-1 SuperFlash",
+                "ftoStatus": "已於 2009 年 8 月屆滿過期進入公有領域。初代 SuperFlash 非對稱分離閘極基本結構已屬開放技術。",
+                "ftoStatusEn": "Expired in August 2009; entered public domain. Pioneer asymmetric split-gate flash cell topology is open technology."
               },
               {
                 "id": "US6747310B2",
@@ -8007,7 +8297,17 @@
                 "coreProblem": "傳統分離閘極向控制閘極抹除時需要高壓偏壓，限制了電晶體微縮，且寫入電流仍然偏大。",
                 "mechanism": "第三代 SuperFlash (ESF3) 核心專利。獨立設置一抹除閘極 (EG) 與耦合閘極 (CG)，形成 1.5T 單元。浮動閘極邊緣形成銳利多晶矽尖角 (Sharp Tip)，抹除時高電場局域集中於尖端向 EG 穿隧放電，抹除電壓顯著降低；寫入時利用源極側注入 (SSI) 使注入效率較常規 CHEI 躍升 1,000 倍。",
                 "claimFocus": "權利項 1 限定由選擇閘、耦合閘、浮動閘與獨立抹除閘組成之四閘極 1.5T 分離閘極結構與尖端穿隧抹除操作。",
-                "productLink": "SuperFlash® ESF3，授權台積電 40nm/28nm、聯電 55nm/40nm、格芯 55nm 等各大代工廠車規核心平台。"
+                "productLink": "SuperFlash® ESF3，授權台積電 40nm/28nm、聯電 55nm/40nm、格芯 55nm 等各大代工廠車規核心平台。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-04-18",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "微縮第二代 (Gen-2 ESF1 Self-Aligned)",
+                "generationEn": "Gen-2 ESF1 Self-Aligned",
+                "ftoStatus": "已於 2022 年 4 月屆滿過期進入公有領域。自我對準分離閘極與源極側注入結構已無專利排他性。",
+                "ftoStatusEn": "Expired in April 2022; entered public domain. Self-aligned split-gate structure with source-side injection is in the public domain."
               }
             ]
           }
@@ -8084,7 +8384,17 @@
                 "coreProblem": "傳統 Stoner-Wohlfarth 磁場翻轉在位元線與字元線交叉處具有廣泛的星狀曲線 (Astroid Curve)，半選單元受相鄰磁場干擾極易意外翻轉資料。",
                 "mechanism": "自由層改採三層合成反鐵磁 (SAF：磁層/非磁性 Ru 耦合層/磁層) 結構。寫入時字元線與位元線依微小時差發送雙脈衝，合成磁場引導 SAF 磁化向量旋轉 180° (Toggle)。半選單元僅受到單一方向磁場作用，磁矩在脈衝結束後彈回原態，完全免疫半選干擾。",
                 "claimFocus": "權利項 1 限定利用合成反鐵磁自由層與依序施加之正交磁場脈衝實現 Toggle 旋轉翻轉之方法。",
-                "productLink": "MR2A16A / MR0A08A 等經典 Toggle MRAM 晶片，廣泛用於衛星導航、黑盒子飛行記錄器與醫療設備。"
+                "productLink": "MR2A16A / MR0A08A 等經典 Toggle MRAM 晶片，廣泛用於衛星導航、黑盒子飛行記錄器與醫療設備。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2021-11-21",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "奠基第一代 (Gen-1 Toggle MRAM)",
+                "generationEn": "Gen-1 Toggle MRAM",
+                "ftoStatus": "已於 2021 年 11 月屆滿過期進入公有領域。雙軸正交磁場誘導合成反鐵磁 (SAF) 翻轉之 Toggle MRAM 結構現已可自由實施。",
+                "ftoStatusEn": "Expired in November 2021; entered public domain. Toggle MRAM SAF free-layer rotation under orthogonal magnetic fields is now public domain technology."
               }
             ]
           },
@@ -8109,7 +8419,17 @@
                 "coreProblem": "平面 (In-Plane) MTJ 在節點微縮至 40nm 以下時，退磁場導致熱穩定性能障急劇崩塌，無法兼顧 10 年保持力與低翻轉電流。",
                 "mechanism": "利用 CoFeB/MgO 界面產生的強大垂直磁各向異性 (PMA)，消除平面退磁場能量損耗，使翻轉電流 (Ic) 降低 80%，同時維持熱穩定性因數 Delta > 60，支援 10 年以上高溫留存。",
                 "claimFocus": "權利項 1 限定由垂直自由層、介電穿隧障壁與垂直參考層構成之 pMTJ 堆疊結構及自旋翻轉操作。",
-                "productLink": "Everspin 256Mb / 1Gb STT-MRAM (EMxxLX, DDR/xSPI 介面)，企業級 SSD 斷電保護 (PLP)。"
+                "productLink": "Everspin 256Mb / 1Gb STT-MRAM (EMxxLX, DDR/xSPI 介面)，企業級 SSD 斷電保護 (PLP)。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2025-09-30",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "演進第二代 (Gen-2 In-Plane STT-MRAM)",
+                "generationEn": "Gen-2 In-Plane STT-MRAM",
+                "ftoStatus": "【重大里程碑】早期自旋轉矩傳遞 (STT-MRAM) 平面磁化翻轉母案已於 2025 年 9 月屆滿過期進入公有領域！基礎 STT 注入架構無專利侵權風險。",
+                "ftoStatusEn": "[Major Milestone] Foundational STT-MRAM in-plane spin transfer torque patent expired in September 2025; entered the public domain."
               },
               {
                 "id": "US8488373B2",
@@ -8122,7 +8442,17 @@
                 "coreProblem": "先進晶圓後端金屬互連製程 (BEOL) 需要承受 400°C 退火熱預算，高溫容易導致金屬原子擴散破壞 MgO 穿隧界面並削弱 TMR 比率。",
                 "mechanism": "引進高耐熱擴散阻擋層與多重退火穩定多層膜，使 pMTJ 在承受 400°C 90 分鐘熱預算後仍維持大於 180% 的 TMR 讀取信號比率。",
                 "claimFocus": "權利項 1 限定承受 400°C BEOL 熱預算且 TMR > 150% 之耐高溫 MTJ 堆疊結構。",
-                "productLink": "格芯 (GlobalFoundries) 22FDX eMRAM 量產驗證核心基礎專利。"
+                "productLink": "格芯 (GlobalFoundries) 22FDX eMRAM 量產驗證核心基礎專利。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2030-06-25",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "先進第三代 (Gen-3 Perpendicular pMTJ)",
+                "generationEn": "Gen-3 Perpendicular pMTJ",
+                "ftoStatus": "專利權有效維持至 2030 年 6 月。保護具垂直磁各向異性 (pMTJ) 與 CoFeB/MgO/CoFeB 高 TMR 多層膜界面結構，具嚴密排他性。",
+                "ftoStatusEn": "In force through June 2030. Strongly protects high-TMR perpendicular MTJ (pMTJ) multi-layer stack structures."
               }
             ]
           }
@@ -8199,7 +8529,17 @@
                 "coreProblem": "常規 ReRAM 需要特殊貴金屬電極與未經驗證之外來氧化物，代工廠導入風險高且無法承受傳統前端高溫熱預算。",
                 "mechanism": "直接以標準半導體二氧化矽 (SiO2) 為母體，透過調控沉積孔隙率形成富矽奈米通道，在外加偏壓下促使矽奈米微絲進行可逆連接與斷續，實現無污染、100% CMOS 既有材料兼容之阻變儲存。",
                 "claimFocus": "權利項 1 限定由多孔富矽介電薄膜夾於兩導電電極間構成之電阻式切換元件與雙向電壓切換操作。",
-                "productLink": "Weebit ReRAM 核心技術，於 SkyWater 130nm 與 DB HiTek 130nm BCD 平台獲 PDK 資格驗證。"
+                "productLink": "Weebit ReRAM 核心技術，於 SkyWater 130nm 與 DB HiTek 130nm BCD 平台獲 PDK 資格驗證。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2034-06-20",
+                "patentCategory": "材料結構與方法項 (Material & Method)",
+                "patentCategoryEn": "Material & Method",
+                "generation": "奠基第一代 (Gen-1 SiOx ReRAM)",
+                "generationEn": "Gen-1 SiOx ReRAM",
+                "ftoStatus": "專利權有效維持至 2034 年 6 月。保護以多孔二氧化矽 (SiOx) 作為阻變層之電阻式記憶體元件與成絲偏壓方法。",
+                "ftoStatusEn": "In force through June 2034. Covers porous silicon oxide (SiOx) switching layer ReRAM devices and conductive filament forming methods."
               },
               {
                 "id": "US10580980B2",
@@ -8212,7 +8552,17 @@
                 "coreProblem": "ReRAM 在神經擬態類比記憶體計算 (Analog In-Memory Computing) 中，阻值隨時間容易發生電導漂移 (Drift)，破壞神經網絡矩陣權重推論精度。",
                 "mechanism": "設計專屬多階電導 (MLC) 脈衝調適補償電路，在每次矩陣乘法運算前以微弱探測電流檢測電導漂移，並自動施加微幅修正脈衝恢復原突觸權重，維持類比運算精確度。",
                 "claimFocus": "權利項 1 限定利用多階電阻式記憶體陣列執行向量矩陣乘法 (VMM) 並具備動態電導校準之神經擬態操作架構。",
-                "productLink": "Weebit Neuromorphic ReRAM 類比 AI 加速 IP。"
+                "productLink": "Weebit Neuromorphic ReRAM 類比 AI 加速 IP。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2037-08-31",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "先進第二代 (Gen-2 Neuromorphic ReRAM)",
+                "generationEn": "Gen-2 Neuromorphic ReRAM",
+                "ftoStatus": "專利權有效維持至 2037 年 8 月。保護利用 ReRAM 多階電導 (Multi-level Cell) 特性進行類神經網路突觸乘累加 (MAC) 運算之操作方法。",
+                "ftoStatusEn": "In force through August 2037. Protects neuromorphic in-memory computing synaptic analog weight updating methods on ReRAM arrays."
               }
             ]
           }
@@ -8281,7 +8631,17 @@
                 "coreProblem": "傳統基於 SRAM 或延遲鏈的 PUF 在極端高低溫 (-40°C 至 150°C) 與電源波動下容易翻轉位元，需要極昂貴複雜的 ECC 電路修復，造成晶片面積膨脹與輔助資料洩漏風險。",
                 "mechanism": "配置一對對稱的薄氧化層穿隧單元，利用共模抑制比抵消環境溫度與電源波動，感測放大器只比對兩者間由量子微觀幾何決定的微弱穿隧電流勝負，原生誤碼率直接達到物理 0%，終生無需 ECC 輔助校準。",
                 "claimFocus": "權利項 1 限定由成對介電層量子穿隧單元組成之差分感測追蹤電路及零誤碼金鑰提取方法。",
-                "productLink": "PUFrt™ 硬體信任根，榮獲台積電 OIP Open Innovation Platform 年度最佳安全 IP 獎。"
+                "productLink": "PUFrt™ 硬體信任根，榮獲台積電 OIP Open Innovation Platform 年度最佳安全 IP 獎。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-03-12",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "先進安全代 (Gen-1 Quantum PUFrt)",
+                "generationEn": "Gen-1 Quantum PUFrt",
+                "ftoStatus": "專利權有效維持至 2038 年 3 月。保護微觀量子穿隧實體不可複製函數裝置及其具自適應追蹤參考之差分感測電路。",
+                "ftoStatusEn": "In force through March 2038. Protects quantum tunneling physical unclonable function devices with tracking differential sensing circuitry."
               },
               {
                 "id": "US10769300B2",
@@ -8294,7 +8654,17 @@
                 "coreProblem": "傳統振盪器抖動 (Ring Oscillator Jitter) TRNG 容易受到注入鎖定 (Injection Locking) 與側信道電磁干擾操縱攻擊。",
                 "mechanism": "直接以量子穿隧效應固有的電子散粒雜訊 (Shot Noise) 為唯一物理熵源，純量子現象在熱力學上完全無法被外部電磁波或溫度干擾所控制，天然通過 NIST SP 800-22 與 SP 800-90B 全套隨機性標準測試。",
                 "claimFocus": "權利項 1 限定以閘氧化層量子穿隧散粒雜訊為熵源並具備即時健康測試 (Health Test) 之真隨機亂數產生器電路架構。",
-                "productLink": "PUFcc™ 晶片安全協同處理器，整合 NIST CAVP 認證密碼引擎。"
+                "productLink": "PUFcc™ 晶片安全協同處理器，整合 NIST CAVP 認證密碼引擎。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-09-14",
+                "patentCategory": "裝置結構與方法項 (Device & Method)",
+                "patentCategoryEn": "Device & Method",
+                "generation": "先進安全代 (Gen-1 Quantum TRNG)",
+                "generationEn": "Gen-1 Quantum TRNG",
+                "ftoStatus": "專利權有效維持至 2038 年 9 月。保護利用介電層直接穿隧量子散粒雜訊產生高熵隨機數之真隨機亂數產生器 (TRNG)。",
+                "ftoStatusEn": "In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise."
               }
             ]
           }
