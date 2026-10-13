@@ -429,7 +429,22 @@
           "phase": "GAA Nanosheet & PUFsecurity Era: Advancing to 2nm Angstrom Era",
           "achievement": "Filed US20250024668A1 for GAA nodes, launched subsidiary PUFsecurity combining NeoFuse/NeoPUF with Post-Quantum Cryptography (PQC) hardware acceleration for AI and automotive."
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "Patent Tier Defense Strategy & Public Domain Succession",
+        "overview": "eMemory represents a quintessential semiconductor IP strategy of \"dual-track tiered evolution.\" Early foundations laid down by NeoBit (US6678190B2 etc.) established 0-mask logic NVM norms. As foundational patents entered the public domain in 2022–2023, eMemory had already secured pervasive patent rings in advanced nodes through NeoFuse (US8514614B2) and NeoPUF (US10204981B2).",
+        "keyBattles": [
+          {
+            "heading": "Zero-Mask Floating Gate Moat (NeoBit Era)",
+            "detail": "eMemory secured the premier route for CMOS EPROM via control-gate-free series PMOS with CHEI programming. Competitors seeking 0-mask logic OTP were forced into higher-voltage NMOS breakdown alternatives with inferior yields. Following its 20-year expiration in 2022, this foundational bitcell became free public domain technology, though physically limited to >=65nm."
+          },
+          {
+            "heading": "FinFET & 2nm GAA Advanced Antifuse Ring (NeoFuse Era)",
+            "detail": "For sub-28nm geometries, eMemory constructed fresh barriers around 3T antifuse topologies (US8982637B2) and gate-tunneling readout techniques (US8514614B2), locking down low-voltage sensing of gate tunneling currents to preempt unauthorized adoption across advanced PDK libraries."
+          }
+        ],
+        "ftoVerdict": "[FTO Guidance] The semiconductor industry may freely practice first-generation NeoBit 2-PMOS CHEI topologies (0.5µm–0.11µm) without royalties. However, sub-28nm antifuse designs employing 3T regulation or sub-breakdown gate tunneling sensing remain actively protected through 2031–2037."
+      }
     },
     {
       "id": "kilopass",
@@ -574,7 +589,22 @@
           "nodes": "28nm and below mature support",
           "keyPatents": "Synopsys DesignWare integration"
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "Historic Kilopass v. Sidense Litigation & 1T Antifuse Claim Boundaries",
+        "overview": "Between 2010 and 2014, Kilopass and Sidense engaged in one of the semiconductor IP sector's landmark patent battles. Kilopass alleged that Sidense 1T-Fuse infringed its foundational XPM patents (US6992925B2 and US6777766B2). The U.S. Court of Appeals for the Federal Circuit (CAFC) ultimately affirmed non-infringement, establishing key boundaries for design-arounds.",
+        "keyBattles": [
+          {
+            "heading": "Core Disagreement: Scope of \"Cross-Point Bitcell\"",
+            "detail": "Kilopass US6992925B2 Claim 1 recited a memory cell formed at the cross-point of WL and BL consisting of a single transistor where gate-to-diffusion overlap experiences dielectric breakdown. Kilopass argued Sidense 1T structure literally matched this limitation."
+          },
+          {
+            "heading": "CAFC Ruling: Substantial Difference of Split-Channel Physics",
+            "detail": "Sidense successfully established that its patented Split-Channel (US7402855B2) segregates the channel into thick-oxide access and thin-oxide breakdown regions. The thick-oxide segment intrinsically serves as an access switch, distinct from Kilopass cross-point definition under literal and doctrine-of-equivalents standards."
+          }
+        ],
+        "ftoVerdict": "[Major Landmark] Kilopass primary weapon patent US6992925B2 expired in March 2023 after completing its 20-year term. The foundational uniform cross-point 1T gate-oxide breakdown structure is now globally open for royalty-free implementation."
+      }
     },
     {
       "id": "sidense",
@@ -707,7 +737,22 @@
           "nodes": "7nm / 5nm / 3nm FinFET",
           "keyPatents": "DesignWare 1T-Fuse series"
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "Split-Channel Workaround Landmark & Public Domain Transition",
+        "overview": "Sidense 1T-Fuse stands as an industry benchmark for semiconductor design-around strategies. Confronted by Kilopass prior-art cross-point patents, Sidense engineered an asymmetric split-channel bitcell, achieving superior bitcell density and full legal autonomy.",
+        "keyBattles": [
+          {
+            "heading": "Split-Channel 1T Foundation Patent (US7402855B2)",
+            "detail": "Sidense defined asymmetric diffusion junctions within a single transistor, partitioning channel length into thin-oxide breakdown and thick-oxide access segments. This eliminated sneak-path leakage without external select transistors, powering production PDKs across TSMC, GF, and UMC."
+          },
+          {
+            "heading": "Differential Sensing Evolution (US8325514B2 / US8325516B2)",
+            "detail": "Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense patented twin-antifuse complementary sensing, reading differential currents between paired antifuses to bypass absolute reference drift and ensure automotive-grade retention."
+          }
+        ],
+        "ftoVerdict": "[Major Landmark] Sidense foundational patent US7402855B2 expired in September 2025 and entered the public domain. The split-channel 1T antifuse topology is now freely implementable; complementary sensing improvements remain protected through 2027–2030."
+      }
     },
     {
       "id": "ymc",
@@ -1021,7 +1066,22 @@
           "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
           "keyPatents": "Advanced metal electromigration series"
         }
-      ]
+      ],
+      "litigationDefense": {
+        "title": "Non-Explosive Sub-Thermal I-fuse vs. Legacy eFuse Moat",
+        "overview": "Founded by former TSMC memory R&D director Dr. Shine Chung, Attopsemi differentiated its patent moat by overturning legacy explosive eFuse doctrines, establishing proprietary exclusivity around sub-thermal silicide agglomeration (I-fuse).",
+        "keyBattles": [
+          {
+            "heading": "Differentiating from Legacy Rupture eFuse Patents",
+            "detail": "Legacy poly eFuses (IBM, early TSMC patents) relied on heavy currents (>10mA) creating thermal rupture, which spews conductive debris and cracks passivation layers. Attopsemi US9165979B2 and US9613943B2 strictly confine programming energy below rupture thresholds, maintaining flawless physical passivation."
+          },
+          {
+            "heading": "0.4V Low-Voltage Readout & Automotive High-Temp Moat",
+            "detail": "Because the fuse line remains intact, the silicide agglomeration creates stable giga-ohm states. Attopsemi patented 0.4V sub-disturb reading, HKMG metal-gate contact interface migration (US9613943B2), and thermally isolated differential architectures (US10410724B2) spanning 0.35µm down to 5nm."
+          }
+        ],
+        "ftoVerdict": "[FTO Guidance] Basic patents on explosive rupture poly fuses expired between 2010–2018. However, Attopsemi controlled sub-thermal agglomeration and 0.4V readout patents are actively enforceable through 2032–2038."
+      }
     },
     {
       "id": "floadia",
