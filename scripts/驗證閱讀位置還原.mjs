@@ -9,7 +9,8 @@ const server = process.env.NVM_QA_BASE ? null : await startTestServer(root);
 const base = new URL(process.env.NVM_QA_BASE || server.base);
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa', '閱讀位置還原'));
 fs.mkdirSync(output, {recursive:true});
-const browser = await chromium.launch({headless:true, channel:process.env.NVM_QA_CHANNEL || 'msedge'});
+const filters = process.argv.find(arg=>arg.startsWith('--filter='))?.slice('--filter='.length)?.split(',') || (process.env.NVM_QA_FILTER ? [process.env.NVM_QA_FILTER] : []);
+const browser = await chromium.launch({headless:true, ...(process.argv.includes('--bundled') ? {} : {channel:process.env.NVM_QA_CHANNEL || 'msedge'})});
 const results = [];
 const stateKey = '__nvmReadingPosition';
 
@@ -23,7 +24,7 @@ const snapshot = page => page.evaluate(() => ({
 }));
 
 async function check(name, options, test) {
-  if (process.env.NVM_QA_FILTER && !name.includes(process.env.NVM_QA_FILTER)) return;
+  if (filters.length && !filters.some(filter=>name.includes(filter))) return;
   const context = await browser.newContext({serviceWorkers:'block', viewport:{width:options.width || 1440, height:options.height || 900}});
   await context.route('**/*', route => new URL(route.request().url()).origin === base.origin ? route.continue() : route.abort());
   const page = await context.newPage();
@@ -71,6 +72,47 @@ async function restored(page, expected) {
 }
 
 try {
+  await check('閱讀座標不觸發導覽攔截', {}, async (page, trace) => {
+    await visit(page,'patent-maps');
+    // 本輪主站候選觀測中，Cloudflare 在本頁 guard 之後訂閱；模擬此消費者順序。
+    // 已經先收到事件的任意外部監聽器，不在本頁可回溯取消的範圍。
+    await page.evaluate(() => {
+      window.__navigationWrites=0;
+      window.__navigationTrace=[];
+      window.__entryChanges=0;
+      window.navigation?.addEventListener('navigate',event=>{window.__navigationWrites++;window.__navigationTrace.push({type:event.navigationType,to:event.destination.url,from:location.href,stack:new Error().stack});});
+      window.navigation?.addEventListener('currententrychange',()=>window.__entryChanges++);
+    });
+    assert.equal(await page.evaluate(()=>Boolean(window.navigation)),true,'本案例需實際支援 Navigation API');
+    const observation=await page.evaluate(() => {
+      history.replaceState({...history.state,external:'保留'},'');
+      const before=window.__navigationWrites, entriesBefore=window.__entryChanges, url=location.href;
+      // 不等待節流計時器，直接驗證卸載時保存最後一個捲動位置。
+      scrollBy({top:333,behavior:'instant'});
+      dispatchEvent(new PageTransitionEvent('pagehide'));
+      return {before,after:window.__navigationWrites,entriesBefore,entriesAfter:window.__entryChanges,url,afterURL:location.href,y:scrollY,saved:history.state.__nvmReadingPosition,external:history.state.external,events:window.__navigationTrace};
+    });
+    trace.push(observation);
+    assert.equal(observation.after,observation.before,'純座標不得傳遞為導覽分析事件');
+    assert.ok(observation.entriesAfter>observation.entriesBefore,'原生 currententrychange 通知仍保留');
+    assert.equal(observation.saved.y,Math.round(observation.y),'卸載保存最新座標而非舊節流值');
+    assert.equal(observation.url,observation.afterURL,'純座標保存不改網址');
+    assert.equal(observation.external,'保留');
+    const before=await page.evaluate(()=>window.__navigationWrites);
+    await page.locator('#nvm-map-technology').selectOption('mram');
+    assert.ok(await page.evaluate(previous=>window.__navigationWrites>previous,before),'真正查詢導覽仍傳遞導覽事件');
+  });
+  await check('閱讀座標在無導覽API時保留', {}, async (page, trace) => {
+    await page.addInitScript(()=>Object.defineProperty(window,'navigation',{value:undefined,configurable:true}));
+    await visit(page,'patent-maps');
+    const state=await page.evaluate(()=>{
+      scrollBy({top:333,behavior:'instant'});
+      dispatchEvent(new PageTransitionEvent('pagehide'));
+      return {y:scrollY,saved:history.state.__nvmReadingPosition};
+    });
+    assert.equal(state.saved.y,Math.round(state.y),'缺少新 API 仍保存最後閱讀座標');
+    trace.push(state);
+  });
   for (const width of [1440, 390]) await check(`前後章與選章返回-${width}`, {width}, async (page, trace) => {
     await visit(page);
     const first = await readFurther(page);

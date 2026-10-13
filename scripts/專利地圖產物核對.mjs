@@ -7,10 +7,10 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='9011ec36c84035f4e418be1b58b9391c2f5a4efe';
+const base='5ee6afb438373472e1e0de835f8f81ef974f9ebf';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.4.1'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.4.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) assert.equal(read(`data/nvm-vendor-patent-maps${suffix}.json`),original(`data/nvm-vendor-patent-maps${suffix}.json`),'原始技術與研究資料完整保留');
 function withoutMap(html) {
@@ -25,7 +25,7 @@ function withoutMap(html) {
 }
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html']) {
   const before=withoutMap(original(file));
-  const after=withoutMap(read(file)).replace('nvm-vendor-patent-maps.css?v=20261013-map2','nvm-vendor-patent-maps.css?v=20261013-map1');
+  const after=withoutMap(read(file));
   assert.equal(after,before,'其他 Atlas 章節與入口未被重寫');
 }
 const sandbox={self:{}}; vm.runInNewContext(read('data/offline-manifest.js'),sandbox);

@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "f485fde349d27be54f32",
+  "version": "6ebfddbc8ab098037894",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -261,7 +261,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas-zh.html": "a0a544d8a24ac56023c26110c362777cbd8fe5a4adcd11024a90ab9afac3ed12",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
     "nvm-technology-atlas.html": "8876010d936ba5aecc37e067b36cbf684095bb32b673c1c98aeec0082c22469d",
-    "nvm-technology-atlas.js": "3fdd7ed033d8105e5986d70453b2a4c8d6e2259db02c4ce92282f76d39d1e24a",
+    "nvm-technology-atlas.js": "6fd7b42f58032b987373c654d813f07b361e37d4a884c81ad5a9753bc978905d",
     "nvm-vendor-patent-maps.css": "76e67a1a49dbf725490274a3ec4585e620ade8eee1de01435181d261b9f32c65",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 15813997
+  "totalBytes": 15814514
 };
