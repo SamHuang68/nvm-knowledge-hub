@@ -1,4 +1,5 @@
 import {ensureDiagrams} from './atlas-diagram-loader.js';
+const patentMapController = initializePatentMap();
 document.documentElement.classList.add('nvm-enhanced');
 const panels = [...document.querySelectorAll('[data-nvm-panel]')];
 const contents = document.querySelector('.nvm-sidebar');
@@ -117,6 +118,7 @@ function showRoute({ focus = false, scroll = true, readingPanel = null } = {}) {
   let target;
   try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { target = 'panorama'; }
   const anchor = document.getElementById(target);
+  patentMapController?.reveal(anchor);
   for (const kind of ['patent', 'glossary']) {
     if (anchor?.matches(`[data-${kind}-record]`) && anchor.hidden) {
       document.querySelector(`#nvm-${kind}-search`).value = '';
@@ -164,7 +166,7 @@ function showRoute({ focus = false, scroll = true, readingPanel = null } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = target === 'main-content' ? next : anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,.nvm-lineage-entry,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction,.nvm-lineage-events-block,.nvm-lineage-current,.nvm-lineage-boundary') ? destination.querySelector('h4') : destination.matches('.nvm-lineage-event') ? destination.querySelector('h5') : destination.matches('.nvm-system-index,.nvm-lineage-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
+    const heading = destination.matches('[data-map-record]') ? destination.querySelector('h6') : destination.matches('[data-map-family]') ? destination.querySelector('h4') : destination.matches('[data-map-vendor]') ? destination.querySelector('h3') : destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,.nvm-lineage-entry,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction,.nvm-lineage-events-block,.nvm-lineage-current,.nvm-lineage-boundary') ? destination.querySelector('h4') : destination.matches('.nvm-lineage-event') ? destination.querySelector('h5') : destination.matches('.nvm-system-index,.nvm-lineage-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
     heading?.setAttribute('tabindex', '-1');
     if (heading?.matches('h2,h3,h4,h5')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
@@ -432,3 +434,91 @@ document.querySelectorAll('[data-zoom-diagram]').forEach(button => {
     scroller.scrollLeft = Math.max(0, (scroller.scrollWidth-scroller.clientWidth)/2);
   });
 });
+
+// Patent Map 使用原有 JSON 生成的 DOM；篩選不另建資料來源。
+function initializePatentMap() {
+  const root = document.getElementById('patent-maps');
+  const form = root?.querySelector('[data-map-controls]');
+  if (!form) return null;
+  const en = document.documentElement.lang === 'en';
+  const query = root.querySelector('#nvm-map-query');
+  const technology = root.querySelector('#nvm-map-technology');
+  const status = root.querySelector('#nvm-map-status');
+  const count = root.querySelector('#nvm-map-count');
+  const results = root.querySelector('#nvm-map-results');
+  const records = [...root.querySelectorAll('[data-map-record]')];
+  const families = [...root.querySelectorAll('[data-map-family]')];
+  const vendors = [...root.querySelectorAll('[data-map-vendor]')];
+  const resultLinks = [...root.querySelectorAll('[data-map-result]')];
+  const normalized = value => value.normalize('NFKC').toLocaleLowerCase().trim();
+  const controls = [[query,'pm_q'],[technology,'pm_tech'],[status,'pm_status']];
+  function readURL() {
+    const params = new URL(location.href).searchParams;
+    for (const [control,key] of controls) control.value = params.get(key) || '';
+    if (!technology.value) technology.value = '';
+    if (!status.value) status.value = '';
+  }
+  function writeURL() {
+    const url = new URL(location.href);
+    for (const [control,key] of controls) {
+      if (control.value) url.searchParams.set(key,control.value); else url.searchParams.delete(key);
+    }
+    history.replaceState(history.state,'',url);
+  }
+  function apply() {
+    const words = normalized(query.value).split(/\s+/u).filter(Boolean);
+    for (const record of records) {
+      const family = record.closest('[data-map-family]');
+      record.hidden = !words.every(word=>record.dataset.mapSearch.includes(word))
+        || Boolean(technology.value && technology.value !== family.dataset.mapTechnology)
+        || Boolean(status.value && status.value !== record.dataset.mapStatus);
+    }
+    for (const family of families) family.hidden = ![...family.querySelectorAll('[data-map-record]')].some(record=>!record.hidden);
+    for (const vendor of vendors) {
+      const visible = [...vendor.querySelectorAll('[data-map-record]')].filter(record=>!record.hidden);
+      vendor.hidden = visible.length === 0;
+      const row = root.querySelector(`[data-map-vendor-row="${vendor.dataset.mapVendor}"]`);
+      row.hidden = vendor.hidden;
+      row.querySelector('[data-map-row-total]').textContent = visible.length;
+      for (const cell of row.querySelectorAll('[data-map-cell]')) {
+        const hits = visible.filter(record=>record.closest('[data-map-family]').dataset.mapTechnology === cell.dataset.mapCell);
+        const link = cell.querySelector('a');
+        if (link) {
+          link.hidden = !hits.length;
+          link.textContent = hits.length;
+          if (hits.length) link.hash = hits[0].closest('[data-map-family]').id;
+          link.setAttribute('aria-label',`${vendor.querySelector('h3').textContent.trim()} · ${cell.dataset.mapCell} · ${hits.length} ${en?'records':'筆紀錄'}`);
+        }
+      }
+    }
+    const visible = records.filter(record=>!record.hidden);
+    const unique = new Set(visible.map(record=>record.id.split('-').at(-1))).size;
+    count.textContent = en
+      ? `${visible.length} / ${records.length} records · ${unique} distinct publications · ${vendors.filter(v=>!v.hidden).length} companies`
+      : `${visible.length}／${records.length} 筆紀錄 · ${unique} 個不同公報 · ${vendors.filter(v=>!v.hidden).length} 家廠商`;
+    root.querySelector('#nvm-map-empty').hidden = visible.length > 0;
+    results.hidden = !(query.value || technology.value || status.value) || !visible.length;
+    for (const item of resultLinks) item.hidden = document.getElementById(item.dataset.mapResult).hidden;
+  }
+  function reset() {
+    for (const [control] of controls) control.value = '';
+    apply(); writeURL();
+  }
+  form.hidden = false;
+  form.addEventListener('submit',event=>event.preventDefault());
+  form.addEventListener('reset',event=>{event.preventDefault();reset();query.focus();});
+  query.addEventListener('input',()=>{apply();writeURL();});
+  for (const select of [technology,status]) select.addEventListener('change',()=>{apply();writeURL();});
+  window.addEventListener('popstate',()=>{readURL();apply();});
+  readURL(); apply();
+  return {reveal(anchor) {
+    if (!anchor || !root.contains(anchor) || anchor === root) return;
+    for (let element = anchor; element && element !== root; element = element.parentElement) {
+      if (element.hidden) {
+        reset();
+        count.textContent += en ? ' · Filters cleared to show the linked record.' : ' · 已清除篩選以顯示連結內容。';
+        break;
+      }
+    }
+  }};
+}

@@ -1,0 +1,73 @@
+name: 知識中心已授權完整驗證
+"on":
+  workflow_dispatch:
+    inputs:
+      user_quote:
+        description: Sam 對本次完整範圍的明確授權原文
+        type: string
+        required: true
+      source:
+        description: 可核對的授權來源
+        type: string
+        required: true
+      necessity:
+        description: 為何局部案例不足及完整範圍必要性
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  full:
+    name: 明確授權後執行原有完整驗證
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: 知識中心完整驗證收據
+      cancel-in-progress: false
+    env:
+      NVM_QA_BROWSER: chromium
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: npm
+      - name: 恢復同平台的完整驗證成功與失敗紀錄
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/完整驗證證據
+          key: nvm-hub-full-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: nvm-hub-full-${{ runner.os }}-${{ runner.arch }}-
+      - name: 建立保留原文的完整計畫
+        env:
+          FULL_USER_QUOTE: ${{ inputs.user_quote }}
+          FULL_SOURCE: ${{ inputs.source }}
+          FULL_NECESSITY: ${{ inputs.necessity }}
+        run: python .github/工具/準備完整驗證計畫.py "$RUNNER_TEMP/完整計畫.json"
+      - name: 準備完整驗證環境
+        run: |
+          npm ci --ignore-scripts
+          npm ci --ignore-scripts --prefix tools/whitepaper-studio
+          node node_modules/playwright/cli.js install --with-deps chromium
+      - name: 經共用 gate 執行原有完整驗證
+        run: python tools/codex/完整驗證入口.py --plan "$RUNNER_TEMP/完整計畫.json" --workspace-root "$RUNNER_TEMP"
+      - name: 保存成功與失敗紀錄以阻擋無依據重跑
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/完整驗證證據
+          key: nvm-hub-full-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: 保存完整驗證授權與原始紀錄
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: 完整驗證證據
+          path: |
+            ${{ runner.temp }}/完整驗證證據/
+            ${{ runner.temp }}/完整計畫.json
+            qa/
+          if-no-files-found: ignore

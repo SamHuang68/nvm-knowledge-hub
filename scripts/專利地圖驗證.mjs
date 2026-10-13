@@ -1,0 +1,108 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {chromium, webkit} from 'playwright';
+import {startTestServer} from './test-server.mjs';
+import {validateVendorPatentMaps, renderVendorPatentMaps, vendorPatentMapsMarkdown, patentMapTechnology} from './nvm-vendor-patent-maps-ui.mjs';
+
+const root = path.resolve(import.meta.dirname,'..');
+const engine = process.argv.find(arg=>arg.startsWith('--engine='))?.split('=')[1] || 'chromium';
+assert.ok(['chromium','webkit'].includes(engine), '僅驗證明列的瀏覽器引擎');
+const out = path.join(root,'qa','專利地圖',engine);
+fs.mkdirSync(out,{recursive:true});
+const data = Object.fromEntries(['en','zh'].map(locale=>[locale,JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'))]));
+const recordIDs = value=>value.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>`vendor-patent-${f.id}-${p.id}`)));
+assert.deepEqual(recordIDs(data.en),recordIDs(data.zh),'雙語案卷識別一致');
+for (const [locale,value] of Object.entries(data)) {
+  validateVendorPatentMaps(value);
+  const html=renderVendorPatentMaps(value,locale,()=>''), md=vendorPatentMapsMarkdown(value,()=>'',locale);
+  assert.equal(recordIDs(value).length,52,'保留 Stage 3 的 52 筆收錄');
+  assert.equal(new Set(value.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>p.id)))).size,48);
+  for (const vendor of value.vendors) for (const family of vendor.families) for (const patent of family.patents) {
+    assert.ok(html.includes(`id="vendor-patent-${family.id}-${patent.id}"`),'保留既有公報錨點');
+    for (const field of ['id','title','claimFocus','mechanism','coreProblem','productLink','assignee']) assert.ok(md.includes(patent[field]),`匯出保留 ${field}`);
+  }
+  assert.ok(md.includes(locale==='en'?'Requires Case Review':'待個案核對'));
+  if (locale==='en') assert.ok(!/[\u3400-\u9fff]/u.test(md),'英文專利地圖匯出無繁中標籤殘留');
+  const broken=structuredClone(value); broken.vendors[0].families[0].id='unclassified';
+  assert.throws(()=>validateVendorPatentMaps(broken),/尚未分類/,'新增未分類組合會阻擋生成');
+}
+const server=await startTestServer(root);
+const browser=await ({chromium,webkit}[engine]).launch();
+const observations=[];
+try {
+  for (const locale of ['en','zh']) for (const width of [1440,390]) {
+    const context=await browser.newContext({viewport:{width,height:960},isMobile:width===390,hasTouch:width===390});
+    const page=await context.newPage(); page.setDefaultTimeout(10000);
+    const errors=[]; page.on('pageerror',error=>errors.push(error.message));
+    const pathname=`nvm-technology-atlas${locale==='zh'?'-zh':''}.html`;
+    await page.goto(`${server.base}${pathname}?lang=${locale}#patent-maps`);
+    const map=page.locator('#patent-maps');
+    await map.waitFor({state:'visible'});
+    await map.locator('[data-map-controls]').waitFor({state:'visible'});
+    assert.equal(await page.locator('html').getAttribute('lang'),locale==='en'?'en':'zh-Hant');
+    const visible=()=>map.locator('[data-map-record]:visible').count();
+    assert.equal(await visible(),52);
+    assert.equal(await map.locator('[data-map-vendor]:visible').count(),12);
+    assert.equal(await map.locator('[data-map-family]:visible').count(),19);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'整頁不得橫向溢位');
+    await page.screenshot({path:path.join(out,`${locale}-${width}-總覽.png`)});
+    const search=map.locator('#nvm-map-query');
+    await search.fill('US10651268B2');
+    assert.equal(await visible(),2,'同一公報跨組合收錄不漏列');
+    assert.ok((await map.locator('#nvm-map-count').innerText()).includes(locale==='en'?'1 distinct':'1 個不同'));
+    await search.fill('eMeMoRy');
+    assert.equal(await visible(),16,'大小寫不影響搜尋；包含 14 筆 eMemory 與 2 筆提及 eMemory 的 PUFsecurity 紀錄');
+    assert.equal(await map.locator('#vendor-ememory [data-map-record]:visible').count(),14);
+    await search.fill('');
+    await map.locator('#nvm-map-technology').selectOption('mram');
+    assert.equal(await visible(),3,'MRAM 兩組合共三筆');
+    await map.locator('#nvm-map-status').selectOption('active');
+    const expected=data[locale].vendors.flatMap(v=>v.families.filter(f=>patentMapTechnology(f)==='mram').flatMap(f=>f.patents.filter(p=>p.legalStatus==='active'))).length;
+    assert.equal(await visible(),expected,'技術與狀態可交集篩選');
+    await page.screenshot({path:path.join(out,`${locale}-${width}-篩選.png`)});
+    const first=map.locator('#nvm-map-results li:visible a').first();
+    const target=(await first.getAttribute('href')).slice(1);
+    await first.click();
+    await page.waitForFunction(id=>location.hash===`#${id}` && document.activeElement?.tagName==='H6',target);
+    assert.ok(await page.locator(`[id="${target}"]`).isVisible());
+    await page.goBack();
+    await map.locator('#nvm-map-query').waitFor({state:'visible'});
+    assert.equal(await map.locator('#nvm-map-technology').inputValue(),'mram','歷史返回保留篩選');
+    await search.fill('找不到的公報-zzzz');
+    assert.equal(await visible(),0);
+    assert.ok(await map.locator('#nvm-map-empty').isVisible());
+    await map.locator('button[type=reset]').click();
+    assert.equal(await visible(),52);
+    await search.focus(); await page.keyboard.press('Tab');
+    assert.equal(await page.evaluate(()=>document.activeElement.id),'nvm-map-technology','鍵盤順序可達技術篩選');
+    await map.locator('#nvm-map-status').selectOption('active');
+    await page.goto(`${server.base}${pathname}?lang=${locale}&pm_status=active#vendor-patent-neobit-family-US6678190B2`);
+    await page.waitForFunction(()=>document.querySelector('#nvm-map-status').value==='');
+    assert.ok(await page.locator('#vendor-patent-neobit-family-US6678190B2').isVisible(),'不相容篩選不能隱藏直接連結');
+    await page.goto(`${server.base}${pathname}?lang=${locale}&pm_tech=eflash#patent-maps`);
+    await map.locator('#nvm-map-technology').waitFor({state:'visible'});
+    assert.equal(await visible(),9,'eFlash 共九筆，保留 Stage 3');
+    await Promise.all([page.waitForURL(url=>!url.pathname.endsWith('/'+pathname)),page.locator('.language-toggle, #languageToggle').first().click()]);
+    await map.locator('[data-map-controls]').waitFor({state:'visible'});
+    await page.waitForFunction(previous=>document.documentElement.lang!==previous,locale==='en'?'en':'zh-Hant');
+    assert.equal(await map.locator('#nvm-map-technology').inputValue(),'eflash','切換語系保留分類');
+    assert.equal(await visible(),9);
+    const aria=await map.locator('[data-map-controls]').ariaSnapshot();
+    assert.ok(aria.includes('searchbox') && aria.includes('combobox') && aria.includes('button'),'搜尋與篩選具有原生讀屏語意');
+    fs.writeFileSync(path.join(out,`${locale}-${width}-語意.txt`),aria);
+    await page.evaluate(()=>document.documentElement.style.fontSize='200%');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'200% 文字放大沒有整頁橫向溢位');
+    assert.deepEqual(errors,[],'專利地圖流程無瀏覽器例外');
+    observations.push({locale,width,engine,records:52,uniquePublications:48,search:true,filters:true,deepLinks:true,history:true,language:true,keyboard:true,semantics:true,textZoom:true});
+    await context.close();
+  }
+  const context=await browser.newContext({javaScriptEnabled:false});
+  const page=await context.newPage();
+  await page.goto(`${server.base}nvm-technology-atlas.html#patent-maps`);
+  assert.equal(await page.locator('#patent-maps [data-map-record]').count(),52,'未啟用 JS 仍保留全案卷');
+  assert.ok(await page.locator('[data-map-controls]').isHidden(),'無 JS 不顯示不可操作的搜尋');
+  await context.close();
+} finally { await browser.close(); await server.close(); }
+fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify(observations,null,2));
+console.log(`專利地圖局部驗證通過：${engine}，雙語 × 桌面／手機共 ${observations.length} 組，52 筆案卷與 48 個公報完整保留。`);
