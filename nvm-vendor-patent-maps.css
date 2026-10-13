@@ -1159,12 +1159,26 @@
   }
   .nvm-map-matrix {
     display: block;
+    position: relative;
     min-width: 0;
     width: 100%;
     border-collapse: separate;
   }
   .nvm-map-matrix thead {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .nvm-map-matrix caption {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
   }
   .nvm-map-matrix tbody {
     display: flex;
@@ -1203,7 +1217,7 @@
   .nvm-map-matrix th[scope="row"] a {
     font-weight: 700;
     color: #123e59;
-    min-height: auto;
+    min-height: 44px;
     min-width: auto;
   }
   .nvm-map-matrix td[data-map-cell] {
@@ -1226,8 +1240,8 @@
   }
   .nvm-map-matrix td[data-map-cell] a {
     font-weight: 700;
-    min-width: auto;
-    min-height: auto;
+    min-width: 44px;
+    min-height: 44px;
     padding: 0 2px;
   }
   .nvm-map-matrix td[data-map-cell] span {

@@ -246,12 +246,21 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
 });
 showRoute({ focus: Boolean(location.hash) });
 recordReadingPosition();
-if (document.readyState !== 'complete') window.addEventListener('load', () => {
-  requestAnimationFrame(() => {
-    if (location.hash) routeReadingPosition();
-    else recordReadingPosition();
-  });
-}, {once:true});
+if (document.readyState !== 'complete') {
+  const initialRoute=readingRoute();
+  let interacted=false;
+  const interactionEvents=['pointerdown','keydown','wheel','touchstart','focusin'];
+  const markInteraction=()=>{interacted=true;};
+  // 晚載入的資源可補正初始錨點，但不能蓋掉已開始的搜尋、捲動或導覽。
+  for(const name of interactionEvents) window.addEventListener(name,markInteraction,{capture:true,passive:true});
+  window.addEventListener('load', () => {
+    requestAnimationFrame(() => {
+      for(const name of interactionEvents) window.removeEventListener(name,markInteraction,true);
+      if (!interacted && readingRoute()===initialRoute && location.hash) routeReadingPosition();
+      else recordReadingPosition();
+    });
+  }, {once:true});
+}
 
 function filterHistoricalMetrics() {
   const select = document.querySelector('#nvm-history-metric');

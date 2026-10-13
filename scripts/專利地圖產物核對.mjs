@@ -7,27 +7,14 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='3d9f49bfefc82a833add5eed02340c1c8454ae44';
+const base='ce3333c6eb7dccb685fa98c395f335e6d8474254';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.3'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
-  const currentMaps = JSON.parse(read(`data/nvm-vendor-patent-maps${suffix}.json`));
-  const baseMaps = JSON.parse(original(`data/nvm-vendor-patent-maps${suffix}.json`));
-  assert.equal(currentMaps.vendors.length, baseMaps.vendors.length, '廠商數量維持 12 家');
-  for (const baseVendor of baseMaps.vendors) {
-    const curVendor = currentMaps.vendors.find(v => v.id === baseVendor.id);
-    assert.ok(curVendor, `廠商 ${baseVendor.id} 必須存在`);
-    if (baseVendor.id === 'ememory') {
-      const {patentStats: _curStats, ...curRest} = curVendor;
-      const {patentStats: _baseStats, ...baseRest} = baseVendor;
-      assert.deepEqual(curRest, baseRest, `廠商 ${baseVendor.id} 原始資料除授權專利規模更新外無其他未授權變更`);
-      assert.match(curVendor.patentStats.totalGrantedWorldwide, /1,?150/);
-    } else {
-      assert.deepEqual(curVendor, baseVendor, `廠商 ${baseVendor.id} 原始資料無未授權變更`);
-    }
-  }
+  const file=`data/nvm-vendor-patent-maps${suffix}.json`;
+  assert.equal(read(file),original(file),'本次只改閱讀互動，原始雙語資料在換行正規化後完全不變');
 }
 function withoutMap(html) {
   const start=html.indexOf('<article id="patent-maps"'); assert.ok(start>=0);
