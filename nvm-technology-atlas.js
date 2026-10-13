@@ -442,6 +442,7 @@ function initializePatentMap() {
   if (!form) return null;
   const en = document.documentElement.lang === 'en';
   const query = root.querySelector('#nvm-map-query');
+  const company = root.querySelector('#nvm-map-company');
   const technology = root.querySelector('#nvm-map-technology');
   const status = root.querySelector('#nvm-map-status');
   const count = root.querySelector('#nvm-map-count');
@@ -451,17 +452,23 @@ function initializePatentMap() {
   const vendors = [...root.querySelectorAll('[data-map-vendor]')];
   const resultLinks = [...root.querySelectorAll('[data-map-result]')];
   const normalized = value => value.normalize('NFKC').toLocaleLowerCase().trim();
-  const controls = [[query,'pm_q'],[technology,'pm_tech'],[status,'pm_status']];
+  const controls = [[query,'pm_q'],[company,'pm_company'],[technology,'pm_tech'],[status,'pm_status']];
   function readURL() {
     const params = new URL(location.href).searchParams;
     for (const [control,key] of controls) control.value = params.get(key) || '';
     if (!technology.value) technology.value = '';
     if (!status.value) status.value = '';
   }
-  function writeURL() {
+  function writeURL(fromControls = false) {
     const url = new URL(location.href);
     for (const [control,key] of controls) {
       if (control.value) url.searchParams.set(key,control.value); else url.searchParams.delete(key);
+    }
+    // 使用者改篩選時只移除失效的案卷錨點；外部深層連結仍由 reveal 優先揭露。
+    if (fromControls) {
+      let anchor;
+      try { anchor = document.getElementById(decodeURIComponent(url.hash.slice(1))); } catch { /* 無效錨點不影響篩選。 */ }
+      if (anchor && root.contains(anchor) && anchor.closest('[hidden]')) url.hash = 'nvm-map-heading';
     }
     history.replaceState(history.state,'',url);
   }
@@ -470,6 +477,7 @@ function initializePatentMap() {
     for (const record of records) {
       const family = record.closest('[data-map-family]');
       record.hidden = !words.every(word=>record.dataset.mapSearch.includes(word))
+        || Boolean(company.value && company.value !== record.closest('[data-map-vendor]').dataset.mapVendor)
         || Boolean(technology.value && technology.value !== family.dataset.mapTechnology)
         || Boolean(status.value && status.value !== record.dataset.mapStatus);
     }
@@ -486,7 +494,7 @@ function initializePatentMap() {
         if (link) {
           link.hidden = !hits.length;
           link.textContent = hits.length;
-          if (hits.length) link.hash = hits[0].closest('[data-map-family]').id;
+          if (hits.length) link.setAttribute('href',`#${hits[0].closest('[data-map-family]').id}`);
           link.setAttribute('aria-label',`${vendor.querySelector('h3').textContent.trim()} · ${cell.dataset.mapCell} · ${hits.length} ${en?'records':'筆紀錄'}`);
         }
       }
@@ -497,22 +505,32 @@ function initializePatentMap() {
       ? `${visible.length} / ${records.length} records · ${unique} distinct publications · ${vendors.filter(v=>!v.hidden).length} companies`
       : `${visible.length}／${records.length} 筆紀錄 · ${unique} 個不同公報 · ${vendors.filter(v=>!v.hidden).length} 家廠商`;
     root.querySelector('#nvm-map-empty').hidden = visible.length > 0;
-    results.hidden = !(query.value || technology.value || status.value) || !visible.length;
+    const filtered = controls.some(([control])=>control.value.trim());
+    results.hidden = !filtered || !visible.length;
     for (const item of resultLinks) item.hidden = document.getElementById(item.dataset.mapResult).hidden;
+    for (const link of root.querySelectorAll('[data-map-return]')) {
+      link.setAttribute('href',results.hidden ? '#nvm-map-heading' : '#nvm-map-results');
+      link.textContent = results.hidden ? (en ? 'Back to map search' : '返回地圖搜尋') : (en ? 'Back to matching publications' : '返回公報結果');
+    }
   }
-  function reset() {
+  function reset(fromControls = false) {
     for (const [control] of controls) control.value = '';
-    apply(); writeURL();
+    apply(); writeURL(fromControls);
   }
   form.hidden = false;
   form.addEventListener('submit',event=>event.preventDefault());
-  form.addEventListener('reset',event=>{event.preventDefault();reset();query.focus();});
-  query.addEventListener('input',()=>{apply();writeURL();});
-  for (const select of [technology,status]) select.addEventListener('change',()=>{apply();writeURL();});
+  form.addEventListener('reset',event=>{event.preventDefault();reset(true);query.focus();});
+  query.addEventListener('input',()=>{apply();writeURL(true);});
+  for (const select of [company,technology,status]) select.addEventListener('change',()=>{apply();writeURL(true);});
   window.addEventListener('popstate',()=>{readURL();apply();});
   readURL(); apply();
   return {reveal(anchor) {
     if (!anchor || !root.contains(anchor) || anchor === root) return;
+    if (anchor === results) {
+      if (!records.some(record=>!record.hidden)) reset();
+      results.hidden = false;
+      return;
+    }
     for (let element = anchor; element && element !== root; element = element.parentElement) {
       if (element.hidden) {
         reset();
