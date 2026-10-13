@@ -8557,6 +8557,52 @@
             "summary": "車用等級高可靠度嵌入式快閃記憶體。相較於傳統 SST eFlash 需增加多道光罩，Floadia 將 SONOS 結構整合於電晶體側壁分離閘極中，僅需追加 2–3 道光罩，且因電荷分散於無數微觀絕緣陷阱中，具備絕佳抗放射線、抗應力穿隧漏電 (SILC) 與高溫 175°C 留存能力。",
             "patents": [
               {
+                "id": "US6388293B1",
+                "title": "具側壁分離閘極與電荷捕捉介電層之非揮發性半導體記憶裝置",
+                "grantDate": "2002-05-14",
+                "priorityDate": "1999-10-18",
+                "inventors": "Shinichi Minami, Kosuke Okuyama 等 (日立製作所 / 瑞薩科技研發團隊)",
+                "assignee": "Hitachi, Ltd. / Renesas Electronics Corp.",
+                "url": "https://patents.google.com/patent/US6388293B1/en",
+                "coreProblem": "傳統浮動閘極在深次微米下容易因氧化層應力產生單一缺陷漏電 (SILC)，導致記憶體高溫資料保持力迅速衰退。",
+                "mechanism": "Floadia 創辦團隊早期奠基專利。以絕緣氮化矽 (Si3N4) 側壁間隔層作為電荷捕捉介質，將電荷捕獲於微觀分離能階中，徹底免除浮閘導電層全盤漏電隱患。",
+                "claimFocus": "權利項 1 限定由開關閘極與側壁電荷捕捉分離閘極組成之記憶單元結構與製造方法。",
+                "productLink": "日立/瑞薩 MONOS 技術奠基專利，Floadia LEE Flash 核心理論起源。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2019-10-18",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "奠基第一代 (Gen-1 MONOS Pioneer)",
+                "generationEn": "Gen-1 MONOS Pioneer",
+                "ftoStatus": "已於 2019 年 10 月屆滿 20 年進入公有領域。早期利用側壁氮化矽電荷捕捉層構成分離閘極之基礎單元結構現已開放自由實施。",
+                "ftoStatusEn": "Expired in October 2019; entered public domain. Foundational sidewall silicon nitride charge-trapping split-gate architecture is free to operate."
+              },
+              {
+                "id": "US6853583B2",
+                "title": "電荷捕捉型非揮發性記憶體之均勻電場雙向穿隧操作方法",
+                "grantDate": "2005-02-08",
+                "priorityDate": "2002-09-17",
+                "inventors": "Kosuke Okuyama 等 (日立製作所 / 瑞薩科技研發團隊)",
+                "assignee": "Renesas Technology Corp.",
+                "url": "https://patents.google.com/patent/US6853583B2/en",
+                "coreProblem": "熱載子注入 (HCI) 寫入會在通道界面產生高能界面缺陷，嚴重縮短電荷捕捉記憶單元之寫抹循環壽命。",
+                "mechanism": "拋棄破壞性熱載子注入，在整個電荷捕捉區均勻施加雙向低電場 Fowler-Nordheim (FN) 穿隧電壓，消除界面破壞，大幅延長介電層耐久度。",
+                "claimFocus": "權利項 1 限定在電荷陷阱分離閘單元中以雙向均勻低場 FN 穿隧完成寫入與抹除之偏壓時序。",
+                "productLink": "Floadia LEE Flash ZT 與 G1/G2 雙向低場操作法理基礎。",
+                "legalStatus": "expired",
+                "legalStatusZh": "已屆滿過期 (Expired · 公有領域)",
+                "legalStatusEn": "Expired · Public Domain",
+                "expirationDate": "2022-09-17",
+                "patentCategory": "操作方法項 (Method / Operation)",
+                "patentCategoryEn": "Method / Operation",
+                "generation": "奠基第一代 (Gen-1 Uniform FN Operation)",
+                "generationEn": "Gen-1 Uniform FN Operation",
+                "ftoStatus": "已於 2022 年 9 月屆滿 20 年進入公有領域。雙向均勻低場 FN 穿隧於側壁電荷捕捉單元之偏壓操作方法已無專利排他權。",
+                "ftoStatusEn": "Expired in September 2022; entered public domain. Uniform bidirectional low-field FN tunneling for charge-trap cells is in the public domain."
+              },
+              {
                 "id": "US9847343B2",
                 "title": "具嵌入式 SONOS 結構之電荷陷阱記憶體單元及其整合工藝方法",
                 "grantDate": "2017-12-19",
@@ -8578,6 +8624,29 @@
                 "generationEn": "Gen-2 Low-Power FN CFX",
                 "ftoStatus": "專利權有效維持至 2034 年 7 月。保護超低功耗 FN 穿隧 SONOS 製程整合與偏壓控制方法。",
                 "ftoStatusEn": "In force through July 2034. Covers ultra-low power FN tunneling SONOS fabrication flow and operating methods."
+              },
+              {
+                "id": "US10840251B2",
+                "title": "具微應力抹除之側壁分離閘極電荷陷阱記憶體單元及其操作方法",
+                "grantDate": "2020-11-17",
+                "priorityDate": "2018-05-18",
+                "inventors": "Kosuke Okuyama, Shintaro Kume",
+                "assignee": "Floadia Corp.",
+                "url": "https://patents.google.com/patent/US10840251B2/en",
+                "coreProblem": "車用 175°C 極端環境下，重複高壓抹除引發之介電層微應力會造成軟擊穿，導致車規晶片發生漏電退化。",
+                "mechanism": "Floadia 旗艦 µStressFlash 核心專利。採用微應力抹除演算法，將抹除電場精確壓制在介電層彈性極限以下，並以對稱負偏壓輔助抽出電子，達成 175°C 100K 次車規零退化。",
+                "claimFocus": "權利項 1 限定側壁分離閘 ONO 單元搭配微應力負偏壓階梯脈衝之抹除操作架構。",
+                "productLink": "Floadia µStressFlash / LEE Flash G2 車規 Grade-0 核心 IP。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-05-18",
+                "patentCategory": "裝置與操作項 (Device & Operation)",
+                "patentCategoryEn": "Device & Operation",
+                "generation": "先進第三代 (Gen-3 µStressFlash 175°C)",
+                "generationEn": "Gen-3 µStressFlash 175°C",
+                "ftoStatus": "專利權有效維持至 2038 年 5 月。具有強力排他權，保護 µStressFlash 微應力抹除演算法與側壁 ONO 單元偏壓結構。",
+                "ftoStatusEn": "Actively in force through May 2038. Protects µStressFlash low-stress erase algorithms and automotive 175°C retention structures."
               }
             ]
           }
@@ -8607,7 +8676,26 @@
             "nodes": "40nm / 28nm",
             "keyPatents": "Floadia 類比 AI 專利群"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "超低光罩 SONOS 電荷陷阱壁壘與 µStressFlash 車規 175°C 專利護城河",
+          "overview": "Floadia 由前瑞薩科技 (Renesas) 記憶體研發領袖奧山幸祐 (Kosuke Okuyama) 於 2011 年創立，其專利戰略的核心在於終結傳統 eFlash (如 SST SuperFlash) 需追加 6–10 道額外光罩的高昂成本枷鎖。Floadia 創新整合了「側壁分離閘極工藝」與「氮化矽 (Si3N4) 局域電荷陷阱 (Charge-Trap)」，在僅追加 2–3 道光罩的超低成本下，達成耐受 175°C 車規極限與 100,000 次擦寫壽命。",
+          "keyBattles": [
+            {
+              "heading": "氮化矽電荷陷阱 vs. 傳統浮閘之抗漏電物理壁壘",
+              "detail": "傳統多晶矽浮動閘極是導電連續體，只要氧化層產生單一穿隧微絲 (SILC)，整顆浮閘的電荷就會瞬間漏光。Floadia 採用絕緣氮化矽薄膜 (ONO 結構)，注入的電子被牢牢束縛在數百萬個分散的奈米級深能階陷阱中；即使氧化層局部受損，其他位置的電子依然完好無損，因此在車用 175°C 極端高溫下展現出浮動閘極無法企及的數據留存能力。"
+            },
+            {
+              "heading": "µStressFlash 專利微應力抹除 (US10840251B2)",
+              "detail": "傳統快閃記憶體在抹除時施加高達 10–12 MV/cm 的破壞性高場，會撕裂界面並生成界面陷阱。Floadia 專利限定利用低電場對稱 FN 穿隧與微應力電壓調控，使穿隧介電層在 10 萬次擦寫後仍保持極低界面缺陷，順利通過日本車用半導體龍頭嚴苛的 AEC-Q100 Grade-0 認證。"
+            },
+            {
+              "heading": "神經擬態類比計算 (CIM) 專利延伸",
+              "detail": "利用電荷陷阱單元微觀電導連續可調特性，Floadia 將專利網延伸至邊緣 AI 類比乘加運算 (Vector-Matrix Multiplication)，在非揮發單元內部直接完成權重乘法，功耗僅為傳統 GPU/數位加速器的十分之一。"
+            }
+          ],
+          "ftoVerdict": "【自由實施建議】早期 1999–2002 年日立/瑞薩提出之基礎側壁 SONOS 分離閘極結構與均勻 FN 穿隧專利（US6388293B1 與 US6853583B2）已於 2019 年與 2022 年屆滿 20 年進入公有領域；但 Floadia 自主之 2–3 道超低光罩側壁製造工藝 (US9847343B2)、0-Mask 10K MTP (US9214470B2) 以及 µStressFlash 微應力抹除方法 (US10840251B2) 仍處於強力保護期（分別有效維持至 2032、2034 與 2038 年）。"
+        }
       },
       {
         "id": "sst",
@@ -8680,6 +8768,75 @@
                 "generationEn": "Gen-2 ESF1 Self-Aligned",
                 "ftoStatus": "已於 2022 年 4 月屆滿過期進入公有領域。自我對準分離閘極與源極側注入結構已無專利排他性。",
                 "ftoStatusEn": "Expired in April 2022; entered public domain. Self-aligned split-gate structure with source-side injection is in the public domain."
+              },
+              {
+                "id": "US8217444B2",
+                "title": "具自我對準獨立抹除閘之分離閘極快閃記憶體單元結構與製造方法",
+                "grantDate": "2012-07-10",
+                "priorityDate": "2010-01-20",
+                "inventors": "Xian Liu, Chien-Sheng Su, Bing Yeh",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8217444B2/en",
+                "coreProblem": "微縮至 55nm/40nm 時，獨立抹除閘 (EG) 與浮動閘尖端之光罩對準誤差會引發劇烈的單元間抹除速度離散。",
+                "mechanism": "採用化學機械研磨 (CMP) 與自我對準間隔層工藝，使抹除閘極自我對準於浮動閘極上方之多晶矽尖端，消除微影對準偏差，維持一致的穿隧電場。",
+                "claimFocus": "權利項 1 限定抹除閘極自我對準於浮動閘極上尖端且覆蓋共用源極擴散區之結構與製造方法。",
+                "productLink": "SuperFlash® ESF3 55nm/40nm 全球車規 MCU 主力量產平台。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2030-01-20",
+                "patentCategory": "裝置與製程項 (Device & Fabrication)",
+                "patentCategoryEn": "Device & Fabrication",
+                "generation": "先進第三代 (Gen-3 ESF3 Self-Aligned)",
+                "generationEn": "Gen-3 ESF3 Self-Aligned",
+                "ftoStatus": "專利權有效維持至 2030 年 1 月。保護具自我對準抹除閘之 1.5T ESF3 單元結構與對準偏差抑制工藝。",
+                "ftoStatusEn": "In force through January 2030. Protects self-aligned erase-gate ESF3 1.5T cell structures and overlay-tolerant fabrication methods."
+              },
+              {
+                "id": "US8946797B2",
+                "title": "適用於先進金屬閘極製程之分離閘極快閃記憶體單元",
+                "grantDate": "2015-02-03",
+                "priorityDate": "2012-07-31",
+                "inventors": "Chien-Sheng Su, Xian Liu",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8946797B2/en",
+                "coreProblem": "在 28nm HKMG (高介電常數金屬閘極) 製程中，多晶矽熱預算受限且金屬置換工藝極易破壞浮動閘極之介電隔離。",
+                "mechanism": "設計相容於 High-k Metal Gate 置換閘極工藝之嵌入式分離閘單元，以超薄金屬功函數層作為選擇閘，浮閘維持超低漏電多晶矽，實現 28nm HKMG 車規量產。",
+                "claimFocus": "權利項 1 限定具金屬選擇閘極與多晶矽浮動閘極之混合分離閘結構與 28nm HKMG 整合方法。",
+                "productLink": "SuperFlash® 28nm HKMG 車用晶片平台 (台積電 / 聯電量產授權)。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2032-07-31",
+                "patentCategory": "裝置結構項 (Device Structure)",
+                "patentCategoryEn": "Device Structure",
+                "generation": "埃米微縮第四代 (Gen-4 28nm HKMG eFlash)",
+                "generationEn": "Gen-4 28nm HKMG eFlash",
+                "ftoStatus": "專利權有效維持至 2032 年 7 月。具有強力排他權，未獲授權不得於 28nm HKMG 製程中實施該混合金屬閘分離單元。",
+                "ftoStatusEn": "In force through July 2032. Enforces exclusivity over hybrid metal-gate/poly-FG split-gate cells in 28nm HKMG foundries."
+              },
+              {
+                "id": "US10658032B2",
+                "title": "基於分離閘極浮動閘記憶體單元之類比類神經網路運算陣列",
+                "grantDate": "2020-05-19",
+                "priorityDate": "2018-09-19",
+                "inventors": "Vipin Tiwari, Mark Reiten",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US10658032B2/en",
+                "coreProblem": "邊緣 AI 運算受制於馮紐曼記憶體牆，數位 SRAM 陣列讀取權重耗費巨額功耗。",
+                "mechanism": "利用 ESF3 浮動閘極電導的多級精確可調特性，以類比電流直接實現矩陣乘加運算 (Vector-Matrix Multiplication)，將神經網路推理功耗壓低 80% 以上。",
+                "claimFocus": "權利項 1 限定由多級浮閘分離閘極單元組成之類比神經擬態乘加運算陣列架構與權重調諧操作。",
+                "productLink": "Microchip / SST memBrain™ 神經擬態記憶體內運算 (CIM) 處理器 IP。",
+                "legalStatus": "active",
+                "legalStatusZh": "有效專利 (In-Force / Active)",
+                "legalStatusEn": "In-Force / Active",
+                "expirationDate": "2038-09-19",
+                "patentCategory": "陣列架構項 (Array Architecture)",
+                "patentCategoryEn": "Array Architecture",
+                "generation": "神經擬態第五代 (Gen-5 memBrain CIM AI)",
+                "generationEn": "Gen-5 memBrain CIM AI",
+                "ftoStatus": "專利權有效維持至 2038 年 9 月。保護 ESF3 浮閘電導類比權重儲存與記憶體內計算 (CIM) 陣列技術。",
+                "ftoStatusEn": "In force through September 2038. Protects ESF3 multi-level conductance weights and in-memory computing architectures."
               }
             ]
           }
@@ -8717,7 +8874,26 @@
             "nodes": "40nm / 28nm HKMG",
             "keyPatents": "memBrain 類比計算專利"
           }
-        ]
+        ],
+        "litigationDefense": {
+          "title": "分離閘極 (Split-Gate) 世紀專利壁壘與 ESF1/ESF3 基礎結構之公有領域開放",
+          "overview": "葉炳 (Bing Yeh) 博士於 1989 年創辦 SST 所發明的「分離閘極 (Split-Gate) 快閃記憶體」，是半導體記憶體歷史上最具決定性的發明之一。傳統 1T 堆疊閘極 (Stacked-Gate) 快閃記憶體長年受「過度抹除 (Over-Erase)」問題困擾，一旦過度抽出電子使浮閘變為正電位，電晶體即轉變為空乏型而永久導通，癱瘓整條位元線。SST 的分離閘極結構徹底消除了此物理致命傷，成為全球車用與微控制器嵌入式快閃記憶體統治三十餘年的事實標準。",
+          "keyBattles": [
+            {
+              "heading": "擊破 1T 堆疊閘極過度抹除枷鎖 (ESF1 奠基專利 US5029130A)",
+              "detail": "傳統 Intel/AMD/Toshiba 堆疊閘極為了防止過度抹除，晶片內部必須配置極其龐大的演算法電路，在每次抹除前先執行耗時的預寫入修復 (Pre-programming)。SST 專利限定控制閘極橫向跨接於矽通道表面作為天然串聯選擇開關，即使浮動閘極過度抹除變成負臨界電壓，相鄰的選擇通道依然能受控完全關斷，免除了複雜的修復演算法，使抹除速度躍升百倍。"
+            },
+            {
+              "heading": "第三代 ESF3 獨立抹除閘 (EG) 與源極側注入 (SSI) 專利護城河 (US6747310B2)",
+              "detail": "早期分離閘極仍需向控制閘極施加高壓抹除，限制了電晶體微縮。SST 於 2002 年佈局第三代 ESF3 專利，在 1.5T 架構中獨立出專用抹除閘極 (EG)，並使浮動閘極邊緣形成銳利多晶矽尖端 (Tip)，抹除時利用微觀尖端場發射進行局部 FN 穿隧，大幅降低抹除電壓；同時配合源極側注入 (SSI)，將寫入效率較常規 CHEI 躍升 1,000 倍，達成 100K 次車規耐久度。"
+            },
+            {
+              "heading": "全球代工廠授權聯盟與 Microchip 3 億美元收購",
+              "detail": "SST 透過將 SuperFlash 技術授權給台積電 (TSMC)、聯電 (UMC)、格芯 (GF)、中芯國際 (SMIC) 與華虹宏力，奠定了全球嵌入式 Flash 的絕對統治地位。2010 年微控制器龍頭 Microchip 以約 3 億美元全資收購 SST，將 SuperFlash 確立為旗下 PIC 與 AVR MCU 產品的核心護城河，累計晶片出貨量超過 1,000 億顆。"
+            }
+          ],
+          "ftoVerdict": "【重大產業里程碑】SST 奠基之初代分離閘極專利 US5029130A 早於 2009 年 8 月屆滿 20 年進入公有領域；其 ESF3 四閘極與源極側注入基礎結構專利 US6747310B2 亦已於 2022 年 4 月屆滿進入公有領域！半導體業界現可完全合法、免授權實施「非對稱分離閘極」與「獨立抹除閘尖端穿隧 (Tip Tunneling)」基礎結構；然而，SST 在 55nm/40nm 自我對準工藝 (US8217444B2)、28nm HKMG 金屬閘整合 (US8946797B2) 與 memBrain 類比 CIM 矩陣專利 (US10658032B2) 仍受嚴密保護至 2030–2038 年。"
+        }
       },
       {
         "id": "everspin",
