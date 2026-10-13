@@ -12,7 +12,8 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   validate:
-    name: 明列變更驗證與產物完整性
+    # 保留 main 既有必要檢查名稱；案例範圍由明列計畫決定。
+    name: 生成一致性與瀏覽器回歸
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
