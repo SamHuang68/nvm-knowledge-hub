@@ -148,8 +148,12 @@ export const RAD_NVM_TECHS = {
  * @returns {Object} Metrics
  */
 export function calculateRadMetrics(params = {}) {
-  const preset = RAD_PRESETS[params.presetKey] || RAD_PRESETS.deep_space_jupiter;
-  const tech = RAD_NVM_TECHS[params.techKey] || RAD_NVM_TECHS.antifuse_ohmic;
+  const preset = (params.presetKey && Object.prototype.hasOwnProperty.call(RAD_PRESETS, params.presetKey))
+    ? RAD_PRESETS[params.presetKey]
+    : RAD_PRESETS.deep_space_jupiter;
+  const tech = (params.techKey && Object.prototype.hasOwnProperty.call(RAD_NVM_TECHS, params.techKey))
+    ? RAD_NVM_TECHS[params.techKey]
+    : RAD_NVM_TECHS.antifuse_ohmic;
 
   const dose = typeof params.tidDoseKrad === 'number' && !isNaN(params.tidDoseKrad) ? Math.max(0, params.tidDoseKrad) : (preset.targetTidKrad || preset.tidKrad || 100);
   const letVal = typeof params.heavyIonLet === 'number' && !isNaN(params.heavyIonLet) ? Math.max(0, params.heavyIonLet) : (preset.peakHeavyIonLet || preset.letFlux || 45);

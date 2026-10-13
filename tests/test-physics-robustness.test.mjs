@@ -575,5 +575,59 @@ test('物理計算器：Suite 14－先進封裝異質整合、深低溫量子與
   }
 });
 
+// Suite 15: CPO 矽光子熱漂移、CXL 延遲階層化、CiM 精度衰退與常關閉採集極限壓力測試
+test('Suite 15: CPO 矽光子熱漂移、CXL 延遲階層化、CiM 精度衰退與常關閉採集極限壓力測試', () => {
+  const suite15Configs = [
+    // 1. CPO 矽光子熱漂移與微環失諧極限 (CPO SiPh Wavelength Detuning & Laser Power)
+    { presetKey: 'switch_51t_cpo', techKey: 'antifuse_nonvolatile_trim', tempC: -40.0, wavelengthShiftPm: -500.0 },
+    { presetKey: 'switch_102t_cpo', techKey: 'thermal_heater_dac', tempC: 150.0, wavelengthShiftPm: 600.0 },
+    { presetKey: 'switch_51t_cpo', techKey: '__proto__', tempC: 85.0, wavelengthShiftPm: 0.0 },
+
+    // 2. CXL 記憶體池化階層延遲與頻寬極限 (CXL Memory Pooling Tiered Latency & Bandwidth)
+    { presetKey: 'ai_cluster_training', poolSizeTb: 128.0, hotHitRatioPct: 99.9, switchLatencyNs: 35.0 },
+    { presetKey: 'in_memory_db_hana', poolSizeTb: 2.0, hotHitRatioPct: 0.1, switchLatencyNs: 120.0 },
+    { presetKey: '__proto__', poolSizeTb: 16.0, hotHitRatioPct: 80.0, switchLatencyNs: 65.0 },
+
+    // 3. CiM 類神經推論精度衰退與 ADC 量化雜訊 (CiM NN Accuracy Degradation & Quantization)
+    { workloadKey: 'resnet50_imagenet', deviceKey: 'reram_oxram_mlc', adcResolutionBits: 4, retentionHours: 1.0, temperatureC: -40.0 },
+    { workloadKey: 'bert_base_nlp', deviceKey: 'pcm_gst_phase_change', adcResolutionBits: 8, retentionHours: 100000.0, temperatureC: 150.0 },
+    { workloadKey: 'llama3_edge_7b', deviceKey: '__proto__', adcResolutionBits: 6, retentionHours: 87600.0, temperatureC: 85.0 },
+
+    // 4. 常關閉物聯網能量採集微平衡 (Normally-Off Energy Harvesting Balance)
+    { sourceKey: 'indoor_solar_100lux', memoryKey: 'antifuse_normally_off', customCapacitorUf: 220.0, customDutyCyclePct: 0.001 },
+    { sourceKey: 'rf_wireless_1m', memoryKey: 'eflash_charge_pump', customCapacitorUf: 10.0, customDutyCyclePct: 50.0 },
+    { sourceKey: '__proto__', memoryKey: '__proto__', customCapacitorUf: 47.0, customDutyCyclePct: 1.0 },
+
+    // 5. 深低溫量子 CMOS 與高能重離子防禦 (Cryo-CMOS & Radhard First Principles)
+    { presetKey: 'cryo_dilution_fridge_4k', techKey: 'antifuse_ohmic_filament', customTempK: 0.05, readBiasMv: 1200.0 },
+    { presetKey: 'cryo_space_deep_orbit', techKey: 'ferroelectric_fet', customTempK: 350.0, readBiasMv: 50.0 },
+    { presetId: 'quantum_cryo_4k', topologyId: 'antifuse_radhard', customTempK: 4.2, customTidKrad: 5000.0, customLet: 100.0 },
+    { presetId: '__proto__', topologyId: '__proto__', customTempK: 77.0, customTidKrad: 100.0, customLet: 30.0 },
+
+    // 6. 側信道洩漏與抗 DPA/CPA 防禦評估 (DPA/CPA Side-Channel Leakage & MTD)
+    { presetKey: 'fpga_unprotected_aes', defenseKey: 'none_single_ended', noiseStd: 0.1, sampleRateGsps: 0.2 },
+    { presetKey: 'asic_masked_dual_rail', defenseKey: 'shuffling_jitter', noiseStd: 10.0, sampleRateGsps: 20.0 },
+    { presetKey: '__proto__', defenseKey: '__proto__', noiseStd: 1.0, sampleRateGsps: 2.5 },
+
+    // 7. 晶圓製造成本與生命週期 TCO 經濟學 (Wafer Cost & TCO Foundry Economics)
+    { processId: '28nm_hpc', envmId: 'antifuse_logic', dieAreaMm2: 1.0, annualWaferVolume: 500 },
+    { processId: '16nm_finfet', envmId: 'mram_spin_torque', dieAreaMm2: 200.0, annualWaferVolume: 500000 },
+    { processId: '__proto__', envmId: '__proto__', dieAreaMm2: 25.0, annualWaferVolume: 30000 }
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite15Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 15 邊界條件`);
+        checkNoNaN(res, `${name}_Suite15`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 15 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
+
+
 
 

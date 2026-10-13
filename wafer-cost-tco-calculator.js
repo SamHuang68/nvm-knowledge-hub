@@ -140,8 +140,12 @@ export function calculateWaferCostTco(inputs = {}) {
   const dieAreaMm2 = Math.max(1.0, Math.min(200.0, Number(inputs.dieAreaMm2) || 25.0));
   const annualWaferVolume = Math.max(500, Math.min(500000, Number(inputs.annualWaferVolume) || 30000));
 
-  const process = FOUNDRY_PROCESS_PRESETS[processId] || FOUNDRY_PROCESS_PRESETS["28nm_hpc"];
-  const envm = ENVM_COST_PROFILES[envmId] || ENVM_COST_PROFILES["antifuse_logic"];
+  const process = Object.hasOwn(FOUNDRY_PROCESS_PRESETS, processId)
+    ? FOUNDRY_PROCESS_PRESETS[processId]
+    : FOUNDRY_PROCESS_PRESETS["28nm_hpc"];
+  const envm = Object.hasOwn(ENVM_COST_PROFILES, envmId)
+    ? ENVM_COST_PROFILES[envmId]
+    : ENVM_COST_PROFILES["antifuse_logic"];
 
   const maskAdders = Number.isFinite(inputs.customMaskAdders) ? Math.max(0, inputs.customMaskAdders) : envm.maskAdders;
   const totalMaskLayers = Math.max(1, process.baseMaskLayers + maskAdders);
@@ -307,10 +311,17 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
   }
   ctx.save(); ctx.scale(dpr, dpr);
-  const isDark = document.documentElement.getAttribute("data-theme") !== "light";
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = isDark ? "#0b1220" : "#f8fafc"; ctx.fillRect(0, 0, width, height);
-  ctx.strokeStyle = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f1f5f9");
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   for (let i = 0; i <= 5; i++) {
     const y = padTop + (plotH / 5) * i;
@@ -321,7 +332,7 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     legend.forEach(item => {
       const y = legendTop + item.y;
       ctx.fillStyle = item.tech.color; ctx.fillRect(item.x, y, 10, 10);
-      ctx.fillStyle = isDark ? '#cbd5e1' : '#475569';
+      ctx.fillStyle = '#475569';
       item.lines.forEach((line, index) => ctx.fillText(line, item.x + 14, y + 9 + index * 14));
     });
   };
@@ -332,13 +343,13 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     const boxHeight = lines.length * 14 + 8;
     const boxX = Math.max(4, Math.min(width - boxWidth - 4, x - boxWidth / 2));
     const boxY = Math.max(padTop, Math.min(padTop + plotH - boxHeight, y - 38));
-    ctx.fillStyle = isDark ? 'rgba(15,23,42,0.9)' : 'rgba(255,255,255,0.9)';
-    ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 1;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 1;
     ctx.fillRect(boxX, boxY, boxWidth, boxHeight); ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
-    ctx.fillStyle = isDark ? '#f1f5f9' : '#0f172a'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#0f172a'; ctx.textAlign = 'center';
     lines.forEach((line, index) => ctx.fillText(line, boxX + boxWidth / 2, boxY + 14 + index * 14));
   };
-  ctx.fillStyle = isDark ? "#cbd5e1" : "#334155";
+  ctx.fillStyle = "#0f172a";
   ctx.font = "bold 13px system-ui, -apple-system, sans-serif"; ctx.textAlign = "left";
   titleLines.forEach((line, index) => ctx.fillText(line, 12, 20 + index * 16));
 
@@ -365,7 +376,7 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     maxTcoMillions = Math.ceil(maxTcoMillions * 1.15);
 
     // Y Axis Labels
-    ctx.fillStyle = isDark ? "#94a3b8" : "#64748b";
+    ctx.fillStyle = "#475569";
     ctx.font = "11px system-ui, sans-serif";
     ctx.textAlign = "right";
     for (let i = 0; i <= 5; i++) {
@@ -445,7 +456,7 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     maxDieCost = Math.ceil(maxDieCost * 1.15);
 
     // Y Axis
-    ctx.fillStyle = isDark ? "#94a3b8" : "#64748b";
+    ctx.fillStyle = "#475569";
     ctx.font = "11px system-ui, sans-serif";
     ctx.textAlign = "right";
     for (let i = 0; i <= 5; i++) {
@@ -613,11 +624,11 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
           <div class="lg:col-span-8 flex flex-col justify-between">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2">
-                <button id="tco-chart-mode-vol" type="button" class="px-3 py-1 rounded text-xs font-semibold bg-amber-500 text-slate-900 border border-amber-400">
+                <button id="tco-chart-mode-vol" type="button" aria-pressed="true" class="px-3 py-1 rounded text-xs font-semibold bg-sky-600 text-white border border-sky-600">
                   <span data-lang="zh">年產量 vs 累計 TCO 曲線</span>
                   <span data-lang="en">Volume vs TCO Curve</span>
                 </button>
-                <button id="tco-chart-mode-yield" type="button" class="px-3 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 hover:text-slate-200">
+                <button id="tco-chart-mode-yield" type="button" aria-pressed="false" class="px-3 py-1 rounded text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200">
                   <span data-lang="zh">晶粒面積 vs 良品成本曲線</span>
                   <span data-lang="en">Die Area vs Good Die Cost</span>
                 </button>
@@ -823,15 +834,19 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
   if (modeVolBtn && modeYieldBtn) {
     modeVolBtn.addEventListener("click", () => {
       currentChartMode = "tco_volume";
-      modeVolBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-amber-500 text-slate-900 border border-amber-400";
-      modeYieldBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 hover:text-slate-200";
+      modeVolBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-sky-600 text-white border border-sky-600";
+      modeVolBtn.setAttribute("aria-pressed", "true");
+      modeYieldBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200";
+      modeYieldBtn.setAttribute("aria-pressed", "false");
       update();
     });
 
     modeYieldBtn.addEventListener("click", () => {
       currentChartMode = "yield_die_cost";
-      modeYieldBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-amber-500 text-slate-900 border border-amber-400";
-      modeVolBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 hover:text-slate-200";
+      modeYieldBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-sky-600 text-white border border-sky-600";
+      modeYieldBtn.setAttribute("aria-pressed", "true");
+      modeVolBtn.className = "px-3 py-1 rounded text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-300 hover:bg-slate-200";
+      modeVolBtn.setAttribute("aria-pressed", "false");
       update();
     });
   }

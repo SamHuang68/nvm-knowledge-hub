@@ -11469,7 +11469,7 @@ CBRAM 研究與歷史 IoT 商品敘述。支持 CBRAM 技術與歷史商品；�
 - **核心研發/發明人**: 徐清祥博士 (Dr. Charles Ching-Hsiang Hsu)、盧方振 (Fang-Cheng Lu) 等研發團隊
 - **商業模式**: 純邏輯製程嵌入式非揮發性記憶體 IP 授權與設計服務 (Pure-Play Logic NVM IP, 0-Mask)
 - **組合收錄狀態**: 資料標示有效 7 筆 · 資料標示屆滿 7 筆
-- **全球核准專利**: 1,150+ 件全球核准專利 (Over 1,150 Patents Issued)
+- **全球核准專利**: 1,370+ 件全球核准專利 (Over 1,370 Patents Issued)
 - **專利護城河戰略**: 力旺專利戰略的核心哲學為「零額外光罩 (Zero Mask Adder)」與「百分之百標準 CMOS 相容」。不同於傳統 eFlash 需增加 3 至 8 道特殊多晶矽或高溫退火光罩，力旺專利佈局完全建立在標準 CMOS 邏輯製程既有之氧化層、多晶矽閘極與井區擴散結構上。其專利地圖沿著兩大主線展開：第一條是電荷儲存路線（NeoBit 浮動閘極 OTP → NeoEE 電容耦合 MTP → NeoMTP 抹除閘極 MTP）；第二條是介電層擊穿與量子物理路線（NeoFuse 閘氧反熔絲 OTP → NeoPUF 量子穿隧硬體安全晶片指紋），覆蓋從成熟微米節點至 2nm GAA 埃米世代的完整光譜。
 
 #### NeoBit® 浮動閘極 OTP 專利家族 (OTP (One-Time Programmable))

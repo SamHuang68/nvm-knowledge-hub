@@ -411,12 +411,15 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, width, height);
 
-  const isDark = typeof document !== 'undefined' && (
-    document.documentElement.dataset.theme === 'dark' ||
-    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light')
-  );
-  ctx.fillStyle = isDark ? '#0b1329' : '#ffffff';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'left';
   header.forEach((row, i) => {
@@ -430,9 +433,9 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   const toY = (w) => padTop + plotH - ((w - wMin) / (wMax - wMin)) * plotH;
 
   // Grid Lines & Labels
-  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.10)' : '#e2e8f0';
+  ctx.strokeStyle = '#e2e8f0';
   ctx.lineWidth = 1;
-  ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
+  ctx.fillStyle = '#475569';
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'center';
 
@@ -544,13 +547,13 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.setLineDash([]);
 
   // Plot Border Box
-  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.20)' : '#cbd5e1';
+  ctx.strokeStyle = '#cbd5e1';
   ctx.lineWidth = 1;
   ctx.strokeRect(padLeft, padTop, plotW, plotH);
 
   // 圖例移至曲線外，保留線色、虛線及全部文字。
-  ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
-  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.20)' : '#cbd5e1';
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+  ctx.strokeStyle = '#cbd5e1';
   ctx.fillRect(8, legendY, width - 16, nextLegendY - legendY + 2);
   ctx.strokeRect(8, legendY, width - 16, nextLegendY - legendY + 2);
   ctx.font = '10px "IBM Plex Mono", monospace';
@@ -567,7 +570,7 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
       ctx.stroke();
       ctx.setLineDash([]);
     }
-    ctx.fillStyle = isDark ? '#f1f5f9' : '#1e293b';
+    ctx.fillStyle = '#0f172a';
     ctx.fillText(row.text, 36, row.y);
   });
 
@@ -612,12 +615,12 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
     const lines = wrap(sampleText, width - 32);
     const pillW = width - 16, pillH = lines.length * 14 + 10, pillX = 8;
     const pillY = Math.min(padTop + plotH - pillH, Math.max(padTop, hy - pillH - 8));
-    ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
-    ctx.strokeStyle = isDark ? '#38bdf8' : '#2563eb';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 1;
     ctx.fillRect(pillX, pillY, pillW, pillH);
     ctx.strokeRect(pillX, pillY, pillW, pillH);
-    ctx.fillStyle = isDark ? '#38bdf8' : '#1e40af';
+    ctx.fillStyle = '#0369a1';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
     lines.forEach((line, i) => ctx.fillText(line, 16, pillY + 15 + i * 14));

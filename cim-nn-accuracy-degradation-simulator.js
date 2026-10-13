@@ -152,8 +152,12 @@ export function calculateCimNnDegradation({
   retentionHours = 720,
   temperatureC = 85,
 } = {}) {
-  const workload = CIM_NN_WORKLOAD_PRESETS[workloadKey] || CIM_NN_WORKLOAD_PRESETS.resnet50_imagenet;
-  const device = CIM_DEVICE_TECHNOLOGIES[deviceKey] || CIM_DEVICE_TECHNOLOGIES.reram_oxram_mlc;
+  const workload = Object.hasOwn(CIM_NN_WORKLOAD_PRESETS, workloadKey)
+    ? CIM_NN_WORKLOAD_PRESETS[workloadKey]
+    : CIM_NN_WORKLOAD_PRESETS.resnet50_imagenet;
+  const device = Object.hasOwn(CIM_DEVICE_TECHNOLOGIES, deviceKey)
+    ? CIM_DEVICE_TECHNOLOGIES[deviceKey]
+    : CIM_DEVICE_TECHNOLOGIES.reram_oxram_mlc;
 
   const bAdc = Math.max(3, Math.min(10, Number(adcResolutionBits) || 6));
   const tHours = Math.max(0.1, Math.min(87600, Number(retentionHours) || 720));
@@ -272,12 +276,19 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
   const w = width / (window.devicePixelRatio || 1);
   const h = height / (window.devicePixelRatio || 1);
 
-  // Background
-  ctx.fillStyle = "#040914";
+  // Background - Surgical Light Mode
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f1f5f9");
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Grid
-  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let x = 40; x < w - 20; x += 50) {
@@ -356,7 +367,7 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
     ctx.stroke();
 
     // X and Y axis labels
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText("1h", plotX0 - 6, h - 20);
     ctx.fillText("24h", plotX0 + 0.28 * (plotX1 - plotX0) - 8, h - 20);
@@ -368,7 +379,7 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
     ctx.fillText(`${(baseAcc * 0.8).toFixed(0)}%`, 14, plotY0);
 
     // Callout text
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0284c7";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Top-1: ${metrics.realizedTop1Pct}% (Δ -${metrics.top1DropPct}%)`, currX + 8, Math.max(30, currY - 6));
   } else {
@@ -379,7 +390,7 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
     const numBins = 32;
     const binWidth = (plotX1 - plotX0) / numBins;
 
-    ctx.fillStyle = "rgba(2, 132, 199, 0.4)";
+    ctx.fillStyle = "rgba(2, 132, 199, 0.15)";
     ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 1.2;
 
@@ -403,13 +414,13 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText("-3σ Error", plotX0, h - 10);
     ctx.fillText("0 (Target)", centerX - 24, h - 10);
     ctx.fillText("+3σ Error", plotX1 - 45, h - 10);
 
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#b45309";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Quant Noise: ${metrics.sigmaQuant} | Drift: ${metrics.sigmaDrift}`, plotX0, 20);
   }
@@ -533,13 +544,13 @@ export function initCimNnDegradationSimulator(container) {
       btnCurve.setAttribute("aria-pressed", "true");
       btnCurve.style.background = "#0284c7";
       btnCurve.style.color = "#ffffff";
-      btnCurve.style.borderColor = "#38bdf8";
+      btnCurve.style.borderColor = "#0284c7";
       if (btnDist) {
         btnDist.classList.remove("active");
         btnDist.setAttribute("aria-pressed", "false");
-        btnDist.style.background = "#1e293b";
-        btnDist.style.color = "#94a3b8";
-        btnDist.style.borderColor = "#475569";
+        btnDist.style.background = "#f1f5f9";
+        btnDist.style.color = "#475569";
+        btnDist.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -552,13 +563,13 @@ export function initCimNnDegradationSimulator(container) {
       btnDist.setAttribute("aria-pressed", "true");
       btnDist.style.background = "#0284c7";
       btnDist.style.color = "#ffffff";
-      btnDist.style.borderColor = "#38bdf8";
+      btnDist.style.borderColor = "#0284c7";
       if (btnCurve) {
         btnCurve.classList.remove("active");
         btnCurve.setAttribute("aria-pressed", "false");
-        btnCurve.style.background = "#1e293b";
-        btnCurve.style.color = "#94a3b8";
-        btnCurve.style.borderColor = "#475569";
+        btnCurve.style.background = "#f1f5f9";
+        btnCurve.style.color = "#475569";
+        btnCurve.style.borderColor = "#cbd5e1";
       }
       update();
     });

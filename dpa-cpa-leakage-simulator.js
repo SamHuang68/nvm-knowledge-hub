@@ -142,8 +142,12 @@ export function calculateDpaCpaLeakage({
   noiseStd = 1.0,
   sampleRateGsps = 2.5,
 } = {}) {
-  const preset = DPA_ATTACK_PRESETS[presetKey] || DPA_ATTACK_PRESETS.fpga_unprotected_aes;
-  const defense = DPA_COUNTERMEASURE_PROFILES[defenseKey] || DPA_COUNTERMEASURE_PROFILES.none_single_ended;
+  const preset = Object.hasOwn(DPA_ATTACK_PRESETS, presetKey)
+    ? DPA_ATTACK_PRESETS[presetKey]
+    : DPA_ATTACK_PRESETS.fpga_unprotected_aes;
+  const defense = Object.hasOwn(DPA_COUNTERMEASURE_PROFILES, defenseKey)
+    ? DPA_COUNTERMEASURE_PROFILES[defenseKey]
+    : DPA_COUNTERMEASURE_PROFILES.none_single_ended;
 
   const noiseScale = Math.max(0.1, Math.min(10.0, Number(noiseStd) || 1.0));
   const sampleRate = Math.max(0.2, Math.min(20.0, Number(sampleRateGsps) || 2.5));
@@ -282,12 +286,15 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
   ctx.save(); ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, displayWidth, displayHeight);
   const bgGrad = ctx.createLinearGradient(0, 0, displayWidth, displayHeight);
-  bgGrad.addColorStop(0, "#08101a"); bgGrad.addColorStop(1, "#03070d");
+  bgGrad.addColorStop(0, "#f8fafc"); bgGrad.addColorStop(1, "#f1f5f9");
   ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, displayWidth, displayHeight);
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, displayWidth - 1, displayHeight - 1);
   const plotBottom = displayHeight - axisLines.length * 15 - 12;
   const plotWidth = plotRight - plotLeft;
   const plotHeight = plotBottom - plotTop;
-  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)"; ctx.lineWidth = 1;
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)"; ctx.lineWidth = 1;
   for (let r = 1; r < 4; r++) {
     const y = plotTop + plotHeight * r / 4;
     ctx.beginPath(); ctx.moveTo(plotLeft, y); ctx.lineTo(plotRight, y); ctx.stroke();
@@ -301,7 +308,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
     ctx.fillStyle = row.color;
     row.lines.forEach((line, i) => ctx.fillText(line, 8, row.y + i * 15));
   }
-  ctx.fillStyle = "#94a3b8";
+  ctx.fillStyle = "#475569";
   axisLines.forEach((line, i) => ctx.fillText(line, Math.max(8, (displayWidth - ctx.measureText(line).width) / 2), plotBottom + 17 + i * 15));
 
   if (mode === "correlation_traces") {
@@ -313,7 +320,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
     const maxTracesAxis = Math.max(1000, mtd * 1.6);
 
     // Phantom noise envelopes (random walk noise):
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.22)";
+    ctx.strokeStyle = "rgba(100, 116, 139, 0.25)";
     ctx.lineWidth = 1;
     for (let k = 0; k < 8; k++) {
       ctx.beginPath();
@@ -332,7 +339,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
     // Correct Key Correlation Curve (builds up as N increases):
     ctx.beginPath();
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 2.4;
     const targetRho = results.pearsonCorrelation;
 
@@ -371,7 +378,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
     }
 
     // Zero Axis line:
-    ctx.strokeStyle = "rgba(226, 232, 240, 0.4)";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(plotLeft, plotBottom - plotHeight * 0.5);
@@ -379,13 +386,11 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
     ctx.stroke();
 
     // Axis Labels:
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "600 11px 'IBM Plex Mono', monospace";
     ctx.fillText("ρ = +1.0", 5, plotTop + 8);
     ctx.fillText("ρ = 0.0", 5, plotBottom - plotHeight * 0.5 + 3);
     ctx.fillText("ρ = -1.0", 5, plotBottom - 2);
-
-
 
   } else {
     // ----------------------------------------------------
@@ -397,7 +402,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
     // True Rail Waveform (Blue):
     ctx.beginPath();
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 1.6;
     for (let i = 0; i <= points; i++) {
       const x = plotLeft + (i / points) * plotWidth;
@@ -414,7 +419,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
     if (isDiff) {
       // Complementary Rail Waveform (Amber):
       ctx.beginPath();
-      ctx.strokeStyle = "#fbbf24";
+      ctx.strokeStyle = "#b45309";
       ctx.lineWidth = 1.6;
       for (let i = 0; i <= points; i++) {
         const x = plotLeft + (i / points) * plotWidth;
@@ -430,7 +435,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
       // Differential Residual Waveform (Green / Low Ripple):
       ctx.beginPath();
-      ctx.strokeStyle = "#10b981";
+      ctx.strokeStyle = "#059669";
       ctx.lineWidth = 2.2;
       for (let i = 0; i <= points; i++) {
         const x = plotLeft + (i / points) * plotWidth;
@@ -443,7 +448,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
       ctx.stroke();
     }
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "600 11px 'IBM Plex Mono', monospace";
     ctx.fillText("I(t) a.u.", 5, plotTop + 8);
   }
@@ -577,14 +582,14 @@ export function initDpaCpaSimulator() {
       modeBtnTraces.classList.add("active");
       modeBtnTraces.setAttribute("aria-pressed", "true");
       modeBtnTraces.style.background = "#0284c7";
-      modeBtnTraces.style.borderColor = "#38bdf8";
+      modeBtnTraces.style.borderColor = "#0284c7";
       modeBtnTraces.style.color = "#ffffff";
 
       modeBtnWave.classList.remove("active");
       modeBtnWave.setAttribute("aria-pressed", "false");
-      modeBtnWave.style.background = "#1e293b";
-      modeBtnWave.style.borderColor = "#475569";
-      modeBtnWave.style.color = "#94a3b8";
+      modeBtnWave.style.background = "#f1f5f9";
+      modeBtnWave.style.borderColor = "#cbd5e1";
+      modeBtnWave.style.color = "#475569";
       update();
     });
 
@@ -593,14 +598,14 @@ export function initDpaCpaSimulator() {
       modeBtnWave.classList.add("active");
       modeBtnWave.setAttribute("aria-pressed", "true");
       modeBtnWave.style.background = "#0284c7";
-      modeBtnWave.style.borderColor = "#38bdf8";
+      modeBtnWave.style.borderColor = "#0284c7";
       modeBtnWave.style.color = "#ffffff";
 
       modeBtnTraces.classList.remove("active");
       modeBtnTraces.setAttribute("aria-pressed", "false");
-      modeBtnTraces.style.background = "#1e293b";
-      modeBtnTraces.style.borderColor = "#475569";
-      modeBtnTraces.style.color = "#94a3b8";
+      modeBtnTraces.style.background = "#f1f5f9";
+      modeBtnTraces.style.borderColor = "#cbd5e1";
+      modeBtnTraces.style.color = "#475569";
       update();
     });
   }

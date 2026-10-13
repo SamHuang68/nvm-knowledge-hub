@@ -185,12 +185,16 @@ export function calculateHybridBondingMetrics({
   operatingFreqGhz = 3.2,
   contactForceGrams = 0.35
 } = {}) {
-  const preset = HYBRID_BONDING_PRESETS[presetId] || HYBRID_BONDING_PRESETS.hbm4_hybrid_bonding_1um;
-  const probe = KGD_PROBE_ARCHITECTURES[probeId] || KGD_PROBE_ARCHITECTURES.mpi_zero_mark_mems;
+  const preset = (presetId && Object.prototype.hasOwnProperty.call(HYBRID_BONDING_PRESETS, presetId))
+    ? HYBRID_BONDING_PRESETS[presetId]
+    : HYBRID_BONDING_PRESETS.hbm4_hybrid_bonding_1um;
+  const probe = (probeId && Object.prototype.hasOwnProperty.call(KGD_PROBE_ARCHITECTURES, probeId))
+    ? KGD_PROBE_ARCHITECTURES[probeId]
+    : KGD_PROBE_ARCHITECTURES.mpi_zero_mark_mems;
 
   // 1. Interconnect Density (connections per mm^2)
   // Hexagonal or square pitch: Density = 1 / (pitch * 10^-3 mm)^2
-  const effectivePitchUm = Math.max(0.6, pitchUm);
+  const effectivePitchUm = Math.max(0.6, Number.isFinite(Number(pitchUm)) ? Number(pitchUm) : 1.0);
   const interconnectDensityPerMm2 = Math.round(1e6 / (effectivePitchUm * effectivePitchUm));
 
   // 2. TSV Parasitic Resistance & Capacitance (First Principles)
@@ -205,7 +209,8 @@ export function calculateHybridBondingMetrics({
 
   // High-frequency skin effect: skin depth delta = sqrt(rho / (pi * f * mu0))
   const mu0 = 4.0 * Math.PI * 1e-7;
-  const freqHz = operatingFreqGhz * 1e9;
+  const validOperatingFreqGhz = Number.isFinite(Number(operatingFreqGhz)) ? Number(operatingFreqGhz) : 3.2;
+  const freqHz = Math.max(0.01, validOperatingFreqGhz) * 1e9;
   const skinDepthM = Math.sqrt(rhoCu / (Math.PI * freqHz * mu0));
   const skinCorrection = tsvRadiusM > skinDepthM ? (tsvRadiusM / (2.0 * skinDepthM)) : 1.0;
   const rAcOhm = rDcOhm * Math.max(1.0, skinCorrection);

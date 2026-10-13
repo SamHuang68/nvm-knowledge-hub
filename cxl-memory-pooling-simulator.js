@@ -221,12 +221,19 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.scale(dpr, dpr);
 
-  // Background
-  ctx.fillStyle = '#020617';
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+
   // Subtle grid
-  ctx.strokeStyle = 'rgba(51, 65, 85, 0.25)';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   for (let x = 40; x < width; x += 40) {
     ctx.beginPath();
@@ -258,7 +265,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
 
     // Title
     ctx.font = "600 11px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     const titleText = language === 'zh'
       ? `CXL 3.1 端到端存取延遲分解 (總計: ${total.toFixed(1)} ns)`
       : `CXL 3.1 End-to-End Latency Breakdown (Total: ${total.toFixed(1)} ns)`;
@@ -267,12 +274,12 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     // Baseline local DRAM comparison bar (Top bar)
     const localDramY = padding.top + 15;
     const localDramW = (80.0 / maxVal) * chartW;
-    ctx.fillStyle = 'rgba(100, 116, 139, 0.45)';
+    ctx.fillStyle = 'rgba(100, 116, 139, 0.15)';
     ctx.fillRect(padding.left, localDramY, localDramW, 24);
-    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.strokeRect(padding.left, localDramY, localDramW, 24);
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = "500 10px 'IBM Plex Mono', monospace";
     ctx.fillText(
       language === 'zh' ? '本機 DDR5 基準: 80.0 ns' : 'Local DDR5 Base: 80.0 ns',
@@ -293,7 +300,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.fillRect(padding.left, cxlY, transportW, barH);
 
     // Segment 2: AntiFuse Tag Cache (Emerald / Amber depending on hit)
-    ctx.fillStyle = tag > 50 ? '#f59e0b' : '#10b981';
+    ctx.fillStyle = tag > 50 ? '#d97706' : '#059669';
     ctx.fillRect(padding.left + transportW, cxlY, tagW, barH);
 
     // Segment 3: Media DRAM Access (Indigo)
@@ -301,12 +308,12 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.fillRect(padding.left + transportW + tagW, cxlY, mediaW, barH);
 
     // Stacked bar outline
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 1.5;
     ctx.strokeRect(padding.left, cxlY, transportW + tagW + mediaW, barH);
 
     // Value annotation
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = "700 11px 'IBM Plex Mono', monospace";
     ctx.fillText(`${total.toFixed(1)} ns`, padding.left + transportW + tagW + mediaW + 8, cxlY + 20);
 
@@ -315,8 +322,8 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     const legBoxH = 22;
     const legBoxX = padding.left;
     const legBoxY = height - 26;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -326,15 +333,15 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
 
     const items = [
       { color: '#0284c7', label: language === 'zh' ? `鏈路 (${transport.toFixed(1)}ns)` : `Link (${transport.toFixed(1)}ns)` },
-      { color: tag > 50 ? '#fbbf24' : '#10b981', label: language === 'zh' ? `標籤 (${tag.toFixed(1)}ns)` : `Tag (${tag.toFixed(1)}ns)` },
-      { color: '#818cf8', label: language === 'zh' ? `介質 (${media.toFixed(1)}ns)` : `Media (${media.toFixed(1)}ns)` },
+      { color: tag > 50 ? '#d97706' : '#059669', label: language === 'zh' ? `標籤 (${tag.toFixed(1)}ns)` : `Tag (${tag.toFixed(1)}ns)` },
+      { color: '#6366f1', label: language === 'zh' ? `介質 (${media.toFixed(1)}ns)` : `Media (${media.toFixed(1)}ns)` },
     ];
 
     let legX = legBoxX + 8;
     for (const item of items) {
       ctx.fillStyle = item.color;
       ctx.fillRect(legX, legBoxY + 7, 10, 8);
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = '#475569';
       ctx.font = "500 9.5px 'IBM Plex Mono', monospace";
       ctx.fillText(item.label, legX + 14, legBoxY + 15);
       legX += (ctx.measureText(item.label).width + 18);
@@ -348,14 +355,14 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
 
     // Title
     ctx.font = "600 11px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = '#34d399';
+    ctx.fillStyle = '#059669';
     const titleText = language === 'zh'
       ? `記憶體池化回收曲線 (回收: ${metrics.strandedMemoryRecoveredGb.toFixed(0)} GB · 節省 $${metrics.capexSavedDollars.toFixed(0)})`
       : `Stranded Memory Recovery (Rescued: ${metrics.strandedMemoryRecoveredGb.toFixed(0)} GB · Saved $${metrics.capexSavedDollars.toFixed(0)})`;
     ctx.fillText(titleText, padding.left, 20);
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(padding.left, padding.top);
@@ -367,7 +374,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     // X axis: Pool capacity (256GB to 8192GB)
     // Y axis: Utilization (40% to 100%)
     ctx.beginPath();
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
 
     const points = 25;
@@ -388,7 +395,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
 
     // Baseline unpooled line (dashed)
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1.5;
     const unpooledY = padding.top + chartH - ((baseUtil - 0.4) / 0.6) * chartH;
     ctx.beginPath();
@@ -403,7 +410,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     const currentY = padding.top + chartH - currentRatio * chartH;
     const currentX = padding.left + 0.5 * chartW; // center representation
 
-    ctx.fillStyle = '#22d3ee';
+    ctx.fillStyle = '#0284c7';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -412,12 +419,12 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.stroke();
 
     // Point annotation
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
     ctx.fillText(`${(currentUtil * 100).toFixed(1)}%`, currentX + 10, currentY - 6);
 
     // Y Axis Labels
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = "500 9px 'IBM Plex Mono', monospace";
     ctx.fillText('100%', padding.left - 30, padding.top + 8);
     ctx.fillText('70%', padding.left - 25, padding.top + chartH * 0.5);
@@ -531,39 +538,40 @@ export function initCxlPoolingSimulator(rootId = 'cxl-memory-pooling-simulator-r
   if (capacitySlider) capacitySlider.addEventListener('input', update);
   if (hitrateSlider) hitrateSlider.addEventListener('input', update);
 
+  function syncCxlModeBtnStyles() {
+    if (modeLatencyBtn && modePoolingBtn) {
+      const isLatency = currentMode === 'latency_breakdown';
+      modeLatencyBtn.style.background = isLatency ? '#0284c7' : '#f1f5f9';
+      modeLatencyBtn.style.color = isLatency ? '#ffffff' : '#475569';
+      modeLatencyBtn.style.borderColor = isLatency ? '#0284c7' : '#cbd5e1';
+      modeLatencyBtn.setAttribute('aria-pressed', isLatency ? 'true' : 'false');
+
+      modePoolingBtn.style.background = !isLatency ? '#059669' : '#f1f5f9';
+      modePoolingBtn.style.color = !isLatency ? '#ffffff' : '#475569';
+      modePoolingBtn.style.borderColor = !isLatency ? '#059669' : '#cbd5e1';
+      modePoolingBtn.setAttribute('aria-pressed', !isLatency ? 'true' : 'false');
+    }
+  }
+
   if (modeLatencyBtn && modePoolingBtn) {
     modeLatencyBtn.addEventListener('click', () => {
       currentMode = 'latency_breakdown';
       modeLatencyBtn.classList.add('active');
-      modeLatencyBtn.setAttribute('aria-pressed', 'true');
-      modeLatencyBtn.style.background = '#0284c7';
-      modeLatencyBtn.style.color = '#ffffff';
-      modeLatencyBtn.style.borderColor = '#38bdf8';
-
       modePoolingBtn.classList.remove('active');
-      modePoolingBtn.setAttribute('aria-pressed', 'false');
-      modePoolingBtn.style.background = '#1e293b';
-      modePoolingBtn.style.color = '#94a3b8';
-      modePoolingBtn.style.borderColor = '#475569';
+      syncCxlModeBtnStyles();
       update();
     });
 
     modePoolingBtn.addEventListener('click', () => {
       currentMode = 'stranded_memory_economics';
       modePoolingBtn.classList.add('active');
-      modePoolingBtn.setAttribute('aria-pressed', 'true');
-      modePoolingBtn.style.background = '#059669';
-      modePoolingBtn.style.color = '#ffffff';
-      modePoolingBtn.style.borderColor = '#34d399';
-
       modeLatencyBtn.classList.remove('active');
-      modeLatencyBtn.setAttribute('aria-pressed', 'false');
-      modeLatencyBtn.style.background = '#1e293b';
-      modeLatencyBtn.style.color = '#94a3b8';
-      modeLatencyBtn.style.borderColor = '#475569';
+      syncCxlModeBtnStyles();
       update();
     });
   }
+
+  syncCxlModeBtnStyles();
 
   // Language switch observation
   const observer = new MutationObserver(() => update());

@@ -121,7 +121,9 @@ export function calculatePackagingPdkMetrics({
   diePowerWatts = 450.0,
   dataRateGbps = 8.0
 } = {}) {
-  const preset = PACKAGING_PRESETS[presetId] || PACKAGING_PRESETS.tsmc_cowos_s_hbm;
+  const preset = Object.hasOwn(PACKAGING_PRESETS, presetId)
+    ? PACKAGING_PRESETS[presetId]
+    : PACKAGING_PRESETS.tsmc_cowos_s_hbm;
 
   // 1. Interconnect Density
   const pitchUm = preset.bumpPitchUm;
@@ -186,11 +188,12 @@ export function calculatePackagingPdkMetrics({
   let verdictZh = '';
   let verdictEn = '';
 
+  const pkgNameZh = preset.nameZh?.split(' ')?.[1] || preset.nameZh || 'Advanced Packaging';
   if (is3D) {
-    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 3D 鍵合下，無微凸塊直接接觸使垂直熱阻降至 ${effectiveThetaKW} K/W，在 ${diePowerWatts}W 超高熱負載下接面溫升僅 ${junctionTempRiseC.toFixed(1)}°C！D2D 互連延遲僅 ${tauPicoSec.toFixed(1)} ps，單線頻寬上限飆升至 ${maxChannelBwGbps.toFixed(1)} Gbps。Base Die 需搭載典型 ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜與熱管理鎖定。`;
+    verdictZh = `在 ${preset.foundry} ${pkgNameZh} 3D 鍵合下，無微凸塊直接接觸使垂直熱阻降至 ${effectiveThetaKW} K/W，在 ${diePowerWatts}W 超高熱負載下接面溫升僅 ${junctionTempRiseC.toFixed(1)}°C！D2D 互連延遲僅 ${tauPicoSec.toFixed(1)} ps，單線頻寬上限飆升至 ${maxChannelBwGbps.toFixed(1)} Gbps。Base Die 需搭載典型 ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜與熱管理鎖定。`;
     verdictEn = `Under ${preset.foundry} 3D bonding, bumpless direct contact slashes thermal resistance to ${effectiveThetaKW} K/W, yielding only ${junctionTempRiseC.toFixed(1)}°C temp rise under ${diePowerWatts}W thermal load! D2D latency is just ${tauPicoSec.toFixed(1)} ps with line bandwidth reaching ${maxChannelBwGbps.toFixed(1)} Gbps. Base die utilizes nominal ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP for PHY skew and thermal calibration.`;
   } else {
-    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 2.5D 中介層下，走線長度 ${traceLengthMm}mm 引發 ${tauPicoSec.toFixed(1)} ps 傳輸延遲與 ${rTraceOhm.toFixed(1)}Ω 導線電阻；微凸塊界面熱阻使接面溫升達 ${junctionTempRiseC.toFixed(1)}°C。晶圓測試需倚賴高針數高頻微懸臂 MEMS 探針介面進行多晶粒 KGD 篩選。`;
+    verdictZh = `在 ${preset.foundry} ${pkgNameZh} 2.5D 中介層下，走線長度 ${traceLengthMm}mm 引發 ${tauPicoSec.toFixed(1)} ps 傳輸延遲與 ${rTraceOhm.toFixed(1)}Ω 導線電阻；微凸塊界面熱阻使接面溫升達 ${junctionTempRiseC.toFixed(1)}°C。晶圓測試需倚賴高針數高頻微懸臂 MEMS 探針介面進行多晶粒 KGD 篩選。`;
     verdictEn = `Under ${preset.foundry} 2.5D interposer, ${traceLengthMm}mm trace length introduces ${tauPicoSec.toFixed(1)} ps delay and ${rTraceOhm.toFixed(1)}Ω line resistance; micro-bump thermal resistance drives ${junctionTempRiseC.toFixed(1)}°C temp rise. Wafer sort requires high-pin MEMS probe card interfaces for multi-die KGD screening.`;
   }
 

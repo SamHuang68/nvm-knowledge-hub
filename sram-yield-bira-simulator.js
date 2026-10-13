@@ -108,11 +108,13 @@ export function calculateGdpw300mm(dieAreaMm2) {
  * @return {Object} Computed yield metrics and dollar savings.
  */
 export function calculateSramYieldRecovery(inputs = {}) {
-  const preset = SRAM_YIELD_PRESETS[inputs.presetId] || SRAM_YIELD_PRESETS.n3_ai_accelerator;
-  const dieAreaMm2 = Math.max(10, parseFloat(inputs.dieAreaMm2) || preset.dieAreaMm2);
-  const sramAreaPct = Math.min(90, Math.max(10, parseFloat(inputs.sramAreaPct) || preset.sramAreaPct));
-  const defectDensityD0 = Math.max(0.01, parseFloat(inputs.defectDensityD0) || preset.defectDensityD0);
-  const numBanks = Math.max(1, parseInt(inputs.numBanks, 10) || preset.numBanks);
+  const preset = (inputs.presetId && Object.prototype.hasOwnProperty.call(SRAM_YIELD_PRESETS, inputs.presetId))
+    ? SRAM_YIELD_PRESETS[inputs.presetId]
+    : SRAM_YIELD_PRESETS.n3_ai_accelerator;
+  const dieAreaMm2 = Math.max(10, parseFloat(inputs.dieAreaMm2) || preset.dieAreaMm2 || 350);
+  const sramAreaPct = Math.min(90, Math.max(10, parseFloat(inputs.sramAreaPct) || preset.sramAreaPct || 65));
+  const defectDensityD0 = Math.max(0.01, parseFloat(inputs.defectDensityD0) || preset.defectDensityD0 || 0.08);
+  const numBanks = Math.max(1, parseInt(inputs.numBanks, 10) || preset.numBanks || 32);
   const parsedSpares = parseInt(inputs.sparePerBank, 10);
   const sparePerBank = Math.max(0, Number.isFinite(parsedSpares) ? parsedSpares : preset.sparePerBank);
   const dieAspUsd = Math.max(1, parseFloat(inputs.dieAspUsd) || preset.dieAspUsd);

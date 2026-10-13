@@ -166,8 +166,12 @@ export const CIM_MEMORY_MEDIA = {
  * @returns {Object} Calculated metrics
  */
 export function calculateCimMacMetrics(params = {}) {
-  const preset = CIM_SYSTEM_PRESETS[params.presetKey] || CIM_SYSTEM_PRESETS.edge_keyword_spotting_kws;
-  const media = CIM_MEMORY_MEDIA[params.mediaKey] || CIM_MEMORY_MEDIA.analog_reram_crossbar;
+  const preset = Object.hasOwn(CIM_SYSTEM_PRESETS, params.presetKey)
+    ? CIM_SYSTEM_PRESETS[params.presetKey]
+    : CIM_SYSTEM_PRESETS.edge_keyword_spotting_kws;
+  const media = Object.hasOwn(CIM_MEMORY_MEDIA, params.mediaKey)
+    ? CIM_MEMORY_MEDIA[params.mediaKey]
+    : CIM_MEMORY_MEDIA.analog_reram_crossbar;
   const rWire = params.wireResistanceOhm !== undefined ? Math.max(0.1, params.wireResistanceOhm) : 1.5;
   const adcBits = params.adcResolutionBits !== undefined ? Math.max(2, Math.min(10, params.adcResolutionBits)) : 6;
   const driftHours = params.driftTimeHours !== undefined ? Math.max(0.1, params.driftTimeHours) : 1000.0;
@@ -289,8 +293,16 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
   ctx.scale(dpr, dpr);
 
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#0f172a';
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   if (mode === 'crossbar_heatmap') {
     // Mode 1: 16x16 Crossbar Heatmap with IR-Drop Degradation Gradient
@@ -304,7 +316,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     const cellH = gridHeight / gridRows;
 
     // Title / Kicker
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
     ctx.fillText('CROSSBAR IR-DROP & CONDUCTANCE GRADIENT (16×16 MAP)', paddingLeft, 16);
 
@@ -325,7 +337,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     }
 
     // Draw Column Current Integrator Bars at the bottom
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     for (let c = 0; c < gridCols; c++) {
       const colDist = c / (gridCols - 1);
       const colDrop = colDist * (metrics.worstCaseIrDropPct / 100.0);
@@ -338,8 +350,8 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     const legendCardH = 88;
     const legendCardX = width - legendCardW - 4;
     const legendCardY = paddingTop;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legendCardX, legendCardY, legendCardW, legendCardH, 4);
@@ -347,7 +359,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = '500 9px "IBM Plex Mono", monospace';
     ctx.fillText('V_bias: 0.8V', legendCardX + 5, legendCardY + 12);
     ctx.fillText('Max IR-Drop:', legendCardX + 5, legendCardY + 30);
@@ -355,14 +367,14 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.font = '700 10.5px "IBM Plex Mono", monospace';
     ctx.fillText(`${metrics.worstCaseIrDropPct.toFixed(1)}%`, legendCardX + 5, legendCardY + 44);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.font = '500 9px "IBM Plex Mono", monospace';
     ctx.fillText('Array SNR:', legendCardX + 5, legendCardY + 62);
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = '700 10.5px "IBM Plex Mono", monospace';
     ctx.fillText(`${metrics.effectiveSnrDb.toFixed(1)} dB`, legendCardX + 5, legendCardY + 76);
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('Row Driver →', 2, paddingTop + 20);
     ctx.fillText('Col ADC ↓', paddingLeft, height - 6);
@@ -374,12 +386,12 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     const plotW = width - 65;
     const plotH = height - 55;
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
     ctx.fillText('ACCURACY RETENTION VS ENERGY EFFICIENCY (TOPS/W)', padX, 16);
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padX, padY);
@@ -388,7 +400,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.stroke();
 
     // Grid lines & labels
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('100%', padX - 28, padY + 6);
     ctx.fillText('80%', padX - 24, padY + plotH * 0.4);
@@ -398,7 +410,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.fillText('150 TOPS/W', padX + plotW - 40, padY + plotH + 14);
 
     // Plot simulated curve across varying wire resistance
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2;
     ctx.beginPath();
 
@@ -558,10 +570,9 @@ export function initCimMacSimulator() {
 
   const presetContainer = presetSelect?.parentNode;
   if (presetContainer && !presetContainer.querySelector('#cim-neuromorphic-export-csv-btn')) {
-    const exportBtn = document.createElement('button');
     exportBtn.id = 'cim-neuromorphic-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出線阻與 ADC 掃描 CSV' : '📥 Export Wire Resistance / ADC Sweep CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '依目前架構、介質與漂移時間，匯出四種線阻與三種 ADC 解析度的 CSV 掃描' : 'Export four wire resistances and three ADC resolutions using the current architecture, medium and drift time');
@@ -581,6 +592,21 @@ export function initCimMacSimulator() {
     presetContainer.appendChild(exportBtn);
   }
 
+  function syncCimModeBtnStyles() {
+    if (btnModeHeatmap && btnModeTradeoff) {
+      const isHeatmap = activeMode === 'crossbar_heatmap';
+      btnModeHeatmap.style.background = isHeatmap ? '#0284c7' : '#f1f5f9';
+      btnModeHeatmap.style.color = isHeatmap ? '#ffffff' : '#475569';
+      btnModeHeatmap.style.borderColor = isHeatmap ? '#0284c7' : '#cbd5e1';
+      btnModeHeatmap.setAttribute('aria-pressed', isHeatmap ? 'true' : 'false');
+
+      btnModeTradeoff.style.background = !isHeatmap ? '#0284c7' : '#f1f5f9';
+      btnModeTradeoff.style.color = !isHeatmap ? '#ffffff' : '#475569';
+      btnModeTradeoff.style.borderColor = !isHeatmap ? '#0284c7' : '#cbd5e1';
+      btnModeTradeoff.setAttribute('aria-pressed', !isHeatmap ? 'true' : 'false');
+    }
+  }
+
   if (presetSelect) presetSelect.addEventListener('change', update);
   if (mediaSelect) mediaSelect.addEventListener('change', update);
   if (wireSlider) wireSlider.addEventListener('input', update);
@@ -591,16 +617,8 @@ export function initCimMacSimulator() {
     btnModeHeatmap.addEventListener('click', () => {
       activeMode = 'crossbar_heatmap';
       btnModeHeatmap.classList.add('active');
-      btnModeHeatmap.setAttribute('aria-pressed', 'true');
-      btnModeHeatmap.style.background = '#0284c7';
-      btnModeHeatmap.style.color = '#ffffff';
-
-      if (btnModeTradeoff) {
-        btnModeTradeoff.classList.remove('active');
-        btnModeTradeoff.setAttribute('aria-pressed', 'false');
-        btnModeTradeoff.style.background = '#1e293b';
-        btnModeTradeoff.style.color = '#94a3b8';
-      }
+      if (btnModeTradeoff) btnModeTradeoff.classList.remove('active');
+      syncCimModeBtnStyles();
       update();
     });
   }
@@ -609,19 +627,13 @@ export function initCimMacSimulator() {
     btnModeTradeoff.addEventListener('click', () => {
       activeMode = 'energy_accuracy_tradeoff';
       btnModeTradeoff.classList.add('active');
-      btnModeTradeoff.setAttribute('aria-pressed', 'true');
-      btnModeTradeoff.style.background = '#0284c7';
-      btnModeTradeoff.style.color = '#ffffff';
-
-      if (btnModeHeatmap) {
-        btnModeHeatmap.classList.remove('active');
-        btnModeHeatmap.setAttribute('aria-pressed', 'false');
-        btnModeHeatmap.style.background = '#1e293b';
-        btnModeHeatmap.style.color = '#94a3b8';
-      }
+      if (btnModeHeatmap) btnModeHeatmap.classList.remove('active');
+      syncCimModeBtnStyles();
       update();
     });
   }
+
+  syncCimModeBtnStyles();
 
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {

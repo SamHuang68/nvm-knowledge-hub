@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "3d9f49bfefc82a833add5eed02340c1c8454ae44",
+  "baseCommit": "ce3333c6eb7dccb685fa98c395f335e6d8474254",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -192,7 +192,18 @@
         "rad-hard-nvm-simulator.js",
         "space-radiation-hardening-simulator.js",
         "subthreshold-lowvoltage-nvm-simulator.js",
-        "vertical-3d-nvm-simulator.js"
+        "vertical-3d-nvm-simulator.js",
+        "cim-neuromorphic-mac-simulator.js",
+        "cim-nn-accuracy-degradation-simulator.js",
+        "cpo-siph-nvm-simulator.js",
+        "cryo-cmos-quantum-nvm-simulator.js",
+        "cryo-radhard-nvm-simulator.js",
+        "cxl-memory-pooling-simulator.js",
+        "dpa-cpa-leakage-simulator.js",
+        "normally-off-energy-harvesting-simulator.js",
+        "tunneling-breakdown-simulator.js",
+        "tddb-weibull-simulator.js",
+        "wafer-cost-tco-calculator.js"
       ],
       "inputs": [
         "tests/test-physics-robustness.test.mjs",

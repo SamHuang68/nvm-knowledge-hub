@@ -145,11 +145,15 @@ export function calculateSpaceRadiationHardening({
   customTidKrad,
   customLetMev,
 } = {}) {
-  const mission = SPACE_MISSION_PRESETS[missionKey] || SPACE_MISSION_PRESETS.geo_telecom_sat;
-  const tech = RAD_HARD_TECH_PROFILES[techKey] || RAD_HARD_TECH_PROFILES.antifuse_rad_hard;
+  const mission = (missionKey && Object.prototype.hasOwnProperty.call(SPACE_MISSION_PRESETS, missionKey))
+    ? SPACE_MISSION_PRESETS[missionKey]
+    : SPACE_MISSION_PRESETS.geo_telecom_sat;
+  const tech = (techKey && Object.prototype.hasOwnProperty.call(RAD_HARD_TECH_PROFILES, techKey))
+    ? RAD_HARD_TECH_PROFILES[techKey]
+    : RAD_HARD_TECH_PROFILES.antifuse_rad_hard;
 
-  const tidKrad = customTidKrad !== undefined ? customTidKrad : mission.nominalTidKrad;
-  const letMev = customLetMev !== undefined ? customLetMev : mission.peakLetMev;
+  const tidKrad = Number.isFinite(Number(customTidKrad)) ? Number(customTidKrad) : (Number(mission.nominalTidKrad) || 100.0);
+  const letMev = Number.isFinite(Number(customLetMev)) ? Number(customLetMev) : (Number(mission.peakLetMev) || 45.0);
 
   // 1. TID Threshold Voltage & Retention Degradation
   const tidRatio = tidKrad / Math.max(tech.tidToleranceKrad, 1.0);

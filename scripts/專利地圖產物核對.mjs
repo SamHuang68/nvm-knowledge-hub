@@ -7,7 +7,7 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='3d9f49bfefc82a833add5eed02340c1c8454ae44';
+const base='ce3333c6eb7dccb685fa98c395f335e6d8474254';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
 assert.equal(pkg.version,'1.5.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
@@ -23,7 +23,7 @@ for (const suffix of ['','-en']) {
       const {patentStats: _curStats, ...curRest} = curVendor;
       const {patentStats: _baseStats, ...baseRest} = baseVendor;
       assert.deepEqual(curRest, baseRest, `廠商 ${baseVendor.id} 原始資料除授權專利規模更新外無其他未授權變更`);
-      assert.match(curVendor.patentStats.totalGrantedWorldwide, /1,?150/);
+      assert.match(curVendor.patentStats.totalGrantedWorldwide, /1,?370/);
     } else {
       assert.deepEqual(curVendor, baseVendor, `廠商 ${baseVendor.id} 原始資料無未授權變更`);
     }
