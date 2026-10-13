@@ -1063,10 +1063,15 @@
 .nvm-map-explorer { margin: 28px 0; }
 .nvm-map-explorer h3 { margin: 4px 0 8px; font-size: 1.5rem; }
 .nvm-map-explorer header > p:last-child { margin-top: 0; color: #456171; }
-.nvm-map-controls { display: grid; grid-template-columns: minmax(220px,2fr) minmax(130px,1fr) minmax(170px,1fr) auto; gap: 12px; align-items: end; padding: 20px; background: #eef5f5; border: 1px solid #c6dada; }
+.nvm-map-controls { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; align-items: end; padding: 20px; background: #eef5f5; border: 1px solid #c6dada; }
+.nvm-map-controls label:first-child { grid-column: 1 / -1; }
+.nvm-map-controls button { justify-self: start; max-width: 15rem; }
 .nvm-map-controls label { display: flex; flex-direction: column; gap: 6px; font-size: .82rem; font-weight: 650; min-width: 0; }
 .nvm-map-controls input, .nvm-map-controls select, .nvm-map-controls button { box-sizing: border-box; width: 100%; min-height: 44px; border: 1px solid #91adb8; border-radius: 3px; background: white; color: #163f53; font: inherit; padding: 9px 10px; }
 .nvm-map-controls button { cursor: pointer; font-size: .85rem; }
+.nvm-map-record-actions { display: flex; justify-content: flex-end; margin: 8px 0 12px; }
+.nvm-map-record-actions a { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; color: #00696d; text-underline-offset: 4px; }
+#nvm-map-heading, #nvm-map-results { scroll-margin-top: var(--nvm-anchor-top,150px); }
 #nvm-map-count { min-height: 1.5em; margin: 14px 0; font-size: .88rem; font-weight: 650; color: #315a69; }
 .nvm-map-matrix-wrap { overflow-x: auto; border: 1px solid #c8d8df; border-radius: 4px; }
 .nvm-map-matrix { border-collapse: collapse; width: 100%; min-width: 630px; font-size: .86rem; }
@@ -1095,6 +1100,7 @@
 @media (max-width: 1100px) {
   .nvm-map-controls { grid-template-columns: 1fr 1fr; }
   .nvm-map-controls label:first-child { grid-column: 1 / -1; }
+  .nvm-map-controls label:has(#nvm-map-company) { grid-column: 1 / -1; }
   .nvm-map-controls button { grid-column: 1 / -1; }
 }
 @media (max-width: 700px) {

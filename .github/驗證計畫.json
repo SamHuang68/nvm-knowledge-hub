@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "3ca524ab2baa932f5dcfb0356d4ef43230f8d414",
+  "baseCommit": "9011ec36c84035f4e418be1b58b9391c2f5a4efe",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md"
@@ -57,52 +57,12 @@
         "nvm-ip-cells.css",
         "nvm-engineering-diagrams.css"
       ],
-      "reason": "專利地圖新增搜尋、分類、狀態與結果導航；保留雙語全部案卷及既有錨點。Linux Chromium 與本機平台分開驗證。",
+      "reason": "修正案卷閱讀後變更篩選的網址重整；新增廠商精確篩選與返回結果，保留全部案卷、全文搜尋及外部深層連結。",
       "prepare": [
         "node",
         "browser"
       ],
-      "timeoutSeconds": 90
-    },
-    {
-      "id": "局部CI契約",
-      "kind": "command",
-      "command": [
-        "python",
-        "-B",
-        "scripts/驗證局部CI契約.py"
-      ],
-      "targets": [
-        "scripts/驗證局部CI契約.py"
-      ],
-      "changes": [
-        ".github/workflows/validate-and-deploy.yml",
-        ".github/workflows/完整驗證.yml",
-        ".github/工具/完整驗證.mjs",
-        ".github/工具/準備完整驗證計畫.py",
-        "tools/codex/verification_gate.py",
-        "tools/codex/變更驗證.py",
-        "tools/codex/完整驗證入口.py",
-        "scripts/verify-site-regression.mjs",
-        "scripts/驗證局部CI契約.py"
-      ],
-      "inputs": [
-        ".github/workflows/validate-and-deploy.yml",
-        ".github/workflows/完整驗證.yml",
-        ".github/工具/完整驗證.mjs",
-        ".github/工具/準備完整驗證計畫.py",
-        "tools/codex/verification_gate.py",
-        "tools/codex/變更驗證.py",
-        "tools/codex/完整驗證入口.py",
-        "scripts/verify-site-regression.mjs",
-        "scripts/驗證局部CI契約.py",
-        "scripts/test-server.mjs"
-      ],
-      "reason": "導入既有明列變更入口，驗證未知變更拒絕、相同輸入重用、CI 不能繞過完整授權。",
-      "prepare": [
-        "node"
-      ],
-      "timeoutSeconds": 30
+      "timeoutSeconds": 180
     },
     {
       "id": "專利地圖產物保全",
