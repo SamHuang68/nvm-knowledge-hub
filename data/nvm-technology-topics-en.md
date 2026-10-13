@@ -12387,7 +12387,7 @@ To bypass the scaling area limit of 1T1R select transistors, Weebit patented hig
 - **Founded**: 2019 (Hardware Security Subsidiary of eMemory Technology Inc.)
 - **Leadership**: Dr. Evans Ching-Song Yang, Dr. Charles Hsu, and Engineering Team
 - **Business Model**: Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP
-- **Patent Portfolio Status**: 2 In-Force · 0 Public Domain
+- **Patent Portfolio Status**: 4 In-Force · 2 Public Domain
 - **Global Patents**: 100+ Worldwide Granted Patents (Shared core patent pool with parent eMemory)
 - **Patent Strategy**: The core of PUFsecurity's patent portfolio transformed eMemory's 'Quantum Tunneling Microscopic Dielectric Variation (NeoPUF)' into 'Zero-Error Hardware Roots of Trust (PUFrt)' and 'Integrated Security Cryptographic Processors (PUFcc)'. Conventional SRAM PUFs suffer 5%–15% bit error rates under temperature and aging, necessitating complex ECC helper data that incurs silicon area overhead and side-channel leakage risks. PUFsecurity's patents surround 'Dynamic Differential Symmetry Tracking Circuits' and 'Quantum Shot Noise True Random Number Generators (Quantum TRNG)', achieving native 0% Bit Error Rate (BER) directly in hardware, earning PSA Certified Level 3 and SESIP Level 3 accreditations.
 
@@ -12399,6 +12399,24 @@ To bypass the scaling area limit of 1T1R select transistors, Weebit patented hig
 - **Physical Mechanism**: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints
 - **Process Node**: 55nm down to 3nm / 2nm GAA Advanced Logic and HPC Platforms
 
+##### [US7243236B2](https://patents.google.com/patent/US7243236B2/en) · Physical Unclonable Functions and Semiconductor Device Identification Methods
+
+- **Legal Status**: Expired · Public Domain (Term: 2022-12-06)
+- **Category & Generation**: Device Structure · Gen-1 MIT PUF Pioneer
+- **Priority / Grant**: 2002-12-06 / 2007-07-10
+- **Inventors**: G. Edward Suh, Srinivas Devadas
+- **Claim 1 Reading**: Claim 1 defines physical unclonable circuit architectures generating unpredictable responses from random semiconductor manufacturing variations with identification methods.
+- **FTO Assessment**: Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering semiconductor process variations as physical unclonable identifiers is free to operate.
+- **Physical Solution**: Foundational MIT pioneer patent. Translates microscopic, uncontrollable, manufacturing process variations at nanometer scales into unique, deterministic, and physically unclonable digital signatures.
+##### [US7840804B2](https://patents.google.com/patent/US7840804B2/en) · Physical Unclonable Function System Based on Memory Startup States
+
+- **Legal Status**: Expired · Public Domain (Term: 2024-03-31)
+- **Category & Generation**: Method / Operation · Gen-1 SRAM PUF Startup
+- **Priority / Grant**: 2004-03-31 / 2010-11-23
+- **Inventors**: Jorge Guajardo, Sandeep Kumar, Geert-Jan Schrijen
+- **Claim 1 Reading**: Claim 1 defines systems extracting chip-unique cryptographic keys from the unwritten initial power-up tendencies of memory cells.
+- **FTO Assessment**: Expired in March 2024; entered public domain. Foundational methodology extracting cryptographic keys from memory startup states is in the public domain.
+- **Physical Solution**: Pioneer Philips / Intrinsic ID SRAM PUF patent. Harvests random metastable power-up states of static random access memory (SRAM) caused by threshold voltage mismatches of cross-coupled inverter pairs.
 ##### [US10651268B2](https://patents.google.com/patent/US10651268B2/en) · Physical unclonable function device and differential reading circuit with tracking reference
 
 - **Legal Status**: In-Force / Active (Term: 2038-03-12)
@@ -12417,6 +12435,46 @@ To bypass the scaling area limit of 1T1R select transistors, Weebit patented hig
 - **Claim 1 Reading**: Claim 1 claims a true random number generator circuit utilizing gate oxide quantum tunneling shot noise with live health test monitoring.
 - **FTO Assessment**: In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise.
 - **Physical Solution**: Harnesses intrinsic quantum electron shot noise in gate oxide tunneling as the sole entropy source. Pure quantum effects cannot be controlled by external RF or thermal interference, passing NIST SP 800-22 and SP 800-90B suites.
+##### [US11394553B2](https://patents.google.com/patent/US11394553B2/en) · Hardware Security Engine Integrating Physical Unclonable Function and Cryptographic Co-Processor
+
+- **Legal Status**: In-Force / Active (Term: 2040-04-20)
+- **Category & Generation**: Array Architecture · Gen-2 Integrated PUFcc
+- **Priority / Grant**: 2020-04-20 / 2022-07-19
+- **Inventors**: Evans Ching-Song Yang, Meng-Yi Wu, Charles Ching-Hsiang Hsu
+- **Claim 1 Reading**: Claim 1 recites an integrated hardware security engine monolithically coupling a quantum tunneling PUF, secure nonvolatile memory, and cryptographic hardware accelerators.
+- **FTO Assessment**: In force through April 2040. Protects tightly-coupled hardware security engines integrating quantum PUF, secure OTP, and cryptographic accelerators.
+- **Physical Solution**: PUFsecurity flagship PUFcc core patent. Monolithically couples NeoPUF zero-error hardware roots, secure OTP storage, quantum TRNG, and NIST-certified crypto accelerators behind a deep hardware firewall, ensuring keys are born and utilized purely within secure boundaries.
+##### [US11880479B2](https://patents.google.com/patent/US11880479B2/en) · Hardware Root-of-Trust with Quantum Tunneling PUF and Anti-Tamper Non-Volatile Key Storage
+
+- **Legal Status**: In-Force / Active (Term: 2041-09-08)
+- **Category & Generation**: Device & Operation · Gen-3 Anti-Tamper RoT
+- **Priority / Grant**: 2021-09-08 / 2024-01-23
+- **Inventors**: Meng-Yi Wu, Evans Ching-Song Yang
+- **Claim 1 Reading**: Claim 1 defines a hardware root-of-trust with physical anti-tamper sensing and active quantum tunneling key zeroization operations.
+- **FTO Assessment**: In force through September 2041. Enforces exclusivity over anti-tamper hardware root-of-trust architectures with active zeroization.
+- **Physical Solution**: Exploits the irreversible physics of dielectric quantum tunneling, integrating active mesh shields and automated zeroization circuits that permanently collapse antifuses to ground states upon detecting tamper events within microseconds.
+#### Patent Defense Strategy & Landmark Litigation: Quantum Tunneling Geometric Mismatch (NeoPUF) vs. SRAM PUF Zero-BER Moat
+
+Spun out of eMemory Technology under Chairman Dr. Charles Hsu and CEO Dr. Evans Yang, PUFsecurity revolutionized semiconductor hardware security. Traditional root-of-trust relies on injected keys (susceptible to supply-chain sniffing) or SRAM startup states. However, SRAM PUF suffers from a severe physical defect: temperature fluctuations and aging induce 5%–15% bit error rates (BER), requiring bulky error-correcting codes (ECC helper data) that consume die area and introduce side-channel vulnerabilities. PUFsecurity discarded fragile ECC post-processing, engineering native Zero-BER NeoPUF and PUFrt/PUFcc patent fortress from quantum tunneling physics.
+
+##### Quantum Geometric Mismatch vs. SRAM Metastable Flipping Risk
+
+SRAM PUF relies on subtle inverter threshold mismatches that flip under extreme temperature (-40°C to 150°C) and supply noise. NeoPUF captures structural variations of atomic defects across paired antifuse dielectric layers; tunneling resistance differences span orders of magnitude, remaining 100% stable under thermal stress and radiation, delivering physical 0% native BER.
+
+##### Complete Elimination of Helper Data & Side-Channel Attack Surface (US10651268B2)
+
+Because native BER is strictly zero, chips require zero helper data stored in off-chip flash. Attackers cannot reconstruct keys by eavesdropping helper data or analyzing mathematical error distributions, shutting down physical and side-channel vulnerability surfaces.
+
+##### Quantum Shot Noise TRNG Patent Exclusivity (US10769300B2)
+
+Conventional ring oscillator TRNGs are susceptible to electromagnetic injection locking. PUFsecurity patented entropy harvesting directly from quantum tunneling shot noise, an unmanipulable quantum mechanical phenomenon certified under NIST SP 800-22 and SP 800-90B standards.
+
+##### Monolithic PUFcc Security Engine & TSMC Advanced Nodes (US11394553B2 / US11880479B2)
+
+Monolithically integrating NeoPUF, secure OTP, quantum TRNG, and post-quantum cryptography (PQC) into PUFcc, PUFsecurity won TSMC OIP Partner of the Year, deploying into N5/N3/N2 nodes. Patented active zeroization circuits destroy keys within microseconds of physical optical tamper detection, securing PSA Certified Level 3 and SESIP Level 3 certifications.
+
+> **FTO & Public Domain Verdict**: [FTO Guidance] Early 2002–2004 MIT foundational PUF patent (US7243236B2) and Philips SRAM power-up PUF patent (US7840804B2) expired in 2022 and 2024, entering the public domain. Industry may freely practice standard SRAM startup state fingerprinting. However, PUFsecurity/eMemory quantum tunneling zero-BER differential tracking (US10651268B2), shot noise TRNG (US10769300B2), integrated PUFcc security engine (US11394553B2), and anti-tamper zeroization architecture (US11880479B2) remain actively protected through 2038–2041.
+
 ### Appendix: Industry Competitive Landscape Matrix
 
 | No. & Filing Entity | Key Portfolios | Physical Mechanism | Milestone Patents | Foundry & Scale |
@@ -12432,6 +12490,6 @@ To bypass the scaling area limit of 1T1R select transistors, Weebit patented hig
 | 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (過期)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (過期)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (有效)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (有效)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (有效)](https://patents.google.com/patent/US10658032B2/en) | TSMC, UMC, GlobalFoundries, SMIC, HHGrace (Over 100 billion cumulative SuperFlash commercial units shipped worldwide) |
 | 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (過期)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (過期)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (有效)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (有效)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (有效)](https://patents.google.com/patent/US10886461B2/en) | GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab (Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history) |
 | 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US6815781B2 (過期)](https://patents.google.com/patent/US6815781B2/en), [US6849891B1 (過期)](https://patents.google.com/patent/US6849891B1/en), [US10141505B2 (有效)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (有效)](https://patents.google.com/patent/US10580980B2/en), [US11171286B2 (有效)](https://patents.google.com/patent/US11171286B2/en) | SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification) (Customer validation runs and tape-outs delivered across tier-1 and specialty foundries) |
-| 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
+| 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US7243236B2 (過期)](https://patents.google.com/patent/US7243236B2/en), [US7840804B2 (過期)](https://patents.google.com/patent/US7840804B2/en), [US10651268B2 (有效)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (有效)](https://patents.google.com/patent/US10769300B2/en), [US11394553B2 (有效)](https://patents.google.com/patent/US11394553B2/en), [US11880479B2 (有效)](https://patents.google.com/patent/US11880479B2/en) | TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS) (Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships) |
 
 
