@@ -260,10 +260,17 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(dpr, dpr);
 
-  // Background
+  // Background - Surgical Light Mode (Rule 0003)
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#08131e';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 60;
   const padRight = 30;
@@ -278,7 +285,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
   }
 
   // Draw Grid Lines
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.setLineDash([4, 4]);
 
@@ -301,7 +308,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
   ctx.setLineDash([]); // Reset dashed
 
   ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillStyle = '#cbd5e1';
+  ctx.fillStyle = '#475569';
 
   if (mode === 'tid_dose_sweep') {
     // Mode 1: TID Dose (0 to 1000 krad) vs Remaining Sense Margin (0 to 500 mV)
@@ -324,7 +331,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
 
     // Critical Read Margin Failure Line (50 mV)
     const yFail = padTop + ((mMax - 50) / mMax) * plotHeight;
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([6, 4]);
     ctx.beginPath();
@@ -332,15 +339,15 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     ctx.lineTo(padLeft + plotWidth, yFail);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#f87171';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText('Min Read Sense Threshold (50 mV)', padLeft + 10, yFail - 6);
 
     // Plot Curves for All 4 Techs
     const techs = [
-      { key: 'antifuse_ohmic', color: '#10b981', label: 'AntiFuse (Ohmic Invariant)' },
-      { key: 'stt_emram', color: '#38bdf8', label: 'STT-MRAM (Periphery Limit)' },
-      { key: 'reram_oxram', color: '#f59e0b', label: 'ReRAM (Vacancy Drift)' },
-      { key: 'commercial_eflash', color: '#ef4444', label: 'eFlash (Charge Loss)' }
+      { key: 'antifuse_ohmic', color: '#059669', label: 'AntiFuse (Ohmic Invariant)' },
+      { key: 'stt_emram', color: '#0284c7', label: 'STT-MRAM (Periphery Limit)' },
+      { key: 'reram_oxram', color: '#d97706', label: 'ReRAM (Vacancy Drift)' },
+      { key: 'commercial_eflash', color: '#dc2626', label: 'eFlash (Charge Loss)' }
     ];
 
     const steps = 60;
@@ -372,8 +379,8 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     const legBoxH = techs.length * 15 + 10;
     const legBoxX = padLeft + plotWidth - legBoxW - 6;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -384,7 +391,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     techs.forEach((tInfo, tIdx) => {
       ctx.fillStyle = tInfo.color;
       ctx.fillRect(legBoxX + 8, legBoxY + 8 + tIdx * 15, 12, 4);
-      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#ffffff' : '#cbd5e1';
+      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#0f172a' : '#475569';
       ctx.font = tInfo.key === metrics.tech.id ? '600 10px "IBM Plex Mono", monospace' : '10px "IBM Plex Mono", monospace';
       ctx.fillText(tInfo.label, legBoxX + 26, legBoxY + 12 + tIdx * 15);
     });
@@ -409,10 +416,10 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     }
 
     const techs = [
-      { key: 'antifuse_ohmic', color: '#10b981', label: 'AntiFuse (σ = 0 Immune)' },
-      { key: 'stt_emram', color: '#38bdf8', label: 'STT-MRAM (LETth = 28)' },
-      { key: 'reram_oxram', color: '#f59e0b', label: 'ReRAM (LETth = 22)' },
-      { key: 'commercial_eflash', color: '#ef4444', label: 'eFlash (LETth = 6.5)' }
+      { key: 'antifuse_ohmic', color: '#059669', label: 'AntiFuse (σ = 0 Immune)' },
+      { key: 'stt_emram', color: '#0284c7', label: 'STT-MRAM (LETth = 28)' },
+      { key: 'reram_oxram', color: '#d97706', label: 'ReRAM (LETth = 22)' },
+      { key: 'commercial_eflash', color: '#dc2626', label: 'eFlash (LETth = 6.5)' }
     ];
 
     const steps = 80;
@@ -444,8 +451,8 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     const legBoxH = techs.length * 15 + 10;
     const legBoxX = padLeft + plotWidth - legBoxW - 6;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -456,7 +463,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     techs.forEach((tInfo, tIdx) => {
       ctx.fillStyle = tInfo.color;
       ctx.fillRect(legBoxX + 8, legBoxY + 8 + tIdx * 15, 12, 4);
-      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#ffffff' : '#cbd5e1';
+      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#0f172a' : '#475569';
       ctx.font = tInfo.key === metrics.tech.id ? '600 10px "IBM Plex Mono", monospace' : '10px "IBM Plex Mono", monospace';
       ctx.fillText(tInfo.label, legBoxX + 26, legBoxY + 12 + tIdx * 15);
     });
@@ -469,7 +476,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
 
     ctx.save();
     // Vertical Crosshair line
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+    ctx.strokeStyle = 'rgba(2, 132, 199, 0.75)';
     ctx.lineWidth = 1;
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
@@ -497,8 +504,8 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     const badgeX = Math.min(padLeft + plotWidth - badgeW - 4, Math.max(padLeft + 4, clampedX - badgeW / 2));
     const badgeY = padTop + 8;
 
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
-    ctx.strokeStyle = '#38bdf8';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 4);
@@ -506,7 +513,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.textAlign = 'center';
     ctx.fillText(probeText, badgeX + badgeW / 2, badgeY + 15);
     ctx.restore();
@@ -619,12 +626,14 @@ export function initRadSimulator() {
       btnModeTid.setAttribute('aria-pressed', 'true');
       btnModeTid.style.background = '#0284c7';
       btnModeTid.style.color = '#ffffff';
+      btnModeTid.style.borderColor = '#0284c7';
 
       if (btnModeLet) {
         btnModeLet.classList.remove('active');
         btnModeLet.setAttribute('aria-pressed', 'false');
-        btnModeLet.style.background = '#1e293b';
-        btnModeLet.style.color = '#94a3b8';
+        btnModeLet.style.background = '#f1f5f9';
+        btnModeLet.style.color = '#475569';
+        btnModeLet.style.borderColor = '#cbd5e1';
       }
       update();
     });
@@ -637,12 +646,14 @@ export function initRadSimulator() {
       btnModeLet.setAttribute('aria-pressed', 'true');
       btnModeLet.style.background = '#0284c7';
       btnModeLet.style.color = '#ffffff';
+      btnModeLet.style.borderColor = '#0284c7';
 
       if (btnModeTid) {
         btnModeTid.classList.remove('active');
         btnModeTid.setAttribute('aria-pressed', 'false');
-        btnModeTid.style.background = '#1e293b';
-        btnModeTid.style.color = '#94a3b8';
+        btnModeTid.style.background = '#f1f5f9';
+        btnModeTid.style.color = '#475569';
+        btnModeTid.style.borderColor = '#cbd5e1';
       }
       update();
     });

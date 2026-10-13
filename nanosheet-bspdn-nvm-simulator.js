@@ -265,11 +265,20 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
   const w = width;
   const h = height;
 
-  ctx.fillStyle = "#070e17";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Subtle grid
-  ctx.strokeStyle = "rgba(30, 41, 59, 0.6)";
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -296,7 +305,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
   if (mode === "thermal_ir_profile") {
     // Mode A: Cross-Section Silicon Stack & Thermal / IR-Drop Profile
     // Visualizing Backside Metal -> Substrate -> GAA Nanosheet Channels -> Frontside BEOL
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -304,7 +313,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Temp (°C)", 6, plotY0 + 6);
     ctx.fillText("Backside", plotX0, plotY1 + 16);
@@ -354,30 +363,30 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
       ctx.setLineDash([]);
     };
 
-    drawTempStack("embedded_stt_mram_beol", "#ef4444", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
-    drawTempStack("embedded_reram_oxram", "#f59e0b", "ReRAM", metrics.techKey === "embedded_reram_oxram");
-    drawTempStack("nanosheet_sram_macro", "#a855f7", "SRAM", metrics.techKey === "nanosheet_sram_macro");
-    drawTempStack("antifuse_nanosheet_logic", "#00f0ff", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
+    drawTempStack("embedded_stt_mram_beol", "#dc2626", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
+    drawTempStack("embedded_reram_oxram", "#d97706", "ReRAM", metrics.techKey === "embedded_reram_oxram");
+    drawTempStack("nanosheet_sram_macro", "#7c3aed", "SRAM", metrics.techKey === "nanosheet_sram_macro");
+    drawTempStack("antifuse_nanosheet_logic", "#0284c7", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
 
     // Current Operating Peak Callout
     const markerX = plotX0 + 0.65 * plotW;
     const markerY = plotY1 - ((metrics.junctionTempC - 25.0) / (maxTemp - 25.0)) * plotH;
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#0284c7";
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#00f0ff";
+    ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#00f0ff";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Peak Tj: ${metrics.junctionTempC}°C | IR-Drop: ${metrics.realizedIrDropMv}mV`, Math.min(markerX + 8, plotX1 - 180), Math.max(markerY - 8, plotY0 + 12));
 
   } else {
     // Mode B: Interconnect RC Read Latency (ns) vs Macro Array Size (0.1Mb to 16Mb)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -385,7 +394,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Latency (ns)", 4, plotY0 + 6);
     ctx.fillText("0.1 Mb", plotX0, plotY1 + 16);
@@ -427,10 +436,10 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
       ctx.setLineDash([]);
     };
 
-    drawLatencyCurve("embedded_reram_oxram", "#f59e0b", "ReRAM", metrics.techKey === "embedded_reram_oxram");
-    drawLatencyCurve("embedded_stt_mram_beol", "#ef4444", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
-    drawLatencyCurve("antifuse_nanosheet_logic", "#00f0ff", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
-    drawLatencyCurve("nanosheet_sram_macro", "#a855f7", "SRAM", metrics.techKey === "nanosheet_sram_macro");
+    drawLatencyCurve("embedded_reram_oxram", "#d97706", "ReRAM", metrics.techKey === "embedded_reram_oxram");
+    drawLatencyCurve("embedded_stt_mram_beol", "#dc2626", "STT-MRAM", metrics.techKey === "embedded_stt_mram_beol");
+    drawLatencyCurve("antifuse_nanosheet_logic", "#0284c7", "AntiFuse", metrics.techKey === "antifuse_nanosheet_logic");
+    drawLatencyCurve("nanosheet_sram_macro", "#7c3aed", "SRAM", metrics.techKey === "nanosheet_sram_macro");
 
     // Current Operating Point
     const currMb = Math.min(maxMb, metrics.arrayMb);
@@ -438,15 +447,15 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
     const markerX = plotX0 + (currMb / maxMb) * plotW;
     const markerY = plotY1 - (Math.min(maxLat, currLat) / maxLat) * plotH;
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#0284c7";
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#00f0ff";
+    ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#00f0ff";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Latency: ${currLat.toFixed(2)} ns @ ${currMb} Mb`, Math.min(markerX + 8, plotX1 - 150), Math.max(markerY - 8, plotY0 + 12));
   }
@@ -575,7 +584,7 @@ export function initNanosheetBspdnSimulator(container) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'nanosheet-bspdn-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0284c7; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 2nm/A16 背面供電 CSV' : '📥 Export 2nm/A16 BSPDN CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出 2nm/A16 奈米片與背面供電數值資料集為 CSV 檔案' : 'Export 2nm/A16 Nanosheet & BSPDN metrics dataset as CSV file');
@@ -613,13 +622,13 @@ export function initNanosheetBspdnSimulator(container) {
       btnThermal.setAttribute("aria-pressed", "true");
       btnThermal.style.background = "#0284c7";
       btnThermal.style.color = "#ffffff";
-      btnThermal.style.borderColor = "#38bdf8";
+      btnThermal.style.borderColor = "#0284c7";
       if (btnDelay) {
         btnDelay.classList.remove("active");
         btnDelay.setAttribute("aria-pressed", "false");
-        btnDelay.style.background = "#1e293b";
-        btnDelay.style.color = "#94a3b8";
-        btnDelay.style.borderColor = "#475569";
+        btnDelay.style.background = "#f1f5f9";
+        btnDelay.style.color = "#475569";
+        btnDelay.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -632,13 +641,13 @@ export function initNanosheetBspdnSimulator(container) {
       btnDelay.setAttribute("aria-pressed", "true");
       btnDelay.style.background = "#0284c7";
       btnDelay.style.color = "#ffffff";
-      btnDelay.style.borderColor = "#38bdf8";
+      btnDelay.style.borderColor = "#0284c7";
       if (btnThermal) {
         btnThermal.classList.remove("active");
         btnThermal.setAttribute("aria-pressed", "false");
-        btnThermal.style.background = "#1e293b";
-        btnThermal.style.color = "#94a3b8";
-        btnThermal.style.borderColor = "#475569";
+        btnThermal.style.background = "#f1f5f9";
+        btnThermal.style.color = "#475569";
+        btnThermal.style.borderColor = "#cbd5e1";
       }
       update();
     });

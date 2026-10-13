@@ -270,10 +270,18 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
   ctx.save();
   ctx.scale(dpr, dpr);
 
-  // Background
+  // Background - Surgical Light Mode (Rule 0003)
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#060d17';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 52;
   const padRight = 24;
@@ -283,7 +291,7 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 4; i++) {
@@ -304,7 +312,7 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     const letMax = 100.0;
 
     // Draw curve
-    ctx.strokeStyle = metrics.tech.isImmuneToSel ? '#10b981' : '#f43f5e';
+    ctx.strokeStyle = metrics.tech.isImmuneToSel ? '#059669' : '#dc2626';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -326,7 +334,7 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
 
     // Mark current mission LET vertical line
     const xCurrent = padLeft + ((metrics.peakLetMev - letMin) / (letMax - letMin)) * plotW;
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
@@ -344,22 +352,22 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     }
     const yCurrent = padTop + plotH * (1.0 - currentSigmaNorm);
 
-    ctx.fillStyle = metrics.isSelLatching ? '#ef4444' : '#10b981';
+    ctx.fillStyle = metrics.isSelLatching ? '#dc2626' : '#059669';
     ctx.beginPath();
     ctx.arc(xCurrent, yCurrent, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Text labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('0', padLeft, height - 10);
     ctx.fillText('50 MeV', padLeft + plotW * 0.5 - 16, height - 10);
     ctx.fillText('100 MeV·cm²/mg', padLeft + plotW - 74, height - 10);
 
-    ctx.fillStyle = metrics.tech.isImmuneToSel ? '#10b981' : '#f43f5e';
+    ctx.fillStyle = metrics.tech.isImmuneToSel ? '#047857' : '#dc2626';
     const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     ctx.fillText(metrics.tech.isImmuneToSel
       ? (isZh ? '模型假設：SEL 截面積 = 0' : 'Model Assumption: SEL Cross Section = 0')
@@ -370,7 +378,7 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     const tMin = -50.0;
     const tMax = 475.0;
 
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -399,7 +407,7 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     // Mission line (e.g. 20 years line)
     const missionNormY = getLogNormY(metrics.missionYears);
     const missionY = padTop + plotH * (1.0 - missionNormY);
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -413,22 +421,22 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
     const currentNormY = getLogNormY(metrics.estimatedRetentionYears);
     const currentY = padTop + plotH * (1.0 - currentNormY);
 
-    ctx.fillStyle = metrics.estimatedRetentionYears >= metrics.missionYears ? '#10b981' : '#ef4444';
+    ctx.fillStyle = metrics.estimatedRetentionYears >= metrics.missionYears ? '#059669' : '#dc2626';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('-50°C', padLeft, height - 10);
     ctx.fillText('200°C', padLeft + plotW * 0.47, height - 10);
     ctx.fillText('460°C (Venus)', padLeft + plotW - 74, height - 10);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.fillText(`Mission: ${metrics.missionYears} yrs | Retention @ ${metrics.targetTempC}°C: ${metrics.estimatedRetentionYears >= 100 ? '>100' : metrics.estimatedRetentionYears.toFixed(2)} yrs`, padLeft + 6, padTop + 14);
   }
 
@@ -612,11 +620,11 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
       modeTempBtn.classList.remove('active');
       modeTempBtn.setAttribute('aria-pressed', 'false');
       modeSelBtn.style.background = '#0284c7';
-      modeSelBtn.style.borderColor = '#38bdf8';
+      modeSelBtn.style.borderColor = '#0284c7';
       modeSelBtn.style.color = '#ffffff';
-      modeTempBtn.style.background = '#1e293b';
-      modeTempBtn.style.borderColor = '#475569';
-      modeTempBtn.style.color = '#94a3b8';
+      modeTempBtn.style.background = '#f1f5f9';
+      modeTempBtn.style.borderColor = '#cbd5e1';
+      modeTempBtn.style.color = '#475569';
       update();
     });
 
@@ -627,11 +635,11 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
       modeSelBtn.classList.remove('active');
       modeSelBtn.setAttribute('aria-pressed', 'false');
       modeTempBtn.style.background = '#0284c7';
-      modeTempBtn.style.borderColor = '#38bdf8';
+      modeTempBtn.style.borderColor = '#0284c7';
       modeTempBtn.style.color = '#ffffff';
-      modeSelBtn.style.background = '#1e293b';
-      modeSelBtn.style.borderColor = '#475569';
-      modeSelBtn.style.color = '#94a3b8';
+      modeSelBtn.style.background = '#f1f5f9';
+      modeSelBtn.style.borderColor = '#cbd5e1';
+      modeSelBtn.style.color = '#475569';
       update();
     });
   }

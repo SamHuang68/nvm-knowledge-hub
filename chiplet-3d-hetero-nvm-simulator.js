@@ -324,9 +324,17 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
 
   ctx.clearRect(0, 0, width, height);
 
-  // Background
-  ctx.fillStyle = '#0b1120';
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 70;
   const padRight = 30;
@@ -336,7 +344,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 5; i++) {
@@ -356,7 +364,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     const minP = 0.0;
     const maxP = 300.0;
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 6; j++) {
@@ -372,7 +380,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`${t} °C`, padLeft - 8, y);
     }
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? '接面溫度 Tj (°C)' : 'Junction Temp Tj (°C)', padLeft, padTop - 12);
@@ -382,7 +390,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
 
     // Safe Temp Ceiling Line
     const safeCeilY = padTop + plotH * (1.0 - metrics.topology.maxJunctionTempC / 200.0);
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.45)';
+    ctx.strokeStyle = 'rgba(220, 38, 38, 0.6)';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -392,7 +400,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.setLineDash([]);
 
     // Curve 1: Junction Temperature vs Power
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 60; j++) {
@@ -406,7 +414,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.stroke();
 
     // Curve 2: Shear Stress (scaled to 0-200 MPa range)
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.0;
     ctx.beginPath();
     for (let j = 0; j <= 60; j++) {
@@ -424,22 +432,22 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     const opX = padLeft + plotW * ((metrics.computePowerW - minP) / (maxP - minP));
     const opY = padTop + plotH * (1.0 - Math.min(200.0, metrics.totalJunctionTempC) / 200.0);
 
-    ctx.fillStyle = metrics.totalJunctionTempC > metrics.topology.maxJunctionTempC ? '#ef4444' : '#10b981';
+    ctx.fillStyle = metrics.totalJunctionTempC > metrics.topology.maxJunctionTempC ? '#dc2626' : '#059669';
     ctx.beginPath();
     ctx.arc(opX, opY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Legend
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.fillText(lang === 'zh' ? '— 接面溫升 Tj' : '— Junction Temp Tj', padLeft + 10, padTop + 16);
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.fillText(lang === 'zh' ? '— 界面剪切應力 τ' : '— Shear Stress τ', padLeft + 130, padTop + 16);
-    ctx.fillStyle = 'rgba(239, 68, 68, 0.8)';
+    ctx.fillStyle = 'rgba(220, 38, 38, 0.9)';
     ctx.fillText(`${lang === 'zh' ? '最高上限' : 'Max Limit'}: ${metrics.topology.maxJunctionTempC}°C`, padLeft + 260, padTop + 16);
 
   } else {
@@ -447,7 +455,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     const minL = 0.0;
     const maxL = 10.0;
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 5; j++) {
@@ -463,7 +471,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`${ns} ns`, padLeft - 8, y);
     }
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? '讀取存取延遲 (ns)' : 'Total Read Latency (ns)', padLeft, padTop - 12);
@@ -472,7 +480,7 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.fillText(lang === 'zh' ? 'D2D 走線長度 (mm)' : 'D2D Trace Length (mm)', width - padRight, height - 12);
 
     // Plot Latency Curves for Selected Preset vs Others
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 50; j++) {
@@ -493,11 +501,11 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     const opX = padLeft + plotW * ((metrics.d2dLengthMm - minL) / (maxL - minL));
     const opY = padTop + plotH * (1.0 - Math.min(30.0, metrics.effectiveReadLatencyNs) / 30.0);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.beginPath();
     ctx.arc(opX, opY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -506,8 +514,8 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     const legBoxH = 24;
     const legBoxX = padLeft + 8;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -518,9 +526,9 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     // Legend
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.fillText(`${lang === 'zh' ? '目前架構' : 'Active'}: ${lang === 'zh' ? metrics.preset.zh.name : metrics.preset.en.name}`, legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#334155';
     ctx.fillText(`Latency = ${metrics.effectiveReadLatencyNs.toFixed(2)} ns`, legBoxX + 260, legBoxY + 16);
   }
 }

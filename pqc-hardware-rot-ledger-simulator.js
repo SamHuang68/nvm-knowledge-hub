@@ -209,104 +209,114 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     ctx.scale(dpr, dpr);
 
     ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#08131e';
-  ctx.fillRect(0, 0, width, height);
 
-  const padLeft = 60;
-  const padRight = 30;
-  const padTop = 30;
-  const padBottom = 40;
-  const plotWidth = width - padLeft - padRight;
-  const plotHeight = height - padTop - padBottom;
+    // Background - Surgical Light Mode (Rule 0003)
+    const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+    bgGrad.addColorStop(0, '#f8fafc');
+    bgGrad.addColorStop(1, '#f1f5f9');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, width, height);
 
-  if (plotWidth <= 0 || plotHeight <= 0) {
-    ctx.restore();
-    return;
-  }
+    // Subtle border
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
-  ctx.strokeStyle = '#1e293b';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([4, 4]);
+    const padLeft = 60;
+    const padRight = 30;
+    const padTop = 30;
+    const padBottom = 40;
+    const plotWidth = width - padLeft - padRight;
+    const plotHeight = height - padTop - padBottom;
 
-  const numXGrids = 5;
-  const numYGrids = 4;
-  for (let i = 0; i <= numXGrids; i++) {
-    const gx = padLeft + (i / numXGrids) * plotWidth;
-    ctx.beginPath();
-    ctx.moveTo(gx, padTop);
-    ctx.lineTo(gx, padTop + plotHeight);
-    ctx.stroke();
-  }
-  for (let j = 0; j <= numYGrids; j++) {
-    const gy = padTop + (j / numYGrids) * plotHeight;
-    ctx.beginPath();
-    ctx.moveTo(padLeft, gy);
-    ctx.lineTo(padLeft + plotWidth, gy);
-    ctx.stroke();
-  }
-  ctx.setLineDash([]);
-
-  ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillStyle = '#cbd5e1';
-
-  if (mode === 'storage_footprint') {
-    // Mode 1: Bar Chart of Raw Key vs Seed Size for 5 PQC algorithms
-    const algos = Object.values(PQC_ALGORITHMS);
-    const maxBytes = 5000;
-
-    for (let j = 0; j <= numYGrids; j++) {
-      const bVal = maxBytes * (1 - j / numYGrids);
-      const gy = padTop + (j / numYGrids) * plotHeight;
-      ctx.fillText(bVal.toFixed(0) + ' B', 12, gy + 3);
+    if (plotWidth <= 0 || plotHeight <= 0) {
+      ctx.restore();
+      return;
     }
 
-    const barGroupWidth = plotWidth / algos.length;
-    const barWidth = barGroupWidth * 0.35;
-
-    algos.forEach((a, idx) => {
-      const groupX = padLeft + idx * barGroupWidth;
-      const xCenter = groupX + barGroupWidth / 2;
-
-      // Raw Key Bar (Red/Amber)
-      const hRaw = (a.rawPrivateKeyBytes / maxBytes) * plotHeight;
-      const yRaw = padTop + plotHeight - hRaw;
-      ctx.fillStyle = '#f59e0b';
-      ctx.fillRect(xCenter - barWidth - 2, yRaw, barWidth, hRaw);
-
-      // Seed Bar (Emerald/Cyan)
-      const hSeed = (a.seedBytes / maxBytes) * plotHeight;
-      const ySeed = padTop + plotHeight - Math.max(2, hSeed);
-      ctx.fillStyle = '#10b981';
-      ctx.fillRect(xCenter + 2, ySeed, barWidth, Math.max(2, hSeed));
-
-      // Label
-      ctx.fillStyle = '#cbd5e1';
-      ctx.fillText(a.id.replace('_', '-').toUpperCase(), groupX + 6, padTop + plotHeight + 16);
-    });
-
-    // Draw Legend Backdrop Card to prevent overlap
-    const legBoxW = 216;
-    const legBoxH = 34;
-    const legBoxX = padLeft + plotWidth - legBoxW - 6;
-    const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
     ctx.lineWidth = 1;
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
-    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
-    ctx.fill();
-    ctx.stroke();
+    ctx.setLineDash([4, 4]);
 
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(legBoxX + 8, legBoxY + 8, 12, 4);
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText('Raw Key Size (1,632-4,896 B)', legBoxX + 26, legBoxY + 12);
+    const numXGrids = 5;
+    const numYGrids = 4;
+    for (let i = 0; i <= numXGrids; i++) {
+      const gx = padLeft + (i / numXGrids) * plotWidth;
+      ctx.beginPath();
+      ctx.moveTo(gx, padTop);
+      ctx.lineTo(gx, padTop + plotHeight);
+      ctx.stroke();
+    }
+    for (let j = 0; j <= numYGrids; j++) {
+      const gy = padTop + (j / numYGrids) * plotHeight;
+      ctx.beginPath();
+      ctx.moveTo(padLeft, gy);
+      ctx.lineTo(padLeft + plotWidth, gy);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
 
-    ctx.fillStyle = '#10b981';
-    ctx.fillRect(legBoxX + 8, legBoxY + 20, 12, 4);
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText('AntiFuse Seed (32-64 B)', legBoxX + 26, legBoxY + 24);
+    ctx.font = '10px "IBM Plex Mono", monospace';
+    ctx.fillStyle = '#475569';
+
+    if (mode === 'storage_footprint') {
+      // Mode 1: Bar Chart of Raw Key vs Seed Size for 5 PQC algorithms
+      const algos = Object.values(PQC_ALGORITHMS);
+      const maxBytes = 5000;
+
+      for (let j = 0; j <= numYGrids; j++) {
+        const bVal = maxBytes * (1 - j / numYGrids);
+        const gy = padTop + (j / numYGrids) * plotHeight;
+        ctx.fillText(bVal.toFixed(0) + ' B', 12, gy + 3);
+      }
+
+      const barGroupWidth = plotWidth / algos.length;
+      const barWidth = barGroupWidth * 0.35;
+
+      algos.forEach((a, idx) => {
+        const groupX = padLeft + idx * barGroupWidth;
+        const xCenter = groupX + barGroupWidth / 2;
+
+        // Raw Key Bar (Amber)
+        const hRaw = (a.rawPrivateKeyBytes / maxBytes) * plotHeight;
+        const yRaw = padTop + plotHeight - hRaw;
+        ctx.fillStyle = '#d97706';
+        ctx.fillRect(xCenter - barWidth - 2, yRaw, barWidth, hRaw);
+
+        // Seed Bar (Emerald)
+        const hSeed = (a.seedBytes / maxBytes) * plotHeight;
+        const ySeed = padTop + plotHeight - Math.max(2, hSeed);
+        ctx.fillStyle = '#059669';
+        ctx.fillRect(xCenter + 2, ySeed, barWidth, Math.max(2, hSeed));
+
+        // Label
+        ctx.fillStyle = '#475569';
+        ctx.fillText(a.id.replace('_', '-').toUpperCase(), groupX + 6, padTop + plotHeight + 16);
+      });
+
+      // Draw Legend Backdrop Card to prevent overlap
+      const legBoxW = 216;
+      const legBoxH = 34;
+      const legBoxX = padLeft + plotWidth - legBoxW - 6;
+      const legBoxY = padTop + 6;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+      else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#d97706';
+      ctx.fillRect(legBoxX + 8, legBoxY + 8, 12, 4);
+      ctx.fillStyle = '#334155';
+      ctx.fillText('Raw Key Size (1,632-4,896 B)', legBoxX + 26, legBoxY + 12);
+
+      ctx.fillStyle = '#059669';
+      ctx.fillRect(legBoxX + 8, legBoxY + 20, 12, 4);
+      ctx.fillStyle = '#334155';
+      ctx.fillText('AntiFuse Seed (32-64 B)', legBoxX + 26, legBoxY + 24);
 
   } else {
     // Mode 2: DPA MTD curves vs Masking Order (Order 0, 1, 2)
@@ -354,14 +364,14 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     });
 
     // Draw Raw Line
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.0;
     ctx.beginPath();
     ptsRaw.forEach((p, i) => { if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
     ctx.stroke();
 
     // Draw Seed Line
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ptsSeed.forEach((p, i) => { if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
@@ -372,8 +382,8 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     const legBoxH = 34;
     const legBoxX = padLeft + plotWidth - legBoxW - 6;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -381,14 +391,14 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.fillRect(legBoxX + 8, legBoxY + 8, 12, 4);
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#334155';
     ctx.fillText('AntiFuse Seed + Twin-Cell', legBoxX + 26, legBoxY + 12);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#d97706';
     ctx.fillRect(legBoxX + 8, legBoxY + 20, 12, 4);
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#334155';
     ctx.fillText('Pure Raw Storage Read', legBoxX + 26, legBoxY + 24);
   }
 
@@ -398,7 +408,7 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     const ratioX = (clampedX - padLeft) / plotWidth;
 
     ctx.save();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+    ctx.strokeStyle = 'rgba(2, 132, 199, 0.75)';
     ctx.lineWidth = 1;
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
@@ -425,8 +435,8 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     const badgeX = Math.min(padLeft + plotWidth - badgeW - 4, Math.max(padLeft + 4, clampedX - badgeW / 2));
     const badgeY = padTop + 8;
 
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
-    ctx.strokeStyle = '#38bdf8';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 4);
@@ -434,7 +444,7 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.textAlign = 'center';
     ctx.fillText(probeText, badgeX + badgeW / 2, badgeY + 15);
     ctx.restore();
@@ -523,8 +533,8 @@ export function initPqcStorageSimulator() {
       if (btnModeMtd) {
         btnModeMtd.classList.remove('active');
         btnModeMtd.setAttribute('aria-pressed', 'false');
-        btnModeMtd.style.background = '#1e293b';
-        btnModeMtd.style.color = '#94a3b8';
+        btnModeMtd.style.background = '#f1f5f9';
+        btnModeMtd.style.color = '#475569';
       }
       update();
     });
@@ -541,8 +551,8 @@ export function initPqcStorageSimulator() {
       if (btnModeFootprint) {
         btnModeFootprint.classList.remove('active');
         btnModeFootprint.setAttribute('aria-pressed', 'false');
-        btnModeFootprint.style.background = '#1e293b';
-        btnModeFootprint.style.color = '#94a3b8';
+        btnModeFootprint.style.background = '#f1f5f9';
+        btnModeFootprint.style.color = '#475569';
       }
       update();
     });

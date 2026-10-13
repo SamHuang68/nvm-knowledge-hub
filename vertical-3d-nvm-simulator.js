@@ -293,10 +293,17 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
   ctx.save();
   ctx.scale(dpr, dpr);
 
-  // Background - Essential clearRect
+  // Background - Surgical Light Mode (Rule 0003)
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#060d17';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 52;
   const padRight = 24;
@@ -306,7 +313,7 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 4; i++) {
@@ -326,7 +333,7 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
     const tMin = 16;
     const tMax = 192;
 
-    ctx.strokeStyle = '#8b5cf6';
+    ctx.strokeStyle = '#7c3aed';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -350,7 +357,7 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
 
     // 20ns latency limit line
     const limitY = padTop + plotH * (1.0 - (20.0 / 40.0));
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -364,7 +371,7 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
     const currentNormY = Math.max(0, Math.min(1, metrics.worstWlDelayNs / 40.0));
     const currentY = padTop + plotH * (1.0 - currentNormY);
 
-    ctx.fillStyle = metrics.worstWlDelayNs <= 20.0 ? '#10b981' : '#ef4444';
+    ctx.fillStyle = metrics.worstWlDelayNs <= 20.0 ? '#059669' : '#dc2626';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 5, 0, Math.PI * 2);
     ctx.fill();
@@ -374,14 +381,14 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('16 Tiers', padLeft, height - 10);
     ctx.fillText('96 Tiers', padLeft + plotW * 0.45, height - 10);
     ctx.fillText('192 Tiers', padLeft + plotW - 55, height - 10);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText('20ns Latency Bound', padLeft + 6, limitY - 4);
-    ctx.fillStyle = '#8b5cf6';
+    ctx.fillStyle = '#7c3aed';
     ctx.fillText(`Worst RC Delay: ${metrics.worstWlDelayNs.toFixed(2)} ns (Total Access: ${metrics.totalAccessTimeNs.toFixed(1)} ns)`, padLeft + 140, padTop + 14);
 
   } else {
@@ -409,18 +416,18 @@ export function drawVertical3dCanvas(canvas, metrics, mode = 'tier_count_vs_rc_d
       const y = padTop + plotH * (1.0 - normY);
       const h = plotH * normY;
 
-      // Color from purple to cyan
-      ctx.fillStyle = tier === 1 ? '#f43f5e' : (tier === count ? '#38bdf8' : '#8b5cf6');
+      // Color from red to purple to sky blue
+      ctx.fillStyle = tier === 1 ? '#e11d48' : (tier === count ? '#0284c7' : '#7c3aed');
       ctx.fillRect(x, y, barW - 0.5, h);
     }
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('Tier 1 (Bottom / Longest)', padLeft, height - 10);
     ctx.fillText(`Tier ${count} (Top)`, padLeft + plotW - 80, height - 10);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.fillText(`Delay Skew: ${metrics.tierDelaySkewNs.toFixed(2)} ns (Top: ${metrics.bestWlDelayNs.toFixed(2)}ns → Bottom: ${metrics.worstWlDelayNs.toFixed(2)}ns)`, padLeft + 6, padTop + 14);
   }
 
@@ -536,7 +543,7 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     const exportBtn = document.createElement('button');
     exportBtn.id = 'vert3d-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #a78bfa; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #7c3aed; background: #f5f3ff; color: #7c3aed; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 3D 層數掃描 CSV' : '📥 Export 3D Tier-Count Sweep CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '保留目前導體、厚度與陣列長度，匯出 32 至 256 層的 RC 延遲掃描 CSV' : 'Export the 32-to-256-tier RC delay sweep with the current conductor, thickness and array length as CSV');
@@ -552,6 +559,21 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
       downloadCsv(`3D_層數掃描_${presetId}_${conductorId}_厚度${metalThicknessNm}nm_長度${arrayLengthUm}um.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
+  }
+
+  function syncVert3dModeBtnStyles() {
+    if (modeTiersBtn && modeGradientBtn) {
+      const isTiers = currentMode === 'tier_count_vs_rc_delay';
+      modeTiersBtn.style.background = isTiers ? '#7c3aed' : '#f1f5f9';
+      modeTiersBtn.style.borderColor = isTiers ? '#7c3aed' : '#cbd5e1';
+      modeTiersBtn.style.color = isTiers ? '#ffffff' : '#475569';
+      modeTiersBtn.setAttribute('aria-pressed', isTiers ? 'true' : 'false');
+
+      modeGradientBtn.style.background = !isTiers ? '#7c3aed' : '#f1f5f9';
+      modeGradientBtn.style.borderColor = !isTiers ? '#7c3aed' : '#cbd5e1';
+      modeGradientBtn.style.color = !isTiers ? '#ffffff' : '#475569';
+      modeGradientBtn.setAttribute('aria-pressed', !isTiers ? 'true' : 'false');
+    }
   }
 
   if (presetSelect) presetSelect.addEventListener('change', () => {
@@ -572,33 +594,21 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     modeTiersBtn.addEventListener('click', () => {
       currentMode = 'tier_count_vs_rc_delay';
       modeTiersBtn.classList.add('active');
-      modeTiersBtn.setAttribute('aria-pressed', 'true');
       modeGradientBtn.classList.remove('active');
-      modeGradientBtn.setAttribute('aria-pressed', 'false');
-      modeTiersBtn.style.background = '#8b5cf6';
-      modeTiersBtn.style.borderColor = '#a78bfa';
-      modeTiersBtn.style.color = '#ffffff';
-      modeGradientBtn.style.background = '#1e293b';
-      modeGradientBtn.style.borderColor = '#475569';
-      modeGradientBtn.style.color = '#94a3b8';
+      syncVert3dModeBtnStyles();
       update();
     });
 
     modeGradientBtn.addEventListener('click', () => {
       currentMode = 'tier_delay_gradient_profile';
       modeGradientBtn.classList.add('active');
-      modeGradientBtn.setAttribute('aria-pressed', 'true');
       modeTiersBtn.classList.remove('active');
-      modeTiersBtn.setAttribute('aria-pressed', 'false');
-      modeGradientBtn.style.background = '#8b5cf6';
-      modeGradientBtn.style.borderColor = '#a78bfa';
-      modeGradientBtn.style.color = '#ffffff';
-      modeTiersBtn.style.background = '#1e293b';
-      modeTiersBtn.style.borderColor = '#475569';
-      modeTiersBtn.style.color = '#94a3b8';
+      syncVert3dModeBtnStyles();
       update();
     });
   }
+
+  syncVert3dModeBtnStyles();
 
   // Language mutation observer
   const observer = new MutationObserver(() => update());

@@ -321,10 +321,18 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
   ctx.save();
   ctx.scale(dpr, dpr);
 
-  // Background - Essential clearRect to ensure clean redraw and no accumulation
+  // Background - Surgical Light Mode (Rule 0003)
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#060d17';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 52;
   const padRight = 24;
@@ -334,7 +342,7 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 4; i++) {
@@ -356,7 +364,7 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
 
     // ASIL-D threshold line at 10 FIT
     const asilDY = padTop + plotH * (1.0 - Math.min(1.0, 10.0 / 100.0));
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -366,7 +374,7 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
     ctx.setLineDash([]);
 
     // Curve
-    ctx.strokeStyle = metrics.residualFit <= 10 ? '#10b981' : '#f59e0b';
+    ctx.strokeStyle = metrics.residualFit <= 10 ? '#059669' : '#d97706';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -397,24 +405,24 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
     const currentNormY = Math.max(0, Math.min(1, metrics.residualFit / 50.0));
     const currentY = padTop + plotH * (1.0 - currentNormY);
 
-    ctx.fillStyle = metrics.residualFit <= 10 ? '#10b981' : '#ef4444';
+    ctx.fillStyle = metrics.residualFit <= 10 ? '#059669' : '#dc2626';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('1s', padLeft, height - 10);
     ctx.fillText('60s (Scrub)', padLeft + plotW * 0.45 - 20, height - 10);
     ctx.fillText('3600s (1h)', padLeft + plotW - 55, height - 10);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText('ASIL-D Gate (10 FIT)', padLeft + 6, asilDY - 4);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.fillText(`Residual: ${metrics.residualFit.toFixed(2)} FIT (SPFM: ${metrics.spfmMetric.toFixed(2)}%)`, padLeft + 140, padTop + 14);
 
   } else {
@@ -422,7 +430,7 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
     const altMin = 0.0;
     const altMax = 12000.0;
 
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -452,22 +460,22 @@ export function drawAutomotiveAsilCanvas(canvas, metrics, mode = 'scrub_period_v
     const currentNormY = Math.max(0, Math.min(1, metrics.rawTotalFit / maxFitScale));
     const currentY = padTop + plotH * (1.0 - currentNormY);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('0m (Sea Level)', padLeft, height - 10);
     ctx.fillText('4000m (Alpine)', padLeft + plotW * 0.33, height - 10);
     ctx.fillText('12,000m (Aviation)', padLeft + plotW - 90, height - 10);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0369a1';
     ctx.fillText(`Raw SER @ ${metrics.altitudeM}m: ${metrics.rawTotalFit.toFixed(1)} FIT (${metrics.neutronFluxFactor.toFixed(1)}x Neutron Flux)`, padLeft + 6, padTop + 14);
   }
 
@@ -582,11 +590,11 @@ export function initAutomotiveAsilSimulator(rootSelector = '#auto-asild-simulato
       modeAltBtn.classList.remove('active');
       modeAltBtn.setAttribute('aria-pressed', 'false');
       modeScrubBtn.style.background = '#0284c7';
-      modeScrubBtn.style.borderColor = '#38bdf8';
+      modeScrubBtn.style.borderColor = '#0284c7';
       modeScrubBtn.style.color = '#ffffff';
-      modeAltBtn.style.background = '#1e293b';
-      modeAltBtn.style.borderColor = '#475569';
-      modeAltBtn.style.color = '#94a3b8';
+      modeAltBtn.style.background = '#f1f5f9';
+      modeAltBtn.style.borderColor = '#cbd5e1';
+      modeAltBtn.style.color = '#475569';
       update();
     });
 
@@ -597,11 +605,11 @@ export function initAutomotiveAsilSimulator(rootSelector = '#auto-asild-simulato
       modeScrubBtn.classList.remove('active');
       modeScrubBtn.setAttribute('aria-pressed', 'false');
       modeAltBtn.style.background = '#0284c7';
-      modeAltBtn.style.borderColor = '#38bdf8';
+      modeAltBtn.style.borderColor = '#0284c7';
       modeAltBtn.style.color = '#ffffff';
-      modeScrubBtn.style.background = '#1e293b';
-      modeScrubBtn.style.borderColor = '#475569';
-      modeScrubBtn.style.color = '#94a3b8';
+      modeScrubBtn.style.background = '#f1f5f9';
+      modeScrubBtn.style.borderColor = '#cbd5e1';
+      modeScrubBtn.style.color = '#475569';
       update();
     });
   }

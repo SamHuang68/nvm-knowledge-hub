@@ -269,12 +269,19 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
   const w = width;
   const h = height;
 
-  // Background
-  ctx.fillStyle = "#060d17";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Subtle grid
-  ctx.strokeStyle = "rgba(30, 41, 59, 0.7)";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -300,7 +307,7 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
 
   if (mode === "tid_survival") {
     // Mode A: Total Ionizing Dose (0 to 1000 krad) vs Survival Probability (%)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -308,7 +315,7 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Survival (%)", 6, plotY0 + 6);
     ctx.fillText("0 krad", plotX0, plotY1 + 16);
@@ -346,10 +353,10 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
       ctx.setLineDash([]);
     };
 
-    drawTidCurve("legacy_fg_eflash", "#ef4444", "Legacy eFlash", metrics.techKey === "legacy_fg_eflash");
-    drawTidCurve("sonos_charge_trap", "#f59e0b", "SONOS Trap", metrics.techKey === "sonos_charge_trap");
-    drawTidCurve("rad_hard_stt_mram", "#a855f7", "Rad-Hard MRAM", metrics.techKey === "rad_hard_stt_mram");
-    drawTidCurve("antifuse_rad_hard", "#10b981", "AntiFuse Filament", metrics.techKey === "antifuse_rad_hard");
+    drawTidCurve("legacy_fg_eflash", "#dc2626", "Legacy eFlash", metrics.techKey === "legacy_fg_eflash");
+    drawTidCurve("sonos_charge_trap", "#d97706", "SONOS Trap", metrics.techKey === "sonos_charge_trap");
+    drawTidCurve("rad_hard_stt_mram", "#7c3aed", "Rad-Hard MRAM", metrics.techKey === "rad_hard_stt_mram");
+    drawTidCurve("antifuse_rad_hard", "#059669", "AntiFuse Filament", metrics.techKey === "antifuse_rad_hard");
 
     // Current Operating Point Marker
     const currTid = Math.min(maxTid, metrics.tidKrad);
@@ -361,17 +368,17 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#10b981";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#047857";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`TID: ${currTid} krad | Surv: ${currSurv}%`, Math.min(markerX + 8, plotX1 - 140), Math.max(markerY - 8, plotY0 + 12));
 
   } else {
     // Mode B: Heavy-Ion LET (0 to 80 MeV*cm2/mg) vs Weibull SEU Cross-Section (cm2/bit log scale)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -379,7 +386,7 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Log σ (cm²)", 4, plotY0 + 6);
     ctx.fillText("0", plotX0, plotY1 + 16);
@@ -425,10 +432,10 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
       ctx.setLineDash([]);
     };
 
-    drawWeibullCurve("legacy_fg_eflash", "#ef4444", "Legacy eFlash", metrics.techKey === "legacy_fg_eflash");
-    drawWeibullCurve("sonos_charge_trap", "#f59e0b", "SONOS Trap", metrics.techKey === "sonos_charge_trap");
-    drawWeibullCurve("rad_hard_stt_mram", "#a855f7", "Rad-Hard MRAM", metrics.techKey === "rad_hard_stt_mram");
-    drawWeibullCurve("antifuse_rad_hard", "#10b981", "AntiFuse Filament", metrics.techKey === "antifuse_rad_hard");
+    drawWeibullCurve("legacy_fg_eflash", "#dc2626", "Legacy eFlash", metrics.techKey === "legacy_fg_eflash");
+    drawWeibullCurve("sonos_charge_trap", "#d97706", "SONOS Trap", metrics.techKey === "sonos_charge_trap");
+    drawWeibullCurve("rad_hard_stt_mram", "#7c3aed", "Rad-Hard MRAM", metrics.techKey === "rad_hard_stt_mram");
+    drawWeibullCurve("antifuse_rad_hard", "#059669", "AntiFuse Filament", metrics.techKey === "antifuse_rad_hard");
 
     // Current LET Operating Point Marker
     const currLet = Math.min(maxLet, metrics.letMev);
@@ -444,11 +451,11 @@ export function drawSpaceRadiationCanvas(canvas, metrics, mode = "tid_survival")
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#10b981";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#047857";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`LET: ${currLet} | σ: ${metrics.crossSectionFormatted}`, Math.min(markerX + 8, plotX1 - 150), Math.max(markerY - 8, plotY0 + 12));
   }
@@ -585,13 +592,13 @@ export function initSpaceRadiationSimulator(container) {
       btnTid.setAttribute("aria-pressed", "true");
       btnTid.style.background = "#0284c7";
       btnTid.style.color = "#ffffff";
-      btnTid.style.borderColor = "#38bdf8";
+      btnTid.style.borderColor = "#0284c7";
       if (btnWeibull) {
         btnWeibull.classList.remove("active");
         btnWeibull.setAttribute("aria-pressed", "false");
-        btnWeibull.style.background = "#1e293b";
-        btnWeibull.style.color = "#94a3b8";
-        btnWeibull.style.borderColor = "#475569";
+        btnWeibull.style.background = "#f1f5f9";
+        btnWeibull.style.color = "#475569";
+        btnWeibull.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -604,13 +611,13 @@ export function initSpaceRadiationSimulator(container) {
       btnWeibull.setAttribute("aria-pressed", "true");
       btnWeibull.style.background = "#0284c7";
       btnWeibull.style.color = "#ffffff";
-      btnWeibull.style.borderColor = "#38bdf8";
+      btnWeibull.style.borderColor = "#0284c7";
       if (btnTid) {
         btnTid.classList.remove("active");
         btnTid.setAttribute("aria-pressed", "false");
-        btnTid.style.background = "#1e293b";
-        btnTid.style.color = "#94a3b8";
-        btnTid.style.borderColor = "#475569";
+        btnTid.style.background = "#f1f5f9";
+        btnTid.style.color = "#475569";
+        btnTid.style.borderColor = "#cbd5e1";
       }
       update();
     });

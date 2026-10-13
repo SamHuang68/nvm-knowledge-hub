@@ -252,7 +252,7 @@ function systemPanel(system) {
 const libraryEntries=[
 {id:'ip-directory',zh:'IP 單元與操作原理',en:'IP Cells and Operating Principles',descZh:'依 OTP、MTP、eFlash、MRAM、ReRAM 查閱具名 IP 的結構與操作圖。',descEn:'Explore named OTP, MTP, eFlash, MRAM and ReRAM cell structures and operating diagrams.'},
 {id:'ip-lineage',zh:'IP 技術沿革與承接關係',en:'IP Technology Lineage',descZh:'追蹤 Kilopass、Sidense、Impinj／Virage 與 Synopsys 的技術及產品。',descEn:'Trace technologies and products across Kilopass, Sidense, Impinj/Virage and Synopsys.'},
-{id:'patent-maps',zh:'涵蓋廠商與核心專利地圖全景盤點',en:'Global NVM Vendor Patent Landscape and Portfolios',descZh:'系統性追蹤全球 11 家 NVM 領導廠商的核心專利家族、第一性原理權利項解析與晶圓製程相容性。',descEn:'Systematic tracking of core patent families, first-principles claims, and foundry compatibility across 11 leading NVM IP vendors.'},
+{id:'patent-maps',zh:'涵蓋廠商與核心專利地圖全景盤點',en:'Global NVM Vendor Patent Landscape and Portfolios',descZh:'系統性追蹤全球 12 家 NVM 領導廠商的核心專利家族、第一性原理權利項解析與晶圓製程相容性。',descEn:'Systematic tracking of core patent families, first-principles claims, and foundry compatibility across 12 leading NVM IP vendors.'},
 {id:'ecosystem',zh:'全球產業與研究地圖',en:'Global Industry and Research Map',descZh:'依技術家族查找主要廠商、研究機構與具名產品。',descEn:'Find leading suppliers, research organizations and named products by technology family.'},
 {id:'research',zh:'主要產研路線深度比較',en:'In-Depth Industry and Research Studies',descZh:'深入 Everspin、UMC、Panasonic、IBM 與工研院的實作與證據。',descEn:'Explore Everspin, UMC, Panasonic, IBM and ITRI implementations and evidence.'},
 {id:'foundry',zh:'晶圓代工製程與路線圖',en:'Foundry Processes and Roadmaps',descZh:'查看 GF／TSMC／UMC 的嵌入式記憶體整合與公開進度。',descEn:'Follow GF/TSMC/UMC embedded-memory integration and public milestones.'},

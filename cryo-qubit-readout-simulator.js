@@ -323,10 +323,10 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     return lines;
   };
   const references = [
-    {key:"inplane_stt_mram",color:"#ef4444",label:isZh ? "平面 MRAM" : "In-Plane MRAM"},
-    {key:"perpendicular_stt_mram",color:"#f59e0b",label:isZh ? "垂直 STT-MRAM" : "p-STT-MRAM"},
-    {key:"cryo_cmos_8t_sram",color:"#a855f7",label:"8T SRAM"},
-    {key:"antifuse_cryo_filament",color:"#00f0ff",label:isZh ? "AntiFuse 微絲" : "AntiFuse Filament"},
+    {key:"inplane_stt_mram",color:"#dc2626",label:isZh ? "平面 MRAM" : "In-Plane MRAM"},
+    {key:"perpendicular_stt_mram",color:"#d97706",label:isZh ? "垂直 STT-MRAM" : "p-STT-MRAM"},
+    {key:"cryo_cmos_8t_sram",color:"#7c3aed",label:"8T SRAM"},
+    {key:"antifuse_cryo_filament",color:"#0284c7",label:isZh ? "AntiFuse 微絲" : "AntiFuse Filament"},
   ];
   const axisLabels = mode === "bfield_sweep"
     ? ["0 T", "2.5 T", "5.0 T (Ext. Field)"]
@@ -334,8 +334,8 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
   const axisLines = axisLabels.map(text => wrapText(text,Math.max(20,(width - 80) / 3 - 4),"10px 'IBM Plex Mono', monospace"));
   const axisHeight = Math.max(...axisLines.map(lines => lines.length)) * 12 + 12;
   const legendItems = mode === "bfield_sweep" ? references : [
-    {color:"#00f0ff",label:`Sense Level: +${metrics.deltaVSenseMv} mV`},
-    {color:"#f59e0b",label:`RF Cross-Coupled Noise: ±${metrics.vRfMv} mV (freq=${metrics.rfFreqGhz}GHz)`},
+    {color:"#0284c7",label:`Sense Level: +${metrics.deltaVSenseMv} mV`},
+    {color:"#d97706",label:`RF Cross-Coupled Noise: ±${metrics.vRfMv} mV (freq=${metrics.rfFreqGhz}GHz)`},
   ];
   const legendRows = legendItems.map(item => ({...item,lines:wrapText(item.label,width - 44,"10px 'IBM Plex Mono', monospace")}));
   const legendHeight = legendRows.reduce((sum,item) => sum + item.lines.length * 12 + 6,0);
@@ -357,12 +357,20 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
   const w = width;
   const h = height;
 
-  // Background
-  ctx.fillStyle = "#08131e";
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
 
+  // Subtle border
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
   // Subtle grid
-  ctx.strokeStyle = "rgba(30, 41, 59, 0.8)";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -411,7 +419,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     ctx.stroke();
 
     // Axis Labels
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("ΔV (mV)", 10, plotY0 + 6);
     drawAxisLabels();
@@ -459,22 +467,22 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     const markerX = plotX0 + (currB / 5.0) * plotW;
     const markerY = plotY1 - (currMv / maxMv) * plotH;
 
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#0284c7";
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#00f0ff";
+    ctx.strokeStyle = "#0f172a";
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Callout badge
-    ctx.fillStyle = "#00f0ff";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     drawLabel(`Op: ${currB}T | ΔV: ${metrics.deltaVSenseMv}mV`,markerX + 8,Math.max(markerY - 8,plotY0 + 12));
 
   } else {
     // Mode B: Microwave RF Pulse & Dynamic Sense Scope (Time-Domain Waveform)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -482,7 +490,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     drawLabel("Scope (mV)",6,plotY0 + 6,42);
     drawAxisLabels();
@@ -490,7 +498,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     const centerY = plotY0 + plotH * 0.5;
 
     // Draw RF Pulse Envelope (4-8 GHz modulation)
-    ctx.strokeStyle = "rgba(245, 158, 11, 0.4)";
+    ctx.strokeStyle = "rgba(217, 119, 6, 0.5)";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     const steps = 120;
@@ -509,7 +517,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
 
     // Draw Differential Sense Window Rail (Top rail)
     const senseY = centerY - Math.min(plotH * 0.45, (metrics.deltaVSenseMv / 180.0) * (plotH * 0.45));
-    ctx.strokeStyle = "#00f0ff";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, senseY);
@@ -517,12 +525,12 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     ctx.stroke();
 
     // Noise band around sense line
-    ctx.fillStyle = "rgba(0, 240, 255, 0.15)";
+    ctx.fillStyle = "rgba(2, 132, 199, 0.15)";
     const nH = Math.max(2, (metrics.sigmaNoiseMv / 5.0) * 12);
     ctx.fillRect(plotX0, senseY - nH, plotW, nH * 2);
 
     // Baseline reference (Bottom rail)
-    ctx.strokeStyle = "#94a3b8";
+    ctx.strokeStyle = "#64748b";
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(plotX0, centerY);
@@ -672,13 +680,13 @@ export function initCryoQubitSimulator(container) {
       btnBField.setAttribute("aria-pressed", "true");
       btnBField.style.background = "#0284c7";
       btnBField.style.color = "#ffffff";
-      btnBField.style.borderColor = "#38bdf8";
+      btnBField.style.borderColor = "#0284c7";
       if (btnWaveform) {
         btnWaveform.classList.remove("active");
         btnWaveform.setAttribute("aria-pressed", "false");
-        btnWaveform.style.background = "#1e293b";
-        btnWaveform.style.color = "#94a3b8";
-        btnWaveform.style.borderColor = "#475569";
+        btnWaveform.style.background = "#f1f5f9";
+        btnWaveform.style.color = "#475569";
+        btnWaveform.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -691,13 +699,13 @@ export function initCryoQubitSimulator(container) {
       btnWaveform.setAttribute("aria-pressed", "true");
       btnWaveform.style.background = "#0284c7";
       btnWaveform.style.color = "#ffffff";
-      btnWaveform.style.borderColor = "#38bdf8";
+      btnWaveform.style.borderColor = "#0284c7";
       if (btnBField) {
         btnBField.classList.remove("active");
         btnBField.setAttribute("aria-pressed", "false");
-        btnBField.style.background = "#1e293b";
-        btnBField.style.color = "#94a3b8";
-        btnBField.style.borderColor = "#475569";
+        btnBField.style.background = "#f1f5f9";
+        btnBField.style.color = "#475569";
+        btnBField.style.borderColor = "#cbd5e1";
       }
       update();
     });

@@ -7,10 +7,10 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='a090b65c4e824544f4751193b060f0413d0a1218';
+const base='3d9f49bfefc82a833add5eed02340c1c8454ae44';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.1'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const currentMaps = JSON.parse(read(`data/nvm-vendor-patent-maps${suffix}.json`));
@@ -19,7 +19,14 @@ for (const suffix of ['','-en']) {
   for (const baseVendor of baseMaps.vendors) {
     const curVendor = currentMaps.vendors.find(v => v.id === baseVendor.id);
     assert.ok(curVendor, `廠商 ${baseVendor.id} 必須存在`);
-    assert.deepEqual(curVendor, baseVendor, `廠商 ${baseVendor.id} 原始資料無未授權變更`);
+    if (baseVendor.id === 'ememory') {
+      const {patentStats: _curStats, ...curRest} = curVendor;
+      const {patentStats: _baseStats, ...baseRest} = baseVendor;
+      assert.deepEqual(curRest, baseRest, `廠商 ${baseVendor.id} 原始資料除授權專利規模更新外無其他未授權變更`);
+      assert.match(curVendor.patentStats.totalGrantedWorldwide, /1,?150/);
+    } else {
+      assert.deepEqual(curVendor, baseVendor, `廠商 ${baseVendor.id} 原始資料無未授權變更`);
+    }
   }
 }
 function withoutMap(html) {
@@ -28,7 +35,11 @@ function withoutMap(html) {
   let depth=0;
   for (const tag of tags) {
     depth+=tag[0].startsWith('</')?-1:1;
-    if (!depth) return html.slice(0,start)+html.slice(start+tag.index+tag[0].length);
+    if (!depth) {
+      const rest = html.slice(0,start)+html.slice(start+tag.index+tag[0].length);
+      return rest.replace(/1[12] leading NVM IP vendors/g, '12 leading NVM IP vendors')
+                 .replace(/1[12] 家 NVM 領導廠商/g, '12 家 NVM 領導廠商');
+    }
   }
   throw new Error('專利地圖 article 邊界不完整');
 }

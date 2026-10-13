@@ -2,11 +2,13 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "a090b65c4e824544f4751193b060f0413d0a1218",
+  "baseCommit": "3d9f49bfefc82a833add5eed02340c1c8454ae44",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
-    "docs/網站分階段優化紀錄-20261008.md"
+    "docs/網站分階段優化紀錄-20261008.md",
+    "data/nvm-technology-topics.md",
+    "data/nvm-technology-topics-en.md"
   ],
   "cases": [
     {
@@ -75,7 +77,14 @@
         "package.json",
         "package-lock.json",
         "data/offline-manifest.js",
-        "data/release-lineage.json"
+        "data/release-lineage.json",
+        "data/nvm-knowledge-catalog.json",
+        "data/nvm-knowledge-data.json",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "index.html",
+        "scripts/build-nvm-atlas.mjs"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -84,6 +93,11 @@
         "package.json",
         "package-lock.json",
         "data/offline-manifest.js",
+        "data/nvm-knowledge-catalog.json",
+        "data/nvm-knowledge-data.json",
+        "data/nvm-knowledge-data-en.json",
+        "index.html",
+        "scripts/build-nvm-atlas.mjs",
         "nvm-technology-atlas.html",
         "nvm-technology-atlas-zh.html",
         "nvm-technology-atlas.js",
@@ -162,7 +176,23 @@
         "demura-lut-calculator.js",
         "iot-energy-tradeoff-calculator.js",
         "pqc-rot-budget-calculator.js",
-        "tests/test-physics-robustness.test.mjs"
+        "tests/test-physics-robustness.test.mjs",
+        "automotive-asild-ecc-simulator.js",
+        "automotive-load-dump-clamp-simulator.js",
+        "bcd-trimming-simulator.js",
+        "bspdn-envm-ir-drop-simulator.js",
+        "chiplet-3d-hetero-nvm-simulator.js",
+        "cryo-qubit-readout-simulator.js",
+        "deep-space-sel-retention-simulator.js",
+        "differential-sensing-simulator.js",
+        "nanosheet-bspdn-nvm-simulator.js",
+        "pqc-hardware-rot-ledger-simulator.js",
+        "pqc-key-storage-simulator.js",
+        "pqc-rot-dpa-simulator.js",
+        "rad-hard-nvm-simulator.js",
+        "space-radiation-hardening-simulator.js",
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "vertical-3d-nvm-simulator.js"
       ],
       "inputs": [
         "tests/test-physics-robustness.test.mjs",

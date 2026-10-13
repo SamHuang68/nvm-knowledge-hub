@@ -320,9 +320,16 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
 
   ctx.clearRect(0, 0, width, height);
 
-  // Background
-  ctx.fillStyle = '#090d16';
+  // Background - Surgical Light Mode (Rule 0003)
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 70;
   const padRight = 30;
@@ -332,7 +339,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 5; i++) {
@@ -350,7 +357,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
   if (mode === 'cpa_correlation_traces') {
     // Mode 1: CPA Pearson Correlation vs Clock Sample Time (0 to 100ns)
     // Plots 255 ghost candidate keys vs the 1 correct key candidate
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 5; j++) {
@@ -366,7 +373,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`${rho}`, padLeft - 8, y);
     }
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? '相關係數 ρ(k, t)' : 'Pearson Correlation ρ(k, t)', padLeft, padTop - 12);
@@ -376,7 +383,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
 
     // Plot Ghost Keys (Noise Background)
     const numGhost = 15;
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)';
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.25)';
     ctx.lineWidth = 1;
     for (let g = 0; g < numGhost; g++) {
       ctx.beginPath();
@@ -393,7 +400,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
 
     // 4.5-Sigma Noise Floor Boundary
     const noiseBound = 0.15 / (1.0 + metrics.totalNoiseSigma * 0.3);
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.35)';
+    ctx.strokeStyle = 'rgba(239, 68, 68, 0.5)';
     ctx.setLineDash([3, 3]);
     const boundY1 = padTop + plotH * (0.5 - noiseBound * 0.5);
     const boundY2 = padTop + plotH * (0.5 + noiseBound * 0.5);
@@ -406,7 +413,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.setLineDash([]);
 
     // Plot Correct Key Peak Curve
-    ctx.strokeStyle = metrics.rhoMax > 0.4 ? '#ef4444' : (metrics.rhoMax > 0.15 ? '#f59e0b' : '#10b981');
+    ctx.strokeStyle = metrics.rhoMax > 0.4 ? '#dc2626' : (metrics.rhoMax > 0.15 ? '#d97706' : '#059669');
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 50; j++) {
@@ -427,8 +434,8 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
     const legBoxH = 24;
     const legBoxX = padLeft + 8;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.94)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -439,14 +446,14 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
     // Legend & Peak Value
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = metrics.rhoMax > 0.4 ? '#f87171' : (metrics.rhoMax > 0.15 ? '#fbbf24' : '#10b981');
+    ctx.fillStyle = metrics.rhoMax > 0.4 ? '#dc2626' : (metrics.rhoMax > 0.15 ? '#d97706' : '#059669');
     ctx.fillText(`${lang === 'zh' ? '正確金鑰峰值' : 'Correct Key Peak'}: ρmax = ${metrics.rhoMax.toFixed(3)}`, legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.fillText(`MTD ≈ ${metrics.mtd.toLocaleString()} traces`, legBoxX + 230, legBoxY + 16);
 
   } else {
     // Mode 2: PUF Inter-Chip Hamming Distance Gaussian Distribution (%)
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 6; j++) {
@@ -462,7 +469,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`${p}`, padLeft - 8, y);
     }
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? '機率密度 PDF' : 'Probability Density (PDF)', padLeft, padTop - 12);
@@ -472,7 +479,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
 
     if (metrics.topology.isPuf) {
       // Plot Ideal 50% Gaussian Curve
-      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.strokeStyle = 'rgba(100, 116, 139, 0.5)';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
@@ -491,7 +498,7 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
       // Plot Actual Topology Gaussian Curve
       const mean = metrics.topology.pufInterHdMean;
       const sigma = metrics.topology.id === 'antifuse_rot_puf' ? 2.45 : 3.8;
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = '#059669';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
       for (let j = 0; j <= 60; j++) {
@@ -508,14 +515,14 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
       // Legend
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = '#059669';
       ctx.fillText(`${lang === 'zh' ? '模型分佈' : 'Modeled'}: μ = ${mean.toFixed(2)}%, BER = ${metrics.intraBerPercent}%`, padLeft + 10, padTop + 16);
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
+      ctx.fillStyle = '#64748b';
       ctx.fillText(lang === 'zh' ? '— 理想 50.0% 高斯分佈' : '— Ideal 50.0% Gaussian', padLeft + 280, padTop + 16);
 
     } else {
       // Non-PUF notice
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = '#dc2626';
       ctx.font = '13px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(
@@ -649,7 +656,7 @@ export function initPqcDpaSimulator(containerId) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'pqc-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
     const initialLang = getLang();
     exportBtn.textContent = initialLang === 'zh' ? '📥 匯出目前防護的全部拓撲 CSV' : '📥 Export All Topologies with Current Defenses CSV';
     exportBtn.setAttribute('aria-label', initialLang === 'zh' ? '依目前預設與自訂防護條件，匯出全部儲存拓撲的 MTD 掃描 CSV' : 'Export an MTD sweep of all storage topologies using the current preset and custom defenses');
@@ -663,6 +670,23 @@ export function initPqcDpaSimulator(containerId) {
       downloadCsv(`PQC_全部拓撲掃描_目前自訂防護_${config.presetId}.csv`, csv);
     });
     presetContainer.appendChild(exportBtn);
+  }
+
+  function syncModeBtnStyles() {
+    if (modeCpaBtn) {
+      const isActive = currentMode === 'cpa_correlation_traces';
+      modeCpaBtn.style.background = isActive ? '#0284c7' : '#f1f5f9';
+      modeCpaBtn.style.color = isActive ? '#ffffff' : '#475569';
+      modeCpaBtn.style.borderColor = isActive ? '#0284c7' : '#cbd5e1';
+      modeCpaBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    }
+    if (modePufBtn) {
+      const isActive = currentMode === 'puf_gaussian_hamming';
+      modePufBtn.style.background = isActive ? '#0284c7' : '#f1f5f9';
+      modePufBtn.style.color = isActive ? '#ffffff' : '#475569';
+      modePufBtn.style.borderColor = isActive ? '#0284c7' : '#cbd5e1';
+      modePufBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    }
   }
 
   // Event Listeners
@@ -697,6 +721,7 @@ export function initPqcDpaSimulator(containerId) {
       currentMode = 'cpa_correlation_traces';
       modeCpaBtn.classList.add('active');
       if (modePufBtn) modePufBtn.classList.remove('active');
+      syncModeBtnStyles();
       update();
     });
   }
@@ -706,9 +731,12 @@ export function initPqcDpaSimulator(containerId) {
       currentMode = 'puf_gaussian_hamming';
       modePufBtn.classList.add('active');
       if (modeCpaBtn) modeCpaBtn.classList.remove('active');
+      syncModeBtnStyles();
       update();
     });
   }
+
+  syncModeBtnStyles();
 
   // Language and resize listeners
   window.addEventListener('hub:language-change', update);
