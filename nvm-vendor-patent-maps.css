@@ -167,6 +167,16 @@
 }
 
 /* 專利戰略護城河說明 (Patent Moat Strategy) */
+.nvm-vendor-stat-card .nvm-stat-source {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #38546a;
+}
+.nvm-stat-source a { color: #086c73; text-decoration: underline; }
+.nvm-stat-source a:focus-visible { outline: 2px solid #087f86; outline-offset: 3px; }
+
 .nvm-vendor-strategy {
   background: #f0f7f9;
   border-left: 4px solid #087f86;

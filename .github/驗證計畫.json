@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "0a8d404e94ba938d639b11e39ed799b17b5f4d40",
+  "baseCommit": "8dda320f6b26c745c578d06d9aa0bbad6835b9ad",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -31,7 +31,11 @@
         "index.html",
         "scripts/build-nvm-atlas.mjs",
         "data/public-release-policy.json",
-        ".github/workflows/validate-and-deploy.yml"
+        ".github/workflows/validate-and-deploy.yml",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "nvm-vendor-patent-maps.css",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -102,9 +106,10 @@
         "scripts/驗證專利地圖閱讀互動.mjs",
         ".github/workflows/validate-and-deploy.yml",
         "scripts/verify-live-release.mjs",
-        "scripts/驗證正式來源HTTP.mjs"
+        "scripts/驗證正式來源HTTP.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs"
       ],
-      "reason": "HTTP 驗證修訂的確切來源、公開路徑與原始資料保全；不重跑產品互動。",
+      "reason": "力旺核准專利數與來源的精確變更、其他資料與案卷保全、生成與版本一致性",
       "prepare": [
         "node"
       ],
@@ -128,7 +133,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "程序中斷、並行與循序重跑、初始與完成報告寫入失敗、部分寫入及既有資料夾保全十案，另保留成功、HTTP 失敗及參數失敗三條終態路徑。明列十三案；原 HTTP 分類與導向案例未改，沿用前次有效證據。",
+      "reason": "六案恢復及鎖替換契約，加四條受影響的既有並行、重跑、完成寫入及路徑保全路徑；明列十案，不重跑其餘 HTTP 套件",
       "prepare": [
         "node"
       ],
@@ -136,19 +141,56 @@
       "command": [
         "node",
         "scripts/驗證正式來源HTTP.mjs",
-        "--case=強制中斷不保留舊成功",
+        "--case=鎖遭替換不得寫入或刪除",
+        "--case=鎖檔實體遭替換保留",
+        "--case=執行中恢復保留原鎖",
+        "--case=強制中斷後獨立恢復",
+        "--case=恢復失敗不得沿用舊成功",
+        "--case=恢復未指定資源不得掃描",
         "--case=同目錄並行拒絕",
         "--case=循序重跑使用新識別",
-        "--case=初始報告寫入失敗停止請求",
         "--case=完成報告替換失敗不宣告成功",
-        "--case=中斷處理器保存失敗",
-        "--case=未處理例外保存失敗",
-        "--case=具名請求與換行保全",
-        "--case=一般HTTP拒絕",
-        "--case=無效選取覆寫舊成功",
-        "--case=舊報告移存失敗停止請求",
-        "--case=完成報告部分寫入不破壞紀錄",
         "--case=報告路徑為資料夾拒絕"
+      ]
+    },
+    {
+      "id": "力旺統計來源與畫面",
+      "kind": "command",
+      "targets": [
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "changes": [
+        "scripts/專利地圖驗證.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "nvm-vendor-patent-maps.css",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json"
+      ],
+      "inputs": [
+        "scripts/專利地圖驗證.mjs",
+        "scripts/test-server.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "nvm-technology-atlas.css",
+        "site-language.js",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "只驗證統計卡與 Markdown 來源；雙語 1440、390 四種畫面與來源焦點、溢位",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 90,
+      "command": [
+        "node",
+        "scripts/專利地圖驗證.mjs",
+        "--stats-only"
       ]
     }
   ]
