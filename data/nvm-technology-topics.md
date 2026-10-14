@@ -12170,7 +12170,11 @@ NSCore 創辦於 2001 年，由原 NEC 記憶體技術研發主管 Satoshi Seo �
 
 > **既有 FTO 筆記・待個案核對**: 【自由實施建議】NSCore 奠基之「原生電晶體側壁間隔層作為電荷捕捉儲存單元」核心結構專利 US6930349B2 已於 2022 年 12 月屆滿 20 年進入公有領域；其單元雙位元獨立讀寫方法專利 US7245532B2 亦於 2024 年 3 月屆滿進入公有領域！半導體業界現可免授權實施此原生 Spacer 儲存基礎架構；但其抗干擾陣列偏壓 (US7768832B2) 與 Gen-2 Pch Schottky MTP 核心專利 (US8760927B2) 仍分別維持有效至 2027 年與 2033 年。
 
-### 寬緯科技 Attopsemi Technology Inc. (寬緯 Attopsemi)
+### 上峰科技股份有限公司（Attopsemi） (上峰科技 Attopsemi)
+
+[官方公司名稱 · 查核 2026-10-15](https://www.attopsemi.com/zh-hant/about-us/background/) — 官方全名為上峰科技股份有限公司；官網常用上峰科技，簡稱上峰時應搭配 Attopsemi 以免混淆。英文全名為 Attopsemi Technology Co., Ltd.，Attopsemi 與 Attopsemi Technology 為簡稱；I-fuse 是產品名稱。寬緯科技（Quadlink Technology Inc.）是另一家公司，不是別稱。官網未載發布日期。 / [寬緯科技官方網站 · 查核 2026-10-15](https://www.quadlink-tech.com/zh-tw/) — 寬緯科技官網列示 Quadlink，業務為物聯網。
+
+下列兩筆案卷原歸屬 Attopsemi，但核准公報首頁列示其他當事人。保留案卷供追查；既有標題、技術導讀、日期與公司承接分析尚未重建，不可作為 Attopsemi 權利範圍的證據。
 
 - **總部**: 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)
 - **創立年份**: 2010 年
@@ -12181,7 +12185,7 @@ NSCore 創辦於 2001 年，由原 NEC 記憶體技術研發主管 Satoshi Seo �
 - **官方列示核准地區**: 美國、臺灣、中國、英國 — [Attopsemi 官方首頁 · 查核 2026-10-15](https://www.attopsemi.com/) — 官網分別列 USA、TWN、CHN、UK；不把 UK 擴為整個歐洲，也未確認原日本項目。
 - **已核對代工合作例**: X-FAB：180nm I-fuse 平台 — [Attopsemi／X-FAB 平台公告 · 發布 2025-02-27](https://www.attopsemi.com/attopsemi-expands-its-proven-i-fuse-otp-portfolio-on-x-fabs-180nm-platform/) — 限公告所述平台與 I-fuse 產品；不代表完整合作名單或所有節點均已驗證。
 - **公開客戶採用規模**: 150 家以上客戶（非出貨量） — [Attopsemi 官方首頁 · 查核 2026-10-15](https://www.attopsemi.com/) — 未標統計日期；同頁晶圓數有累計與每月兩種標示，口徑不一致，本次不將其當作可核對出貨總量。
-- **專利護城河戰略**: Attopsemi (寬緯科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。
+- **專利護城河戰略**: Attopsemi (上峰科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。
 
 #### I-fuse® 電遷移非爆破型高可靠度熔絲專利家族 (Electromigration OTP (熱輔助電遷移不可逆熔絲))
 
@@ -12195,10 +12199,12 @@ NSCore 創辦於 2001 年，由原 NEC 記憶體技術研發主管 Satoshi Seo �
 
 ##### [US9165979B2](https://patents.google.com/patent/US9165979B2/en) · 利用電遷移機制之非爆破型可程式化電阻元件與操作方法
 
+> [歸屬衝突 · 查核 2026-10-15 · 第 1 頁](https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf#page=1) — 2015 年核准公報首頁列申請人 Bao Tran，未列受讓人。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。
+
 - **收錄狀態**: 資料標示有效 (收錄期滿日: 2032-07-26)
 - **分類與世代**: 裝置結構與方法項 (Device & Method) · 奠基第一代 (Gen-1 Sub-Thermal I-fuse)
 - **優先權日 / 核准日**: 2012-07-26 / 2015-10-20
-- **收錄受讓人**: Attopsemi Technology Inc.
+- **收錄受讓人**: 受讓人未於本次確認；核准公報首頁申請人為 Bao Tran（2015-10-20）。
 - **技術問題**: 傳統 eFuse 熔斷時熱失控溫度超過 1400°C，造成鈍化層龜裂、金屬氣化飛濺與材料重新結晶回接，導致車規晶片嚴重可靠性失效。
 - **產品承接**: I-fuse™ 旗艦核心 IP，獲 AEC-Q100 Grade-0 (-40°C 至 150°C/175°C) 車規最高可靠性認證。
 - **發明人**: Shine C. Chung
@@ -12207,10 +12213,12 @@ NSCore 創辦於 2001 年，由原 NEC 記憶體技術研發主管 Satoshi Seo �
 - **物理機制**: 設定編程電流密度與脈衝寬度，使熔絲條維持在熱平衡與亞熱失控溫度區間，利用純電子風電遷移驅動矽/金屬原子產生固態質量擴散，形成永久、穩定且周圍鈍化層完好無損的奈米級斷路。
 ##### [US9613943B2](https://patents.google.com/patent/US9613943B2/en) · 利用金屬閘極與接觸插塞電遷移之可程式化電阻記憶體
 
+> [歸屬衝突 · 查核 2026-10-15 · 第 1 頁](https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf#page=1) — 2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。
+
 - **收錄狀態**: 資料標示有效 (收錄期滿日: 2035-05-08)
 - **分類與世代**: 裝置結構項 (Device Structure) · 演進第二代 (Gen-2 Metal Gate Contact)
 - **優先權日 / 核准日**: 2015-05-08 / 2017-04-04
-- **收錄受讓人**: Attopsemi Technology Inc.
+- **收錄受讓人**: Micron Technology, Inc. — 核准公報首頁列示之受讓人（2017-04-04）。
 - **技術問題**: 在 HKMG、FinFET 與 GAA 先進節點中已無傳統多晶矽層，如何直接共用先進金屬閘極與微型通孔實現零光罩 OTP？
 - **產品承接**: 先進 FinFET/GAA 節點 I-fuse 解決方案，支援 AI 處理器晶片安全 ID 與修補。
 - **發明人**: Shine C. Chung
@@ -12224,7 +12232,7 @@ NSCore 創辦於 2001 年，由原 NEC 記憶體技術研發主管 Satoshi Seo �
 - **2019–2026 · 跨入 7nm/5nm/3nm/2nm 埃米世代** (先進節點 FinFET/GAA 擴張) — 以金屬電遷移專利技術成功導入先進 FinFET 與 GAA 製程，成為台積電 OIP 與各大代工廠主要 OTP 夥伴。 28nm / 16nm / 7nm / 5nm / 2nm · 金屬電遷移先進專利群
 #### 專利防禦戰略與指標訴訟攻防: 非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔
 
-寬緯科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。
+上峰科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。
 
 ##### 打破傳統 eFuse 物理爆破專利邊界
 
@@ -12814,7 +12822,7 @@ SRAM PUF 依賴反相器交叉耦合的微弱閾值失配，在極端高低溫 (
 | 04. 億而得 YMC | YMC (MTP (Multiple-Time Programmable)) | YMC: 通道熱電子注入 (CHEI) 編程；利用多晶矽轉角邊界電場發射效應進行 Fowler-Nordheim (FN) 邊緣穿隧抹除 | [US6950342B2 (資料標示屆滿)](https://patents.google.com/patent/US6950342B2/en), [US7119394B2 (資料標示屆滿)](https://patents.google.com/patent/US7119394B2/en), [US7835188B2 (資料標示有效)](https://patents.google.com/patent/US7835188B2/en), [US8184485B2 (資料標示有效)](https://patents.google.com/patent/US8184485B2/en), [US9691784B2 (資料標示有效)](https://patents.google.com/patent/US9691784B2/en) | 全球逾 20 家代工廠（官網未具名） (搭載 IP 的晶片逾 290 億顆)<br>[YMC 官方首頁 · 查核 2026-10-15](https://www.ymc.com.tw/index_en.php) — 官網未標統計更新日期，未逐一列名；不將原具名名單或全節點資格視為已證實。<br>[YMC 官方首頁 · 查核 2026-10-15](https://www.ymc.com.tw/index_en.php) — 官網累計晶片數，未標數字更新日期；不同於同頁另列的晶圓數，不混用兩種單位。 |
 | 05. AEON (Synopsys) | AEON® (Ultra-Low Power MTP (超低功耗多次可程式化)) | AEON®: 編程與抹除均採用雙向 Fowler-Nordheim (FN) 穿隧注入/釋放電荷；無直流通道導通電流 | [US6166953A (資料標示屆滿)](https://patents.google.com/patent/US6166953A/en), [US6388918B1 (資料標示屆滿)](https://patents.google.com/patent/US6388918B1/en), [US7787304B2 (資料標示有效)](https://patents.google.com/patent/US7787304B2/en), [US8264887B2 (資料標示有效)](https://patents.google.com/patent/US8264887B2/en) | 多家代工廠 180nm 平台（公告未具名） (可重寫 NVM 技術逾 30 億顆出貨（2011）)<br>[Synopsys AEON 180nm 公告 · 發布 2011-06-27](https://news.synopsys.com/home?item=123295) — 公告稱多家主要代工廠可供應，另列 65–250nm 技術範圍；未逐一確認原具名代工名單。<br>[Synopsys AEON 180nm 公告 · 發布 2011-06-27](https://news.synopsys.com/home?item=123295) — AEON 公告中對可重寫 NVM 技術的累計描述；未拆 AEON 子系列，也不是 Impinj RFID 今日累計量。 |
 | 06. NSCore (TwinBit®) | NSCore (Charge-Trapping MTP (電荷捕捉多次可程式化)) | NSCore: 順向通道熱電子/熱電洞注入 (CHEI/CHHI) 於側壁間隔層捕捉陷阱；逆向偏壓感測臨界電壓漂移 | [US6930349B2 (資料標示屆滿)](https://patents.google.com/patent/US6930349B2/en), [US7245532B2 (資料標示屆滿)](https://patents.google.com/patent/US7245532B2/en), [US7768832B2 (資料標示有效)](https://patents.google.com/patent/US7768832B2/en), [US8760927B2 (資料標示有效)](https://patents.google.com/patent/US8760927B2/en) | TSMC、UMC、IBM、LFoundry、SilTerra、SMIC、GF (逾 20 億顆晶片量產實績（公司簡介）)<br>[NSCore 公司簡介 · 查核 2026-10-15 · 第 1 頁](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — 單頁簡介列示上述標誌；正文無發布日期，屬歷史支援名單，不代表目前所有節點皆可取得。<br>[NSCore 公司簡介 · 查核 2026-10-15 · 第 1 頁](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — 簡介對其記憶體系列的實績描述；未標統計日期，不能當作今日累計出貨，也不能換算成晶圓數。 |
-| 07. 寬緯 Attopsemi | I-fuse® (Electromigration OTP (熱輔助電遷移不可逆熔絲)) | I-fuse®: 精準控制電流密度使電子風推動晶格原子遷移形成微觀空洞 (Void)，阻值由數百歐姆永久跳升至兆歐姆；不破壞鈍化層 | [US9165979B2 (資料標示有效)](https://patents.google.com/patent/US9165979B2/en), [US9613943B2 (資料標示有效)](https://patents.google.com/patent/US9613943B2/en) | X-FAB：180nm I-fuse 平台 (150 家以上客戶（非出貨量）)<br>[Attopsemi／X-FAB 平台公告 · 發布 2025-02-27](https://www.attopsemi.com/attopsemi-expands-its-proven-i-fuse-otp-portfolio-on-x-fabs-180nm-platform/) — 限公告所述平台與 I-fuse 產品；不代表完整合作名單或所有節點均已驗證。<br>[Attopsemi 官方首頁 · 查核 2026-10-15](https://www.attopsemi.com/) — 未標統計日期；同頁晶圓數有累計與每月兩種標示，口徑不一致，本次不將其當作可核對出貨總量。 |
+| 07. 上峰科技 Attopsemi<br>上峰科技股份有限公司（Attopsemi）<br>[官方公司名稱 · 查核 2026-10-15](https://www.attopsemi.com/zh-hant/about-us/background/) — 官方全名為上峰科技股份有限公司；官網常用上峰科技，簡稱上峰時應搭配 Attopsemi 以免混淆。英文全名為 Attopsemi Technology Co., Ltd.，Attopsemi 與 Attopsemi Technology 為簡稱；I-fuse 是產品名稱。寬緯科技（Quadlink Technology Inc.）是另一家公司，不是別稱。官網未載發布日期。 / [寬緯科技官方網站 · 查核 2026-10-15](https://www.quadlink-tech.com/zh-tw/) — 寬緯科技官網列示 Quadlink，業務為物聯網。<br>下列兩筆案卷原歸屬 Attopsemi，但核准公報首頁列示其他當事人。保留案卷供追查；既有標題、技術導讀、日期與公司承接分析尚未重建，不可作為 Attopsemi 權利範圍的證據。 | I-fuse® (Electromigration OTP (熱輔助電遷移不可逆熔絲)) | I-fuse®: 精準控制電流密度使電子風推動晶格原子遷移形成微觀空洞 (Void)，阻值由數百歐姆永久跳升至兆歐姆；不破壞鈍化層 | [US9165979B2 (資料標示有效)](https://patents.google.com/patent/US9165979B2/en) — [歸屬衝突 · 查核 2026-10-15 · 第 1 頁](https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf#page=1) — 2015 年核准公報首頁列申請人 Bao Tran，未列受讓人。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。, [US9613943B2 (資料標示有效)](https://patents.google.com/patent/US9613943B2/en) — [歸屬衝突 · 查核 2026-10-15 · 第 1 頁](https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf#page=1) — 2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。 | X-FAB：180nm I-fuse 平台 (150 家以上客戶（非出貨量）)<br>[Attopsemi／X-FAB 平台公告 · 發布 2025-02-27](https://www.attopsemi.com/attopsemi-expands-its-proven-i-fuse-otp-portfolio-on-x-fabs-180nm-platform/) — 限公告所述平台與 I-fuse 產品；不代表完整合作名單或所有節點均已驗證。<br>[Attopsemi 官方首頁 · 查核 2026-10-15](https://www.attopsemi.com/) — 未標統計日期；同頁晶圓數有累計與每月兩種標示，口徑不一致，本次不將其當作可核對出貨總量。 |
 | 08. Floadia (フローディア) | LEE (0-Mask MTP (零額外光罩多晶矽 MTP))；LEE (Charge-Trap eFlash (電荷陷阱嵌入式快閃記憶體)) | LEE: 編程與抹除均採用低電場 Fowler-Nordheim (FN) 穿隧，避免衝擊游離缺陷生成，延長閘氧壽命；LEE: 電子儲存於絕緣氮化矽層之局域陷阱能階中，避免單一微絲漏電引發全閘放電；耐高溫高應力 | [US9214470B2 (資料標示有效)](https://patents.google.com/patent/US9214470B2/en), [US6388293B1 (資料標示屆滿)](https://patents.google.com/patent/US6388293B1/en), [US6853583B2 (資料標示屆滿)](https://patents.google.com/patent/US6853583B2/en), [US9847343B2 (資料標示有效)](https://patents.google.com/patent/US9847343B2/en), [US10840251B2 (資料標示有效)](https://patents.google.com/patent/US10840251B2/en) | TSMC 130nm BCD；HHGrace 180nm；Powerchip 90nm (逾 3 萬片 12 吋晶圓、3 款 SoC（2018）)<br>[Floadia 公司歷程 · 查核 2026-10-15](https://floadia.com/about/) — 公司歷程支持 TSMC 130BCD+；Powerchip 90nm 與 HHGrace 180BCD 另見以下公告，各平台進度分開判讀。 / [Floadia／Powerchip 量產公告 · 發布 2018-09-25](https://floadia.com/news/875/) — 限 Powerchip 90nm eFlash G1 的公告實績；不是公司全部產品累計，也不推定後續 AI 產品已量產。 / [Floadia／HHGrace 平台公告 · 發布 2021-11-16](https://floadia.com/news/1100/) — HHGrace 180BCD ZT 可供應；內文日期 2021-11-15，客戶 2022 年量產屬當時規劃。<br>[Floadia／Powerchip 量產公告 · 發布 2018-09-25](https://floadia.com/news/875/) — 限 Powerchip 90nm eFlash G1 的公告實績；不是公司全部產品累計，也不推定後續 AI 產品已量產。 |
 | 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (分離閘極嵌入式快閃記憶體)) | SuperFlash®: 源極側注入 (SSI) 高速低功耗熱電子寫入；浮動閘極多晶矽尖端向抹除閘極 (EG) 進行局部高場 FN 穿隧抹除 | [US5029130A (資料標示屆滿)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (資料標示屆滿)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (資料標示有效)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (資料標示有效)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (資料標示有效)](https://patents.google.com/patent/US10658032B2/en) | TSMC、UMC、GF、SMIC、HHGrace 等 (SuperFlash 累計 1,500 億顆出貨)<br>[SST 代工供應表 · 查核 2026-10-15](https://www.sst.com/foundry-availability/) — 依表列夥伴示例；各節點有 Production、Tested 等不同狀態，不能把全部夥伴與節點都稱為量產。<br>[Microchip／SST 官方公告 · 發布 2026-03-17](https://www.microchip.com/en-us/about/news-releases/products/mythic-selects-membrain-technology-from-sst-for-its-next-gen-ultra-low-power-apus) — 公告中的 SuperFlash 歷年累計，非晶圓數，也不是 Mythic APU 或新一代 memBrain 的出貨量。 |
 | 10. Everspin | Toggle (Field-Assisted MRAM (磁場輔助切換磁記憶體))；STT-MRAM (STT-MRAM (自旋轉矩傳遞磁記憶體)) | Toggle: 利用兩條正交導線依序發送電流脈衝產生旋轉磁場，使 SAF 自由層磁矩順時針翻轉 180°；未選中單元磁場不足完全不翻轉；STT-MRAM: 自旋極化電流直接穿過 MgO 隧道障壁，將角動量傳遞給 CoFeB 垂直自由層引發磁化翻轉；讀取時檢測穿隧磁阻 (TMR) | [US6545906B1 (資料標示屆滿)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (資料標示屆滿)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (資料標示有效)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (資料標示有效)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (資料標示有效)](https://patents.google.com/patent/US10886461B2/en) | GF 300mm STT-MRAM；Chandler 200mm 自營後段線 (超過 2 億顆 MRAM 產品已部署)<br>[Everspin 2025 年 Form 10-K · 發布 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — GF 為外部代工；Chandler 為租用設施自營 BEOL 製造，不列為代工夥伴。原 UMC 22ULL 主張未獲此年報支持。<br>[Everspin／Quintauris 合作公告 · 發布 2025-10-01](https://investor.everspin.com/node/11516) — 公告引述的 MRAM 產品部署累計；保持 deployed 口徑，不改稱晶圓產量或單年度出貨。 |

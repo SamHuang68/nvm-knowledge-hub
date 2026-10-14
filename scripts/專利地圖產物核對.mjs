@@ -7,10 +7,12 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='57e501d5241aa93c5e8225d49058d98a3dbac634';
+const base='c1e4d1212cd360cac6aa8b7dd4593422b242a899';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
+const currentRenderer=await import('./nvm-vendor-patent-maps-ui.mjs');
+const priorRenderer=await import('data:text/javascript;base64,'+Buffer.from(original('scripts/nvm-vendor-patent-maps-ui.mjs')).toString('base64'));
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.6'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.7'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const file=`data/nvm-vendor-patent-maps${suffix}.json`;
@@ -18,15 +20,28 @@ for (const suffix of ['','-en']) {
   const restored=structuredClone(actual);
   for(const vendor of restored.vendors){
     const originalVendor=before.vendors.find(v=>v.id===vendor.id);
-    if(vendor.id==='ememory')assert.deepEqual(vendor,originalVendor,'力旺全部內容原樣保留');
+    if(vendor.id!=='attopsemi')assert.deepEqual(vendor,originalVendor,'其他十一家全部資料精確保留');
     else {
-      const stats=vendor.patentStats;
-      assert.deepEqual(Object.keys(stats.metricSources),['totalGrantedWorldwide','keyJurisdictions','foundryCoverage','waferShipment']);
-      for(const key of Object.keys(stats.metricSources))assert.ok(stats[key]&&stats.metricSources[key].date&&stats.metricSources[key].note&&stats.metricSources[key].url);
-      vendor.patentStats=originalVendor.patentStats;
+      assert.equal(vendor.name,suffix?'Attopsemi Technology Co., Ltd.':'上峰科技股份有限公司（Attopsemi）');
+      assert.equal(vendor.shortName,suffix?'Attopsemi':'上峰科技 Attopsemi');
+      assert.equal(vendor.strategy,originalVendor.strategy.replaceAll('寬緯科技','上峰科技'));
+      assert.equal(vendor.litigationDefense.overview,originalVendor.litigationDefense.overview.replaceAll('寬緯科技','上峰科技'));
+      currentRenderer.validateVendorPatentMaps(actual);
+      vendor.name=originalVendor.name;vendor.shortName=originalVendor.shortName;vendor.strategy=originalVendor.strategy;
+      vendor.litigationDefense.overview=originalVendor.litigationDefense.overview;
+      delete vendor.nameSource;delete vendor.attributionNote;
+      for(const family of vendor.families)for(const patent of family.patents){
+        const prior=originalVendor.families.find(f=>f.id===family.id).patents.find(p=>p.id===patent.id);
+        assert.ok(['US9165979B2','US9613943B2'].includes(patent.id));
+        patent.assignee=prior.assignee;delete patent.attributionReview;
+      }
     }
   }
-  assert.deepEqual(restored,before,'僅更新其他十一家統計與來源；全部家族、案卷、時間軸、力旺與其他欄位保留');
+  assert.deepEqual(restored,before,'僅更新上峰名稱、來源及兩筆受讓人警示；全部統計、其他案卷欄位與其他廠商保留');
+  const unchanged={...before,vendors:before.vendors.filter(v=>v.id!=='attopsemi')};
+  const language=suffix?'en':'zh';
+  assert.equal(currentRenderer.renderVendorPatentMaps(unchanged,language,()=>''),priorRenderer.renderVendorPatentMaps(unchanged,language,()=>''),'其他十一家渲染結果逐字不變');
+  assert.equal(currentRenderer.vendorPatentMapsMarkdown(unchanged,()=>'',language),priorRenderer.vendorPatentMapsMarkdown(unchanged,()=>'',language),'其他十一家匯出結果逐字不變');
   const generated=`data/nvm-knowledge-data${suffix}.json`;
   const currentPackage=JSON.parse(read(generated)),oldPackage=JSON.parse(original(generated));
   assert.deepEqual(currentPackage.vendorPatentMaps,actual,'生成資料套件共用同一統計來源');
@@ -48,25 +63,11 @@ function withoutMap(html) {
   throw new Error('專利地圖 article 邊界不完整');
 }
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html']) {
-  const previous=original(file);
-  const mask=html=>{
-    let card=0;
-    const statsMasked=html.replace(/<div class="nvm-vendor-stat-card">.*?<\/div>/gu,match=>++card>4?'<div>本次其他廠商統計卡</div>':match);
-    assert.equal(card,48,'十二家各保留四卡');
-    const start=statsMasked.indexOf('<section id="vendor-patent-landscape-overview"');assert.ok(start>=0);
-    const prefix=statsMasked.slice(0,start),appendix=statsMasked.slice(start);
-    let rowIndex=0;
-    return prefix+appendix.replace(/<tr>(.*?)<\/tr>/gu,(match,row)=>{
-      if(!row.includes('<td'))return match;
-      if(++rowIndex===1)return match;
-      let cell=0;return '<tr>'+row.replace(/<td\b[^>]*>.*?<\/td>/gu,match=>++cell===5?'<td>其他廠商代工與量產來源</td>':match)+'</tr>';
-    });
-  };
-  assert.equal(mask(read(file)),mask(previous),'僅更動其他十一家四卡及矩陣最後一格；全部其他頁面文字與功能標記逐字不變');
   const before=withoutMap(original(file));
   const after=withoutMap(read(file));
   assert.equal(after,before,'其他 Atlas 章節與入口未被重寫');
 }
+for(const file of ['scripts/enrich-patents.mjs','scripts/update-stage1-dossiers.mjs'])assert.equal(read(file),original(file).replaceAll('寬緯科技','上峰科技').replaceAll('寬緯 Attopsemi','上峰科技 Attopsemi'),'舊資料更新入口只修正公司名稱');
 const sandbox={self:{}}; vm.runInNewContext(read('data/offline-manifest.js'),sandbox);
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html','nvm-technology-atlas.js','nvm-vendor-patent-maps.css']) {
   assert.equal(sandbox.self.NVMOfflineManifest.digests[file],crypto.createHash('sha256').update(read(file)).digest('hex'),`離線資源同步：${file}`);

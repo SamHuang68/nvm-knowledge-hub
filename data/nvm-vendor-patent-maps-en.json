@@ -1495,7 +1495,7 @@
     },
     {
       "id": "attopsemi",
-      "name": "Attopsemi Technology Inc.",
+      "name": "Attopsemi Technology Co., Ltd.",
       "shortName": "Attopsemi",
       "headquarters": "Zhubei City, Hsinchu County, Taiwan",
       "founded": "2010",
@@ -1559,7 +1559,7 @@
               "grantDate": "2015-10-20",
               "priorityDate": "2012-07-26",
               "inventors": "Shine C. Chung",
-              "assignee": "Attopsemi Technology Inc.",
+              "assignee": "Assignee not established here; applicant Bao Tran on the issued front page (2015-10-20).",
               "url": "https://patents.google.com/patent/US9165979B2/en",
               "coreProblem": "Conventional eFuse thermal runaway exceeds 1400°C, causing passivation rupture, molten metal splatter, and recrystallization re-growth that induce severe automotive reliability failures.",
               "mechanism": "Controls programming current density and pulse duration within a sub-thermal runaway thermal equilibrium regime. Pure electron wind electromigration drives solid-state mass diffusion, forming an intact, voided nano-scale open circuit without rupturing surrounding dielectric passivation.",
@@ -1574,7 +1574,15 @@
               "generation": "奠基第一代 (Gen-1 Sub-Thermal I-fuse)",
               "generationEn": "Gen-1 Sub-Thermal I-fuse",
               "ftoStatus": "專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。",
-              "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures."
+              "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures.",
+              "attributionReview": {
+                "title": "Attribution Conflict",
+                "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
+                "page": 1,
+                "date": "2026-10-15",
+                "dateKind": "checked",
+                "note": "The 2015 issued front page lists applicant Bao Tran; no assignee is printed. This does not support the recorded Attopsemi attribution. Existing analysis remains unverified; current ownership was not determined."
+              }
             },
             {
               "id": "US9613943B2",
@@ -1582,7 +1590,7 @@
               "grantDate": "2017-04-04",
               "priorityDate": "2015-05-08",
               "inventors": "Shine C. Chung",
-              "assignee": "Attopsemi Technology Inc.",
+              "assignee": "Micron Technology, Inc. — assignee on the issued front page (2017-04-04).",
               "url": "https://patents.google.com/patent/US9613943B2/en",
               "coreProblem": "Advanced HKMG, FinFET, and GAA nodes lack traditional polysilicon layers. How can advanced metal gates and micro-contacts be shared directly for 0-mask OTP?",
               "mechanism": "Establishes the electromigration path directly within advanced metal gate materials (TiN, TaN, or tungsten/copper contact plugs), utilizing nanoscale electromigration to achieve seamless scaling to 7nm/5nm/3nm/2nm.",
@@ -1597,7 +1605,15 @@
               "generation": "演進第二代 (Gen-2 Metal Gate Contact)",
               "generationEn": "Gen-2 Metal Gate Contact",
               "ftoStatus": "專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。",
-              "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces."
+              "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces.",
+              "attributionReview": {
+                "title": "Attribution Conflict",
+                "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
+                "page": 1,
+                "date": "2026-10-15",
+                "dateKind": "checked",
+                "note": "The 2017 issued front page lists Micron Technology, Inc. as applicant and assignee. This does not support the recorded Attopsemi attribution. Existing analysis remains unverified; current ownership was not determined."
+              }
             }
           ]
         }
@@ -1642,7 +1658,24 @@
           }
         ],
         "ftoVerdict": "[FTO Guidance] Basic patents on explosive rupture poly fuses expired between 2010–2018. However, Attopsemi controlled sub-thermal agglomeration and 0.4V readout patents are actively enforceable through 2032–2038."
-      }
+      },
+      "nameSource": {
+        "title": "Official Company Name",
+        "url": "https://www.attopsemi.com/about-us/background/",
+        "date": "2026-10-15",
+        "dateKind": "checked",
+        "note": "Attopsemi Technology Co., Ltd. is the official English name. Attopsemi and Attopsemi Technology are short forms; I-fuse is a product name. Quadlink Technology Inc. is a different company, not an alias. The company page has no publication date.",
+        "references": [
+          {
+            "title": "Quadlink Official Website",
+            "url": "https://www.quadlink-tech.com/zh-tw/",
+            "date": "2026-10-15",
+            "dateKind": "checked",
+            "note": "Quadlink identifies itself as a separate IoT company."
+          }
+        ]
+      },
+      "attributionNote": "Two records below were previously attributed to Attopsemi, but their issued front pages name other parties. They remain available for audit; the existing titles, technical readings, dates and company-linkage analysis have not been rebuilt and must not be used as evidence of Attopsemi rights."
     },
     {
       "id": "floadia",

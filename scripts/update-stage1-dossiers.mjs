@@ -111,7 +111,7 @@ const stage1Litigation = {
   attopsemi: {
     zh: {
       title: '非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔',
-      overview: '寬緯科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。',
+      overview: '上峰科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。',
       keyBattles: [
         {
           heading: '打破傳統 eFuse 物理爆破專利邊界',

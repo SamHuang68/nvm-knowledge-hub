@@ -304,7 +304,7 @@ const patentEnrichments = {
     ftoStatusEn: 'Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain.'
   },
 
-  // === 寬緯 Attopsemi ===
+  // === 上峰科技 Attopsemi ===
   'US9165979B2': {
     legalStatus: 'active',
     legalStatusZh: '有效專利 (In-Force / Active)',

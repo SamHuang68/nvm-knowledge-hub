@@ -8595,8 +8595,8 @@
       },
       {
         "id": "attopsemi",
-        "name": "寬緯科技 Attopsemi Technology Inc.",
-        "shortName": "寬緯 Attopsemi",
+        "name": "上峰科技股份有限公司（Attopsemi）",
+        "shortName": "上峰科技 Attopsemi",
         "headquarters": "台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)",
         "founded": "2010 年",
         "founders": "鍾世緯博士 (Dr. Shine C. Chung - 前台積電 NVM 研發處長) 團隊",
@@ -8641,7 +8641,7 @@
             }
           }
         },
-        "strategy": "Attopsemi (寬緯科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。",
+        "strategy": "Attopsemi (上峰科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。",
         "families": [
           {
             "id": "attopsemi-ifuse-family",
@@ -8659,7 +8659,7 @@
                 "grantDate": "2015-10-20",
                 "priorityDate": "2012-07-26",
                 "inventors": "Shine C. Chung",
-                "assignee": "Attopsemi Technology Inc.",
+                "assignee": "受讓人未於本次確認；核准公報首頁申請人為 Bao Tran（2015-10-20）。",
                 "url": "https://patents.google.com/patent/US9165979B2/en",
                 "coreProblem": "傳統 eFuse 熔斷時熱失控溫度超過 1400°C，造成鈍化層龜裂、金屬氣化飛濺與材料重新結晶回接，導致車規晶片嚴重可靠性失效。",
                 "mechanism": "設定編程電流密度與脈衝寬度，使熔絲條維持在熱平衡與亞熱失控溫度區間，利用純電子風電遷移驅動矽/金屬原子產生固態質量擴散，形成永久、穩定且周圍鈍化層完好無損的奈米級斷路。",
@@ -8674,7 +8674,15 @@
                 "generation": "奠基第一代 (Gen-1 Sub-Thermal I-fuse)",
                 "generationEn": "Gen-1 Sub-Thermal I-fuse",
                 "ftoStatus": "專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。",
-                "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures."
+                "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures.",
+                "attributionReview": {
+                  "title": "歸屬衝突",
+                  "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
+                  "page": 1,
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "2015 年核准公報首頁列申請人 Bao Tran，未列受讓人。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。"
+                }
               },
               {
                 "id": "US9613943B2",
@@ -8682,7 +8690,7 @@
                 "grantDate": "2017-04-04",
                 "priorityDate": "2015-05-08",
                 "inventors": "Shine C. Chung",
-                "assignee": "Attopsemi Technology Inc.",
+                "assignee": "Micron Technology, Inc. — 核准公報首頁列示之受讓人（2017-04-04）。",
                 "url": "https://patents.google.com/patent/US9613943B2/en",
                 "coreProblem": "在 HKMG、FinFET 與 GAA 先進節點中已無傳統多晶矽層，如何直接共用先進金屬閘極與微型通孔實現零光罩 OTP？",
                 "mechanism": "將電遷移路徑直接建立在先進金屬閘極材料（TiN、TaN 或鎢/銅接觸插塞）上，利用奈米尺度金屬電遷移形成高阻斷路，實現 7nm/5nm/3nm/2nm 的無縫微縮相容。",
@@ -8697,7 +8705,15 @@
                 "generation": "演進第二代 (Gen-2 Metal Gate Contact)",
                 "generationEn": "Gen-2 Metal Gate Contact",
                 "ftoStatus": "專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。",
-                "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces."
+                "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces.",
+                "attributionReview": {
+                  "title": "歸屬衝突",
+                  "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
+                  "page": 1,
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。"
+                }
               }
             ]
           }
@@ -8730,7 +8746,7 @@
         ],
         "litigationDefense": {
           "title": "非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔",
-          "overview": "寬緯科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。",
+          "overview": "上峰科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。",
           "keyBattles": [
             {
               "heading": "打破傳統 eFuse 物理爆破專利邊界",
@@ -8742,7 +8758,24 @@
             }
           ],
           "ftoVerdict": "【自由實施建議】傳統多晶矽爆破型 eFuse 大多數基礎專利已於 2010–2018 年過期；但 Attopsemi 的受控電流亞熱凝聚 (Non-explosive current-limited) 與 0.4V 讀取專利仍處於強固保護期（有效維持至 2032–2038 年），任何宣稱非破壞性退火熔斷之技術皆須嚴密審視其侵權風險。"
-        }
+        },
+        "nameSource": {
+          "title": "官方公司名稱",
+          "url": "https://www.attopsemi.com/zh-hant/about-us/background/",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "官方全名為上峰科技股份有限公司；官網常用上峰科技，簡稱上峰時應搭配 Attopsemi 以免混淆。英文全名為 Attopsemi Technology Co., Ltd.，Attopsemi 與 Attopsemi Technology 為簡稱；I-fuse 是產品名稱。寬緯科技（Quadlink Technology Inc.）是另一家公司，不是別稱。官網未載發布日期。",
+          "references": [
+            {
+              "title": "寬緯科技官方網站",
+              "url": "https://www.quadlink-tech.com/zh-tw/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "寬緯科技官網列示 Quadlink，業務為物聯網。"
+            }
+          ]
+        },
+        "attributionNote": "下列兩筆案卷原歸屬 Attopsemi，但核准公報首頁列示其他當事人。保留案卷供追查；既有標題、技術導讀、日期與公司承接分析尚未重建，不可作為 Attopsemi 權利範圍的證據。"
       },
       {
         "id": "floadia",

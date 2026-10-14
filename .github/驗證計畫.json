@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "57e501d5241aa93c5e8225d49058d98a3dbac634",
+  "baseCommit": "c1e4d1212cd360cac6aa8b7dd4593422b242a899",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -29,7 +29,9 @@
         "data/nvm-vendor-patent-maps-en.json",
         "scripts/nvm-vendor-patent-maps-ui.mjs",
         "nvm-technology-atlas.html",
-        "nvm-technology-atlas-zh.html"
+        "nvm-technology-atlas-zh.html",
+        "scripts/enrich-patents.mjs",
+        "scripts/update-stage1-dossiers.mjs"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -49,16 +51,18 @@
         "data/institutional-pov-contract.json",
         "nvm-technology-atlas.js",
         "nvm-vendor-patent-maps.css",
-        ".github/驗證計畫.json"
+        ".github/驗證計畫.json",
+        "scripts/enrich-patents.mjs",
+        "scripts/update-stage1-dossiers.mjs"
       ],
-      "reason": "其他十一家四十四項統計來源修正；力旺與全部案卷、其他頁面、依賴及公開範圍精確保全",
+      "reason": "上峰名稱、來源與兩筆歸屬警示修正；其他十一家、全部統計及其他頁面精確保全",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 20
     },
     {
-      "id": "其他廠商統計來源與畫面",
+      "id": "上峰官方名稱與歸屬警示",
       "kind": "command",
       "targets": [
         "scripts/專利地圖驗證.mjs"
@@ -66,7 +70,6 @@
       "changes": [
         "scripts/專利地圖驗證.mjs",
         "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "nvm-vendor-patent-maps.css",
         "data/nvm-vendor-patent-maps.json",
         "data/nvm-vendor-patent-maps-en.json"
       ],
@@ -85,16 +88,16 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "僅驗證十二家統計卡含力旺保全、來源日期與範圍、比較矩陣及匯出，雙語桌面與手機共四十八種廠商畫面",
+      "reason": "僅上峰名稱、來源、兩筆案卷歸屬警示、搜尋、矩陣與匯出；雙語桌面與手機四案",
       "prepare": [
         "node",
         "browser"
       ],
-      "timeoutSeconds": 150,
+      "timeoutSeconds": 90,
       "command": [
         "node",
         "scripts/專利地圖驗證.mjs",
-        "--stats-only"
+        "--name-only"
       ]
     }
   ]
