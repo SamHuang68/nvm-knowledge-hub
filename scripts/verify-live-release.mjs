@@ -11,11 +11,70 @@ const args = process.argv.slice(2);
 const assetsOnly = args.length>0;
 const base = process.env.NVM_QA_BASE || 'https://samhuang68.github.io/nvm-knowledge-hub/';
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root,'qa','bilingual-release','live-release'));
-fs.mkdirSync(output,{recursive:true});
+const runId=crypto.randomUUID();
+const reportPath=path.join(output,'live-release-verification.json');
+const lockPath=path.join(output,'正式來源驗證.lock');
+const temporaryPath=path.join(output,`正式來源驗證-${runId}.tmp`);
 const result = {base,checkedAt:new Date().toISOString(),version:null,userAgent,
-  scope:assetsOnly?'指定資源':'完整流程',offlineRequested:!assetsOnly,assets:[],offline:[],passed:false};
-let browser;
+  scope:assetsOnly?'指定資源':'完整流程',offlineRequested:!assetsOnly,assets:[],offline:[],passed:false,
+  runId,pid:process.pid,state:'執行中',finishedAt:null};
+let browser,ownsLock=false,started=false,finished=false;
+function writeReport() {
+  let descriptor;
+  try {
+    descriptor=fs.openSync(temporaryPath,'wx',0o600);
+    fs.writeFileSync(descriptor,JSON.stringify(result,null,2)+'\n');
+    fs.fsyncSync(descriptor);fs.closeSync(descriptor);descriptor=undefined;
+    fs.renameSync(temporaryPath,reportPath);
+  } finally {
+    if(descriptor!==undefined)fs.closeSync(descriptor);
+    if(fs.existsSync(temporaryPath))fs.unlinkSync(temporaryPath);
+  }
+}
+function reportWriteFailure(error) {
+  result.passed=false;process.exitCode=1;
+  console.error(`本次結果無法寫入：${reportPath}；執行識別 ${runId}；${error.message}。既有報告不得當成本次完成證據。`);
+}
+function releaseLock() {
+  if(!ownsLock)return;
+  try {
+    if(JSON.parse(fs.readFileSync(lockPath,'utf8')).runId===runId)fs.unlinkSync(lockPath);
+  } catch(error) {console.error(`執行鎖未能清理：${lockPath}；${error.message}。請確認程序與報告識別後處理，勿直接覆寫其他執行。`);}
+  ownsLock=false;
+}
+function interrupted(reason) {
+  if(!ownsLock||finished)return;
+  result.passed=false;result.state='已中斷';result.error=reason;result.finishedAt=new Date().toISOString();
+  if(started){try{writeReport();}catch(error){reportWriteFailure(error);}}
+  finished=true;releaseLock();
+}
+process.once('uncaughtExceptionMonitor',error=>{result.error=`未處理例外：${error.message}`;});
+process.once('exit',code=>{interrupted(result.error||`程序提前結束，退出碼 ${code}`);});
+for(const [signal,code] of [['SIGINT',130],['SIGTERM',143]])process.once(signal,()=>{
+  interrupted(`收到 ${signal}，本次驗證未完成`);process.exit(code);
+});
 try {
+try {fs.mkdirSync(output,{recursive:true});}catch(error){reportWriteFailure(error);throw error;}
+let lockDescriptor;
+try {
+  lockDescriptor=fs.openSync(lockPath,'wx',0o600);ownsLock=true;
+} catch(error) {
+  if(error.code==='EEXIST')throw new Error(`輸出目錄已有執行鎖：${lockPath}。本次未啟動；先確認原程序與未完成報告，或使用新的 NVM_QA_OUTPUT。`);
+  reportWriteFailure(error);
+  throw error;
+}
+try {
+  fs.writeFileSync(lockDescriptor,JSON.stringify({runId,pid:process.pid,startedAt:result.checkedAt}));
+} catch(error){reportWriteFailure(error);throw error;}finally {fs.closeSync(lockDescriptor);}
+try {
+  if(fs.existsSync(reportPath)) {
+    assert.ok(fs.lstatSync(reportPath).isFile(),'既有報告路徑必須是一般檔案，不移動資料夾或符號連結。');
+    result.previousReport=`歷史結果-${runId}.json`;
+    fs.renameSync(reportPath,path.join(output,result.previousReport));
+  }
+  writeReport();started=true;
+  console.log(`正式來源驗證啟動：${runId}；報告 ${reportPath}`);
+} catch(error) {reportWriteFailure(error);throw error;}
 assert.ok(args.every(arg=>arg.startsWith('--asset=') && arg.slice(8)), '局部模式只接受非空的 --asset=相對檔案路徑；可重複指定。');
 const baseURL=new URL(base);
 assert.ok(['http:','https:'].includes(baseURL.protocol)&&baseURL.pathname.endsWith('/')&&!baseURL.search&&!baseURL.hash&&!baseURL.username&&!baseURL.password,
@@ -131,7 +190,15 @@ const hash = (file,bytes) => crypto.createHash('sha256').update(/\.(?:html|css|j
   console.error(error.stack);
   process.exitCode=1;
 } finally {
-  if(browser) await browser.close();
-  fs.writeFileSync(path.join(output,'live-release-verification.json'),JSON.stringify(result,null,2)+'\n');
+  if(browser) {
+    try {await browser.close();}
+    catch(error){result.passed=false;result.error=`瀏覽器清理失敗：${error.message}`;process.exitCode=1;}
+  }
+  if(started) {
+    result.state=result.passed?'通過':'失敗';result.finishedAt=new Date().toISOString();
+    try {writeReport();}
+    catch(error){reportWriteFailure(error);result.state='報告寫入失敗';result.error=error.message;try{writeReport();}catch{ /* 保留啟動時的未完成紀錄。 */ }}
+  }
+  finished=true;releaseLock();
 }
 console.log(`${assetsOnly?'指定來源核對':'線上發布驗證'}：${result.passed?'通過':'失敗'}；${result.assets.length} 個產物、${result.offline.length} 個真實離線語言情境。`);

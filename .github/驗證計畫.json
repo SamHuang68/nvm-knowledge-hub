@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "34bf166cf2f18e930fdcd82e136c5cfd9d88d278",
+  "baseCommit": "0a8d404e94ba938d639b11e39ed799b17b5f4d40",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -112,7 +112,7 @@
     },
     {
       "id": "正式來源HTTP契約",
-      "kind": "node",
+      "kind": "command",
       "targets": [
         "scripts/驗證正式來源HTTP.mjs"
       ],
@@ -126,14 +126,30 @@
         "site.webmanifest",
         "data/offline-manifest.js",
         "package.json",
-        "package-lock.json",
-        "sw.js"
+        "package-lock.json"
       ],
-      "reason": "正式來源錯誤處理十九案：同來源與跨來源重新導向、循環與缺少位置、標頭與內文逾時、同批斷線保留結果、無效輸入覆寫舊成功報告；保留具名身分、403／1010、HTTP 狀態及內容正規化契約。僅本機 HTTP 夾具，不啟動瀏覽器或正式站全掃描。",
+      "reason": "程序中斷、並行與循序重跑、初始與完成報告寫入失敗、部分寫入及既有資料夾保全十案，另保留成功、HTTP 失敗及參數失敗三條終態路徑。明列十三案；原 HTTP 分類與導向案例未改，沿用前次有效證據。",
       "prepare": [
         "node"
       ],
-      "timeoutSeconds": 60
+      "timeoutSeconds": 60,
+      "command": [
+        "node",
+        "scripts/驗證正式來源HTTP.mjs",
+        "--case=強制中斷不保留舊成功",
+        "--case=同目錄並行拒絕",
+        "--case=循序重跑使用新識別",
+        "--case=初始報告寫入失敗停止請求",
+        "--case=完成報告替換失敗不宣告成功",
+        "--case=中斷處理器保存失敗",
+        "--case=未處理例外保存失敗",
+        "--case=具名請求與換行保全",
+        "--case=一般HTTP拒絕",
+        "--case=無效選取覆寫舊成功",
+        "--case=舊報告移存失敗停止請求",
+        "--case=完成報告部分寫入不破壞紀錄",
+        "--case=報告路徑為資料夾拒絕"
+      ]
     }
   ]
 }
