@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "8dda320f6b26c745c578d06d9aa0bbad6835b9ad",
+  "baseCommit": "ee1b3d98c4163e8433e6bab55b84a338c117cd49",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -109,49 +109,11 @@
         "scripts/驗證正式來源HTTP.mjs",
         "scripts/nvm-vendor-patent-maps-ui.mjs"
       ],
-      "reason": "力旺核准專利數與來源的精確變更、其他資料與案卷保全、生成與版本一致性",
+      "reason": "力旺其餘三項統計與來源的精確變更、第一張專利卡及全部其他案卷保全、版本與產物一致性",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 20
-    },
-    {
-      "id": "正式來源HTTP契約",
-      "kind": "command",
-      "targets": [
-        "scripts/驗證正式來源HTTP.mjs"
-      ],
-      "changes": [
-        "scripts/verify-live-release.mjs",
-        "scripts/驗證正式來源HTTP.mjs"
-      ],
-      "inputs": [
-        "scripts/verify-live-release.mjs",
-        "scripts/驗證正式來源HTTP.mjs",
-        "site.webmanifest",
-        "data/offline-manifest.js",
-        "package.json",
-        "package-lock.json"
-      ],
-      "reason": "六案恢復及鎖替換契約，加四條受影響的既有並行、重跑、完成寫入及路徑保全路徑；明列十案，不重跑其餘 HTTP 套件",
-      "prepare": [
-        "node"
-      ],
-      "timeoutSeconds": 60,
-      "command": [
-        "node",
-        "scripts/驗證正式來源HTTP.mjs",
-        "--case=鎖遭替換不得寫入或刪除",
-        "--case=鎖檔實體遭替換保留",
-        "--case=執行中恢復保留原鎖",
-        "--case=強制中斷後獨立恢復",
-        "--case=恢復失敗不得沿用舊成功",
-        "--case=恢復未指定資源不得掃描",
-        "--case=同目錄並行拒絕",
-        "--case=循序重跑使用新識別",
-        "--case=完成報告替換失敗不宣告成功",
-        "--case=報告路徑為資料夾拒絕"
-      ]
     },
     {
       "id": "力旺統計來源與畫面",
@@ -181,7 +143,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "只驗證統計卡與 Markdown 來源；雙語 1440、390 四種畫面與來源焦點、溢位",
+      "reason": "只驗證力旺四卡、三項來源、矩陣與 Markdown；雙語 1440、390 四種畫面、來源焦點與溢位",
       "prepare": [
         "node",
         "browser"
