@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "c1e4d1212cd360cac6aa8b7dd4593422b242a899",
+  "baseCommit": "b7d966b2414d7a00d49c0d6ac748b759d8b28826",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -55,14 +55,14 @@
         "scripts/enrich-patents.mjs",
         "scripts/update-stage1-dossiers.mjs"
       ],
-      "reason": "上峰名稱、來源與兩筆歸屬警示修正；其他十一家、全部統計及其他頁面精確保全",
+      "reason": "重建上峰案卷與回填入口；名稱、四項統計、其他十一家及其他頁面精確保全",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 20
     },
     {
-      "id": "上峰官方名稱與歸屬警示",
+      "id": "上峰公報與權利項案卷",
       "kind": "command",
       "targets": [
         "scripts/專利地圖驗證.mjs"
@@ -88,7 +88,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "僅上峰名稱、來源、兩筆案卷歸屬警示、搜尋、矩陣與匯出；雙語桌面與手機四案",
+      "reason": "上峰兩件公報、姓名、權利項、來源、舊錨點、搜尋、矩陣與匯出；雙語桌面手機四案及無腳本入口",
       "prepare": [
         "node",
         "browser"
@@ -97,7 +97,7 @@
       "command": [
         "node",
         "scripts/專利地圖驗證.mjs",
-        "--name-only"
+        "--dossier-only"
       ]
     }
   ]

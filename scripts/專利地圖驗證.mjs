@@ -7,66 +7,98 @@ import {startTestServer} from './test-server.mjs';
 import {validateVendorPatentMaps, renderVendorPatentMaps, vendorPatentMapsMarkdown, patentMapTechnology} from './nvm-vendor-patent-maps-ui.mjs';
 
 const root = path.resolve(import.meta.dirname,'..');
-if(process.argv.includes('--name-only')){await checkCompanyName();process.exit(0);}
+if(process.argv.includes('--name-only')||process.argv.includes('--dossier-only')){await checkCompanyName();process.exit(0);}
 if(process.argv.includes('--stats-only')){await checkStatistics();process.exit(0);}
 
 async function checkCompanyName(){
-  const baseline=process.argv.includes('--baseline');
-  const out=path.join(root,'qa','上峰名稱',baseline?'修改前':'修改後');fs.mkdirSync(out,{recursive:true});
+  const out=path.join(root,'qa','上峰案卷',process.env.NVM_QA_BASE?'正式站':'本機');fs.mkdirSync(out,{recursive:true});
   const base=process.env.NVM_QA_BASE;
   const server=base?null:await startTestServer(root);
   const browser=await chromium.launch();const results=[];
   try{
     for(const locale of ['zh','en']){
       const data=JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'));
-      const record=data.vendors.find(v=>v.id==='attopsemi'),patents=record.families.flatMap(f=>f.patents);
+      const record=data.vendors.find(v=>v.id==='attopsemi'),family=record.families[0],patents=family.patents;
       const md=vendorPatentMapsMarkdown(data,()=>'',locale);
-      if(!baseline){
-        validateVendorPatentMaps(data);
-        const broken=structuredClone(data);delete broken.vendors.find(v=>v.id==='attopsemi').nameSource.note;
-        assert.throws(()=>validateVendorPatentMaps(broken),/名稱來源不完整/);
-        assert.ok(md.includes(record.name)&&md.includes(record.nameSource.note)&&md.includes(record.nameSource.url));
-        for(const p of patents)assert.ok(md.includes(p.assignee)&&md.includes(p.attributionReview.note)&&md.includes(p.attributionReview.url));
-        if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test(md));
+      validateVendorPatentMaps(data);
+      for(const [mutate,pattern] of [
+        [v=>delete v.nameSource.note,/名稱來源不完整/],
+        [v=>delete v.personnelSource,/人員與研究來源不完整/],
+        [v=>v.founders='鍾世緯',/人員與研究來源不完整/],
+        [v=>v.families[0].patents[0].id='US9165979B2',/公報或更正對應不正確/],
+        [v=>delete v.families[0].patents[0].researchSources,/權利項來源不完整/],
+        [v=>v.families[0].patents[0].researchSources[0].page=1,/權利項來源不完整/],
+        [v=>v.families[0].patents[1].assignee='Micron',/首頁身分不正確/]
+      ]){
+        const broken=structuredClone(data);mutate(broken.vendors.find(v=>v.id==='attopsemi'));assert.throws(()=>validateVendorPatentMaps(broken),pattern);
       }
+      assert.deepEqual(patents.map(p=>p.id),['US9711237B2','US10923204B2']);
+      for(const text of [record.name,record.nameSource.note,record.founders,record.personnelSource.note,...record.researchSources.map(s=>s.note)])assert.ok(md.includes(text));
+      for(const p of patents)for(const text of [p.claimFocus,p.mechanism,p.assignee,p.correctedFrom.id,p.correctedFrom.note,...p.researchSources.flatMap(s=>[s.note,s.url])])assert.ok(md.includes(text));
+      if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test(md));
+      const url=`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}`;
       for(const width of [1440,390]){
         const page=await browser.newPage({viewport:{width,height:960}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
-        await page.goto(`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}#vendor-attopsemi`);
+        await page.goto(`${url}#vendor-attopsemi`);
         const vendor=page.locator('#vendor-attopsemi');await vendor.waitFor();
+        const matrix=page.locator('.nvm-vendor-landscape-table tbody tr').nth(data.vendors.indexOf(record));
         assert.ok((await vendor.locator('h3').innerText()).includes(record.name));
         assert.equal(await page.locator('#nvm-map-company option[value=attopsemi]').innerText(),record.shortName);
         assert.ok((await page.locator('[data-map-vendor-row=attopsemi] th').innerText()).includes(record.shortName));
-        const matrix=page.locator('.nvm-vendor-landscape-table tbody tr').nth(data.vendors.indexOf(record));
-        assert.ok((await matrix.innerText()).includes(record.name));
         assert.equal(await vendor.locator('[data-map-record]').count(),2);
         assert.equal(await vendor.locator('.nvm-vendor-stat-card').count(),4);
-        if(!baseline){
-          for(const area of [vendor.locator('.nvm-vendor-profile-header'),matrix.locator('td').first()]){
-            assert.ok((await area.innerText()).includes(record.nameSource.note));
-            const link=area.locator(`a[href="${record.nameSource.url}"]`);assert.equal(await link.count(),1);
-            await link.focus();assert.equal(await link.evaluate(n=>document.activeElement===n),true);
+        for(const area of [vendor.locator('.nvm-vendor-profile-header'),matrix.locator('td').first()]){
+          for(const source of [record.nameSource,record.personnelSource]){
+            assert.ok((await area.innerText()).includes(source.note));
+            const link=area.locator(`a[href="${source.url}"]`).first();await link.focus();assert.equal(await link.evaluate(n=>document.activeElement===n),true);
           }
-          for(const p of patents){
-            const card=vendor.locator(`[id$="-${p.id}"]`);
-            assert.ok((await card.innerText()).includes(p.attributionReview.note));
-            assert.ok((await matrix.innerText()).includes(p.attributionReview.note));
-            assert.ok((await card.innerText()).includes(p.assignee));
-            assert.equal(await card.locator(`a[href="${p.attributionReview.url}#page=1"]`).count(),1);
-          }
-          const search=page.locator('#nvm-map-query');await search.fill(locale==='zh'?'上峰科技':'Attopsemi');
-          assert.equal(await vendor.locator('[data-map-record]:visible').count(),2);
-          await search.fill('寬緯科技');assert.equal(await vendor.locator('[data-map-record]:visible').count(),0);
-          await search.fill('');
         }
+        const search=page.locator('#nvm-map-query');
+        for(const p of patents){
+          const card=vendor.locator(`[data-map-record][id$="-${p.id}"]`);
+          for(const text of [p.assignee,p.inventors,p.claimFocus,p.correctedFrom.note])assert.ok((await card.innerText()).includes(text));
+          for(const area of [card,matrix]){
+            for(const source of p.researchSources){
+              assert.ok((await area.innerText()).includes(source.note));
+              assert.equal(await area.locator(`.nvm-stat-source a[href="${source.url}${source.page?'#page='+source.page:''}"]`).count(),1);
+            }
+            assert.equal(await area.locator(`a[href="${p.correctedFrom.url}"]`).count(),1);
+          }
+          for(const id of [p.id,p.correctedFrom.id]){
+            await search.fill(id);assert.equal(await vendor.locator('[data-map-record]:visible').count(),1);
+            assert.equal(await card.isVisible(),true);
+            assert.ok((await page.locator('#nvm-map-results').innerText()).includes(p.id));
+          }
+          await search.fill('');
+          await card.locator('.nvm-patent-claim-row').screenshot({path:path.join(out,`${locale}-${width}-${p.id}-權利項.png`)});
+        }
+        await search.fill(locale==='zh'?'上峰科技':'Attopsemi');assert.equal(await vendor.locator('[data-map-record]:visible').count(),2);
+        await search.fill('寬緯科技');assert.equal(await vendor.locator('[data-map-record]:visible').count(),0);await search.fill('');
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
         await vendor.locator('.nvm-vendor-profile-header').screenshot({path:path.join(out,`${locale}-${width}-公司.png`)});
         await matrix.screenshot({path:path.join(out,`${locale}-${width}-矩陣.png`)});
-        if(!baseline)await vendor.locator('[data-attribution-review]').first().screenshot({path:path.join(out,`${locale}-${width}-歸屬.png`)});
-        assert.deepEqual(errors,[]);results.push({locale,width,passed:true,name:record.name,records:2});await page.close();
+        for(const p of patents){
+          const alias=`vendor-patent-${family.id}-${p.correctedFrom.id}`;
+          await page.goto(`${url}&pm_company=everspin#${alias}`);
+          const anchor=page.locator(`#${alias}`);await anchor.waitFor({state:'visible'});
+          assert.ok((await anchor.innerText()).includes(p.correctedFrom.note));
+          assert.equal(await page.locator('#nvm-map-company').inputValue(),'');
+          assert.equal(await anchor.evaluate(n=>document.activeElement===n),true);
+          await page.reload();await anchor.waitFor({state:'visible'});
+          assert.ok((await anchor.innerText()).includes(p.correctedFrom.id));
+          const pathname=new URL(page.url()).pathname;
+          await Promise.all([page.waitForURL(u=>u.pathname!==pathname),page.locator('.language-toggle, #languageToggle').first().click()]);
+          await page.locator(`#${alias}`).waitFor({state:'visible'});
+          assert.equal(new URL(page.url()).hash,'#'+alias);
+        }
+        assert.deepEqual(errors,[]);results.push({locale,width,passed:true,records:2,claims:true,sources:true,correctionLinks:true,search:true,reload:true,language:true});await page.close();
       }
+      const nojs=await browser.newPage({javaScriptEnabled:false});await nojs.goto(`${url}#vendor-attopsemi`);
+      for(const p of patents)for(const id of [p.id,p.correctedFrom.id])assert.equal(await nojs.locator(`#vendor-patent-${family.id}-${id}`).isVisible(),true);
+      await nojs.close();
     }
   }finally{await browser.close();if(server)await server.close();}
-  fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results},null,2));console.log(JSON.stringify({views:results.length,passed:true}));
+  fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results,noJavaScript:true},null,2));console.log(JSON.stringify({views:results.length,passed:true}));
 }
 
 async function checkStatistics(){
@@ -144,7 +176,8 @@ const recordIDs = value=>value.vendors.flatMap(v=>v.families.flatMap(f=>f.patent
 const totalRecords=recordIDs(data.en).length;
 const uniquePublications=new Set(data.en.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>p.id)))).size;
 const baseline=JSON.parse(execFileSync('git',['show','3374f2a064815f0dc96e850c469b0710b19db828:data/nvm-vendor-patent-maps.json'],{cwd:root,encoding:'utf8'}));
-for(const id of recordIDs(baseline)) assert.ok(recordIDs(data.en).includes(id),'保留 Stage 3 所有原始案卷');
+const compatibleIDs=[...recordIDs(data.en),...data.en.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.filter(p=>p.correctedFrom).map(p=>`vendor-patent-${f.id}-${p.correctedFrom.id}`)))];
+for(const id of recordIDs(baseline)) assert.ok(compatibleIDs.includes(id),'保留 Stage 3 入口；已核准的誤歸案卷重建以更正錨點承接');
 assert.deepEqual(recordIDs(data.en),recordIDs(data.zh),'雙語案卷識別一致');
 for (const [locale,value] of Object.entries(data)) {
   validateVendorPatentMaps(value);

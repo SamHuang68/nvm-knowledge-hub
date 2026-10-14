@@ -304,31 +304,7 @@ const patentEnrichments = {
     ftoStatusEn: 'Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain.'
   },
 
-  // === 上峰科技 Attopsemi ===
-  'US9165979B2': {
-    legalStatus: 'active',
-    legalStatusZh: '有效專利 (In-Force / Active)',
-    legalStatusEn: 'In-Force / Active',
-    expirationDate: '2032-07-26',
-    patentCategory: '裝置結構與方法項 (Device & Method)',
-    patentCategoryEn: 'Device & Method',
-    generation: '奠基第一代 (Gen-1 Sub-Thermal I-fuse)',
-    generationEn: 'Gen-1 Sub-Thermal I-fuse',
-    ftoStatus: '專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。',
-    ftoStatusEn: 'In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures.'
-  },
-  'US9613943B2': {
-    legalStatus: 'active',
-    legalStatusZh: '有效專利 (In-Force / Active)',
-    legalStatusEn: 'In-Force / Active',
-    expirationDate: '2035-05-08',
-    patentCategory: '裝置結構項 (Device Structure)',
-    patentCategoryEn: 'Device Structure',
-    generation: '演進第二代 (Gen-2 Metal Gate Contact)',
-    generationEn: 'Gen-2 Metal Gate Contact',
-    ftoStatus: '專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。',
-    ftoStatusEn: 'In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces.'
-  },
+  // 上峰案卷的來源、狀態與界線由正式資料維護；不回填已誤歸的公報。
 
   // === Floadia ===
   'US9214470B2': {
