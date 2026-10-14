@@ -227,7 +227,7 @@ Storage uses an nFET gate dielectric and gate-current sensing. Published 3T adds
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat: eMemory Three-Transistor Fin Antifuse Application Publication (A1)](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016: Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Program
@@ -279,7 +279,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat: eMemory Three-Transistor Fin Antifuse Application Publication (A1)](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016: Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Erase Boundary
@@ -323,7 +323,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat: eMemory Three-Transistor Fin Antifuse Application Publication (A1)](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016: Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Read
@@ -375,7 +375,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat: eMemory Three-Transistor Fin Antifuse Application Publication (A1)](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016: Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### IP Cell Tradeoffs
@@ -6537,7 +6537,7 @@ For maximum bit density, low-cost bulk storage, or very small embedded caches at
 
 ### Patent Study
 
-- [US6545906B1](https://patents.google.com/patent/US6545906B1/en): Keep field writing within a controllable switching region and reduce the sensitivity of direct writing to magnetic-field amplitude and half-select conditions. Antiferromagnetically coupled free magnetic layers and sequentially applied write fields rotate the free magnetic moments along a designed trajectory to reverse the state. Claim Reading: Claim 1 links the coupled free layer with the write method. Read the layer structure, field order, and state transition together, rather than extracting only the word "toggle.". Limitations: This patent discloses a specific Toggle design. It does not establish the actual internal structure of every Everspin product or the patent's current legal status.
+- [US6545906B1](https://patents.google.com/patent/US6545906B1/en): Keep field writing within a controllable switching region and reduce the sensitivity of direct writing to magnetic-field amplitude and half-select conditions. Antiferromagnetically coupled free magnetic layers and sequentially applied write fields rotate the free magnetic moments along a designed trajectory to reverse the state. Claim Reading: Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1. Limitations: This patent discloses a specific Toggle design. It does not establish the actual internal structure of every Everspin product or the patent's current legal status.
 
 ### Check Your Understanding
 
@@ -8209,7 +8209,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [EMG-FEPUF: Original Research on FeFET Cycle Variation and Charge-Domain PUFs](https://www.nature.com/articles/s41467-024-55380-x). Original Research Paper; 2024; Accessed 2026-09-10; Location in the Source: Reconfigurable PUF structure, cycle variation, and validation; Limitations: PUF reconfigurability does not establish reproducibility in arbitrary environments, nor does it independently demonstrate resistance to attacks.
 - [EMG-FMC: FMC Industry News and Ferroelectric Memory Classification](https://www.ferroelectric-memory.com/industry-news/). Manufacturer News Collection; 2026-09-10; Accessed 2026-09-10; Location in the Source: Links to 2025 ferroelectric capacitor-based nonvolatile DRAM news and a 2026 interview; Limitations: The date is the verification date. News headlines alone cannot establish the respective production status of FeFET and capacitor-based memory.
 - [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en). Published patent; 1997-12-09; Location in the Source: Abstract and claim 1: fixed and variable moments and current through the stack; Limitations: An early magnetic structure, not a complete disclosure of modern perpendicular MgO MTJ processing.
-- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en). Published patent; 2003-04-08; Location in the Source: Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description; Limitations: Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative.
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en). Published patent; 2003-04-08; Location in the Source: Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing; Limitations: Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative.
 - [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en). Published Patent; 2021-02-23; Accessed 2026-09-10; Location in the Source: Figures 3–6 and 7A–7F; claims 1–13; Limitations: The original assignee and subsequent assignment history are distinguished. Area effects are not treated as production measurements.
 - [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en). Published patent; 2012-12-11; Location in the Source: Figures 3 and 5; ionic/defect redistribution and pulse conditions; Limitations: The patent-specific multilayer and two-stage pulse are not mandatory for every VCM.
 - [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en). Published patent; 1998-06-02; Location in the Source: Vertical embodiment, Figures 4A/4B; metal source, cathode nucleation, and reverse-bias retraction; Limitations: The diagram selects an active Ag upper electrode and inert lower electrode; different kinetics can alter nucleation sites.
@@ -8301,7 +8301,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Impedance-based OTP and GIDL suppression; full dielectric materials are undisclosed.
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19). Primary Technical Source; 2021-01-19; Location in the Source: Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling; Limitations: eMemory-authored article; an ultrathin-oxide DT model, not a metallic filament for all generations.
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies). Officially Reposted Executive Interview; 2024-12-09; Location in the Source: NeoFuse: patented 3T design and regulating transistor; Limitations: Confirms 3T and a regulating function, not every current netlist or cross-section.
-- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en). Public Patent; 2025-01-16; Location in the Source: Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268; Limitations: Related same-company embodiment, not explicitly branded NeoFuse.
+- [ip-neofuse-pat: eMemory Three-Transistor Fin Antifuse Application Publication (A1)](https://patents.google.com/patent/US20250024668A1/en). Application Publication (A1); 2025-01-16; Location in the Source: PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268; Limitations: A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping.
 - [ip-neofuse-9v-2016: Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC). Primary Technical Source; 2016-01-14; Location in the Source: 0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; Limitations: Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI.
 - [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en). Public Patent; 2007-08-09; Accessed 2026-09-10; Location in the Source: Figure 1; paragraphs [0025]–[0029]; Figure 2 contrast in [0031]; Limitations: Figure 1 explicitly names existing XPM. Reconstruct only its 2T function; exclude the intermediate output in Figure 2 and later self-sensing circuits.
 - [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/). Republished Vendor Announcement; 2012-05-15; Accessed 2026-09-10; Location in the Source: Body paragraphs naming 2T CMOS antifuse and XPM/Gusto; Limitations: Supports the 2T link for the named historical products and nodes, not every node, current macro, or identical layout across foundries.
@@ -9925,7 +9925,7 @@ Start with the two pulse waveforms in Figure 4, then follow the moments through 
 - 100 · Complete overlapping write sequence
 - 40 / 53 / 57 · Resultant moment and antiferromagnetically coupled sublayer moments
 
-Claim 1 combines at least two antiferromagnetically coupled free layers, a moment-balance condition and pulse order t₀<t₁<t₂<t₃<t₄. Arbitrary orthogonal field pulses are not equivalent.
+Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1.
 
 Compare the five-frame Toggle sequence and initial-state check: apply a toggle when the stored bit needs to change.
 

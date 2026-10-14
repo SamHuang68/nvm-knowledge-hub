@@ -227,7 +227,7 @@ NeoFuse — 單元結構
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat：力旺三電晶體鰭式反熔絲申請公開案（A1）](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016：具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — 寫入
@@ -279,7 +279,7 @@ NeoFuse — 單元結構
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat：力旺三電晶體鰭式反熔絲申請公開案（A1）](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016：具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — 抹除操作界線
@@ -323,7 +323,7 @@ NeoFuse — 單元結構
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat：力旺三電晶體鰭式反熔絲申請公開案（A1）](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016：具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — 讀取
@@ -375,7 +375,7 @@ NeoFuse — 單元結構
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
-- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-pat：力旺三電晶體鰭式反熔絲申請公開案（A1）](https://patents.google.com/patent/US20250024668A1/en)
 - [ip-neofuse-9v-2016：具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### IP 單元取捨
@@ -6537,7 +6537,7 @@ Toggle 序列執行一次會翻轉原狀態。若目標與原值相同，應跳�
 
 ### 專利導讀
 
-- [US6545906B1](https://patents.google.com/patent/US6545906B1/en)：讓磁場寫入在可控制的切換區域內工作，降低直接寫入對磁場幅度及半選條件的敏感性。。使用反鐵磁耦合自由磁層與依序施加的寫入磁場，使自由磁矩按設計路徑旋轉並翻轉。。權利項導讀：權利項 1 將耦合自由層及寫入方法連在一起；閱讀時應逐一對照層結構、場的順序與狀態改變，不能只摘出「翻轉」一詞。。限制：此案揭露特定 Toggle 設計；不證明全部 Everspin 產品的實際內部結構或現行法律狀態。
+- [US6545906B1](https://patents.google.com/patent/US6545906B1/en)：讓磁場寫入在可控制的切換區域內工作，降低直接寫入對磁場幅度及半選條件的敏感性。。使用反鐵磁耦合自由磁層與依序施加的寫入磁場，使自由磁矩按設計路徑旋轉並翻轉。。權利項導讀：權利項 1（PDF 第 12 頁）要求 N≥2 個反鐵磁耦合的鐵磁子層、0≤|Mbr|≤0.1 的子層磁矩平衡比，以及 t₀<t₁<t₂<t₃<t₄：字線於 t₁ 開啟、t₃ 關閉，digit line 於 t₂ 開啟、t₄ 關閉。先讀取並比較另見權利項 5、8；僅在資料不同時寫入另見權利項 21（PDF 第 13 頁），不可全部歸入權利項 1。。限制：此案揭露特定 Toggle 設計；不證明全部 Everspin 產品的實際內部結構或現行法律狀態。
 
 ### 檢查理解
 
@@ -8209,7 +8209,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [EMG-FEPUF：FeFET 循環變異與電荷域 PUF 原始研究](https://www.nature.com/articles/s41467-024-55380-x)。原始研究論文；2024；查閱 2026-09-10；定位：可重組 PUF 結構、循環變異與驗證；限制：PUF 的可重組性不等於任意環境的可再現性，更不單獨證明抗攻擊能力。
 - [EMG-FMC：FMC 產業新聞與鐵電記憶體分類](https://www.ferroelectric-memory.com/industry-news/)。原廠新聞彙整；2026-09-10；查閱 2026-09-10；定位：2025 年鐵電電容式非揮發 DRAM 與 2026 訪談連結；限制：查核日；新聞標題不足以辨識 FeFET、電容式記憶體的個別量產狀態。
 - [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)。公開專利；1997-12-09；定位：摘要及請求項 1：固定與可變磁矩、穿越堆疊的電流；限制：早期磁性結構，不是現代 MgO 垂直 MTJ 製程的完整揭露。
-- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)。公開專利；2003-04-08；定位：圖 4–6；SAF 自由層、t0–t4 脈衝序列及讀取比較說明；限制：僅表示此近似平衡 SAF 的 Toggle 實施例；旋轉角度為教材示意。
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)。公開專利；2003-04-08；定位：圖 4–6；PDF 第 12 頁權利項 1 的 SAF／時序；權利項 5、8 的讀取比較及第 13 頁權利項 21 的條件寫入；限制：僅表示此近似平衡 SAF 的 Toggle 實施例；旋轉角度為教材示意。
 - [EMG-P-SOT：Spin Memory 可縮放 SOT 元件製程專利](https://patents.google.com/patent/US10930843B2/en)。公開專利；2021-02-23；查閱 2026-09-10；定位：圖 3–6、7A–7F；權利項 1–13；限制：原始受讓人與後續受讓鏈分開；面積效果不當作量產量測。
 - [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)。公開專利；2012-12-11；定位：圖 3、5；離子／缺陷調整與脈衝條件；限制：專利的多層與兩階段脈衝不是所有 VCM 必備條件。
 - [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)。公開專利；1998-06-02；定位：垂直實施例圖 4A/4B；金屬源、陰極成核與反向偏壓回縮；限制：此圖選擇活性 Ag 上電極與惰性下電極；其他動力學可能改變成核位置。
@@ -8301,7 +8301,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：阻抗式 OTP 及 GIDL 抑制；未公開完整層材。
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)。原始技術來源；2021-01-19；定位：Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling；限制：力旺署名原文；超薄氧化層的 DT 模型，不是所有世代的金屬導通絲。
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)。官方轉載主管訪談；2024-12-09；定位：NeoFuse: patented 3T design and regulating transistor；限制：確認 3T 與調節功能，未確認全部現行接線及剖面。
-- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)。公開專利；2025-01-16；定位：Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268；限制：同公司相關實施例，未直接以 NeoFuse 命名。
+- [ip-neofuse-pat：力旺三電晶體鰭式反熔絲申請公開案（A1）](https://patents.google.com/patent/US20250024668A1/en)。申請公開案（A1）；2025-01-16；定位：PDF 第 7–9 頁圖 2、3A／3B；第 21 頁權利項 1；閘介電層 262／264／266／268；限制：A1 是申請公開，並非核准證據。權利項 1 包含選擇、跟隨及反熔絲電晶體、鰭頂與兩側閘介電層、端點接線及編程偏壓；本頁 3T 教學圖未逐項重現鰭式幾何，也不能證明 NeoFuse 產品對應。
 - [ip-neofuse-9v-2016：具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)。原廠新聞；2016-01-14；定位：0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming；限制：具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。
 - [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)。公開專利；2007-08-09；查閱 2026-09-10；定位：圖 1；段落 [0025]–[0029]；[0031] 的圖 2 差異；限制：圖 1 明稱既有 XPM；只重建 2T 功能，不混入圖 2 的中間輸出或後續自我感測電路。
 - [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)。原廠新聞轉載；2012-05-15；查閱 2026-09-10；定位：內文 2T CMOS antifuse、XPM／Gusto 段落；限制：支持指定年代與節點產品的 2T 連結；不推定所有節點、現行巨集或各晶圓廠共用相同版圖。
@@ -9925,7 +9925,7 @@ Ag 活性電極氧化釋出 Ag+；離子遷移至陰極還原成核，金屬橋�
 - 100 · 整組交錯寫入時序
 - 40 / 53 / 57 · 合成磁矩及反鐵磁耦合子層磁矩
 
-權利項 1 同時要求至少兩層反鐵磁耦合自由層、磁矩平衡條件，以及 t₀<t₁<t₂<t₃<t₄ 的脈衝順序。不是任意兩個正交磁場都具有相同結果。
+權利項 1（PDF 第 12 頁）要求 N≥2 個反鐵磁耦合的鐵磁子層、0≤|Mbr|≤0.1 的子層磁矩平衡比，以及 t₀<t₁<t₂<t₃<t₄：字線於 t₁ 開啟、t₃ 關閉，digit line 於 t₂ 開啟、t₄ 關閉。先讀取並比較另見權利項 5、8；僅在資料不同時寫入另見權利項 21（PDF 第 13 頁），不可全部歸入權利項 1。
 
 對照 Toggle 的五格序列與初態檢查：需要改寫時才觸發翻轉。
 

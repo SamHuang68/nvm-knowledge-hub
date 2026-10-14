@@ -112,7 +112,7 @@ function sourceList(ids,language){
   const source=DATA.sources.find(s=>s.id===id);
   if(!source)throw new Error('來源不存在：'+id);
   const fields=source[language];
-  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='作者指定教學參考'?'Author-defined Teaching Reference':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
+  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='申請公開案（A1）'?'Application Publication (A1)':source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='作者指定教學參考'?'Author-defined Teaching Reference':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
  });
 }
 function legend(id,language){
@@ -348,18 +348,18 @@ const DATA={
     {
       "id": "ip-neofuse-pat",
       "url": "https://patents.google.com/patent/US20250024668A1/en",
-      "kind": "公開專利",
+      "kind": "申請公開案（A1）",
       "zh": {
-        "label": "三電晶體反熔絲相關專利",
+        "label": "力旺三電晶體鰭式反熔絲申請公開案（A1）",
         "date": "2025-01-16",
-        "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-        "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+        "locator": "PDF 第 7–9 頁圖 2、3A／3B；第 21 頁權利項 1；閘介電層 262／264／266／268",
+        "limit": "A1 是申請公開，並非核准證據。權利項 1 包含選擇、跟隨及反熔絲電晶體、鰭頂與兩側閘介電層、端點接線及編程偏壓；本頁 3T 教學圖未逐項重現鰭式幾何，也不能證明 NeoFuse 產品對應。"
       },
       "en": {
-        "label": "Related Three-Transistor Antifuse Patent",
+        "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
         "date": "2025-01-16",
-        "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-        "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+        "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+        "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
       }
     },
     {
