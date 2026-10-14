@@ -38,6 +38,9 @@ function withoutMap(html) {
   throw new Error('專利地圖 article 邊界不完整');
 }
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html']) {
+  const previous=execFileSync('git',['show',`8dda320f6b26c745c578d06d9aa0bbad6835b9ad:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
+  const mask=html=>html.replace(/<div class="nvm-vendor-stat-card">.*?<\/div>/u,'<div>力旺核准統計卡</div>');
+  assert.equal(mask(read(file)),mask(previous),'這次生成頁面僅更動力旺第一張統計卡；其餘文字與功能標記逐字不變');
   const before=withoutMap(original(file));
   const after=withoutMap(read(file));
   assert.equal(after,before,'其他 Atlas 章節與入口未被重寫');
