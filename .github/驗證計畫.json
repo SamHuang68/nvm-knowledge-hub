@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "b7d966b2414d7a00d49c0d6ac748b759d8b28826",
+  "baseCommit": "dcea45ff36fe40b4d6f0f52428fc88b7c0efc98c",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -31,7 +31,12 @@
         "nvm-technology-atlas.html",
         "nvm-technology-atlas-zh.html",
         "scripts/enrich-patents.mjs",
-        "scripts/update-stage1-dossiers.mjs"
+        "scripts/update-stage1-dossiers.mjs",
+        "scripts/update-stage2-dossiers.mjs",
+        "scripts/update-stage3-dossiers.mjs",
+        "scripts/update-stage4-dossiers.mjs",
+        "scripts/update-stage5-dossiers.mjs",
+        "nvm-vendor-patent-maps.css"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -53,16 +58,20 @@
         "nvm-vendor-patent-maps.css",
         ".github/驗證計畫.json",
         "scripts/enrich-patents.mjs",
-        "scripts/update-stage1-dossiers.mjs"
+        "scripts/update-stage1-dossiers.mjs",
+        "scripts/update-stage2-dossiers.mjs",
+        "scripts/update-stage3-dossiers.mjs",
+        "scripts/update-stage4-dossiers.mjs",
+        "scripts/update-stage5-dossiers.mjs"
       ],
-      "reason": "重建上峰案卷與回填入口；名稱、四項統計、其他十一家及其他頁面精確保全",
+      "reason": "十一家案卷來源重建；上峰、全部統計、其他章節保全；六個原入口按原範圍同步、冪等並拒絕缺來源資料",
       "prepare": [
         "node"
       ],
-      "timeoutSeconds": 20
+      "timeoutSeconds": 40
     },
     {
-      "id": "上峰公報與權利項案卷",
+      "id": "十一家公報與權利項案卷",
       "kind": "command",
       "targets": [
         "scripts/專利地圖驗證.mjs"
@@ -71,7 +80,8 @@
         "scripts/專利地圖驗證.mjs",
         "scripts/nvm-vendor-patent-maps-ui.mjs",
         "data/nvm-vendor-patent-maps.json",
-        "data/nvm-vendor-patent-maps-en.json"
+        "data/nvm-vendor-patent-maps-en.json",
+        "nvm-vendor-patent-maps.css"
       ],
       "inputs": [
         "scripts/專利地圖驗證.mjs",
@@ -88,16 +98,16 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "上峰兩件公報、姓名、權利項、來源、舊錨點、搜尋、矩陣與匯出；雙語桌面手機四案及無腳本入口",
+      "reason": "五十九筆公報、人員、權利項、原件頁碼、更正歷史、雙語匯出、矩陣與待核對狀態；雙語桌面手機四案及舊錨點",
       "prepare": [
         "node",
         "browser"
       ],
-      "timeoutSeconds": 90,
+      "timeoutSeconds": 120,
       "command": [
         "node",
         "scripts/專利地圖驗證.mjs",
-        "--dossier-only"
+        "--vendors-only"
       ]
     }
   ]
