@@ -57,6 +57,10 @@ function renderMapExplorer(data, en) {
  * 驗證廠商專利地圖資料契約之完整性
  * @param {object} data 專利地圖資料物件
  */
+function validateResearchSource(source){
+  if(!source?.title||!source.note||!/^https:\/\//u.test(source.url||'')||!/^\d{4}-\d{2}-\d{2}$/u.test(source.date||'')||!['published','checked'].includes(source.dateKind))throw new Error('上峰研究來源不完整');
+  for(const reference of source.references||[])validateResearchSource(reference);
+}
 export function validateVendorPatentMaps(data) {
   if (!data || !Array.isArray(data.vendors) || !data.vendors.length) {
     throw new Error('廠商專利地圖缺少 vendors 陣列');
@@ -68,6 +72,8 @@ export function validateVendorPatentMaps(data) {
     if(vendor.id==='attopsemi'){
       const source=vendor.nameSource;
       if(!source?.note||!source.title||!source.url?.startsWith('https://www.attopsemi.com/')||!source.date||source.dateKind!=='checked'||!vendor.attributionNote)throw new Error('上峰科技名稱來源不完整');
+      if(!vendor.personnelSource||vendor.researchSources?.length!==2||!vendor.founders.includes('Shine Chung')||/[鍾鐘]/u.test(vendor.founders)||vendor.families.flatMap(f=>f.patents).length!==2)throw new Error('上峰人員與研究來源不完整');
+      for(const source of [vendor.personnelSource,...vendor.researchSources])validateResearchSource(source);
       if(vendor.name.includes('寬緯')||vendor.name.includes('Technology Inc.'))throw new Error('上峰科技公司名稱不符合官方來源');
     }
     for (const key of ['id', 'name', 'shortName', 'headquarters', 'founded', 'founders', 'businessModel', 'strategy']) {
@@ -101,9 +107,12 @@ export function validateVendorPatentMaps(data) {
         throw new Error(`專利家族 ${family.id} 缺少 patents 列表`);
       }
       for (const patent of family.patents) {
-        if(vendor.id==='attopsemi'&&['US9165979B2','US9613943B2'].includes(patent.id)){
-          const review=patent.attributionReview;
-          if(!review?.note||!review.title||!review.url?.startsWith('https://patentimages.storage.googleapis.com/')||review.page!==1||!review.date||review.dateKind!=='checked'||patent.assignee.includes('Attopsemi'))throw new Error('已知歸屬衝突缺少來源或仍誤列上峰為受讓人');
+        if(vendor.id==='attopsemi'){
+          const pairs={US9711237B2:['US9165979B2',86],US10923204B2:['US9613943B2',104]},expected=pairs[patent.id];
+          if(!expected||patent.correctedFrom?.id!==expected[0]||patent.correctedFrom.url!==`https://patents.google.com/patent/${expected[0]}/en`||!patent.correctedFrom.note)throw new Error('上峰案卷公報或更正對應不正確');
+          if(!patent.assignee.includes('Attopsemi Technology Co., Ltd.')||patent.inventors!=='Shine C. Chung')throw new Error('上峰案卷首頁身分不正確');
+          if(patent.researchSources?.length!==3||patent.researchSources[0].page!==expected[1]||!patent.researchSources[0].url.startsWith('https://patentimages.storage.googleapis.com/'))throw new Error('上峰案卷權利項來源不完整');
+          for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
         }
         if (patentIds.has(patent.id)) throw new Error(`同組合重複公報：${patent.id}`);
         patentIds.add(patent.id);
@@ -163,7 +172,7 @@ function renderPatentRecord(patent, family, vendor, en) {
       };
 
   const familyId = family.id;
-  const searchText = [vendor.name,vendor.shortName,family.name,family.technologyType,family.physicalMechanism,patent.id,patent.title,patent.assignee,patent.coreProblem,patent.mechanism,patent.claimFocus,patent.productLink].join(' ').normalize('NFKC').toLocaleLowerCase();
+  const searchText = [vendor.name,vendor.shortName,family.name,family.technologyType,family.physicalMechanism,patent.id,...(patent.correctedFrom?[patent.correctedFrom.id]:[]),patent.title,patent.assignee,patent.coreProblem,patent.mechanism,patent.claimFocus,patent.productLink].join(' ').normalize('NFKC').toLocaleLowerCase();
   const isActive = patent.legalStatus === 'active';
   const statusBadge = `<span class="nvm-patent-badge-status ${isActive?'nvm-status-active':'nvm-status-expired'}"><span class="nvm-status-indicator" aria-hidden="true"></span>${recordedStatus(patent.legalStatus,en)}</span>`;
   const expiryText = `${en?'Recorded term date':'收錄期滿日'}: ${esc(patent.expirationDate)}`;
@@ -171,7 +180,7 @@ function renderPatentRecord(patent, family, vendor, en) {
   const categoryBadge = `<span class="nvm-patent-badge-pill nvm-badge-cat" title="${en ? 'Claim Scope Type' : '權利項範疇類型'}">${esc(en ? patent.patentCategoryEn : patent.patentCategory)}</span>`;
   const genBadge = `<span class="nvm-patent-badge-pill nvm-badge-gen" title="${en ? 'Technology Generation' : '技術世代分類'}">${esc(en ? patent.generationEn : patent.generation)}</span>`;
 
-  return `<div data-map-record data-map-status="${esc(patent.legalStatus)}" data-map-search="${esc(searchText)}" class="nvm-vendor-patent-card ${isActive ? 'nvm-card-active' : 'nvm-card-expired'}" id="vendor-patent-${esc(familyId)}-${esc(patent.id)}"><div class="nvm-patent-card-head"><div class="nvm-patent-card-identity"><a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer" class="nvm-patent-id-badge">${esc(patent.id)} <span aria-hidden="true">↗</span></a><h6 class="nvm-patent-card-title" tabindex="-1">${esc(patent.title)}</h6></div><div class="nvm-patent-card-badges">${statusBadge}<span class="nvm-patent-expiry-tag">${expiryText}</span>${categoryBadge}${genBadge}</div></div>${attributionHtml(patent,en)}<div class="nvm-map-record-actions"><a data-map-return href="#nvm-map-heading">${en ? 'Back to map search' : '返回地圖搜尋'}</a></div><dl class="nvm-patent-card-body"><div class="nvm-patent-grid-row nvm-patent-claim-row"><dt>${labels.claim}</dt><dd class="nvm-patent-claim-text">${esc(patent.claimFocus)}</dd></div><div class="nvm-patent-grid-row nvm-patent-fto-row"><dt>${labels.fto}</dt><dd class="nvm-patent-fto-text"><p>${esc(en ? patent.ftoStatusEn : patent.ftoStatus)}</p></dd></div><div class="nvm-patent-grid-row"><dt>${labels.mechanism}</dt><dd>${esc(patent.mechanism)}</dd></div><div class="nvm-patent-grid-row"><dt>${labels.problem}</dt><dd>${esc(patent.coreProblem)}</dd></div><div class="nvm-patent-grid-row"><dt>${labels.product}</dt><dd><strong>${esc(patent.productLink)}</strong></dd></div><div class="nvm-patent-footer-meta"><dt>${labels.assignee}</dt><dd>${esc(patent.assignee)}</dd><dt>${labels.inventors}</dt><dd>${esc(patent.inventors)} · ${labels.priority}: ${esc(patent.priorityDate)} · ${labels.grant}: ${esc(patent.grantDate)} · <a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">${labels.viewFull} <span aria-hidden="true">↗</span></a></dd></div></dl></div>`;
+  return `<div data-map-record data-map-status="${esc(patent.legalStatus)}" data-map-search="${esc(searchText)}" class="nvm-vendor-patent-card ${isActive ? 'nvm-card-active' : 'nvm-card-expired'}" id="vendor-patent-${esc(familyId)}-${esc(patent.id)}"><div class="nvm-patent-card-head"><div class="nvm-patent-card-identity"><a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer" class="nvm-patent-id-badge">${esc(patent.id)} <span aria-hidden="true">↗</span></a><h6 class="nvm-patent-card-title" tabindex="-1">${esc(patent.title)}</h6></div><div class="nvm-patent-card-badges">${statusBadge}<span class="nvm-patent-expiry-tag">${expiryText}</span>${categoryBadge}${genBadge}</div></div>${attributionHtml(patent,en)}${correctionHtml(patent,en,familyId)}<div class="nvm-map-record-actions"><a data-map-return href="#nvm-map-heading">${en ? 'Back to map search' : '返回地圖搜尋'}</a></div><dl class="nvm-patent-card-body"><div class="nvm-patent-grid-row nvm-patent-claim-row"><dt>${labels.claim}</dt><dd class="nvm-patent-claim-text">${esc(patent.claimFocus)}${researchHtml(patent.researchSources,en)}</dd></div><div class="nvm-patent-grid-row nvm-patent-fto-row"><dt>${labels.fto}</dt><dd class="nvm-patent-fto-text"><p>${esc(en ? patent.ftoStatusEn : patent.ftoStatus)}</p></dd></div><div class="nvm-patent-grid-row"><dt>${labels.mechanism}</dt><dd>${esc(patent.mechanism)}</dd></div><div class="nvm-patent-grid-row"><dt>${labels.problem}</dt><dd>${esc(patent.coreProblem)}</dd></div><div class="nvm-patent-grid-row"><dt>${labels.product}</dt><dd><strong>${esc(patent.productLink)}</strong></dd></div><div class="nvm-patent-footer-meta"><dt>${labels.assignee}</dt><dd>${esc(patent.assignee)}</dd><dt>${labels.inventors}</dt><dd>${esc(patent.inventors)} · ${labels.priority}: ${esc(patent.priorityDate)} · ${labels.grant}: ${esc(patent.grantDate)} · <a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">${labels.viewFull} <span aria-hidden="true">↗</span></a></dd></div></dl></div>`;
 }
 
 /**
@@ -245,6 +254,19 @@ function sourcedNoteHtml(source,en){
 function sourcedNoteMarkdown(source,en){
   return source ? metricSourceMarkdown({metricSources:{note:source}},'note',en) : '';
 }
+function researchHtml(sources,en){
+  return (sources||[]).map(source=>sourcedNoteHtml(source,en)).join('');
+}
+function correctionHtml(p,en,familyId){
+  const c=p.correctedFrom;
+  if(!c)return '';
+  const anchor=familyId?` id="vendor-patent-${esc(familyId)}-${esc(c.id)}" tabindex="-1"`:'';
+  return `<aside class="nvm-map-status-note" data-patent-correction${anchor}><strong>${en?'Correction History':'案卷更正紀錄'} · <a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.id)}</a></strong><p>${esc(c.note)}</p>${sourcedNoteHtml(c.source,en)}</aside>`;
+}
+function correctionMarkdown(p,en){
+  const c=p.correctedFrom;
+  return c?`${en?'Correction History':'案卷更正紀錄'} · [${c.id}](${c.url}) — ${c.note} ${sourcedNoteMarkdown(c.source,en)}`:'';
+}
 function attributionHtml(p,en){
   return p.attributionReview ? `<aside class="nvm-map-status-note" data-attribution-review><strong>${en?'Attribution Conflict':'歸屬衝突'}</strong>${sourcedNoteHtml(p.attributionReview,en)}</aside>` : '';
 }
@@ -294,7 +316,7 @@ function renderVendorStudy(vendor, en, cite) {
   const activeCount = allPatents.filter(p => p.legalStatus === 'active').length;
   const expiredCount = allPatents.filter(p => p.legalStatus === 'expired').length;
 
-  return `<section id="vendor-${esc(vendor.id)}" data-map-vendor="${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'COMPANY / IP LINEAGE DOSSIER' : '廠商／IP 沿革案卷'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3>${sourcedNoteHtml(vendor.nameSource,en)}${vendor.attributionNote?`<p class="nvm-map-status-note">${esc(vendor.attributionNote)}</p>`:""}<div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Recorded Status:' : '收錄狀態：'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'Recorded active' : '筆標示有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Recorded expired' : '筆標示屆滿'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}${item.sourceNote||''}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p></div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, vendor, en)).join('')}</div>${renderLitigationDefense(vendor.litigationDefense, en)}${renderMilestones(vendor.milestones, en)}</section>`;
+  return `<section id="vendor-${esc(vendor.id)}" data-map-vendor="${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'COMPANY / IP LINEAGE DOSSIER' : '廠商／IP 沿革案卷'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3>${sourcedNoteHtml(vendor.nameSource,en)}${sourcedNoteHtml(vendor.personnelSource,en)}${vendor.attributionNote?`<p class="nvm-map-status-note">${esc(vendor.attributionNote)}</p>`:""}<div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Recorded Status:' : '收錄狀態：'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'Recorded active' : '筆標示有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Recorded expired' : '筆標示屆滿'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}${item.sourceNote||''}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p>${researchHtml(vendor.researchSources,en)}</div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, vendor, en)).join('')}</div>${renderLitigationDefense(vendor.litigationDefense, en)}${renderMilestones(vendor.milestones, en)}</section>`;
 }
 
 /**
@@ -332,11 +354,11 @@ function renderCompetitiveMatrix(data, en) {
       const isActive = p.legalStatus === 'active';
       const statusClass = isActive ? 'nvm-patent-tag-active' : 'nvm-patent-tag-expired';
       const tooltip = `${esc(p.title)} · ${recordedStatus(p.legalStatus,en)}`;
-      return `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="nvm-landscape-patent-badge ${statusClass}" title="${tooltip}"><span class="nvm-status-dot" aria-hidden="true">${isActive ? '●' : '○'}</span> ${esc(p.id)} <span aria-hidden="true">↗</span></a>${attributionHtml(p,en)}`;
+      return `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="nvm-landscape-patent-badge ${statusClass}" title="${tooltip}"><span class="nvm-status-dot" aria-hidden="true">${isActive ? '●' : '○'}</span> ${esc(p.id)} <span aria-hidden="true">↗</span></a>${attributionHtml(p,en)}${p.researchSources?`<p>${esc(p.title)}</p>`:""}${researchHtml(p.researchSources,en)}${correctionHtml(p,en)}`;
     }).join(' ');
     const foundrySummary = `<p class="nvm-landscape-foundry-p"><strong>${en ? 'Foundries:' : '代工平台：'}</strong>${esc(vendor.patentStats.foundryCoverage)}</p>${metricSourceHtml(vendor.patentStats,'foundryCoverage',en)}<p class="nvm-landscape-foundry-p"><strong>${en ? 'Shipment:' : '量產實績：'}</strong>${esc(vendor.patentStats.waferShipment)}</p>${metricSourceHtml(vendor.patentStats,'waferShipment',en)}`;
 
-    return `<tr><td data-label="${colLabels[0]}"><span class="nvm-landscape-vendor-no">${no}</span><a href="#vendor-${esc(vendor.id)}" class="nvm-landscape-vendor-link"><strong>${esc(vendor.shortName)}</strong></a><p class="nvm-landscape-vendor-sub">${esc(vendor.name)}</p>${sourcedNoteHtml(vendor.nameSource,en)}${vendor.attributionNote?`<p class="nvm-map-status-note">${esc(vendor.attributionNote)}</p>`:""}<small class="nvm-landscape-model">${esc(vendor.businessModel)}</small></td><td data-label="${colLabels[1]}">${familiesSummary}</td><td data-label="${colLabels[2]}">${physicsSummary}</td><td data-label="${colLabels[3]}"><div class="nvm-landscape-patents">${patentsSummary}</div></td><td data-label="${colLabels[4]}">${foundrySummary}</td></tr>`;
+    return `<tr><td data-label="${colLabels[0]}"><span class="nvm-landscape-vendor-no">${no}</span><a href="#vendor-${esc(vendor.id)}" class="nvm-landscape-vendor-link"><strong>${esc(vendor.shortName)}</strong></a><p class="nvm-landscape-vendor-sub">${esc(vendor.name)}</p>${sourcedNoteHtml(vendor.nameSource,en)}${sourcedNoteHtml(vendor.personnelSource,en)}${vendor.attributionNote?`<p class="nvm-map-status-note">${esc(vendor.attributionNote)}</p>`:""}<small class="nvm-landscape-model">${esc(vendor.businessModel)}</small></td><td data-label="${colLabels[1]}">${familiesSummary}</td><td data-label="${colLabels[2]}">${physicsSummary}</td><td data-label="${colLabels[3]}"><div class="nvm-landscape-patents">${patentsSummary}</div></td><td data-label="${colLabels[4]}">${foundrySummary}</td></tr>`;
   }).join('');
 
   const legend = `<p class="nvm-map-status-note">${esc(evidenceNote(en))}</p>`;
@@ -378,6 +400,7 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
 
     md += `### ${v.name} (${v.shortName})\n\n`;
     if(v.nameSource)md+=`${sourcedNoteMarkdown(v.nameSource,en)}\n\n${v.attributionNote}\n\n`;
+    if(v.personnelSource)md+=`${sourcedNoteMarkdown(v.personnelSource,en)}\n\n`;
     md += `- **${en ? 'Headquarters' : '總部'}**: ${v.headquarters}\n`;
     md += `- **${en ? 'Founded' : '創立年份'}**: ${v.founded}\n`;
     md += `- **${en ? 'Leadership' : '核心研發/發明人'}**: ${v.founders}\n`;
@@ -394,6 +417,7 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
     }
     md += `- **${en ? 'Patent Strategy' : '專利護城河戰略'}**: ${v.strategy}\n\n`;
 
+    for(const source of v.researchSources||[])md+=`${sourcedNoteMarkdown(source,en)}\n\n`;
     for (const f of v.families) {
       md += `#### ${f.name} (${f.technologyType})\n\n`;
       md += `*${f.tagline}*\n\n`;
@@ -403,6 +427,8 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
 
       for (const p of f.patents) {
         md += `##### [${p.id}](${p.url}) · ${p.title}\n\n`;
+        if(p.correctedFrom)md+=`> ${correctionMarkdown(p,en)}\n\n`;
+        for(const source of p.researchSources||[])md+=`${sourcedNoteMarkdown(source,en)}\n\n`;
         if(p.attributionReview)md+=`> ${sourcedNoteMarkdown(p.attributionReview,en)}\n\n`;
         md += `- **${en ? 'Recorded Status' : '收錄狀態'}**: ${recordedStatus(p.legalStatus,en)} (${en ? 'Recorded term date:' : '收錄期滿日:'} ${p.expirationDate})\n`;
         md += `- **${en ? 'Category & Generation' : '分類與世代'}**: ${en ? p.patentCategoryEn : p.patentCategory} · ${en ? p.generationEn : p.generation}\n`;
@@ -439,9 +465,9 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
     const no = String(i + 1).padStart(2, '0');
     const fam = v.families.map(f => `${f.name.split(' ')[0]} (${f.technologyType})`).join('；');
     const phy = v.families.map(f => `${f.name.split(' ')[0]}: ${f.physicalMechanism}`).join('；');
-    const pat = v.families.flatMap(f => f.patents).map(p => `[${p.id} (${recordedStatus(p.legalStatus,en)})](${p.url})${p.attributionReview?" — "+sourcedNoteMarkdown(p.attributionReview,en):""}`).join(', ');
+    const pat = v.families.flatMap(f => f.patents).map(p => `[${p.id} (${recordedStatus(p.legalStatus,en)})](${p.url})${p.attributionReview?" — "+sourcedNoteMarkdown(p.attributionReview,en):""}${p.researchSources?"<br>"+p.title+"<br>"+p.researchSources.map(source=>sourcedNoteMarkdown(source,en)).join("<br>"):""}${p.correctedFrom?"<br>"+correctionMarkdown(p,en):""}`).join(', ');
     const fnd = `${v.patentStats.foundryCoverage} (${v.patentStats.waferShipment})${v.patentStats.metricSources ? '<br>'+['foundryCoverage','waferShipment'].map(key=>metricSourceMarkdown(v.patentStats,key,en)).join('<br>') : ''}`;
-    md += `| ${no}. ${v.shortName}${v.nameSource?"<br>"+v.name+"<br>"+sourcedNoteMarkdown(v.nameSource,en)+"<br>"+v.attributionNote:""} | ${fam} | ${phy} | ${pat} | ${fnd} |\n`;
+    md += `| ${no}. ${v.shortName}${v.nameSource?"<br>"+v.name+"<br>"+sourcedNoteMarkdown(v.nameSource,en)+"<br>"+v.attributionNote+(v.personnelSource?"<br>"+sourcedNoteMarkdown(v.personnelSource,en):""):""} | ${fam} | ${phy} | ${pat} | ${fnd} |\n`;
   }
   md += '\n\n';
 

@@ -108,37 +108,10 @@ const stage1Litigation = {
     }
   },
 
+  // 上峰案卷沿用具原件來源的正式資料，禁止舊版敘述回填。
   attopsemi: {
-    zh: {
-      title: '非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔',
-      overview: '上峰科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。',
-      keyBattles: [
-        {
-          heading: '打破傳統 eFuse 物理爆破專利邊界',
-          detail: '傳統多晶矽熔絲 (如 IBM、台積電早期專利) 是利用大電流（>10mA）引發極端高溫熱應力，使熔絲劇烈爆斷。其缺點是會釋放矽蒸汽碎屑並撕裂鈍化層，極易受潮回春造成漏電。Attopsemi 核心專利 US9165979B2 與 US9613943B2 從根本上反向操作，限定編程電流被精確限縮於亞熱退火區間，完全不破壞多晶矽或介電層實體完整性。'
-        },
-        {
-          heading: '0.4V 超低電壓讀取與車規 150°C 專利保護圈',
-          detail: '由於熔絲未被物理炸碎，而是以金屬矽化物凝聚形成穩定的百兆歐姆高阻態，Attopsemi 專利鎖定了 0.4V 超低電壓無感測擾動讀取，並延伸申請了金屬閘極 HKMG 插塞界面電遷移專利 (US9613943B2) 與熱隔離差動結構 (US10410724B2)，有效覆蓋 0.35µm 至 7nm/5nm 先進製程。'
-        }
-      ],
-      ftoVerdict: '【自由實施建議】傳統多晶矽爆破型 eFuse 大多數基礎專利已於 2010–2018 年過期；但 Attopsemi 的受控電流亞熱凝聚 (Non-explosive current-limited) 與 0.4V 讀取專利仍處於強固保護期（有效維持至 2032–2038 年），任何宣稱非破壞性退火熔斷之技術皆須嚴密審視其侵權風險。'
-    },
-    en: {
-      title: 'Non-Explosive Sub-Thermal I-fuse vs. Legacy eFuse Moat',
-      overview: 'Founded by former TSMC memory R&D director Dr. Shine Chung, Attopsemi differentiated its patent moat by overturning legacy explosive eFuse doctrines, establishing proprietary exclusivity around sub-thermal silicide agglomeration (I-fuse).',
-      keyBattles: [
-        {
-          heading: 'Differentiating from Legacy Rupture eFuse Patents',
-          detail: 'Legacy poly eFuses (IBM, early TSMC patents) relied on heavy currents (>10mA) creating thermal rupture, which spews conductive debris and cracks passivation layers. Attopsemi US9165979B2 and US9613943B2 strictly confine programming energy below rupture thresholds, maintaining flawless physical passivation.'
-        },
-        {
-          heading: '0.4V Low-Voltage Readout & Automotive High-Temp Moat',
-          detail: 'Because the fuse line remains intact, the silicide agglomeration creates stable giga-ohm states. Attopsemi patented 0.4V sub-disturb reading, HKMG metal-gate contact interface migration (US9613943B2), and thermally isolated differential architectures (US10410724B2) spanning 0.35µm down to 5nm.'
-        }
-      ],
-      ftoVerdict: '[FTO Guidance] Basic patents on explosive rupture poly fuses expired between 2010–2018. However, Attopsemi controlled sub-thermal agglomeration and 0.4V readout patents are actively enforceable through 2032–2038.'
-    }
+    zh: zhData.vendors.find(v=>v.id==='attopsemi').litigationDefense,
+    en: enData.vendors.find(v=>v.id==='attopsemi').litigationDefense
   }
 };
 

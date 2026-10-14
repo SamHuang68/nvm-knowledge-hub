@@ -8599,7 +8599,7 @@
         "shortName": "上峰科技 Attopsemi",
         "headquarters": "台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan)",
         "founded": "2010 年",
-        "founders": "鍾世緯博士 (Dr. Shine C. Chung - 前台積電 NVM 研發處長) 團隊",
+        "founders": "莊建祥（Shine Chung），2010 年創辦人",
         "businessModel": "熱輔助受控電遷移熔絲 (I-fuse®) 邏輯 OTP IP 授權與設計服務 (Electromigration I-fuse OTP IP)",
         "patentStats": {
           "totalGrantedWorldwide": "90 件以上核准專利",
@@ -8641,78 +8641,138 @@
             }
           }
         },
-        "strategy": "Attopsemi (上峰科技) 專利戰略的核心為發明「非破壞性熱輔助電遷移熔絲 (I-fuse®)」。傳統 eFuse 在編程時依靠大電流引發劇烈熱失控 (Thermal Runaway) 爆炸熔斷，不僅會破壞金屬鈍化層產生矽渣飛濺，且高溫下多晶矽原子會重新凝固反彈，導致資料遺失；而 AntiFuse 則受限於介電層擊穿的均勻度。鍾世緯博士開創了在「亞熱失控 (Sub-Thermal Runaway)」條件下，藉由精確控制的電子風應力誘發多晶矽或金屬原子的質量傳輸，形成永久、不可逆的歐姆斷開態。這項發明具備 0-mask、超低編程電壓/電流、耐受 -40°C 至 175°C 車規極端溫度的卓越特性，並橫跨 0.35µm 成熟製程至 2nm 先進節點。",
+        "strategy": "I-fuse 以受控燒錄視窗內的熱輔助電遷移改變熔絲電阻。本案卷選錄可靠燒錄與非破壞性 OTP 測試的核准權利項，並與官方白皮書作技術對照；不把這種對照當成特定商用 IP 的逐項權利項映射。實際燒錄會改變電阻；測試用的假燒錄讀出狀態則不消耗 OTP 儲存態。",
         "families": [
           {
             "id": "attopsemi-ifuse-family",
-            "name": "I-fuse® 電遷移非爆破型高可靠度熔絲專利家族",
-            "tagline": "亞熱失控 (Sub-Thermal Runaway) · 受控電遷移質量傳輸 · -40°C~175°C 車規極限",
-            "technologyType": "Electromigration OTP (熱輔助電遷移不可逆熔絲)",
-            "cellTopology": "1T/1D + I-fuse Element (標準電晶體或二極體 + 奈米級多晶矽/金屬熔絲條)",
-            "physicalMechanism": "精準控制電流密度使電子風推動晶格原子遷移形成微觀空洞 (Void)，阻值由數百歐姆永久跳升至兆歐姆；不破壞鈍化層",
-            "processNode": "0.35µm 至 3nm / 2nm GAA 全節點覆蓋",
-            "summary": "高可靠度車用與物聯網安全領域的革命性專利。放棄毀滅性熱失控爆破，以固態物理電遷移機制建立永久高阻態，徹底解決了傳統 eFuse 的再接通 (Re-growth) 缺陷與 AntiFuse 的超薄閘氧漏電限制，具備 0 FIT失效率與百年資料留存壽命。",
+            "name": "I-fuse® 可靠燒錄與 OTP 可測試性技術組合",
+            "tagline": "受控燒錄視窗 · 非破壞性測試讀出",
+            "technologyType": "電熔絲 OTP",
+            "cellTopology": "電熔絲、選擇元件與讀取電路；官方白皮書以 1R1D 陣列說明。",
+            "physicalMechanism": "以熱輔助電遷移提高熔絲電阻以儲存資料；測試時以低偏壓同步寫入／讀取改變感測輸出，不改變儲存態。",
+            "processNode": "權利項未限定具名節點；引用的 2023 年產品公告確認 12 奈米 FinFET 矽驗證。",
+            "summary": "選錄兩件核准公報，分別解釋受控熔絲燒錄與可測試性。此處是編輯技術組合，不等於完整法律專利家族或公司全部權利。從屬項的材料選項不能證明所有製程節點皆已量產驗證。",
             "patents": [
               {
-                "id": "US9165979B2",
-                "title": "利用電遷移機制之非爆破型可程式化電阻元件與操作方法",
-                "grantDate": "2015-10-20",
-                "priorityDate": "2012-07-26",
+                "id": "US9711237B2",
+                "title": "可靠電熔絲燒錄的方法與結構",
+                "grantDate": "2017-07-18",
+                "priorityDate": "2010-08-20",
                 "inventors": "Shine C. Chung",
-                "assignee": "受讓人未於本次確認；核准公報首頁申請人為 Bao Tran（2015-10-20）。",
-                "url": "https://patents.google.com/patent/US9165979B2/en",
-                "coreProblem": "傳統 eFuse 熔斷時熱失控溫度超過 1400°C，造成鈍化層龜裂、金屬氣化飛濺與材料重新結晶回接，導致車規晶片嚴重可靠性失效。",
-                "mechanism": "設定編程電流密度與脈衝寬度，使熔絲條維持在熱平衡與亞熱失控溫度區間，利用純電子風電遷移驅動矽/金屬原子產生固態質量擴散，形成永久、穩定且周圍鈍化層完好無損的奈米級斷路。",
-                "claimFocus": "權利項 1 限定在非爆破與低於熱失控臨界值條件下以電遷移形成不可逆高阻態之熔絲元件與編程方法。",
-                "productLink": "I-fuse™ 旗艦核心 IP，獲 AEC-Q100 Grade-0 (-40°C 至 150°C/175°C) 車規最高可靠性認證。",
+                "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+                "url": "https://patents.google.com/patent/US9711237B2/en",
+                "coreProblem": "過大電流可能造成電阻突變與燒錄結果分散，必須界定可用燒錄視窗，不能把提高電流直接等同可靠燒錄。",
+                "mechanism": "說明書以臨界電流區分受控電遷移與破壞性燒錄。權利項 1 以多個脈衝逐步改變電阻，並限制電流低於臨界值；獨立項 9 另以讀取驗證建立燒錄上下界，屬另一組權利項條件。",
+                "claimFocus": "權利項 1 結合：複數 OTP 單元、接第一電源線的熔絲、接第二電源線並受致能訊號控制的選擇元件、多個電壓／電流脈衝逐步改變電阻、取得會造成電阻劇變的臨界電流，以及將燒錄電流限制在其下。從屬項 4 增列 CMOS 金屬閘極、金屬互連等材料；獨立項 9 另規範燒錄視窗校準。權利項 1 未限定 0.4V 讀取、車規認證或製程節點。",
+                "productLink": "權利項 1 的限流與權利項 9 的燒錄視窗，與 I-fuse 白皮書機制相符；屬編輯技術對照，不能擴成所有非爆破熔絲皆受其涵蓋，也不證明每個 I-fuse IP 都實施全部要件。",
                 "legalStatus": "active",
-                "legalStatusZh": "有效專利 (In-Force / Active)",
-                "legalStatusEn": "In-Force / Active",
-                "expirationDate": "2032-07-26",
-                "patentCategory": "裝置結構與方法項 (Device & Method)",
-                "patentCategoryEn": "Device & Method",
-                "generation": "奠基第一代 (Gen-1 Sub-Thermal I-fuse)",
-                "generationEn": "Gen-1 Sub-Thermal I-fuse",
-                "ftoStatus": "專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。",
-                "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures.",
-                "attributionReview": {
-                  "title": "歸屬衝突",
-                  "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
-                  "page": 1,
-                  "date": "2026-10-15",
-                  "dateKind": "checked",
-                  "note": "2015 年核准公報首頁列申請人 Bao Tran，未列受讓人。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。"
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "未於本次核定",
+                "patentCategory": "燒錄方法項",
+                "patentCategoryEn": "Programming Method",
+                "generation": "可靠燒錄主題 · 2017 年核准",
+                "generationEn": "Reliable Programming · 2017 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "researchSources": [
+                  {
+                    "title": "核准權利項與公報首頁",
+                    "url": "https://patentimages.storage.googleapis.com/7a/f8/cc/c3412a952ca0d0/US9711237.pdf",
+                    "date": "2017-07-18",
+                    "dateKind": "published",
+                    "note": "權利項位於 PDF 第 86 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年，各權利項能否享有該日須另行判斷。",
+                    "page": 86
+                  },
+                  {
+                    "title": "I-fuse 官方技術對照",
+                    "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "依官方白皮書作機制對照，非公司提供的產品對專利清單。",
+                    "page": 4
+                  },
+                  {
+                    "title": "收錄狀態來源",
+                    "url": "https://patents.google.com/patent/US9711237B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9165979B2",
+                  "url": "https://patents.google.com/patent/US9165979B2/en",
+                  "note": "原誤歸上峰的公報，保留原件連結供追查。本次替換為重新選錄的技術證據，不是同一專利換號。",
+                  "source": {
+                    "title": "歸屬衝突",
+                    "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
+                    "page": 1,
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "2015 年核准公報首頁列申請人 Bao Tran，未列受讓人。不支持原 Attopsemi 歸屬；原分析已由具來源的新案卷取代；此更正紀錄不判定目前權利人。"
+                  }
                 }
               },
               {
-                "id": "US9613943B2",
-                "title": "利用金屬閘極與接觸插塞電遷移之可程式化電阻記憶體",
-                "grantDate": "2017-04-04",
-                "priorityDate": "2015-05-08",
+                "id": "US10923204B2",
+                "title": "可完整測試的 OTP 記憶體",
+                "grantDate": "2021-02-16",
+                "priorityDate": "2010-08-20",
                 "inventors": "Shine C. Chung",
-                "assignee": "Micron Technology, Inc. — 核准公報首頁列示之受讓人（2017-04-04）。",
-                "url": "https://patents.google.com/patent/US9613943B2/en",
-                "coreProblem": "在 HKMG、FinFET 與 GAA 先進節點中已無傳統多晶矽層，如何直接共用先進金屬閘極與微型通孔實現零光罩 OTP？",
-                "mechanism": "將電遷移路徑直接建立在先進金屬閘極材料（TiN、TaN 或鎢/銅接觸插塞）上，利用奈米尺度金屬電遷移形成高阻斷路，實現 7nm/5nm/3nm/2nm 的無縫微縮相容。",
-                "claimFocus": "權利項 1 限定利用先進製程金屬閘極/導電通孔之金屬電遷移形成儲存態之元件結構。",
-                "productLink": "先進 FinFET/GAA 節點 I-fuse 解決方案，支援 AI 處理器晶片安全 ID 與修補。",
+                "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+                "url": "https://patents.google.com/patent/US10923204B2/en",
+                "coreProblem": "未燒錄 OTP 通常只能讀出初始狀態；若真正燒錄測試圖樣，會消耗可用位元，因此需在保留儲存態下測試兩種讀出值與周邊電路。",
+                "mechanism": "讀取時施加不足以真正燒錄的低電壓／電流，產生假燒錄讀出值，熔絲儲存態保持不變。交替正常與假燒錄讀出可形成測試圖樣；官方稱其實作為 CLVWR，這是測試模式，不是抹除或多次儲存。",
+                "claimFocus": "權利項 1 包含複數熔絲 OTP 單元、選擇元件、將電阻轉成邏輯值的讀取電路，以及不改變儲存態卻改變讀出值的低電壓／電流測試。從屬項 2 才加入初始電阻低於 400 歐姆；項 3 加入初始與非破壞性假燒錄讀出的交替。獨立項 13 保護交替非破壞性讀出測試圖樣；400 歐姆並非項 1 的必要條件，權利項也不構成零缺陷保證。",
+                "productLink": "公報摘要及權利項與 I-fuse 白皮書所稱 CLVWR 的低偏壓假燒錄讀出相符；技術相符不等於已完成特定客戶 IP 的逐項權利項映射，也不驗證所有宣傳的測試覆蓋率。",
                 "legalStatus": "active",
-                "legalStatusZh": "有效專利 (In-Force / Active)",
-                "legalStatusEn": "In-Force / Active",
-                "expirationDate": "2035-05-08",
-                "patentCategory": "裝置結構項 (Device Structure)",
-                "patentCategoryEn": "Device Structure",
-                "generation": "演進第二代 (Gen-2 Metal Gate Contact)",
-                "generationEn": "Gen-2 Metal Gate Contact",
-                "ftoStatus": "專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。",
-                "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces.",
-                "attributionReview": {
-                  "title": "歸屬衝突",
-                  "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
-                  "page": 1,
-                  "date": "2026-10-15",
-                  "dateKind": "checked",
-                  "note": "2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；既有分析待修正，本次未判定目前權利人。"
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "未於本次核定",
+                "patentCategory": "記憶體裝置與測試方法項",
+                "patentCategoryEn": "Memory Device and Test Method",
+                "generation": "OTP 可測試性主題 · 2021 年核准",
+                "generationEn": "OTP Testability · 2021 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "researchSources": [
+                  {
+                    "title": "核准權利項與公報首頁",
+                    "url": "https://patentimages.storage.googleapis.com/5a/c4/01/5bfedc209dd86d/US10923204.pdf",
+                    "date": "2021-02-16",
+                    "dateKind": "published",
+                    "note": "權利項位於 PDF 第 104 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年，各權利項能否享有該日須另行判斷。",
+                    "page": 104
+                  },
+                  {
+                    "title": "I-fuse 官方技術對照",
+                    "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "依官方白皮書作機制對照，非公司提供的產品對專利清單。",
+                    "page": 10
+                  },
+                  {
+                    "title": "收錄狀態來源",
+                    "url": "https://patents.google.com/patent/US10923204B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9613943B2",
+                  "url": "https://patents.google.com/patent/US9613943B2/en",
+                  "note": "原誤歸上峰的公報，保留原件連結供追查。本次替換為重新選錄的技術證據，不是同一專利換號。",
+                  "source": {
+                    "title": "歸屬衝突",
+                    "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
+                    "page": 1,
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；原分析已由具來源的新案卷取代；此更正紀錄不判定目前權利人。"
+                  }
                 }
               }
             ]
@@ -8720,44 +8780,44 @@
         ],
         "milestones": [
           {
-            "period": "2010–2014",
-            "era": "創立與物理模型建立",
-            "theme": "I-fuse 電遷移概念誕生",
-            "summary": "鍾世緯博士創立 Attopsemi，建立亞熱失控電遷移物理數學模型並申請基礎專利。",
-            "nodes": "0.18µm / 0.15µm",
-            "keyPatents": "US9165979B2"
+            "period": "2010",
+            "era": "公司成立",
+            "theme": "I-fuse 研發",
+            "summary": "官方簡介記載莊建祥離開臺積電後創立上峰科技。",
+            "nodes": "此里程碑不主張節點覆蓋",
+            "keyPatents": "優先權鏈與核准年份分開判讀"
           },
           {
-            "period": "2015–2018",
-            "era": "車規認證與代工廠導入",
-            "theme": "AEC-Q100 Grade-0 認證通過",
-            "summary": "於 TSMC、UMC、VIS 建立量產 PDK，通過極端車規 175°C 認證，確立零爆破可靠度標竿。",
-            "nodes": "0.11µm / 55nm / 40nm",
-            "keyPatents": "US9613943B2"
+            "period": "2017 / 2021",
+            "era": "所選公報核准",
+            "theme": "可靠燒錄與可測試性",
+            "summary": "所選美國核准公報分別規範燒錄與測試的權利項組合。",
+            "nodes": "不據此推定具名節點資格",
+            "keyPatents": "US9711237B2 / US10923204B2"
           },
           {
-            "period": "2019–2026",
-            "era": "先進節點 FinFET/GAA 擴張",
-            "theme": "跨入 7nm/5nm/3nm/2nm 埃米世代",
-            "summary": "以金屬電遷移專利技術成功導入先進 FinFET 與 GAA 製程，成為台積電 OIP 與各大代工廠主要 OTP 夥伴。",
-            "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
-            "keyPatents": "金屬電遷移先進專利群"
+            "period": "2023-04-25",
+            "era": "公開產品驗證",
+            "theme": "12 奈米 FinFET 金屬 I-fuse",
+            "summary": "公司宣布 12 奈米金屬 I-fuse 矽驗證；該公告的 7／5／3 奈米屬後續規劃。",
+            "nodes": "12 nm FinFET",
+            "keyPatents": "產品公告，不作特定專利實施認定"
           }
         ],
         "litigationDefense": {
-          "title": "非爆炸性亞熱 I-fuse 與傳統 eFuse 專利壁壘區隔",
-          "overview": "上峰科技 (Attopsemi) 由前台積電記憶體研發主管鍾馨 (Shine Chung) 博士創辦，其專利戰略核心在於顛覆傳統多晶矽熔斷 eFuse 的「破壞性爆破」思維，以「亞熱原子凝聚 (Sub-thermal Silicide Agglomeration)」打造出具備自主專利護城河的 I-fuse®。",
+          "title": "權利項界線與產品技術對照",
+          "overview": "本次所選公報用於技術導讀，不宣稱已核實訴訟或概括性專利壁壘。核准權利項與公司產品揭露分別支持不同層次的內容。",
           "keyBattles": [
             {
-              "heading": "打破傳統 eFuse 物理爆破專利邊界",
-              "detail": "傳統多晶矽熔絲 (如 IBM、台積電早期專利) 是利用大電流（>10mA）引發極端高溫熱應力，使熔絲劇烈爆斷。其缺點是會釋放矽蒸汽碎屑並撕裂鈍化層，極易受潮回春造成漏電。Attopsemi 核心專利 US9165979B2 與 US9613943B2 從根本上反向操作，限定編程電流被精確限縮於亞熱退火區間，完全不破壞多晶矽或介電層實體完整性。"
+              "heading": "燒錄條件與材料選項",
+              "detail": "權利項 1 結合：複數 OTP 單元、接第一電源線的熔絲、接第二電源線並受致能訊號控制的選擇元件、多個電壓／電流脈衝逐步改變電阻、取得會造成電阻劇變的臨界電流，以及將燒錄電流限制在其下。從屬項 4 增列 CMOS 金屬閘極、金屬互連等材料；獨立項 9 另規範燒錄視窗校準。權利項 1 未限定 0.4V 讀取、車規認證或製程節點。"
             },
             {
-              "heading": "0.4V 超低電壓讀取與車規 150°C 專利保護圈",
-              "detail": "由於熔絲未被物理炸碎，而是以金屬矽化物凝聚形成穩定的百兆歐姆高阻態，Attopsemi 專利鎖定了 0.4V 超低電壓無感測擾動讀取，並延伸申請了金屬閘極 HKMG 插塞界面電遷移專利 (US9613943B2) 與熱隔離差動結構 (US10410724B2)，有效覆蓋 0.35µm 至 7nm/5nm 先進製程。"
+              "heading": "測試讀出與儲存態",
+              "detail": "權利項 1 包含複數熔絲 OTP 單元、選擇元件、將電阻轉成邏輯值的讀取電路，以及不改變儲存態卻改變讀出值的低電壓／電流測試。從屬項 2 才加入初始電阻低於 400 歐姆；項 3 加入初始與非破壞性假燒錄讀出的交替。獨立項 13 保護交替非破壞性讀出測試圖樣；400 歐姆並非項 1 的必要條件，權利項也不構成零缺陷保證。"
             }
           ],
-          "ftoVerdict": "【自由實施建議】傳統多晶矽爆破型 eFuse 大多數基礎專利已於 2010–2018 年過期；但 Attopsemi 的受控電流亞熱凝聚 (Non-explosive current-limited) 與 0.4V 讀取專利仍處於強固保護期（有效維持至 2032–2038 年），任何宣稱非破壞性退火熔斷之技術皆須嚴密審視其侵權風險。"
+          "ftoVerdict": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。"
         },
         "nameSource": {
           "title": "官方公司名稱",
@@ -8775,7 +8835,40 @@
             }
           ]
         },
-        "attributionNote": "下列兩筆案卷原歸屬 Attopsemi，但核准公報首頁列示其他當事人。保留案卷供追查；既有標題、技術導讀、日期與公司承接分析尚未重建，不可作為 Attopsemi 權利範圍的證據。"
+        "attributionNote": "原兩筆公報誤歸上峰，舊連結保留為更正紀錄。本次選錄 US9711237B2 與 US10923204B2，核准首頁皆列上峰為受讓人。產品關聯屬技術對照，不冒稱公司逐項專利標示或目前權利歸屬判定。",
+        "personnelSource": {
+          "title": "創辦人與發明人姓名",
+          "url": "https://www.attopsemi.com/zh-hant/about-us/founder/",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "官方創辦人頁確認莊建祥（Shine Chung），不用原先無來源的姓名與博士稱謂。兩件所選核准公報皆僅列 Shine C. Chung 為發明人；這不等於公司完整研發團隊。本次官方來源未提供可核實的完整中文團隊名單。",
+          "references": [
+            {
+              "title": "官方英文創辦人頁",
+              "url": "https://www.attopsemi.com/about-us/founder/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "中英文創辦人頁的身分與經歷可互相對應。"
+            }
+          ]
+        },
+        "researchSources": [
+          {
+            "title": "I-fuse 官方白皮書",
+            "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+            "date": "2026-10-15",
+            "dateKind": "checked",
+            "note": "燒錄視窗與 CLVWR 為公司技術揭露。文件版權為 2021、版本 1_01，資源頁歸類於 2022；不推定確切發布日。",
+            "page": 4
+          },
+          {
+            "title": "12 奈米 FinFET 矽驗證公告",
+            "url": "https://www.attopsemi.com/attopsemis-revolutionary-i-fuse-otp-silicon-proven-on-finfet-technology/",
+            "date": "2023-04-25",
+            "dateKind": "published",
+            "note": "2023 年公告確認 12 奈米金屬熔絲矽驗證；更小節點是當時規劃，不能據此寫成已驗證覆蓋。"
+          }
+        ]
       },
       {
         "id": "floadia",

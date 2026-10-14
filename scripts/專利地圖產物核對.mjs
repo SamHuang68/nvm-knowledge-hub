@@ -7,12 +7,12 @@ import {execFileSync} from 'node:child_process';
 
 const root=path.resolve(import.meta.dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u,'').replaceAll('\r\n','\n');
-const base='c1e4d1212cd360cac6aa8b7dd4593422b242a899';
+const base='b7d966b2414d7a00d49c0d6ac748b759d8b28826';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const currentRenderer=await import('./nvm-vendor-patent-maps-ui.mjs');
 const priorRenderer=await import('data:text/javascript;base64,'+Buffer.from(original('scripts/nvm-vendor-patent-maps-ui.mjs')).toString('base64'));
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.7'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.8'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const file=`data/nvm-vendor-patent-maps${suffix}.json`;
@@ -24,20 +24,12 @@ for (const suffix of ['','-en']) {
     else {
       assert.equal(vendor.name,suffix?'Attopsemi Technology Co., Ltd.':'上峰科技股份有限公司（Attopsemi）');
       assert.equal(vendor.shortName,suffix?'Attopsemi':'上峰科技 Attopsemi');
-      assert.equal(vendor.strategy,originalVendor.strategy.replaceAll('寬緯科技','上峰科技'));
-      assert.equal(vendor.litigationDefense.overview,originalVendor.litigationDefense.overview.replaceAll('寬緯科技','上峰科技'));
       currentRenderer.validateVendorPatentMaps(actual);
-      vendor.name=originalVendor.name;vendor.shortName=originalVendor.shortName;vendor.strategy=originalVendor.strategy;
-      vendor.litigationDefense.overview=originalVendor.litigationDefense.overview;
-      delete vendor.nameSource;delete vendor.attributionNote;
-      for(const family of vendor.families)for(const patent of family.patents){
-        const prior=originalVendor.families.find(f=>f.id===family.id).patents.find(p=>p.id===patent.id);
-        assert.ok(['US9165979B2','US9613943B2'].includes(patent.id));
-        patent.assignee=prior.assignee;delete patent.attributionReview;
-      }
+      for(const field of ['founders','strategy','families','milestones','litigationDefense','attributionNote'])vendor[field]=originalVendor[field];
+      delete vendor.personnelSource;delete vendor.researchSources;
     }
   }
-  assert.deepEqual(restored,before,'僅更新上峰名稱、來源及兩筆受讓人警示；全部統計、其他案卷欄位與其他廠商保留');
+  assert.deepEqual(restored,before,'僅重建上峰兩筆案卷與對應說明；名稱、全部統計與其他廠商精確保留');
   const unchanged={...before,vendors:before.vendors.filter(v=>v.id!=='attopsemi')};
   const language=suffix?'en':'zh';
   assert.equal(currentRenderer.renderVendorPatentMaps(unchanged,language,()=>''),priorRenderer.renderVendorPatentMaps(unchanged,language,()=>''),'其他十一家渲染結果逐字不變');
@@ -67,7 +59,23 @@ for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html'])
   const after=withoutMap(read(file));
   assert.equal(after,before,'其他 Atlas 章節與入口未被重寫');
 }
-for(const file of ['scripts/enrich-patents.mjs','scripts/update-stage1-dossiers.mjs'])assert.equal(read(file),original(file).replaceAll('寬緯科技','上峰科技').replaceAll('寬緯 Attopsemi','上峰科技 Attopsemi'),'舊資料更新入口只修正公司名稱');
+const enrichOriginal=original('scripts/enrich-patents.mjs');
+const enrichExpected=enrichOriginal.slice(0,enrichOriginal.indexOf('  // === 上峰科技 Attopsemi ==='))+'  // 上峰案卷的來源、狀態與界線由正式資料維護；不回填已誤歸的公報。\n\n'+enrichOriginal.slice(enrichOriginal.indexOf('  // === Floadia ==='));
+assert.equal(read('scripts/enrich-patents.mjs'),enrichExpected,'僅移除兩筆錯誤回填，其他更新功能保全');
+const stageOriginal=original('scripts/update-stage1-dossiers.mjs');
+const stageExpected=stageOriginal.slice(0,stageOriginal.indexOf('  attopsemi: {'))+`  // 上峰案卷沿用具原件來源的正式資料，禁止舊版敘述回填。
+  attopsemi: {
+    zh: zhData.vendors.find(v=>v.id==='attopsemi').litigationDefense,
+    en: enData.vendors.find(v=>v.id==='attopsemi').litigationDefense
+  }`+stageOriginal.slice(stageOriginal.indexOf('\n};',stageOriginal.indexOf('  attopsemi: {')));
+assert.equal(read('scripts/update-stage1-dossiers.mjs'),stageExpected,'上峰更新入口共用正式案卷，其餘三家保持原樣');
+const updates={};
+const stageRuntime=read('scripts/update-stage1-dossiers.mjs').replace(/^import .*;$/gm,'');
+vm.runInNewContext(stageRuntime,{fs:{readFileSync:file=>read(file),writeFileSync:(file,value)=>{updates[file]=JSON.parse(value);}},path:{resolve:file=>file},console:{log(){}}});
+for(const suffix of ['','-en']){
+ const file=`data/nvm-vendor-patent-maps${suffix}.json`,attop=value=>value.vendors.find(v=>v.id==='attopsemi');
+ assert.deepEqual(JSON.parse(JSON.stringify(attop(updates[file]))),attop(JSON.parse(read(file))),'隔離執行舊入口後上峰案卷不被覆寫');
+}
 const sandbox={self:{}}; vm.runInNewContext(read('data/offline-manifest.js'),sandbox);
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html','nvm-technology-atlas.js','nvm-vendor-patent-maps.css']) {
   assert.equal(sandbox.self.NVMOfflineManifest.digests[file],crypto.createHash('sha256').update(read(file)).digest('hex'),`離線資源同步：${file}`);

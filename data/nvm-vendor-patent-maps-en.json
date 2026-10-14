@@ -1499,7 +1499,7 @@
       "shortName": "Attopsemi",
       "headquarters": "Zhubei City, Hsinchu County, Taiwan",
       "founded": "2010",
-      "founders": "Dr. Shine C. Chung (Former TSMC Senior Director of NVM R&D) and Engineering Team",
+      "founders": "Shine Chung, founder in 2010",
       "businessModel": "Thermal-Assisted Controlled Electromigration Fuse (I-fuse®) Logic OTP IP Licensing & Design Services",
       "patentStats": {
         "totalGrantedWorldwide": "90+ granted patents",
@@ -1541,78 +1541,138 @@
           }
         }
       },
-      "strategy": "Attopsemi's patent portfolio pioneered the 'Non-Explosive Thermal-Assisted Electromigration Fuse (I-fuse®)'. Conventional eFuses rely on high-current thermal runaway explosions during programming, fracturing passivation layers, producing conductive debris, and risking post-burn re-growth. Antifuse technologies face dielectric breakdown uniformity challenges. Dr. Shine Chung invented a mechanism operating in 'Sub-Thermal Runaway' conditions, where precisely controlled electron wind forces drive mass transport of polysilicon or metal atoms to form a permanent, irreversible ohmic open state. This invention delivers 0-mask integration, ultra-low programming voltage/current, and exceptional tolerance from -40°C to 175°C automotive extremes across 0.35µm down to 2nm GAA nodes.",
+      "strategy": "I-fuse uses heat-assisted electromigration within a controlled programming window. This dossier selects issued claims on reliable programming and non-destructive OTP testing; the connection to I-fuse is an editorial comparison with the company white paper, not a claim chart for any specific commercial macro. Programming changes fuse resistance; a pseudo-programmed test readout does not consume the OTP state.",
       "families": [
         {
           "id": "attopsemi-ifuse-family",
-          "name": "I-fuse® Non-Explosive Electromigration High-Reliability Fuse Patent Family",
-          "tagline": "Sub-Thermal Runaway · Controlled Electromigration Mass Transport · -40°C to 175°C Automotive Extremes",
-          "technologyType": "Electromigration OTP (Thermal-Assisted Electromigration Irreversible Fuse)",
-          "cellTopology": "1T/1D + I-fuse Element (Standard Transistor or Diode + Nanoscale Poly/Metal Fuse Link)",
-          "physicalMechanism": "Precision current density drives electron wind lattice atom displacement, creating microscopic voids jumping resistance from hundreds of ohms to teraohms without damaging passivation",
-          "processNode": "0.35µm down to 3nm / 2nm GAA across all nodes",
-          "summary": "Revolutionary patent family in automotive and IoT security. Replacing catastrophic thermal explosion with solid-state electromigration creates a permanent high-resistance state, eliminating eFuse re-growth defects and ultra-thin gate oxide leakage limits, delivering 0 FIT failure rates and century-scale data retention.",
+          "name": "I-fuse® Reliable Programming and OTP Testability",
+          "tagline": "Controlled programming window · Non-destructive test readout",
+          "technologyType": "Electrical-fuse OTP",
+          "cellTopology": "Electrical fuse, selector and read circuit; the white paper illustrates a 1R1D array.",
+          "physicalMechanism": "Heat-assisted electromigration raises fuse resistance for storage. Low-bias concurrent write/read changes the sensed output during testing without changing the stored state.",
+          "processNode": "Claims are not tied to a named node; the cited 2023 product announcement reports 12 nm FinFET silicon.",
+          "summary": "Two issued publications are selected for complementary teaching topics: controlled fuse programming and testability. The collection is an editorial technology portfolio, not a complete patent family or portfolio. Material options in dependent claims do not establish production qualification at every node.",
           "patents": [
             {
-              "id": "US9165979B2",
-              "title": "Programmable resistive device using electromigration and method of operating the same",
-              "grantDate": "2015-10-20",
-              "priorityDate": "2012-07-26",
+              "id": "US9711237B2",
+              "title": "Method and Structure for Reliable Electrical Fuse Programming",
+              "grantDate": "2017-07-18",
+              "priorityDate": "2010-08-20",
               "inventors": "Shine C. Chung",
-              "assignee": "Assignee not established here; applicant Bao Tran on the issued front page (2015-10-20).",
-              "url": "https://patents.google.com/patent/US9165979B2/en",
-              "coreProblem": "Conventional eFuse thermal runaway exceeds 1400°C, causing passivation rupture, molten metal splatter, and recrystallization re-growth that induce severe automotive reliability failures.",
-              "mechanism": "Controls programming current density and pulse duration within a sub-thermal runaway thermal equilibrium regime. Pure electron wind electromigration drives solid-state mass diffusion, forming an intact, voided nano-scale open circuit without rupturing surrounding dielectric passivation.",
-              "claimFocus": "Claim 1 claims an electromigration fuse element and programming method forming an irreversible high-resistance state below thermal runaway thresholds without rupture.",
-              "productLink": "I-fuse™ flagship IP, certified to AEC-Q100 Grade-0 (-40°C to 150°C/175°C) automotive standard.",
+              "assignee": "Attopsemi Technology Co., Ltd. — assignee on the issued front page",
+              "url": "https://patents.google.com/patent/US9711237B2/en",
+              "coreProblem": "Excess current can cause abrupt resistance changes and a broad programmed-resistance distribution. A usable programming window must be characterized rather than treating any large current as reliable programming.",
+              "mechanism": "The disclosure uses a current threshold to separate controlled electromigration from disruptive programming. Claim 1 uses multiple pulses for progressive resistance change below the critical current. Independent claim 9 characterizes lower and upper programming bounds through read verification; it is a separate claim path.",
+              "claimFocus": "Claim 1 combines plural OTP cells, a fuse coupled to a first supply line, an enabled selector coupled to a second line, multiple voltage/current pulses that progressively change resistance, determination of a critical current causing drastic resistance change, and limiting programming below it. Claim 4 adds material choices including CMOS metal gate and metal interconnect. Claim 9 separately defines programming-window characterization. Claim 1 does not specify 0.4 V readout, automotive qualification or a process node.",
+              "productLink": "The claim-1 current limit and claim-9 program window align technically with the I-fuse white paper. This is editorial mapping; neither a universal claim on all non-explosive fuses nor proof that every I-fuse macro practices every element.",
               "legalStatus": "active",
-              "legalStatusZh": "有效專利 (In-Force / Active)",
-              "legalStatusEn": "In-Force / Active",
-              "expirationDate": "2032-07-26",
-              "patentCategory": "裝置結構與方法項 (Device & Method)",
-              "patentCategoryEn": "Device & Method",
-              "generation": "奠基第一代 (Gen-1 Sub-Thermal I-fuse)",
-              "generationEn": "Gen-1 Sub-Thermal I-fuse",
-              "ftoStatus": "專利權有效維持至 2032 年 7 月。保護非爆炸性電遷移（亞熱凝聚）0.4V 超低電壓可讀取之熔絲單元與操作。",
-              "ftoStatusEn": "In force through July 2032. Enforces exclusivity over non-explosive electromigration (silicide agglomeration) 0.4V-readable fuse structures.",
-              "attributionReview": {
-                "title": "Attribution Conflict",
-                "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
-                "page": 1,
-                "date": "2026-10-15",
-                "dateKind": "checked",
-                "note": "The 2015 issued front page lists applicant Bao Tran; no assignee is printed. This does not support the recorded Attopsemi attribution. Existing analysis remains unverified; current ownership was not determined."
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "Not determined in this review",
+              "patentCategory": "Programming Method",
+              "patentCategoryEn": "Programming Method",
+              "generation": "Reliable Programming · 2017 Grant",
+              "generationEn": "Reliable Programming · 2017 Grant",
+              "ftoStatus": "Current enforceability and freedom to operate are not determined here. Read the complete claim combination and relevant jurisdiction, prosecution history, maintenance and related rights. Product similarity alone does not establish infringement.",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here. Read the complete claim combination and relevant jurisdiction, prosecution history, maintenance and related rights. Product similarity alone does not establish infringement.",
+              "researchSources": [
+                {
+                  "title": "Issued Claims and Front Page",
+                  "url": "https://patentimages.storage.googleapis.com/7a/f8/cc/c3412a952ca0d0/US9711237.pdf",
+                  "date": "2017-07-18",
+                  "dateKind": "published",
+                  "note": "Claims are on PDF page 86; applicant, inventor and grant assignee are on page 1. The claimed priority chain starts in 2010; priority entitlement must be assessed per claim.",
+                  "page": 86
+                },
+                {
+                  "title": "Official I-fuse Technical Comparison",
+                  "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Editorial comparison of the disclosed mechanism with the company white paper; not a company-issued patent-to-product list.",
+                  "page": 4
+                },
+                {
+                  "title": "Recorded Status Source",
+                  "url": "https://patents.google.com/patent/US9711237B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Google Patents indexes this publication as active on the check date; this is not an independent legal determination. No definitive expiry date is assigned."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9165979B2",
+                "url": "https://patents.google.com/patent/US9165979B2/en",
+                "note": "Formerly misattributed publication; its original source is retained for correction history. This replacement is an editorial selection, not a renumbering of the same patent.",
+                "source": {
+                  "title": "Attribution Conflict",
+                  "url": "https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf",
+                  "page": 1,
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "The 2015 issued front page lists applicant Bao Tran; no assignee is printed. This does not support the recorded Attopsemi attribution. The former analysis is now replaced by a sourced dossier; this correction does not determine current ownership."
+                }
               }
             },
             {
-              "id": "US9613943B2",
-              "title": "Programmable resistive memory using metal gate and contact plug electromigration",
-              "grantDate": "2017-04-04",
-              "priorityDate": "2015-05-08",
+              "id": "US10923204B2",
+              "title": "Fully Testible OTP Memory",
+              "grantDate": "2021-02-16",
+              "priorityDate": "2010-08-20",
               "inventors": "Shine C. Chung",
-              "assignee": "Micron Technology, Inc. — assignee on the issued front page (2017-04-04).",
-              "url": "https://patents.google.com/patent/US9613943B2/en",
-              "coreProblem": "Advanced HKMG, FinFET, and GAA nodes lack traditional polysilicon layers. How can advanced metal gates and micro-contacts be shared directly for 0-mask OTP?",
-              "mechanism": "Establishes the electromigration path directly within advanced metal gate materials (TiN, TaN, or tungsten/copper contact plugs), utilizing nanoscale electromigration to achieve seamless scaling to 7nm/5nm/3nm/2nm.",
-              "claimFocus": "Claim 1 claims a programmable resistive memory device utilizing metal electromigration in advanced metal gates and conductive vias.",
-              "productLink": "Advanced FinFET/GAA I-fuse solution for AI processor secure root ID and repair.",
+              "assignee": "Attopsemi Technology Co., Ltd. — assignee on the issued front page",
+              "url": "https://patents.google.com/patent/US10923204B2/en",
+              "coreProblem": "A blank OTP normally exposes only its virgin readout. Permanently programming test patterns consumes usable bits, so read circuits and addressing paths need an alternative way to exercise both readout states.",
+              "mechanism": "Low-voltage/current stimulus during reading creates a pseudo-programmed output while leaving the fuse state unchanged. Alternating normal and pseudo-programmed readouts permits test patterns. The company calls its implementation CLVWR; this is a test mode, not erase or multi-time storage.",
+              "claimFocus": "Claim 1 requires plural fuse-based OTP cells, a selector, a resistance-to-logic read circuit, and low-voltage/current test stimulus that changes read output without programming a different stored state. Dependent claim 2 adds an initial resistance below 400 ohms; claim 3 adds alternating virgin and non-destructive programmed readouts. Independent claim 13 covers alternating non-destructive readout test patterns. The 400-ohm condition is not mandatory in claim 1, and the claims do not guarantee zero defects.",
+              "productLink": "The patent abstract and claims match the low-bias pseudo-programmed readout described as CLVWR in the I-fuse white paper. A technical match does not establish a claim chart for a specific customer macro or validate every advertised coverage figure.",
               "legalStatus": "active",
-              "legalStatusZh": "有效專利 (In-Force / Active)",
-              "legalStatusEn": "In-Force / Active",
-              "expirationDate": "2035-05-08",
-              "patentCategory": "裝置結構項 (Device Structure)",
-              "patentCategoryEn": "Device Structure",
-              "generation": "演進第二代 (Gen-2 Metal Gate Contact)",
-              "generationEn": "Gen-2 Metal Gate Contact",
-              "ftoStatus": "專利權有效維持至 2035 年 5 月。保護金屬閘極 HKMG 與接觸插塞 (Contact Plug) 界面受控電遷移反熔絲單元。",
-              "ftoStatusEn": "In force through May 2035. Protects controlled electromigration fuses implemented at HKMG metal-gate contact plug interfaces.",
-              "attributionReview": {
-                "title": "Attribution Conflict",
-                "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
-                "page": 1,
-                "date": "2026-10-15",
-                "dateKind": "checked",
-                "note": "The 2017 issued front page lists Micron Technology, Inc. as applicant and assignee. This does not support the recorded Attopsemi attribution. Existing analysis remains unverified; current ownership was not determined."
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "Not determined in this review",
+              "patentCategory": "Memory Device and Test Method",
+              "patentCategoryEn": "Memory Device and Test Method",
+              "generation": "OTP Testability · 2021 Grant",
+              "generationEn": "OTP Testability · 2021 Grant",
+              "ftoStatus": "Current enforceability and freedom to operate are not determined here. Read the complete claim combination and relevant jurisdiction, prosecution history, maintenance and related rights. Product similarity alone does not establish infringement.",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here. Read the complete claim combination and relevant jurisdiction, prosecution history, maintenance and related rights. Product similarity alone does not establish infringement.",
+              "researchSources": [
+                {
+                  "title": "Issued Claims and Front Page",
+                  "url": "https://patentimages.storage.googleapis.com/5a/c4/01/5bfedc209dd86d/US10923204.pdf",
+                  "date": "2021-02-16",
+                  "dateKind": "published",
+                  "note": "Claims are on PDF page 104; applicant, inventor and grant assignee are on page 1. The claimed priority chain starts in 2010; priority entitlement must be assessed per claim.",
+                  "page": 104
+                },
+                {
+                  "title": "Official I-fuse Technical Comparison",
+                  "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Editorial comparison of the disclosed mechanism with the company white paper; not a company-issued patent-to-product list.",
+                  "page": 10
+                },
+                {
+                  "title": "Recorded Status Source",
+                  "url": "https://patents.google.com/patent/US10923204B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Google Patents indexes this publication as active on the check date; this is not an independent legal determination. No definitive expiry date is assigned."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9613943B2",
+                "url": "https://patents.google.com/patent/US9613943B2/en",
+                "note": "Formerly misattributed publication; its original source is retained for correction history. This replacement is an editorial selection, not a renumbering of the same patent.",
+                "source": {
+                  "title": "Attribution Conflict",
+                  "url": "https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf",
+                  "page": 1,
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "The 2017 issued front page lists Micron Technology, Inc. as applicant and assignee. This does not support the recorded Attopsemi attribution. The former analysis is now replaced by a sourced dossier; this correction does not determine current ownership."
+                }
               }
             }
           ]
@@ -1620,44 +1680,44 @@
       ],
       "milestones": [
         {
-          "period": "2010–2014",
-          "era": "Inception & Physical Modeling",
-          "theme": "I-fuse Electromigration Concept Born",
-          "summary": "Dr. Shine Chung founded Attopsemi, modeling sub-thermal runaway electromigration and filing core patents.",
-          "nodes": "0.18µm / 0.15µm",
-          "keyPatents": "US9165979B2"
+          "period": "2010",
+          "era": "Company Formation",
+          "theme": "I-fuse Development",
+          "summary": "Shine Chung founded Attopsemi after leaving TSMC, according to the official biography.",
+          "nodes": "No node claim in this milestone",
+          "keyPatents": "Priority chain only; not a 2010 grant"
         },
         {
-          "period": "2015–2018",
-          "era": "Automotive Qualification & Foundry Rollout",
-          "theme": "AEC-Q100 Grade-0 Certification",
-          "summary": "Established PDKs at TSMC, UMC, and VIS, passing 175°C automotive qualification with zero burst defects.",
-          "nodes": "0.11µm / 55nm / 40nm",
-          "keyPatents": "US9613943B2"
+          "period": "2017 / 2021",
+          "era": "Selected Issued Publications",
+          "theme": "Reliable Programming and Testability",
+          "summary": "The selected U.S. grants cover distinct programming and testing claim combinations.",
+          "nodes": "No node-specific qualification inferred",
+          "keyPatents": "US9711237B2 / US10923204B2"
         },
         {
-          "period": "2019–2026",
-          "era": "Advanced FinFET & GAA Scaling",
-          "theme": "Scaling into 7nm/5nm/3nm/2nm Angstrom Era",
-          "summary": "Expanded metal electromigration into FinFET and GAA nodes, joining TSMC OIP as a key OTP ecosystem partner.",
-          "nodes": "28nm / 16nm / 7nm / 5nm / 2nm",
-          "keyPatents": "Advanced metal electromigration series"
+          "period": "2023-04-25",
+          "era": "Published Product Demonstration",
+          "theme": "12 nm FinFET Metal I-fuse",
+          "summary": "The company announced silicon-proven 12 nm metal I-fuse; 7/5/3 nm were future expansion in that announcement.",
+          "nodes": "12 nm FinFET",
+          "keyPatents": "Product announcement; not a patent-specific implementation claim"
         }
       ],
       "litigationDefense": {
-        "title": "Non-Explosive Sub-Thermal I-fuse vs. Legacy eFuse Moat",
-        "overview": "Founded by former TSMC memory R&D director Dr. Shine Chung, Attopsemi differentiated its patent moat by overturning legacy explosive eFuse doctrines, establishing proprietary exclusivity around sub-thermal silicide agglomeration (I-fuse).",
+        "title": "Claim Boundaries and Product Mapping",
+        "overview": "The selected publications support technical teaching, not a finding about a lawsuit or a blanket patent moat. The issued claims and company product disclosures serve different evidentiary purposes.",
         "keyBattles": [
           {
-            "heading": "Differentiating from Legacy Rupture eFuse Patents",
-            "detail": "Legacy poly eFuses (IBM, early TSMC patents) relied on heavy currents (>10mA) creating thermal rupture, which spews conductive debris and cracks passivation layers. Attopsemi US9165979B2 and US9613943B2 strictly confine programming energy below rupture thresholds, maintaining flawless physical passivation."
+            "heading": "Programming and Material Choices",
+            "detail": "Claim 1 combines plural OTP cells, a fuse coupled to a first supply line, an enabled selector coupled to a second line, multiple voltage/current pulses that progressively change resistance, determination of a critical current causing drastic resistance change, and limiting programming below it. Claim 4 adds material choices including CMOS metal gate and metal interconnect. Claim 9 separately defines programming-window characterization. Claim 1 does not specify 0.4 V readout, automotive qualification or a process node."
           },
           {
-            "heading": "0.4V Low-Voltage Readout & Automotive High-Temp Moat",
-            "detail": "Because the fuse line remains intact, the silicide agglomeration creates stable giga-ohm states. Attopsemi patented 0.4V sub-disturb reading, HKMG metal-gate contact interface migration (US9613943B2), and thermally isolated differential architectures (US10410724B2) spanning 0.35µm down to 5nm."
+            "heading": "Test Readout and Stored State",
+            "detail": "Claim 1 requires plural fuse-based OTP cells, a selector, a resistance-to-logic read circuit, and low-voltage/current test stimulus that changes read output without programming a different stored state. Dependent claim 2 adds an initial resistance below 400 ohms; claim 3 adds alternating virgin and non-destructive programmed readouts. Independent claim 13 covers alternating non-destructive readout test patterns. The 400-ohm condition is not mandatory in claim 1, and the claims do not guarantee zero defects."
           }
         ],
-        "ftoVerdict": "[FTO Guidance] Basic patents on explosive rupture poly fuses expired between 2010–2018. However, Attopsemi controlled sub-thermal agglomeration and 0.4V readout patents are actively enforceable through 2032–2038."
+        "ftoVerdict": "Current enforceability and freedom to operate are not determined here. Read the complete claim combination and relevant jurisdiction, prosecution history, maintenance and related rights. Product similarity alone does not establish infringement."
       },
       "nameSource": {
         "title": "Official Company Name",
@@ -1675,7 +1735,40 @@
           }
         ]
       },
-      "attributionNote": "Two records below were previously attributed to Attopsemi, but their issued front pages name other parties. They remain available for audit; the existing titles, technical readings, dates and company-linkage analysis have not been rebuilt and must not be used as evidence of Attopsemi rights."
+      "attributionNote": "The two former publication links were misattributed and are retained as correction references. The selected replacements are US9711237B2 and US10923204B2; both issued front pages name Attopsemi as assignee. Product linkage is a technical comparison, not company patent marking or a current ownership determination.",
+      "personnelSource": {
+        "title": "Founder and Inventor Names",
+        "url": "https://www.attopsemi.com/about-us/founder/",
+        "date": "2026-10-15",
+        "dateKind": "checked",
+        "note": "The official founder pages identify Shine Chung. Both selected issued patents list only Shine C. Chung as inventor. These sources do not provide a complete R&D team roster; no additional Chinese names or doctorate are inferred.",
+        "references": [
+          {
+            "title": "Official Chinese Founder Page",
+            "url": "https://www.attopsemi.com/zh-hant/about-us/founder/",
+            "date": "2026-10-15",
+            "dateKind": "checked",
+            "note": "The Chinese and English biographies describe the same founder and career."
+          }
+        ]
+      },
+      "researchSources": [
+        {
+          "title": "Official I-fuse White Paper",
+          "url": "https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "Programming window and CLVWR are company technical disclosures. Copyright 2021, revision 1_01; the resource page groups it under 2022. No exact issue date is inferred.",
+          "page": 4
+        },
+        {
+          "title": "12 nm FinFET Silicon Demonstration",
+          "url": "https://www.attopsemi.com/attopsemis-revolutionary-i-fuse-otp-silicon-proven-on-finfet-technology/",
+          "date": "2023-04-25",
+          "dateKind": "published",
+          "note": "The 2023 announcement reports a 12 nm metal-fuse demonstration. Smaller nodes are stated as future expansion, not demonstrated coverage in this source."
+        }
+      ]
     },
     {
       "id": "floadia",
