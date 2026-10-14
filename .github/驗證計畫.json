@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "f9ad95fe2726211b619cbb0fb4643cea6c8d736b",
+  "baseCommit": "34bf166cf2f18e930fdcd82e136c5cfd9d88d278",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -126,9 +126,10 @@
         "site.webmanifest",
         "data/offline-manifest.js",
         "package.json",
-        "package-lock.json"
+        "package-lock.json",
+        "sw.js"
       ],
-      "reason": "具名請求身分、403／1010 與一般 HTTP 錯誤區分、200 內容不一致仍失敗、既有 BOM／CRLF 正規化，以及局部選取不得誤展開完整流程。僅本機 HTTP 夾具八案，不啟動瀏覽器或正式站全掃描。",
+      "reason": "正式來源錯誤處理十九案：同來源與跨來源重新導向、循環與缺少位置、標頭與內文逾時、同批斷線保留結果、無效輸入覆寫舊成功報告；保留具名身分、403／1010、HTTP 狀態及內容正規化契約。僅本機 HTTP 夾具，不啟動瀏覽器或正式站全掃描。",
       "prepare": [
         "node"
       ],
