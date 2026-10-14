@@ -1,5 +1,20 @@
 # CI 修訂歷史
 
+## 2026-10-14／v1.5.3 驗證修訂 2／HTTP 身分與正式來源判讀
+
+基準：f9ad95fe2726211b619cbb0fb4643cea6c8d736b。前輪證明 Python urllib 預設身分在主站遭 Cloudflare 403／1010 拒絕，具名真實驗證身分可取得相同正式資源；本次依要求納入專案既有 `scripts/verify-live-release.mjs`，不另建來源核對管線。
+
+- 統一具名 User-Agent，記錄 CF-Ray 與失敗分類；同時具有 Cloudflare 標頭、403 與 1010 才判讀為用戶端特徵遭拒，未取得正式資源。其他 HTTP 失敗與內容不一致分別回報，全部維持失敗退出碼。
+- 原有 hash 演算法、文字 BOM／CRLF 正規化、HTTP 200 加上內容一致的成功條件均保留。未指定參數時仍使用原資源清單及離線語系流程。
+- 新增可重複的 `--asset=相對路徑` 只核對明列資源，結果標示「指定資源」及 `offlineRequested=false`。空值、未知選項及越界路徑直接拒絕，避免錯字導致完整掃描。
+- CI 僅執行本機 HTTP 契約八案與產物保全；沒有瀏覽器準備需求，不重跑專利地圖、觸控、Tab 或其他產品流程。成功收據沿用既有機制在 PR／main 重用。
+
+使用方式：`node scripts/verify-live-release.mjs --asset=data/release-lineage.json`；沿用 `NVM_QA_BASE` 指定既有主站或 GitHub Pages，`NVM_QA_OUTPUT` 指定新證據目錄。不得把局部通過當作完整離線驗證。
+
+本機驗證：八個 HTTP 契約案例通過。首次測試夾具的 CF-Ray 使用非 ASCII 值造成中止，修正夾具後八案通過，原失敗收據保留；未更動內容判定以求通過。
+
+狀態：本機已驗證候選，提交及發布狀態由同次交付紀錄與 `data/release-lineage.json` 追溯。產品版本維持 v1.5.3；網站程式、樣式、資料及 Cloudflare 設定未變。未重新執行完整離線流程。
+
 ## 2026-10-12／CI 修訂 2026.10.12.1／本機未驗候選
 
 原因：push／PR 原先不分變更執行整套 check、瀏覽器回歸與巢狀測試，完整回歸另以 CI 環境免除明確授權。

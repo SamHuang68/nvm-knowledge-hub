@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "1a92c2cbfa3ff5a9e93ef9f3033d3e83f94fb1ec",
+  "baseCommit": "f9ad95fe2726211b619cbb0fb4643cea6c8d736b",
   "documentation": [
     "docs/CI修訂歷史.md",
     "docs/專利地圖修訂紀錄.md",
@@ -100,123 +100,39 @@
         "data/release-lineage.json",
         "scripts/build-release-lineage.mjs",
         "scripts/驗證專利地圖閱讀互動.mjs",
-        ".github/workflows/validate-and-deploy.yml"
+        ".github/workflows/validate-and-deploy.yml",
+        "scripts/verify-live-release.mjs",
+        "scripts/驗證正式來源HTTP.mjs"
       ],
-      "reason": "驗證腳本與 CI 計畫修訂後，核對正式來源紀錄、公開產物與既有資源保全；不重跑未受影響的產品流程。",
+      "reason": "HTTP 驗證修訂的確切來源、公開路徑與原始資料保全；不重跑產品互動。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 20
     },
     {
-      "id": "專利地圖閱讀互動",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/驗證專利地圖閱讀互動.mjs",
-        "--engine=chromium",
-        "--filter=觸控"
-      ],
+      "id": "正式來源HTTP契約",
+      "kind": "node",
       "targets": [
-        "scripts/驗證專利地圖閱讀互動.mjs"
+        "scripts/驗證正式來源HTTP.mjs"
       ],
       "changes": [
-        "scripts/驗證專利地圖閱讀互動.mjs"
+        "scripts/verify-live-release.mjs",
+        "scripts/驗證正式來源HTTP.mjs"
       ],
       "inputs": [
-        "data/nvm-technology-topics-en.md",
-        "data/nvm-technology-topics.md",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/專利地圖驗證.mjs",
-        "scripts/test-server.mjs",
-        "data/nvm-vendor-patent-maps.json",
-        "data/nvm-vendor-patent-maps-en.json",
-        "nvm-technology-atlas.css",
-        "site-language.js",
-        "atlas-diagram-loader.js",
+        "scripts/verify-live-release.mjs",
+        "scripts/驗證正式來源HTTP.mjs",
+        "site.webmanifest",
+        "data/offline-manifest.js",
         "package.json",
-        "package-lock.json",
-        "nvm-industry-research.css",
-        "editorial-reading-ui.css",
-        "hub-auto-tune.css",
-        "hub-auto-tune.js",
-        "章節閱讀導覽.css",
-        "nvm-bitcell-figures.css",
-        "nvm-ip-cells.css",
-        "nvm-engineering-diagrams.css",
-        "data/nvm-knowledge-data.json",
-        "data/nvm-knowledge-data-en.json",
-        "scripts/update-stage5-dossiers.mjs",
-        "scripts/驗證專利地圖閱讀互動.mjs",
-        "global-search.css",
-        "search-controller.js"
+        "package-lock.json"
       ],
-      "reason": "Linux Chromium 首次 CI 的直接填值、Tab 與初始定位已通過；只補驗本次修正的觸控前捲動。原始三案有效證據保留於 CI 38537261154 的瀏覽器產物。",
+      "reason": "具名請求身分、403／1010 與一般 HTTP 錯誤區分、200 內容不一致仍失敗、既有 BOM／CRLF 正規化，以及局部選取不得誤展開完整流程。僅本機 HTTP 夾具八案，不啟動瀏覽器或正式站全掃描。",
       "prepare": [
-        "node",
-        "browser"
+        "node"
       ],
-      "timeoutSeconds": 90
-    },
-    {
-      "id": "專利地圖閱讀互動-WebKit",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/驗證專利地圖閱讀互動.mjs",
-        "--engine=webkit",
-        "--filter=延遲"
-      ],
-      "targets": [
-        "scripts/驗證專利地圖閱讀互動.mjs"
-      ],
-      "changes": [
-        "scripts/驗證專利地圖閱讀互動.mjs"
-      ],
-      "inputs": [
-        "data/nvm-technology-topics-en.md",
-        "data/nvm-technology-topics.md",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/專利地圖驗證.mjs",
-        "scripts/test-server.mjs",
-        "data/nvm-vendor-patent-maps.json",
-        "data/nvm-vendor-patent-maps-en.json",
-        "nvm-technology-atlas.css",
-        "site-language.js",
-        "atlas-diagram-loader.js",
-        "package.json",
-        "package-lock.json",
-        "nvm-industry-research.css",
-        "editorial-reading-ui.css",
-        "hub-auto-tune.css",
-        "hub-auto-tune.js",
-        "章節閱讀導覽.css",
-        "nvm-bitcell-figures.css",
-        "nvm-ip-cells.css",
-        "nvm-engineering-diagrams.css",
-        "data/nvm-knowledge-data.json",
-        "data/nvm-knowledge-data-en.json",
-        "scripts/update-stage5-dossiers.mjs",
-        "scripts/驗證專利地圖閱讀互動.mjs",
-        "global-search.css",
-        "search-controller.js"
-      ],
-      "reason": "整合樣式就緒條件；只驗證直接填值、樣式完成前觸控與 Tab，以及載入後焦點、連續輸入和未操作初始定位。手機矩陣沿用既有證據。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 90
+      "timeoutSeconds": 60
     }
   ]
 }
