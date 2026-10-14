@@ -7,8 +7,98 @@ import {startTestServer} from './test-server.mjs';
 import {validateVendorPatentMaps, renderVendorPatentMaps, vendorPatentMapsMarkdown, patentMapTechnology} from './nvm-vendor-patent-maps-ui.mjs';
 
 const root = path.resolve(import.meta.dirname,'..');
+if(process.argv.includes('--vendors-only')){await checkReviewedVendors();process.exit(0);}
 if(process.argv.includes('--name-only')||process.argv.includes('--dossier-only')){await checkCompanyName();process.exit(0);}
 if(process.argv.includes('--stats-only')){await checkStatistics();process.exit(0);}
+
+async function checkReviewedVendors(){
+  const exportsOnly=process.argv.includes('--exports-only');
+  const out=path.join(root,'qa','十一家案卷',process.env.NVM_QA_BASE?'正式站':'本機');fs.mkdirSync(out,{recursive:true});
+  const base=process.env.NVM_QA_BASE,server=base||exportsOnly?null:await startTestServer(root);
+  const browser=exportsOnly?null:await chromium.launch();const results=[];
+  try {
+    for(const locale of ['zh','en']){
+      const data=JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'));
+      const selected=data.vendors.filter(v=>v.id!=='attopsemi');
+      validateVendorPatentMaps(data);
+      for(const mutate of [p=>delete p.researchSources,p=>p.researchSources[0].page=1,p=>delete p.researchSources[0].pdfSHA256,p=>delete p.correctedFrom.note,p=>p.publicationType='application',p=>p.claimFocus='']){
+        const broken=structuredClone(data);mutate(broken.vendors.find(v=>v.id==='ememory').families[0].patents[0]);assert.throws(()=>validateVendorPatentMaps(broken));
+      }
+      const broken=structuredClone(data),application=broken.vendors.flatMap(v=>v.families.flatMap(f=>f.patents)).find(p=>p.publicationType==='application');
+      application.legalStatus='active';assert.throws(()=>validateVendorPatentMaps(broken),/申請公開案/);
+      const md=vendorPatentMapsMarkdown(data,()=>'',locale);
+      for(const v of selected){
+        for(const text of [v.founders,v.personnelSource.note,v.attributionNote])assert.ok(md.includes(text));
+        for(const f of v.families)for(const p of f.patents){
+          for(const text of [p.title,p.inventors,p.assignee,p.claimFocus,p.mechanism,p.correctedFrom.note,...p.researchSources.flatMap(s=>[s.note,s.url])])assert.ok(md.includes(text),p.id);
+          if(p.publicationType==='application')assert.ok(md.includes(`${p.priorityDate} / ${p.publicationDate}`));
+        }
+      }
+      if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test(md),'英文匯出不含中文殘留');
+      if(exportsOnly){results.push({locale,records:59,exportPassed:true});continue;}
+      const url=`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}`;
+      for(const width of [1440,390]){
+        const page=await browser.newPage({viewport:{width,height:960}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+        await page.goto(`${url}#patent-maps`);await page.locator('#nvm-map-company').waitFor();
+        const findings=await page.evaluate(({selected,locale})=>{
+          const failures=[],check=(ok,label)=>{if(!ok)failures.push(label);};
+          const ids=[...document.querySelectorAll('#patent-maps [id]')].map(n=>n.id);check(new Set(ids).size===ids.length,'重複錨點');
+          for(const v of selected){
+            const vendor=document.getElementById('vendor-'+v.id),matrix=[...document.querySelectorAll('.nvm-vendor-landscape-table tbody tr')].find(row=>row.querySelector(`a[href="#vendor-${v.id}"]`));
+            check(vendor&&matrix,v.id+'兩個呈現入口');if(!vendor||!matrix)continue;
+            check(vendor.innerText.includes(v.personnelSource.note),v.id+'人員界線');
+            check(vendor.innerText.includes(locale==='en'?'Selected Publication Timeline':'選錄公報時間序列'),v.id+'時間序列界線');
+            check(vendor.querySelectorAll('.nvm-vendor-stat-card').length===4,v.id+'四項統計');
+            check(Number(document.querySelector(`[data-map-vendor-row="${v.id}"] [data-map-row-total]`).textContent)===v.families.flatMap(f=>f.patents).length,v.id+'矩陣計數');
+            for(const f of v.families)for(const p of f.patents){
+              const card=document.getElementById(`vendor-patent-${f.id}-${p.id}`);check(card,p.id+'案卷');if(!card)continue;
+              for(const text of [p.title,p.assignee,p.inventors,p.claimFocus,p.correctedFrom.note])check(card.innerText.includes(text),p.id+'原件導讀');
+              for(const area of [card,matrix])for(const source of p.researchSources){
+                check(area.innerText.includes(source.note),p.id+'來源說明');
+                const href=source.url+(source.page?'#page='+source.page:'');check([...area.querySelectorAll('a')].some(a=>a.getAttribute('href')===href),p.id+'來源頁碼');
+              }
+              check(document.getElementById(`vendor-patent-${f.id}-${p.correctedFrom.id}`),p.id+'舊錨點');
+              if(p.publicationType==='application'){
+                check(card.innerText.includes(locale==='en'?'Application Publication Date':'申請公開日'),p.id+'公開種類');
+                check(card.innerText.includes(p.publicationDate),p.id+'公開日期');
+                check(card.dataset.mapStatus==='unverified',p.id+'待核對');
+              }
+            }
+          }
+          check(document.documentElement.scrollWidth<=innerWidth,'頁面橫向溢出');return failures;
+        },{selected,locale});
+        assert.deepEqual(findings,[]);
+        const search=page.locator('#nvm-map-query');
+        for(const v of selected){
+          const f=v.families[0],p=f.patents[0];
+          for(const id of new Set([p.id,p.correctedFrom.id])){
+            await search.fill(id);assert.equal(await page.locator(`#vendor-patent-${f.id}-${p.id}`).isVisible(),true);
+            assert.ok((await page.locator('#nvm-map-results').innerText()).includes(p.id));
+          }
+        }
+        await search.fill('');await page.locator('#nvm-map-status').selectOption('unverified');
+        const expected=selected.flatMap(v=>v.families.flatMap(f=>f.patents)).filter(p=>p.legalStatus==='unverified').length;
+        assert.equal(await page.locator('[data-map-record]:visible').count(),expected);
+        assert.equal(await page.locator('[data-map-record]:visible[data-map-status=active]').count(),0);
+        await page.locator('.nvm-map-explorer').screenshot({path:path.join(out,`${locale}-${width}-待核對篩選.png`)});
+        await page.locator('#nvm-map-status').selectOption('');
+        await page.locator('#vendor-patent-neofuse-family-US20250024668A1 .nvm-patent-claim-row').screenshot({path:path.join(out,`${locale}-${width}-申請案權利項.png`)});
+        const alias='vendor-patent-pufsecurity-rot-family-US7243236B2';
+        await page.goto(`${url}&pm_company=everspin#${alias}`);const anchor=page.locator('#'+alias);await anchor.waitFor({state:'visible'});
+        assert.equal(await page.locator('#nvm-map-company').inputValue(),'');assert.equal(await anchor.evaluate(n=>document.activeElement===n),true);
+        await page.reload();await anchor.waitFor({state:'visible'});
+        const pathname=new URL(page.url()).pathname;
+        await Promise.all([page.waitForURL(u=>u.pathname!==pathname),page.locator('.language-toggle, #languageToggle').first().click()]);
+        await page.locator('#'+alias).waitFor({state:'visible'});assert.equal(new URL(page.url()).hash,'#'+alias);
+        assert.deepEqual(errors,[]);results.push({locale,width,records:59,passed:true,sources:true,corrections:true,matrix:true,search:true,applicationFilter:true,deepLink:true});await page.close();
+      }
+      const nojs=await browser.newPage({javaScriptEnabled:false});await nojs.goto(`${url}#patent-maps`);
+      assert.equal(await nojs.locator('[data-map-record]').count(),61);
+      assert.equal(await nojs.locator('#vendor-patent-neofuse-family-US20250024668A1').isVisible(),true);await nojs.close();
+    }
+  }finally{if(browser)await browser.close();if(server)await server.close();}
+  fs.writeFileSync(path.join(out,exportsOnly?'匯出結果.json':'結果.json'),JSON.stringify({results,noJavaScript:!exportsOnly},null,2));console.log(JSON.stringify({cases:results.length,recordsPerCase:59,exportsOnly,passed:true}));
+}
 
 async function checkCompanyName(){
   const out=path.join(root,'qa','上峰案卷',process.env.NVM_QA_BASE?'正式站':'本機');fs.mkdirSync(out,{recursive:true});

@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "8935e23b5815ea4b5a27",
+  "version": "784bfc61c74fb5b577b2",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -258,11 +258,11 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "d7f9d33b8071110e55e95b38835ff73023a1a5f00beabb8f0fec5a1442e692d7",
+    "nvm-technology-atlas-zh.html": "f9bb5a8b6aaeb2e4915a0352772e228d9973d6732d6d427602d5f7108eba30eb",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "1af4f2842bd889b8be78d2cf2738237f0b48fc21d0184e5149acfb388e9cc934",
+    "nvm-technology-atlas.html": "02a309b334423de5dfcc6e22cdbcff7da27691e4709ab8bc94a38c986fac733f",
     "nvm-technology-atlas.js": "2511dec36aa3ecd1c5ca22af56a4d93cf2945785fff635b3fbab9c88e5ce81c9",
-    "nvm-vendor-patent-maps.css": "d469aa71abc45180700e71dccef3b2e5af4ecb555eb3e7668c53db5f0cddac6b",
+    "nvm-vendor-patent-maps.css": "b672c5c4cc2b329795cf96df3d69ce627ae85652072ddf8caa619be4dedbd34f",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
     "pqc-hardware-rot-ledger-simulator.js": "5a3e023fc42601572e78dbc794a3e9808804629e2d08d7ee5337b0c54e22c8f2",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 15954163
+  "totalBytes": 16267257
 };

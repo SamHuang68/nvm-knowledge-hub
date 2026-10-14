@@ -11456,7 +11456,7 @@ Supports CBRAM and historical products; the announcement does not disclose a uni
 
 ## NVM Patent Maps · By Filing Company
 
-Dataset date: 2026-10-12
+Dataset date: 2026-10-15
 
 Status and term dates are recorded research data, not current legal determinations. Expiration of one patent does not establish freedom to operate: jurisdiction, related rights, claim scope, maintenance and term adjustments require case-specific review.
 
@@ -11464,711 +11464,937 @@ Status and term dates are recorded research data, not current legal determinatio
 
 ### eMemory Technology Inc. (eMemory)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Hsinchu Science Park, Taiwan
 - **Founded**: 2000
-- **Leadership**: Dr. Charles Ching-Hsiang Hsu, Fang-Cheng Lu, and the R&D team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Ching-Sung Yang; Shih-Jye Shen; Ching-Hsiang Hsu; Ming-Chou Ho; Chih-Hsun Chu (full names in each record).
 - **Business Model**: Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP)
-- **Recorded Portfolio Status**: 7 Recorded active · 7 Recorded expired
+- **Recorded Portfolio Status**: 10 Recorded active · 3 Recorded expired · 1 Needs verification
 - **Global Patents**: 1,370+ Patents Issued
 - [Company briefing · 2026-08-19 · p. 4](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=4) — Company-reported total; not the map count or currently active patents.
 - **Patent Portfolio Regions**: United States, Taiwan, China, Europe, Japan — [2024 ESG Report · Published 2025-08 · p. 56](https://www.ememory.com.tw/Content/Upload/files/ESG/20250730/2024%E5%B9%B4%E5%BA%A6%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8%E8%8B%B1%E6%96%87%E7%89%88V1.pdf#page=56) — Regions covered by eMemory and PUFsecurity portfolios in 2024; not a claim that every patent is granted in all five regions.
 - **Public Foundry Partners**: TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor — [Official foundry partners · Checked 2026-10-14](https://www.ememory.com.tw/en-US/About/Foundry) — Examples listed on the official page, which has no update date. Partnership does not establish qualification of every IP or process node.
 - **Cumulative Wafer Shipments**: 79M+ cumulative wafers shipped — [Company briefing · Published 2026-08-19 · p. 4](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=4) — Company-reported cumulative shipments of wafers using eMemory IP, not chip units. Page 4 does not specify a wafer-size conversion for this cumulative total.
-- **Patent Strategy**: The foundational philosophy of eMemory's patent portfolio is 'Zero Mask Adder' and '100% Standard CMOS Logic Process Compatibility'. Unlike conventional eFlash architectures that demand 3 to 8 additional specialized polysilicon masks or high-temperature thermal steps, eMemory's patent topology builds entirely upon native gate dielectrics, polysilicon gates, and well diffusion regions available in standard CMOS logic. Its patent map unfolds across two foundational vectors: the charge-storage trajectory (NeoBit floating-gate OTP → NeoEE capacitive-coupling MTP → NeoMTP erase-gate MTP) and the dielectric-physics trajectory (NeoFuse gate-oxide antifuse OTP → NeoPUF quantum-tunneling hardware security root of trust), spanning legacy sub-micron nodes down to 2nm GAA nanosheet architectures.
+- **Patent Strategy**: Selected technical scope: Series PMOS Selector and Floating Gate; Wells, Select/Following Devices and Antifuse; Well-Coupled Gates and Local Thin-Oxide Erase Region; PMOS Floating Gate with Integral Assistant Gate; Antifuse PUF, Key Generation and Address Scrambling. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### NeoBit® Floating-Gate OTP Patent Family (OTP (One-Time Programmable))
+[US6678190B2 · Original Publication · Published 2004-01-13 · p. 15](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard CMOS Series Dual-PMOS · Channel Hot Electron Injection (CHEI) · 0-Mask Adder*
+[US9634015B2 · Original Publication · Published 2017-04-25 · p. 12](https://patentimages.storage.googleapis.com/3f/1f/ca/0214957a6edc30/US9634015.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Cell Topology**: 2-PMOS (Select Transistor and Floating-Gate Transistor in Series)
-- **Physical Mechanism**: Drain band-to-band tunneling induces hot holes, impact-generating secondary hot electrons injected into the p+ floating gate (CHEI); read senses channel conduction current
-- **Process Node**: 0.5µm down to 0.11µm Standard Logic & High-Voltage BCD Processes
+[US8199578B2 · Original Publication · Published 2012-06-12 · p. 15](https://patentimages.storage.googleapis.com/03/42/ab/4b15f3e4be8a99/US8199578.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-The flagship breakthrough establishing eMemory's commercial leadership. By employing series-connected PMOS transistors in standard logic without a dedicated control gate, lateral fields generate secondary electrons injected into the floating gate, eliminating the prohibitive cost of double-poly control gates and creating the industry's first true zero-mask logic OTP.
+[US9368161B2 · Original Publication · Published 2016-06-14 · p. 10](https://patentimages.storage.googleapis.com/f3/be/0b/a555ffa9eadcb1/US9368161.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-##### [US6678190B2](https://patents.google.com/patent/US6678190B2/en) · Method of programming a series PMOS embedded EPROM cell
+[US10122538B2 · Original Publication · Published 2018-11-06 · p. 16](https://patentimages.storage.googleapis.com/29/b1/08/952524559e46e1/US10122538.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-12-19)
-- **Category & Generation**: Method / Operation · Gen-1 Foundational
-- **Priority / Grant**: 2002-12-19 / 2004-01-13
+#### NeoBit® Comparison: Single-Poly Floating-Gate OTP (OTP (One-Time Programmable))
+
+*Hot-Carrier Injection and Floating-Gate Retention*
+
+- **Cell Topology**: Series PMOS Selector and Floating Gate
+- **Physical Mechanism**: Hot-Carrier Injection and Floating-Gate Retention
+- **Process Node**: Not established from these claims; consult product qualification evidence.
+
+Three eMemory publications address series PMOS cells, doped floating gates and I/O integration. This is a technical grouping; implementation of every claim in the branded product is not established.
+
+##### [US6678190B2](https://patents.google.com/patent/US6678190B2/en) · Single poly embedded eprom
+
+> Correction History · [US6678190B2](https://patents.google.com/patent/US6678190B2/en) — US6678190B2: retained publication; inventor names, claim reading and context corrected from the original. [US6678190B2 · Former Record Check · Published 2004-01-13 · p. 1](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6678190B2 · Original Publication · Published 2004-01-13 · p. 15](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6678190B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6678190B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2002-01-25 / 2004-01-13
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: Conventional EPROM/OTP cells require dedicated control gates and additional polysilicon layers for capacitive coupling, escalating logic process wafer costs. How can efficient electron injection be achieved on standard PMOS devices lacking a control gate?
-- **Product Linkage**: The founding patent behind NeoBit mass production, widely deployed in PMICs, audio DAC calibration, and LCD driver ICs.
-- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
-- **Claim 1 Reading**: Claim 1 specifies a series PMOS structure devoid of a control gate, biasing the source and N-well to a common positive potential while applying negative drain bias to inject secondary avalanche electrons into the floating gate.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2022 after full 20-year term; entered the public domain. Semiconductor foundries and IC designers may freely practice the 2-PMOS CHEI programming methodology without patent infringement liability.
-- **Physical Solution**: Specifies a pair of series-connected p-channel MOS transistors: a first PMOS serving as a select transistor, and a second PMOS having an isolated floating gate. Applying positive 3–8V bias between Source Line (SL) and N-Well while biasing the drain negatively induces drain band-to-band tunneling holes. Secondary hot electrons generated by impact ionization are accelerated by vertical oxide fields across the 3.15 eV barrier into the floating gate.
-##### [US6914825B2](https://patents.google.com/patent/US6914825B2/en) · Programmed logic non-volatile memory cell with retained charges
+- **Technical Problem**: Store charge in a single-poly cell without a control-gate programming bias.
+- **Product Linkage**: Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.
+- **Inventors**: Ching-Sung Yang; Shih-Jye Shen; Ching-Hsiang Hsu
+- **Claim 1 Reading**: Claim 1 is a device claim: two series PMOS transistors, the specified select-gate/source-line/bit-line connections, a floating gate on the second transistor, and hot-carrier injection without a control-gate programming bias. Claim 1 does not specify the former draft’s 3–8 V range or negative drain bias.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two series PMOS devices provide selection and floating-gate charge storage through hot-carrier injection.
+##### [US6914825B2](https://patents.google.com/patent/US6914825B2/en) · Semiconductor memory device having improved data retention
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-12-19)
-- **Category & Generation**: Device Structure · Gen-1 Foundational
-- **Priority / Grant**: 2002-12-19 / 2005-07-05
+> Correction History · [US6914825B2](https://patents.google.com/patent/US6914825B2/en) — US6914825B2: retained publication; inventor names, claim reading and context corrected from the original. [US6914825B2 · Former Record Check · Published 2005-07-05 · p. 1](https://patentimages.storage.googleapis.com/61/f4/a7/c45079767fb03e/US6914825.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6914825B2 · Original Publication · Published 2005-07-05 · p. 11](https://patentimages.storage.googleapis.com/61/f4/a7/c45079767fb03e/US6914825.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6914825B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6914825B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2003-04-03 / 2005-07-05
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: Written floating-gate cells must ensure robust charge retention under extreme high-temperature environments while providing high signal-to-noise margins for sense amplifiers.
-- **Product Linkage**: The core reference patent for NeoBit data retention specifications and qualification standards.
-- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
-- **Claim 1 Reading**: Claim 1 defines an unprogrammed cell in a non-conductive state and a programmed cell retaining negative charges on the floating gate to establish a low-resistance conduction path, using channel current level to represent logical data.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2022; entered public domain. The structural claim defining negative charge storage in PMOS floating gate to lower threshold voltage is now open for public implementation.
-- **Physical Solution**: Programmed floating gates retain a stable negative charge packet. In PMOS physics, negative gate charge shifts the threshold voltage negatively, driving the storage PMOS into a conductive state under read bias, while unprogrammed cells remain cut off. Arrhenius extrapolations demonstrate data retention exceeding 10 years at 125°C.
-##### [US6920067B2](https://patents.google.com/patent/US6920067B2/en) · Non-volatile memory cell fabricated using standard logic CMOS process
+- **Technical Problem**: Floating-gate doping and injected carrier polarity affect retention and must be considered with the cell structure.
+- **Product Linkage**: Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.
+- **Inventors**: Ching-Hsiang Hsu; Shih-Jye Shen; Ming-Chou Ho
+- **Claim 1 Reading**: Claim 1 combines a P substrate, N well, series PMOS selector and storage transistor, a P-doped floating gate, P+ source/drain regions and line connections. The floating gate does not capacitively couple to a control gate above or below it. The claim does not guarantee a retention lifetime.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A PMOS selector and a PMOS storage device with a P-doped floating gate share an N well; the disclosure relates doping to charge retention.
+##### [US6920067B2](https://patents.google.com/patent/US6920067B2/en) · Integrated circuit embedded with single-poly non-volatile memory
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2023-05-23)
-- **Category & Generation**: Process Integration · Gen-1 Foundational
-- **Priority / Grant**: 2003-05-23 / 2005-07-19
+> Correction History · [US6920067B2](https://patents.google.com/patent/US6920067B2/en) — US6920067B2: retained publication; inventor names, claim reading and context corrected from the original. [US6920067B2 · Former Record Check · Published 2005-07-19 · p. 1](https://patentimages.storage.googleapis.com/fd/5e/a5/cfdc7bcb3b907c/US6920067B2.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6920067B2 · Original Publication · Published 2005-07-19 · p. 22](https://patentimages.storage.googleapis.com/fd/5e/a5/cfdc7bcb3b907c/US6920067B2.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6920067B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6920067B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Integrated-Circuit Structure · Publication-Based Selection
+- **Priority / Grant**: 2002-12-25 / 2005-07-19
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: How to establish that an NVM cell design requires zero process modifications and shares peripheral fabrication layers identically?
-- **Product Linkage**: Legal foundation protecting NeoBit's true zero-mask-adder foundry integration contract.
-- **Inventors**: Charles Ching-Hsiang Hsu, Shih-Chen Wang
-- **Claim 1 Reading**: Claim 1 requires the NVM storage cell to share gate dielectric thickness and electrical properties with peripheral I/O devices, formulating the legal boundary of 0-mask logic integration.
-- **Existing FTO Note · Requires Case Review**: Expired in May 2023; entered public domain. The zero-mask fabrication concept sharing standard CMOS I/O gate oxide is now free to operate.
-- **Physical Solution**: The storage PMOS gate oxide thickness, polysilicon doping, and source/drain diffusion junctions directly reuse the peripheral 3.3V or 5V I/O transistor layers available on the foundry logic wafer, without extra masks or thermal cycles.
-#### NeoFuse® Gate-Oxide Antifuse OTP Patent Family (Antifuse OTP (Anti-Tamper One-Time Programmable))
+- **Technical Problem**: Integrate NVM with core and I/O circuits while retaining compatible transistor behavior.
+- **Product Linkage**: Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.
+- **Inventors**: Ching-Hsiang Hsu; Chih-Hsun Chu; Ming-Chou Ho; Shih-Jye Shen
+- **Claim 1 Reading**: Claim 1 requires a core circuit, an I/O circuit containing the single-poly array, and the stated connections of two MOS devices in a well. The first floating gate is isolated from other control terminals; both devices have the same electrical behavior as I/O MOS devices. It specifies neither a 28 nm node nor a mask count.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: An I/O-embedded array uses series floating-gate and select MOS devices with well, bit-line and source-line connections.
+#### NeoFuse® Comparison: Antifuse OTP (Antifuse OTP (Anti-Tamper One-Time Programmable))
 
-*Core Ultra-Thin Gate Oxide Soft Breakdown · Direct Tunneling · 3T Leakage Suppression*
+*Dielectric Breakdown Creates a Persistent Low-Resistance State*
 
-- **Cell Topology**: 3T (Select Transistor SEL + Regulating Transistor REG + Antifuse Element AF)
-- **Physical Mechanism**: High electric field stress generates localized defects within ultra-thin gate oxides, enabling direct tunneling conduction filaments; read senses gate leakage current (I_GATE)
-- **Process Node**: 65nm / 40nm / 28nm HKMG / 16nm / 7nm / 5nm / 3nm / 2nm GAA
+- **Cell Topology**: Wells, Select/Following Devices and Antifuse
+- **Physical Mechanism**: Dielectric Breakdown Creates a Persistent Low-Resistance State
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-The technological cornerstone enabling eMemory to penetrate deep sub-micron advanced nodes and hardware security. Replacing destructive polysilicon eFuses, NeoFuse exploits controlled gate oxide breakdown and direct tunneling in sub-2nm dielectrics, utilizing a proprietary 3T architecture to suppress half-select disturb and GIDL leakage, scaling seamlessly to 2nm GAA nanosheets.
+The selection spans planar wells, series selectors and FinFET structures. The A1 record is an application publication; publication and grant dates remain distinct, without inferring advanced-node production.
 
-##### [US8514614B2](https://patents.google.com/patent/US8514614B2/en) · Antifuse memory cell and operating method thereof
+##### [US9634015B2](https://patents.google.com/patent/US9634015B2/en) · Antifuse-type one time programming memory cell and array structure with same
 
-- **Recorded Status**: Recorded active (Recorded term date: 2031-09-29)
-- **Category & Generation**: Method / Operation · Gen-2 Advanced
-- **Priority / Grant**: 2011-09-29 / 2013-08-20
+> Correction History · [US8514614B2](https://patents.google.com/patent/US8514614B2/en) — Replaced the former selection US8514614B2 with US9634015B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8514614B2 · Former Record Check · Published 2013-08-20 · p. 1](https://patentimages.storage.googleapis.com/82/9c/67/b811554884f745/US8514614.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9634015B2 · Original Publication · Published 2017-04-25 · p. 12](https://patentimages.storage.googleapis.com/3f/1f/ca/0214957a6edc30/US9634015.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9634015B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9634015B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2015-08-18 / 2017-04-25
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: In sub-2nm core gate oxide nodes, traditional antifuses suffer from read disturb and accidental half-select breakdown during array programming.
-- **Product Linkage**: Standard IP across tier-1 foundry PDKs (28nm HPC+, 22ULL, 16FFC, N6/N5).
-- **Inventors**: Sheng-Chih Lin, Charles Ching-Hsiang Hsu
-- **Claim 1 Reading**: Claim 1 specifies reading the antifuse below its breakdown threshold voltage and sensing gate leakage current rather than channel conduction to determine programmed states.
-- **Existing FTO Note · Requires Case Review**: Actively in force through September 2031. Grants enforceable exclusivity over methods reading antifuse soft-breakdown state via sub-breakdown gate leakage current (I_GATE).
-- **Physical Solution**: Applies controlled programming pulses across the antifuse gate to trigger localized dielectric soft breakdown. During read, an interrogation voltage below 1.2V senses gate leakage (I_GATE). Unprogrammed gates leak <1pA, while programmed gates conduct several µA, opening an expansive sensing window.
-##### [US8982637B2](https://patents.google.com/patent/US8982637B2/en) · Three-transistor antifuse memory cell with leakage current suppression
+- **Technical Problem**: Arrange selection paths and interconnects around an antifuse for cell access.
+- **Product Linkage**: Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.
+- **Inventors**: Wei-Zhe Wong; Meng-Yi Wu; Ping-Lung Ho
+- **Claim 1 Reading**: Claim 1 requires four doped regions in a well, complete well separation of the second and third regions, gate oxide, three spanning gates, and a metal bit line connected through two vias to the first and fourth regions. The scope is this combination, not every gate-oxide OTP.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Four doped regions and three gates separate word-line selection from the central antifuse control; a metal bit line joins the outer regions.
+##### [US10090309B1](https://patents.google.com/patent/US10090309B1/en) · Nonvolatile memory cell capable of improving program performance
 
-- **Recorded Status**: Recorded active (Recorded term date: 2033-03-15)
-- **Category & Generation**: Device Structure · Gen-2 Advanced
-- **Priority / Grant**: 2013-03-15 / 2015-03-17
+> Correction History · [US8982637B2](https://patents.google.com/patent/US8982637B2/en) — Replaced the former selection US8982637B2 with US10090309B1. The former publication identifies SanDisk Technologies LLC; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US8982637B1. [US8982637B1 · Former Record Check · Published 2015-03-17 · p. 1](https://patentimages.storage.googleapis.com/1b/41/d0/0cce8566be94a5/US8982637.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10090309B1 · Original Publication · Published 2018-10-02 · p. 11](https://patentimages.storage.googleapis.com/20/0b/f3/9a24a2ca1bb6ee/US10090309.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10090309B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10090309B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2017-04-27 / 2018-10-02
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: In high-density arrays, a ruptured antifuse injects parasitic sneak leakage into shared bitlines, degrading sensing margins of unprogrammed cells and inflating standby power.
-- **Product Linkage**: The core architecture of NeoFuse high-density arrays with ultra-low standby leakage.
-- **Inventors**: Sheng-Chih Lin, Chia-Hao Lee
-- **Claim 1 Reading**: Claim 1 covers a 3T cell comprising series-connected SEL, REG, and AF devices, where the REG gate is driven by a dedicated dynamic impedance control line.
-- **Existing FTO Note · Requires Case Review**: In force through March 2033. Protects the 3T antifuse cell structure with intermediate regulator transistor to suppress leakage in advanced nodes.
-- **Physical Solution**: Introduces a three-transistor (3T) topology: select transistor (SEL) and regulating transistor (REG) connected in series with the antifuse (AF). The REG transistor buffers high programming voltage away from SEL and pinches off GIDL during standby, boosting array sensing SNR by over 30dB.
-##### [US10410712B2](https://patents.google.com/patent/US10410712B2/en) · FinFET antifuse memory device and operation method
+- **Technical Problem**: Control antifuse programming fields and leakage through device and well layout.
+- **Product Linkage**: Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.
+- **Inventors**: Kuan-Hsun Chen; Ting-Ting Su
+- **Claim 1 Reading**: Claim 1 requires a trench-isolated active area, the three series devices, partial overlap of the following gate with a first well, and a lower-doped second well contiguous with but not superimposed on the first. It is not a generic claim to any low-voltage antifuse.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A selector, following-gate transistor and antifuse varactor are connected in series beside contiguous same-type wells of different doping concentrations.
+##### [US11735266B2](https://patents.google.com/patent/US11735266B2/en) · Antifuse-type one time programming memory cell and cell array structure with same
 
-- **Recorded Status**: Recorded active (Recorded term date: 2037-06-20)
-- **Category & Generation**: Device Structure · Gen-3 FinFET/GAA
-- **Priority / Grant**: 2017-06-20 / 2019-09-10
+> Correction History · [US10410712B2](https://patents.google.com/patent/US10410712B2/en) — Replaced the former selection US10410712B2 with US11735266B2. The former publication identifies Micron Technology Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10410712B2 · Former Record Check · Published 2019-09-10 · p. 1](https://patentimages.storage.googleapis.com/6f/c6/db/7e709a884ce97e/US10410712.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11735266B2 · Original Publication · Published 2023-08-22 · p. 17](https://patentimages.storage.googleapis.com/6c/5b/92/3af0a0f7bc76b2/US11735266.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11735266B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11735266B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2021-08-13 / 2023-08-22
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: 3D FinFET structures have sharp fin corners that concentrate electric fields, leading to uncontrolled dielectric damage and metal splatter that short adjacent fins.
-- **Product Linkage**: Key patent supporting NeoFuse qualification in 16nm, 12nm, 7nm, and 5nm FinFET processes.
-- **Inventors**: Sheng-Chih Lin, Hsin-Ming Chen
-- **Claim 1 Reading**: Claim 1 claims an antifuse structure wrapped across 3D semiconductor fins, defining sidewall breakdown paths and fin bias combinations.
-- **Existing FTO Note · Requires Case Review**: In force through June 2037. Protects antifuse cell structures implemented on 3D FinFET architectures across 16nm down to 3nm nodes.
-- **Physical Solution**: Tailors the antifuse cell for 3D fin geometry, utilizing high-k metal gates (HKMG) wrapped around the fin to induce self-limiting dielectric breakdown along vertical fin sidewalls, constraining write current under 50µA.
-##### [US20250024668A1](https://patents.google.com/patent/US20250024668A1/en) · Antifuse memory cell having multi-thickness gate dielectric and operation thereof
+- **Technical Problem**: Distinguish selected and inhibited cells while controlling antifuse voltage stress and leakage.
+- **Product Linkage**: Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.
+- **Inventors**: Lun-Chun Chen; Jiun-Ren Chen; Ping-Lung Ho; Hsin-Ming Chen
+- **Claim 1 Reading**: Claim 1 covers an array with the specified select device, following device, antifuse control connections and floating terminal. The select device expressly contains two series select transistors sharing a word line. The abstract’s three-block description alone omits this limitation.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The bit line reaches an antifuse through select and following devices; the other antifuse terminal floats, and series selectors distribute voltage.
+##### [US20250024668A1](https://patents.google.com/patent/US20250024668A1/en) · Antifuse-type memory with fin field-effect transistor
 
-- **Recorded Status**: Recorded active (Recorded term date: 2043-07-14)
-- **Category & Generation**: Device Structure · Gen-4 2nm GAA
-- **Priority / Grant**: 2023-07-14 / 2025-01-16 (Published Application)
+> Correction History · [US20250024668A1](https://patents.google.com/patent/US20250024668A1/en) — US20250024668A1: retained publication; inventor names, claim reading and context corrected from the original. [US20250024668A1 · Former Record Check · Published 2025-01-16 · p. 1](https://patentimages.storage.googleapis.com/89/08/f7/15c2b089e22101/US20250024668A1.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US20250024668A1 · Original Publication · Published 2025-01-16 · p. 21](https://patentimages.storage.googleapis.com/89/08/f7/15c2b089e22101/US20250024668A1.pdf#page=21) — Front page 1: inventor names and applicant. PDF page 21: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US20250024668A1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US20250024668A1/en) — Application publication; grant and current legal status remain unverified.
+
+- **Recorded Status**: Needs verification (Recorded term date: Not determined in this review)
+- **Category & Generation**: Published Application · Device · Publication-Based Selection
+- **Priority / Application Publication**: 2023-07-13 / 2025-01-16
+- **Applicant on Publication**: eMemory Technology Inc.
+- **Technical Problem**: Implement and bias a programmable gate-dielectric path in a fin transistor.
+- **Product Linkage**: Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.
+- **Inventors**: Yi-Hung Li; Chun-Hung Lin
+- **Claim 1 Reading**: Published application claim 1 specifies the select/following transistors, fin, three-sided gate dielectric and gate layer, terminal contacts and programming biases that rupture the dielectric into a low-resistance state. This A1 text is not an issued claim and specifies neither GAA nor 3 nm.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Select and following transistors feed an antifuse FinFET whose top-and-sidewall gate dielectric ruptures under programming bias to create a low-resistance state.
+#### NeoEE® Comparison: Erasable Single-Poly NVM (MTP (Multi-Time Programmable))
+
+*Separate Charge-Transfer Regions and Oxide Thicknesses*
+
+- **Cell Topology**: Well-Coupled Gates and Local Thin-Oxide Erase Region
+- **Physical Mechanism**: Separate Charge-Transfer Regions and Oxide Thicknesses
+- **Process Node**: Not established from these claims; consult product qualification evidence.
+
+The two publications address array program/control/erase paths and differing channel/erase oxide thicknesses. They are replacements for the former misattributed Impinj/Virage references, not renamed versions of those patents.
+
+##### [US8199578B2](https://patents.google.com/patent/US8199578B2/en) · Single polysilicon layer non-volatile memory and operating method thereof
+
+> Correction History · [US6788574B2](https://patents.google.com/patent/US6788574B2/en) — Replaced the former selection US6788574B2 with US8199578B2. The former publication identifies Virage Logic Corp; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US6788574B1. [US6788574B1 · Former Record Check · Published 2004-09-07 · p. 1](https://patentimages.storage.googleapis.com/db/25/1c/90acfdf8ed14ca/US6788574.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US8199578B2 · Original Publication · Published 2012-06-12 · p. 15](https://patentimages.storage.googleapis.com/03/42/ab/4b15f3e4be8a99/US8199578.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US8199578B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8199578B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Array Structure · Publication-Based Selection
+- **Priority / Grant**: 2010-06-03 / 2012-06-12
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: In sub-3nm Gate-All-Around (GAA) nanosheets operating below 0.7V, high breakdown voltages risk destructive punch-through across ultrathin sheets.
-- **Product Linkage**: NeoFuse patent deployment targeting N3P and N2 advanced foundry nodes.
-- **Inventors**: eMemory R&D Team
-- **Claim 1 Reading**: Discloses GAA nanosheet antifuse structures integrating stepped dielectric layers and dynamic potential isolation.
-- **Existing FTO Note · Requires Case Review**: Published patent application targeting 2nm GAA nanosheet antifuse structures; expected to secure exclusivity into 2043.
-- **Physical Solution**: Integrates multi-thickness stepped dielectrics within a single cell, concentrating high fields across a localized breakdown window while protecting channel regions with thicker oxide liners.
-#### NeoEE® Single-Poly MTP Patent Family (MTP (Multi-Time Programmable))
+- **Technical Problem**: Separate charge-transfer regions to address repeated programming and erase stress.
+- **Product Linkage**: Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.
+- **Inventors**: Hsin-Ming Chen; Shih-Chen Wang; Wen-Hao Ching; Yen-Hsin Lai; Ching-Sung Yang
+- **Claim 1 Reading**: Claim 1 combines series cell rows, floating-gate transistors, program/control gates, row/column wiring and well-based erase lines. The floating gate spans three active regions; the storage transistor is P-channel and the program/control gates are N wells. A generic coupling capacitor is insufficient.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A floating gate spans three active regions; substrate wells implement program/control gates and row erase lines.
+##### [US8592886B2](https://patents.google.com/patent/US8592886B2/en) · Erasable programmable single-ploy nonvolatile memory
 
-*Pure Single-Poly · Symmetrical FN/FN Tunneling · Zero Static Power · 1K–10K Cycles*
+> Correction History · [US6950342B2](https://patents.google.com/patent/US6950342B2/en) — Replaced the former selection US6950342B2 with US8592886B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6950342B2 · Former Record Check · Published 2005-09-27 · p. 1](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Cell Topology**: MOS Capacitive Coupler (C) + Tunneling Junction (T) + Read MOS (R) Sharing Floating Gate
-- **Physical Mechanism**: Both program and erase utilize Fowler-Nordheim (FN) quantum tunneling; MOS capacitor couples voltage to modulate floating-gate potential
-- **Process Node**: 0.35µm down to 0.11µm Standard Logic & Analog BCD Processes
+[US8592886B2 · Original Publication · Published 2013-11-26 · p. 14](https://patentimages.storage.googleapis.com/17/12/50/7b2320336db2ef/US8592886.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-Designed for applications requiring field rewritability (sensor trimming, RFID UID updates, MCU calibration) without the cost of double-poly eFlash. Achieves bidirectional FN tunneling with programming currents under 1nA/bit, eliminating large on-chip charge pumps and serving ultra-low-power IoT applications.
+[US8592886B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8592886B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-##### [US6788574B2](https://patents.google.com/patent/US6788574B2/en) · Single-poly electrically erasable programmable read only memory cell with capacitive coupling
-
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-12-30)
-- **Category & Generation**: Device Structure · Gen-1 Foundational
-- **Priority / Grant**: 2002-12-30 / 2004-09-07
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2012-03-08 / 2013-11-26
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: Conventional EEPROMs rely on double-poly control gates to provide adequate capacitive coupling, which is incompatible with pure logic CMOS.
-- **Product Linkage**: Foundational architecture behind NeoEE zero-mask logic EEPROM IP.
-- **Inventors**: Charles Ching-Hsiang Hsu, Shih-Chen Wang
-- **Claim 1 Reading**: Claim 1 specifies a single continuous polysilicon floating gate spanning capacitive coupling, tunneling, and sensing channel regions.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2022; entered public domain. Single-poly EEPROM structures employing well capacitors as control gates are free to implement.
-- **Physical Solution**: Employs an N-well or MOS capacitor as a dedicated coupling capacitor (C node) overlapping the single-poly floating gate to achieve high coupling ratios (>0.7), while separating tunneling (T node) and read channel (R node) functions.
-##### [US6950342B2](https://patents.google.com/patent/US6950342B2/en) · Method of operating single poly non-volatile memory cell using FN tunneling for both program and erase
+- **Technical Problem**: The storage channel and erase region have different oxide-reliability and tunneling requirements.
+- **Product Linkage**: Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.
+- **Inventors**: Te-Hsun Hsu; Hsin-Ming Chen; Ching-Sung Yang; Wen-Hao Ching; Wei-Ren Chen
+- **Claim 1 Reading**: Claim 1 requires a floating-gate transistor, adjacent erase-gate region, an extended floating gate, and oxide above the channel thicker than oxide above the erase region. That relative thickness is required; no endurance count or foundry node is specified.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The floating gate extends toward an erase-gate region with thinner oxide than that above the channel.
+#### NeoMTP® Comparison: Assistant-Gate Cells and Arrays (High-Density MTP (Multi-Time Programmable))
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2023-12-30)
-- **Category & Generation**: Method / Operation · Gen-1 Foundational
-- **Priority / Grant**: 2003-12-30 / 2005-09-27
+*Well and Active-Edge Capacitive Coupling*
+
+- **Cell Topology**: PMOS Floating Gate with Integral Assistant Gate
+- **Physical Mechanism**: Well and Active-Edge Capacitive Coupling
+- **Process Node**: Not established from these claims; consult product qualification evidence.
+
+These related publications address the cell and its array wiring. The assistant gate should not be relabeled as an unverified product generation with a separate erase gate.
+
+##### [US9368161B2](https://patents.google.com/patent/US9368161B2/en) · Nonvolatile memory cell structure with assistant gate
+
+> Correction History · [US6853583B2](https://patents.google.com/patent/US6853583B2/en) — Replaced the former selection US6853583B2 with US9368161B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6853583B2 · Former Record Check · Published 2005-02-08 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9368161B2 · Original Publication · Published 2016-06-14 · p. 10](https://patentimages.storage.googleapis.com/f3/be/0b/a555ffa9eadcb1/US9368161.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9368161B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9368161B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2014-04-02 / 2016-06-14
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: Channel hot electron injection draws milliamperes of current, making on-chip charge pumps prohibitively large for passive RFID tags and coin-cell devices.
-- **Product Linkage**: NeoEE ultra-low-power IoT and RFID tag applications.
-- **Inventors**: Charles Ching-Hsiang Hsu and team
-- **Claim 1 Reading**: Claim 1 claims bidirectional FN quantum tunneling for both program and erase combined with low-field channel resistance sensing.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2023; entered public domain. Bi-directional FN tunneling write/erase bias sequences are now open technology.
-- **Physical Solution**: Programs by applying positive bias to C while grounding T, injecting electrons into the floating gate via FN tunneling. Erases by reversing the polarity, drawing electrons out via FN tunneling. Entire cycle operates purely via capacitive displacement currents (<1nA).
-#### NeoMTP® High-Density MTP Patent Family (High-Density MTP (Multi-Time Programmable))
+- **Technical Problem**: Provide controllable capacitive coupling for a single-poly floating-gate cell.
+- **Product Linkage**: Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.
+- **Inventors**: Mu-Ying Tsao; Wei-Ren Chen
+- **Claim 1 Reading**: Claim 1 requires two OD regions in an N well, a series PMOS selector and storage transistor on the first region, and an assistant gate extending from the floating-gate end to the second-region edge. N-well bias controls the coupled voltage; it is not a generic separate erase gate.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: An assistant gate extends from the floating gate toward a second active-region edge and couples the N-well bias to the floating gate.
+##### [US9601501B2](https://patents.google.com/patent/US9601501B2/en) · Nonvolatile memory cell structure with assistant gate and memory array thereof
 
-*Dedicated Erase Gate (EG) · Channel Hot Electron Writing · Edge FN Erasing · 25–40 F²*
+> Correction History · [US7158412B2](https://patents.google.com/patent/US7158412B2/en) — Replaced the former selection US7158412B2 with US9601501B2. The former publication identifies Intersil Americas LLC; this is a new editorial selection, not renumbering or proof of assignment. [US7158412B2 · Former Record Check · Published 2007-01-02 · p. 1](https://patentimages.storage.googleapis.com/f3/ef/ee/6becb687d69234/US7158412.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Cell Topology**: PMOS Floating Gate + Lateral Dedicated Erase Gate (EG)
-- **Physical Mechanism**: Program: Channel Hot Hole-Induced Electron Injection (CHEI); Erase: Electrons tunnel from floating gate edge to Erase Gate via localized FN tunneling
-- **Process Node**: 0.18µm / 0.153µm / 0.11µm / 90nm / 55nm / 40nm BCD & HV Display Driver Nodes
+[US9601501B2 · Original Publication · Published 2017-03-21 · p. 20](https://patentimages.storage.googleapis.com/8c/59/b7/cf45d4056ca5ed/US9601501.pdf#page=20) — Front page 1: inventor names and assignee. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-Overcomes the cell-area scaling bottleneck of single-poly MTP caused by bulky capacitive couplers. Introduces a dedicated lateral Erase Gate (EG), enabling electrons to tunnel directly out of the floating gate edge to EG without requiring large coupling capacitors, slashing cell size to 25–40 F² and establishing the gold standard in automotive BCD, PMIC, and OLED/LCD display drivers (DDIC).
+[US9601501B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9601501B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-##### [US6853583B2](https://patents.google.com/patent/US6853583B2/en) · Non-volatile memory cell with erase gate and method of operating the same
-
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-06-21)
-- **Category & Generation**: Device Structure · Gen-1 Foundational
-- **Priority / Grant**: 2002-06-21 / 2005-02-08
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Array Structure · Publication-Based Selection
+- **Priority / Grant**: 2014-04-02 / 2017-03-21
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: How to achieve electrical erase in single-poly logic CMOS without large substrate coupling capacitors or double-poly stacks?
-- **Product Linkage**: Foundational patent underpinning NeoMTP 16Kb–1Mb embedded code storage.
-- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
-- **Claim 1 Reading**: Claim 1 covers a memory cell comprising a PMOS storage transistor and a lateral erase gate, with the erase path entirely decoupled from the read channel.
-- **Existing FTO Note · Requires Case Review**: Expired in June 2022; entered public domain. Dedicated erase gate topology for edge FN tunneling is in the public domain.
-- **Physical Solution**: Positions a dedicated Erase Gate (EG, formed of an adjacent n+ diffusion or polysilicon node) next to the PMOS floating gate. Applying positive 10–12V pulses to EG generates strong localized fringing electric fields along the floating-gate edge, drawing electrons out via FN tunneling directly into EG.
-##### [US7158412B2](https://patents.google.com/patent/US7158412B2/en) · High density single poly non-volatile memory cell array with edge erase mechanism
+- **Technical Problem**: An assistant-gate cell needs a defined word-line, bit-line and source-line arrangement at array level.
+- **Product Linkage**: Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.
+- **Inventors**: Mu-Ying Tsao; Wei-Ren Chen
+- **Claim 1 Reading**: Claim 1 is an array claim specifying each PMOS selector, storage transistor and doped regions, an integral single-poly assistant/floating gate, and word lines to select gates, bit lines to third doped regions, and source lines to first source regions.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The floating and assistant gates are integral parts of one polysilicon layer; series PMOS cells connect to three defined line networks.
+#### NeoPUF® Comparison: Antifuse and Security Systems (PUF (Physical Unclonable Function))
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2024-03-08)
-- **Category & Generation**: Device Structure · Gen-2 Evolutionary
-- **Priority / Grant**: 2004-03-08 / 2007-01-02
+*Physical Random States and Digital Security Processing*
+
+- **Cell Topology**: Antifuse PUF, Key Generation and Address Scrambling
+- **Physical Mechanism**: Physical Random States and Digital Security Processing
+- **Process Node**: Not established from these claims; consult product qualification evidence.
+
+Antifuse cells, entropy-string key processing and memory-address protection are different claim combinations. They cannot all be reduced to one quantum-noise source.
+
+##### [US10122538B2](https://patents.google.com/patent/US10122538B2/en) · Antifuse physically unclonable function unit and associated control method
+
+> Correction History · [US10204981B2](https://patents.google.com/patent/US10204981B2/en) — Replaced the former selection US10204981B2 with US10122538B2. The former publication identifies United Microelectronics Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10204981B2 · Former Record Check · Published 2019-02-12 · p. 1](https://patentimages.storage.googleapis.com/27/c1/94/78c6071fb12696/US10204981.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10122538B2 · Original Publication · Published 2018-11-06 · p. 16](https://patentimages.storage.googleapis.com/29/b1/08/952524559e46e1/US10122538.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10122538B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10122538B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2016-10-12 / 2018-11-06
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: How to organize erase gates within large arrays to avoid cross-disturb between wordlines and bitlines during sector erase?
-- **Product Linkage**: The production array architecture for NeoMTP in automotive BCD and display drivers.
-- **Inventors**: Charles Ching-Hsiang Hsu, Fang-Cheng Lu
-- **Claim 1 Reading**: Claim 1 specifies shared erase gate interconnect topologies across cell rows and corresponding array decoding structures.
-- **Existing FTO Note · Requires Case Review**: Expired in March 2024; entered public domain. High-density single-poly MTP array layout configurations are now free to operate.
-- **Physical Solution**: Shares erase gate lines across adjacent rows or sectors combined with well reverse-biasing, enabling block/sector erase and page programming with array layout efficiency exceeding 70%.
-#### NeoPUF® Hardware Security & Root-of-Trust Patent Family (PUF (Physical Unclonable Function))
+- **Technical Problem**: A random antifuse outcome needs a circuit path for preservation and readout.
+- **Product Linkage**: Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.
+- **Inventors**: Meng-Yi Wu; Hsin-Ming Chen
+- **Claim 1 Reading**: Claim 1 requires select, switching and antifuse transistors with specified control lines in each subcell, a connection circuit, a copying circuit containing a third antifuse, and readout that generates a random code from that third antifuse. An antifuse alone is insufficient.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two sub-antifuse cells connect through a connection circuit; a third antifuse in a copying circuit preserves a state for random-code readout.
+##### [US10649735B2](https://patents.google.com/patent/US10649735B2/en) · Security system with entropy bits
 
-*Oxide Quantum Tunneling Randomness · Zero Bit Error Rate (BER) · Differential Balanced Sensing · Chip DNA*
+> Correction History · [US10651268B2](https://patents.google.com/patent/US10651268B2/en) — Replaced the former selection US10651268B2 with US10649735B2. The former publication identifies Qualcomm Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10651268B2 · Former Record Check · Published 2020-05-12 · p. 1](https://patentimages.storage.googleapis.com/c1/c2/56/6925f4101c3649/US10651268.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Cell Topology**: Paired Antifuse Differential Cell + Auto-Tracking Differential Sense Amplifier
-- **Physical Mechanism**: Exploits unpredictable atomic-scale thickness fluctuations and quantum tunneling probabilities in ultra-thin gate oxides; differential tracking architecture cancels PVT drifts
-- **Process Node**: 55nm down to 2nm (Universal Across All CMOS, FinFET, and GAA Nodes)
+[US10649735B2 · Original Publication · Published 2020-05-12 · p. 14](https://patentimages.storage.googleapis.com/c2/c9/df/2281b9677665ae/US10649735.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-eMemory's epochal innovation expanding from memory storage into hardware cybersecurity. While legacy SRAM PUFs suffer from startup latency, aging degradation, and high bit-error rates (10–15% requiring heavy ECC), eMemory discovered that microscopic quantum tunneling through virgin ultra-thin gate oxides provides an ideal, lifelong stable random entropy source with zero bit flips, spawning subsidiary PUFsecurity and earning adoption across major secure processors.
+[US10649735B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10649735B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-##### [US10204981B2](https://patents.google.com/patent/US10204981B2/en) · Physical unclonable function apparatus utilizing dielectric breakdown variation
-
-- **Recorded Status**: Recorded active (Recorded term date: 2036-09-08)
-- **Category & Generation**: Device Structure · Gen-3 Security
-- **Priority / Grant**: 2016-09-08 / 2019-02-12
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Security-System Structure · Publication-Based Selection
+- **Priority / Grant**: 2017-09-12 / 2020-05-12
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: Conventional SRAM PUFs suffer bit flips across temperature variations, requiring extensive helper data and power-hungry ECC that enlarge chip area and invite side-channel attacks.
-- **Product Linkage**: Founding invention patent behind NeoPUF and PUFsecurity's PUFrt and PUFcc product families.
-- **Inventors**: Meng-Yi Wu, Charles Ching-Hsiang Hsu
-- **Claim 1 Reading**: Claim 1 specifies a PUF apparatus comprising paired dielectric antifuse elements, measuring microscopic tunneling current variations, and latching the differential outcome into unique hardware identities.
-- **Existing FTO Note · Requires Case Review**: In force through September 2036. Strictly protects PUF hardware structures exploiting microscopic oxide variations for static key generation.
-- **Physical Solution**: Applies identical initial electrical stress across a pair of nominally identical gate oxide capacitors. Because atomic oxygen vacancies and tunneling barrier widths vary randomly at the nanoscale, their tunneling currents exhibit intrinsic micro-differences. Differential sensing converts this difference into a permanent binary '0' or '1' with zero bit error rate (BER < 10⁻¹²).
-##### [US10651268B2](https://patents.google.com/patent/US10651268B2/en) · PUF cell structure and differential reading circuit with tracking reference
+- **Technical Problem**: Convert multiple PUF entropy strings into a security key.
+- **Product Linkage**: Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.
+- **Inventors**: Hsin-Ming Chen; Meng-Yi Wu; Po-Hao Huang
+- **Claim 1 Reading**: Claim 1 requires a PUF supplying multiple entropy strings and a key generator whose operations are selected bit by bit by an operation-entropy string. It does not require a particular gate-oxide noise source or establish a product security certification.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A key generator uses each bit of an operation-entropy string to select operations on a manipulation string derived from PUF entropy strings.
+##### [US10915464B2](https://patents.google.com/patent/US10915464B2/en) · Security system using random number bit string
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-03-12)
-- **Category & Generation**: Device Structure · Gen-1 Quantum PUFrt
-- **Priority / Grant**: 2017-09-29 / 2020-05-12
-- **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: How to guarantee 100% key bit stability without a single bit flip under extreme -40°C to 150°C automotive temperatures and supply voltage sags?
-- **Product Linkage**: Key circuit patent enabling PUFrt to achieve PSA Certified Level 3 and FIPS 140-3 evaluations.
-- **Inventors**: Meng-Yi Wu, Hsin-Ming Chen
-- **Claim 1 Reading**: Claim 1 covers differential balanced readout architectures, common-mode rejection circuits, and sensing methods maintaining bit consistency across full temperature ranges.
-- **Existing FTO Note · Requires Case Review**: In force through March 2038. Protects quantum tunneling physical unclonable function devices with tracking differential sensing circuitry.
-- **Physical Solution**: Implements fully symmetrical common-mode differential sense amplifiers, ensuring PVT fluctuations affect paired cells identically as common-mode shifts, completely canceled at differential sensing nodes.
-##### [US10769300B2](https://patents.google.com/patent/US10769300B2/en) · Random number generator utilizing quantum tunneling mechanism of dielectric layer
+> Correction History · [US10769300B2](https://patents.google.com/patent/US10769300B2/en) — Replaced the former selection US10769300B2 with US10915464B2. The former publication identifies International Business Machines Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10769300B2 · Former Record Check · Published 2020-09-08 · p. 1](https://patentimages.storage.googleapis.com/3a/0f/1f/fdc0198768a54a/US10769300.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-09-14)
-- **Category & Generation**: Device & Method · Gen-1 Quantum TRNG
-- **Priority / Grant**: 2017-06-30 / 2020-09-08
+[US10915464B2 · Original Publication · Published 2021-02-09 · p. 12](https://patentimages.storage.googleapis.com/01/7c/29/60ed66a95097fe/US10915464.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10915464B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10915464B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Security-System Structure · Publication-Based Selection
+- **Priority / Grant**: 2017-09-12 / 2021-02-09
 - **Assignee**: eMemory Technology Inc.
-- **Technical Problem**: True random number generators (TRNG) traditionally rely on thermal noise or ring oscillator jitter, vulnerable to external power injection or thermal manipulation attacks.
-- **Product Linkage**: Embedded TRNG IP within PUFsecurity cryptographic co-processors.
-- **Inventors**: Meng-Yi Wu, Charles Ching-Hsiang Hsu
-- **Claim 1 Reading**: Claim 1 claims an apparatus utilizing gate dielectric quantum tunneling shot noise as entropy source coupled with dynamic sampling circuits to output true random sequences.
-- **Existing FTO Note · Requires Case Review**: In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise.
-- **Physical Solution**: Harvests pure quantum shot noise generated during electron tunneling through dielectric barriers as an untamperable entropy source, passing the entire NIST SP 800-22 and FIPS 140-3 statistical test suites.
+- **Technical Problem**: Prevent physical storage placement from directly revealing the external access address.
+- **Product Linkage**: Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.
+- **Inventors**: Hsin-Ming Chen; Meng-Yi Wu; Po-Hao Huang
+- **Claim 1 Reading**: Claim 1 combines PUF units with paired select/antifuse transistors, an address-scrambling write-protection circuit, memory and readout decryption. Both the specified antifuse wiring and address mapping matter; this is not a generic TRNG claim.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A PUF string scrambles write addresses; data is stored at the scrambled address and recovered through the readout circuit.
 #### Technology Milestones
 
-- **2000–2005 · undefined** (undefined) — undefined undefined · undefined
-- **2004–2008 · undefined** (undefined) — undefined undefined · undefined
-- **2009–2016 · undefined** (undefined) — undefined undefined · undefined
-- **2017–2020 · undefined** (undefined) — undefined undefined · undefined
-- **2021–2026 · undefined** (undefined) — undefined undefined · undefined
-#### Patent Defense Strategy & Landmark Litigation: Patent Tier Defense Strategy & Public Domain Succession
+- **2004-01-13 – 2005-07-19 · NeoBit® Comparison: Single-Poly Floating-Gate OTP** (Publication chronology) — Three eMemory publications address series PMOS cells, doped floating gates and I/O integration. This is a technical grouping; implementation of every claim in the branded product is not established. Not established from these claims; consult product qualification evidence. · US6678190B2, US6914825B2, US6920067B2
+- **2017-04-25 – 2025-01-16 · NeoFuse® Comparison: Antifuse OTP** (Publication chronology) — The selection spans planar wells, series selectors and FinFET structures. The A1 record is an application publication; publication and grant dates remain distinct, without inferring advanced-node production. Not established from these claims; consult product qualification evidence. · US9634015B2, US10090309B1, US11735266B2, US20250024668A1
+- **2012-06-12 – 2013-11-26 · NeoEE® Comparison: Erasable Single-Poly NVM** (Publication chronology) — The two publications address array program/control/erase paths and differing channel/erase oxide thicknesses. They are replacements for the former misattributed Impinj/Virage references, not renamed versions of those patents. Not established from these claims; consult product qualification evidence. · US8199578B2, US8592886B2
+- **2016-06-14 – 2017-03-21 · NeoMTP® Comparison: Assistant-Gate Cells and Arrays** (Publication chronology) — These related publications address the cell and its array wiring. The assistant gate should not be relabeled as an unverified product generation with a separate erase gate. Not established from these claims; consult product qualification evidence. · US9368161B2, US9601501B2
+- **2018-11-06 – 2021-02-09 · NeoPUF® Comparison: Antifuse and Security Systems** (Publication chronology) — Antifuse cells, entropy-string key processing and memory-address protection are different claim combinations. They cannot all be reduced to one quantum-noise source. Not established from these claims; consult product qualification evidence. · US10122538B2, US10649735B2, US10915464B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-eMemory represents a quintessential semiconductor IP strategy of "dual-track tiered evolution." Early foundations laid down by NeoBit (US6678190B2 etc.) established 0-mask logic NVM norms. As foundational patents entered the public domain in 2022–2023, eMemory had already secured pervasive patent rings in advanced nodes through NeoFuse (US8514614B2) and NeoPUF (US10204981B2).
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Zero-Mask Floating Gate Moat (NeoBit Era)
+##### NeoBit® Comparison: Single-Poly Floating-Gate OTP
 
-eMemory secured the premier route for CMOS EPROM via control-gate-free series PMOS with CHEI programming. Competitors seeking 0-mask logic OTP were forced into higher-voltage NMOS breakdown alternatives with inferior yields. Following its 20-year expiration in 2022, this foundational bitcell became free public domain technology, though physically limited to >=65nm.
+Claim 1 is a device claim: two series PMOS transistors, the specified select-gate/source-line/bit-line connections, a floating gate on the second transistor, and hot-carrier injection without a control-gate programming bias. Claim 1 does not specify the former draft’s 3–8 V range or negative drain bias.
 
-##### FinFET & 2nm GAA Advanced Antifuse Ring (NeoFuse Era)
+##### NeoFuse® Comparison: Antifuse OTP
 
-For sub-28nm geometries, eMemory constructed fresh barriers around 3T antifuse topologies (US8982637B2) and gate-tunneling readout techniques (US8514614B2), locking down low-voltage sensing of gate tunneling currents to preempt unauthorized adoption across advanced PDK libraries.
+Claim 1 requires four doped regions in a well, complete well separation of the second and third regions, gate oxide, three spanning gates, and a metal bit line connected through two vias to the first and fourth regions. The scope is this combination, not every gate-oxide OTP.
 
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] The semiconductor industry may freely practice first-generation NeoBit 2-PMOS CHEI topologies (0.5µm–0.11µm) without royalties. However, sub-28nm antifuse designs employing 3T regulation or sub-breakdown gate tunneling sensing remain actively protected through 2031–2037.
+##### NeoEE® Comparison: Erasable Single-Poly NVM
+
+Claim 1 combines series cell rows, floating-gate transistors, program/control gates, row/column wiring and well-based erase lines. The floating gate spans three active regions; the storage transistor is P-channel and the program/control gates are N wells. A generic coupling capacitor is insufficient.
+
+##### NeoMTP® Comparison: Assistant-Gate Cells and Arrays
+
+Claim 1 requires two OD regions in an N well, a series PMOS selector and storage transistor on the first region, and an assistant gate extending from the floating-gate end to the second-region edge. N-well bias controls the coupled voltage; it is not a generic separate erase gate.
+
+##### NeoPUF® Comparison: Antifuse and Security Systems
+
+Claim 1 requires select, switching and antifuse transistors with specified control lines in each subcell, a connection circuit, a copying circuit containing a third antifuse, and readout that generates a random code from that third antifuse. An antifuse alone is insufficient.
+
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Kilopass Technology Inc. (Acquired by Synopsys in 2018) (Kilopass (Synopsys))
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Santa Clara, California, USA
 - **Founded**: 2001 (Acquired by Synopsys in 2018)
-- **Leadership**: Dr. Jack Z. Peng and R&D Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Jack Zezhong Peng; David Fong; Harry Shengwen Luan; Zhongshang Liu (full names in each record).
 - **Business Model**: Standard CMOS Logic 2T Gate-Oxide Breakdown Antifuse OTP IP (Standard Logic 2T Antifuse OTP IP)
 - **Recorded Portfolio Status**: 1 Recorded active · 2 Recorded expired
 - **Historical Patent Disclosure**: 60 granted or pending patents (2014) — [Kilopass / UMC joint announcement · Published 2014-05-13](https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html) — Combined granted and pending cases, not 60 grants; not a current active-patent total.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [Kilopass / UMC joint announcement · Checked 2026-10-15](https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html) — This announcement does not list all jurisdictions. The previous US, Taiwan, China and Europe list was not verified; customer or foundry locations do not establish patent coverage.
 - **Verified Foundry Example**: UMC 55nm LP Gusto; DB HiTek TS11 — [Kilopass / UMC joint announcement · Published 2014-05-13](https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html) — Gusto qualified on UMC 55nm LP; limited to that product and node, not a complete partner list. / [DB HiTek official MS/RF portfolio · Checked 2026-10-15](https://www.dbhitek.com/en/technology/portfolio/ms-rf) — TS11 lists Kilopass anti-fuse IP; no update date is shown, and qualification on other nodes is not inferred.
 - **Historical Cumulative Shipments**: Over 10 billion units shipped (2018) — [Synopsys Kilopass acquisition announcement · Published 2018-01-10](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology) — Cumulative units using Kilopass technology at acquisition; also reported over 170 customers and 400 SoC designs, not current shipments.
-- **Patent Strategy**: The foundational core of Kilopass's patent portfolio pioneered the 'Controlled Gate-Oxide Hard Breakdown' architecture in standard CMOS logic. Moving away from traditional polysilicon eFuses with their high-current explosion, metal splatter, and visible optical microscope traces, Kilopass built an array patent network centered on a 2T/1.5T crosspoint topology. By connecting a select transistor and an antifuse transistor in series, Kilopass eliminated parasitic channel conduction and half-select disturb during high-voltage programming. Extending this to split-well bias isolation, Kilopass established the earliest industry patent standards for embedded logic antifuse OTP.
+- **Patent Strategy**: Selected technical scope: Crosspoint Transistor and Diffusion Word Line; P Well in Deep N Well with Series Storage Element. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### XPM™ Crosspoint 2T Antifuse OTP Patent Family (Antifuse OTP (Tamper-Evident One-Time Programmable))
+[US6992925B2 · Original Publication · Published 2006-01-31 · p. 38](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=38) — Front page 1: inventor names and assignee. PDF page 38: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard CMOS 2T Cell · Core Gate-Oxide Permanent Breakdown · 0-Mask Adder*
+[US7471540B2 · Original Publication · Published 2008-12-30 · p. 10](https://patentimages.storage.googleapis.com/38/b7/61/78c759dc556af6/US7471540.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Cell Topology**: 2T (Access Transistor + Antifuse Capacitor in Series)
-- **Physical Mechanism**: Localized dielectric breakdown in ultra-thin gate oxide induced by high vertical electric field, forming a permanent ohmic silicon filament from poly gate to substrate; read senses conductive on-current
-- **Process Node**: 180nm / 130nm / 90nm / 65nm / 40nm / 28nm Standard Logic
+#### XPM™ Comparison: Single-Transistor Programmable Cells (Antifuse OTP (Tamper-Evident One-Time Programmable))
 
-The foundational patent family establishing Kilopass's market standing. By leveraging standard logic thin core oxide to induce irreversible breakdown under 5–7V programming bias, the naturally insulating high-impedance gate transforms into a conductive path of several hundred ohms. The 2T topology ensures unselected cells in large arrays remain free from disturbance, with the breakdown spot buried deep beneath metal interconnect layers, providing natural resistance against optical reverse engineering.
+*Programming-Induced Conduction and Doped Regions*
 
-##### [US6992925B2](https://patents.google.com/patent/US6992925B2/en) · Non-volatile memory cell using gate oxide breakdown and method of manufacturing and operating the same
+- **Cell Topology**: Crosspoint Transistor and Diffusion Word Line
+- **Physical Mechanism**: Programming-Induced Conduction and Doped Regions
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2023-03-07)
-- **Category & Generation**: Device & Method · Gen-1 1T-Antifuse
-- **Priority / Grant**: 2002-12-05 / 2006-01-31
+The two Kilopass publications focus on single-transistor crosspoints; the former blanket 2T description was incorrect. XPM remains a product-search reference, not a completed product claim chart.
+
+##### [US6992925B2](https://patents.google.com/patent/US6992925B2/en) · High density semiconductor memory cell and memory array using a single transistor and having counter-doped poly and buried diffusion wordline
+
+> Correction History · [US6992925B2](https://patents.google.com/patent/US6992925B2/en) — US6992925B2: retained publication; inventor names, claim reading and context corrected from the original. [US6992925B2 · Former Record Check · Published 2006-01-31 · p. 1](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6992925B2 · Original Publication · Published 2006-01-31 · p. 38](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=38) — Front page 1: inventor names and assignee. PDF page 38: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6992925B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6992925B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2002-04-26 / 2006-01-31
+- **Assignee**: Kilopass Technologies, Inc.
+- **Technical Problem**: Implement dense programmable crosspoints with one transistor and diffusion wiring.
+- **Product Linkage**: Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cells; not a verified product claim chart.
+- **Inventors**: Jack Zezhong Peng
+- **Claim 1 Reading**: Claim 1 requires a P substrate, P+ gate, gate dielectric, two channel-defining doped regions, a gate formed by a column bit line, and a row word line formed by a near-surface N-type region connected to the second P+ region. It is not a mandatory two-transistor architecture.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A polysilicon bit line forms the gate and a buried diffusion forms the word line; programmed local doping and junction conduction encode data.
+##### [US6777757B2](https://patents.google.com/patent/US6777757B2/en) · High density semiconductor memory cell and memory array using a single transistor
+
+> Correction History · [US6777766B2](https://patents.google.com/patent/US6777766B2/en) — Replaced the former selection US6777766B2 with US6777757B2. The former publication identifies Robert Bosch GmbH; this is a new editorial selection, not renumbering or proof of assignment. [US6777766B2 · Former Record Check · Published 2004-08-17 · p. 1](https://patentimages.storage.googleapis.com/68/c9/48/cdb3ca4cbdabed/US6777766.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6777757B2 · Original Publication · Published 2004-08-17 · p. 17](https://patentimages.storage.googleapis.com/d8/44/aa/37bfbd2852d633/US6777757.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6777757B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6777757B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2002-04-26 / 2004-08-17
+- **Assignee**: Kilopass Technologies, Inc.
+- **Technical Problem**: Create a readable programmed state with minimal devices at a memory crosspoint.
+- **Product Linkage**: Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cells; not a verified product claim chart.
+- **Inventors**: Jack Zezhong Peng; David Fong
+- **Claim 1 Reading**: Claim 1 requires the gate/dielectric, two separated doped regions, a word-line segment connected to the second region, and a programmed doped region in the substrate channel. Former ID US6777766B2 is a different patent; this is a replacement selection, not a kind-code correction.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The bit line forms the gate, a word-line segment connects to one doped region, and programming creates a doped region in the channel.
+#### SecretCode™ Comparison: Well-Controlled Antifuse (Secure Antifuse OTP (Hardware Security Root Key Antifuse))
+
+*Body-Bias Control of Gate-Oxide Breakdown*
+
+- **Cell Topology**: P Well in Deep N Well with Series Storage Element
+- **Physical Mechanism**: Body-Bias Control of Gate-Oxide Breakdown
+- **Process Node**: Not established from these claims; consult product qualification evidence.
+
+The selected publication supports well-isolation and dielectric-breakdown analysis. It does not require key splitting; product security features need separate product and implementation evidence.
+
+##### [US7471540B2](https://patents.google.com/patent/US7471540B2/en) · Non-volatile semiconductor memory based on enhanced gate oxide breakdown
+
+> Correction History · [US7643333B2](https://patents.google.com/patent/US7643333B2/en) — Replaced the former selection US7643333B2 with US7471540B2. The former publication identifies Micron Technology Inc.; this is a new editorial selection, not renumbering or proof of assignment. [US7643333B2 · Former Record Check · Published 2010-01-05 · p. 1](https://patentimages.storage.googleapis.com/d3/2d/2a/649d3cedf43509/US7643333.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US7471540B2 · Original Publication · Published 2008-12-30 · p. 10](https://patentimages.storage.googleapis.com/38/b7/61/78c759dc556af6/US7471540.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US7471540B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7471540B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2007-01-24 / 2008-12-30
 - **Assignee**: Kilopass Technology, Inc.
-- **Technical Problem**: Conventional laser fuses and polysilicon eFuses require heavy programming currents and create conspicuous physical destruction easily reverse-engineered under microscopes. How can standard CMOS gate dielectric be used for microscopic, anti-tamper storage?
-- **Product Linkage**: Kilopass XPM™ (Extra Permanent Memory) flagship product line, widely deployed in DTV decoders and HDMI HDCP root key storage.
-- **Inventors**: Jack Z. Peng
-- **Claim 1 Reading**: Claim 1 claims an array cell and bias control method comprising a standard CMOS access transistor connected in series with an antifuse transistor utilizing controlled gate oxide breakdown as its memory state.
-- **Existing FTO Note · Requires Case Review**: [Landmark Milestone] The foundational 1T antifuse cross-point patent asserted in the historic Kilopass v. Sidense litigation expired in March 2023. The 1T antifuse cross-point structure is now free to operate globally.
-- **Physical Solution**: Configures an access transistor and an antifuse capacitor at the intersection of a word line and bit line. Turning on the access transistor while applying high voltage stress across the antifuse gate creates percolating defect clusters forming a stable conductive filament. Read mode applies standard low operating voltage to sense microampere-level read currents.
-##### [US6777766B2](https://patents.google.com/patent/US6777766B2/en) · Low cost non-volatile memory cell with low programming voltage
-
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-04-18)
-- **Category & Generation**: Device Structure · Gen-1 1T-Antifuse
-- **Priority / Grant**: 2002-04-18 / 2004-08-17
-- **Assignee**: Kilopass Technology, Inc.
-- **Technical Problem**: Early antifuse cells required programming voltages exceeding 7V, necessitating bulky on-chip charge pumps and causing collateral breakdown damage to series select transistors.
-- **Product Linkage**: Gusto™ high-density OTP array standard cell architecture.
-- **Inventors**: Jack Z. Peng
-- **Claim 1 Reading**: Claim 1 specifies a low-voltage 2T antifuse architecture utilizing thin core gate oxide with programming voltages below 6V.
-- **Existing FTO Note · Requires Case Review**: Expired in April 2022; entered public domain. The dual-oxide structure leveraging thin gate oxide for reduced breakdown voltage is free to implement.
-- **Physical Solution**: Directly utilizes the ultra-thin core gate oxide (sub-2.5nm) of advanced logic nodes, reducing breakdown voltages below 5.5V while optimizing drain junction diffusion profiles to minimize hot-carrier stress.
-#### SecretCode™ Split-Well High-Security OTP Patent Family (Secure Antifuse OTP (Hardware Security Root Key Antifuse))
-
-*Split-Well Bias Isolation · Differential Power Analysis (DPA) Defense · Hardware Root Key Protection*
-
-- **Cell Topology**: 2T Split-Well (Isolated Well Segmentation Cell)
-- **Physical Mechanism**: Dynamic switching and electrical isolation of substrate well potentials to prevent substrate leakage and hot-carrier disturb to adjacent cells, combined with balanced dummy currents against DPA side channels
-- **Process Node**: 65nm / 40nm / 28nm HKMG Advanced Processes
-
-Strategic patent family targeting high-assurance security in Pay-TV and set-top box hardware roots of trust. Split-well segmentation eliminates half-select disturb in high-density key arrays while rendering unprogrammed and programmed cells identical in external impedance profile, preventing differential power analysis.
-
-##### [US7643333B2](https://patents.google.com/patent/US7643333B2/en) · Non-volatile memory cell with split well configuration and method of operation
-
-- **Recorded Status**: Recorded active (Recorded term date: 2026-11-20)
-- **Category & Generation**: Method / Operation · Gen-2 High-Voltage Control
-- **Priority / Grant**: 2006-11-20 / 2010-01-05
-- **Assignee**: Kilopass Technology, Inc.
-- **Technical Problem**: In deep sub-micron nodes, common well structures cause substrate leakage from high-voltage programming to spill into neighboring cells, inducing severe half-select disturb and yield loss.
-- **Product Linkage**: SecretCode™ hardware security IP, widely embedded in Conditional Access Systems (CAS) and DRM controllers.
-- **Inventors**: Jack Z. Peng
-- **Claim 1 Reading**: Claim 1 claims a split-well architecture with independent electrical bias control and operating method for suppressing half-select disturb in antifuse arrays.
-- **Existing FTO Note · Requires Case Review**: In force until November 2026 (near term completion). Covers high-voltage programming sequences using split-well biasing to suppress substrate disturbance.
-- **Physical Solution**: Physically partitions the memory array into multiple electrically isolated split-wells. During write, only selected wells receive inhibitory bias while unselected wells remain grounded, cutting off substrate carrier propagation paths.
+- **Technical Problem**: Body bias during oxide breakdown affects programmed conduction and leakage.
+- **Product Linkage**: Technical comparison with SecretCode™ Comparison: Well-Controlled Antifuse; not a verified product claim chart.
+- **Inventors**: Harry Shengwen Luan; Zhongshang Liu
+- **Claim 1 Reading**: Claim 1 requires a pass transistor and an ultra-thin-dielectric MOS storage element with connected doped terminals in a P well inside a deep N well. It does not require key splitting or identify the SecretCode product.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A pass transistor and thin-dielectric storage element share a P well inside a deep N well for body-bias control.
 #### Technology Milestones
 
-- **2001–2005 · XPM Core Patents Granted** (Founding & 2T Inception) — Formulated controlled core gate oxide breakdown in standard CMOS, establishing foundational 2T antifuse patent barriers. 0.18µm / 0.13µm · US6777766B2, US6992925B2
-- **2006–2010 · Split-Well Architecture Breakthrough** (Gusto High Density & SecretCode Security) — Solved large-array half-select disturb, scaling into 65nm/40nm and opening premium Pay-TV security markets. 65nm / 40nm · US7643333B2
-- **2011–2017 · Scaling to 28nm/20nm HKMG** (Advanced Nodes & Legal Confrontation) — Engaged in landmark 1T vs 2T patent litigation against Sidense, defining the technological patent boundaries of embedded antifuse. 28nm HKMG / 20nm · US8130541B2
-- **2018–2026 · DesignWare Portfolio Integration** (Synopsys Acquisition & Integration) — Synopsys completed acquisition of Kilopass, consolidating XPM and SecretCode into the DesignWare OTP portfolio. 28nm and below mature support · Synopsys DesignWare integration
-#### Patent Defense Strategy & Landmark Litigation: Historic Kilopass v. Sidense Litigation & 1T Antifuse Claim Boundaries
+- **2004-08-17 – 2006-01-31 · XPM™ Comparison: Single-Transistor Programmable Cells** (Publication chronology) — The two Kilopass publications focus on single-transistor crosspoints; the former blanket 2T description was incorrect. XPM remains a product-search reference, not a completed product claim chart. Not established from these claims; consult product qualification evidence. · US6992925B2, US6777757B2
+- **2008-12-30 – 2008-12-30 · SecretCode™ Comparison: Well-Controlled Antifuse** (Publication chronology) — The selected publication supports well-isolation and dielectric-breakdown analysis. It does not require key splitting; product security features need separate product and implementation evidence. Not established from these claims; consult product qualification evidence. · US7471540B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Between 2010 and 2014, Kilopass and Sidense engaged in one of the semiconductor IP sector's landmark patent battles. Kilopass alleged that Sidense 1T-Fuse infringed its foundational XPM patents (US6992925B2 and US6777766B2). The U.S. Court of Appeals for the Federal Circuit (CAFC) ultimately affirmed non-infringement, establishing key boundaries for design-arounds.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Core Disagreement: Scope of "Cross-Point Bitcell"
+##### XPM™ Comparison: Single-Transistor Programmable Cells
 
-Kilopass US6992925B2 Claim 1 recited a memory cell formed at the cross-point of WL and BL consisting of a single transistor where gate-to-diffusion overlap experiences dielectric breakdown. Kilopass argued Sidense 1T structure literally matched this limitation.
+Claim 1 requires a P substrate, P+ gate, gate dielectric, two channel-defining doped regions, a gate formed by a column bit line, and a row word line formed by a near-surface N-type region connected to the second P+ region. It is not a mandatory two-transistor architecture.
 
-##### CAFC Ruling: Substantial Difference of Split-Channel Physics
+##### SecretCode™ Comparison: Well-Controlled Antifuse
 
-Sidense successfully established that its patented Split-Channel (US7402855B2) segregates the channel into thick-oxide access and thin-oxide breakdown regions. The thick-oxide segment intrinsically serves as an access switch, distinct from Kilopass cross-point definition under literal and doctrine-of-equivalents standards.
+Claim 1 requires a pass transistor and an ultra-thin-dielectric MOS storage element with connected doped terminals in a P well inside a deep N well. It does not require key splitting or identify the SecretCode product.
 
-> **Existing FTO Note · Requires Case Review**: [Major Landmark] Kilopass primary weapon patent US6992925B2 expired in March 2023 after completing its 20-year term. The foundational uniform cross-point 1T gate-oxide breakdown structure is now globally open for royalty-free implementation.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Sidense Corporation (Acquired by Synopsys in 2017) (Sidense (Synopsys))
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Ottawa, Ontario, Canada
 - **Founded**: 2004 (Acquired by Synopsys in 2017)
-- **Leadership**: Wlodek Kurjanowicz and R&D Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Wlodek Kurjanowicz; Steven Smith (full names in each record).
 - **Business Model**: Standard CMOS Single-Transistor Split-Channel 1T-Fuse Antifuse IP Licensing (1T Split-Channel Antifuse OTP IP)
-- **Recorded Portfolio Status**: 2 Recorded active · 1 Recorded expired
+- **Recorded Portfolio Status**: 1 Recorded active · 2 Recorded expired
 - **Historical Patent Disclosure**: Over 100 granted or pending patents (2013) — [Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Combined granted and pending cases; not over 100 grants or a current active-patent total.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [Sidense / MagnaChip joint announcement · Checked 2026-10-15](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — No complete patent-jurisdiction list is given; the previous US, Canada, China, Taiwan and Europe coverage was not directly substantiated in this review.
 - **Verified Foundry Example**: MagnaChip: 180nm mixed-signal / HV CMOS — [Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Qualification applies to the announced 1T-OTP offering, not all foundries, nodes or volume-production status.
 - **Historical Design Adoption**: Over 250 customer designs (2013) — [Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Design adoption, not shipped units or a count of production designs; the previous tens-of-billions shipment claim was not verified.
-- **Patent Strategy**: The core of Sidense's patent portfolio was the invention of the 'Single-Transistor Split-Channel Antifuse (1T-Fuse)'. Whereas Kilopass required two transistors in series, Sidense crafted an asymmetric split-channel underneath a single polysilicon gate: one section functioning as a thick-oxide/high-threshold access channel switch, and the adjacent section acting as a thin-oxide breakdown node. This innovation eliminated the separate access transistor, reducing cell area by over 50% compared to 2T cells. Combined with asymmetric lightly doped drain (LDD) masking and differential ultra-low-voltage sensing patents, Sidense eradicated read disturb and filament self-healing, becoming one of the foundry ecosystem's premier 1T OTP architectures.
+- **Patent Strategy**: Selected technical scope: Dual Oxide, Opposite-Type Wells and Differential Sensing. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### 1T-Fuse™ Split-Channel Single-Transistor Antifuse Patent Family (1T Antifuse OTP (Single-Transistor One-Time Programmable))
+[US7402855B2 · Original Publication · Published 2008-07-22 · p. 22](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Single Polysilicon Gate · Split-Channel Asymmetric Breakdown · Ultra-Compact Cell Area*
+#### 1T-Fuse™ Comparison: Split Channel, Wells and Sensing (1T Antifuse OTP (Single-Transistor One-Time Programmable))
 
-- **Cell Topology**: 1T Split-Channel (Single Gate spanning dual channel regions with single BL diffusion)
-- **Physical Mechanism**: Electric field concentrates at breakdown edge during high-voltage write to induce localized conductive filament in thin oxide; access channel provides natural cutoff barrier during read
-- **Process Node**: 180nm down to 16nm / 7nm FinFET
+*Localized Breakdown, Leakage Control and Differential Readout*
 
-A landmark milestone in OTP silicon miniaturization. By combining access gating and antifuse storage into a single transistor without secondary gates or external capacitors, Sidense achieved the smallest standard logic OTP cell area in the industry. Its asymmetric channel design ensures unprogrammed cutoff leakage below 10pA and robust ohmic conductivity once written, delivering unmatched density for advanced logic nodes.
+- **Cell Topology**: Dual Oxide, Opposite-Type Wells and Differential Sensing
+- **Physical Mechanism**: Localized Breakdown, Leakage Control and Differential Readout
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US7402855B2](https://patents.google.com/patent/US7402855B2/en) · Non-volatile memory cell with split channel and method of operation
+The Sidense selection covers array architecture, low-leakage cells and sensing. The brand does not make every claim a one-transistor claim, and related publications are not automatically separate patent families.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2025-09-02)
-- **Category & Generation**: Device & Method · Gen-1 Split-Channel
-- **Priority / Grant**: 2005-09-02 / 2008-07-22
+##### [US7402855B2](https://patents.google.com/patent/US7402855B2/en) · Split-channel antifuse array architecture
+
+> Correction History · [US7402855B2](https://patents.google.com/patent/US7402855B2/en) — US7402855B2: retained publication; inventor names, claim reading and context corrected from the original. [US7402855B2 · Former Record Check · Published 2008-07-22 · p. 1](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US7402855B2 · Original Publication · Published 2008-07-22 · p. 22](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US7402855B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7402855B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Array Structure · Publication-Based Selection
+- **Priority / Grant**: 2004-05-06 / 2008-07-22
 - **Assignee**: Sidense Corp.
-- **Technical Problem**: Conventional 2T antifuse cells are bulky and require two separate polysilicon gates with complex interconnect routing, hindering code storage scaling in embedded SoCs.
-- **Product Linkage**: Sidense 1T-Fuse™ (SLP - Small Low Power) flagship licensed IP, the industry standard benchmark for 1T antifuse.
+- **Technical Problem**: Localize dielectric breakdown while maintaining compatible array isolation and sensing.
+- **Product Linkage**: Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.
 - **Inventors**: Wlodek Kurjanowicz
-- **Claim 1 Reading**: Claim 1 claims a 1T antifuse cell structure having a single polysilicon gate spanning a split channel, a single diffusion bit line contact, and no separate access transistor.
-- **Existing FTO Note · Requires Case Review**: [Landmark Milestone] Sidense foundational Split-Channel 1T antifuse patent—which successfully defended against Kilopass claims in CAFC—expired in September 2025 and entered the public domain.
-- **Physical Solution**: Arranges a single polysilicon gate over a single active region split into two channel regions of differing threshold voltages: a high-Vt access switch region and a low-Vt antifuse breakdown region adjacent to the bit line diffusion. Writing applies high voltage across the breakdown segment while read mode operates the switch segment under controlled conduction.
-##### [US7880216B2](https://patents.google.com/patent/US7880216B2/en) · Single transistor antifuse memory cell with asymmetric diffusion junction
+- **Claim 1 Reading**: Claim 1 combines row/column antifuses, a preset channel length, thick/thin oxide portions, a terminal breakdown zone, word/bit lines and a sense amplifier connected through isolation transistors to a bit-line pair. The isolation-transistor oxide corresponds to the thick portion.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Thick and thin oxide regions share a gate; breakdown occurs in the thin region, with thick-oxide isolation devices connecting bit lines to sensing.
+##### [US9129687B2](https://patents.google.com/patent/US9129687B2/en) · OTP memory cell having low current leakage
 
-- **Recorded Status**: Recorded active (Recorded term date: 2027-06-29)
-- **Category & Generation**: Device Structure · Gen-2 Non-Junction
-- **Priority / Grant**: 2007-06-29 / 2011-02-01
+> Correction History · [US7880216B2](https://patents.google.com/patent/US7880216B2/en) — Replaced the former selection US7880216B2 with US9129687B2. The former publication identifies Hynix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7880216B2 · Former Record Check · Published 2011-02-01 · p. 1](https://patentimages.storage.googleapis.com/92/04/a4/3828f5a8c49052/US7880216.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9129687B2 · Original Publication · Published 2015-09-08 · p. 30](https://patentimages.storage.googleapis.com/7c/bf/c1/44df488c331a1b/US9129687.pdf#page=30) — Front page 1: inventor names and assignee. PDF page 30: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9129687B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9129687B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2009-10-30 / 2015-09-08
 - **Assignee**: Sidense Corp.
-- **Technical Problem**: Under extreme automotive temperatures above 150°C, 1T antifuse junctions suffer severe band-to-band tunneling (BTBT) and gate-induced drain leakage (GIDL), degrading read SNR.
-- **Product Linkage**: 1T-ULP ultra-low-power automotive Grade-1 OTP array architecture.
+- **Technical Problem**: Separate antifuse breakdown and access-path leakage requirements using opposite-type wells.
+- **Product Linkage**: Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.
 - **Inventors**: Wlodek Kurjanowicz
-- **Claim 1 Reading**: Claim 1 claims an asymmetric source/drain doping profile and single-ended diffusion sensing 1T antifuse structure for high-temperature reliability.
-- **Existing FTO Note · Requires Case Review**: In force through June 2027. Enforces exclusivity over non-junction asymmetric diffusion antifuse bitcells for enhanced density.
-- **Physical Solution**: Employs an asymmetric lightly doped drain (LDD) masking structure: enhances localized lateral field at the breakdown end for uniform filament formation, while reducing doping at the bitline diffusion to suppress high-temperature junction leakage, maintaining read margins above 100nA.
-##### [US8325516B2](https://patents.google.com/patent/US8325516B2/en) · Safe low voltage sensing method for single transistor antifuse arrays
+- **Claim 1 Reading**: Claim 1 specifies adjacent opposite-type wells, an antifuse gate doped like the second well, adjacent isolation, and an access device plus bit-line diffusion contact in the first well. The 1T-Fuse brand does not remove the access-device limitation.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The antifuse and access devices occupy adjacent opposite-type wells, with isolation on the antifuse side and a bit-line diffusion contact on the access side.
+##### [US8130532B2](https://patents.google.com/patent/US8130532B2/en) · High speed OTP sensing scheme
 
-- **Recorded Status**: Recorded active (Recorded term date: 2029-03-31)
-- **Category & Generation**: Sensing Method · Gen-2 Differential Sensing
-- **Priority / Grant**: 2009-03-31 / 2012-12-04
+> Correction History · [US8325516B2](https://patents.google.com/patent/US8325516B2/en) — Replaced the former selection US8325516B2 with US8130532B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US8325516B2 · Former Record Check · Published 2012-12-04 · p. 1](https://patentimages.storage.googleapis.com/5d/1c/11/09f5ab8d463f68/US8325516.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US8130532B2 · Original Publication · Published 2012-03-06 · p. 42](https://patentimages.storage.googleapis.com/af/c1/dd/67547a182be64e/US8130532.pdf#page=42) — Front page 1: inventor names and assignee. PDF page 42: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US8130532B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8130532B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Array-Sensing Circuit · Publication-Based Selection
+- **Priority / Grant**: 2004-05-06 / 2012-03-06
 - **Assignee**: Sidense Corp.
-- **Technical Problem**: Over billions of read cycles, sub-nanometer filament paths risk re-oxidation self-healing or unintended secondary breakdown in unprogrammed cells under sustained read voltage stress.
-- **Product Linkage**: Synopsys DesignWare 1T-OTP core sensing and control architecture.
-- **Inventors**: Wlodek Kurjanowicz, Valery Likhachev
-- **Claim 1 Reading**: Claim 1 claims a non-disturbing sensing method for 1T arrays using read voltages below 1.0V, pulse widths below 15ns, and dynamic precharge-discharge cycles.
-- **Existing FTO Note · Requires Case Review**: In force through March 2029. Protects low-voltage differential sensing and complementary twin-antifuse cell reading architectures.
-- **Physical Solution**: Introduces a differential high-speed pulsed sensing scheme with pulse widths under 10ns and bias constrained below 0.9V. Sense amplifiers perform microampere differential comparisons, bringing read disturb failure rates down to 0 FIT.
+- **Technical Problem**: Convert programmed/unprogrammed OTP behavior into a quickly sensed bit-line voltage difference.
+- **Product Linkage**: Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.
+- **Inventors**: Wlodek Kurjanowicz; Steven Smith
+- **Claim 1 Reading**: Claim 1 requires two precharged bit lines, a word line driving a programmed conductive link, a reference circuit changing one bit-line voltage, and differential sensing. The unprogrammed line remains substantially precharged. No numerical read-latency guarantee is claimed.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Precharged bit lines develop a difference when a programmed link couples the word-line voltage; a reference circuit and sense amplifier evaluate that difference.
 #### Technology Milestones
 
-- **2004–2008 · Split-Channel Foundational Patents Granted** (1T-Fuse Invention & Commercial Launch) — Pioneered single-transistor split-channel antifuse, cutting area by >50% versus 2T and securing cornerstone patent protection. 180nm / 130nm / 90nm · US7402855B2
-- **2009–2014 · Asymmetric LDD & Automotive High-Temp** (Expansion into 28nm HKMG & FinFET) — Mitigated GIDL leakage and high-temperature drift, qualifying across TSMC, UMC, and GF foundry PDKs. 40nm / 28nm HKMG / 16nm · US7880216B2, US8325516B2
-- **2015–2017 · Definitive 1T Antifuse Legal Validation** (Patent Vindication & Synopsys Acquisition) — Secured final non-infringement verdict in long-standing Kilopass litigation, followed by full acquisition by Synopsys. 16nm / 7nm FinFET · US8804443B2
-- **2018–2026 · Industry Mainstream 1T-OTP Standard** (Synopsys DesignWare Flagship Era) — Integrated into Synopsys DesignWare OTP, serving as the dominant antifuse solution in advanced compute and automotive SoCs. 7nm / 5nm / 3nm FinFET · DesignWare 1T-Fuse series
-#### Patent Defense Strategy & Landmark Litigation: Split-Channel Workaround Landmark & Public Domain Transition
+- **2008-07-22 – 2015-09-08 · 1T-Fuse™ Comparison: Split Channel, Wells and Sensing** (Publication chronology) — The Sidense selection covers array architecture, low-leakage cells and sensing. The brand does not make every claim a one-transistor claim, and related publications are not automatically separate patent families. Not established from these claims; consult product qualification evidence. · US7402855B2, US9129687B2, US8130532B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Sidense 1T-Fuse stands as an industry benchmark for semiconductor design-around strategies. Confronted by Kilopass prior-art cross-point patents, Sidense engineered an asymmetric split-channel bitcell, achieving superior bitcell density and full legal autonomy.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Split-Channel 1T Foundation Patent (US7402855B2)
+##### 1T-Fuse™ Comparison: Split Channel, Wells and Sensing
 
-Sidense defined asymmetric diffusion junctions within a single transistor, partitioning channel length into thin-oxide breakdown and thick-oxide access segments. This eliminated sneak-path leakage without external select transistors, powering production PDKs across TSMC, GF, and UMC.
+Claim 1 combines row/column antifuses, a preset channel length, thick/thin oxide portions, a terminal breakdown zone, word/bit lines and a sense amplifier connected through isolation transistors to a bit-line pair. The isolation-transistor oxide corresponds to the thick portion.
 
-##### Differential Sensing Evolution (US8325514B2 / US8325516B2)
-
-Addressing post-breakdown resistance variability in sub-40nm nodes, Sidense patented twin-antifuse complementary sensing, reading differential currents between paired antifuses to bypass absolute reference drift and ensure automotive-grade retention.
-
-> **Existing FTO Note · Requires Case Review**: [Major Landmark] Sidense foundational patent US7402855B2 expired in September 2025 and entered the public domain. The split-channel 1T antifuse topology is now freely implementable; complementary sensing improvements remain protected through 2027–2030.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Yield Microelectronics Corp. (YMC) (YMC)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/79/2b/c5/e1342a59e536d5/US7099192.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Zhubei City, Hsinchu County, Taiwan
 - **Founded**: 2000
-- **Leadership**: Hsi-Pin Kuo, Ching-Yuan Lin, and R&D Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Lee Zhung Wang; Daniel Huang; Hsin Chang Lin; Roget Chang; Hsin-Chang Lin (full names in each record).
 - **Business Model**: Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services
-- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 4 Recorded active · 1 Recorded expired
 - **Annual Report Patent Disclosure**: Dozens of domestic and international patents (2024 report) — [2024 Annual Report · Checked 2026-10-15 · p. 85](https://www.ymc.com.tw/upload/shareholders/20250429143809428.pdf#page=85) — PDF p. 85 (printed p. 81) says dozens obtained, without an exact or currently active total; check date is not publication date.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [2024 Annual Report · Checked 2026-10-15](https://www.ymc.com.tw/upload/shareholders/20250429143809428.pdf) — PDF p. 85 states domestic and international patents without a complete list; it does not verify a complete list including the US, Taiwan and China.
 - **Reported Foundry Coverage**: Over 20 foundries worldwide (not individually named) — [YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — No statistical update date or individual list is supplied; this does not verify the prior named list or qualification across all nodes.
 - **Reported Chip Adoption**: IP embedded in over 29 billion chips — [YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — Website cumulative chip count, with no statistical update date; distinct from the separately listed wafer count.
-- **Patent Strategy**: The core of Yield Microelectronics Corp. (YMC)'s patent portfolio centers on 'Ultra-High-Density Single-Poly MTP Architectures' and 'Corner-Edge Enhanced Localized Tunneling'. Conventional single-poly MTP cells require large footprints (50–100 F²) to achieve adequate capacitive coupling. YMC's patent network utilizes lateral coplanar coupling and corner-tip electric field enhancement, delivering 0-mask MTP cells below 30 F² in standard CMOS logic with 1,000 to 10,000 write/erase cycles. This creates an unassailable patent moat across MCUs, automotive display drivers, and power management ICs.
+- **Patent Strategy**: Selected technical scope: Transistor-Capacitor Floating Gate and Symmetric Subarrays. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### YMC High-Density Coplanar Single-Poly MTP Patent Family (MTP (Multiple-Time Programmable))
+[US7099192B2 · Original Publication · Published 2006-08-29 · p. 16](https://patentimages.storage.googleapis.com/79/2b/c5/e1342a59e536d5/US7099192.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Single-Poly Logic · Corner Electric Field Enhanced Erase · 0-Mask High-Density MTP*
+#### YMC Single Floating Gate, Shared Terminal and EEPROM Arrays (MTP (Multiple-Time Programmable))
 
-- **Cell Topology**: Single-Poly Interdigitated (Interdigitated Coplanar Coupling Cell)
-- **Physical Mechanism**: Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission
-- **Process Node**: 0.35µm down to 55nm / 40nm Standard Logic and High-Voltage BCD
+*Capacitive Coupling, Program/Erase Bias and Finger Capacitors*
 
-Cost-effective MTP technology tailored for mature logic and analog BCD processes. By innovating interdigitated polysilicon layouts, horizontal coupling area between floating gate and control gate is dramatically increased without extra masks, while corner electric field concentration reduces erase voltage, achieving 10K endurance.
+- **Cell Topology**: Transistor-Capacitor Floating Gate and Symmetric Subarrays
+- **Physical Mechanism**: Capacitive Coupling, Program/Erase Bias and Finger Capacitors
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US6950342B2](https://patents.google.com/patent/US6950342B2/en) · Single Poly Non-Volatile Memory Cell with Balanced Well Coupling
+Five YMC publications distinguish cell structure, shared terminals, two-/four-cell array operation and side capacitors. Inventor names follow publication spelling; different spellings are not automatically merged.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2023-09-02)
-- **Category & Generation**: Device Structure · Gen-1 Logic MTP
-- **Priority / Grant**: 2003-09-02 / 2005-09-27
+##### [US7099192B2](https://patents.google.com/patent/US7099192B2/en) · Nonvolatile flash memory and method of operating the same
+
+> Correction History · [US6950342B2](https://patents.google.com/patent/US6950342B2/en) — Replaced the former selection US6950342B2 with US7099192B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6950342B2 · Former Record Check · Published 2005-09-27 · p. 1](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US7099192B2 · Original Publication · Published 2006-08-29 · p. 16](https://patentimages.storage.googleapis.com/79/2b/c5/e1342a59e536d5/US7099192.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US7099192B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7099192B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2004-06-07 / 2006-08-29
 - **Assignee**: Yield Microelectronics Corp.
-- **Technical Problem**: Standard pure logic CMOS lacks a second polysilicon layer (Poly2); how to establish high coupling capacitance without extra masks?
-- **Product Linkage**: YMC Gen-1 0.35µm / 0.25µm logic MTP IP baseline.
-- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
-- **Claim 1 Reading**: Claim 1 recites a single-poly floating gate spanning complementary well diffusions with a zero-mask logic fabrication process.
-- **Existing FTO Note · Requires Case Review**: Expired in September 2023; entered public domain. Pioneer single-poly well capacitance coupling topology is free to operate.
-- **Physical Solution**: Extends a single-poly floating strip across adjacent CMOS N-well and P-well active regions, creating balanced junction coupling pairs that suppress parasitic leakage and establish stable tunneling fields.
-##### [US7119394B2](https://patents.google.com/patent/US7119394B2/en) · Single Poly Non-Volatile Memory Cell with Enhanced Coupling Ratio
+- **Technical Problem**: Provide controllable coupling and erase bias for a single-gate memory.
+- **Product Linkage**: Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.
+- **Inventors**: Lee Zhung Wang; Daniel Huang; Hsin Chang Lin; Roget Chang
+- **Claim 1 Reading**: Claim 1 combines substrate, transistor, isolated capacitor, common floating gate and a single control contact. For the P-substrate case, erase source/drain voltages exceed substrate voltage and the control voltage is much higher. “Single poly” alone omits these conditions.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A transistor and isolated capacitor share a floating gate; a single capacitor-well contact receives the control voltage.
+##### [US9240242B1](https://patents.google.com/patent/US9240242B1/en) · Method for operating low-cost EEPROM array
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2024-10-14)
-- **Category & Generation**: Device Structure & Fabrication · Gen-1 Logic MTP
-- **Priority / Grant**: 2004-10-14 / 2006-10-10
-- **Assignee**: Yield Microelectronics Corp.
-- **Technical Problem**: Large diffusion capacitor footprint hinders dense embedded non-volatile memory integration in cost-sensitive MCU dies.
-- **Product Linkage**: YMC 0.18µm / 0.15µm mainstream MCU MTP macro.
-- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
-- **Claim 1 Reading**: Claim 1 defines the structural relationship between STI-bounded capacitive electrodes and the floating gate in standard CMOS.
-- **Existing FTO Note · Requires Case Review**: Expired in October 2024; entered public domain. STI boundary-assisted capacitance enhancement structure is in the public domain.
-- **Physical Solution**: Utilizes shallow trench isolation (STI) dielectric boundaries to extend lateral poly sidewall capacitance, pushing coupling ratios above 0.70 with deep N-well isolation.
-##### [US7835188B2](https://patents.google.com/patent/US7835188B2/en) · Multiple time programmable non-volatile memory cell structure and method for fabricating the same
+> Correction History · [US7119394B2](https://patents.google.com/patent/US7119394B2/en) — Replaced the former selection US7119394B2 with US9240242B1. The former publication identifies Solid State System Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7119394B2 · Former Record Check · Published 2006-10-10 · p. 1](https://patentimages.storage.googleapis.com/c7/c6/13/b0afc08932d74d/US7119394.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2027-07-27)
-- **Category & Generation**: Device Structure · Gen-1 Logic MTP
-- **Priority / Grant**: 2007-07-27 / 2010-11-16
-- **Assignee**: Yield Microelectronics Corp.
-- **Technical Problem**: Single-poly MTP cells traditionally suffer from low capacitive coupling ratios, forcing large silicon cell areas that restrict adoption in cost-sensitive MCUs.
-- **Product Linkage**: YMC 1K/10K flagship MTP product line, widely embedded for firmware code in general-purpose 8-bit/32-bit MCUs.
-- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
-- **Claim 1 Reading**: Claim 1 claims a single-poly coplanar interdigitated coupling electrode and 0-mask adder logic manufacturing method.
-- **Existing FTO Note · Requires Case Review**: In force through July 2027. Covers zero-mask differential single-poly MTP cell topologies.
-- **Physical Solution**: Constructs interdigitated coplanar lateral coupling capacitors in a single polysilicon layer, utilizing surrounding inter-dielectric layers to form dense horizontal coupling, raising coupling ratios above 0.75 and shrinking cell size to 25–35 F².
-##### [US8184485B2](https://patents.google.com/patent/US8184485B2/en) · Non-volatile memory cell with enhanced erase efficiency and operating method thereof
+[US9240242B1 · Original Publication · Published 2016-01-19 · p. 13](https://patentimages.storage.googleapis.com/c9/e0/7a/44d27a2e354102/US9240242.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2029-08-25)
-- **Category & Generation**: Device & Method · Gen-2 Enhanced Erase
-- **Priority / Grant**: 2009-08-25 / 2012-05-22
-- **Assignee**: Yield Microelectronics Corp.
-- **Technical Problem**: Tunnel oxide accumulates interface trap charges after repeated cycling, slowing erase speeds and causing threshold voltage drift.
-- **Product Linkage**: High-endurance YMC Automotive Grade-1 MTP macros.
-- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
-- **Claim 1 Reading**: Claim 1 specifies bias conditions for localized corner-tip tunneling erase utilizing polysilicon geometric corners.
-- **Existing FTO Note · Requires Case Review**: In force through August 2029. Protects STI capacitor-coupled MTP structures with enhanced erase efficiency.
-- **Physical Solution**: Exploits polysilicon geometric corner tips to induce sharp field emission tunneling, generating 3x higher tunneling current density at equivalent applied voltages, cutting erase duration by 60% and extending endurance to 10,000 cycles.
-##### [US9691784B2](https://patents.google.com/patent/US9691784B2/en) · Non-Volatile Memory Cell Array and Operating Method Thereof
+[US9240242B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9240242B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2034-11-20)
-- **Category & Generation**: Array Architecture & Method · Gen-3 BCD & High-Voltage
-- **Priority / Grant**: 2014-11-20 / 2017-06-27
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Array-Operation Method · Publication-Based Selection
+- **Priority / Grant**: 2014-12-10 / 2016-01-19
 - **Assignee**: Yield Microelectronics Corp.
-- **Technical Problem**: Automotive 150°C operation in BCD processes induces catastrophic junction leakage and intense write disturbance across adjacent unselected cells.
-- **Product Linkage**: YMC Automotive AEC-Q100 Grade-0 BCD PMIC trimming macro.
-- **Inventors**: Hsi-Pin Kuo, Ching-Yuan Lin
-- **Claim 1 Reading**: Claim 1 recites a single-poly MTP array in high-voltage BCD with disturbance-mitigating dummy bias lines and erase operations.
-- **Existing FTO Note · Requires Case Review**: Actively in force through November 2034. Protects automotive-grade high-voltage BCD array bias topologies against write disturb.
-- **Physical Solution**: Introduces isolated high-voltage wells with differential dummy bitline biasing, dynamically clamping unselected gate-to-drain stress to eliminate leakage at high temperatures.
+- **Technical Problem**: Simplify wiring and biases for bulk EEPROM programming and erasing.
+- **Product Linkage**: Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.
+- **Inventors**: Hsin-Chang Lin; Wen-Chien Huang; Ya-Ting Fan; Yang-Sen Yeh; Cheng-Ying Wu
+- **Claim 1 Reading**: Claim 1 requires a mirrored two-cell subarray, a bit-line group, two word lines and a shared source line. For N-FET cells, programming grounds substrate/source/bit lines and drives the word line high; erase grounds substrate, drives source/bit lines high and floats the word line.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two cells mirror around a shared source line with separate word lines and common operation biases.
+##### [US9281312B2](https://patents.google.com/patent/US9281312B2/en) · Non-volatile memory with a single gate-source common terminal and operation method thereof
+
+> Correction History · [US7835188B2](https://patents.google.com/patent/US7835188B2/en) — Replaced the former selection US7835188B2 with US9281312B2. The former publication identifies Seiko Instruments Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7835188B2 · Former Record Check · Published 2010-11-16 · p. 1](https://patentimages.storage.googleapis.com/a1/ba/09/963202ccef0708/US7835188.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9281312B2 · Original Publication · Published 2016-03-08 · p. 20](https://patentimages.storage.googleapis.com/89/60/53/7974c758b097f5/US9281312.pdf#page=20) — Front page 1: inventor names and assignee. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9281312B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9281312B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2014-07-08 / 2016-03-08
+- **Assignee**: Yield Microelectronics Corp.
+- **Technical Problem**: Reduce external control terminals for a floating-gate transistor and coupling capacitor.
+- **Product Linkage**: Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.
+- **Inventors**: Hsin-Chang Lin; Ya-Ting Fan; Wen-Chien Huang
+- **Claim 1 Reading**: Claim 1 requires the transistor, capacitor dielectric and gate, a second doped region on only one side of the capacitor with the same doping type as source/drain, an underlying channel, the common floating gate, and a shared terminal joining source and capacitor-side region.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The transistor and capacitor gates form one floating gate; the transistor source shares a terminal with the capacitor-side doped region.
+##### [US9318208B1](https://patents.google.com/patent/US9318208B1/en) · Method for operating small-area EEPROM array
+
+> Correction History · [US8184485B2](https://patents.google.com/patent/US8184485B2/en) — Replaced the former selection US8184485B2 with US9318208B1. The former publication identifies Samsung Electronics Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US8184485B2 · Former Record Check · Published 2012-05-22 · p. 1](https://patentimages.storage.googleapis.com/a1/20/46/45d69a2d1946c9/US8184485.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9318208B1 · Original Publication · Published 2016-04-19 · p. 16](https://patentimages.storage.googleapis.com/3b/e5/f5/43d4c7f2f44699/US9318208.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9318208B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9318208B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Array-Operation Method · Publication-Based Selection
+- **Priority / Grant**: 2014-12-17 / 2016-04-19
+- **Assignee**: Yield Microelectronics Corp.
+- **Technical Problem**: Combine a compact four-cell symmetric layout with common bulk operation biases.
+- **Product Linkage**: Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.
+- **Inventors**: Hsin-Chang Lin; Wen-Chien Huang; Ya-Ting Fan; Yang-Sen Yeh; Cheng-Ying Wu
+- **Claim 1 Reading**: Claim 1 specifies a symmetric four-cell subarray, two bit-line groups, one word line and a shared source line. For N-FET cells: write uses Vsub=Vs=Vb=0 and Vw=HV; erase uses Vsub=0, Vs=Vb=HV and floating Vw. This differs from the two-cell claim.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Four cells mirror across a shared source line and use two bit-line groups plus one word line; source and bit-line voltages match during writing and erase.
+##### [US11742039B2](https://patents.google.com/patent/US11742039B2/en) · Small-area side-capacitor read-only memory device, memory array and method for operating the same
+
+> Correction History · [US9691784B2](https://patents.google.com/patent/US9691784B2/en) — Replaced the former selection US9691784B2 with US11742039B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US9691784B2 · Former Record Check · Published 2017-06-27 · p. 1](https://patentimages.storage.googleapis.com/b9/d3/91/46b9dfa917a76d/US9691784.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11742039B2 · Original Publication · Published 2023-08-29 · p. 12](https://patentimages.storage.googleapis.com/23/d8/ba/6a1514e43bff3e/US11742039.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11742039B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11742039B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2022-01-14 / 2023-08-29
+- **Assignee**: Yield Microelectronics Corp.
+- **Technical Problem**: Increase capacitor coupling within a compact floating-gate layout.
+- **Product Linkage**: Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.
+- **Inventors**: Yu Ting Huang; Chi Pei Wu
+- **Claim 1 Reading**: Claim 1 requires a FET and capacitor on the substrate, connected conductive gates, same-type capacitor/source-drain doping, and parallel fingers extending from a strip. Specific array write/erase biases appear in other claims and must not be added to claim 1.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A capacitor gate uses a strip with parallel fingers and connects to the memory transistor gate.
 #### Technology Milestones
 
-- **2000–2006 · Coplanar Coupling Architecture Breakthrough** (Inception & Single-Poly R&D) — Overcame single-poly coupling limitations, securing inaugural 0-mask MTP patents. 0.35µm / 0.25µm · US7835188B2
-- **2007–2013 · Edge Erase & 10K Endurance** (Foundry Mass Production Proliferation) — Qualified across SMIC, UMC, VIS, and HHGrace, becoming a vital MTP supplier in Greater China foundries. 0.18µm / 0.15µm / 0.11µm · US8184485B2
-- **2014–2026 · Automotive PMIC & 55nm/40nm Scaling** (BCD High Voltage & Advanced Scaling) — Expanded into automotive high-voltage BCD with -40°C to 150°C wide-temperature trimming, scaling to 40nm logic. 55nm / 40nm BCD · YMC BCD MTP Series
-#### Patent Defense Strategy & Landmark Litigation: Single-Poly Interdigitated Moat & Public Domain FTO Landscape
+- **2006-08-29 – 2023-08-29 · YMC Single Floating Gate, Shared Terminal and EEPROM Arrays** (Publication chronology) — Five YMC publications distinguish cell structure, shared terminals, two-/four-cell array operation and side capacitors. Inventor names follow publication spelling; different spellings are not automatically merged. Not established from these claims; consult product qualification evidence. · US7099192B2, US9240242B1, US9281312B2, US9318208B1, US11742039B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Confronted by eMemory's dual-PMOS NeoBit patent ring, Yield Microelectronics Corp. (YMC) carved out an independent IP trajectory anchored in NMOS-based interdigitated in-plane single-poly capacitance. YMC's portfolio secures high coupling ratios and 10,000-cycle endurance in standard logic without second polysilicon masks.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Design-Around Distinction: NMOS Interdigitated vs. eMemory PMOS
+##### YMC Single Floating Gate, Shared Terminal and EEPROM Arrays
 
-eMemory foundational patents (US6678190B2 etc.) monopolized 2-PMOS CHEI injection. YMC completely bypassed PMOS by adopting NMOS channels with in-plane poly-to-poly capacitive coupling, ensuring non-infringement under literal and equivalence doctrines while securing independent tape-out rights across major Asian foundries.
+Claim 1 combines substrate, transistor, isolated capacitor, common floating gate and a single control contact. For the P-substrate case, erase source/drain voltages exceed substrate voltage and the control voltage is much higher. “Single poly” alone omits these conditions.
 
-##### Zero-Mask Innovation: Interdigitated Poly (US7835188B2) & Corner Tip Erase (US8184485B2)
-
-Overcoming legacy single-poly area penalties (>60 F²), YMC US7835188B2 introduced interdigitated finger electrodes achieving >0.75 coupling ratios within <30 F² footprints. US8184485B2 further patented corner tip field emission for localized tunneling, pushing MTP endurance to 10K cycles for automotive PMICs.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Foundational single-poly well-coupling patents (US6950342B2 & US7119394B2) expired in 2023 and 2024, entering the public domain. However, interdigitated horizontal coupling (US7835188B2) and corner field emission erase (US8184485B2) remain enforceable through 2027 and 2029, with automotive BCD array protections extending into 2034.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Impinj / Virage Logic / Synopsys (AEON®) (AEON (Synopsys))
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Seattle, WA / Mountain View, CA, USA
 - **Founded**: 2000 (Impinj founded; NVM division acquired by Virage Logic in 2008; Virage acquired by Synopsys in 2010)
-- **Leadership**: Dr. Chris Diorio (Carnegie Mellon Professor / Impinj Co-founder) and R&D Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Christopher J. Diorio; Chad Lindhorst; Shail Srinivas; Alberto Pesavento; Troy Gilliland (full names in each record).
 - **Business Model**: Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP
-- **Recorded Portfolio Status**: 2 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 0 Recorded active · 4 Recorded expired
 - **Historical Transferred Assets**: Over 50 Impinj patents transferred (2008) — [Virage Logic / Impinj transaction announcement · Published 2008-06-30](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/dex991.htm) — Assets transferred with the logic NVM business including AEON; grants and applications are not split, and this is neither current Impinj total nor AEON-only count.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [Virage Logic / Impinj transaction announcement · Checked 2026-10-15](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/dex991.htm) — The transfer announcement has no complete jurisdiction list; present Impinj RFID coverage cannot be assigned to historical AEON assets.
 - **Historical Platform Support**: Multiple foundries at 180nm (not named) — [Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Several leading foundries offered 180nm IP; 65–250nm availability was also reported, without substantiating each name in the previous list.
 - **Historical Technology Shipments**: Reprogrammable NVM technology in over 3 billion chips (2011) — [Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Cumulative reprogrammable NVM technology disclosure in the AEON announcement; not split by AEON subfamily and not present Impinj RFID shipments.
-- **Patent Strategy**: The core of AEON's patent strategy pioneered 'Ultra-Low-Power Bidirectional Balanced Fowler-Nordheim (FN/FN) Tunneling'. Unlike traditional Channel Hot Electron Injection (CHEI) programming which demands milliamperes of DC channel current, AEON relies on a symmetric dual-well capacitive-coupled floating-gate architecture. Both program and erase depend solely on displacement currents tunneling through the quantum energy barrier (<100pA). This breakthrough enabled MTP to be written reliably on battery-free passive RFID chips powered exclusively by ambient RF waves, subsequently scaled by Virage Logic and Synopsys into the gold standard for ULP IoT MCUs.
+- **Patent Strategy**: Selected technical scope: pFET Floating Gate, Differential Readout and Capacitors. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### AEON® Pure FN-Tunneling Ultra-Low-Power MTP Patent Family (Ultra-Low Power MTP (Multiple-Time Programmable))
+[US6853583B2 · Original Publication · Published 2005-02-08 · p. 29](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=29) — Front page 1: inventor names and assignee. PDF page 29: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard Logic Single-Poly · Bidirectional FN/FN Tunneling · Picoampere Zero-Channel Write Current*
+#### AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM (Ultra-Low Power MTP (Multiple-Time Programmable))
 
-- **Cell Topology**: Dual-Well Balanced Single-Poly (Symmetric Dual-Well Single-Poly Balanced Cell)
-- **Physical Mechanism**: Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write
-- **Process Node**: 0.18µm / 0.13µm / 90nm / 65nm / 40nm / 28nm
+*Tunneling Removal, Injection Control and Coupling*
 
-A landmark invention in green IoT and RFID. Symmetrical dual-well capacitive coupling reduces write energy by over 1,000x compared to conventional floating gates, enabling miniature on-chip charge pumps to cycle hundreds of times under passive RF energy harvesting constraints.
+- **Cell Topology**: pFET Floating Gate, Differential Readout and Capacitors
+- **Physical Mechanism**: Tunneling Removal, Injection Control and Coupling
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US6166953A](https://patents.google.com/patent/US6166953A/en) · Nonvolatile memory cell with balanced capacitive coupling and method of operation
+The front pages name Impinj, Virage Logic or Synopsys at different times. This grouping is neither one patent family nor a complete assignment chain; overtunneling control is not an all-FN claim.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2019-04-30)
-- **Category & Generation**: Device Structure · Gen-1 RFID NVM
-- **Priority / Grant**: 1999-04-30 / 2000-12-26
-- **Assignee**: Impinj, Inc.
-- **Technical Problem**: Passive RFID tags have zero batteries; conventional EEPROM write currents of several milliamperes collapse antenna RF rectifier voltages, terminating communication.
-- **Product Linkage**: Core AEON® IP powering billions of Impinj Monza series RFID tag ICs worldwide.
-- **Inventors**: Chris Diorio, Christopher J. Todd
-- **Claim 1 Reading**: Claim 1 claims a symmetric dual-well capacitive coupled floating-gate structure and bidirectional full FN tunneling operating method devoid of DC channel current.
-- **Existing FTO Note · Requires Case Review**: Expired in April 2019; entered public domain. Pioneer patent on well-capacitance-coupled floating gate NVM for RFID is free to operate.
-- **Physical Solution**: Features a symmetric dual-well capacitive-coupling architecture with floating gate spanning two independent diffusion wells. Program and erase apply symmetric electric fields inducing pure quantum FN tunneling without impact ionization, consuming zero DC channel current.
-##### [US6388918B1](https://patents.google.com/patent/US6388918B1/en) · Ultralow-power nonvolatile memory and low-current programming method
+##### [US6853583B2](https://patents.google.com/patent/US6853583B2/en) · Method and apparatus for preventing overtunneling in pFET-based nonvolatile memory cells
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2020-06-20)
-- **Category & Generation**: Method / Operation · Gen-1 RFID NVM
-- **Priority / Grant**: 2000-06-20 / 2002-05-14
-- **Assignee**: Impinj, Inc.
-- **Technical Problem**: On-chip charge pumps exhibit poor efficiency under faint RF inputs. How can parallel multi-bit programming be achieved with microampere total power budgets?
-- **Product Linkage**: Synopsys DesignWare AEON MTP ULP standard product library.
-- **Inventors**: Chris Diorio, Troy Brand
-- **Claim 1 Reading**: Claim 1 claims a low-power nonvolatile storage architecture driven by on-chip charge pumps via pure tunneling injection.
-- **Existing FTO Note · Requires Case Review**: Expired in June 2020; entered public domain. Ultra-low power tunneling write algorithms are in the public domain.
-- **Physical Solution**: Utilizes stepped micro-pulse voltage ramps combined with pure tunneling high-impedance characteristics, reducing memory macro write power to microwatt levels at 1.2V core supply.
-##### [US7787304B2](https://patents.google.com/patent/US7787304B2/en) · Non-Volatile Memory Cell with Low-Voltage Differential Sensing
+> Correction History · [US6166953A](https://patents.google.com/patent/US6166953A/en) — Replaced the former selection US6166953A with US6853583B2. The former publication identifies Hitachi ULSI Engineering Corp; Hitachi Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US6166953A · Former Record Check · Published 2000-12-26 · p. 1](https://patentimages.storage.googleapis.com/fe/58/83/84135a720b6db9/US6166953.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2027-06-05)
-- **Category & Generation**: Device & Sensing Method · Gen-2 ULP Differential
-- **Priority / Grant**: 2007-06-05 / 2010-08-31
-- **Assignee**: Virage Logic Corp. (originally Impinj, Inc.)
-- **Technical Problem**: Sub-micron scaling exacerbates threshold voltage spread while operating voltages drop below 1.0V, degrading single-ended sense margins.
-- **Product Linkage**: Synopsys DesignWare AEON ULP differential high-reliability macro.
-- **Inventors**: Christopher J. Todd, Chris Diorio
-- **Claim 1 Reading**: Claim 1 defines paired complementary floating-gate topologies with ultra-low-voltage differential sensing circuitry.
-- **Existing FTO Note · Requires Case Review**: In force through June 2027. Protects paired complementary floating-gate differential readout structures in sub-1V logic nodes.
-- **Physical Solution**: Employs paired complementary floating-gate cells with a self-balanced low-voltage differential sense amplifier, comparing minute tunneling displacement currents at 0.8V VDD.
-##### [US8264887B2](https://patents.google.com/patent/US8264887B2/en) · Non-Volatile Logic Semiconductor Memory with Adaptive Tunnel Pulse Regulation
+[US6853583B2 · Original Publication · Published 2005-02-08 · p. 29](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=29) — Front page 1: inventor names and assignee. PDF page 29: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2029-08-14)
-- **Category & Generation**: Circuit & Algorithm · Gen-2 Pulse Regulation
-- **Priority / Grant**: 2009-08-14 / 2012-09-11
-- **Assignee**: Synopsys, Inc. (acquired from Virage Logic / Impinj)
-- **Technical Problem**: Repeated bidirectional Fowler-Nordheim stress creates interface traps, accelerating dielectric breakdown under fixed high-voltage pulse trains.
-- **Product Linkage**: Synopsys DesignWare AEON 10K/100K high-endurance IoT IP.
-- **Inventors**: Michael Pesavento, Christopher J. Todd
-- **Claim 1 Reading**: Claim 1 recites control circuitry adaptively shaping tunneling voltage pulse parameters based on accumulated oxide fatigue.
-- **Existing FTO Note · Requires Case Review**: In force through August 2029. Grants exclusivity over adaptive tunneling pulse-width feedback regulation circuits.
-- **Physical Solution**: Integrates on-chip closed-loop feedback sensing tunnel displacement charge per cycle to dynamically modulate subsequent programming pulse width and slew rate.
+[US6853583B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6853583B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Charge-Control Method · Publication-Based Selection
+- **Priority / Grant**: 2002-09-16 / 2005-02-08
+- **Assignee**: Impinj Inc.
+- **Technical Problem**: Removing too much floating-gate charge can eliminate the channel conduction needed for injection.
+- **Product Linkage**: Technical comparison with AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM; not a verified product claim chart.
+- **Inventors**: Christopher J. Diorio; Chad Lindhorst; Shail Srinivas; Alberto Pesavento; Troy Gilliland
+- **Claim 1 Reading**: Claim 1 measures channel current during floating-gate charge removal, compares it with the minimum needed for conduction, and injects carriers below that minimum. The issued assignee is Impinj, not eMemory or Floadia. This claim does not establish all-FN operation.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Monitor channel current during charge removal and inject charge when it falls below a prescribed minimum.
+##### [US6950342B2](https://patents.google.com/patent/US6950342B2/en) · Differential floating gate nonvolatile memories
+
+> Correction History · [US6388918B1](https://patents.google.com/patent/US6388918B1/en) — Replaced the former selection US6388918B1 with US6950342B2. The former publication identifies no corporate assignee on the front page; this is a new editorial selection, not renumbering or proof of assignment. [US6388918B1 · Former Record Check · Published 2002-05-14 · p. 1](https://patentimages.storage.googleapis.com/82/e8/08/f0deafe23c3662/US6388918.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6950342B2 · Original Publication · Published 2005-09-27 · p. 55](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=55) — Front page 1: inventor names and assignee. PDF page 55: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6950342B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6950342B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2002-07-05 / 2005-09-27
+- **Assignee**: Impinj Inc.
+- **Technical Problem**: Read stored data from relative cell currents rather than one absolute threshold.
+- **Product Linkage**: Technical comparison with AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM; not a verified product claim chart.
+- **Inventors**: Chad A. Lindhorst; Christopher J. Diorio; Troy N. Gilliland; Alberto Pesavento; Shail Srinivas; Yanjun Ma; Terry Hass; Kambiz Rahimi
+- **Claim 1 Reading**: Claim 1 specifies two pFET floating-gate transistors and a differential sense amplifier receiving their currents. It does not specify a one-sided coupling capacitor or YMC process integration. The issued assignee is Impinj; the former eMemory/YMC attribution was incorrect.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two pFETs have separate floating gates and feed their currents to a differential sense amplifier.
+##### [US6788574B1](https://patents.google.com/patent/US6788574B1/en) · Electrically-alterable non-volatile memory cell
+
+> Correction History · [US7787304B2](https://patents.google.com/patent/US7787304B2/en) — Replaced the former selection US7787304B2 with US6788574B1. The former publication identifies Jonker LLC; this is a new editorial selection, not renumbering or proof of assignment. [US7787304B2 · Former Record Check · Published 2010-08-31 · p. 1](https://patentimages.storage.googleapis.com/9d/f7/5e/0bb23a6cd697b5/US7787304.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6788574B1 · Original Publication · Published 2004-09-07 · p. 16](https://patentimages.storage.googleapis.com/db/25/1c/90acfdf8ed14ca/US6788574.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6788574B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6788574B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2001-12-06 / 2004-09-07
+- **Assignee**: Virage Logic Corporation
+- **Technical Problem**: Provide separate coupling, readout and tunneling functions in an embedded cell.
+- **Product Linkage**: Technical comparison with AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM; not a verified product claim chart.
+- **Inventors**: Kim-Kwong Michael Han; Narbeh Derhacobian; Jaroslav Raszka
+- **Claim 1 Reading**: Claim 1 includes a coupling capacitor with a first gate and an abutting P+/N+ plate, a read transistor with a second gate, and a tunneling capacitor with a third gate. This is a B1 grant assigned on its front page to Virage Logic; it does not prove implementation in every AEON generation.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A coupling capacitor, read transistor and tunneling capacitor have separate roles; one coupling plate comprises abutting P+ and N+ regions.
+##### [US8111558B2](https://patents.google.com/patent/US8111558B2/en) · pFET nonvolatile memory
+
+> Correction History · [US8264887B2](https://patents.google.com/patent/US8264887B2/en) — Replaced the former selection US8264887B2 with US8111558B2. The former publication identifies Hynix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US8264887B2 · Former Record Check · Published 2012-09-11 · p. 1](https://patentimages.storage.googleapis.com/8c/5a/e6/714a9fa9aa49b5/US8264887.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US8111558B2 · Original Publication · Published 2012-02-07 · p. 26](https://patentimages.storage.googleapis.com/d4/58/86/2b58f00a0be134/US8111558.pdf#page=26) — Front page 1: inventor names and assignee. PDF page 26: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US8111558B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8111558B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2004-05-05 / 2012-02-07
+- **Assignee**: Synopsys Inc.
+- **Technical Problem**: Control readout-current paths while another cell in the same column is written.
+- **Product Linkage**: Technical comparison with AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM; not a verified product claim chart.
+- **Inventors**: Alberto Pesavento; John D. Hyde
+- **Claim 1 Reading**: Claim 1 requires a floating-gate transistor, data-line control capacitor, tunneling-control capacitor and row-selected readout switch. While another same-column cell is written, switch-terminal current is substantially equal to the transistor drain current. The issued front page names Synopsys.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A floating-gate transistor connects to control and tunneling capacitors, with a row-selected readout switch at its drain.
 #### Technology Milestones
 
-- **1999–2004 · FN/FN Tunneling Patent Genesis** (Impinj Inception & RFID Revolution) — Prof. Diorio's team formulated zero-channel-current floating-gate tunneling, establishing core IP for passive RFID. 0.25µm / 0.18µm · US6166953A, US6388918B1
-- **2005–2008 · Expansion into IoT MCUs** (AEON Commercial Licensing & Spin-Off) — AEON emerged as a standalone logic NVM IP brand, acquired by IP giant Virage Logic in 2008. 0.13µm / 90nm / 65nm · SEC acquisition filings
-- **2009–2017 · Consolidation into DesignWare** (Virage Integration into Synopsys) — Synopsys acquired Virage Logic in 2010, establishing AEON as the premier DesignWare AEON MTP ULP product line. 55nm / 40nm / 28nm · DesignWare AEON ULP
-- **2018–2026 · Standard for ULL/ULP Platforms** (Continued Service in Ultra-Low-Leakage Nodes) — Maintains active production licensing on TSMC, UMC, and GF ultra-low-leakage (ULL/ULP) nodes worldwide. 22ULL / 28HPC+ qualified · Synopsys ULP MTP portfolio
-#### Patent Defense Strategy & Landmark Litigation: All-FN Zero-Channel-Current Moat & Passive RFID Patent Fortress
+- **2004-09-07 – 2012-02-07 · AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM** (Publication chronology) — The front pages name Impinj, Virage Logic or Synopsys at different times. This grouping is neither one patent family nor a complete assignment chain; overtunneling control is not an all-FN claim. Not established from these claims; consult product qualification evidence. · US6853583B2, US6950342B2, US6788574B1, US8111558B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-AEON® represents the ultimate IP paradigm for ultra-low-power logic NVM. While conventional Flash and EEPROM designs rely on channel hot-electron injection (CHEI) drawing milliamperes of DC current, Dr. Chris Diorio's team engineered pure quantum bidirectional Fowler-Nordheim (FN/FN) tunneling displacement currents (<100pA), establishing the global standard for passive RFID and battery-free IoT nodes.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Overcoming the RFID Power Cliff: Zero-DC-Current Tunneling (US6166953A)
+##### AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM
 
-Passive RF tags harvest energy strictly from weak ambient electromagnetic fields; milliampere surges collapse tag power supplies. Impinj patented dual-well balanced capacitive structures where floating gates couple across isolated wells, restricting programming power to picoampere displacement currents and dominating the EPC Gen2 UHF RFID standard.
+Claim 1 measures channel current during floating-gate charge removal, compares it with the minimum needed for conduction, and injects carriers below that minimum. The issued assignee is Impinj, not eMemory or Floadia. This claim does not establish all-FN operation.
 
-##### Strategic Acquisitions & IP Consolidation: Impinj to Virage Logic to Synopsys
-
-In 2008, Virage Logic acquired Impinj's NVM business and 80+ patents; in 2010, EDA titan Synopsys acquired Virage Logic for $315M. Fully integrated into Synopsys DesignWare, AEON continued expanding into sub-1V differential sensing (US7787304B2) and adaptive pulse modulation (US8264887B2), spanning mature logic down to 28nm/22ULL IoT nodes.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Impinj foundational pioneer patents (US6166953A & US6388918B1) expired in April 2019 and June 2020, entering the public domain. Industry may freely practice standard CMOS dual-well capacitance coupling and all-FN tunneling zero-channel current structures. However, Synopsys low-voltage differential sensing and adaptive pulse shaping patents remain active through 2027 and 2029.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### NSCore, Inc. (NSCore (TwinBit®))
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/39/c3/8c/17b1359878a197/US9159404.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Kawasaki, Kanagawa, Japan
 - **Founded**: 2001
-- **Leadership**: Satoshi Seo (CEO / Founder), Kenji Hokazono and former NEC memory R&D core engineering team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Tadahiko Horiuchi; Kenji Noda (full names in each record).
 - **Business Model**: Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS)
-- **Recorded Portfolio Status**: 2 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 4 Recorded active · 0 Recorded expired
 - **Official Patent Portfolio**: Over 30 granted patents — [NSCore patent portfolio · Checked 2026-10-15](https://www.nscore.com/technology/patent-portfolio/) — No update date is supplied; not a determination that all remain active, and applications are not added to grants.
 - **Officially Listed Regions**: United States, Japan, Europe, China — [NSCore patent portfolio · Checked 2026-10-15](https://www.nscore.com/technology/patent-portfolio/) — Uses the website regional categories; the previous Taiwan entry was not verified, and individual patents need not be granted in every region.
 - **Historical Supporting Foundries**: TSMC, UMC, IBM, LFoundry, SilTerra, SMIC, GF — [NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Logos listed in a one-page overview without a publication date in its content; historical support, not current availability on every node.
 - **Historical Chip Production**: Over 2 billion chips in production (corporate overview) — [NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Track record for the memory series, with no statistical date; not a current shipment total and not convertible to wafers.
-- **Patent Strategy**: NSCore's patent strategy fundamentally eliminates reliance on dedicated floating-gate poly masks or expensive thermal steps. The founding team recognized that the native silicon nitride/oxide sidewall spacers inherently deposited on standard CMOS gates serve naturally as deep-level charge-trapping media. By controlling localized hot-carrier injection under 100% standard CMOS compatibility (zero extra masks, zero process changes), NSCore stores independent charges on both spacers of a single transistor to deliver 2-bit/cell (TwinBit®), advancing to P-channel Schottky MTP architectures in 40nm to 22nm nodes.
+- **Patent Strategy**: Selected technical scope: Paired MIS, Metal Junctions and Differential Periphery. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### NSCore TwinBit® Native Spacer Charge-Trapping Patent Portfolio (Charge-Trapping MTP (Multiple-Time Programmable))
+[US9159404B2 · Original Publication · Published 2015-10-13 · p. 22](https://patentimages.storage.googleapis.com/39/c3/8c/17b1359878a197/US9159404.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard CMOS Native Sidewall Spacer · 2-bit/cell Storage · Zero-Mask High-Temperature Automotive MTP*
+[NSCore Patent Portfolio · Checked 2026-10-15](https://www.nscore.com/technology/patent-portfolio/) — The four selected grants are listed here; claim scope follows their publications.
 
-- **Cell Topology**: Native Sidewall Spacer Split-Storage (1.5T/2T)
-- **Physical Mechanism**: Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing
-- **Process Node**: 0.18µm / 0.13µm / 90nm / 65nm / 55nm / 40nm / 28nm / 22nm Standard CMOS
+#### NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory (Charge-Trapping MTP (Multiple-Time Programmable))
 
-Masterpiece of native CMOS non-volatile memory engineering. Completely eliminates extra mask layers by directly utilizing native transistor sidewall spacers as non-volatile charge traps. Independent 2-bit/cell (TwinBit) storage reduces bitcell silicon area by up to 40%, while deep traps provide superior 150°C automotive data retention.
+*Hot-Carrier Programming, Recall and Controlled Erase*
 
-##### [US6930349B2](https://patents.google.com/patent/US6930349B2/en) · Nonvolatile Semiconductor Memory Device and Method of Manufacturing the Same
+- **Cell Topology**: Paired MIS, Metal Junctions and Differential Periphery
+- **Physical Mechanism**: Hot-Carrier Programming, Recall and Controlled Erase
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-12-05)
-- **Category & Generation**: Device Structure & Fabrication · Gen-1 Spacer Trapping
-- **Priority / Grant**: 2002-12-05 / 2005-08-16
-- **Assignee**: NSCore, Inc.
-- **Technical Problem**: Embedded flash traditionally requires 3 to 8 additional masks, drastically escalating wafer costs in advanced and mature logic chips.
-- **Product Linkage**: NSCore Gen-1 TwinBit® 0.18µm / 0.13µm logic MTP IP baseline.
-- **Inventors**: Satoshi Seo, Kenji Hokazono
-- **Claim 1 Reading**: Claim 1 recites a non-volatile memory cell using standard transistor sidewall spacers as charge-trapping layers and its zero-extra-mask fabrication method.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering native CMOS sidewall spacer as charge-trapping medium is free to operate.
-- **Physical Solution**: Utilizes standard CMOS transistor gate sidewall spacers (silicon nitride/oxide) as non-volatile charge storage layers without altering foundry process flows.
-##### [US7245532B2](https://patents.google.com/patent/US7245532B2/en) · Nonvolatile Semiconductor Memory Device Having Two Charge Storage Regions per Cell
+The four publications appear in NSCore’s official portfolio list. They address sensing, pre-erase state control and metal-junction cells; PermSRAM page-based writing and TwinBit erasure are not treated as the same cell guarantee.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2024-03-24)
-- **Category & Generation**: Method / Operation · Gen-1 TwinBit 2-bit/cell
-- **Priority / Grant**: 2004-03-24 / 2007-07-17
-- **Assignee**: NSCore, Inc.
-- **Technical Problem**: How to achieve multi-bit storage in a single standard CMOS transistor to reduce silicon cost in mature geometries?
-- **Product Linkage**: NSCore mainstream TwinBit 2-bit/cell dense MCU macro.
-- **Inventors**: Satoshi Seo, Tomoya Saito
-- **Claim 1 Reading**: Claim 1 defines independent two-charge storage region programming and reverse-read operations in a single transistor.
-- **Existing FTO Note · Requires Case Review**: Expired in March 2024; entered public domain. 2-bit/cell independent spacer programming and reverse-read operations are in the public domain.
-- **Physical Solution**: Employs asymmetric channel hot-electron injection (CHEI) into Source-side and Drain-side spacers independently, reading via reverse-bias sensing to achieve 2-bit/cell (TwinBit) without cross-talk.
-##### [US7768832B2](https://patents.google.com/patent/US7768832B2/en) · Nonvolatile Semiconductor Memory Device with Improved Disturb Immunity
+##### [US9159404B2](https://patents.google.com/patent/US9159404B2/en) · Nonvolatile memory device
 
-- **Recorded Status**: Recorded active (Recorded term date: 2027-06-15)
-- **Category & Generation**: Array Architecture · Gen-2 Anti-Disturb
-- **Priority / Grant**: 2007-06-15 / 2010-08-03
-- **Assignee**: NSCore, Inc.
-- **Technical Problem**: High-voltage pulses during massive array cycling induce unexpected charge leakage or soft disturb on unselected wordlines.
-- **Product Linkage**: NSCore Industrial and Automotive AEC-Q100 Grade-1 TwinBit array.
-- **Inventors**: Satoshi Seo, Tomoya Saito
-- **Claim 1 Reading**: Claim 1 recites segmented bias circuitry and methods suppressing disturb in spacer charge-trapping memory arrays.
-- **Existing FTO Note · Requires Case Review**: In force through June 2027. Protects array bias regulation topologies suppressing soft-disturb in spacer charge-trapping matrices.
-- **Physical Solution**: Implements three-level stepped wordline biasing and substrate reverse-biasing to dynamically boost surface potential of unselected cells, improving disturb margin tenfold.
-##### [US8760927B2](https://patents.google.com/patent/US8760927B2/en) · Nonvolatile Semiconductor Memory Device Using Schottky Barrier Diode or P-Channel Carrier Trapping
+> Correction History · [US6930349B2](https://patents.google.com/patent/US6930349B2/en) — Replaced the former selection US6930349B2 with US9159404B2. The former publication identifies Winbond Electronics Corp; this is a new editorial selection, not renumbering or proof of assignment. [US6930349B2 · Former Record Check · Published 2005-08-16 · p. 1](https://patentimages.storage.googleapis.com/36/83/a5/c067f42cc5475b/US6930349.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2033-05-15)
-- **Category & Generation**: Device & Operation · Gen-3 Schottky MTP
-- **Priority / Grant**: 2013-05-15 / 2014-06-24
-- **Assignee**: NSCore, Inc.
-- **Technical Problem**: Scaling to 40nm/28nm thin oxides degrades under NMOS hot-electron stress; how to sustain high cycling endurance in sub-40nm?
-- **Product Linkage**: NSCore TwinBit Gen-2 40nm–22nm advanced PDK portfolio.
-- **Inventors**: Satoshi Seo, Kenji Hokazono
-- **Claim 1 Reading**: Claim 1 defines a P-channel Schottky junction cell with hot-hole write and hot-electron erase nonvolatile operation.
-- **Existing FTO Note · Requires Case Review**: Actively in force through May 2033. Protects TwinBit Gen-2 P-channel Schottky hot-hole write and hot-electron erase architecture across 40nm–22nm nodes.
-- **Physical Solution**: Advances into TwinBit Gen-2, utilizing P-channel Schottky transistors with hot-hole write and hot-electron erase, eliminating high-field oxide fatigue for zero-mask 40nm–22nm MTP.
+[US9159404B2 · Original Publication · Published 2015-10-13 · p. 22](https://patentimages.storage.googleapis.com/39/c3/8c/17b1359878a197/US9159404.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9159404B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9159404B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Readout Circuit · Publication-Based Selection
+- **Priority / Grant**: 2014-02-26 / 2015-10-13
+- **Assignee**: NSCore Inc.
+- **Technical Problem**: Select differential sense nodes when adjacent transistor pairs store one bit.
+- **Product Linkage**: Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.
+- **Inventors**: Tadahiko Horiuchi
+- **Claim 1 Reading**: Claim 1 requires at least four bit lines, three MIS transistors sharing a word line, a differential sense circuit and switching that simultaneously connects N/N+2 lines to sensing and N+1 to a fixed potential to read a two-transistor bit. It does not specify sidewall-trap material.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Three or more MIS devices span adjacent bit lines; sensing uses lines N and N+2 while fixing line N+1.
+##### [US9484072B1](https://patents.google.com/patent/US9484072B1/en) · MIS transistors configured to be placed in programmed state and erased state
+
+> Correction History · [US7245532B2](https://patents.google.com/patent/US7245532B2/en) — Replaced the former selection US7245532B2 with US9484072B1. The former publication identifies Renesas Technology Corp; this is a new editorial selection, not renumbering or proof of assignment. [US7245532B2 · Former Record Check · Published 2007-07-17 · p. 1](https://patentimages.storage.googleapis.com/7b/ab/ff/3636181512d2de/US7245532.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9484072B1 · Original Publication · Published 2016-11-01 · p. 27](https://patentimages.storage.googleapis.com/2e/b5/eb/a9fdafd90dfcff/US9484072.pdf#page=27) — Front page 1: inventor names and assignee. PDF page 27: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9484072B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9484072B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Control System · Publication-Based Selection
+- **Priority / Grant**: 2015-10-06 / 2016-11-01
+- **Assignee**: NSCore Inc.
+- **Technical Problem**: Control both transistor states and their sequence before erasing a paired storage bit.
+- **Product Linkage**: Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.
+- **Inventors**: Kenji Noda
+- **Claim 1 Reading**: Claim 1 requires a MIS pair, a first hot-carrier program, recall, a second hot-carrier program of the previously unprogrammed transistor based on recalled data, and erasure of both programmed states. It does not establish unlimited rewrites for every NSCore cell.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Program one transistor by hot carriers, recall the bit, program the other transistor according to the recalled data, then erase both.
+##### [US9893208B2](https://patents.google.com/patent/US9893208B2/en) · Nonvolatile memory device
+
+> Correction History · [US7768832B2](https://patents.google.com/patent/US7768832B2/en) — Replaced the former selection US7768832B2 with US9893208B2. The former publication identifies Micron Technology Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7768832B2 · Former Record Check · Published 2010-08-03 · p. 1](https://patentimages.storage.googleapis.com/9d/e7/94/823fb902ec02a6/US7768832.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9893208B2 · Original Publication · Published 2018-02-13 · p. 17](https://patentimages.storage.googleapis.com/08/ff/a8/23e83d46096195/US9893208.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9893208B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9893208B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory Device and Periphery · Publication-Based Selection
+- **Priority / Grant**: 2016-02-19 / 2018-02-13
+- **Assignee**: NSCore Inc.
+- **Technical Problem**: Integrate metal-junction memory cells with writing, latching and sensing circuitry.
+- **Product Linkage**: Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.
+- **Inventors**: Tadahiko Horiuchi
+- **Claim 1 Reading**: Claim 1 combines the peripheral circuits, differential drain-current sensing of two cells, and each cell’s metal layer, opposite-type diffusion, insulating film, gate and metal-side insulating sidewall. A sidewall-charge description alone omits much of the combination.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Input/write circuitry feeds latches in the sense circuit; column selectors connect cells with a metal region, diffusion region and insulating sidewall.
+##### [US9966141B2](https://patents.google.com/patent/US9966141B2/en) · Nonvolatile memory cell employing hot carrier effect for data storage
+
+> Correction History · [US8760927B2](https://patents.google.com/patent/US8760927B2/en) — Replaced the former selection US8760927B2 with US9966141B2. The former publication identifies Texas Instruments Inc; this is a new editorial selection, not renumbering or proof of assignment. [US8760927B2 · Former Record Check · Published 2014-06-24 · p. 1](https://patentimages.storage.googleapis.com/43/b0/ad/8d8bfed5cef21a/US8760927.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9966141B2 · Original Publication · Published 2018-05-08 · p. 17](https://patentimages.storage.googleapis.com/29/03/1a/1083cc6e8e87d0/US9966141.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9966141B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9966141B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2016-02-19 / 2018-05-08
+- **Assignee**: NSCore Inc.
+- **Technical Problem**: Control write-induced hot carriers using asymmetric junctions and doping.
+- **Product Linkage**: Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.
+- **Inventors**: Tadahiko Horiuchi
+- **Claim 1 Reading**: Claim 1 requires the silicon layer, metal region, separated opposite-type diffusion, gate/dielectric, two insulating sidewalls and a higher-doped same-type region around the diffusion; the metal is the write drain. No TwinBit endurance figure is specified.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A metal region serves as the write drain opposite a diffusion region; two insulating sidewalls and a higher-doped surrounding region shape the junction.
 #### Technology Milestones
 
-- **2001–2005 · Zero-Mask TwinBit Pioneer** (Founding & Native Spacer Storage Invention) — Former NEC engineers invent TwinBit utilizing native CMOS sidewall spacers, securing foundational patents US6930349B2 and US7245532B2. 0.18µm / 0.13µm · US6930349B2, US7245532B2
-- **2006–2012 · Qualification across TSMC, UMC, and GF** (Foundry Proliferation & Volume Tape-outs) — TwinBit MTP and PermSRAM OTP proliferate across TSMC, UMC, GlobalFoundries, SMIC, and DB HiTek for smartcards and MCU designs. 90nm / 65nm / 55nm · US7768832B2
-- **2013–2026 · Scaling to 40nm/28nm/22nm and Automotive 150°C** (Gen-2 Pch Schottky Breakthrough & Automotive Nodes) — Launches TwinBit Gen-2 Pch Schottky architecture using hot-hole write and hot-electron erase to overcome nanometer oxide wearout. 40nm / 28nm / 22nm · US8760927B2
-#### Patent Defense Strategy & Landmark Litigation: Native Sidewall Spacer Trapping Moat & 2-bit/cell Public Domain Opening
+- **2015-10-13 – 2018-05-08 · NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory** (Publication chronology) — The four publications appear in NSCore’s official portfolio list. They address sensing, pre-erase state control and metal-junction cells; PermSRAM page-based writing and TwinBit erasure are not treated as the same cell guarantee. Not established from these claims; consult product qualification evidence. · US9159404B2, US9484072B1, US9893208B2, US9966141B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Founded in 2001 by former NEC memory technology leader Satoshi Seo, NSCore established a revolutionary logic NVM route that overturned conventional floating-gate paradigms. Standard logic CMOS intrinsically deposits silicon nitride/oxide sidewall spacers to block LDD implants; NSCore discovered that spacers naturally act as deep-level silicon nitride charge traps (SiN Trap Layer), eliminating specialized floating gate poly masks.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Zero-Extra-Mask Extreme Compatibility: Spacer Trapping vs. eFlash
+##### NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory
 
-Conventional embedded flash (e.g., SST SuperFlash, Infineon SONOS) requires 3 to 8 additional masks and specialized high-temperature annealing, stalling logic node migration. NSCore pioneer patent US6930349B2 strictly utilizes native CMOS spacers as physical storage nodes, requiring zero DRC modifications or SPICE model changes from silicon foundries.
+Claim 1 requires at least four bit lines, three MIS transistors sharing a word line, a differential sense circuit and switching that simultaneously connects N/N+2 lines to sensing and N+1 to a fixed potential to read a two-transistor bit. It does not specify sidewall-trap material.
 
-##### Symmetric Dual-Bit Physical Separation (TwinBit US7245532B2)
-
-Unlike traditional 1-bit OTP/MTP bitcells, NSCore patented forward CHEI injection into source-side and drain-side spacers independently, combined with reverse-bias sensing to evaluate threshold shifts. This achieves 2 independent bits per single standard transistor (TwinBit), shrinking core cell area by over 40%.
-
-##### Gen-2 Pch Schottky Evolution (US8760927B2) & Automotive High-Temp Retention
-
-Overcoming oxide wearout in sub-40nm scaling, NSCore engineered TwinBit Gen-2 with Pch Schottky bitcells using hot-hole write and hot-electron erase. Deep dielectric traps tightly confine charges, preventing global charge leakage and delivering outstanding 150°C automotive data retention.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] NSCore foundational patent US6930349B2 (native CMOS sidewall spacer charge storage) expired in December 2022 after its 20-year term. Dual-bit independent reverse-read patent US7245532B2 also expired in March 2024. The semiconductor industry may freely practice native spacer storage topologies. However, array anti-disturb bias (US7768832B2) and Gen-2 Pch Schottky MTP (US8760927B2) remain actively protected through 2027 and 2033.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Attopsemi Technology Co., Ltd. (Attopsemi)
 
@@ -12264,587 +12490,731 @@ Claim 1 requires plural fuse-based OTP cells, a selector, a resistance-to-logic 
 
 ### Floadia Corporation (Floadia)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/63/6d/51/0c81760d301f5d/US9646979.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Kodaira, Tokyo, Japan
 - **Founded**: 2011
-- **Leadership**: Kosuke Okuyama and former Renesas Memory R&D Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Yasuhiro Taniguchi; Kosuke Okuyama; Yutaka Shinagawa; Hideo Kasai; Ryotaro Sakurai (full names in each record).
 - **Business Model**: Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing
-- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 5 Recorded active · 0 Recorded expired
 - **Historical Patent Filing Disclosure**: Over 200 patents filed and pending (2022) — [Floadia official announcement · Published 2022-11-01](https://floadia.com/news/1147/) — Website publication date; article dated 2022-10-31. The source says filed and pending without a grant count; these cannot all be treated as grants.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [Floadia official announcement · Checked 2026-10-15](https://floadia.com/news/1147/) — This announcement has no complete jurisdiction list; the previous Japan, US, China and Taiwan list was not fully substantiated in this review.
 - **Platforms in Official History**: TSMC 130nm BCD; HHGrace 180nm; Powerchip 90nm — [Floadia company history · Checked 2026-10-15](https://floadia.com/about/) — Company history supports TSMC 130BCD+; the announcements below support Powerchip 90nm and HHGrace 180BCD, with platform stages kept separate. / [Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production. / [Floadia / HHGrace platform announcement · Published 2021-11-16](https://floadia.com/news/1100/) — HHGrace 180BCD ZT availability; article dated 2021-11-15, with customer production in 2022 described as a plan.
 - **Historical Platform Production**: Over 30,000 12-inch wafers; 3 SoCs (2018) — [Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production.
-- **Patent Strategy**: The core of Floadia's patent strategy encompasses 'Zero-Mask Floating-Gate MTP (LEE Flash ZT)' and 'Ultra-Low-Mask Split-Gate Charge-Trap SONOS (LEE Flash G1/G2)'. Founded by senior Hitachi/Renesas memory engineers, Floadia focused on dismantling the 8–12 mask adder penalty of traditional eFlash. Its ZT family employs standard logic thick gate oxide for bidirectional uniform low-field FN/FN tunneling 0-mask MTP. Its G1/G2 family integrates localized silicon nitride charge trapping into sidewall split-gates, requiring only 2–3 additional masks to deliver 175°C automotive retention and 100K endurance, scaling into ultra-low-power neuromorphic compute-in-memory (CIM) architectures.
+- **Patent Strategy**: Selected technical scope: Series Floating-Gate/Switch Pair and Resistive Extension; Two-Sided Selectors, Composite Spacers and Metal Gates. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### LEE Flash ZT Zero-Mask Floating-Gate MTP Patent Family (0-Mask MTP (Zero Additional Mask Logic MTP))
+[US9646979B2 · Original Publication · Published 2017-05-09 · p. 23](https://patentimages.storage.googleapis.com/63/6d/51/0c81760d301f5d/US9646979.pdf#page=23) — Front page 1: inventor names and assignee. PDF page 23: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard CMOS 0-Mask · Bidirectional Uniform Low-Field FN Tunneling · 10,000 Endurance Cycles*
+[US10074658B2 · Original Publication · Published 2018-09-11 · p. 21](https://patentimages.storage.googleapis.com/fc/e3/f1/a94765cfd2eca9/US10074658.pdf#page=21) — Front page 1: inventor names and assignee. PDF page 21: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Cell Topology**: 2T Single-Poly (Thick-Oxide Select Transistor + Floating-Gate Storage Transistor)
-- **Physical Mechanism**: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance
-- **Process Node**: 180nm / 130nm / 55nm / 40nm Standard Logic and BCD
+#### LEE Flash ZT Comparison: Single-Layer-Gate Injection (0-Mask MTP (Zero Additional Mask Logic MTP))
 
-Zero-mask MTP technology engineered for cost-effective microcontrollers and PMICs. Adds zero masks, utilizing standard I/O oxides for bidirectional tunneling to achieve 10,000 write cycles and 10-year data retention at 125°C.
+*Local Voltage Drop Enables Source-Side Injection*
 
-##### [US9214470B2](https://patents.google.com/patent/US9214470B2/en) · Nonvolatile semiconductor memory device fabricated by standard CMOS logic process and operating method thereof
+- **Cell Topology**: Series Floating-Gate/Switch Pair and Resistive Extension
+- **Physical Mechanism**: Local Voltage Drop Enables Source-Side Injection
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2032-06-21)
-- **Category & Generation**: Device Structure · Gen-1 SONOS Split-Gate
-- **Priority / Grant**: 2012-06-21 / 2015-12-15
-- **Assignee**: Floadia Corp.
-- **Technical Problem**: Traditional single-poly floating gates using hot electron injection accelerate oxide degradation, capping endurance under 1,000 cycles with high programming power.
-- **Product Linkage**: LEE Flash ZT (Zero-Mask 10K MTP), licensed to major foundries across Asia.
-- **Inventors**: Kosuke Okuyama
-- **Claim 1 Reading**: Claim 1 claims a single-poly memory structure and bias timing utilizing standard logic I/O oxide with uniform FN tunneling for program and erase.
-- **Existing FTO Note · Requires Case Review**: In force through June 2032. Protects sidewall ONO charge-trap split-gate flash cell architecture reducing 3 masks compared to traditional eFlash.
-- **Physical Solution**: Constrains oxide fields below 8 MV/cm, applying bidirectional uniform FN tunneling to suppress defect generation and SILC leakage, boosting 0-mask endurance to 10,000 cycles.
-#### LEE Flash G1/G2 Charge-Trap SONOS eFlash Patent Family (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory))
+The Floadia publication specifies single-layer gates and asymmetric extensions. Product mask count, node and commercial qualification cannot be inferred directly.
 
-*Sidewall Split-Gate · Silicon Nitride (Si3N4) Charge Trap · Only 2–3 Mask Adders · 175°C Automotive 100K Cycles*
+##### [US9646979B2](https://patents.google.com/patent/US9646979B2/en) · Non-volatile semiconductor storage device
 
-- **Cell Topology**: Split-Gate SONOS (Sidewall Split-Gate Silicon Nitride Trap Cell)
-- **Physical Mechanism**: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress
-- **Process Node**: 55nm / 40nm / 28nm Automotive and Advanced Nodes
+> Correction History · [US9214470B2](https://patents.google.com/patent/US9214470B2/en) — Replaced the former selection US9214470B2 with US9646979B2. The former publication identifies SK Hynix Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9214470B2 · Former Record Check · Published 2015-12-15 · p. 1](https://patentimages.storage.googleapis.com/67/f3/11/98d85a76b8b0f3/US9214470.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-Automotive-grade high-reliability embedded flash. Unlike traditional SST eFlash requiring substantial mask additions, Floadia integrates SONOS into a sidewall split-gate requiring only 2–3 mask adders. Dispersed trap storage provides outstanding radiation hardness, SILC immunity, and 175°C data retention.
+[US9646979B2 · Original Publication · Published 2017-05-09 · p. 23](https://patentimages.storage.googleapis.com/63/6d/51/0c81760d301f5d/US9646979.pdf#page=23) — Front page 1: inventor names and assignee. PDF page 23: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-##### [US6388293B1](https://patents.google.com/patent/US6388293B1/en) · Non-Volatile Semiconductor Memory Device with Sidewall Split Gate and Charge-Trapping Dielectric
+[US9646979B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9646979B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2019-10-18)
-- **Category & Generation**: Device Structure · Gen-1 MONOS Pioneer
-- **Priority / Grant**: 1999-10-18 / 2002-05-14
-- **Assignee**: Hitachi, Ltd. / Renesas Electronics Corp.
-- **Technical Problem**: In sub-micron nodes, floating gates suffer from stress-induced leakage current (SILC) where a single dielectric defect dissipates all stored electrons.
-- **Product Linkage**: Foundational MONOS pioneer patent; foundational theoretical ancestor of Floadia LEE Flash.
-- **Inventors**: Shinichi Minami, Kosuke Okuyama et al. (Hitachi / Renesas R&D Team)
-- **Claim 1 Reading**: Claim 1 defines a memory cell formed by an access gate and an adjacent sidewall charge-trapping split gate with its manufacturing method.
-- **Existing FTO Note · Requires Case Review**: Expired in October 2019; entered public domain. Foundational sidewall silicon nitride charge-trapping split-gate architecture is free to operate.
-- **Physical Solution**: Floadia founders pioneer invention at Hitachi/Renesas. Replaces conductive poly with an insulating silicon nitride (Si3N4) sidewall spacer, trapping electrons within isolated localized potential wells to eliminate global leakage.
-##### [US6853583B2](https://patents.google.com/patent/US6853583B2/en) · Operating Method for Charge-Trap Non-Volatile Memory Using Bidirectional Uniform Electric Fields
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2012-11-27 / 2017-05-09
+- **Assignee**: Floadia Corporation
+- **Technical Problem**: A single-layer floating gate needs a localized field for charge injection.
+- **Product Linkage**: Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.
+- **Inventors**: Yasuhiro Taniguchi; Kosuke Okuyama
+- **Claim 1 Reading**: Claim 1 requires series single-layer memory/switch transistors, source/bit-line connections, extensions on both memory-transistor sides, and a lower-doped higher-resistance extension on the series-junction side. It does not declare every single-poly cell to be zero-mask.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A series memory/switch pair uses a lightly doped, high-resistance extension on the switch side to generate the field for source-side injection.
+#### LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory))
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-09-17)
-- **Category & Generation**: Method / Operation · Gen-1 Uniform FN Operation
-- **Priority / Grant**: 2002-09-17 / 2005-02-08
-- **Assignee**: Renesas Technology Corp.
-- **Technical Problem**: Hot carrier injection (HCI) creates interface traps near drain junctions, severely degrading endurance cycling in charge-trap devices.
-- **Product Linkage**: Theoretical and operational baseline for Floadia LEE Flash ZT and G1/G2.
-- **Inventors**: Kosuke Okuyama et al. (Hitachi / Renesas R&D Team)
-- **Claim 1 Reading**: Claim 1 recites bias sequences executing programming and erasing via uniform bidirectional low-field FN tunneling in a charge-trap split-gate cell.
-- **Existing FTO Note · Requires Case Review**: Expired in September 2022; entered public domain. Uniform bidirectional low-field FN tunneling for charge-trap cells is in the public domain.
-- **Physical Solution**: Replaces damaging hot-carrier injection with uniform bidirectional low-field Fowler-Nordheim (FN) tunneling across the entire trapped region, preventing interface damage and dramatically extending dielectric lifetime.
-##### [US9847343B2](https://patents.google.com/patent/US9847343B2/en) · Charge trap memory cell with embedded SONOS structure and integrated fabrication method
+*Charge Storage, Gate Isolation and Co-Fabrication*
 
-- **Recorded Status**: Recorded active (Recorded term date: 2034-07-29)
-- **Category & Generation**: Process & Method · Gen-2 Low-Power FN CFX
-- **Priority / Grant**: 2014-07-29 / 2017-12-19
-- **Assignee**: Floadia Corp.
-- **Technical Problem**: Automotive eFlash requires excessive mask additions (typically 6–10 masks), inflating wafer costs at 40nm/28nm, while floating gates risk full charge loss through single oxide defects at 175°C.
-- **Product Linkage**: LEE Flash G1/G2, adopted by leading automotive semiconductor manufacturers in Japan and worldwide.
-- **Inventors**: Kosuke Okuyama, Shintaro Kume
-- **Claim 1 Reading**: Claim 1 claims a sidewall split-gate charge-trap structure with low mask adders and symmetric FN tunneling manufacturing process.
-- **Existing FTO Note · Requires Case Review**: In force through July 2034. Covers ultra-low power FN tunneling SONOS fabrication flow and operating methods.
-- **Physical Solution**: Uses sidewall split-gate processing to form ultra-thin ONO dielectric stacks beside switching transistors, trapping charge in silicon nitride films with only 2–3 additional masks.
-##### [US10840251B2](https://patents.google.com/patent/US10840251B2/en) · Sidewall Split-Gate Charge-Trap Memory Cell with Micro-Stress Erase and Operating Method
+- **Cell Topology**: Two-Sided Selectors, Composite Spacers and Metal Gates
+- **Physical Mechanism**: Charge Storage, Gate Isolation and Co-Fabrication
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-05-18)
-- **Category & Generation**: Device & Operation · Gen-3 µStressFlash 175°C
-- **Priority / Grant**: 2018-05-18 / 2020-11-17
-- **Assignee**: Floadia Corp.
-- **Technical Problem**: Under extreme 175°C automotive conditions, repeated high-voltage erase cycles induce micro-stress and dielectric soft breakdown, degrading memory reliability.
-- **Product Linkage**: Floadia µStressFlash / LEE Flash G2 automotive Grade-0 flagship IP.
-- **Inventors**: Kosuke Okuyama, Shintaro Kume
-- **Claim 1 Reading**: Claim 1 recites sidewall split-gate ONO cells operated with micro-stress negative stepped erase pulses.
-- **Existing FTO Note · Requires Case Review**: Actively in force through May 2038. Protects µStressFlash low-stress erase algorithms and automotive 175°C retention structures.
-- **Physical Solution**: Floadia flagship µStressFlash core patent. Deploys micro-stress erase algorithms capping peak electric fields strictly below dielectric damage thresholds, using negative substrate-assisted extraction to achieve 175°C 100K-cycle zero-degradation endurance.
+Four Floadia publications cover nonvolatile SRAM, spacer isolation, metal-gate structure and fabrication steps. Classification follows actual claims; similar abstracts do not establish identical issued scope.
+
+##### [US10074658B2](https://patents.google.com/patent/US10074658B2/en) · Non-volatile SRAM memory cell and non-volatile semiconductor storage device
+
+> Correction History · [US6388293B1](https://patents.google.com/patent/US6388293B1/en) — Replaced the former selection US6388293B1 with US10074658B2. The former publication identifies Halo LSI Design & Device Technology Inc.; New Halo Inc.; this is a new editorial selection, not renumbering or proof of assignment. [US6388293B1 · Former Record Check · Published 2002-05-14 · p. 1](https://patentimages.storage.googleapis.com/be/8a/57/d5f443938a7ad8/US6388293.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10074658B2 · Original Publication · Published 2018-09-11 · p. 21](https://patentimages.storage.googleapis.com/fc/e3/f1/a94765cfd2eca9/US10074658.pdf#page=21) — Front page 1: inventor names and assignee. PDF page 21: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10074658B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10074658B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Nonvolatile SRAM Structure · Publication-Based Selection
+- **Priority / Grant**: 2015-03-27 / 2018-09-11
+- **Assignee**: Floadia Corporation
+- **Technical Problem**: Back up SRAM data while accommodating low-voltage logic and memory-gate isolation.
+- **Product Linkage**: Technical comparison with LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration; not a verified product claim chart.
+- **Inventors**: Yutaka Shinagawa; Yasuhiro Taniguchi; Hideo Kasai; Ryotaro Sakurai; Yasuhiko Kawashima; Tatsuro Toya; Kosuke Okuyama
+- **Claim 1 Reading**: Claim 1 combines the 6T SRAM connections with two NVM cells. SRAM and select-gate dielectric thicknesses are at most 4 nm, and four sidewall spacers are at least 5 nm wide. These local dimensions are not foundry process-node names.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Each storage node of a 6T SRAM connects to a nonvolatile cell with a charge-storage layer and selectors on both sides.
+##### [US10381446B2](https://patents.google.com/patent/US10381446B2/en) · Memory cell and non-volatile semiconductor storage device
+
+> Correction History · [US6853583B2](https://patents.google.com/patent/US6853583B2/en) — Replaced the former selection US6853583B2 with US10381446B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6853583B2 · Former Record Check · Published 2005-02-08 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10381446B2 · Original Publication · Published 2019-08-13 · p. 18](https://patentimages.storage.googleapis.com/96/a2/cb/6a551c2d0c1d30/US10381446.pdf#page=18) — Front page 1: inventor names and assignee. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10381446B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10381446B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2015-06-01 / 2019-08-13
+- **Assignee**: Floadia Corporation
+- **Technical Problem**: Improve gate-to-gate breakdown strength while limiting unwanted sidewall charge storage.
+- **Product Linkage**: Technical comparison with LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration; not a verified product claim chart.
+- **Inventors**: Yasuhiro Taniguchi; Fukuo Owada; Yasuhiko Kawashima; Shinji Yoshida; Kosuke Okuyama
+- **Claim 1 Reading**: Claim 1 includes the memory well, source/drain, charge-storage gate stack, two select gates and composite spacers. Sidewall-layer bottoms lie above the lower memory dielectric thickness; spacers are at least 5 nm and select dielectrics at most 3 nm. “SONOS” alone is incomplete.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Composite insulating spacers on both sides of the memory gate contain different-material sidewall layers separated from the charge-storage layer.
+##### [US10431589B2](https://patents.google.com/patent/US10431589B2/en) · Memory cell, semiconductor integrated circuit device, and method for manufacturing semiconductor integrated circuit device
+
+> Correction History · [US9847343B2](https://patents.google.com/patent/US9847343B2/en) — Replaced the former selection US9847343B2 with US10431589B2. The former publication identifies SK Hynix Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9847343B2 · Former Record Check · Published 2017-12-19 · p. 1](https://patentimages.storage.googleapis.com/32/25/69/5c8cdb6e3d1ce3/US9847343.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10431589B2 · Original Publication · Published 2019-10-01 · p. 44](https://patentimages.storage.googleapis.com/50/33/c2/e41b7a007e37d1/US10431589.pdf#page=44) — Front page 1: inventor names and assignee. PDF page 44: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10431589B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10431589B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2015-07-23 / 2019-10-01
+- **Assignee**: Floadia Corporation
+- **Technical Problem**: Integrate charge-storage memory and select gates with metal-gate logic.
+- **Product Linkage**: Technical comparison with LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration; not a verified product claim chart.
+- **Inventors**: Shoji Yoshida; Fukuo Owada; Daisuke Okada; Yasuhiko Kawashima; Shinji Yoshida; Kazumasa Yanagisawa; Yasuhiro Taniguchi
+- **Claim 1 Reading**: Claim 1 requires peripheral metal logic, memory/select gates containing that metallic material, a charge-storage stack, and two memory-gate sidewall films integrated with the upper dielectric. It names no customer, foundry or production node.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Memory/select electrodes contain the logic-gate metallic material; sidewall films integrated with the upper memory dielectric provide isolation.
+##### [US10615168B2](https://patents.google.com/patent/US10615168B2/en) · Memory cell, semiconductor integrated circuit device, and method for manufacturing semiconductor integrated circuit device
+
+> Correction History · [US10840251B2](https://patents.google.com/patent/US10840251B2/en) — Replaced the former selection US10840251B2 with US10615168B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US10840251B2 · Former Record Check · Published 2020-11-17 · p. 1](https://patentimages.storage.googleapis.com/08/65/23/c84c7d04687511/US10840251.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US10615168B2 · Original Publication · Published 2020-04-07 · p. 45](https://patentimages.storage.googleapis.com/20/e2/0d/820af2c5b5968a/US10615168.pdf#page=45) — Front page 1: inventor names and assignee. PDF page 45: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US10615168B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10615168B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Fabrication Method · Publication-Based Selection
+- **Priority / Grant**: 2015-07-23 / 2020-04-07
+- **Assignee**: Floadia Corporation
+- **Technical Problem**: Build memory-gate sidewalls alongside peripheral devices using controlled patterning and etch-back.
+- **Product Linkage**: Technical comparison with LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration; not a verified product claim chart.
+- **Inventors**: Shoji Yoshida; Fukuo Owada; Daisuke Okada; Yasuhiko Kawashima; Shinji Yoshida; Kazumasa Yanagisawa; Yasuhiro Taniguchi
+- **Claim 1 Reading**: The sole claim protects a process: regional layer formation, resist-masked memory patterning while retaining the peripheral stack, sidewall-film deposition/etch-back, and second dielectric/polysilicon deposition/etch-back. The metal-gate product in the abstract does not replace these process steps.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Pattern the first memory stack, form sidewall insulation, then etch back a second polysilicon stack to leave sidewall-shaped material.
 #### Technology Milestones
 
-- **2011–2015 · Zero-Mask 10K MTP Patents Granted** (Inception & LEE Flash ZT Breakthrough) — Former Renesas engineers established Floadia, creating bidirectional uniform FN tunneling 0-mask MTP IP. 0.18µm / 0.13µm · US9214470B2
-- **2016–2020 · Low-Mask SONOS & 175°C Qualification** (LEE Flash G1/G2 Automotive Milestone) — Unveiled split-gate SONOS eFlash requiring only 2–3 masks, qualifying 100K endurance and 175°C automotive retention. 55nm / 40nm BCD · US9847343B2
-- **2021–2026 · Scaling to 28nm & Edge AI Analog Compute** (Analog CIM Compute-in-Memory Scaling) — Extended ultra-low-leakage SONOS charge traps to compute-in-memory (CIM), enabling high-precision edge AI neural inference. 40nm / 28nm · Floadia Analog AI Patent Series
-#### Patent Defense Strategy & Landmark Litigation: Ultra-Low Mask SONOS Moat & Automotive 175°C µStressFlash Patent Fortress
+- **2017-05-09 – 2017-05-09 · LEE Flash ZT Comparison: Single-Layer-Gate Injection** (Publication chronology) — The Floadia publication specifies single-layer gates and asymmetric extensions. Product mask count, node and commercial qualification cannot be inferred directly. Not established from these claims; consult product qualification evidence. · US9646979B2
+- **2018-09-11 – 2020-04-07 · LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration** (Publication chronology) — Four Floadia publications cover nonvolatile SRAM, spacer isolation, metal-gate structure and fabrication steps. Classification follows actual claims; similar abstracts do not establish identical issued scope. Not established from these claims; consult product qualification evidence. · US10074658B2, US10381446B2, US10431589B2, US10615168B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Founded in 2011 by former Renesas memory R&D chief Kosuke Okuyama, Floadia engineered an IP strategy to overturn the 6–10 extra mask cost penalty of conventional eFlash. By coupling sidewall split-gate processing with localized silicon nitride (Si3N4) charge-trapping dielectrics, Floadia achieved AEC-Q100 Grade-0 175°C automotive retention and 100K endurance with only 2–3 additional masks.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Silicon Nitride Trapping vs. Poly Floating Gate Leakage Barrier
+##### LEE Flash ZT Comparison: Single-Layer-Gate Injection
 
-Polysilicon floating gates are conductive equipotential bodies; a single stress-induced leakage path (SILC) catastrophically discharges the entire cell. Floadia uses insulating silicon nitride ONO stacks where electrons are trapped in millions of isolated nanoscopic energy wells. Localized dielectric defects cannot drain neighboring traps, ensuring flawless data retention under 175°C automotive baking.
+Claim 1 requires series single-layer memory/switch transistors, source/bit-line connections, extensions on both memory-transistor sides, and a lower-doped higher-resistance extension on the series-junction side. It does not declare every single-poly cell to be zero-mask.
 
-##### µStressFlash Micro-Stress Erase Technology (US10840251B2)
+##### LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration
 
-Conventional flash erases with destructive 10–12 MV/cm electric fields, tearing oxide bonds and generating interface traps. Floadia patented micro-stress uniform low-field FN tunneling that preserves dielectric elasticity across 100,000 cycles, passing rigorous Japanese tier-1 automotive qualifications.
+Claim 1 combines the 6T SRAM connections with two NVM cells. SRAM and select-gate dielectric thicknesses are at most 4 nm, and four sidewall spacers are at least 5 nm wide. These local dimensions are not foundry process-node names.
 
-##### Neuromorphic Analog In-Memory Computing (CIM) Expansion
-
-Leveraging continuous analog conductance states in charge-trap cells, Floadia extended its IP moat into analog vector-matrix multiplication (VMM) for edge AI, executing multi-bit weight accumulations directly in flash cells at 1/10th the power of digital accelerators.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Early 1999–2002 Hitachi/Renesas foundational sidewall SONOS split-gate patents (US6388293B1 & US6853583B2) expired in 2019 and 2022, entering the public domain. However, Floadia proprietary 2–3 mask sidewall flows (US9847343B2), 0-mask 10K MTP (US9214470B2), and µStressFlash erase algorithms (US10840251B2) remain actively enforceable through 2032, 2034, and 2038.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Silicon Storage Technology, Inc. (SST / Microchip Technology) (SST (Microchip))
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: San Jose, California, USA
 - **Founded**: 1989 (Acquired by Microchip Technology in 2010)
-- **Leadership**: Bing Yeh and R&D Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Bing Yeh; Chih Hsin Wang; Geeng-Chuan Chern; Amitay Levi (full names in each record).
 - **Business Model**: Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer
-- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 0 Recorded active · 5 Recorded expired
 - **Historical Granted Patent Disclosure**: Over 360 granted patents (2010) — [SST transaction investor materials · Published 2010-02-03](https://ir.microchip.com/sec-filings/all-sec-filings/content/0000827054-10-000035/dfan14a.htm) — Historical SST disclosure; over 180 pending applications were separate and are not included, and this is not the current Microchip total.
 - **Jurisdiction Evidence Gap**: Complete jurisdiction list not verified in this review — [SST transaction investor materials · Checked 2026-10-15](https://ir.microchip.com/sec-filings/all-sec-filings/content/0000827054-10-000035/dfan14a.htm) — This source has no complete patent-jurisdiction list; the prior US, Taiwan, China, Europe and Japan coverage was not fully verified.
 - **Official Foundry Availability**: TSMC, UMC, GF, SMIC, HHGrace and others — [SST foundry availability table · Checked 2026-10-15](https://www.sst.com/foundry-availability/) — Examples from the table; node states differ, including Production and Tested, so not all listed partners and nodes are in production.
 - **Cumulative Technology Shipments**: 150 billion SuperFlash units shipped — [Microchip / SST official announcement · Published 2026-03-17](https://www.microchip.com/en-us/about/news-releases/products/mythic-selects-membrain-technology-from-sst-for-its-next-gen-ultra-low-power-apus) — Historical cumulative SuperFlash shipments, not wafers and not shipments of Mythic APUs or the new memBrain generation.
-- **Patent Strategy**: The cornerstone of SST (SuperFlash®)'s patent strategy was the invention of the 'Split-Gate Flash Memory Cell Architecture' evolving into the 'Independent Erase Gate ESF3 Generation'. Conventional 1T stacked-gate flash memories risk 'Over-Erase', turning cells into depletion mode and paralyzing bitlines. Bing Yeh's split-gate invention extends the control gate over a portion of the silicon channel to serve as an integrated select switch, eliminating over-erase risks. The 3rd generation (ESF3) added dedicated erase gates (EG) and coupling gates (CG), utilizing sharp floating-gate poly tips for localized high-field tunneling. This achieved microsecond-speed erase, low write energy, and 100K automotive endurance, becoming the dominant embedded flash architecture across global foundries.
+- **Patent Strategy**: Selected technical scope: Floating/Control Gates, Sharp Edges and Overhanging Source. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### SuperFlash® Split-Gate eFlash Patent Family (Split-Gate eFlash (Split-Gate Embedded Flash Memory))
+[US5029130A · Original Publication · Published 1991-07-02 · p. 15](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Split-Gate · Tip Field-Emission Tunneling Erase · Over-Erase Immunity · 1.5T Architecture*
+#### SuperFlash® Comparison: Split Gates and Self-Alignment (Split-Gate eFlash (Split-Gate Embedded Flash Memory))
 
-- **Cell Topology**: ESF1 (1T Control/Floating shared channel) / ESF3 (1.5T with Erase Gate EG, Coupling Gate CG, Select Gate SG)
-- **Physical Mechanism**: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG)
-- **Process Node**: 0.5µm down to 28nm HKMG across global foundry platforms
+*Hot-Electron Injection, FN Erase and Field Control*
 
-Classic patent architecture dominating automotive and microcontroller embedded flash for three decades. From ESF1 establishing over-erase immunity to ESF3 introducing dedicated erase gates and Source-Side Injection (SSI), write efficiency increased by 3 orders of magnitude while erase time dropped to milliseconds, offering 100K cycles and 20-year retention.
+- **Cell Topology**: Floating/Control Gates, Sharp Edges and Overhanging Source
+- **Physical Mechanism**: Hot-Electron Injection, FN Erase and Field Control
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US5029130A](https://patents.google.com/patent/US5029130A/en) · Flash EPROM memory cell with split gate structure and method of operating the same
+Five SST publications show historical device, process and geometry development. They do not directly establish modern neural-network products, ESF generations or specific foundry nodes.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2009-08-07)
-- **Category & Generation**: Device Structure · Gen-1 SuperFlash
-- **Priority / Grant**: 1989-08-07 / 1991-07-02
-- **Assignee**: Silicon Storage Technology, Inc.
-- **Technical Problem**: Conventional stacked-gate flash memory cells risk over-erase: extracting excessive electrons turns floating-gate transistors into depletion mode, causing massive bitline leakage.
-- **Product Linkage**: SuperFlash® ESF1, laying the patent foundation for split-gate flash worldwide.
+##### [US5029130A](https://patents.google.com/patent/US5029130A/en) · Single transistor non-valatile electrically alterable semiconductor memory device
+
+> Correction History · [US5029130A](https://patents.google.com/patent/US5029130A/en) — US5029130A: retained publication; inventor names, claim reading and context corrected from the original. [US5029130A · Former Record Check · Published 1991-07-02 · p. 1](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US5029130A · Original Publication · Published 1991-07-02 · p. 15](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US5029130A · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US5029130A/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 1990-01-22 / 1991-07-02
+- **Assignee**: Silicon Storage Technology Inc.
+- **Technical Problem**: Control programming and erasing within one storage transistor and an addressable array.
+- **Product Linkage**: Technical comparison with SuperFlash® Comparison: Split Gates and Self-Alignment; not a verified product claim chart.
 - **Inventors**: Bing Yeh
-- **Claim 1 Reading**: Claim 1 claims a split-gate structure where the control gate covers a portion of the channel surface as a select switch and another portion covers the floating gate.
-- **Existing FTO Note · Requires Case Review**: Expired in August 2009; entered public domain. Pioneer asymmetric split-gate flash cell topology is open technology.
-- **Physical Solution**: Foundational split-gate patent. The control gate extends laterally over a portion of the channel while the floating gate covers another portion. Even if the floating gate becomes depleted, the adjacent control gate channel segment can be fully turned off, permanently eliminating over-erase hazards.
-##### [US6747310B2](https://patents.google.com/patent/US6747310B2/en) · Split-gate flash memory cell with separate erase gate and source-side injection
+- **Claim 1 Reading**: Claim 1 covers an array device with one transistor per site, row/column/common-line connections, a drain-coupled floating gate, and hot-electron injection/FN erase means under specified potential relationships. It is not a blanket claim to every split-gate structure.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A split floating/control-gate structure uses abrupt-potential-drop hot-electron injection and floating-to-control-gate FN tunneling.
+##### [US5242848A](https://patents.google.com/patent/US5242848A/en) · Self-aligned method of making a split gate single transistor non-volatile electrically alterable semiconductor memory device
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-04-18)
-- **Category & Generation**: Device Structure · Gen-2 ESF1 Self-Aligned
-- **Priority / Grant**: 2002-04-18 / 2004-06-08
-- **Assignee**: Silicon Storage Technology, Inc.
-- **Technical Problem**: Conventional split-gate erase to the control gate requires high voltages, limiting scaling while write currents remain substantial.
-- **Product Linkage**: SuperFlash® ESF3, qualified at TSMC 40nm/28nm, UMC 55nm/40nm, GF 55nm automotive platforms.
-- **Inventors**: Xian Liu, Binh Nguyen, Bing Yeh
-- **Claim 1 Reading**: Claim 1 claims a four-gate 1.5T split-gate structure comprising select gate, coupling gate, floating gate, and dedicated erase gate with tip tunneling erase.
-- **Existing FTO Note · Requires Case Review**: Expired in April 2022; entered public domain. Self-aligned split-gate structure with source-side injection is in the public domain.
-- **Physical Solution**: Core patent for 3rd generation SuperFlash (ESF3). Configures dedicated Erase Gate (EG) and Coupling Gate (CG) in a 1.5T cell. Sharp polysilicon tips on the floating gate concentrate electric fields toward the EG, lowering erase voltages, while Source-Side Injection (SSI) boosts injection efficiency 1,000x over conventional CHEI.
-##### [US8217444B2](https://patents.google.com/patent/US8217444B2/en) · Split-Gate Non-Volatile Memory Cell with Self-Aligned Erase Gate and Method of Fabrication
+> Correction History · [US6747310B2](https://patents.google.com/patent/US6747310B2/en) — Replaced the former selection US6747310B2 with US5242848A. The former publication identifies ACTRANS SYSTEM Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6747310B2 · Former Record Check · Published 2004-06-08 · p. 1](https://patentimages.storage.googleapis.com/9b/eb/1b/eff652a750b8e4/US6747310.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2030-01-20)
-- **Category & Generation**: Device & Fabrication · Gen-3 ESF3 Self-Aligned
-- **Priority / Grant**: 2010-01-20 / 2012-07-10
-- **Assignee**: Silicon Storage Technology, Inc.
-- **Technical Problem**: Scaling to 55nm/40nm exacerbates lithographic overlay errors between the erase gate (EG) and floating gate tip, causing severe cell-to-cell erase speed variation.
-- **Product Linkage**: SuperFlash® ESF3 55nm/40nm mainstream automotive MCU platform worldwide.
-- **Inventors**: Xian Liu, Chien-Sheng Su, Bing Yeh
-- **Claim 1 Reading**: Claim 1 defines an erase gate self-aligned over the floating gate tip and overlying the common source diffusion with its fabrication process.
-- **Existing FTO Note · Requires Case Review**: In force through January 2030. Protects self-aligned erase-gate ESF3 1.5T cell structures and overlay-tolerant fabrication methods.
-- **Physical Solution**: Employs chemical mechanical polishing (CMP) and self-aligned spacer techniques to self-align the erase gate directly over the sharp floating gate poly tip, maintaining uniform tunneling fields across wafer dies.
-##### [US8946797B2](https://patents.google.com/patent/US8946797B2/en) · Split-Gate Flash Memory Cell for Advanced High-k Metal Gate Process Integration
+[US5242848A · Original Publication · Published 1993-09-07 · p. 16](https://patentimages.storage.googleapis.com/80/a2/d2/c671fb866c6623/US5242848.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2032-07-31)
-- **Category & Generation**: Device Structure · Gen-4 28nm HKMG eFlash
-- **Priority / Grant**: 2012-07-31 / 2015-02-03
-- **Assignee**: Silicon Storage Technology, Inc.
-- **Technical Problem**: In 28nm HKMG nodes, tight thermal budgets and replacement metal gate flows degrade floating-gate dielectric isolation.
-- **Product Linkage**: SuperFlash® 28nm HKMG automotive platform (licensed across TSMC and UMC).
-- **Inventors**: Chien-Sheng Su, Xian Liu
-- **Claim 1 Reading**: Claim 1 recites a hybrid split-gate cell with a metal select gate and polysilicon floating gate integrated into 28nm HKMG logic flows.
-- **Existing FTO Note · Requires Case Review**: In force through July 2032. Enforces exclusivity over hybrid metal-gate/poly-FG split-gate cells in 28nm HKMG foundries.
-- **Physical Solution**: Engineers an embedded split-gate bitcell compatible with replacement metal gate flows, deploying an ultra-thin work-function metal select gate while preserving polysilicon floating-gate charge retention for 28nm automotive qualifications.
-##### [US10658032B2](https://patents.google.com/patent/US10658032B2/en) · Analog Neural Network Computing Array Based on Split-Gate Floating-Gate Memory Cells
+[US5242848A · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US5242848A/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-09-19)
-- **Category & Generation**: Array Architecture · Gen-5 memBrain CIM AI
-- **Priority / Grant**: 2018-09-19 / 2020-05-19
-- **Assignee**: Silicon Storage Technology, Inc.
-- **Technical Problem**: Edge AI processing is throttled by the von Neumann memory wall; digital SRAM reads consume excessive dynamic energy.
-- **Product Linkage**: Microchip / SST memBrain™ Neuromorphic In-Memory Computing (CIM) IP.
-- **Inventors**: Vipin Tiwari, Mark Reiten
-- **Claim 1 Reading**: Claim 1 defines an analog neuromorphic multiply-accumulate array topology using multi-level split-gate cells and weight-tuning operations.
-- **Existing FTO Note · Requires Case Review**: In force through September 2038. Protects ESF3 multi-level conductance weights and in-memory computing architectures.
-- **Physical Solution**: Utilizes continuous multi-level conductance tuning of ESF3 floating gates to perform vector-matrix multiplication directly via analog current summation, slashing inference power by over 80%.
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Fabrication Method · Publication-Based Selection
+- **Priority / Grant**: 1990-01-22 / 1993-09-07
+- **Assignee**: Silicon Storage Technology Inc.
+- **Technical Problem**: Align floating-gate formation with substrate threshold implantation.
+- **Product Linkage**: Technical comparison with SuperFlash® Comparison: Split Gates and Self-Alignment; not a verified product claim chart.
+- **Inventors**: Bing Yeh
+- **Claim 1 Reading**: Claim 1 sequences substrate/first dielectric, silicon deposition, masking, floating-gate doping, through-region substrate implantation, floating-gate patterning, second dielectric, control gate and source/drain definition. It is a fabrication method, distinct from the 1991 device claim.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Define and dope a floating-gate region, implant through it into the substrate, then form the gates, dielectric and source/drain.
+##### [US6627942B2](https://patents.google.com/patent/US6627942B2/en) · Self-aligned floating gate poly for a flash E2PROM cell
+
+> Correction History · [US8217444B2](https://patents.google.com/patent/US8217444B2/en) — Replaced the former selection US8217444B2 with US6627942B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8217444B2 · Former Record Check · Published 2012-07-10 · p. 1](https://patentimages.storage.googleapis.com/88/c2/c7/14a5964d8c9afa/US8217444.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6627942B2 · Original Publication · Published 2003-09-30 · p. 5](https://patentimages.storage.googleapis.com/76/7a/61/fc4ee0eb6e7c1b/US6627942.pdf#page=5) — Front page 1: inventor names and assignee. PDF page 5: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6627942B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6627942B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2001-03-29 / 2003-09-30
+- **Assignee**: Silicon Storage Technology Inc.
+- **Technical Problem**: Account for floating-gate edge displacement during isolation and subsequent processing.
+- **Product Linkage**: Technical comparison with SuperFlash® Comparison: Split Gates and Self-Alignment; not a verified product claim chart.
+- **Inventors**: Chih Hsin Wang
+- **Claim 1 Reading**: Claim 1 covers a manufacturing structure with substrate, first insulator, conductive layer, trenches through them, sidewall insulation, fill blocks and conductive edges overlapping the sidewall film and part of the fill. It is not merely a generic self-aligned etch method.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A conductive-layer edge initially overlaps trench-sidewall insulation and part of the fill block to accommodate later processing.
+##### [US6563167B2](https://patents.google.com/patent/US6563167B2/en) · Semiconductor memory array of floating gate memory cells with floating gates having multiple sharp edges
+
+> Correction History · [US8946797B2](https://patents.google.com/patent/US8946797B2/en) — Replaced the former selection US8946797B2 with US6563167B2. The former publication identifies Sony Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8946797B2 · Former Record Check · Published 2015-02-03 · p. 1](https://patentimages.storage.googleapis.com/f1/3a/b3/356d7b797ae410/US8946797.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6563167B2 · Original Publication · Published 2003-05-13 · p. 17](https://patentimages.storage.googleapis.com/56/61/c5/185ecb202721ce/US6563167.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6563167B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6563167B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2001-01-05 / 2003-05-13
+- **Assignee**: Silicon Storage Technology Inc.
+- **Technical Problem**: Enhance tunneling fields through local floating/control-gate geometry.
+- **Product Linkage**: Technical comparison with SuperFlash® Comparison: Split Gates and Self-Alignment; not a verified product claim chart.
+- **Inventors**: Geeng-Chuan Chern
+- **Claim 1 Reading**: Claim 1 requires a flat substrate region, spaced terminal regions/channel, a floating gate entirely above the flat portion with two opposing raised edges, a tunneling dielectric, and a control gate partly over both edges. Both the edge pair and overlap are material limitations.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The floating gate has two opposing raised sharp edges partly covered by the control gate through a tunneling dielectric.
+##### [US6727545B2](https://patents.google.com/patent/US6727545B2/en) · Semiconductor memory array of floating gate memory cells with low resistance source regions and high source coupling
+
+> Correction History · [US10658032B2](https://patents.google.com/patent/US10658032B2/en) — Replaced the former selection US10658032B2 with US6727545B2. The former publication identifies STMicroelectronics SRL; this is a new editorial selection, not renumbering or proof of assignment. [US10658032B2 · Former Record Check · Published 2020-05-19 · p. 1](https://patentimages.storage.googleapis.com/4f/31/32/a7578d92413e22/US10658032.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6727545B2 · Original Publication · Published 2004-04-27 · p. 28](https://patentimages.storage.googleapis.com/19/27/e3/bc377c77ee5d07/US6727545.pdf#page=28) — Front page 1: inventor names and assignee. PDF page 28: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6727545B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6727545B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2000-09-20 / 2004-04-27
+- **Assignee**: Silicon Storage Technology Inc.
+- **Technical Problem**: Lower source resistance and increase source-to-floating-gate coupling while preserving control-gate isolation.
+- **Product Linkage**: Technical comparison with SuperFlash® Comparison: Split Gates and Self-Alignment; not a verified product claim chart.
+- **Inventors**: Chih Hsin Wang; Amitay Levi
+- **Claim 1 Reading**: Claim 1 requires lower/upper source portions, an overhanging control gate, insulated adjacent ends, no control-gate portion directly between source and floating gate, and coupling-capable insulation below the source end. It contains no neural-network computation requirement.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The conductive source and control gate both extend over the floating gate with insulated, laterally adjacent ends.
 #### Technology Milestones
 
-- **1989–1995 · Split-Gate ESF1 Inception** (SuperFlash Invention & Founding) — Bing Yeh formulated over-erase immune split-gate cells, resolving flash memory's core physical vulnerability. 0.5µm / 0.35µm · US5029130A
-- **1996–2005 · Dedicated Erase Gate EG & Source-Side Injection SSI** (ESF2/ESF3 Evolution & Foundry Alliance) — Unveiled ESF3 architecture, accelerating erase speeds by 1,000x and licensing TSMC, UMC, and Sanyo. 0.25µm / 0.18µm / 90nm · US6747310B2
-- **2006–2010 · Global MCU eFlash Dominance** (Microchip Acquisition & Integration) — Microchip completed $300M acquisition of SST, solidifying SuperFlash as the core advantage for PIC/AVR MCUs. 65nm / 55nm · Microchip Integration Series
-- **2011–2026 · Advanced Node Mass Production & memBrain™ Analog AI** (Automotive 28nm HKMG & Neuromorphic CIM) — Scaled SuperFlash to 28nm HKMG automotive volume production and launched memBrain™ analog AI compute IP. 40nm / 28nm HKMG · memBrain Analog AI Series
-#### Patent Defense Strategy & Landmark Litigation: Split-Gate Landmark Patent Moat & Public Domain Opening of ESF1/ESF3
+- **1991-07-02 – 2004-04-27 · SuperFlash® Comparison: Split Gates and Self-Alignment** (Publication chronology) — Five SST publications show historical device, process and geometry development. They do not directly establish modern neural-network products, ESF generations or specific foundry nodes. Not established from these claims; consult product qualification evidence. · US5029130A, US5242848A, US6627942B2, US6563167B2, US6727545B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Founded in 1989 by Dr. Bing Yeh, Silicon Storage Technology (SST) introduced the "Split-Gate Flash Memory Cell," one of the most consequential breakthroughs in semiconductor memory history. Conventional 1T stacked-gate flash suffered chronically from "over-erase," where excessive electron extraction converted cells into depletion-mode switches that permanently shorted bitlines. SST's split-gate structure eliminated this fatal physics flaw, dominating automotive and microcontroller embedded flash for over three decades.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Eliminating the 1T Stacked-Gate Over-Erase Bottleneck (ESF1 US5029130A)
+##### SuperFlash® Comparison: Split Gates and Self-Alignment
 
-Legacy Intel/AMD/Toshiba stacked-gate architectures required massive on-chip pre-programming state machines before each erase cycle to prevent depletion-mode bitcell leakage. SST patented a split-gate topology where the control gate naturally overlies a dedicated segment of the silicon channel as an integrated access switch. Even if the floating gate is heavily over-erased into negative Vth, the adjacent select channel reliably pinches off, obsoleting complex recovery algorithms.
+Claim 1 covers an array device with one transistor per site, row/column/common-line connections, a drain-coupled floating gate, and hot-electron injection/FN erase means under specified potential relationships. It is not a blanket claim to every split-gate structure.
 
-##### Gen-3 ESF3 Dedicated Erase Gate (EG) & Source-Side Injection (SSI) Moat (US6747310B2)
-
-Early split-gate devices required high erase voltages applied to control gates. In 2002, SST patented the 1.5T ESF3 topology, introducing a dedicated erase gate (EG) coupled with a sharp polysilicon floating-gate tip. Erase operations utilize intense localized tip field emission, drastically cutting erase voltage; simultaneously, source-side injection (SSI) elevated programming efficiency by 1,000x compared to CHEI, yielding 100K-cycle automotive endurance.
-
-##### Global Foundry Licensing Consortium & $300M Microchip Acquisition
-
-By licensing SuperFlash across TSMC, UMC, GlobalFoundries, SMIC, and HHGrace, SST achieved ubiquity in embedded flash. In 2010, microcontroller giant Microchip acquired SST for ~$300M, establishing SuperFlash as the core hardware advantage for PIC/AVR MCUs with lifetime shipments surpassing 100 billion dies.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] SST pioneer split-gate patent US5029130A expired in August 2009 after completing its full 20-year term. Foundational ESF3 four-gate source-side injection patent US6747310B2 also entered the public domain in April 2022. The semiconductor industry may freely practice asymmetric split-gate and independent erase-gate tip tunneling structures. However, self-aligned 55nm/40nm manufacturing (US8217444B2), 28nm HKMG integration (US8946797B2), and memBrain analog CIM patents (US10658032B2) remain actively enforceable through 2030–2038.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Everspin Technologies, Inc. (Everspin)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Chandler, Arizona, USA
 - **Founded**: 2008 (Spun off from Motorola / Freescale Semiconductor)
-- **Leadership**: Leonid Savtchenko, Saied Tehrani, Brad Engel, and Motorola MRAM Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Leonid Savtchenko; Bradley N. Engel; Nicholas D. Rizzo; Mark F. Deherrera; Jason Allen Janesky (full names in each record).
 - **Business Model**: Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing
 - **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
 - **Annual Report Issued Patents**: 596 issued patents (as of 2025-12-31) — [Everspin 2025 Form 10-K · Published 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — Another 141 applications were pending and are excluded; a year-end holding count, not map coverage or a case-by-case legal validity review.
 - **Jurisdictions Listed in Annual Report**: United States, China, Europe, Japan, Taiwan and others — [Everspin 2025 Form 10-K · Published 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — Examples for issued and pending cases at year-end 2025; also lists France, Germany, Ireland, Italy, Netherlands, Korea, Singapore and UK, not coverage of each patent in every region.
 - **Manufacturing Scope in Annual Report**: GF 300mm STT-MRAM; captive Chandler 200mm BEOL — [Everspin 2025 Form 10-K · Published 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — GF is an external foundry; Chandler is captive BEOL processing in a leased facility, not a foundry partner. The prior UMC 22ULL claim is not supported by this report.
 - **Reported Product Deployment**: Over 200 million MRAM products deployed — [Everspin / Quintauris partnership announcement · Published 2025-10-01](https://investor.everspin.com/node/11516) — Cumulative MRAM products deployed as stated in the announcement; not wafer production or annual shipments.
-- **Patent Strategy**: Everspin's patent portfolio pioneered 'Savtchenko Toggle MRAM' and guided the evolution into 'Perpendicular Magnetic Anisotropy Spin-Torque Transfer (pMTJ STT-MRAM)'. Early field-switched MRAM suffered severe half-select disturb. Dr. Savtchenko invented Toggle switching using Synthetic Antiferromagnet (SAF) free layers and orthogonal pulse timing, achieving the world's first commercial MRAM. As nodes scaled, Everspin established patents across high thermal stability perpendicular magnetic tunnel junctions (pMTJ), heavy-metal spin-orbit torque interfaces, and high-density DDR/xSPI architectures, securing a comprehensive patent moat from aerospace radiation environments and datacenter power-loss protection (PLP) to 22nm foundry eMRAM.
+- **Patent Strategy**: Selected technical scope: Coupled Free Layers and Two Field-Writing Conductors; Fixed SAF, Dual-Barrier Free Layer and Pulse Circuitry. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### Toggle MRAM Synthetic Antiferromagnet Switching Patent Family (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory))
+[US6545906B1 · Original Publication · Published 2003-04-08 · p. 12](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Synthetic Antiferromagnet (SAF) · Savtchenko Dual-Pulse Rotation · Immune to Half-Select · Unlimited Endurance (10¹⁴)*
+[US8497538B2 · Original Publication · Published 2013-07-30 · p. 7](https://patentimages.storage.googleapis.com/f6/21/a2/e447374e468db3/US8497538.pdf#page=7) — Front page 1: inventor names and assignee. PDF page 7: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Cell Topology**: 1T-1MTJ (Synthetic Antiferromagnet Cell at dual current line intersection)
-- **Physical Mechanism**: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch
-- **Process Node**: 0.18µm / 0.13µm / 90nm Specialty BEOL Magnetic Process
+#### Toggle MRAM Historical Technical Source (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory))
 
-Landmark patent establishing the commercial viability of MRAM. Eradicated first-generation MRAM vulnerabilities to stray magnetic field disturb, providing infinite 10¹⁴ endurance, >20-year retention, and radiation hardness for aerospace and critical industrial automation.
+*Sequenced Overlapping Field Pulses Switch Magnetization*
 
-##### [US6545906B1](https://patents.google.com/patent/US6545906B1/en) · Method of writing to a magnetic random access memory using rotating magnetic fields
+- **Cell Topology**: Coupled Free Layers and Two Field-Writing Conductors
+- **Physical Mechanism**: Sequenced Overlapping Field Pulses Switch Magnetization
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2021-11-21)
-- **Category & Generation**: Device & Method · Gen-1 Toggle MRAM
-- **Priority / Grant**: 2001-11-21 / 2003-04-08
-- **Assignee**: Motorola, Inc. (Assigned to Everspin Technologies, Inc.)
-- **Technical Problem**: Conventional Stoner-Wohlfarth field switching exhibits wide astroid curves, making half-selected cells highly susceptible to unintended data flipping.
-- **Product Linkage**: MR2A16A / MR0A08A classic Toggle MRAM chips, embedded in satellite telemetry, flight recorders, and medical devices.
-- **Inventors**: Leonid Savtchenko
-- **Claim 1 Reading**: Claim 1 claims a method of toggle switching magnetic memory cells utilizing a synthetic antiferromagnetic free layer and sequentially applied orthogonal magnetic field pulses.
-- **Existing FTO Note · Requires Case Review**: Expired in November 2021; entered public domain. Toggle MRAM SAF free-layer rotation under orthogonal magnetic fields is now public domain technology.
-- **Physical Solution**: Employs a tri-layer Synthetic Antiferromagnet (SAF: magnetic layer / non-magnetic Ru spacer / magnetic layer) free layer. Orthogonal lines fire pulses with a minor phase lag, rotating the SAF net moment 180°. Half-selected cells receive single-axis fields and spring back to their original state upon pulse termination.
-#### STT-MRAM Perpendicular Magnetic Anisotropy (pMTJ) Patent Family (STT-MRAM (Spin-Transfer Torque Magnetic Memory))
+The early Motorola-assigned publication remains historical context with all five inventors. Subsequent ownership transfers are not established by this review.
 
-*Perpendicular Magnetic Tunnel Junction (pMTJ) · Spin-Transfer Torque (STT) · Low Critical Current (Jc) · Gigabit Densities*
+##### [US6545906B1](https://patents.google.com/patent/US6545906B1/en) · Method of writing to scalable magnetoresistance random access memory element
 
-- **Cell Topology**: 1T-1MTJ (Nanoscale Perpendicular Tunnel Junction Cell)
-- **Physical Mechanism**: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR)
-- **Process Node**: 40nm / 28nm / 22nm / 12nm Advanced Foundry Platforms
+> Correction History · [US6545906B1](https://patents.google.com/patent/US6545906B1/en) — US6545906B1: retained publication; inventor names, claim reading and context corrected from the original. [US6545906B1 · Former Record Check · Published 2003-04-08 · p. 1](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-Core patent family leading MRAM into dense deep-submicron geometries. Dispensing with external write lines, interfacial perpendicular magnetic anisotropy (PMA) slashes switching current density, allowing scaling below 20nm with 1Gb density, DDR4 speeds, and battery-free datacenter power-loss protection (PLP).
+[US6545906B1 · Original Publication · Published 2003-04-08 · p. 12](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-##### [US7599207B2](https://patents.google.com/patent/US7599207B2/en) · Spin transfer torque magnetic memory element with perpendicular magnetic anisotropy
+[US6545906B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6545906B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2025-09-30)
-- **Category & Generation**: Device Structure · Gen-2 In-Plane STT-MRAM
-- **Priority / Grant**: 2005-09-30 / 2009-10-06
-- **Assignee**: Grandis, Inc. (Assigned to Everspin Technologies, Inc.)
-- **Technical Problem**: In-plane MTJs scaled below 40nm suffer severe thermal stability degradation from demagnetization fields, unable to balance 10-year retention with low switching currents.
-- **Product Linkage**: Everspin 256Mb / 1Gb STT-MRAM (EMxxLX series, DDR/xSPI), widely deployed in enterprise SSD power-loss protection (PLP).
-- **Inventors**: Jian-Gang Zhu, Dmytro Apalkov
-- **Claim 1 Reading**: Claim 1 claims a pMTJ stack comprising perpendicular free layer, dielectric tunnel barrier, and perpendicular reference layer, operated by spin-torque switching.
-- **Existing FTO Note · Requires Case Review**: [Major Milestone] Foundational STT-MRAM in-plane spin transfer torque patent expired in September 2025; entered the public domain.
-- **Physical Solution**: Harnesses interfacial perpendicular magnetic anisotropy (PMA) at the CoFeB/MgO interface to cancel demagnetization energy loss, cutting switching current (Ic) by 80% while preserving thermal stability factor Delta > 60.
-##### [US8488373B2](https://patents.google.com/patent/US8488373B2/en) · Magnetic random access memory multilayer structure with high tunneling magnetoresistance and thermal stability
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Field-Writing Method · Historical Context
+- **Priority / Grant**: 2001-10-16 / 2003-04-08
+- **Assignee**: Motorola Inc.
+- **Technical Problem**: Switch coupled magnetic layers with a controlled field-pulse sequence.
+- **Product Linkage**: Historical/background comparison; later assignment or product implementation is not established.
+- **Inventors**: Leonid Savtchenko; Bradley N. Engel; Nicholas D. Rizzo; Mark F. Deherrera; Jason Allen Janesky
+- **Claim 1 Reading**: Claim 1 combines pinned/free regions, a tunnel barrier, at least two coupled free layers, a sublayer moment-balance ratio of 0≤|Mbr|≤0.1, and two-conductor timing t0<t1<t2<t3<t4. The front page names Motorola; this record is historical technical context, not an Everspin-issued assignment.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: The free region contains at least two antiferromagnetically coupled ferromagnetic layers; overlapping conductor pulses rotate its moment.
+#### Everspin Fixed Magnetic Layers and STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory))
 
-- **Recorded Status**: Recorded active (Recorded term date: 2030-06-25)
-- **Category & Generation**: Device Structure · Gen-3 Perpendicular pMTJ
-- **Priority / Grant**: 2010-06-25 / 2013-07-16
-- **Assignee**: Everspin Technologies, Inc.
-- **Technical Problem**: Advanced back-end-of-line (BEOL) processing subjects wafers to 400°C annealing thermal budgets, causing atomic interdiffusion that degrades MgO tunneling interfaces and lowers TMR.
-- **Product Linkage**: GlobalFoundries 22FDX eMRAM volume production baseline qualification patent.
-- **Inventors**: Renu Dhamdhere, Dmytro Apalkov, Sanjeev Aggarwal
-- **Claim 1 Reading**: Claim 1 claims a high-temperature MTJ stack withstanding 400°C BEOL thermal budget with TMR > 150%.
-- **Existing FTO Note · Requires Case Review**: In force through June 2030. Strongly protects high-TMR perpendicular MTJ (pMTJ) multi-layer stack structures.
-- **Physical Solution**: Introduces refractory diffusion barriers and multi-anneal stabilized multilayers, allowing pMTJ stacks to sustain 400°C 90-minute thermal budgets while preserving TMR read ratios exceeding 180%.
-##### [US9087588B2](https://patents.google.com/patent/US9087588B2/en) · Magnetic Memory Element with Enhanced Spin-Orbit Torque and Spin Transfer Torque Switching
+*Magnetic Coupling, Spin Torque and Barrier-Stress Control*
 
-- **Recorded Status**: Recorded active (Recorded term date: 2033-03-14)
-- **Category & Generation**: Device & Operation · Gen-4 SOT/STT Hybrid
-- **Priority / Grant**: 2013-03-14 / 2015-07-21
-- **Assignee**: Everspin Technologies, Inc.
-- **Technical Problem**: Pure STT switching at sub-10ns write speeds requires excessive tunnel-barrier voltages, risking dielectric breakdown of ultra-thin MgO layers.
-- **Product Linkage**: Everspin PERSYST™ ultra-high-speed low-latency MRAM architecture.
-- **Inventors**: Sanjeev Aggarwal, Dmytro Apalkov
-- **Claim 1 Reading**: Claim 1 defines a magnetic memory cell combining a spin-orbit torque heavy-metal line with a perpendicular spin-transfer torque junction and its operating method.
-- **Existing FTO Note · Requires Case Review**: In force through March 2033. Grants exclusivity over hybrid spin-orbit torque (SOT) and spin-transfer torque (STT) magnetic memory cells.
-- **Physical Solution**: Integrates a heavy-metal spin-orbit torque (SOT) underlayer with a perpendicular STT MTJ, using planar SOT current for rapid initial torque and low-voltage STT current for deterministic final alignment, slashing write voltage by 60% and enabling sub-2ns speeds.
-##### [US10886461B2](https://patents.google.com/patent/US10886461B2/en) · Perpendicular MTJ Stack with Dual MgO Tunneling Barrier and Synthetic Antiferromagnetic Pinning
+- **Cell Topology**: Fixed SAF, Dual-Barrier Free Layer and Pulse Circuitry
+- **Physical Mechanism**: Magnetic Coupling, Spin Torque and Barrier-Stress Control
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-08-20)
-- **Category & Generation**: Material Structure · Gen-5 Dual-MgO pMTJ
-- **Priority / Grant**: 2018-08-20 / 2021-01-05
-- **Assignee**: Everspin Technologies, Inc.
-- **Technical Problem**: In sub-22nm nodes, single-interface perpendicular magnetic anisotropy (PMA) degrades under thermal agitation, impairing 10-year retention.
-- **Product Linkage**: Everspin 1Gb STT-MRAM and GlobalFoundries 22FDX eMRAM volume baseline.
-- **Inventors**: Dmytro Apalkov, Mohamad Krounbi
-- **Claim 1 Reading**: Claim 1 recites a perpendicular pMTJ stack comprising a synthetic antiferromagnetic reference layer, a first MgO barrier, a free layer, and a second MgO barrier.
-- **Existing FTO Note · Requires Case Review**: In force through August 2038. Protects dual-MgO interface perpendicular MTJ stacks across sub-22nm foundry nodes.
-- **Physical Solution**: Configures dual MgO dielectric layers flanking the free layer, creating symmetrical double-interface PMA boosting thermal stability (Delta) by >50% while stabilizing TMR >200%.
+Four Everspin publications cover related SAF claims, a high-iron-interface element and reverse-pulse control. Their material/operation limits differ; not all establish perpendicular MTJs or one process generation.
+
+##### [US8497538B2](https://patents.google.com/patent/US8497538B2/en) · MRAM synthetic antiferromagnet structure
+
+> Correction History · [US7599207B2](https://patents.google.com/patent/US7599207B2/en) — Replaced the former selection US7599207B2 with US8497538B2. The former publication identifies Oki Semiconductor Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7599207B2 · Former Record Check · Published 2009-10-06 · p. 1](https://patentimages.storage.googleapis.com/a2/2d/0d/3f8a50cd077da5/US7599207.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US8497538B2 · Original Publication · Published 2013-07-30 · p. 7](https://patentimages.storage.googleapis.com/f6/21/a2/e447374e468db3/US8497538.pdf#page=7) — Front page 1: inventor names and assignee. PDF page 7: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US8497538B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8497538B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2006-05-31 / 2013-07-30
+- **Assignee**: Everspin Technologies Inc.
+- **Technical Problem**: Stabilize a fixed magnetic region without a separate pinning layer.
+- **Product Linkage**: Technical comparison with Everspin Fixed Magnetic Layers and STT-MRAM; not a verified product claim chart.
+- **Inventors**: Srinivas V. Pietambaram; Bengt J. Akerman; Renu W. Dave; Jason A. Janesky; Nicholas D. Rizzo; Jon M. Slaughter
+- **Claim 1 Reading**: Claim 1 requires a free region, electrode, fixed SAF with Hflop above the free-region switching field, and a tunnel barrier. It further specifies two amorphous CoFeB layers, an inserted crystalline CoFe/CoFeB layer and a spacer containing listed elements. These material/field conditions matter.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A synthetic antiferromagnetic fixed region combines high flop field and broken symmetry with amorphous/crystalline ferromagnetic layers and a coupling spacer.
+##### [US9391264B2](https://patents.google.com/patent/US9391264B2/en) · MRAM having an unpinned, fixed synthetic anti-ferromagnetic structure
+
+> Correction History · [US8488373B2](https://patents.google.com/patent/US8488373B2/en) — Replaced the former selection US8488373B2 with US9391264B2. The former publication identifies Toshiba Corp; TDK Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8488373B2 · Former Record Check · Published 2013-07-16 · p. 1](https://patentimages.storage.googleapis.com/b7/30/ba/b9d0956bb033fd/US8488373.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9391264B2 · Original Publication · Published 2016-07-12 · p. 8](https://patentimages.storage.googleapis.com/e2/8a/19/7a85ea9e6a31c1/US9391264.pdf#page=8) — Front page 1: inventor names and assignee. PDF page 8: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9391264B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9391264B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2006-05-31 / 2016-07-12
+- **Assignee**: Everspin Technologies Inc.
+- **Technical Problem**: Build a fixed magnetic reference from ferromagnetic layers without a separate pinning layer.
+- **Product Linkage**: Technical comparison with Everspin Fixed Magnetic Layers and STT-MRAM; not a verified product claim chart.
+- **Inventors**: Srinivas V. Pietambaram; Bengt J. Akerman; Renu Whig; Jason A. Janesky; Nicholas D. Rizzo; Jon M. Slaughter
+- **Claim 1 Reading**: Claim 1 combines a free region, a fixed region consisting essentially of unpinned SAF, a cobalt-containing first layer, a ferromagnetic multilayer region, their coupling layer and a dielectric. It shares the 2006 application lineage with US8497538B2 and is not an independent technology origin.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A cobalt-containing first ferromagnetic layer couples antiferromagnetically to a multilayer region to form an unpinned fixed SAF.
+##### [US9159906B2](https://patents.google.com/patent/US9159906B2/en) · Spin-torque magnetoresistive memory element and method of fabricating same
+
+> Correction History · [US9087588B2](https://patents.google.com/patent/US9087588B2/en) — Replaced the former selection US9087588B2 with US9159906B2. The former publication identifies Rangduru Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9087588B2 · Former Record Check · Published 2015-07-21 · p. 1](https://patentimages.storage.googleapis.com/6e/ea/bf/0aff8ad49a5548/US9087588.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9159906B2 · Original Publication · Published 2015-10-13 · p. 17](https://patentimages.storage.googleapis.com/36/ac/bf/c039d71e4bf019/US9159906.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9159906B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9159906B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2011-06-10 / 2015-10-13
+- **Assignee**: Everspin Technologies Inc.
+- **Technical Problem**: Balance magnetoresistive readout and switching current in a spin-torque element.
+- **Product Linkage**: Technical comparison with Everspin Fixed Magnetic Layers and STT-MRAM; not a verified product claim chart.
+- **Inventors**: Renu Whig; Jon Slaughter; Nicholas Rizzo; Jijun Sun; Frederick Mancoff; Dimitri Houssameddine
+- **Claim 1 Reading**: Claim 1 requires a surface interface with at least 50 atomic percent iron, two ferromagnetic layers and an insertion layer, plus dielectric and magnetic-electrode structures on both free-layer sides. It does not directly require 28 nm production or perpendicular anisotropy.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A free magnetic layer sits between two dielectric/electrode structures and contains a high-iron interface plus an insertion layer.
+##### [US9286963B2](https://patents.google.com/patent/US9286963B2/en) · Method of writing to a spin torque magnetic random access memory
+
+> Correction History · [US10886461B2](https://patents.google.com/patent/US10886461B2/en) — Replaced the former selection US10886461B2 with US9286963B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US10886461B2 · Former Record Check · Published 2021-01-05 · p. 1](https://patentimages.storage.googleapis.com/ca/d3/fe/c4248a6a8a171a/US10886461.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US9286963B2 · Original Publication · Published 2016-03-15 · p. 10](https://patentimages.storage.googleapis.com/49/06/c9/a2ff5ddb5d48e3/US9286963.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US9286963B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9286963B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Memory-Control Circuit · Publication-Based Selection
+- **Priority / Grant**: 2013-07-16 / 2016-03-15
+- **Assignee**: Everspin Technologies Inc.
+- **Technical Problem**: Repeated accesses stress the tunnel barrier and motivate controlled reverse-polarity pulses.
+- **Product Linkage**: Technical comparison with Everspin Fixed Magnetic Layers and STT-MRAM; not a verified product claim chart.
+- **Inventors**: Michael Schneider; Dimitri Houssameddine; Jon Slaughter
+- **Claim 1 Reading**: Claim 1 is a device claim requiring an ST-MRAM array, read/write and reverse-polarity charging circuitry, an access-count register and threshold-triggered charging. The title does not make this a generic magnetic-material fabrication claim.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: An access counter triggers a charging pulse opposite in polarity to a read or write pulse when a threshold is reached.
 #### Technology Milestones
 
-- **2001–2007 · Savtchenko Toggle Patent Granted** (Motorola R&D & Toggle Genesis) — Invented Toggle switching, unveiling the first commercial 4Mb MRAM in 2006 to inaugurate commercial MRAM. 0.18µm Specialty Magnetic Process · US6545906B1
-- **2008–2014 · Independence & Grandis Patent Acquisition** (Everspin Spin-Off & STT Breakthrough) — Spun off from Freescale, acquired Grandis perpendicular STT patents, and demonstrated first STT-MRAM samples. 90nm / 65nm · US7599207B2, US8488373B2
-- **2015–2020 · GF 22FDX eMRAM & 1Gb Discrete Shipments** (1Gb pMTJ & Foundry Volume Production) — Partnered with GlobalFoundries for 22FDX eMRAM production, shipping discrete 1Gb STT-MRAM components. 40nm / 28nm / 22FDX · US9087588B2
-- **2021–2026 · xSPI / DDR Expansion & Automotive Grade** (Industrial & Datacenter Penetration) — Launched PERSYST™ brand and high-reliability xSPI MRAM for datacenter PLP and aerospace radiation-tolerant systems. 22nm / 12LP Process Extensions · EMxxLX Product Family Series
-#### Patent Defense Strategy & Landmark Litigation: Toggle Magnetic Switching Moat & Perpendicular STT-MRAM Patent Evolution
+- **2003-04-08 – 2003-04-08 · Toggle MRAM Historical Technical Source** (Publication chronology) — The early Motorola-assigned publication remains historical context with all five inventors. Subsequent ownership transfers are not established by this review. Not established from these claims; consult product qualification evidence. · US6545906B1
+- **2013-07-30 – 2016-07-12 · Everspin Fixed Magnetic Layers and STT-MRAM** (Publication chronology) — Four Everspin publications cover related SAF claims, a high-iron-interface element and reverse-pulse control. Their material/operation limits differ; not all establish perpendicular MTJs or one process generation. Not established from these claims; consult product qualification evidence. · US8497538B2, US9391264B2, US9159906B2, US9286963B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Everspin Technologies stands as the first semiconductor company to achieve commercial volume production of MRAM (spun out of Motorola Laboratories and Freescale Semiconductor). Early MRAM was chronically plagued by "half-select disturb," which Motorola physicist Leonid Savtchenko resolved through the landmark "Toggle MRAM (US6545906B1)" using synthetic antiferromagnetic (SAF) rotation. Everspin subsequently acquired pioneer Grandis to master perpendicular magnetic tunnel junctions (pMTJ), dominating high-reliability mission-critical non-volatile markets.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Savtchenko Toggle Patent Fortress & Half-Select Immunity (US6545906B1)
+##### Toggle MRAM Historical Technical Source
 
-Conventional magnetic field-switched MRAM suffered unintended bit-flips on half-selected cells along common bitlines or wordlines. Savtchenko patented timed orthogonal magnetic pulses driving 180-degree rotation of a 3-layer SAF stack (ferromagnet/Ru/ferromagnet); unselected cells spring back elastically after pulses subside, securing flawless half-select immunity and locking down the field-switched MRAM roadmap for two decades.
+Claim 1 combines pinned/free regions, a tunnel barrier, at least two coupled free layers, a sublayer moment-balance ratio of 0≤|Mbr|≤0.1, and two-conductor timing t0<t1<t2<t3<t4. The front page names Motorola; this record is historical technical context, not an Everspin-issued assignment.
 
-##### Grandis Acquisition & Perpendicular STT-MRAM Transition (US7599207B2)
+##### Everspin Fixed Magnetic Layers and STT-MRAM
 
-Because field-switched line currents could not scale beyond 90nm, Everspin acquired spintronics pioneer Grandis and its patent estate in 2011, transitioning to spin-transfer torque where spin-polarized currents flip states via angular momentum transfer. CoFeB/MgO/CoFeB perpendicular magnetic anisotropy (pMTJ) eliminated in-plane demagnetization penalties, cutting switching currents by 80% and enabling 1Gb densities across GlobalFoundries 22FDX.
+Claim 1 requires a free region, electrode, fixed SAF with Hflop above the free-region switching field, and a tunnel barrier. It further specifies two amorphous CoFeB layers, an inserted crystalline CoFe/CoFeB layer and a spacer containing listed elements. These material/field conditions matter.
 
-##### Dual-MgO Tunneling Barriers & 400°C BEOL Thermal Budget (US8488373B2 / US10886461B2)
-
-Integrating magnetic MTJs into standard CMOS back-end-of-line (BEOL) metal stacks requires surviving harsh 400°C sintering. Everspin patented high-temperature diffusion barriers and dual-MgO interfaces, sustaining TMR ratios >180% post-anneal to certify automotive Grade-1 and radiation-hard aerospace qualifications.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Everspin pioneer Toggle MRAM patent US6545906B1 expired in November 2021 after its 20-year term. Foundational STT-MRAM switching patent US7599207B2 also entered the public domain in September 2025. The semiconductor industry may freely practice synthetic antiferromagnetic Toggle switching and foundational STT tunneling injection. However, 400°C BEOL stacks (US8488373B2), hybrid SOT/STT switching (US9087588B2), and dual-MgO perpendicular pMTJ architectures (US10886461B2) remain actively enforceable through 2030–2038.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Weebit Nano Limited (Weebit Nano)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/3e/31/74/e467cdb4ef2853/US11538524.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Hod HaSharon, Israel / Melbourne, Australia
 - **Founded**: 2015
-- **Leadership**: Coby Hanoch (CEO), Prof. James Tour (Rice University Nanotech Pioneer), and Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Lior Dagan; Sheng Teng Hsu; Wei Pan; Fengyan Zhang; Wei-Wei Zhuang (full names in each record).
 - **Business Model**: Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services
-- **Recorded Portfolio Status**: 3 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 3 Recorded active · 1 Recorded expired · 1 Needs verification
 - **Period Patent Grants**: 8 new patents granted in H2 2025 — [Weebit half-year progress announcement · Published 2026-02-27](https://www.weebit-nano.com/news/press-releases/weebit-nano-achieves-record-half-year-revenue-licenses-reram-to-tier-1-texas-instruments/) — For the six months ended 2025-12-31; a cumulative issued total was not verified, so period additions are not a global total.
 - **Period Jurisdiction Examples**: China, United States, Europe (Q1 2025 examples) — [Weebit quarterly progress announcement · Published 2025-04-30](https://www.weebit-nano.com/news/press-releases/weebit-transitions-to-its-next-phase-through-commercial-technological-and-operational-advances/) — Regions for new patents in that quarter, not an exhaustive global list; Israeli headquarters does not establish grants there, and the prior Taiwan entry was not verified.
 - **Official Product Platforms**: DB HiTek 130nm; SkyWater S130 — [Weebit official product catalog · Checked 2026-10-15](https://www.weebit-nano.com/products/) — Two foundry platforms listed in the product catalog; collaboration, qualification and customer volume production are separate stages. The prior GF 22FDX claim was not substantiated.
 - **Commercial Adoption Stage**: Customer integration; cumulative shipments not verified — [Weebit 2025 targets report · Published 2026-01-05](https://www.weebit-nano.com/news/press-releases/weebit-nano-reports-on-2025-targets-achievement/) — Reports licensing, DB HiTek qualification and customer integration progress, without a verifiable cumulative commercial chip or wafer shipment count.
-- **Patent Strategy**: The core of Weebit Nano's patent strategy encompasses 'Standard CMOS-Compatible Silicon Oxide (SiOx / ReRAM)' and 'Adaptive Multi-Level Neuromorphic Compute-in-Memory (CIM)'. Conventional metal-oxide ReRAMs (HfOx, TaOx) often require exotic heavy metal precursors, requiring dedicated fab deposition tools with cross-contamination concerns. Collaborating with Rice University's Prof. James Tour, Weebit's patents utilize porosity-controlled standard silicon dioxide (SiOx) or standard hafnia to form conductive oxygen vacancy filaments. This delivers 100% BEOL contamination-free integration with only 2 mask adders, alongside adaptive conductance compensation patents for analog edge AI.
+- **Patent Strategy**: Selected technical scope: SOI 2T2R/2T1R, 1T2R and Column Control. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### Weebit Silicon-Oxide Resistive RAM (OxRAM) Patent Family (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory))
+[US11538524B2 · Original Publication · Published 2022-12-27 · p. 9](https://patentimages.storage.googleapis.com/3e/31/74/e467cdb4ef2853/US11538524.pdf#page=9) — Front page 1: inventor names and assignee. PDF page 9: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Standard CMOS Oxide (SiOx/HfOx) · Nanoscale Conductive Filament · 2 BEOL Masks · Zero Contamination*
+#### Weebit ReRAM Circuit Selection and Materials Context (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory))
 
-- **Cell Topology**: 1T1R (One Select Transistor + One Nanoscale MIM Variable Resistor)
-- **Physical Mechanism**: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS)
-- **Process Node**: 130nm BCD down to 28nm / 22nm FD-SOI Advanced Nodes
+*Resistance States, Terminal Bias and Parallel Set/Reset*
 
-Disruptive embedded non-volatile memory technology. Adding only 2 low-temperature masks in the back-end-of-line (BEOL) without altering front-end transistors, Weebit ReRAM switches in nanoseconds under sub-2V voltages with 100K endurance and 10-year retention at 150°C.
+- **Cell Topology**: SOI 2T2R/2T1R, 1T2R and Column Control
+- **Physical Mechanism**: Resistance States, Terminal Bias and Parallel Set/Reset
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US6815781B2](https://patents.google.com/patent/US6815781B2/en) · Resistive Memory Element with Transition Metal Oxide and Operation Method
+Three grants and one application publication name Weebit; a Sharp electrode patent is explicitly retained as background. These records do not establish a Rice license chain or limit every claim to SiOx.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-09-17)
-- **Category & Generation**: Device Structure · Gen-1 Metal-Oxide ReRAM Pioneer
-- **Priority / Grant**: 2002-09-17 / 2004-11-09
-- **Assignee**: Sharp Laboratories of America, Inc.
-- **Technical Problem**: Conventional flash requires high-voltage tunneling; how to achieve reversible non-volatile resistance switching at low voltages in thin films?
-- **Product Linkage**: Core foundational patent for transition metal-oxide ReRAM / OxRAM physics.
-- **Inventors**: David R. Evans et al.
-- **Claim 1 Reading**: Claim 1 recites a thin-film resistive switching cell comprising a bottom electrode, a transition metal oxide layer, and a top electrode with bipolar switching operations.
-- **Existing FTO Note · Requires Case Review**: Expired in September 2022; entered public domain. Pioneer metal-oxide bipolar conductive filament switching topology is free to operate.
-- **Physical Solution**: Pioneer transition metal-oxide switching patent. A metal/oxide/metal (MIM) thin-film stack forms or dissolves localized conductive filaments under bipolar electric fields, switching between low-resistance (LRS) and high-resistance (HRS) states.
-##### [US6849891B1](https://patents.google.com/patent/US6849891B1/en) · Nonvolatile Memory Device with Electric-Pulse-Induced Resistance Change
+##### [US11538524B2](https://patents.google.com/patent/US11538524B2/en) · Silicon over insulator two-transistor two-resistor in-series resistive memory cell
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2023-04-15)
-- **Category & Generation**: Method / Operation · Gen-1 Electric-Pulse ReRAM
-- **Priority / Grant**: 2003-04-15 / 2005-02-01
-- **Assignee**: University of Houston
-- **Technical Problem**: How to reliably modulate thin-film resistance states using non-destructive short electric pulses without dielectric breakdown wearout?
-- **Product Linkage**: Electric-pulse induced resistance switching (EPIR) foundational operation baseline.
-- **Inventors**: Shangqing Liu, Alex Ignatiev
-- **Claim 1 Reading**: Claim 1 defines methods of reversibly altering thin-film nonvolatile resistance via room-temperature electric pulse trains.
-- **Existing FTO Note · Requires Case Review**: Expired in April 2023; entered public domain. Electric pulse induced resistance switching methods are in the public domain.
-- **Physical Solution**: Foundational electric-pulse induced resistance (EPIR) patent. Applies microsecond-scale bipolar electric pulses at room temperature to drive interfacial oxygen vacancy migrations, altering resistance states non-destructively.
-##### [US10141505B2](https://patents.google.com/patent/US10141505B2/en) · Resistive random access memory devices using porous silicon oxide and methods of fabrication and operation
+> Correction History · [US6815781B2](https://patents.google.com/patent/US6815781B2/en) — Replaced the former selection US6815781B2 with US11538524B2. The former publication identifies Matrix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6815781B2 · Former Record Check · Published 2004-11-09 · p. 1](https://patentimages.storage.googleapis.com/b6/15/b6/68cd4a2af77052/US6815781.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2034-06-20)
-- **Category & Generation**: Material & Method · Gen-1 SiOx ReRAM
-- **Priority / Grant**: 2014-06-20 / 2018-11-27
-- **Assignee**: Rice University (Exclusively licensed to Weebit Nano Ltd.)
-- **Technical Problem**: Conventional ReRAM requires exotic noble metal electrodes and unverified oxides, introducing fab contamination risks and inability to withstand front-end thermal budgets.
-- **Product Linkage**: Core Weebit ReRAM technology, qualified for PDK availability at SkyWater 130nm and DB HiTek 130nm BCD.
-- **Inventors**: James Tour, Gunuk Wang
-- **Claim 1 Reading**: Claim 1 claims a resistive switching device comprising porous silicon-rich dielectric thin film disposed between conductive electrodes and bidirectional switching method.
-- **Existing FTO Note · Requires Case Review**: In force through June 2034. Covers porous silicon oxide (SiOx) switching layer ReRAM devices and conductive filament forming methods.
-- **Physical Solution**: Employs standard semiconductor silicon dioxide (SiO2) with engineered deposition porosity to establish silicon-rich nano-channels. Reversible formation of silicon nano-filaments achieves 100% CMOS-compatible resistive switching.
-##### [US10580980B2](https://patents.google.com/patent/US10580980B2/en) · Method of operating neuromorphic computing using resistive memory arrays
+[US11538524B2 · Original Publication · Published 2022-12-27 · p. 9](https://patentimages.storage.googleapis.com/3e/31/74/e467cdb4ef2853/US11538524.pdf#page=9) — Front page 1: inventor names and assignee. PDF page 9: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2037-08-31)
-- **Category & Generation**: Method / Operation · Gen-2 Neuromorphic ReRAM
-- **Priority / Grant**: 2017-08-31 / 2020-03-03
+[US11538524B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11538524B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2020-07-15 / 2022-12-27
 - **Assignee**: Weebit Nano Ltd.
-- **Technical Problem**: In analog compute-in-memory (CIM), ReRAM conductance drifts over time and temperature, degrading vector-matrix multiplication accuracy in neural inference.
-- **Product Linkage**: Weebit Neuromorphic ReRAM analog AI accelerator IP.
-- **Inventors**: Amir Regev, Ishai Naveh
-- **Claim 1 Reading**: Claim 1 claims a neuromorphic computing architecture executing vector-matrix multiplication with dynamic conductance calibration on multi-level ReRAM arrays.
-- **Existing FTO Note · Requires Case Review**: In force through August 2037. Protects neuromorphic in-memory computing synaptic analog weight updating methods on ReRAM arrays.
-- **Physical Solution**: Implements adaptive multi-level cell (MLC) pulse compensation: senses drift with low probe currents prior to matrix multiplication and applies incremental tuning pulses to restore exact synaptic weights.
-##### [US11171286B2](https://patents.google.com/patent/US11171286B2/en) · Bidirectional Selector Device for Cross-Point Resistive Memory Array and Integration Method
+- **Technical Problem**: Arrange resistive storage and selection on SOI with controlled operation biases.
+- **Product Linkage**: Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.
+- **Inventors**: Lior Dagan
+- **Claim 1 Reading**: Claim 1 requires an SOI substrate, two MOSFETs with bulk terminals, two resistors sharing the first drain, two word lines, complementary bit lines and a select line, with terminal biases determining state. It does not limit the resistive material to SiOx.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two MOSFETs are in series; two resistive elements share the first drain and connect separately to complementary bit lines.
+##### [US6849891B1](https://patents.google.com/patent/US6849891B1/en) · RRAM memory cell electrodes
 
-- **Recorded Status**: Recorded active (Recorded term date: 2039-05-10)
-- **Category & Generation**: Device & Fabrication · Gen-3 1S1R Cross-Point
-- **Priority / Grant**: 2019-05-10 / 2021-11-09
+> Correction History · [US6849891B1](https://patents.google.com/patent/US6849891B1/en) — US6849891B1: retained publication; inventor names, claim reading and context corrected from the original. [US6849891B1 · Former Record Check · Published 2005-02-01 · p. 1](https://patentimages.storage.googleapis.com/00/36/8d/224abb21a5fbe2/US6849891.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US6849891B1 · Original Publication · Published 2005-02-01 · p. 5](https://patentimages.storage.googleapis.com/00/36/8d/224abb21a5fbe2/US6849891.pdf#page=5) — Front page 1: inventor names and assignee. PDF page 5: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US6849891B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6849891B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded expired (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Historical Context
+- **Priority / Grant**: 2003-12-08 / 2005-02-01
+- **Assignee**: Sharp Laboratories of America Inc.
+- **Technical Problem**: Electrode oxidation and material compatibility affect resistive-memory integration.
+- **Product Linkage**: Historical/background comparison; later assignment or product implementation is not established.
+- **Inventors**: Sheng Teng Hsu; Wei Pan; Fengyan Zhang; Wei-Wei Zhuang; Tingkai Li
+- **Claim 1 Reading**: Claim 1 requires a junction/plug silicon substrate and five directly contacting layers of equal adjacent lateral size. The assignee is Sharp Laboratories of America and five inventors include Sheng Teng Hsu. This is materials background; no Weebit ownership or license is established.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Oxidation-resistant and refractory-metal layers surround a CMR layer above a junction plug.
+##### [US11659720B2](https://patents.google.com/patent/US11659720B2/en) · Silicon over insulator two-transistor one-resistor in-series resistive memory cell
+
+> Correction History · [US10141505B2](https://patents.google.com/patent/US10141505B2/en) — Replaced the former selection US10141505B2 with US11659720B2. The former publication identifies Lam Research Corporation; this is a new editorial selection, not renumbering or proof of assignment. [US10141505B2 · Former Record Check · Published 2018-11-27](https://patents.google.com/patent/US10141505B2/en) — Index identity checked; the original PDF could not be retrieved and was not claimed as reviewed.
+
+[US11659720B2 · Original Publication · Published 2023-05-23 · p. 11](https://patentimages.storage.googleapis.com/dd/db/f1/1386e7769bf552/US11659720.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11659720B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11659720B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Device Structure · Publication-Based Selection
+- **Priority / Grant**: 2020-07-15 / 2023-05-23
 - **Assignee**: Weebit Nano Ltd.
-- **Technical Problem**: In high-density cross-point ReRAM arrays, cumulative sneak-path leakage from unselected cells collapses sense margins and corrupts programming.
-- **Product Linkage**: Weebit Nano high-density 1S1R cross-point discrete and embedded ReRAM portfolio.
-- **Inventors**: Alon Malek, Amir Regev
-- **Claim 1 Reading**: Claim 1 recites a 1S1R cross-point cell comprising a bidirectional non-linear threshold selector in series with an oxide switching layer and its BEOL integration process.
-- **Existing FTO Note · Requires Case Review**: Actively in force through May 2039. Protects bidirectional threshold selector 1S1R cross-point architectures and BEOL integration flows.
-- **Physical Solution**: Engineers a bidirectional threshold switch selector exhibiting extreme off-state non-linearity (>10^5) that turns on only above threshold voltages, suppressing sneak-path currents in dense 1S1R arrays.
+- **Technical Problem**: Control a resistive element’s operation voltage through two selection devices.
+- **Product Linkage**: Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.
+- **Inventors**: Lior Dagan
+- **Claim 1 Reading**: Claim 1 specifies SOI, two MOSFETs with gate/source/drain/bulk terminals, one resistor, complementary word/bit lines and the three-device series connection. This differs from the branched resistor topology in the 2T2R publication.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two SOI MOSFETs and one resistor are in series between complementary bit lines, controlled by complementary word lines.
+##### [US12068028B2](https://patents.google.com/patent/US12068028B2/en) · Circuitry for parallel set and reset of resistive random-access memory (ReRAM) cells
+
+> Correction History · [US10580980B2](https://patents.google.com/patent/US10580980B2/en) — Replaced the former selection US10580980B2 with US12068028B2. The former publication identifies Ovonyx Memory Technology LLC; this is a new editorial selection, not renumbering or proof of assignment. [US10580980B2 · Former Record Check · Published 2020-03-03 · p. 1](https://patentimages.storage.googleapis.com/0c/b9/af/c38c699d2bf775/US10580980.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US12068028B2 · Original Publication · Published 2024-08-20 · p. 13](https://patentimages.storage.googleapis.com/45/67/87/ea49c43089b5d1/US12068028.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US12068028B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US12068028B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Array-Control Circuit · Publication-Based Selection
+- **Priority / Grant**: 2021-03-03 / 2024-08-20
+- **Assignee**: Weebit Nano Ltd.
+- **Technical Problem**: Different bits of one word may need opposite set/reset directions, increasing serial programming time.
+- **Product Linkage**: Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.
+- **Inventors**: Lior Dagan; Ilan Sever
+- **Claim 1 Reading**: Claim 1 requires a select/resistor array, per-column controllers, SR input, two outputs and two multiplexers that swap two voltage sources between source and bit lines according to SR state, allowing parallel set/reset. This is circuitry, not merely a materials patent.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Per-column controllers swap bit/source voltages with two multiplexers so set and reset occur in parallel on the selected word.
+##### [US20220122660A1](https://patents.google.com/patent/US20220122660A1/en) · Configuration and method of operation of a one-transistor two-resistors (1t2r) resistive memory (reram) cell and an array thereof
+
+> Correction History · [US11171286B2](https://patents.google.com/patent/US11171286B2/en) — Replaced the former selection US11171286B2 with US20220122660A1. The former publication identifies Tokyo Electron Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US11171286B2 · Former Record Check · Published 2021-11-09 · p. 1](https://patentimages.storage.googleapis.com/d5/15/6d/ebbd06571b286f/US11171286.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US20220122660A1 · Original Publication · Published 2022-04-21 · p. 9](https://patentimages.storage.googleapis.com/d6/97/a8/e2beff1f9356db/US20220122660A1.pdf#page=9) — Front page 1: inventor names and assignee. PDF page 9: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US20220122660A1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US20220122660A1/en) — Application publication; grant and current legal status remain unverified.
+
+- **Recorded Status**: Needs verification (Recorded term date: Not determined in this review)
+- **Category & Generation**: Published Application · Device · Publication-Based Selection
+- **Priority / Application Publication**: 2019-07-22 / 2022-04-21
+- **Assignee**: Weebit Nano Ltd.
+- **Technical Problem**: Control two complementary resistive branches using one select transistor.
+- **Product Linkage**: Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.
+- **Inventors**: Yoav Nissan-Cohen
+- **Claim 1 Reading**: Published application claim 1 requires at least one 1T2R cell, opposite-polarity bit lines, two resistors sharing a drain, and word/select lines to gate/source. This A1 disclosure is not issued scope and does not establish that all Weebit products use the topology.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two resistors share the transistor drain and separately connect to opposite-polarity bit lines; the source connects to a select line.
 #### Technology Milestones
 
-- **2015–2018 · SiOx ReRAM Proof of Concept** (Inception & Rice University Exclusive License) — Secured global exclusive license to Rice University SiOx ReRAM patents and completed CEA-Leti collaborative validation. Leti R&D Wafer Line · US10141505B2
-- **2019–2022 · Automotive Reliability Qualification** (Foundry Commercialization & SkyWater Qualification) — Completed full-array reliability qualification on SkyWater 130nm CMOS, demonstrating 150°C retention and 100K endurance. SkyWater 130nm · US10580980B2
-- **2023–2026 · BCD Foundry Volume & Neuromorphic AI** (DB HiTek Agreement & 22nm Scaling) — Executed volume licensing agreement with DB HiTek, advancing into 28nm/22nm and edge AI analog in-memory compute. DB HiTek 130nm / 22FDX · Weebit Volume Production Series
-#### Patent Defense Strategy & Landmark Litigation: Silicon-Oxide ReRAM BEOL Moat & Conductive Filament Public Domain FTO
+- **2005-02-01 – 2024-08-20 · Weebit ReRAM Circuit Selection and Materials Context** (Publication chronology) — Three grants and one application publication name Weebit; a Sharp electrode patent is explicitly retained as background. These records do not establish a Rice license chain or limit every claim to SiOx. Not established from these claims; consult product qualification evidence. · US11538524B2, US6849891B1, US11659720B2, US12068028B2, US20220122660A1
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Founded by Israeli and Australian semiconductor veterans, Weebit Nano constructed its IP strategy to overturn the heavy-metal precursor contamination barriers of legacy ReRAM (TaOx, TiO2, HfOx). Traditional foundries dread foreign metals migrating into front-end CMOS gates; Weebit secured exclusive rights to Rice University Professor James Tour's foundational patents, directly utilizing standard CMOS-native porous silicon oxide (SiOx) requiring only 2 low-temperature BEOL masks for 100% zero-contamination foundry qualification across SkyWater and DB HiTek.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Porous Silicon Oxide (SiOx) vs. Exotic Metal Contamination (US10141505B2)
+##### Weebit ReRAM Circuit Selection and Materials Context
 
-Conventional ReRAM demands unproven noble metals and exotic targets, forcing foundries to establish costly segregated fabrication lines. Weebit's core patent confines switching to porosity-tuned silicon oxide, electro-forming and dissolving reversible silicon nanofilaments using standard foundry PECVD tools, reducing wafer cost by ~70% compared to eFlash.
+Claim 1 requires an SOI substrate, two MOSFETs with bulk terminals, two resistors sharing the first drain, two word lines, complementary bit lines and a select line, with terminal biases determining state. It does not limit the resistive material to SiOx.
 
-##### Neuromorphic Analog Conductance Calibration Moat (US10580980B2)
-
-Analog in-memory computing (CIM) using ReRAM synapses suffers from spontaneous oxygen vacancy relaxation known as conductance drift, corrupting neural network inference accuracy. Weebit patented closed-loop sensing that detects drift with micro-probes before vector-matrix multiplications, applying dynamic restore pulses to preserve inference precision.
-
-##### Bidirectional Threshold Selector 1S1R Cross-Point Array (US11171286B2)
-
-To bypass the scaling area limit of 1T1R select transistors, Weebit patented highly non-linear bidirectional threshold selectors (>10^5 selectivity), completely suffocating sneak-path leakage in dense cross-point matrices and enabling dense 3D stacking.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Early 2002–2003 foundational metal-oxide resistance switching and electric pulse-induced filament patents (US6815781B2 & US6849891B1) expired in 2022 and 2023, entering the public domain. Industry may freely practice standard 1T1R bipolar switching physics. However, Weebit's proprietary porous SiOx patent (US10141505B2), neuromorphic dynamic conductance calibration (US10580980B2), and 1S1R threshold selector topologies (US11171286B2) remain actively enforceable through 2034, 2037, and 2039.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### PUFsecurity Corp. (PUFsecurity)
 
+Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.
+
+[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/65/1d/9d/f90debd88f18c3/US11121884.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations.
+
 - **Headquarters**: Zhubei City, Hsinchu County, Taiwan
 - **Founded**: 2019 (Hardware Security Subsidiary of eMemory Technology Inc.)
-- **Leadership**: Dr. Evans Ching-Song Yang, Dr. Charles Hsu, and Engineering Team
+- **Inventors in Selected Publications**: Inventors named in selected publications include Chia-Cho Wu; Meng-Yi Wu; Ching-Sung Yang; Chi-Yi Shao; Yung-Hsiang Liu (full names in each record).
 - **Business Model**: Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP
-- **Recorded Portfolio Status**: 4 Recorded active · 2 Recorded expired
+- **Recorded Portfolio Status**: 6 Recorded active · 0 Recorded expired
 - **Standalone Patent Total Gap**: Standalone company grant total not verified — [PUFsecurity company profile · Checked 2026-10-15](https://www.pufsecurity.com/about-us/) — Background source without a standalone company grant total; neither the chairman's personal patents nor parent-company totals can be assigned to PUFsecurity.
 - **Group Portfolio Regions**: Group portfolio: US, Taiwan, China, Europe, Japan — [eMemory 2024 Sustainability Report · Published 2025-08 · p. 56](https://www.ememory.com.tw/Content/Upload/files/ESG/20250730/2024%E5%B9%B4%E5%BA%A6%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8%E8%8B%B1%E6%96%87%E7%89%88V1.pdf#page=56) — Page 56 describes eMemory and PUFsecurity together for 2024; it does not establish standalone PUFsecurity grants in all five regions.
 - **Group Security Platforms**: Security-business platforms: TSMC, Intel, UMC, GF — [eMemory company briefing · Published 2026-08-19 · p. 19](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=19) — PDF p. 19 (printed p. 21) covers security-business collaboration; not a qualification list for all PUFsecurity IP or nodes, including N6/N5/N3.
 - **Product Capability and Shipment Gap**: Secure OTP production capability; shipment total unverified — [PUFsecurity Secure OTP product page · Checked 2026-10-15](https://www.pufsecurity.com/products/secure-otp/) — The page describes up to 128kb of mass-production OTP functionality; this is capacity and capability, not cumulative chips or adoption across all security IP.
-- **Patent Strategy**: The core of PUFsecurity's patent portfolio transformed eMemory's 'Quantum Tunneling Microscopic Dielectric Variation (NeoPUF)' into 'Zero-Error Hardware Roots of Trust (PUFrt)' and 'Integrated Security Cryptographic Processors (PUFcc)'. Conventional SRAM PUFs suffer 5%–15% bit error rates under temperature and aging, necessitating complex ECC helper data that incurs silicon area overhead and side-channel leakage risks. PUFsecurity's patents surround 'Dynamic Differential Symmetry Tracking Circuits' and 'Quantum Shot Noise True Random Number Generators (Quantum TRNG)', achieving native 0% Bit Error Rate (BER) directly in hardware, earning PSA Certified Level 3 and SESIP Level 3 accreditations.
+- **Patent Strategy**: Selected technical scope: Authentication, Random Pools, PUF and Key Components. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding.
 
-#### PUFrt / PUFcc Hardware Root of Trust & Quantum Security Patent Family (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust))
+[US11121884B2 · Original Publication · Published 2021-09-14 · p. 11](https://patentimages.storage.googleapis.com/65/1d/9d/f90debd88f18c3/US11121884.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-*Differential Symmetry Tracking · Native 0% Bit Error Rate (Zero BER) · Quantum Shot Noise TRNG · 0-Mask*
+#### PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust))
 
-- **Cell Topology**: Dual-Tunneling Differential Pair (Symmetric Paired Dielectric Tunneling Differential Cell)
-- **Physical Mechanism**: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints
-- **Process Node**: 55nm down to 3nm / 2nm GAA Advanced Logic and HPC Platforms
+*Challenge-Response, Re-Encryption, Entropy Mixing and Derivation*
 
-Pinnacle innovation in semiconductor hardware security. Eliminating external key injection and vulnerable helper data, chips extract unclonable private keys at power-up directly from silicon atomic structures, integrating post-quantum cryptography (PQC) accelerators and secure OTP.
+- **Cell Topology**: Authentication, Random Pools, PUF and Key Components
+- **Physical Mechanism**: Challenge-Response, Re-Encryption, Entropy Mixing and Derivation
+- **Process Node**: Not established from these claims; consult product qualification evidence.
 
-##### [US7243236B2](https://patents.google.com/patent/US7243236B2/en) · Physical Unclonable Functions and Semiconductor Device Identification Methods
+Six publications naming PUFsecurity cover circuits, processes and systems. ECDH claims retain their classical-cryptography condition; PUF or string mixing alone does not establish post-quantum security.
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2022-12-06)
-- **Category & Generation**: Device Structure · Gen-1 MIT PUF Pioneer
-- **Priority / Grant**: 2002-12-06 / 2007-07-10
-- **Assignee**: Massachusetts Institute of Technology (MIT)
-- **Technical Problem**: Conventional cryptographic keys require burning into external non-volatile memories, vulnerable to physical probe theft during packaging or assembly.
-- **Product Linkage**: Foundational pioneer patent establishing the global physical unclonable function (PUF) semiconductor industry.
-- **Inventors**: G. Edward Suh, Srinivas Devadas
-- **Claim 1 Reading**: Claim 1 defines physical unclonable circuit architectures generating unpredictable responses from random semiconductor manufacturing variations with identification methods.
-- **Existing FTO Note · Requires Case Review**: Expired in December 2022 after full 20-year term; entered public domain. Pioneer patent covering semiconductor process variations as physical unclonable identifiers is free to operate.
-- **Physical Solution**: Foundational MIT pioneer patent. Translates microscopic, uncontrollable, manufacturing process variations at nanometer scales into unique, deterministic, and physically unclonable digital signatures.
-##### [US7840804B2](https://patents.google.com/patent/US7840804B2/en) · Physical Unclonable Function System Based on Memory Startup States
+##### [US11121884B2](https://patents.google.com/patent/US11121884B2/en) · Electronic system capable of self-certification
 
-- **Recorded Status**: Recorded expired (Recorded term date: 2024-03-31)
-- **Category & Generation**: Method / Operation · Gen-1 SRAM PUF Startup
-- **Priority / Grant**: 2004-03-31 / 2010-11-23
-- **Assignee**: Koninklijke Philips Electronics N.V. (assigned to Intrinsic ID)
-- **Technical Problem**: Dedicated PUF bitcells demand non-standard layouts or custom fabrication steps; how to extract unclonable keys directly from standard memory macros?
-- **Product Linkage**: Foundational SRAM PUF patent; theoretical baseline for Intrinsic ID QuiddiKey.
-- **Inventors**: Jorge Guajardo, Sandeep Kumar, Geert-Jan Schrijen
-- **Claim 1 Reading**: Claim 1 defines systems extracting chip-unique cryptographic keys from the unwritten initial power-up tendencies of memory cells.
-- **Existing FTO Note · Requires Case Review**: Expired in March 2024; entered public domain. Foundational methodology extracting cryptographic keys from memory startup states is in the public domain.
-- **Physical Solution**: Pioneer Philips / Intrinsic ID SRAM PUF patent. Harvests random metastable power-up states of static random access memory (SRAM) caused by threshold voltage mismatches of cross-coupled inverter pairs.
-##### [US10651268B2](https://patents.google.com/patent/US10651268B2/en) · Physical unclonable function device and differential reading circuit with tracking reference
+> Correction History · [US7243236B2](https://patents.google.com/patent/US7243236B2/en) — Replaced the former selection US7243236B2 with US11121884B2. The former publication identifies Intertrust Technologies Corp; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US7243236B1. [US7243236B1 · Former Record Check · Published 2007-07-10 · p. 1](https://patentimages.storage.googleapis.com/6e/cd/85/aa840931a633a0/US7243236.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-03-12)
-- **Category & Generation**: Device Structure · Gen-1 Quantum PUFrt
-- **Priority / Grant**: 2018-03-12 / 2020-05-12
-- **Assignee**: eMemory Technology Inc. (Exclusively licensed to PUFsecurity Corp.)
-- **Technical Problem**: Conventional SRAM or delay-chain PUFs experience bit flipping across -40°C to 150°C temperature swings, requiring costly ECC engines and risking helper data leakage.
-- **Product Linkage**: PUFrt™ Hardware Root of Trust, winner of TSMC OIP Best IP Partner Award for Security IP.
-- **Inventors**: Evans Ching-Song Yang, Meng-Yi Wu
-- **Claim 1 Reading**: Claim 1 claims a differential tracking sensing circuit comprising paired dielectric quantum tunneling cells and zero-error key extraction method.
-- **Existing FTO Note · Requires Case Review**: In force through March 2038. Protects quantum tunneling physical unclonable function devices with tracking differential sensing circuitry.
-- **Physical Solution**: Pairs symmetric thin oxide tunneling cells, using common-mode rejection to cancel environmental voltage and thermal shifts. Differential sense amplifiers compare minute quantum tunneling currents, achieving native 0% BER without ECC helper calibration.
-##### [US10769300B2](https://patents.google.com/patent/US10769300B2/en) · True random number generator utilizing quantum tunneling shot noise in dielectric layers
+[US11121884B2 · Original Publication · Published 2021-09-14 · p. 11](https://patentimages.storage.googleapis.com/65/1d/9d/f90debd88f18c3/US11121884.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2038-09-14)
-- **Category & Generation**: Device & Method · Gen-1 Quantum TRNG
-- **Priority / Grant**: 2018-09-14 / 2020-09-08
-- **Assignee**: eMemory Technology Inc. (Exclusively licensed to PUFsecurity Corp.)
-- **Technical Problem**: Ring oscillator jitter TRNGs are susceptible to injection locking and electromagnetic side-channel manipulation attacks.
-- **Product Linkage**: PUFcc™ Crypto Co-Processor, integrating NIST CAVP-certified cryptographic engines.
-- **Inventors**: Meng-Yi Wu, Charles Ching-Hsiang Hsu
-- **Claim 1 Reading**: Claim 1 claims a true random number generator circuit utilizing gate oxide quantum tunneling shot noise with live health test monitoring.
-- **Existing FTO Note · Requires Case Review**: In force through September 2038. Protects true random number generators harvesting entropy from direct quantum tunneling shot noise.
-- **Physical Solution**: Harnesses intrinsic quantum electron shot noise in gate oxide tunneling as the sole entropy source. Pure quantum effects cannot be controlled by external RF or thermal interference, passing NIST SP 800-22 and SP 800-90B suites.
-##### [US11394553B2](https://patents.google.com/patent/US11394553B2/en) · Hardware Security Engine Integrating Physical Unclonable Function and Cryptographic Co-Processor
+[US11121884B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11121884B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
 
-- **Recorded Status**: Recorded active (Recorded term date: 2040-04-20)
-- **Category & Generation**: Array Architecture · Gen-2 Integrated PUFcc
-- **Priority / Grant**: 2020-04-20 / 2022-07-19
-- **Assignee**: PUFsecurity Corp.
-- **Technical Problem**: Discrete PUFs, OTPs, and cryptographic engines connected via on-chip buses expose plaintext keys to physical microprobing and differential power analysis (DPA).
-- **Product Linkage**: PUFcc™ Crypto Co-processor certified under PSA Certified Level 3 and SESIP Level 3.
-- **Inventors**: Evans Ching-Song Yang, Meng-Yi Wu, Charles Ching-Hsiang Hsu
-- **Claim 1 Reading**: Claim 1 recites an integrated hardware security engine monolithically coupling a quantum tunneling PUF, secure nonvolatile memory, and cryptographic hardware accelerators.
-- **Existing FTO Note · Requires Case Review**: In force through April 2040. Protects tightly-coupled hardware security engines integrating quantum PUF, secure OTP, and cryptographic accelerators.
-- **Physical Solution**: PUFsecurity flagship PUFcc core patent. Monolithically couples NeoPUF zero-error hardware roots, secure OTP storage, quantum TRNG, and NIST-certified crypto accelerators behind a deep hardware firewall, ensuring keys are born and utilized purely within secure boundaries.
-##### [US11880479B2](https://patents.google.com/patent/US11880479B2/en) · Hardware Root-of-Trust with Quantum Tunneling PUF and Anti-Tamper Non-Volatile Key Storage
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Electronic-System Structure · Publication-Based Selection
+- **Priority / Grant**: 2019-06-10 / 2021-09-14
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Authenticate two on-chip circuits through a challenge-response exchange before enabling functions.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Chia-Cho Wu
+- **Claim 1 Reading**: Claim 1 requires two circuits with activation/functional units, keyed challenge-response certification before operation, and an SoC in which the first function performs read/write and the second logic operations. It does not require a particular PUF device.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: One circuit encrypts a challenge with a key; another verifies the response before designated functions are enabled.
+##### [US11502832B2](https://patents.google.com/patent/US11502832B2/en) · Electronic device capable of protecting confidential data
 
-- **Recorded Status**: Recorded active (Recorded term date: 2041-09-08)
-- **Category & Generation**: Device & Operation · Gen-3 Anti-Tamper RoT
-- **Priority / Grant**: 2021-09-08 / 2024-01-23
-- **Assignee**: PUFsecurity Corp.
-- **Technical Problem**: Next-gen AI and defense processors face focused ion beam (FIB) delayering and laser voltage probing (LVP) risking optical key reconstruction.
-- **Product Linkage**: Mission-critical defense and automotive ISO 26262 ASIL-D / ISO 21434 root-of-trust baseline.
-- **Inventors**: Meng-Yi Wu, Evans Ching-Song Yang
-- **Claim 1 Reading**: Claim 1 defines a hardware root-of-trust with physical anti-tamper sensing and active quantum tunneling key zeroization operations.
-- **Existing FTO Note · Requires Case Review**: In force through September 2041. Enforces exclusivity over anti-tamper hardware root-of-trust architectures with active zeroization.
-- **Physical Solution**: Exploits the irreversible physics of dielectric quantum tunneling, integrating active mesh shields and automated zeroization circuits that permanently collapse antifuses to ground states upon detecting tamper events within microseconds.
+> Correction History · [US7840804B2](https://patents.google.com/patent/US7840804B2/en) — Replaced the former selection US7840804B2 with US11502832B2. The former publication identifies Hitachi Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7840804B2 · Former Record Check · Published 2010-11-23 · p. 1](https://patentimages.storage.googleapis.com/17/6a/2b/a399032b20b738/US7840804.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11502832B2 · Original Publication · Published 2022-11-15 · p. 8](https://patentimages.storage.googleapis.com/7c/86/38/f55f47d49a033e/US11502832.pdf#page=8) — Front page 1: inventor names and assignee. PDF page 8: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11502832B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11502832B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Data-Protection Method · Publication-Based Selection
+- **Priority / Grant**: 2020-06-04 / 2022-11-15
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Rebind data provisioned under a common key to a device-local key.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Chia-Cho Wu
+- **Claim 1 Reading**: Claim 1 is a method requiring two NVMs, global-key decryption, local re-encryption/overwrite, restart, fallback to local decryption after global decryption fails, and termination if both fail. A generic “PUF key storage” description omits the sequence.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Decrypt with a global key, re-encrypt and overwrite with a local key, then select operation or termination according to post-restart decryption results.
+##### [US11381394B2](https://patents.google.com/patent/US11381394B2/en) · High speed encryption key generating engine
+
+> Correction History · [US10651268B2](https://patents.google.com/patent/US10651268B2/en) — Replaced the former selection US10651268B2 with US11381394B2. The former publication identifies Qualcomm Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10651268B2 · Former Record Check · Published 2020-05-12 · p. 1](https://patentimages.storage.googleapis.com/c1/c2/56/6925f4101c3649/US10651268.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11381394B2 · Original Publication · Published 2022-07-05 · p. 10](https://patentimages.storage.googleapis.com/69/b0/87/e4bba40ba3fd82/US11381394.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11381394B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11381394B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Encrypted-Transmission System · Publication-Based Selection
+- **Priority / Grant**: 2019-07-25 / 2022-07-05
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Two endpoints need matching secret keys derived from shared random data and an input key.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Meng-Yi Wu; Ching-Sung Yang
+- **Claim 1 Reading**: Claim 1 requires both endpoints’ random pools, string generators, control circuits and encryption/decryption units, and expressly uses ECDH to produce the input key at each endpoint. “Entangle” denotes string processing here; it does not establish quantum entanglement or post-quantum security.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Each endpoint selects random-pool bits and combines them with an input-key-derived string for matching encryption/decryption keys.
+##### [US11876899B2](https://patents.google.com/patent/US11876899B2/en) · Random number generator and method of generating output random number
+
+> Correction History · [US10769300B2](https://patents.google.com/patent/US10769300B2/en) — Replaced the former selection US10769300B2 with US11876899B2. The former publication identifies International Business Machines Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10769300B2 · Former Record Check · Published 2020-09-08 · p. 1](https://patentimages.storage.googleapis.com/3a/0f/1f/fdc0198768a54a/US10769300.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11876899B2 · Original Publication · Published 2024-01-16 · p. 14](https://patentimages.storage.googleapis.com/ce/3b/28/4fdc7b1a471996/US11876899.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11876899B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11876899B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Random-Number Circuit · Publication-Based Selection
+- **Priority / Grant**: 2019-07-25 / 2024-01-16
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Coordinate random sources and pool updates across initialization and operation.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Meng-Yi Wu; Chi-Yi Shao; Ching-Sung Yang
+- **Claim 1 Reading**: Claim 1 requires initial/static pools, dynamic entropy, a counter, combining circuitry and a lively pool. Static-pool refresh occurs when the lively pool is fully updated, and the initial pool contains truly random entropy bits. Quantum-tunneling noise and certification are not required.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Static output switches from an initial pool to an operating pool; dynamic entropy drives a counter, and combined output refreshes a lively pool and then the static pool.
+##### [US12113895B2](https://patents.google.com/patent/US12113895B2/en) · Key management system providing secure management of cryptographic keys, and methods of operating the same
+
+> Correction History · [US11394553B2](https://patents.google.com/patent/US11394553B2/en) — Replaced the former selection US11394553B2 with US12113895B2. The former publication identifies Citicorp Credit Services Inc USA; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US11394553B1. [US11394553B1 · Former Record Check · Published 2022-07-19 · p. 1](https://patentimages.storage.googleapis.com/0d/8d/0d/e9a27d06994980/US11394553.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US12113895B2 · Original Publication · Published 2024-10-08 · p. 13](https://patentimages.storage.googleapis.com/f1/8c/d6/3eeaf6138a15cf/US12113895.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US12113895B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US12113895B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Key-Management System · Publication-Based Selection
+- **Priority / Grant**: 2020-12-11 / 2024-10-08
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Distribute key requests across components and retain recoverable backups.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Yung-Hsiang Liu; Meng-Yi Wu; Ching-Sung Yang
+- **Claim 1 Reading**: Claim 1 requires multiple PUF/KDF/KWP/memory components, least-load dispatch and a backup channel. The generating component disables KWP and stores identifier/parameters; backups disable KDF and store wrapped keys. A retrieval dispatched to the generating component matches the identifier and re-derives the key.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: A load balancer selects the least-loaded derivation component; backups wrap the key with their own PUF sequences, and identifiers support retrieval.
+##### [US11961567B2](https://patents.google.com/patent/US11961567B2/en) · Key storage device and key generation method
+
+> Correction History · [US11880479B2](https://patents.google.com/patent/US11880479B2/en) — Replaced the former selection US11880479B2 with US11961567B2. The former publication identifies Bank of America Corp; this is a new editorial selection, not renumbering or proof of assignment. [US11880479B2 · Former Record Check · Published 2024-01-23 · p. 1](https://patentimages.storage.googleapis.com/a9/14/d2/d4bbde4ada496c/US11880479.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication.
+
+[US11961567B2 · Original Publication · Published 2024-04-16 · p. 15](https://patentimages.storage.googleapis.com/ef/d8/8c/2e7bd73a88d801/US11961567.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.
+
+[US11961567B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11961567B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.
+
+- **Recorded Status**: Recorded active (Recorded term date: Not determined in this review)
+- **Category & Generation**: Key-Storage Circuit · Publication-Based Selection
+- **Priority / Grant**: 2021-09-21 / 2024-04-16
+- **Assignee**: PUFsecurity Corporation
+- **Technical Problem**: Generate logic outputs through differing device thresholds and setting voltages.
+- **Product Linkage**: Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.
+- **Inventors**: Kai-Hsin Chuang; Chi-Yi Shao; Chun-Heng You
+- **Claim 1 Reading**: Claim 1 requires two setting circuits/inverters, a smaller first output-transistor threshold magnitude, a higher first setting voltage, and setting transistors receiving a constant control voltage. It protects a specific key circuit, not secure memory in general.
+- **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
+- **Physical Solution**: Two key units each contain a setting circuit and inverter, with differing output-transistor threshold magnitudes and oppositely ordered setting voltages.
 #### Technology Milestones
 
-- **2019–2020 · PUFrt Core Differential Patent Granted** (PUFsecurity Inception & Zero-BER PUF) — Spun off from eMemory, unveiling native zero-BER PUFrt root of trust with differential tracking patents. 55nm / 40nm / 28nm · US10651268B2, US10769300B2
-- **2021–2023 · PSA Certified Level 3 & SESIP Level 3** (Integrated PUFcc & Global Security Certifications) — Launched integrated crypto co-processor PUFcc, awarded TSMC Best IP Partner and top security accreditations. 16nm / 7nm / 5nm · PUFcc Security Architecture Series
-- **2024–2026 · 2nm Angstrom Scaling & PQC Trust Anchor** (Post-Quantum Cryptography & 3nm/2nm GAA) — Integrated NIST FIPS 203/204 PQC acceleration, completing hardware validation on TSMC N3/N2 GAA processes. 3nm / 2nm GAA · PQC PUF Root-of-Trust Series
-#### Patent Defense Strategy & Landmark Litigation: Quantum Tunneling Geometric Mismatch (NeoPUF) vs. SRAM PUF Zero-BER Moat
+- **2021-09-14 – 2024-10-08 · PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management** (Publication chronology) — Six publications naming PUFsecurity cover circuits, processes and systems. ECDH claims retain their classical-cryptography condition; PUF or string mixing alone does not establish post-quantum security. Not established from these claims; consult product qualification evidence. · US11121884B2, US11502832B2, US11381394B2, US11876899B2, US12113895B2, US11961567B2
+#### Claim Boundaries and Comparison: Claim Boundaries and Comparison Questions
 
-Spun out of eMemory Technology under Chairman Dr. Charles Hsu and CEO Dr. Evans Yang, PUFsecurity revolutionized semiconductor hardware security. Traditional root-of-trust relies on injected keys (susceptible to supply-chain sniffing) or SRAM startup states. However, SRAM PUF suffers from a severe physical defect: temperature fluctuations and aging induce 5%–15% bit error rates (BER), requiring bulky error-correcting codes (ECC helper data) that consume die area and introduce side-channel vulnerabilities. PUFsecurity discarded fragile ECC post-processing, engineering native Zero-BER NeoPUF and PUFrt/PUFcc patent fortress from quantum tunneling physics.
+The selected publications establish technical limitations. They do not establish litigation outcomes, infringement, invalidity or freedom to operate.
 
-##### Quantum Geometric Mismatch vs. SRAM Metastable Flipping Risk
+##### PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management
 
-SRAM PUF relies on subtle inverter threshold mismatches that flip under extreme temperature (-40°C to 150°C) and supply noise. NeoPUF captures structural variations of atomic defects across paired antifuse dielectric layers; tunneling resistance differences span orders of magnitude, remaining 100% stable under thermal stress and radiation, delivering physical 0% native BER.
+Claim 1 requires two circuits with activation/functional units, keyed challenge-response certification before operation, and an SoC in which the first function performs read/write and the second logic operations. It does not require a particular PUF device.
 
-##### Complete Elimination of Helper Data & Side-Channel Attack Surface (US10651268B2)
-
-Because native BER is strictly zero, chips require zero helper data stored in off-chip flash. Attackers cannot reconstruct keys by eavesdropping helper data or analyzing mathematical error distributions, shutting down physical and side-channel vulnerability surfaces.
-
-##### Quantum Shot Noise TRNG Patent Exclusivity (US10769300B2)
-
-Conventional ring oscillator TRNGs are susceptible to electromagnetic injection locking. PUFsecurity patented entropy harvesting directly from quantum tunneling shot noise, an unmanipulable quantum mechanical phenomenon certified under NIST SP 800-22 and SP 800-90B standards.
-
-##### Monolithic PUFcc Security Engine & TSMC Advanced Nodes (US11394553B2 / US11880479B2)
-
-Monolithically integrating NeoPUF, secure OTP, quantum TRNG, and post-quantum cryptography (PQC) into PUFcc, PUFsecurity won TSMC OIP Partner of the Year, deploying into N5/N3/N2 nodes. Patented active zeroization circuits destroy keys within microseconds of physical optical tamper detection, securing PSA Certified Level 3 and SESIP Level 3 certifications.
-
-> **Existing FTO Note · Requires Case Review**: [FTO Guidance] Early 2002–2004 MIT foundational PUF patent (US7243236B2) and Philips SRAM power-up PUF patent (US7840804B2) expired in 2022 and 2024, entering the public domain. Industry may freely practice standard SRAM startup state fingerprinting. However, PUFsecurity/eMemory quantum tunneling zero-BER differential tracking (US10651268B2), shot noise TRNG (US10769300B2), integrated PUFcc security engine (US11394553B2), and anti-tamper zeroization architecture (US11880479B2) remain actively protected through 2038–2041.
+> **Existing FTO Note · Requires Case Review**: This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.
 
 ### Appendix: Industry Competitive Landscape Matrix
 
 | No. & Filing Entity | Key Portfolios | Physical Mechanism | Milestone Patents | Foundry & Scale |
 | :--- | :--- | :--- | :--- | :--- |
-| 01. eMemory | NeoBit® (OTP (One-Time Programmable)); NeoFuse® (Antifuse OTP (Anti-Tamper One-Time Programmable)); NeoEE® (MTP (Multi-Time Programmable)); NeoMTP® (High-Density MTP (Multi-Time Programmable)); NeoPUF® (PUF (Physical Unclonable Function)) | NeoBit®: Drain band-to-band tunneling induces hot holes, impact-generating secondary hot electrons injected into the p+ floating gate (CHEI); read senses channel conduction current; NeoFuse®: High electric field stress generates localized defects within ultra-thin gate oxides, enabling direct tunneling conduction filaments; read senses gate leakage current (I_GATE); NeoEE®: Both program and erase utilize Fowler-Nordheim (FN) quantum tunneling; MOS capacitor couples voltage to modulate floating-gate potential; NeoMTP®: Program: Channel Hot Hole-Induced Electron Injection (CHEI); Erase: Electrons tunnel from floating gate edge to Erase Gate via localized FN tunneling; NeoPUF®: Exploits unpredictable atomic-scale thickness fluctuations and quantum tunneling probabilities in ultra-thin gate oxides; differential tracking architecture cancels PVT drifts | [US6678190B2 (Recorded expired)](https://patents.google.com/patent/US6678190B2/en), [US6914825B2 (Recorded expired)](https://patents.google.com/patent/US6914825B2/en), [US6920067B2 (Recorded expired)](https://patents.google.com/patent/US6920067B2/en), [US8514614B2 (Recorded active)](https://patents.google.com/patent/US8514614B2/en), [US8982637B2 (Recorded active)](https://patents.google.com/patent/US8982637B2/en), [US10410712B2 (Recorded active)](https://patents.google.com/patent/US10410712B2/en), [US20250024668A1 (Recorded active)](https://patents.google.com/patent/US20250024668A1/en), [US6788574B2 (Recorded expired)](https://patents.google.com/patent/US6788574B2/en), [US6950342B2 (Recorded expired)](https://patents.google.com/patent/US6950342B2/en), [US6853583B2 (Recorded expired)](https://patents.google.com/patent/US6853583B2/en), [US7158412B2 (Recorded expired)](https://patents.google.com/patent/US7158412B2/en), [US10204981B2 (Recorded active)](https://patents.google.com/patent/US10204981B2/en), [US10651268B2 (Recorded active)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (Recorded active)](https://patents.google.com/patent/US10769300B2/en) | TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor (79M+ cumulative wafers shipped)<br>[Official foundry partners · Checked 2026-10-14](https://www.ememory.com.tw/en-US/About/Foundry) — Examples listed on the official page, which has no update date. Partnership does not establish qualification of every IP or process node.<br>[Company briefing · Published 2026-08-19 · p. 4](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=4) — Company-reported cumulative shipments of wafers using eMemory IP, not chip units. Page 4 does not specify a wafer-size conversion for this cumulative total. |
-| 02. Kilopass (Synopsys) | XPM™ (Antifuse OTP (Tamper-Evident One-Time Programmable)); SecretCode™ (Secure Antifuse OTP (Hardware Security Root Key Antifuse)) | XPM™: Localized dielectric breakdown in ultra-thin gate oxide induced by high vertical electric field, forming a permanent ohmic silicon filament from poly gate to substrate; read senses conductive on-current; SecretCode™: Dynamic switching and electrical isolation of substrate well potentials to prevent substrate leakage and hot-carrier disturb to adjacent cells, combined with balanced dummy currents against DPA side channels | [US6992925B2 (Recorded expired)](https://patents.google.com/patent/US6992925B2/en), [US6777766B2 (Recorded expired)](https://patents.google.com/patent/US6777766B2/en), [US7643333B2 (Recorded active)](https://patents.google.com/patent/US7643333B2/en) | UMC 55nm LP Gusto; DB HiTek TS11 (Over 10 billion units shipped (2018))<br>[Kilopass / UMC joint announcement · Published 2014-05-13](https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html) — Gusto qualified on UMC 55nm LP; limited to that product and node, not a complete partner list. / [DB HiTek official MS/RF portfolio · Checked 2026-10-15](https://www.dbhitek.com/en/technology/portfolio/ms-rf) — TS11 lists Kilopass anti-fuse IP; no update date is shown, and qualification on other nodes is not inferred.<br>[Synopsys Kilopass acquisition announcement · Published 2018-01-10](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology) — Cumulative units using Kilopass technology at acquisition; also reported over 170 customers and 400 SoC designs, not current shipments. |
-| 03. Sidense (Synopsys) | 1T-Fuse™ (1T Antifuse OTP (Single-Transistor One-Time Programmable)) | 1T-Fuse™: Electric field concentrates at breakdown edge during high-voltage write to induce localized conductive filament in thin oxide; access channel provides natural cutoff barrier during read | [US7402855B2 (Recorded expired)](https://patents.google.com/patent/US7402855B2/en), [US7880216B2 (Recorded active)](https://patents.google.com/patent/US7880216B2/en), [US8325516B2 (Recorded active)](https://patents.google.com/patent/US8325516B2/en) | MagnaChip: 180nm mixed-signal / HV CMOS (Over 250 customer designs (2013))<br>[Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Qualification applies to the announced 1T-OTP offering, not all foundries, nodes or volume-production status.<br>[Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Design adoption, not shipped units or a count of production designs; the previous tens-of-billions shipment claim was not verified. |
-| 04. YMC | YMC (MTP (Multiple-Time Programmable)) | YMC: Channel Hot Electron Injection (CHEI) programming; Fowler-Nordheim (FN) edge tunneling erase using polysilicon corner tip field emission | [US6950342B2 (Recorded expired)](https://patents.google.com/patent/US6950342B2/en), [US7119394B2 (Recorded expired)](https://patents.google.com/patent/US7119394B2/en), [US7835188B2 (Recorded active)](https://patents.google.com/patent/US7835188B2/en), [US8184485B2 (Recorded active)](https://patents.google.com/patent/US8184485B2/en), [US9691784B2 (Recorded active)](https://patents.google.com/patent/US9691784B2/en) | Over 20 foundries worldwide (not individually named) (IP embedded in over 29 billion chips)<br>[YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — No statistical update date or individual list is supplied; this does not verify the prior named list or qualification across all nodes.<br>[YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — Website cumulative chip count, with no statistical update date; distinct from the separately listed wafer count. |
-| 05. AEON (Synopsys) | AEON® (Ultra-Low Power MTP (Multiple-Time Programmable)) | AEON®: Fowler-Nordheim (FN) quantum tunneling for both program and erase; zero DC channel conduction current during write | [US6166953A (Recorded expired)](https://patents.google.com/patent/US6166953A/en), [US6388918B1 (Recorded expired)](https://patents.google.com/patent/US6388918B1/en), [US7787304B2 (Recorded active)](https://patents.google.com/patent/US7787304B2/en), [US8264887B2 (Recorded active)](https://patents.google.com/patent/US8264887B2/en) | Multiple foundries at 180nm (not named) (Reprogrammable NVM technology in over 3 billion chips (2011))<br>[Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Several leading foundries offered 180nm IP; 65–250nm availability was also reported, without substantiating each name in the previous list.<br>[Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Cumulative reprogrammable NVM technology disclosure in the AEON announcement; not split by AEON subfamily and not present Impinj RFID shipments. |
-| 06. NSCore (TwinBit®) | NSCore (Charge-Trapping MTP (Multiple-Time Programmable)) | NSCore: Forward channel hot carrier injection (CHEI/CHHI) localized in spacer dielectric traps; reverse read threshold voltage sensing | [US6930349B2 (Recorded expired)](https://patents.google.com/patent/US6930349B2/en), [US7245532B2 (Recorded expired)](https://patents.google.com/patent/US7245532B2/en), [US7768832B2 (Recorded active)](https://patents.google.com/patent/US7768832B2/en), [US8760927B2 (Recorded active)](https://patents.google.com/patent/US8760927B2/en) | TSMC, UMC, IBM, LFoundry, SilTerra, SMIC, GF (Over 2 billion chips in production (corporate overview))<br>[NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Logos listed in a one-page overview without a publication date in its content; historical support, not current availability on every node.<br>[NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Track record for the memory series, with no statistical date; not a current shipment total and not convertible to wafers. |
+| 01. eMemory<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | NeoBit® (OTP (One-Time Programmable)); NeoFuse® (Antifuse OTP (Anti-Tamper One-Time Programmable)); NeoEE® (MTP (Multi-Time Programmable)); NeoMTP® (High-Density MTP (Multi-Time Programmable)); NeoPUF® (PUF (Physical Unclonable Function)) | NeoBit®: Hot-Carrier Injection and Floating-Gate Retention; NeoFuse®: Dielectric Breakdown Creates a Persistent Low-Resistance State; NeoEE®: Separate Charge-Transfer Regions and Oxide Thicknesses; NeoMTP®: Well and Active-Edge Capacitive Coupling; NeoPUF®: Physical Random States and Digital Security Processing | [US6678190B2 (Recorded expired)](https://patents.google.com/patent/US6678190B2/en)<br>Single poly embedded eprom<br>[US6678190B2 · Original Publication · Published 2004-01-13 · p. 15](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6678190B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6678190B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6678190B2](https://patents.google.com/patent/US6678190B2/en) — US6678190B2: retained publication; inventor names, claim reading and context corrected from the original. [US6678190B2 · Former Record Check · Published 2004-01-13 · p. 1](https://patentimages.storage.googleapis.com/ef/e7/96/010ab59e949c35/US6678190.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6914825B2 (Recorded expired)](https://patents.google.com/patent/US6914825B2/en)<br>Semiconductor memory device having improved data retention<br>[US6914825B2 · Original Publication · Published 2005-07-05 · p. 11](https://patentimages.storage.googleapis.com/61/f4/a7/c45079767fb03e/US6914825.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6914825B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6914825B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6914825B2](https://patents.google.com/patent/US6914825B2/en) — US6914825B2: retained publication; inventor names, claim reading and context corrected from the original. [US6914825B2 · Former Record Check · Published 2005-07-05 · p. 1](https://patentimages.storage.googleapis.com/61/f4/a7/c45079767fb03e/US6914825.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6920067B2 (Recorded expired)](https://patents.google.com/patent/US6920067B2/en)<br>Integrated circuit embedded with single-poly non-volatile memory<br>[US6920067B2 · Original Publication · Published 2005-07-19 · p. 22](https://patentimages.storage.googleapis.com/fd/5e/a5/cfdc7bcb3b907c/US6920067B2.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6920067B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6920067B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6920067B2](https://patents.google.com/patent/US6920067B2/en) — US6920067B2: retained publication; inventor names, claim reading and context corrected from the original. [US6920067B2 · Former Record Check · Published 2005-07-19 · p. 1](https://patentimages.storage.googleapis.com/fd/5e/a5/cfdc7bcb3b907c/US6920067B2.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9634015B2 (Recorded active)](https://patents.google.com/patent/US9634015B2/en)<br>Antifuse-type one time programming memory cell and array structure with same<br>[US9634015B2 · Original Publication · Published 2017-04-25 · p. 12](https://patentimages.storage.googleapis.com/3f/1f/ca/0214957a6edc30/US9634015.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9634015B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9634015B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8514614B2](https://patents.google.com/patent/US8514614B2/en) — Replaced the former selection US8514614B2 with US9634015B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8514614B2 · Former Record Check · Published 2013-08-20 · p. 1](https://patentimages.storage.googleapis.com/82/9c/67/b811554884f745/US8514614.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10090309B1 (Recorded active)](https://patents.google.com/patent/US10090309B1/en)<br>Nonvolatile memory cell capable of improving program performance<br>[US10090309B1 · Original Publication · Published 2018-10-02 · p. 11](https://patentimages.storage.googleapis.com/20/0b/f3/9a24a2ca1bb6ee/US10090309.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10090309B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10090309B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8982637B2](https://patents.google.com/patent/US8982637B2/en) — Replaced the former selection US8982637B2 with US10090309B1. The former publication identifies SanDisk Technologies LLC; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US8982637B1. [US8982637B1 · Former Record Check · Published 2015-03-17 · p. 1](https://patentimages.storage.googleapis.com/1b/41/d0/0cce8566be94a5/US8982637.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11735266B2 (Recorded active)](https://patents.google.com/patent/US11735266B2/en)<br>Antifuse-type one time programming memory cell and cell array structure with same<br>[US11735266B2 · Original Publication · Published 2023-08-22 · p. 17](https://patentimages.storage.googleapis.com/6c/5b/92/3af0a0f7bc76b2/US11735266.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11735266B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11735266B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10410712B2](https://patents.google.com/patent/US10410712B2/en) — Replaced the former selection US10410712B2 with US11735266B2. The former publication identifies Micron Technology Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10410712B2 · Former Record Check · Published 2019-09-10 · p. 1](https://patentimages.storage.googleapis.com/6f/c6/db/7e709a884ce97e/US10410712.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US20250024668A1 (Needs verification)](https://patents.google.com/patent/US20250024668A1/en)<br>Antifuse-type memory with fin field-effect transistor<br>[US20250024668A1 · Original Publication · Published 2025-01-16 · p. 21](https://patentimages.storage.googleapis.com/89/08/f7/15c2b089e22101/US20250024668A1.pdf#page=21) — Front page 1: inventor names and applicant. PDF page 21: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US20250024668A1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US20250024668A1/en) — Application publication; grant and current legal status remain unverified.<br>Correction History · [US20250024668A1](https://patents.google.com/patent/US20250024668A1/en) — US20250024668A1: retained publication; inventor names, claim reading and context corrected from the original. [US20250024668A1 · Former Record Check · Published 2025-01-16 · p. 1](https://patentimages.storage.googleapis.com/89/08/f7/15c2b089e22101/US20250024668A1.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US8199578B2 (Recorded active)](https://patents.google.com/patent/US8199578B2/en)<br>Single polysilicon layer non-volatile memory and operating method thereof<br>[US8199578B2 · Original Publication · Published 2012-06-12 · p. 15](https://patentimages.storage.googleapis.com/03/42/ab/4b15f3e4be8a99/US8199578.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US8199578B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8199578B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6788574B2](https://patents.google.com/patent/US6788574B2/en) — Replaced the former selection US6788574B2 with US8199578B2. The former publication identifies Virage Logic Corp; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US6788574B1. [US6788574B1 · Former Record Check · Published 2004-09-07 · p. 1](https://patentimages.storage.googleapis.com/db/25/1c/90acfdf8ed14ca/US6788574.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US8592886B2 (Recorded active)](https://patents.google.com/patent/US8592886B2/en)<br>Erasable programmable single-ploy nonvolatile memory<br>[US8592886B2 · Original Publication · Published 2013-11-26 · p. 14](https://patentimages.storage.googleapis.com/17/12/50/7b2320336db2ef/US8592886.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US8592886B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8592886B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6950342B2](https://patents.google.com/patent/US6950342B2/en) — Replaced the former selection US6950342B2 with US8592886B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6950342B2 · Former Record Check · Published 2005-09-27 · p. 1](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9368161B2 (Recorded active)](https://patents.google.com/patent/US9368161B2/en)<br>Nonvolatile memory cell structure with assistant gate<br>[US9368161B2 · Original Publication · Published 2016-06-14 · p. 10](https://patentimages.storage.googleapis.com/f3/be/0b/a555ffa9eadcb1/US9368161.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9368161B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9368161B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6853583B2](https://patents.google.com/patent/US6853583B2/en) — Replaced the former selection US6853583B2 with US9368161B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6853583B2 · Former Record Check · Published 2005-02-08 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9601501B2 (Recorded active)](https://patents.google.com/patent/US9601501B2/en)<br>Nonvolatile memory cell structure with assistant gate and memory array thereof<br>[US9601501B2 · Original Publication · Published 2017-03-21 · p. 20](https://patentimages.storage.googleapis.com/8c/59/b7/cf45d4056ca5ed/US9601501.pdf#page=20) — Front page 1: inventor names and assignee. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9601501B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9601501B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7158412B2](https://patents.google.com/patent/US7158412B2/en) — Replaced the former selection US7158412B2 with US9601501B2. The former publication identifies Intersil Americas LLC; this is a new editorial selection, not renumbering or proof of assignment. [US7158412B2 · Former Record Check · Published 2007-01-02 · p. 1](https://patentimages.storage.googleapis.com/f3/ef/ee/6becb687d69234/US7158412.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10122538B2 (Recorded active)](https://patents.google.com/patent/US10122538B2/en)<br>Antifuse physically unclonable function unit and associated control method<br>[US10122538B2 · Original Publication · Published 2018-11-06 · p. 16](https://patentimages.storage.googleapis.com/29/b1/08/952524559e46e1/US10122538.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10122538B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10122538B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10204981B2](https://patents.google.com/patent/US10204981B2/en) — Replaced the former selection US10204981B2 with US10122538B2. The former publication identifies United Microelectronics Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10204981B2 · Former Record Check · Published 2019-02-12 · p. 1](https://patentimages.storage.googleapis.com/27/c1/94/78c6071fb12696/US10204981.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10649735B2 (Recorded active)](https://patents.google.com/patent/US10649735B2/en)<br>Security system with entropy bits<br>[US10649735B2 · Original Publication · Published 2020-05-12 · p. 14](https://patentimages.storage.googleapis.com/c2/c9/df/2281b9677665ae/US10649735.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10649735B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10649735B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10651268B2](https://patents.google.com/patent/US10651268B2/en) — Replaced the former selection US10651268B2 with US10649735B2. The former publication identifies Qualcomm Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10651268B2 · Former Record Check · Published 2020-05-12 · p. 1](https://patentimages.storage.googleapis.com/c1/c2/56/6925f4101c3649/US10651268.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10915464B2 (Recorded active)](https://patents.google.com/patent/US10915464B2/en)<br>Security system using random number bit string<br>[US10915464B2 · Original Publication · Published 2021-02-09 · p. 12](https://patentimages.storage.googleapis.com/01/7c/29/60ed66a95097fe/US10915464.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10915464B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10915464B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10769300B2](https://patents.google.com/patent/US10769300B2/en) — Replaced the former selection US10769300B2 with US10915464B2. The former publication identifies International Business Machines Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10769300B2 · Former Record Check · Published 2020-09-08 · p. 1](https://patentimages.storage.googleapis.com/3a/0f/1f/fdc0198768a54a/US10769300.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor (79M+ cumulative wafers shipped)<br>[Official foundry partners · Checked 2026-10-14](https://www.ememory.com.tw/en-US/About/Foundry) — Examples listed on the official page, which has no update date. Partnership does not establish qualification of every IP or process node.<br>[Company briefing · Published 2026-08-19 · p. 4](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=4) — Company-reported cumulative shipments of wafers using eMemory IP, not chip units. Page 4 does not specify a wafer-size conversion for this cumulative total. |
+| 02. Kilopass (Synopsys)<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | XPM™ (Antifuse OTP (Tamper-Evident One-Time Programmable)); SecretCode™ (Secure Antifuse OTP (Hardware Security Root Key Antifuse)) | XPM™: Programming-Induced Conduction and Doped Regions; SecretCode™: Body-Bias Control of Gate-Oxide Breakdown | [US6992925B2 (Recorded expired)](https://patents.google.com/patent/US6992925B2/en)<br>High density semiconductor memory cell and memory array using a single transistor and having counter-doped poly and buried diffusion wordline<br>[US6992925B2 · Original Publication · Published 2006-01-31 · p. 38](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=38) — Front page 1: inventor names and assignee. PDF page 38: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6992925B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6992925B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6992925B2](https://patents.google.com/patent/US6992925B2/en) — US6992925B2: retained publication; inventor names, claim reading and context corrected from the original. [US6992925B2 · Former Record Check · Published 2006-01-31 · p. 1](https://patentimages.storage.googleapis.com/1c/4b/b3/c2a9e687ce6d7f/US6992925.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6777757B2 (Recorded expired)](https://patents.google.com/patent/US6777757B2/en)<br>High density semiconductor memory cell and memory array using a single transistor<br>[US6777757B2 · Original Publication · Published 2004-08-17 · p. 17](https://patentimages.storage.googleapis.com/d8/44/aa/37bfbd2852d633/US6777757.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6777757B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6777757B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6777766B2](https://patents.google.com/patent/US6777766B2/en) — Replaced the former selection US6777766B2 with US6777757B2. The former publication identifies Robert Bosch GmbH; this is a new editorial selection, not renumbering or proof of assignment. [US6777766B2 · Former Record Check · Published 2004-08-17 · p. 1](https://patentimages.storage.googleapis.com/68/c9/48/cdb3ca4cbdabed/US6777766.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US7471540B2 (Recorded active)](https://patents.google.com/patent/US7471540B2/en)<br>Non-volatile semiconductor memory based on enhanced gate oxide breakdown<br>[US7471540B2 · Original Publication · Published 2008-12-30 · p. 10](https://patentimages.storage.googleapis.com/38/b7/61/78c759dc556af6/US7471540.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US7471540B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7471540B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7643333B2](https://patents.google.com/patent/US7643333B2/en) — Replaced the former selection US7643333B2 with US7471540B2. The former publication identifies Micron Technology Inc.; this is a new editorial selection, not renumbering or proof of assignment. [US7643333B2 · Former Record Check · Published 2010-01-05 · p. 1](https://patentimages.storage.googleapis.com/d3/2d/2a/649d3cedf43509/US7643333.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | UMC 55nm LP Gusto; DB HiTek TS11 (Over 10 billion units shipped (2018))<br>[Kilopass / UMC joint announcement · Published 2014-05-13](https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html) — Gusto qualified on UMC 55nm LP; limited to that product and node, not a complete partner list. / [DB HiTek official MS/RF portfolio · Checked 2026-10-15](https://www.dbhitek.com/en/technology/portfolio/ms-rf) — TS11 lists Kilopass anti-fuse IP; no update date is shown, and qualification on other nodes is not inferred.<br>[Synopsys Kilopass acquisition announcement · Published 2018-01-10](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology) — Cumulative units using Kilopass technology at acquisition; also reported over 170 customers and 400 SoC designs, not current shipments. |
+| 03. Sidense (Synopsys)<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | 1T-Fuse™ (1T Antifuse OTP (Single-Transistor One-Time Programmable)) | 1T-Fuse™: Localized Breakdown, Leakage Control and Differential Readout | [US7402855B2 (Recorded expired)](https://patents.google.com/patent/US7402855B2/en)<br>Split-channel antifuse array architecture<br>[US7402855B2 · Original Publication · Published 2008-07-22 · p. 22](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US7402855B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7402855B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7402855B2](https://patents.google.com/patent/US7402855B2/en) — US7402855B2: retained publication; inventor names, claim reading and context corrected from the original. [US7402855B2 · Former Record Check · Published 2008-07-22 · p. 1](https://patentimages.storage.googleapis.com/6c/35/4d/b658a9daf64c88/US7402855.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9129687B2 (Recorded active)](https://patents.google.com/patent/US9129687B2/en)<br>OTP memory cell having low current leakage<br>[US9129687B2 · Original Publication · Published 2015-09-08 · p. 30](https://patentimages.storage.googleapis.com/7c/bf/c1/44df488c331a1b/US9129687.pdf#page=30) — Front page 1: inventor names and assignee. PDF page 30: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9129687B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9129687B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7880216B2](https://patents.google.com/patent/US7880216B2/en) — Replaced the former selection US7880216B2 with US9129687B2. The former publication identifies Hynix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7880216B2 · Former Record Check · Published 2011-02-01 · p. 1](https://patentimages.storage.googleapis.com/92/04/a4/3828f5a8c49052/US7880216.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US8130532B2 (Recorded expired)](https://patents.google.com/patent/US8130532B2/en)<br>High speed OTP sensing scheme<br>[US8130532B2 · Original Publication · Published 2012-03-06 · p. 42](https://patentimages.storage.googleapis.com/af/c1/dd/67547a182be64e/US8130532.pdf#page=42) — Front page 1: inventor names and assignee. PDF page 42: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US8130532B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8130532B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8325516B2](https://patents.google.com/patent/US8325516B2/en) — Replaced the former selection US8325516B2 with US8130532B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US8325516B2 · Former Record Check · Published 2012-12-04 · p. 1](https://patentimages.storage.googleapis.com/5d/1c/11/09f5ab8d463f68/US8325516.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | MagnaChip: 180nm mixed-signal / HV CMOS (Over 250 customer designs (2013))<br>[Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Qualification applies to the announced 1T-OTP offering, not all foundries, nodes or volume-production status.<br>[Sidense / MagnaChip joint announcement · Published 2013-03-25](https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html) — Design adoption, not shipped units or a count of production designs; the previous tens-of-billions shipment claim was not verified. |
+| 04. YMC<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/79/2b/c5/e1342a59e536d5/US7099192.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | YMC (MTP (Multiple-Time Programmable)) | YMC: Capacitive Coupling, Program/Erase Bias and Finger Capacitors | [US7099192B2 (Recorded expired)](https://patents.google.com/patent/US7099192B2/en)<br>Nonvolatile flash memory and method of operating the same<br>[US7099192B2 · Original Publication · Published 2006-08-29 · p. 16](https://patentimages.storage.googleapis.com/79/2b/c5/e1342a59e536d5/US7099192.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US7099192B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US7099192B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6950342B2](https://patents.google.com/patent/US6950342B2/en) — Replaced the former selection US6950342B2 with US7099192B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6950342B2 · Former Record Check · Published 2005-09-27 · p. 1](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9240242B1 (Recorded active)](https://patents.google.com/patent/US9240242B1/en)<br>Method for operating low-cost EEPROM array<br>[US9240242B1 · Original Publication · Published 2016-01-19 · p. 13](https://patentimages.storage.googleapis.com/c9/e0/7a/44d27a2e354102/US9240242.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9240242B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9240242B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7119394B2](https://patents.google.com/patent/US7119394B2/en) — Replaced the former selection US7119394B2 with US9240242B1. The former publication identifies Solid State System Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7119394B2 · Former Record Check · Published 2006-10-10 · p. 1](https://patentimages.storage.googleapis.com/c7/c6/13/b0afc08932d74d/US7119394.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9281312B2 (Recorded active)](https://patents.google.com/patent/US9281312B2/en)<br>Non-volatile memory with a single gate-source common terminal and operation method thereof<br>[US9281312B2 · Original Publication · Published 2016-03-08 · p. 20](https://patentimages.storage.googleapis.com/89/60/53/7974c758b097f5/US9281312.pdf#page=20) — Front page 1: inventor names and assignee. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9281312B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9281312B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7835188B2](https://patents.google.com/patent/US7835188B2/en) — Replaced the former selection US7835188B2 with US9281312B2. The former publication identifies Seiko Instruments Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7835188B2 · Former Record Check · Published 2010-11-16 · p. 1](https://patentimages.storage.googleapis.com/a1/ba/09/963202ccef0708/US7835188.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9318208B1 (Recorded active)](https://patents.google.com/patent/US9318208B1/en)<br>Method for operating small-area EEPROM array<br>[US9318208B1 · Original Publication · Published 2016-04-19 · p. 16](https://patentimages.storage.googleapis.com/3b/e5/f5/43d4c7f2f44699/US9318208.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9318208B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9318208B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8184485B2](https://patents.google.com/patent/US8184485B2/en) — Replaced the former selection US8184485B2 with US9318208B1. The former publication identifies Samsung Electronics Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US8184485B2 · Former Record Check · Published 2012-05-22 · p. 1](https://patentimages.storage.googleapis.com/a1/20/46/45d69a2d1946c9/US8184485.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11742039B2 (Recorded active)](https://patents.google.com/patent/US11742039B2/en)<br>Small-area side-capacitor read-only memory device, memory array and method for operating the same<br>[US11742039B2 · Original Publication · Published 2023-08-29 · p. 12](https://patentimages.storage.googleapis.com/23/d8/ba/6a1514e43bff3e/US11742039.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11742039B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11742039B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US9691784B2](https://patents.google.com/patent/US9691784B2/en) — Replaced the former selection US9691784B2 with US11742039B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US9691784B2 · Former Record Check · Published 2017-06-27 · p. 1](https://patentimages.storage.googleapis.com/b9/d3/91/46b9dfa917a76d/US9691784.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | Over 20 foundries worldwide (not individually named) (IP embedded in over 29 billion chips)<br>[YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — No statistical update date or individual list is supplied; this does not verify the prior named list or qualification across all nodes.<br>[YMC official homepage · Checked 2026-10-15](https://www.ymc.com.tw/index_en.php) — Website cumulative chip count, with no statistical update date; distinct from the separately listed wafer count. |
+| 05. AEON (Synopsys)<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | AEON® (Ultra-Low Power MTP (Multiple-Time Programmable)) | AEON®: Tunneling Removal, Injection Control and Coupling | [US6853583B2 (Recorded expired)](https://patents.google.com/patent/US6853583B2/en)<br>Method and apparatus for preventing overtunneling in pFET-based nonvolatile memory cells<br>[US6853583B2 · Original Publication · Published 2005-02-08 · p. 29](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=29) — Front page 1: inventor names and assignee. PDF page 29: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6853583B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6853583B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6166953A](https://patents.google.com/patent/US6166953A/en) — Replaced the former selection US6166953A with US6853583B2. The former publication identifies Hitachi ULSI Engineering Corp; Hitachi Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US6166953A · Former Record Check · Published 2000-12-26 · p. 1](https://patentimages.storage.googleapis.com/fe/58/83/84135a720b6db9/US6166953.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6950342B2 (Recorded expired)](https://patents.google.com/patent/US6950342B2/en)<br>Differential floating gate nonvolatile memories<br>[US6950342B2 · Original Publication · Published 2005-09-27 · p. 55](https://patentimages.storage.googleapis.com/9d/c4/c3/3f020f56d0d1f1/US6950342.pdf#page=55) — Front page 1: inventor names and assignee. PDF page 55: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6950342B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6950342B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6388918B1](https://patents.google.com/patent/US6388918B1/en) — Replaced the former selection US6388918B1 with US6950342B2. The former publication identifies no corporate assignee on the front page; this is a new editorial selection, not renumbering or proof of assignment. [US6388918B1 · Former Record Check · Published 2002-05-14 · p. 1](https://patentimages.storage.googleapis.com/82/e8/08/f0deafe23c3662/US6388918.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6788574B1 (Recorded expired)](https://patents.google.com/patent/US6788574B1/en)<br>Electrically-alterable non-volatile memory cell<br>[US6788574B1 · Original Publication · Published 2004-09-07 · p. 16](https://patentimages.storage.googleapis.com/db/25/1c/90acfdf8ed14ca/US6788574.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6788574B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6788574B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7787304B2](https://patents.google.com/patent/US7787304B2/en) — Replaced the former selection US7787304B2 with US6788574B1. The former publication identifies Jonker LLC; this is a new editorial selection, not renumbering or proof of assignment. [US7787304B2 · Former Record Check · Published 2010-08-31 · p. 1](https://patentimages.storage.googleapis.com/9d/f7/5e/0bb23a6cd697b5/US7787304.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US8111558B2 (Recorded expired)](https://patents.google.com/patent/US8111558B2/en)<br>pFET nonvolatile memory<br>[US8111558B2 · Original Publication · Published 2012-02-07 · p. 26](https://patentimages.storage.googleapis.com/d4/58/86/2b58f00a0be134/US8111558.pdf#page=26) — Front page 1: inventor names and assignee. PDF page 26: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US8111558B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8111558B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8264887B2](https://patents.google.com/patent/US8264887B2/en) — Replaced the former selection US8264887B2 with US8111558B2. The former publication identifies Hynix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US8264887B2 · Former Record Check · Published 2012-09-11 · p. 1](https://patentimages.storage.googleapis.com/8c/5a/e6/714a9fa9aa49b5/US8264887.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | Multiple foundries at 180nm (not named) (Reprogrammable NVM technology in over 3 billion chips (2011))<br>[Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Several leading foundries offered 180nm IP; 65–250nm availability was also reported, without substantiating each name in the previous list.<br>[Synopsys AEON 180nm announcement · Published 2011-06-27](https://news.synopsys.com/home?item=123295) — Cumulative reprogrammable NVM technology disclosure in the AEON announcement; not split by AEON subfamily and not present Impinj RFID shipments. |
+| 06. NSCore (TwinBit®)<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/39/c3/8c/17b1359878a197/US9159404.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | NSCore (Charge-Trapping MTP (Multiple-Time Programmable)) | NSCore: Hot-Carrier Programming, Recall and Controlled Erase | [US9159404B2 (Recorded active)](https://patents.google.com/patent/US9159404B2/en)<br>Nonvolatile memory device<br>[US9159404B2 · Original Publication · Published 2015-10-13 · p. 22](https://patentimages.storage.googleapis.com/39/c3/8c/17b1359878a197/US9159404.pdf#page=22) — Front page 1: inventor names and assignee. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9159404B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9159404B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6930349B2](https://patents.google.com/patent/US6930349B2/en) — Replaced the former selection US6930349B2 with US9159404B2. The former publication identifies Winbond Electronics Corp; this is a new editorial selection, not renumbering or proof of assignment. [US6930349B2 · Former Record Check · Published 2005-08-16 · p. 1](https://patentimages.storage.googleapis.com/36/83/a5/c067f42cc5475b/US6930349.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9484072B1 (Recorded active)](https://patents.google.com/patent/US9484072B1/en)<br>MIS transistors configured to be placed in programmed state and erased state<br>[US9484072B1 · Original Publication · Published 2016-11-01 · p. 27](https://patentimages.storage.googleapis.com/2e/b5/eb/a9fdafd90dfcff/US9484072.pdf#page=27) — Front page 1: inventor names and assignee. PDF page 27: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9484072B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9484072B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7245532B2](https://patents.google.com/patent/US7245532B2/en) — Replaced the former selection US7245532B2 with US9484072B1. The former publication identifies Renesas Technology Corp; this is a new editorial selection, not renumbering or proof of assignment. [US7245532B2 · Former Record Check · Published 2007-07-17 · p. 1](https://patentimages.storage.googleapis.com/7b/ab/ff/3636181512d2de/US7245532.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9893208B2 (Recorded active)](https://patents.google.com/patent/US9893208B2/en)<br>Nonvolatile memory device<br>[US9893208B2 · Original Publication · Published 2018-02-13 · p. 17](https://patentimages.storage.googleapis.com/08/ff/a8/23e83d46096195/US9893208.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9893208B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9893208B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7768832B2](https://patents.google.com/patent/US7768832B2/en) — Replaced the former selection US7768832B2 with US9893208B2. The former publication identifies Micron Technology Inc; this is a new editorial selection, not renumbering or proof of assignment. [US7768832B2 · Former Record Check · Published 2010-08-03 · p. 1](https://patentimages.storage.googleapis.com/9d/e7/94/823fb902ec02a6/US7768832.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9966141B2 (Recorded active)](https://patents.google.com/patent/US9966141B2/en)<br>Nonvolatile memory cell employing hot carrier effect for data storage<br>[US9966141B2 · Original Publication · Published 2018-05-08 · p. 17](https://patentimages.storage.googleapis.com/29/03/1a/1083cc6e8e87d0/US9966141.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9966141B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9966141B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8760927B2](https://patents.google.com/patent/US8760927B2/en) — Replaced the former selection US8760927B2 with US9966141B2. The former publication identifies Texas Instruments Inc; this is a new editorial selection, not renumbering or proof of assignment. [US8760927B2 · Former Record Check · Published 2014-06-24 · p. 1](https://patentimages.storage.googleapis.com/43/b0/ad/8d8bfed5cef21a/US8760927.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | TSMC, UMC, IBM, LFoundry, SilTerra, SMIC, GF (Over 2 billion chips in production (corporate overview))<br>[NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Logos listed in a one-page overview without a publication date in its content; historical support, not current availability on every node.<br>[NSCore corporate overview · Checked 2026-10-15 · p. 1](https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf#page=1) — Track record for the memory series, with no statistical date; not a current shipment total and not convertible to wafers. |
 | 07. Attopsemi<br>Attopsemi Technology Co., Ltd.<br>[Official Company Name · Checked 2026-10-15](https://www.attopsemi.com/about-us/background/) — Attopsemi Technology Co., Ltd. is the official English name. Attopsemi and Attopsemi Technology are short forms; I-fuse is a product name. Quadlink Technology Inc. is a different company, not an alias. The company page has no publication date. / [Quadlink Official Website · Checked 2026-10-15](https://www.quadlink-tech.com/zh-tw/) — Quadlink identifies itself as a separate IoT company.<br>The two former publication links were misattributed and are retained as correction references. The selected replacements are US9711237B2 and US10923204B2; both issued front pages name Attopsemi as assignee. Product linkage is a technical comparison, not company patent marking or a current ownership determination.<br>[Founder and Inventor Names · Checked 2026-10-15](https://www.attopsemi.com/about-us/founder/) — The official founder pages identify Shine Chung. Both selected issued patents list only Shine C. Chung as inventor. These sources do not provide a complete R&D team roster; no additional Chinese names or doctorate are inferred. / [Official Chinese Founder Page · Checked 2026-10-15](https://www.attopsemi.com/zh-hant/about-us/founder/) — The Chinese and English biographies describe the same founder and career. | I-fuse® (Electrical-fuse OTP) | I-fuse®: Heat-assisted electromigration raises fuse resistance for storage. Low-bias concurrent write/read changes the sensed output during testing without changing the stored state. | [US9711237B2 (Recorded active)](https://patents.google.com/patent/US9711237B2/en)<br>Method and Structure for Reliable Electrical Fuse Programming<br>[Issued Claims and Front Page · Published 2017-07-18 · p. 86](https://patentimages.storage.googleapis.com/7a/f8/cc/c3412a952ca0d0/US9711237.pdf#page=86) — Claims are on PDF page 86; applicant, inventor and grant assignee are on page 1. The claimed priority chain starts in 2010; priority entitlement must be assessed per claim.<br>[Official I-fuse Technical Comparison · Checked 2026-10-15 · p. 4](https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf#page=4) — Editorial comparison of the disclosed mechanism with the company white paper; not a company-issued patent-to-product list.<br>[Recorded Status Source · Checked 2026-10-15](https://patents.google.com/patent/US9711237B2/en) — Google Patents indexes this publication as active on the check date; this is not an independent legal determination. No definitive expiry date is assigned.<br>Correction History · [US9165979B2](https://patents.google.com/patent/US9165979B2/en) — Formerly misattributed publication; its original source is retained for correction history. This replacement is an editorial selection, not a renumbering of the same patent. [Attribution Conflict · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/27/08/2b/1cf4773783dab8/US9165979.pdf#page=1) — The 2015 issued front page lists applicant Bao Tran; no assignee is printed. This does not support the recorded Attopsemi attribution. The former analysis is now replaced by a sourced dossier; this correction does not determine current ownership., [US10923204B2 (Recorded active)](https://patents.google.com/patent/US10923204B2/en)<br>Fully Testible OTP Memory<br>[Issued Claims and Front Page · Published 2021-02-16 · p. 104](https://patentimages.storage.googleapis.com/5a/c4/01/5bfedc209dd86d/US10923204.pdf#page=104) — Claims are on PDF page 104; applicant, inventor and grant assignee are on page 1. The claimed priority chain starts in 2010; priority entitlement must be assessed per claim.<br>[Official I-fuse Technical Comparison · Checked 2026-10-15 · p. 10](https://www.attopsemi.com/wp-content/uploads/2022/09/WP_I-fuse%C2%AE-Most-Reliable-and-Fully-Testable-OTP_V1_01.pdf#page=10) — Editorial comparison of the disclosed mechanism with the company white paper; not a company-issued patent-to-product list.<br>[Recorded Status Source · Checked 2026-10-15](https://patents.google.com/patent/US10923204B2/en) — Google Patents indexes this publication as active on the check date; this is not an independent legal determination. No definitive expiry date is assigned.<br>Correction History · [US9613943B2](https://patents.google.com/patent/US9613943B2/en) — Formerly misattributed publication; its original source is retained for correction history. This replacement is an editorial selection, not a renumbering of the same patent. [Attribution Conflict · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/e1/d0/d6/f411c1c5cf517b/US9613943.pdf#page=1) — The 2017 issued front page lists Micron Technology, Inc. as applicant and assignee. This does not support the recorded Attopsemi attribution. The former analysis is now replaced by a sourced dossier; this correction does not determine current ownership. | X-FAB: 180nm I-fuse platform (150+ customers (not shipment volume))<br>[Attopsemi / X-FAB platform announcement · Published 2025-02-27](https://www.attopsemi.com/attopsemi-expands-its-proven-i-fuse-otp-portfolio-on-x-fabs-180nm-platform/) — Applies to the announced platform and I-fuse offering; not an exhaustive partner list or qualification across all nodes.<br>[Attopsemi official homepage · Checked 2026-10-15](https://www.attopsemi.com/) — No statistical date; wafer figures on the same page alternate between total and monthly labels, so they are not used as a verified shipment total. |
-| 08. Floadia | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Low-field Fowler-Nordheim (FN) tunneling for both program and erase, preventing impact ionization defects and extending gate oxide endurance; LEE: Electrons trapped in localized energy levels within insulating silicon nitride, preventing single-defect pinhole discharging; robust under high thermal stress | [US9214470B2 (Recorded active)](https://patents.google.com/patent/US9214470B2/en), [US6388293B1 (Recorded expired)](https://patents.google.com/patent/US6388293B1/en), [US6853583B2 (Recorded expired)](https://patents.google.com/patent/US6853583B2/en), [US9847343B2 (Recorded active)](https://patents.google.com/patent/US9847343B2/en), [US10840251B2 (Recorded active)](https://patents.google.com/patent/US10840251B2/en) | TSMC 130nm BCD; HHGrace 180nm; Powerchip 90nm (Over 30,000 12-inch wafers; 3 SoCs (2018))<br>[Floadia company history · Checked 2026-10-15](https://floadia.com/about/) — Company history supports TSMC 130BCD+; the announcements below support Powerchip 90nm and HHGrace 180BCD, with platform stages kept separate. / [Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production. / [Floadia / HHGrace platform announcement · Published 2021-11-16](https://floadia.com/news/1100/) — HHGrace 180BCD ZT availability; article dated 2021-11-15, with customer production in 2022 described as a plan.<br>[Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production. |
-| 09. SST (Microchip) | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Source-Side Injection (SSI) high-speed low-power hot-electron write; localized high-field FN tunneling erase from floating-gate polysilicon tip to Erase Gate (EG) | [US5029130A (Recorded expired)](https://patents.google.com/patent/US5029130A/en), [US6747310B2 (Recorded expired)](https://patents.google.com/patent/US6747310B2/en), [US8217444B2 (Recorded active)](https://patents.google.com/patent/US8217444B2/en), [US8946797B2 (Recorded active)](https://patents.google.com/patent/US8946797B2/en), [US10658032B2 (Recorded active)](https://patents.google.com/patent/US10658032B2/en) | TSMC, UMC, GF, SMIC, HHGrace and others (150 billion SuperFlash units shipped)<br>[SST foundry availability table · Checked 2026-10-15](https://www.sst.com/foundry-availability/) — Examples from the table; node states differ, including Production and Tested, so not all listed partners and nodes are in production.<br>[Microchip / SST official announcement · Published 2026-03-17](https://www.microchip.com/en-us/about/news-releases/products/mythic-selects-membrain-technology-from-sst-for-its-next-gen-ultra-low-power-apus) — Historical cumulative SuperFlash shipments, not wafers and not shipments of Mythic APUs or the new memBrain generation. |
-| 10. Everspin | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); STT-MRAM (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequential current pulses on orthogonal write lines generate a rotating magnetic field, rotating SAF free-layer magnetic moments 180°; unselected cells experience sub-threshold fields and do not switch; STT-MRAM: Spin-polarized current traverses MgO barrier, transferring angular momentum to CoFeB perpendicular free layer to induce switching; read senses tunneling magnetoresistance (TMR) | [US6545906B1 (Recorded expired)](https://patents.google.com/patent/US6545906B1/en), [US7599207B2 (Recorded expired)](https://patents.google.com/patent/US7599207B2/en), [US8488373B2 (Recorded active)](https://patents.google.com/patent/US8488373B2/en), [US9087588B2 (Recorded active)](https://patents.google.com/patent/US9087588B2/en), [US10886461B2 (Recorded active)](https://patents.google.com/patent/US10886461B2/en) | GF 300mm STT-MRAM; captive Chandler 200mm BEOL (Over 200 million MRAM products deployed)<br>[Everspin 2025 Form 10-K · Published 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — GF is an external foundry; Chandler is captive BEOL processing in a leased facility, not a foundry partner. The prior UMC 22ULL claim is not supported by this report.<br>[Everspin / Quintauris partnership announcement · Published 2025-10-01](https://investor.everspin.com/node/11516) — Cumulative MRAM products deployed as stated in the announcement; not wafer production or annual shipments. |
-| 11. Weebit Nano | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Electric field drives oxygen vacancy migration forming or dissolving silicon-rich conductive nano-filaments, switching between High Resistance State (HRS) and Low Resistance State (LRS) | [US6815781B2 (Recorded expired)](https://patents.google.com/patent/US6815781B2/en), [US6849891B1 (Recorded expired)](https://patents.google.com/patent/US6849891B1/en), [US10141505B2 (Recorded active)](https://patents.google.com/patent/US10141505B2/en), [US10580980B2 (Recorded active)](https://patents.google.com/patent/US10580980B2/en), [US11171286B2 (Recorded active)](https://patents.google.com/patent/US11171286B2/en) | DB HiTek 130nm; SkyWater S130 (Customer integration; cumulative shipments not verified)<br>[Weebit official product catalog · Checked 2026-10-15](https://www.weebit-nano.com/products/) — Two foundry platforms listed in the product catalog; collaboration, qualification and customer volume production are separate stages. The prior GF 22FDX claim was not substantiated.<br>[Weebit 2025 targets report · Published 2026-01-05](https://www.weebit-nano.com/news/press-releases/weebit-nano-reports-on-2025-targets-achievement/) — Reports licensing, DB HiTek qualification and customer integration progress, without a verifiable cumulative commercial chip or wafer shipment count. |
-| 12. PUFsecurity | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Captures atomic-level gate oxide thickness and trap variations; differential common-mode rejection cancels temperature drift, outputting stable silicon DNA fingerprints | [US7243236B2 (Recorded expired)](https://patents.google.com/patent/US7243236B2/en), [US7840804B2 (Recorded expired)](https://patents.google.com/patent/US7840804B2/en), [US10651268B2 (Recorded active)](https://patents.google.com/patent/US10651268B2/en), [US10769300B2 (Recorded active)](https://patents.google.com/patent/US10769300B2/en), [US11394553B2 (Recorded active)](https://patents.google.com/patent/US11394553B2/en), [US11880479B2 (Recorded active)](https://patents.google.com/patent/US11880479B2/en) | Security-business platforms: TSMC, Intel, UMC, GF (Secure OTP production capability; shipment total unverified)<br>[eMemory company briefing · Published 2026-08-19 · p. 19](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=19) — PDF p. 19 (printed p. 21) covers security-business collaboration; not a qualification list for all PUFsecurity IP or nodes, including N6/N5/N3.<br>[PUFsecurity Secure OTP product page · Checked 2026-10-15](https://www.pufsecurity.com/products/secure-otp/) — The page describes up to 128kb of mass-production OTP functionality; this is capacity and capability, not cumulative chips or adoption across all security IP. |
+| 08. Floadia<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/63/6d/51/0c81760d301f5d/US9646979.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | LEE (0-Mask MTP (Zero Additional Mask Logic MTP)); LEE (Charge-Trap eFlash (Charge-Trap Embedded Flash Memory)) | LEE: Local Voltage Drop Enables Source-Side Injection; LEE: Charge Storage, Gate Isolation and Co-Fabrication | [US9646979B2 (Recorded active)](https://patents.google.com/patent/US9646979B2/en)<br>Non-volatile semiconductor storage device<br>[US9646979B2 · Original Publication · Published 2017-05-09 · p. 23](https://patentimages.storage.googleapis.com/63/6d/51/0c81760d301f5d/US9646979.pdf#page=23) — Front page 1: inventor names and assignee. PDF page 23: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9646979B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9646979B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US9214470B2](https://patents.google.com/patent/US9214470B2/en) — Replaced the former selection US9214470B2 with US9646979B2. The former publication identifies SK Hynix Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9214470B2 · Former Record Check · Published 2015-12-15 · p. 1](https://patentimages.storage.googleapis.com/67/f3/11/98d85a76b8b0f3/US9214470.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10074658B2 (Recorded active)](https://patents.google.com/patent/US10074658B2/en)<br>Non-volatile SRAM memory cell and non-volatile semiconductor storage device<br>[US10074658B2 · Original Publication · Published 2018-09-11 · p. 21](https://patentimages.storage.googleapis.com/fc/e3/f1/a94765cfd2eca9/US10074658.pdf#page=21) — Front page 1: inventor names and assignee. PDF page 21: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10074658B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10074658B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6388293B1](https://patents.google.com/patent/US6388293B1/en) — Replaced the former selection US6388293B1 with US10074658B2. The former publication identifies Halo LSI Design & Device Technology Inc.; New Halo Inc.; this is a new editorial selection, not renumbering or proof of assignment. [US6388293B1 · Former Record Check · Published 2002-05-14 · p. 1](https://patentimages.storage.googleapis.com/be/8a/57/d5f443938a7ad8/US6388293.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10381446B2 (Recorded active)](https://patents.google.com/patent/US10381446B2/en)<br>Memory cell and non-volatile semiconductor storage device<br>[US10381446B2 · Original Publication · Published 2019-08-13 · p. 18](https://patentimages.storage.googleapis.com/96/a2/cb/6a551c2d0c1d30/US10381446.pdf#page=18) — Front page 1: inventor names and assignee. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10381446B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10381446B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6853583B2](https://patents.google.com/patent/US6853583B2/en) — Replaced the former selection US6853583B2 with US10381446B2. The former publication identifies Impinj Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6853583B2 · Former Record Check · Published 2005-02-08 · p. 1](https://patentimages.storage.googleapis.com/40/bb/26/badfccc94e0cde/US6853583.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10431589B2 (Recorded active)](https://patents.google.com/patent/US10431589B2/en)<br>Memory cell, semiconductor integrated circuit device, and method for manufacturing semiconductor integrated circuit device<br>[US10431589B2 · Original Publication · Published 2019-10-01 · p. 44](https://patentimages.storage.googleapis.com/50/33/c2/e41b7a007e37d1/US10431589.pdf#page=44) — Front page 1: inventor names and assignee. PDF page 44: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10431589B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10431589B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US9847343B2](https://patents.google.com/patent/US9847343B2/en) — Replaced the former selection US9847343B2 with US10431589B2. The former publication identifies SK Hynix Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9847343B2 · Former Record Check · Published 2017-12-19 · p. 1](https://patentimages.storage.googleapis.com/32/25/69/5c8cdb6e3d1ce3/US9847343.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US10615168B2 (Recorded active)](https://patents.google.com/patent/US10615168B2/en)<br>Memory cell, semiconductor integrated circuit device, and method for manufacturing semiconductor integrated circuit device<br>[US10615168B2 · Original Publication · Published 2020-04-07 · p. 45](https://patentimages.storage.googleapis.com/20/e2/0d/820af2c5b5968a/US10615168.pdf#page=45) — Front page 1: inventor names and assignee. PDF page 45: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US10615168B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US10615168B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10840251B2](https://patents.google.com/patent/US10840251B2/en) — Replaced the former selection US10840251B2 with US10615168B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US10840251B2 · Former Record Check · Published 2020-11-17 · p. 1](https://patentimages.storage.googleapis.com/08/65/23/c84c7d04687511/US10840251.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | TSMC 130nm BCD; HHGrace 180nm; Powerchip 90nm (Over 30,000 12-inch wafers; 3 SoCs (2018))<br>[Floadia company history · Checked 2026-10-15](https://floadia.com/about/) — Company history supports TSMC 130BCD+; the announcements below support Powerchip 90nm and HHGrace 180BCD, with platform stages kept separate. / [Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production. / [Floadia / HHGrace platform announcement · Published 2021-11-16](https://floadia.com/news/1100/) — HHGrace 180BCD ZT availability; article dated 2021-11-15, with customer production in 2022 described as a plan.<br>[Floadia / Powerchip production announcement · Published 2018-09-25](https://floadia.com/news/875/) — Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production. |
+| 09. SST (Microchip)<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | SuperFlash® (Split-Gate eFlash (Split-Gate Embedded Flash Memory)) | SuperFlash®: Hot-Electron Injection, FN Erase and Field Control | [US5029130A (Recorded expired)](https://patents.google.com/patent/US5029130A/en)<br>Single transistor non-valatile electrically alterable semiconductor memory device<br>[US5029130A · Original Publication · Published 1991-07-02 · p. 15](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US5029130A · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US5029130A/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US5029130A](https://patents.google.com/patent/US5029130A/en) — US5029130A: retained publication; inventor names, claim reading and context corrected from the original. [US5029130A · Former Record Check · Published 1991-07-02 · p. 1](https://patentimages.storage.googleapis.com/7e/12/56/762c7a32dd329a/US5029130.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US5242848A (Recorded expired)](https://patents.google.com/patent/US5242848A/en)<br>Self-aligned method of making a split gate single transistor non-volatile electrically alterable semiconductor memory device<br>[US5242848A · Original Publication · Published 1993-09-07 · p. 16](https://patentimages.storage.googleapis.com/80/a2/d2/c671fb866c6623/US5242848.pdf#page=16) — Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US5242848A · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US5242848A/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6747310B2](https://patents.google.com/patent/US6747310B2/en) — Replaced the former selection US6747310B2 with US5242848A. The former publication identifies ACTRANS SYSTEM Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6747310B2 · Former Record Check · Published 2004-06-08 · p. 1](https://patentimages.storage.googleapis.com/9b/eb/1b/eff652a750b8e4/US6747310.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6627942B2 (Recorded expired)](https://patents.google.com/patent/US6627942B2/en)<br>Self-aligned floating gate poly for a flash E2PROM cell<br>[US6627942B2 · Original Publication · Published 2003-09-30 · p. 5](https://patentimages.storage.googleapis.com/76/7a/61/fc4ee0eb6e7c1b/US6627942.pdf#page=5) — Front page 1: inventor names and assignee. PDF page 5: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6627942B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6627942B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8217444B2](https://patents.google.com/patent/US8217444B2/en) — Replaced the former selection US8217444B2 with US6627942B2. The former publication identifies Toshiba Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8217444B2 · Former Record Check · Published 2012-07-10 · p. 1](https://patentimages.storage.googleapis.com/88/c2/c7/14a5964d8c9afa/US8217444.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6563167B2 (Recorded expired)](https://patents.google.com/patent/US6563167B2/en)<br>Semiconductor memory array of floating gate memory cells with floating gates having multiple sharp edges<br>[US6563167B2 · Original Publication · Published 2003-05-13 · p. 17](https://patentimages.storage.googleapis.com/56/61/c5/185ecb202721ce/US6563167.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6563167B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6563167B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8946797B2](https://patents.google.com/patent/US8946797B2/en) — Replaced the former selection US8946797B2 with US6563167B2. The former publication identifies Sony Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8946797B2 · Former Record Check · Published 2015-02-03 · p. 1](https://patentimages.storage.googleapis.com/f1/3a/b3/356d7b797ae410/US8946797.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6727545B2 (Recorded expired)](https://patents.google.com/patent/US6727545B2/en)<br>Semiconductor memory array of floating gate memory cells with low resistance source regions and high source coupling<br>[US6727545B2 · Original Publication · Published 2004-04-27 · p. 28](https://patentimages.storage.googleapis.com/19/27/e3/bc377c77ee5d07/US6727545.pdf#page=28) — Front page 1: inventor names and assignee. PDF page 28: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6727545B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6727545B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10658032B2](https://patents.google.com/patent/US10658032B2/en) — Replaced the former selection US10658032B2 with US6727545B2. The former publication identifies STMicroelectronics SRL; this is a new editorial selection, not renumbering or proof of assignment. [US10658032B2 · Former Record Check · Published 2020-05-19 · p. 1](https://patentimages.storage.googleapis.com/4f/31/32/a7578d92413e22/US10658032.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | TSMC, UMC, GF, SMIC, HHGrace and others (150 billion SuperFlash units shipped)<br>[SST foundry availability table · Checked 2026-10-15](https://www.sst.com/foundry-availability/) — Examples from the table; node states differ, including Production and Tested, so not all listed partners and nodes are in production.<br>[Microchip / SST official announcement · Published 2026-03-17](https://www.microchip.com/en-us/about/news-releases/products/mythic-selects-membrain-technology-from-sst-for-its-next-gen-ultra-low-power-apus) — Historical cumulative SuperFlash shipments, not wafers and not shipments of Mythic APUs or the new memBrain generation. |
+| 10. Everspin<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | Toggle (Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory)); Everspin (STT-MRAM (Spin-Transfer Torque Magnetic Memory)) | Toggle: Sequenced Overlapping Field Pulses Switch Magnetization; Everspin: Magnetic Coupling, Spin Torque and Barrier-Stress Control | [US6545906B1 (Recorded expired)](https://patents.google.com/patent/US6545906B1/en)<br>Method of writing to scalable magnetoresistance random access memory element<br>[US6545906B1 · Original Publication · Published 2003-04-08 · p. 12](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=12) — Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6545906B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6545906B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6545906B1](https://patents.google.com/patent/US6545906B1/en) — US6545906B1: retained publication; inventor names, claim reading and context corrected from the original. [US6545906B1 · Former Record Check · Published 2003-04-08 · p. 1](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US8497538B2 (Recorded active)](https://patents.google.com/patent/US8497538B2/en)<br>MRAM synthetic antiferromagnet structure<br>[US8497538B2 · Original Publication · Published 2013-07-30 · p. 7](https://patentimages.storage.googleapis.com/f6/21/a2/e447374e468db3/US8497538.pdf#page=7) — Front page 1: inventor names and assignee. PDF page 7: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US8497538B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US8497538B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7599207B2](https://patents.google.com/patent/US7599207B2/en) — Replaced the former selection US7599207B2 with US8497538B2. The former publication identifies Oki Semiconductor Co Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7599207B2 · Former Record Check · Published 2009-10-06 · p. 1](https://patentimages.storage.googleapis.com/a2/2d/0d/3f8a50cd077da5/US7599207.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9391264B2 (Recorded expired)](https://patents.google.com/patent/US9391264B2/en)<br>MRAM having an unpinned, fixed synthetic anti-ferromagnetic structure<br>[US9391264B2 · Original Publication · Published 2016-07-12 · p. 8](https://patentimages.storage.googleapis.com/e2/8a/19/7a85ea9e6a31c1/US9391264.pdf#page=8) — Front page 1: inventor names and assignee. PDF page 8: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9391264B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9391264B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US8488373B2](https://patents.google.com/patent/US8488373B2/en) — Replaced the former selection US8488373B2 with US9391264B2. The former publication identifies Toshiba Corp; TDK Corp; this is a new editorial selection, not renumbering or proof of assignment. [US8488373B2 · Former Record Check · Published 2013-07-16 · p. 1](https://patentimages.storage.googleapis.com/b7/30/ba/b9d0956bb033fd/US8488373.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9159906B2 (Recorded active)](https://patents.google.com/patent/US9159906B2/en)<br>Spin-torque magnetoresistive memory element and method of fabricating same<br>[US9159906B2 · Original Publication · Published 2015-10-13 · p. 17](https://patentimages.storage.googleapis.com/36/ac/bf/c039d71e4bf019/US9159906.pdf#page=17) — Front page 1: inventor names and assignee. PDF page 17: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9159906B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9159906B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US9087588B2](https://patents.google.com/patent/US9087588B2/en) — Replaced the former selection US9087588B2 with US9159906B2. The former publication identifies Rangduru Inc; this is a new editorial selection, not renumbering or proof of assignment. [US9087588B2 · Former Record Check · Published 2015-07-21 · p. 1](https://patentimages.storage.googleapis.com/6e/ea/bf/0aff8ad49a5548/US9087588.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US9286963B2 (Recorded active)](https://patents.google.com/patent/US9286963B2/en)<br>Method of writing to a spin torque magnetic random access memory<br>[US9286963B2 · Original Publication · Published 2016-03-15 · p. 10](https://patentimages.storage.googleapis.com/49/06/c9/a2ff5ddb5d48e3/US9286963.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US9286963B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US9286963B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10886461B2](https://patents.google.com/patent/US10886461B2/en) — Replaced the former selection US10886461B2 with US9286963B2. The former publication identifies Taiwan Semiconductor Manufacturing Co TSMC Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US10886461B2 · Former Record Check · Published 2021-01-05 · p. 1](https://patentimages.storage.googleapis.com/ca/d3/fe/c4248a6a8a171a/US10886461.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | GF 300mm STT-MRAM; captive Chandler 200mm BEOL (Over 200 million MRAM products deployed)<br>[Everspin 2025 Form 10-K · Published 2026-03-04](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm) — GF is an external foundry; Chandler is captive BEOL processing in a leased facility, not a foundry partner. The prior UMC 22ULL claim is not supported by this report.<br>[Everspin / Quintauris partnership announcement · Published 2025-10-01](https://investor.everspin.com/node/11516) — Cumulative MRAM products deployed as stated in the announcement; not wafer production or annual shipments. |
+| 11. Weebit Nano<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/3e/31/74/e467cdb4ef2853/US11538524.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | Weebit (OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory)) | Weebit: Resistance States, Terminal Bias and Parallel Set/Reset | [US11538524B2 (Recorded active)](https://patents.google.com/patent/US11538524B2/en)<br>Silicon over insulator two-transistor two-resistor in-series resistive memory cell<br>[US11538524B2 · Original Publication · Published 2022-12-27 · p. 9](https://patentimages.storage.googleapis.com/3e/31/74/e467cdb4ef2853/US11538524.pdf#page=9) — Front page 1: inventor names and assignee. PDF page 9: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11538524B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11538524B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6815781B2](https://patents.google.com/patent/US6815781B2/en) — Replaced the former selection US6815781B2 with US11538524B2. The former publication identifies Matrix Semiconductor Inc; this is a new editorial selection, not renumbering or proof of assignment. [US6815781B2 · Former Record Check · Published 2004-11-09 · p. 1](https://patentimages.storage.googleapis.com/b6/15/b6/68cd4a2af77052/US6815781.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US6849891B1 (Recorded expired)](https://patents.google.com/patent/US6849891B1/en)<br>RRAM memory cell electrodes<br>[US6849891B1 · Original Publication · Published 2005-02-01 · p. 5](https://patentimages.storage.googleapis.com/00/36/8d/224abb21a5fbe2/US6849891.pdf#page=5) — Front page 1: inventor names and assignee. PDF page 5: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US6849891B1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US6849891B1/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US6849891B1](https://patents.google.com/patent/US6849891B1/en) — US6849891B1: retained publication; inventor names, claim reading and context corrected from the original. [US6849891B1 · Former Record Check · Published 2005-02-01 · p. 1](https://patentimages.storage.googleapis.com/00/36/8d/224abb21a5fbe2/US6849891.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11659720B2 (Recorded active)](https://patents.google.com/patent/US11659720B2/en)<br>Silicon over insulator two-transistor one-resistor in-series resistive memory cell<br>[US11659720B2 · Original Publication · Published 2023-05-23 · p. 11](https://patentimages.storage.googleapis.com/dd/db/f1/1386e7769bf552/US11659720.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11659720B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11659720B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10141505B2](https://patents.google.com/patent/US10141505B2/en) — Replaced the former selection US10141505B2 with US11659720B2. The former publication identifies Lam Research Corporation; this is a new editorial selection, not renumbering or proof of assignment. [US10141505B2 · Former Record Check · Published 2018-11-27](https://patents.google.com/patent/US10141505B2/en) — Index identity checked; the original PDF could not be retrieved and was not claimed as reviewed., [US12068028B2 (Recorded active)](https://patents.google.com/patent/US12068028B2/en)<br>Circuitry for parallel set and reset of resistive random-access memory (ReRAM) cells<br>[US12068028B2 · Original Publication · Published 2024-08-20 · p. 13](https://patentimages.storage.googleapis.com/45/67/87/ea49c43089b5d1/US12068028.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US12068028B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US12068028B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10580980B2](https://patents.google.com/patent/US10580980B2/en) — Replaced the former selection US10580980B2 with US12068028B2. The former publication identifies Ovonyx Memory Technology LLC; this is a new editorial selection, not renumbering or proof of assignment. [US10580980B2 · Former Record Check · Published 2020-03-03 · p. 1](https://patentimages.storage.googleapis.com/0c/b9/af/c38c699d2bf775/US10580980.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US20220122660A1 (Needs verification)](https://patents.google.com/patent/US20220122660A1/en)<br>Configuration and method of operation of a one-transistor two-resistors (1t2r) resistive memory (reram) cell and an array thereof<br>[US20220122660A1 · Original Publication · Published 2022-04-21 · p. 9](https://patentimages.storage.googleapis.com/d6/97/a8/e2beff1f9356db/US20220122660A1.pdf#page=9) — Front page 1: inventor names and assignee. PDF page 9: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US20220122660A1 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US20220122660A1/en) — Application publication; grant and current legal status remain unverified.<br>Correction History · [US11171286B2](https://patents.google.com/patent/US11171286B2/en) — Replaced the former selection US11171286B2 with US20220122660A1. The former publication identifies Tokyo Electron Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US11171286B2 · Former Record Check · Published 2021-11-09 · p. 1](https://patentimages.storage.googleapis.com/d5/15/6d/ebbd06571b286f/US11171286.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | DB HiTek 130nm; SkyWater S130 (Customer integration; cumulative shipments not verified)<br>[Weebit official product catalog · Checked 2026-10-15](https://www.weebit-nano.com/products/) — Two foundry platforms listed in the product catalog; collaboration, qualification and customer volume production are separate stages. The prior GF 22FDX claim was not substantiated.<br>[Weebit 2025 targets report · Published 2026-01-05](https://www.weebit-nano.com/news/press-releases/weebit-nano-reports-on-2025-targets-achievement/) — Reports licensing, DB HiTek qualification and customer integration progress, without a verifiable cumulative commercial chip or wafer shipment count. |
+| 12. PUFsecurity<br>Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.<br>[Selected Publication Personnel · Checked 2026-10-15 · p. 1](https://patentimages.storage.googleapis.com/65/1d/9d/f90debd88f18c3/US11121884.pdf#page=1) — Names follow the selected front pages, not a founder, executive or complete R&D roster; no inferred Chinese transliterations. | PUFrt (Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust)) | PUFrt: Challenge-Response, Re-Encryption, Entropy Mixing and Derivation | [US11121884B2 (Recorded active)](https://patents.google.com/patent/US11121884B2/en)<br>Electronic system capable of self-certification<br>[US11121884B2 · Original Publication · Published 2021-09-14 · p. 11](https://patentimages.storage.googleapis.com/65/1d/9d/f90debd88f18c3/US11121884.pdf#page=11) — Front page 1: inventor names and assignee. PDF page 11: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11121884B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11121884B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7243236B2](https://patents.google.com/patent/US7243236B2/en) — Replaced the former selection US7243236B2 with US11121884B2. The former publication identifies Intertrust Technologies Corp; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US7243236B1. [US7243236B1 · Former Record Check · Published 2007-07-10 · p. 1](https://patentimages.storage.googleapis.com/6e/cd/85/aa840931a633a0/US7243236.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11502832B2 (Recorded active)](https://patents.google.com/patent/US11502832B2/en)<br>Electronic device capable of protecting confidential data<br>[US11502832B2 · Original Publication · Published 2022-11-15 · p. 8](https://patentimages.storage.googleapis.com/7c/86/38/f55f47d49a033e/US11502832.pdf#page=8) — Front page 1: inventor names and assignee. PDF page 8: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11502832B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11502832B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US7840804B2](https://patents.google.com/patent/US7840804B2/en) — Replaced the former selection US7840804B2 with US11502832B2. The former publication identifies Hitachi Ltd; this is a new editorial selection, not renumbering or proof of assignment. [US7840804B2 · Former Record Check · Published 2010-11-23 · p. 1](https://patentimages.storage.googleapis.com/17/6a/2b/a399032b20b738/US7840804.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11381394B2 (Recorded active)](https://patents.google.com/patent/US11381394B2/en)<br>High speed encryption key generating engine<br>[US11381394B2 · Original Publication · Published 2022-07-05 · p. 10](https://patentimages.storage.googleapis.com/69/b0/87/e4bba40ba3fd82/US11381394.pdf#page=10) — Front page 1: inventor names and assignee. PDF page 10: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11381394B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11381394B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10651268B2](https://patents.google.com/patent/US10651268B2/en) — Replaced the former selection US10651268B2 with US11381394B2. The former publication identifies Qualcomm Inc; this is a new editorial selection, not renumbering or proof of assignment. [US10651268B2 · Former Record Check · Published 2020-05-12 · p. 1](https://patentimages.storage.googleapis.com/c1/c2/56/6925f4101c3649/US10651268.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11876899B2 (Recorded active)](https://patents.google.com/patent/US11876899B2/en)<br>Random number generator and method of generating output random number<br>[US11876899B2 · Original Publication · Published 2024-01-16 · p. 14](https://patentimages.storage.googleapis.com/ce/3b/28/4fdc7b1a471996/US11876899.pdf#page=14) — Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11876899B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11876899B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US10769300B2](https://patents.google.com/patent/US10769300B2/en) — Replaced the former selection US10769300B2 with US11876899B2. The former publication identifies International Business Machines Corp; this is a new editorial selection, not renumbering or proof of assignment. [US10769300B2 · Former Record Check · Published 2020-09-08 · p. 1](https://patentimages.storage.googleapis.com/3a/0f/1f/fdc0198768a54a/US10769300.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US12113895B2 (Recorded active)](https://patents.google.com/patent/US12113895B2/en)<br>Key management system providing secure management of cryptographic keys, and methods of operating the same<br>[US12113895B2 · Original Publication · Published 2024-10-08 · p. 13](https://patentimages.storage.googleapis.com/f1/8c/d6/3eeaf6138a15cf/US12113895.pdf#page=13) — Front page 1: inventor names and assignee. PDF page 13: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US12113895B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US12113895B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US11394553B2](https://patents.google.com/patent/US11394553B2/en) — Replaced the former selection US11394553B2 with US12113895B2. The former publication identifies Citicorp Credit Services Inc USA; this is a new editorial selection, not renumbering or proof of assignment. The former kind code was also wrong; the original is US11394553B1. [US11394553B1 · Former Record Check · Published 2022-07-19 · p. 1](https://patentimages.storage.googleapis.com/0d/8d/0d/e9a27d06994980/US11394553.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication., [US11961567B2 (Recorded active)](https://patents.google.com/patent/US11961567B2/en)<br>Key storage device and key generation method<br>[US11961567B2 · Original Publication · Published 2024-04-16 · p. 15](https://patentimages.storage.googleapis.com/ef/d8/8c/2e7bd73a88d801/US11961567.pdf#page=15) — Front page 1: inventor names and assignee. PDF page 15: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.<br>[US11961567B2 · Index Status Check · Checked 2026-10-15](https://patents.google.com/patent/US11961567B2/en) — Status is an index snapshot, not a current legal determination or a verified expiration date.<br>Correction History · [US11880479B2](https://patents.google.com/patent/US11880479B2/en) — Replaced the former selection US11880479B2 with US11961567B2. The former publication identifies Bank of America Corp; this is a new editorial selection, not renumbering or proof of assignment. [US11880479B2 · Former Record Check · Published 2024-01-23 · p. 1](https://patentimages.storage.googleapis.com/a9/14/d2/d4bbde4ada496c/US11880479.pdf#page=1) — Original front-page identity check; technical interpretation was corrected against the selected publication. | Security-business platforms: TSMC, Intel, UMC, GF (Secure OTP production capability; shipment total unverified)<br>[eMemory company briefing · Published 2026-08-19 · p. 19](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=19) — PDF p. 19 (printed p. 21) covers security-business collaboration; not a qualification list for all PUFsecurity IP or nodes, including N6/N5/N3.<br>[PUFsecurity Secure OTP product page · Checked 2026-10-15](https://www.pufsecurity.com/products/secure-otp/) — The page describes up to 128kb of mass-production OTP functionality; this is capacity and capability, not cumulative chips or adoption across all security IP. |
 
 
