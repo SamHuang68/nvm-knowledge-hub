@@ -7588,10 +7588,53 @@
         "founders": "Dr. Jack Z. Peng and R&D Engineering Team",
         "businessModel": "Standard CMOS Logic 2T Gate-Oxide Breakdown Antifuse OTP IP (Standard Logic 2T Antifuse OTP IP)",
         "patentStats": {
-          "totalGrantedWorldwide": "60+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, DB HiTek",
-          "waferShipment": "Over 150 customer design wins, cumulative shipment exceeding 10 billion chips"
+          "totalGrantedWorldwide": "60 granted or pending patents (2014)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "UMC 55nm LP Gusto; DB HiTek TS11",
+          "waferShipment": "Over 10 billion units shipped (2018)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Historical Patent Disclosure",
+              "title": "Kilopass / UMC joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html",
+              "date": "2014-05-13",
+              "dateKind": "published",
+              "note": "Combined granted and pending cases, not 60 grants; not a current active-patent total."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "Kilopass / UMC joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "This announcement does not list all jurisdictions. The previous US, Taiwan, China and Europe list was not verified; customer or foundry locations do not establish patent coverage."
+            },
+            "foundryCoverage": {
+              "label": "Verified Foundry Example",
+              "title": "Kilopass / UMC joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/kilopass-gusto-tm-ultra-low-power-nvm-ip-for-code-storage-enabled-on-umc-55nm-lp-process-259032811.html",
+              "date": "2014-05-13",
+              "dateKind": "published",
+              "note": "Gusto qualified on UMC 55nm LP; limited to that product and node, not a complete partner list.",
+              "references": [
+                {
+                  "title": "DB HiTek official MS/RF portfolio",
+                  "url": "https://www.dbhitek.com/en/technology/portfolio/ms-rf",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "TS11 lists Kilopass anti-fuse IP; no update date is shown, and qualification on other nodes is not inferred."
+                }
+              ]
+            },
+            "waferShipment": {
+              "label": "Historical Cumulative Shipments",
+              "title": "Synopsys Kilopass acquisition announcement",
+              "url": "https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology",
+              "date": "2018-01-10",
+              "dateKind": "published",
+              "note": "Cumulative units using Kilopass technology at acquisition; also reported over 170 customers and 400 SoC designs, not current shipments."
+            }
+          }
         },
         "strategy": "The foundational core of Kilopass's patent portfolio pioneered the 'Controlled Gate-Oxide Hard Breakdown' architecture in standard CMOS logic. Moving away from traditional polysilicon eFuses with their high-current explosion, metal splatter, and visible optical microscope traces, Kilopass built an array patent network centered on a 2T/1.5T crosspoint topology. By connecting a select transistor and an antifuse transistor in series, Kilopass eliminated parasitic channel conduction and half-select disturb during high-voltage programming. Extending this to split-well bias isolation, Kilopass established the earliest industry patent standards for embedded logic antifuse OTP.",
         "families": [
@@ -7748,10 +7791,44 @@
         "founders": "Wlodek Kurjanowicz and R&D Engineering Team",
         "businessModel": "Standard CMOS Single-Transistor Split-Channel 1T-Fuse Antifuse IP Licensing (1T Split-Channel Antifuse OTP IP)",
         "patentStats": {
-          "totalGrantedWorldwide": "100+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Canada (CIPO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS)",
-          "waferShipment": "Over 500 commercial production tape-outs, tens of billions of silicon units shipped"
+          "totalGrantedWorldwide": "Over 100 granted or pending patents (2013)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "MagnaChip: 180nm mixed-signal / HV CMOS",
+          "waferShipment": "Over 250 customer designs (2013)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Historical Patent Disclosure",
+              "title": "Sidense / MagnaChip joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html",
+              "date": "2013-03-25",
+              "dateKind": "published",
+              "note": "Combined granted and pending cases; not over 100 grants or a current active-patent total."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "Sidense / MagnaChip joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "No complete patent-jurisdiction list is given; the previous US, Canada, China, Taiwan and Europe coverage was not directly substantiated in this review."
+            },
+            "foundryCoverage": {
+              "label": "Verified Foundry Example",
+              "title": "Sidense / MagnaChip joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html",
+              "date": "2013-03-25",
+              "dateKind": "published",
+              "note": "Qualification applies to the announced 1T-OTP offering, not all foundries, nodes or volume-production status."
+            },
+            "waferShipment": {
+              "label": "Historical Design Adoption",
+              "title": "Sidense / MagnaChip joint announcement",
+              "url": "https://www.prnewswire.com/news-releases/sidense-qualifies-1t-otp-non-volatile-memory-for-magnachip-180nm-mixed-signal-and-hv-cmos-process-199847231.html",
+              "date": "2013-03-25",
+              "dateKind": "published",
+              "note": "Design adoption, not shipped units or a count of production designs; the previous tens-of-billions shipment claim was not verified."
+            }
+          }
         },
         "strategy": "The core of Sidense's patent portfolio was the invention of the 'Single-Transistor Split-Channel Antifuse (1T-Fuse)'. Whereas Kilopass required two transistors in series, Sidense crafted an asymmetric split-channel underneath a single polysilicon gate: one section functioning as a thick-oxide/high-threshold access channel switch, and the adjacent section acting as a thin-oxide breakdown node. This innovation eliminated the separate access transistor, reducing cell area by over 50% compared to 2T cells. Combined with asymmetric lightly doped drain (LDD) masking and differential ultra-low-voltage sensing patents, Sidense eradicated read disturb and filament self-healing, becoming one of the foundry ecosystem's premier 1T OTP architectures.",
         "families": [
@@ -7896,10 +7973,45 @@
         "founders": "Hsi-Pin Kuo, Ching-Yuan Lin, and R&D Engineering Team",
         "businessModel": "Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services",
         "patentStats": {
-          "totalGrantedWorldwide": "100+ Worldwide Granted Patents",
-          "keyJurisdictions": "Taiwan (TIPO), United States (USPTO), China (CNIPA)",
-          "foundryCoverage": "UMC, SMIC, Vanguard (VIS), HHGrace, DB HiTek",
-          "waferShipment": "Hundreds of mass-produced commercial tape-outs, cumulative volume exceeding tens of billions of chips"
+          "totalGrantedWorldwide": "Dozens of domestic and international patents (2024 report)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "Over 20 foundries worldwide (not individually named)",
+          "waferShipment": "IP embedded in over 29 billion chips",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Annual Report Patent Disclosure",
+              "title": "2024 Annual Report",
+              "url": "https://www.ymc.com.tw/upload/shareholders/20250429143809428.pdf",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "PDF p. 85 (printed p. 81) says dozens obtained, without an exact or currently active total; check date is not publication date.",
+              "page": 85
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "2024 Annual Report",
+              "url": "https://www.ymc.com.tw/upload/shareholders/20250429143809428.pdf",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "PDF p. 85 states domestic and international patents without a complete list; it does not verify a complete list including the US, Taiwan and China."
+            },
+            "foundryCoverage": {
+              "label": "Reported Foundry Coverage",
+              "title": "YMC official homepage",
+              "url": "https://www.ymc.com.tw/index_en.php",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "No statistical update date or individual list is supplied; this does not verify the prior named list or qualification across all nodes."
+            },
+            "waferShipment": {
+              "label": "Reported Chip Adoption",
+              "title": "YMC official homepage",
+              "url": "https://www.ymc.com.tw/index_en.php",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Website cumulative chip count, with no statistical update date; distinct from the separately listed wafer count."
+            }
+          }
         },
         "strategy": "The core of Yield Microelectronics Corp. (YMC)'s patent portfolio centers on 'Ultra-High-Density Single-Poly MTP Architectures' and 'Corner-Edge Enhanced Localized Tunneling'. Conventional single-poly MTP cells require large footprints (50–100 F²) to achieve adequate capacitive coupling. YMC's patent network utilizes lateral coplanar coupling and corner-tip electric field enhancement, delivering 0-mask MTP cells below 30 F² in standard CMOS logic with 1,000 to 10,000 write/erase cycles. This creates an unassailable patent moat across MCUs, automotive display drivers, and power management ICs.",
         "families": [
@@ -8082,10 +8194,44 @@
         "founders": "Dr. Chris Diorio (Carnegie Mellon Professor / Impinj Co-founder) and R&D Team",
         "businessModel": "Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP",
         "patentStats": {
-          "totalGrantedWorldwide": "80+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Europe (EPO), Japan (JPO), Taiwan (TIPO)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC",
-          "waferShipment": "Billions of passive RFID tags and ultra-low-power IoT chips shipped"
+          "totalGrantedWorldwide": "Over 50 Impinj patents transferred (2008)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "Multiple foundries at 180nm (not named)",
+          "waferShipment": "Reprogrammable NVM technology in over 3 billion chips (2011)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Historical Transferred Assets",
+              "title": "Virage Logic / Impinj transaction announcement",
+              "url": "https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/dex991.htm",
+              "date": "2008-06-30",
+              "dateKind": "published",
+              "note": "Assets transferred with the logic NVM business including AEON; grants and applications are not split, and this is neither current Impinj total nor AEON-only count."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "Virage Logic / Impinj transaction announcement",
+              "url": "https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/dex991.htm",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "The transfer announcement has no complete jurisdiction list; present Impinj RFID coverage cannot be assigned to historical AEON assets."
+            },
+            "foundryCoverage": {
+              "label": "Historical Platform Support",
+              "title": "Synopsys AEON 180nm announcement",
+              "url": "https://news.synopsys.com/home?item=123295",
+              "date": "2011-06-27",
+              "dateKind": "published",
+              "note": "Several leading foundries offered 180nm IP; 65–250nm availability was also reported, without substantiating each name in the previous list."
+            },
+            "waferShipment": {
+              "label": "Historical Technology Shipments",
+              "title": "Synopsys AEON 180nm announcement",
+              "url": "https://news.synopsys.com/home?item=123295",
+              "date": "2011-06-27",
+              "dateKind": "published",
+              "note": "Cumulative reprogrammable NVM technology disclosure in the AEON announcement; not split by AEON subfamily and not present Impinj RFID shipments."
+            }
+          }
         },
         "strategy": "The core of AEON's patent strategy pioneered 'Ultra-Low-Power Bidirectional Balanced Fowler-Nordheim (FN/FN) Tunneling'. Unlike traditional Channel Hot Electron Injection (CHEI) programming which demands milliamperes of DC channel current, AEON relies on a symmetric dual-well capacitive-coupled floating-gate architecture. Both program and erase depend solely on displacement currents tunneling through the quantum energy barrier (<100pA). This breakthrough enabled MTP to be written reliably on battery-free passive RFID chips powered exclusively by ambient RF waves, subsequently scaled by Virage Logic and Synopsys into the gold standard for ULP IoT MCUs.",
         "families": [
@@ -8253,10 +8399,46 @@
         "founders": "Satoshi Seo (CEO / Founder), Kenji Hokazono and former NEC memory R&D core engineering team",
         "businessModel": "Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS)",
         "patentStats": {
-          "totalGrantedWorldwide": "50+ Granted Worldwide Patents",
-          "keyJurisdictions": "Japan (JPO), United States (USPTO), Taiwan (TIPO), China (CNIPA)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, DB HiTek",
-          "waferShipment": "Licensed across hundreds of automotive MCUs, smartcards, and industrial IoT designs; billions of units in volume shipment"
+          "totalGrantedWorldwide": "Over 30 granted patents",
+          "keyJurisdictions": "United States, Japan, Europe, China",
+          "foundryCoverage": "TSMC, UMC, IBM, LFoundry, SilTerra, SMIC, GF",
+          "waferShipment": "Over 2 billion chips in production (corporate overview)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Official Patent Portfolio",
+              "title": "NSCore patent portfolio",
+              "url": "https://www.nscore.com/technology/patent-portfolio/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "No update date is supplied; not a determination that all remain active, and applications are not added to grants."
+            },
+            "keyJurisdictions": {
+              "label": "Officially Listed Regions",
+              "title": "NSCore patent portfolio",
+              "url": "https://www.nscore.com/technology/patent-portfolio/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Uses the website regional categories; the previous Taiwan entry was not verified, and individual patents need not be granted in every region."
+            },
+            "foundryCoverage": {
+              "label": "Historical Supporting Foundries",
+              "title": "NSCore corporate overview",
+              "url": "https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Logos listed in a one-page overview without a publication date in its content; historical support, not current availability on every node.",
+              "page": 1
+            },
+            "waferShipment": {
+              "label": "Historical Chip Production",
+              "title": "NSCore corporate overview",
+              "url": "https://www.nscore.com/wp-content/themes/nscore2024/pdf/Flyer_CorporateOverview_English_20181028.pdf",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Track record for the memory series, with no statistical date; not a current shipment total and not convertible to wafers.",
+              "page": 1
+            }
+          }
         },
         "strategy": "NSCore's patent strategy fundamentally eliminates reliance on dedicated floating-gate poly masks or expensive thermal steps. The founding team recognized that the native silicon nitride/oxide sidewall spacers inherently deposited on standard CMOS gates serve naturally as deep-level charge-trapping media. By controlling localized hot-carrier injection under 100% standard CMOS compatibility (zero extra masks, zero process changes), NSCore stores independent charges on both spacers of a single transistor to deliver 2-bit/cell (TwinBit®), advancing to P-channel Schottky MTP architectures in 40nm to 22nm nodes.",
         "families": [
@@ -8420,10 +8602,44 @@
         "founders": "Dr. Shine C. Chung (Former TSMC Senior Director of NVM R&D) and Engineering Team",
         "businessModel": "Thermal-Assisted Controlled Electromigration Fuse (I-fuse®) Logic OTP IP Licensing & Design Services",
         "patentStats": {
-          "totalGrantedWorldwide": "70+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO), Japan (JPO)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, Vanguard (VIS), PSMC, Tower Semiconductor",
-          "waferShipment": "Hundreds of automotive and IoT customer tape-outs, billions of units shipped"
+          "totalGrantedWorldwide": "90+ granted patents",
+          "keyJurisdictions": "United States, Taiwan, China, United Kingdom",
+          "foundryCoverage": "X-FAB: 180nm I-fuse platform",
+          "waferShipment": "150+ customers (not shipment volume)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Official Patent Disclosure",
+              "title": "Attopsemi official homepage",
+              "url": "https://www.attopsemi.com/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "No statistical update date is given; retains the reported 90+ rather than creating a new total by adding regional numbers."
+            },
+            "keyJurisdictions": {
+              "label": "Officially Listed Grant Regions",
+              "title": "Attopsemi official homepage",
+              "url": "https://www.attopsemi.com/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "The website lists USA, TWN, CHN and UK; UK does not establish coverage throughout Europe, and the previous Japan entry was not verified."
+            },
+            "foundryCoverage": {
+              "label": "Verified Foundry Example",
+              "title": "Attopsemi / X-FAB platform announcement",
+              "url": "https://www.attopsemi.com/attopsemi-expands-its-proven-i-fuse-otp-portfolio-on-x-fabs-180nm-platform/",
+              "date": "2025-02-27",
+              "dateKind": "published",
+              "note": "Applies to the announced platform and I-fuse offering; not an exhaustive partner list or qualification across all nodes."
+            },
+            "waferShipment": {
+              "label": "Reported Customer Adoption",
+              "title": "Attopsemi official homepage",
+              "url": "https://www.attopsemi.com/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "No statistical date; wafer figures on the same page alternate between total and monthly labels, so they are not used as a verified shipment total."
+            }
+          }
         },
         "strategy": "Attopsemi's patent portfolio pioneered the 'Non-Explosive Thermal-Assisted Electromigration Fuse (I-fuse®)'. Conventional eFuses rely on high-current thermal runaway explosions during programming, fracturing passivation layers, producing conductive debris, and risking post-burn re-growth. Antifuse technologies face dielectric breakdown uniformity challenges. Dr. Shine Chung invented a mechanism operating in 'Sub-Thermal Runaway' conditions, where precisely controlled electron wind forces drive mass transport of polysilicon or metal atoms to form a permanent, irreversible ohmic open state. This invention delivers 0-mask integration, ultra-low programming voltage/current, and exceptional tolerance from -40°C to 175°C automotive extremes across 0.35µm down to 2nm GAA nodes.",
         "families": [
@@ -8537,10 +8753,61 @@
         "founders": "Kosuke Okuyama and former Renesas Memory R&D Team",
         "businessModel": "Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing",
         "patentStats": {
-          "totalGrantedWorldwide": "90+ Worldwide Granted Patents",
-          "keyJurisdictions": "Japan (JPO), United States (USPTO), Taiwan (TIPO), China (CNIPA)",
-          "foundryCoverage": "TSMC, UMC, Vanguard (VIS), HHGrace, DB HiTek",
-          "waferShipment": "Deployed across automotive MCUs and edge AI analog computing processors"
+          "totalGrantedWorldwide": "Over 200 patents filed and pending (2022)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "TSMC 130nm BCD; HHGrace 180nm; Powerchip 90nm",
+          "waferShipment": "Over 30,000 12-inch wafers; 3 SoCs (2018)",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Historical Patent Filing Disclosure",
+              "title": "Floadia official announcement",
+              "url": "https://floadia.com/news/1147/",
+              "date": "2022-11-01",
+              "dateKind": "published",
+              "note": "Website publication date; article dated 2022-10-31. The source says filed and pending without a grant count; these cannot all be treated as grants."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "Floadia official announcement",
+              "url": "https://floadia.com/news/1147/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "This announcement has no complete jurisdiction list; the previous Japan, US, China and Taiwan list was not fully substantiated in this review."
+            },
+            "foundryCoverage": {
+              "label": "Platforms in Official History",
+              "title": "Floadia company history",
+              "url": "https://floadia.com/about/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Company history supports TSMC 130BCD+; the announcements below support Powerchip 90nm and HHGrace 180BCD, with platform stages kept separate.",
+              "references": [
+                {
+                  "label": "Historical Platform Production",
+                  "title": "Floadia / Powerchip production announcement",
+                  "url": "https://floadia.com/news/875/",
+                  "date": "2018-09-25",
+                  "dateKind": "published",
+                  "note": "Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production."
+                },
+                {
+                  "title": "Floadia / HHGrace platform announcement",
+                  "url": "https://floadia.com/news/1100/",
+                  "date": "2021-11-16",
+                  "dateKind": "published",
+                  "note": "HHGrace 180BCD ZT availability; article dated 2021-11-15, with customer production in 2022 described as a plan."
+                }
+              ]
+            },
+            "waferShipment": {
+              "label": "Historical Platform Production",
+              "title": "Floadia / Powerchip production announcement",
+              "url": "https://floadia.com/news/875/",
+              "date": "2018-09-25",
+              "dateKind": "published",
+              "note": "Limited to reported Powerchip 90nm eFlash G1 production; not an all-product total or evidence of later AI product production."
+            }
+          }
         },
         "strategy": "The core of Floadia's patent strategy encompasses 'Zero-Mask Floating-Gate MTP (LEE Flash ZT)' and 'Ultra-Low-Mask Split-Gate Charge-Trap SONOS (LEE Flash G1/G2)'. Founded by senior Hitachi/Renesas memory engineers, Floadia focused on dismantling the 8–12 mask adder penalty of traditional eFlash. Its ZT family employs standard logic thick gate oxide for bidirectional uniform low-field FN/FN tunneling 0-mask MTP. Its G1/G2 family integrates localized silicon nitride charge trapping into sidewall split-gates, requiring only 2–3 additional masks to deliver 175°C automotive retention and 100K endurance, scaling into ultra-low-power neuromorphic compute-in-memory (CIM) architectures.",
         "families": [
@@ -8739,10 +9006,44 @@
         "founders": "Bing Yeh and R&D Engineering Team",
         "businessModel": "Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer",
         "patentStats": {
-          "totalGrantedWorldwide": "400+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), Europe (EPO), Japan (JPO), China (CNIPA)",
-          "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, HHGrace",
-          "waferShipment": "Over 100 billion cumulative SuperFlash commercial units shipped worldwide"
+          "totalGrantedWorldwide": "Over 360 granted patents (2010)",
+          "keyJurisdictions": "Complete jurisdiction list not verified in this review",
+          "foundryCoverage": "TSMC, UMC, GF, SMIC, HHGrace and others",
+          "waferShipment": "150 billion SuperFlash units shipped",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Historical Granted Patent Disclosure",
+              "title": "SST transaction investor materials",
+              "url": "https://ir.microchip.com/sec-filings/all-sec-filings/content/0000827054-10-000035/dfan14a.htm",
+              "date": "2010-02-03",
+              "dateKind": "published",
+              "note": "Historical SST disclosure; over 180 pending applications were separate and are not included, and this is not the current Microchip total."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdiction Evidence Gap",
+              "title": "SST transaction investor materials",
+              "url": "https://ir.microchip.com/sec-filings/all-sec-filings/content/0000827054-10-000035/dfan14a.htm",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "This source has no complete patent-jurisdiction list; the prior US, Taiwan, China, Europe and Japan coverage was not fully verified."
+            },
+            "foundryCoverage": {
+              "label": "Official Foundry Availability",
+              "title": "SST foundry availability table",
+              "url": "https://www.sst.com/foundry-availability/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Examples from the table; node states differ, including Production and Tested, so not all listed partners and nodes are in production."
+            },
+            "waferShipment": {
+              "label": "Cumulative Technology Shipments",
+              "title": "Microchip / SST official announcement",
+              "url": "https://www.microchip.com/en-us/about/news-releases/products/mythic-selects-membrain-technology-from-sst-for-its-next-gen-ultra-low-power-apus",
+              "date": "2026-03-17",
+              "dateKind": "published",
+              "note": "Historical cumulative SuperFlash shipments, not wafers and not shipments of Mythic APUs or the new memBrain generation."
+            }
+          }
         },
         "strategy": "The cornerstone of SST (SuperFlash®)'s patent strategy was the invention of the 'Split-Gate Flash Memory Cell Architecture' evolving into the 'Independent Erase Gate ESF3 Generation'. Conventional 1T stacked-gate flash memories risk 'Over-Erase', turning cells into depletion mode and paralyzing bitlines. Bing Yeh's split-gate invention extends the control gate over a portion of the silicon channel to serve as an integrated select switch, eliminating over-erase risks. The 3rd generation (ESF3) added dedicated erase gates (EG) and coupling gates (CG), utilizing sharp floating-gate poly tips for localized high-field tunneling. This achieved microsecond-speed erase, low write energy, and 100K automotive endurance, becoming the dominant embedded flash architecture across global foundries.",
         "families": [
@@ -8937,10 +9238,44 @@
         "founders": "Leonid Savtchenko, Saied Tehrani, Brad Engel, and Motorola MRAM Team",
         "businessModel": "Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing",
         "patentStats": {
-          "totalGrantedWorldwide": "600+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Europe (EPO), Japan (JPO), Taiwan (TIPO), China (CNIPA)",
-          "foundryCoverage": "GlobalFoundries (22FDX / 12LP), UMC (22ULL), Everspin internal back-end magnetic fab",
-          "waferShipment": "Over 150 million commercial MRAM chips shipped, the industry's sole provider with 20-year volume production history"
+          "totalGrantedWorldwide": "596 issued patents (as of 2025-12-31)",
+          "keyJurisdictions": "United States, China, Europe, Japan, Taiwan and others",
+          "foundryCoverage": "GF 300mm STT-MRAM; captive Chandler 200mm BEOL",
+          "waferShipment": "Over 200 million MRAM products deployed",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Annual Report Issued Patents",
+              "title": "Everspin 2025 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+              "date": "2026-03-04",
+              "dateKind": "published",
+              "note": "Another 141 applications were pending and are excluded; a year-end holding count, not map coverage or a case-by-case legal validity review."
+            },
+            "keyJurisdictions": {
+              "label": "Jurisdictions Listed in Annual Report",
+              "title": "Everspin 2025 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+              "date": "2026-03-04",
+              "dateKind": "published",
+              "note": "Examples for issued and pending cases at year-end 2025; also lists France, Germany, Ireland, Italy, Netherlands, Korea, Singapore and UK, not coverage of each patent in every region."
+            },
+            "foundryCoverage": {
+              "label": "Manufacturing Scope in Annual Report",
+              "title": "Everspin 2025 Form 10-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+              "date": "2026-03-04",
+              "dateKind": "published",
+              "note": "GF is an external foundry; Chandler is captive BEOL processing in a leased facility, not a foundry partner. The prior UMC 22ULL claim is not supported by this report."
+            },
+            "waferShipment": {
+              "label": "Reported Product Deployment",
+              "title": "Everspin / Quintauris partnership announcement",
+              "url": "https://investor.everspin.com/node/11516",
+              "date": "2025-10-01",
+              "dateKind": "published",
+              "note": "Cumulative MRAM products deployed as stated in the announcement; not wafer production or annual shipments."
+            }
+          }
         },
         "strategy": "Everspin's patent portfolio pioneered 'Savtchenko Toggle MRAM' and guided the evolution into 'Perpendicular Magnetic Anisotropy Spin-Torque Transfer (pMTJ STT-MRAM)'. Early field-switched MRAM suffered severe half-select disturb. Dr. Savtchenko invented Toggle switching using Synthetic Antiferromagnet (SAF) free layers and orthogonal pulse timing, achieving the world's first commercial MRAM. As nodes scaled, Everspin established patents across high thermal stability perpendicular magnetic tunnel junctions (pMTJ), heavy-metal spin-orbit torque interfaces, and high-density DDR/xSPI architectures, securing a comprehensive patent moat from aerospace radiation environments and datacenter power-loss protection (PLP) to 22nm foundry eMRAM.",
         "families": [
@@ -9147,10 +9482,44 @@
         "founders": "Coby Hanoch (CEO), Prof. James Tour (Rice University Nanotech Pioneer), and Engineering Team",
         "businessModel": "Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services",
         "patentStats": {
-          "totalGrantedWorldwide": "50+ Worldwide Granted Patents",
-          "keyJurisdictions": "United States (USPTO), Israel (ILPO), Europe (EPO), Taiwan (TIPO), China (CNIPA)",
-          "foundryCoverage": "SkyWater Technology (S130), DB HiTek (130nm BCD), GlobalFoundries (GF 22FDX qualification)",
-          "waferShipment": "Customer validation runs and tape-outs delivered across tier-1 and specialty foundries"
+          "totalGrantedWorldwide": "8 new patents granted in H2 2025",
+          "keyJurisdictions": "China, United States, Europe (Q1 2025 examples)",
+          "foundryCoverage": "DB HiTek 130nm; SkyWater S130",
+          "waferShipment": "Customer integration; cumulative shipments not verified",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Period Patent Grants",
+              "title": "Weebit half-year progress announcement",
+              "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-achieves-record-half-year-revenue-licenses-reram-to-tier-1-texas-instruments/",
+              "date": "2026-02-27",
+              "dateKind": "published",
+              "note": "For the six months ended 2025-12-31; a cumulative issued total was not verified, so period additions are not a global total."
+            },
+            "keyJurisdictions": {
+              "label": "Period Jurisdiction Examples",
+              "title": "Weebit quarterly progress announcement",
+              "url": "https://www.weebit-nano.com/news/press-releases/weebit-transitions-to-its-next-phase-through-commercial-technological-and-operational-advances/",
+              "date": "2025-04-30",
+              "dateKind": "published",
+              "note": "Regions for new patents in that quarter, not an exhaustive global list; Israeli headquarters does not establish grants there, and the prior Taiwan entry was not verified."
+            },
+            "foundryCoverage": {
+              "label": "Official Product Platforms",
+              "title": "Weebit official product catalog",
+              "url": "https://www.weebit-nano.com/products/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Two foundry platforms listed in the product catalog; collaboration, qualification and customer volume production are separate stages. The prior GF 22FDX claim was not substantiated."
+            },
+            "waferShipment": {
+              "label": "Commercial Adoption Stage",
+              "title": "Weebit 2025 targets report",
+              "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-reports-on-2025-targets-achievement/",
+              "date": "2026-01-05",
+              "dateKind": "published",
+              "note": "Reports licensing, DB HiTek qualification and customer integration progress, without a verifiable cumulative commercial chip or wafer shipment count."
+            }
+          }
         },
         "strategy": "The core of Weebit Nano's patent strategy encompasses 'Standard CMOS-Compatible Silicon Oxide (SiOx / ReRAM)' and 'Adaptive Multi-Level Neuromorphic Compute-in-Memory (CIM)'. Conventional metal-oxide ReRAMs (HfOx, TaOx) often require exotic heavy metal precursors, requiring dedicated fab deposition tools with cross-contamination concerns. Collaborating with Rice University's Prof. James Tour, Weebit's patents utilize porosity-controlled standard silicon dioxide (SiOx) or standard hafnia to form conductive oxygen vacancy filaments. This delivers 100% BEOL contamination-free integration with only 2 mask adders, alongside adaptive conductance compensation patents for analog edge AI.",
         "families": [
@@ -9337,10 +9706,46 @@
         "founders": "Dr. Evans Ching-Song Yang, Dr. Charles Hsu, and Engineering Team",
         "businessModel": "Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP",
         "patentStats": {
-          "totalGrantedWorldwide": "100+ Worldwide Granted Patents (Shared core patent pool with parent eMemory)",
-          "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO)",
-          "foundryCoverage": "TSMC (N6/N5/N3/N2), UMC, GlobalFoundries, Vanguard (VIS)",
-          "waferShipment": "Deployed across tier-1 AI accelerators, automotive processors, and FPGA flagships"
+          "totalGrantedWorldwide": "Standalone company grant total not verified",
+          "keyJurisdictions": "Group portfolio: US, Taiwan, China, Europe, Japan",
+          "foundryCoverage": "Security-business platforms: TSMC, Intel, UMC, GF",
+          "waferShipment": "Secure OTP production capability; shipment total unverified",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Standalone Patent Total Gap",
+              "title": "PUFsecurity company profile",
+              "url": "https://www.pufsecurity.com/about-us/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Background source without a standalone company grant total; neither the chairman's personal patents nor parent-company totals can be assigned to PUFsecurity."
+            },
+            "keyJurisdictions": {
+              "label": "Group Portfolio Regions",
+              "title": "eMemory 2024 Sustainability Report",
+              "url": "https://www.ememory.com.tw/Content/Upload/files/ESG/20250730/2024%E5%B9%B4%E5%BA%A6%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8%E8%8B%B1%E6%96%87%E7%89%88V1.pdf",
+              "date": "2025-08",
+              "dateKind": "published",
+              "note": "Page 56 describes eMemory and PUFsecurity together for 2024; it does not establish standalone PUFsecurity grants in all five regions.",
+              "page": 56
+            },
+            "foundryCoverage": {
+              "label": "Group Security Platforms",
+              "title": "eMemory company briefing",
+              "url": "https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf",
+              "date": "2026-08-19",
+              "dateKind": "published",
+              "note": "PDF p. 19 (printed p. 21) covers security-business collaboration; not a qualification list for all PUFsecurity IP or nodes, including N6/N5/N3.",
+              "page": 19
+            },
+            "waferShipment": {
+              "label": "Product Capability and Shipment Gap",
+              "title": "PUFsecurity Secure OTP product page",
+              "url": "https://www.pufsecurity.com/products/secure-otp/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "The page describes up to 128kb of mass-production OTP functionality; this is capacity and capability, not cumulative chips or adoption across all security IP."
+            }
+          }
         },
         "strategy": "The core of PUFsecurity's patent portfolio transformed eMemory's 'Quantum Tunneling Microscopic Dielectric Variation (NeoPUF)' into 'Zero-Error Hardware Roots of Trust (PUFrt)' and 'Integrated Security Cryptographic Processors (PUFcc)'. Conventional SRAM PUFs suffer 5%–15% bit error rates under temperature and aging, necessitating complex ECC helper data that incurs silicon area overhead and side-channel leakage risks. PUFsecurity's patents surround 'Dynamic Differential Symmetry Tracking Circuits' and 'Quantum Shot Noise True Random Number Generators (Quantum TRNG)', achieving native 0% Bit Error Rate (BER) directly in hardware, earning PSA Certified Level 3 and SESIP Level 3 accreditations.",
         "families": [

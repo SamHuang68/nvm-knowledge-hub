@@ -11,65 +11,70 @@ if(process.argv.includes('--stats-only')){await checkStatistics();process.exit(0
 
 async function checkStatistics(){
   const baseline=process.argv.includes('--baseline');
-  const out=path.join(root,'qa','力旺統計',baseline?'修改前':'修改後');fs.mkdirSync(out,{recursive:true});
+  const selected=process.argv.find(arg=>arg.startsWith('--vendors='))?.slice(10).split(',');
+  const out=path.join(root,'qa','其他廠商統計',baseline?'修改前':selected?'範圍文字補驗':'修改後');fs.mkdirSync(out,{recursive:true});
   const base=process.env.NVM_QA_BASE;
   const server=base?null:await startTestServer(root);
   const browser=await chromium.launch();const results=[];
+  const keys=['totalGrantedWorldwide','keyJurisdictions','foundryCoverage','waferShipment'];
   try{
     for(const locale of ['zh','en']){
       const data=JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'));
       const md=vendorPatentMapsMarkdown(data,()=>'',locale);
-      assert.ok(md.includes(baseline?'1,150':'1,370+'));
-      if(!baseline){assert.ok(md.includes('2026-08-19'));assert.ok(md.includes('eMemory%20Briefing_eng_20260819.pdf#page=4'));}
-      const stats=data.vendors.find(v=>v.id==='ememory').patentStats;
-      const keys=['keyJurisdictions','foundryCoverage','waferShipment'];
       if(!baseline){
-        for(const key of keys){
-          const source=stats.metricSources[key];
-          assert.ok(md.includes(stats[key])&&md.includes(source.note)&&md.includes(source.date),'Markdown 保留值、來源日期與適用範圍');
-          assert.ok(md.includes(source.url+(source.page?'#page='+source.page:'')));
-        }
-        const appendix=md.slice(md.indexOf('### '+(locale==='en'?'Appendix: Industry':'附錄：NVM')));
-        for(const key of keys.slice(1)){assert.ok(appendix.includes(stats.metricSources[key].note));assert.ok(appendix.includes(stats[key]));}
-        assert.ok(!md.includes(locale==='en'?'Over 100 Billion':'超過1,000億'),'原無依據晶片顆數不得殘留');
+        validateVendorPatentMaps(data);
+        const broken=structuredClone(data);delete broken.vendors[1].patentStats.metricSources.totalGrantedWorldwide.note;
+        assert.throws(()=>validateVendorPatentMaps(broken),/統計來源不完整/,'來源缺範圍時阻擋生成');
       }
+      const appendix=md.slice(md.indexOf('### '+(locale==='en'?'Appendix: Industry':'附錄：NVM')));
+      assert.ok(md.includes('1,370+')&&md.includes('2026-08-19'),'力旺已核對的統計保持');
       for(const width of [1440,390]){
         const page=await browser.newPage({viewport:{width,height:960}});
-        await page.goto(`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}#vendor-ememory`);
-        const vendor=page.locator('#vendor-ememory');await vendor.waitFor();await vendor.scrollIntoViewIfNeeded();
-        const cards=vendor.locator('.nvm-vendor-stat-card');assert.equal(await cards.count(),4);
-        assert.ok((await cards.first().innerText()).includes(baseline?'1,150':'1,370+'));
-        if(!baseline){
-          const source=cards.first().locator('a');assert.ok((await source.innerText()).includes('2026-08-19'));
-          assert.equal(await source.getAttribute('href'),data.vendors.find(v=>v.id==='ememory').patentStats.grantedSource.url+'#page=4');
-          await source.focus();assert.equal(await source.evaluate(n=>document.activeElement===n),true);
-          assert.equal(await cards.first().evaluate(n=>n.scrollWidth<=n.clientWidth),true,'來源與數字不得溢出卡片');
+        await page.goto(`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}#patent-maps`);
+        if(selected)for(const id of selected)assert.ok(data.vendors.some(v=>v.id===id),'指定廠商必須存在');
+        for(const [vendorIndex,record] of data.vendors.entries()){
+          if(selected&&!selected.includes(record.id))continue;
+          const stats=record.patentStats;
+          const vendor=page.locator('#vendor-'+record.id);await vendor.waitFor();
+          const cards=vendor.locator('.nvm-vendor-stat-card');assert.equal(await cards.count(),4);
           for(const [index,key] of keys.entries()){
-            const card=cards.nth(index+1),source=stats.metricSources[key],link=card.locator('a');
-            const text=await card.innerText();
-            assert.ok(text.includes(stats[key])&&(await card.locator('dt').textContent())===source.label&&text.includes(source.note)&&text.includes(source.date),'卡片保留值、標題、日期與範圍');
-            assert.equal(await link.getAttribute('href'),source.url+(source.page?'#page='+source.page:''));
-            await link.focus();assert.equal(await link.evaluate(n=>document.activeElement===n),true);
-            assert.equal(await card.evaluate(n=>n.scrollWidth<=n.clientWidth),true,'來源不得溢出卡片');
+            const card=cards.nth(index),source=stats.metricSources?.[key];
+            assert.ok((await card.innerText()).includes(stats[key]));
+            assert.equal(await card.evaluate(n=>n.scrollWidth<=n.clientWidth),true,'四卡不得橫向溢出');
+            if(!baseline&&source){
+              const text=await card.innerText(),url=source.url+(source.page?'#page='+source.page:'');
+              assert.equal(await card.locator('dt').textContent(),source.label);
+              assert.ok(text.includes(source.note)&&text.includes(source.date),'卡片顯示日期與適用範圍');
+              for(const ref of source.references||[]){
+                const href=ref.url+(ref.page?'#page='+ref.page:'');
+                assert.ok(text.includes(ref.date)&&text.includes(ref.note)&&md.includes(href)&&md.includes(ref.note));
+                assert.equal(await card.locator(`a[href="${href}"]`).count(),1);
+              }
+              const link=card.locator('a').first();assert.equal(await link.getAttribute('href'),url);
+              await link.focus();assert.equal(await link.evaluate(n=>document.activeElement===n),true);
+              assert.ok(md.includes(stats[key])&&md.includes(source.note)&&md.includes(source.date)&&md.includes(url),'匯出與來源契約同步');
+              if(index>=2){
+                const matrix=page.locator('.nvm-vendor-landscape-table tbody tr').nth(vendorIndex).locator('td').last();
+                const text=await matrix.innerText();
+                assert.ok(text.includes(stats[key])&&text.includes(source.note)&&text.includes(source.date),'矩陣與卡片同步');
+                assert.ok(await matrix.locator(`a[href="${url}"]`).count()>=1);
+                assert.ok(appendix.includes(stats[key])&&appendix.includes(source.note),'匯出矩陣同步');
+              }
+            }
+            if(!baseline&&record.id!=='ememory')assert.ok(source?.date&&source?.note&&source?.url,'其他十一家四卡均有來源與範圍');
           }
           if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test((await cards.allInnerTexts()).join('')));
-          const matrix=page.locator('.nvm-vendor-landscape-table tbody tr').first().locator('td').last();
-          for(const key of keys.slice(1)){
-            const source=stats.metricSources[key],text=await matrix.innerText();
-            assert.ok(text.includes(stats[key])&&text.includes(source.note)&&text.includes(source.date),'矩陣沿用同一來源與適用範圍');
-            assert.equal(await matrix.locator(`a[href="${source.url+(source.page?'#page='+source.page:'')}"]`).count(),1);
-          }
-          await matrix.scrollIntoViewIfNeeded();
-          await matrix.screenshot({path:path.join(out,`${locale}-${width}-矩陣.png`)});
+          assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+          await vendor.locator('.nvm-vendor-stats-grid').screenshot({path:path.join(out,`${locale}-${width}-${record.id}.png`)});
+          results.push({locale,width,vendor:record.id,passed:true,cards:await cards.count(),text:await cards.allInnerTexts()});
         }
-        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-        await cards.first().scrollIntoViewIfNeeded();await vendor.locator('.nvm-vendor-stats-grid').screenshot({path:path.join(out,`${locale}-${width}.png`)});
-        results.push({locale,width,passed:true,text:await cards.allInnerTexts(),cards:await cards.count()});await page.close();
+        await page.close();
       }
     }
   }finally{await browser.close();if(server)await server.close();}
-  fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results},null,2));console.log(JSON.stringify(results));
+  fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results},null,2));console.log(JSON.stringify({views:results.length,cards:results.length*4,passed:true}));
 }
+
 const engine = process.argv.find(arg=>arg.startsWith('--engine='))?.split('=')[1] || 'chromium';
 assert.ok(['chromium','webkit'].includes(engine), '僅驗證明列的瀏覽器引擎');
 const out = path.join(root,'qa','專利地圖',engine);
