@@ -82,7 +82,7 @@ const defs={
   focus:L('用交錯脈衝讓耦合磁矩完成翻轉','Rotate coupled moments with overlapping field pulses'),
   trace:L('先看圖 4 的兩條脈衝時序，再沿圖 5／6 逐格追蹤磁矩。兩條線同時作用的區間與結束順序是操作的一部分。','Start with the two pulse waveforms in Figure 4, then follow the moments through Figures 5 and 6. The overlap interval and turn-off order are part of the operation.'),
   callouts:[['60 / 70',L('字線與 digit line 脈衝','Word-line and digit-line pulses')],['100',L('整組交錯寫入時序','Complete overlapping write sequence')],['40 / 53 / 57',L('合成磁矩及反鐵磁耦合子層磁矩','Resultant moment and antiferromagnetically coupled sublayer moments')]],
-  claim:L('權利項 1 同時要求至少兩層反鐵磁耦合自由層、磁矩平衡條件，以及 t₀<t₁<t₂<t₃<t₄ 的脈衝順序。不是任意兩個正交磁場都具有相同結果。','Claim 1 combines at least two antiferromagnetically coupled free layers, a moment-balance condition and pulse order t₀<t₁<t₂<t₃<t₄. Arbitrary orthogonal field pulses are not equivalent.'),
+  claim:L('權利項 1（PDF 第 12 頁）要求 N≥2 個反鐵磁耦合的鐵磁子層、0≤|Mbr|≤0.1 的子層磁矩平衡比，以及 t₀<t₁<t₂<t₃<t₄：字線於 t₁ 開啟、t₃ 關閉，digit line 於 t₂ 開啟、t₄ 關閉。先讀取並比較另見權利項 5、8；僅在資料不同時寫入另見權利項 21（PDF 第 13 頁），不可全部歸入權利項 1。','Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1.'),
   bridge:L('對照 Toggle 的五格序列與初態檢查：需要改寫時才觸發翻轉。','Compare the five-frame Toggle sequence and initial-state check: apply a toggle when the stored bit needs to change.')
  },
  US5695864A:{

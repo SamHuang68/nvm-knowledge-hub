@@ -1078,11 +1078,11 @@
           "figures": "Figure 3: direct/Toggle regions; Figure 4: two-line current sequence; Figure 5: magnetic-moment rotation.",
           "problem": "Keep field writing within a controllable switching region and reduce the sensitivity of direct writing to magnetic-field amplitude and half-select conditions.",
           "mechanism": "Antiferromagnetically coupled free magnetic layers and sequentially applied write fields rotate the free magnetic moments along a designed trajectory to reverse the state.",
-          "claimReading": "Claim 1 links the coupled free layer with the write method. Read the layer structure, field order, and state transition together, rather than extracting only the word \"toggle.\"",
+          "claimReading": "Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1.",
           "limit": "This patent discloses a specific Toggle design. It does not establish the actual internal structure of every Everspin product or the patent's current legal status.",
           "filing": "2001-10-16",
           "publication": "2003-04-08",
-          "verifiedAt": "2026-09-10",
+          "verifiedAt": "2026-10-15",
           "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
         }
       ],
@@ -12736,7 +12736,7 @@
       "url": "https://patents.google.com/patent/US6545906B1/en",
       "kind": "Published patent",
       "date": "2003-04-08",
-      "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+      "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
       "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
     },
     {
@@ -13664,12 +13664,12 @@
     },
     {
       "id": "ip-neofuse-pat",
-      "label": "Related Three-Transistor Antifuse Patent",
+      "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
       "url": "https://patents.google.com/patent/US20250024668A1/en",
-      "kind": "Public Patent",
+      "kind": "Application Publication (A1)",
       "date": "2025-01-16",
-      "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-      "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+      "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+      "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
     },
     {
       "id": "ip-neofuse-9v-2016",
@@ -20332,7 +20332,7 @@
             "url": "https://patents.google.com/patent/US6545906B1/en",
             "kind": "Published patent",
             "date": "2003-04-08",
-            "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+            "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
             "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
           }
         ],
@@ -20404,7 +20404,7 @@
                 "url": "https://patents.google.com/patent/US6545906B1/en",
                 "kind": "Published patent",
                 "date": "2003-04-08",
-                "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+                "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
                 "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
               }
             ],
@@ -20425,7 +20425,7 @@
             "url": "https://patents.google.com/patent/US6545906B1/en",
             "kind": "Published patent",
             "date": "2003-04-08",
-            "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+            "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
             "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
           }
         ],
@@ -20497,7 +20497,7 @@
                 "url": "https://patents.google.com/patent/US6545906B1/en",
                 "kind": "Published patent",
                 "date": "2003-04-08",
-                "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+                "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
                 "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
               }
             ],
@@ -20518,7 +20518,7 @@
             "url": "https://patents.google.com/patent/US6545906B1/en",
             "kind": "Published patent",
             "date": "2003-04-08",
-            "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+            "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
             "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
           }
         ],
@@ -20574,7 +20574,7 @@
                 "url": "https://patents.google.com/patent/US6545906B1/en",
                 "kind": "Published patent",
                 "date": "2003-04-08",
-                "locator": "Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description",
+                "locator": "Figures 4–6; PDF p. 12 claim 1 for SAF/timing, claims 5/8 for read-and-compare, and p. 13 claim 21 for conditional writing",
                 "limit": "Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative."
               }
             ],
@@ -23198,7 +23198,7 @@
         "id": "US6545906B1",
         "focus": "Rotate coupled moments with overlapping field pulses",
         "trace": "Start with the two pulse waveforms in Figure 4, then follow the moments through Figures 5 and 6. The overlap interval and turn-off order are part of the operation.",
-        "claim": "Claim 1 combines at least two antiferromagnetically coupled free layers, a moment-balance condition and pulse order t₀<t₁<t₂<t₃<t₄. Arbitrary orthogonal field pulses are not equivalent.",
+        "claim": "Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1.",
         "bridge": "Compare the five-frame Toggle sequence and initial-state check: apply a toggle when the stored bit needs to change.",
         "callouts": [
           {
@@ -24606,12 +24606,12 @@
               },
               {
                 "id": "ip-neofuse-pat",
-                "label": "Related Three-Transistor Antifuse Patent",
+                "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                 "url": "https://patents.google.com/patent/US20250024668A1/en",
-                "kind": "Public Patent",
+                "kind": "Application Publication (A1)",
                 "date": "2025-01-16",
-                "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
               },
               {
                 "id": "ip-neofuse-9v-2016",
@@ -24743,12 +24743,12 @@
                   },
                   {
                     "id": "ip-neofuse-pat",
-                    "label": "Related Three-Transistor Antifuse Patent",
+                    "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                     "url": "https://patents.google.com/patent/US20250024668A1/en",
-                    "kind": "Public Patent",
+                    "kind": "Application Publication (A1)",
                     "date": "2025-01-16",
-                    "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                    "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                    "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                    "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
                   },
                   {
                     "id": "ip-neofuse-9v-2016",
@@ -24799,12 +24799,12 @@
               },
               {
                 "id": "ip-neofuse-pat",
-                "label": "Related Three-Transistor Antifuse Patent",
+                "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                 "url": "https://patents.google.com/patent/US20250024668A1/en",
-                "kind": "Public Patent",
+                "kind": "Application Publication (A1)",
                 "date": "2025-01-16",
-                "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
               },
               {
                 "id": "ip-neofuse-9v-2016",
@@ -24921,12 +24921,12 @@
                   },
                   {
                     "id": "ip-neofuse-pat",
-                    "label": "Related Three-Transistor Antifuse Patent",
+                    "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                     "url": "https://patents.google.com/patent/US20250024668A1/en",
-                    "kind": "Public Patent",
+                    "kind": "Application Publication (A1)",
                     "date": "2025-01-16",
-                    "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                    "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                    "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                    "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
                   },
                   {
                     "id": "ip-neofuse-9v-2016",
@@ -24977,12 +24977,12 @@
               },
               {
                 "id": "ip-neofuse-pat",
-                "label": "Related Three-Transistor Antifuse Patent",
+                "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                 "url": "https://patents.google.com/patent/US20250024668A1/en",
-                "kind": "Public Patent",
+                "kind": "Application Publication (A1)",
                 "date": "2025-01-16",
-                "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
               },
               {
                 "id": "ip-neofuse-9v-2016",
@@ -25114,12 +25114,12 @@
                   },
                   {
                     "id": "ip-neofuse-pat",
-                    "label": "Related Three-Transistor Antifuse Patent",
+                    "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
                     "url": "https://patents.google.com/patent/US20250024668A1/en",
-                    "kind": "Public Patent",
+                    "kind": "Application Publication (A1)",
                     "date": "2025-01-16",
-                    "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-                    "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                    "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+                    "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
                   },
                   {
                     "id": "ip-neofuse-9v-2016",
@@ -37896,12 +37896,12 @@
       },
       {
         "id": "ip-neofuse-pat",
-        "label": "Related Three-Transistor Antifuse Patent",
+        "label": "eMemory Three-Transistor Fin Antifuse Application Publication (A1)",
         "url": "https://patents.google.com/patent/US20250024668A1/en",
-        "kind": "Public Patent",
+        "kind": "Application Publication (A1)",
         "date": "2025-01-16",
-        "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
-        "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+        "locator": "PDF pp. 7–9, Figures 2, 3A/3B; p. 21, claim 1; gate dielectric 262/264/266/268",
+        "limit": "A1 is an application publication, not evidence of grant. Claim 1 includes select, following and antifuse transistors, dielectric over the fin top and both sides, terminal connections and program biases. This 3T teaching diagram does not reproduce all fin geometry or establish a NeoFuse product mapping."
       },
       {
         "id": "ip-neofuse-9v-2016",

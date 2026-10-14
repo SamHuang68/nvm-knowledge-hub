@@ -475,11 +475,11 @@
           "figures": "Figure 3: direct/Toggle regions; Figure 4: two-line current sequence; Figure 5: magnetic-moment rotation.",
           "problem": "Keep field writing within a controllable switching region and reduce the sensitivity of direct writing to magnetic-field amplitude and half-select conditions.",
           "mechanism": "Antiferromagnetically coupled free magnetic layers and sequentially applied write fields rotate the free magnetic moments along a designed trajectory to reverse the state.",
-          "claimReading": "Claim 1 links the coupled free layer with the write method. Read the layer structure, field order, and state transition together, rather than extracting only the word \"toggle.\"",
+          "claimReading": "Claim 1 (PDF p. 12) requires N≥2 antiferromagnetically coupled ferromagnetic sublayers, a sublayer moment balance ratio 0≤|Mbr|≤0.1, and t₀<t₁<t₂<t₃<t₄: the word pulse starts at t₁ and ends at t₃; the digit pulse starts at t₂ and ends at t₄. Read-and-compare appears in claims 5 and 8; writing only when data differs appears in claim 21 (PDF p. 13). These are not all limitations of claim 1.",
           "limit": "This patent discloses a specific Toggle design. It does not establish the actual internal structure of every Everspin product or the patent's current legal status.",
           "filing": "2001-10-16",
           "publication": "2003-04-08",
-          "verifiedAt": "2026-09-10",
+          "verifiedAt": "2026-10-15",
           "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
         }
       ],

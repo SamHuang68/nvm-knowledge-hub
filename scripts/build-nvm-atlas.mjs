@@ -1,3 +1,4 @@
+import {syncPatentReferenceCorpus} from './跨章節引用同步.mjs';
 import {validateRewriteCycle, renderRewriteCycle, rewriteCycleMarkdown} from './nvm-rewrite-cycle.mjs';
 import {splitAtlasDiagrams} from './split-atlas-diagrams.mjs';
 import {validateResearch, renderResearch, researchMarkdown, renderLandscape, landscapeMarkdown} from './nvm-industry-research-ui.mjs';
@@ -369,6 +370,7 @@ if (isEnglish) {
 }
 const separated = splitAtlasDiagrams(html, language);
 const outputs = [[pageFile,separated.html],...separated.outputs,[`data/nvm-knowledge-data${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/nvm-technology-topics${dataSuffix}.md`,markdown]];
+if(isEnglish) outputs.push(['llms-full.txt',syncPatentReferenceCorpus(fs.readFileSync(path.join(root,'llms-full.txt'),'utf8'),markdown)]);
 if(isEnglish) outputs.push(['data/nvm-search-index.js','window.NVMTopicIndex = '+JSON.stringify(searchEntries,null,2)+';\n']);
 for (const [file,bytes] of outputs) {
   const target = path.join(root,file);
