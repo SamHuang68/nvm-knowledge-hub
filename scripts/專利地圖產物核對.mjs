@@ -10,7 +10,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u
 const base='ce3333c6eb7dccb685fa98c395f335e6d8474254';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.4'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.5'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const file=`data/nvm-vendor-patent-maps${suffix}.json`;
@@ -19,9 +19,20 @@ for (const suffix of ['','-en']) {
   assert.equal(stats.totalGrantedWorldwide,suffix?'1,370+ Patents Issued':'1,370+ 件核准專利');
   assert.equal(stats.grantedSource.date,'2026-08-19');assert.equal(stats.grantedSource.page,4);
   assert.equal(stats.grantedSource.url,'https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf');
+  const previous=JSON.parse(execFileSync('git',['show',`ee1b3d98c4163e8433e6bab55b84a338c117cd49:${file}`],{cwd:root,encoding:'utf8'}));
+  const oldStats=previous.vendors.find(v=>v.id==='ememory').patentStats;
+  assert.equal(stats.foundryCoverage,oldStats.foundryCoverage,'保留原六家代工夥伴');
+  assert.deepEqual(stats.grantedSource,oldStats.grantedSource,'第一張專利卡來源保持原值');
+  assert.equal(stats.waferShipment,suffix?'79M+ cumulative wafers shipped':'累計 7,900 萬片以上晶圓出貨');
+  assert.deepEqual(Object.keys(stats.metricSources),['keyJurisdictions','foundryCoverage','waferShipment']);
+  const restored=structuredClone(actual);const rs=restored.vendors.find(v=>v.id==='ememory').patentStats;
+  rs.keyJurisdictions=oldStats.keyJurisdictions;rs.waferShipment=oldStats.waferShipment;delete rs.metricSources;
+  assert.deepEqual(restored,previous,'本次僅改力旺兩個值與三項來源；全部其他資料保留');
+  stats.keyJurisdictions=before.vendors.find(v=>v.id==='ememory').patentStats.keyJurisdictions;
+  stats.waferShipment=before.vendors.find(v=>v.id==='ememory').patentStats.waferShipment;delete stats.metricSources;
   stats.totalGrantedWorldwide=before.vendors.find(v=>v.id==='ememory').patentStats.totalGrantedWorldwide;
   delete stats.grantedSource;
-  assert.deepEqual(actual,before,'僅更新力旺核准總量與來源；其他統計、日期及全部案卷保持原值');
+  assert.deepEqual(actual,before,'累積更動僅限力旺統計與來源；資料日期及全部案卷保持原值');
 }
 function withoutMap(html) {
   const start=html.indexOf('<article id="patent-maps"'); assert.ok(start>=0);
@@ -38,9 +49,17 @@ function withoutMap(html) {
   throw new Error('專利地圖 article 邊界不完整');
 }
 for (const file of ['nvm-technology-atlas.html','nvm-technology-atlas-zh.html']) {
-  const previous=execFileSync('git',['show',`8dda320f6b26c745c578d06d9aa0bbad6835b9ad:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
-  const mask=html=>html.replace(/<div class="nvm-vendor-stat-card">.*?<\/div>/u,'<div>力旺核准統計卡</div>');
-  assert.equal(mask(read(file)),mask(previous),'這次生成頁面僅更動力旺第一張統計卡；其餘文字與功能標記逐字不變');
+  const previous=execFileSync('git',['show',`ee1b3d98c4163e8433e6bab55b84a338c117cd49:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
+  const mask=html=>{
+    let card=0;
+    const statsMasked=html.replace(/<div class="nvm-vendor-stat-card">.*?<\/div>/gu,match=>{card++;return card>=2&&card<=4?'<div>本次三項統計卡</div>':match;});
+    const start=statsMasked.indexOf('<section id="vendor-patent-landscape-overview"');assert.ok(start>=0);
+    const prefix=statsMasked.slice(0,start),appendix=statsMasked.slice(start);
+    return prefix+appendix.replace(/<tbody><tr>(.*?)<\/tr>/u,(_,row)=>{
+      let cell=0;return '<tbody><tr>'+row.replace(/<td\b[^>]*>.*?<\/td>/gu,match=>++cell===5?'<td>力旺代工與出貨來源</td>':match)+'</tr>';
+    });
+  };
+  assert.equal(mask(read(file)),mask(previous),'這次生成頁面僅更動力旺第二至四張卡及矩陣最後一格；第一張卡與其他文字、功能標記逐字不變');
   const before=withoutMap(original(file));
   const after=withoutMap(read(file));
   assert.equal(after,before,'其他 Atlas 章節與入口未被重寫');

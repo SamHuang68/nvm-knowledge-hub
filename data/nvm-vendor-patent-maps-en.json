@@ -14,13 +14,41 @@
       "businessModel": "Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP)",
       "patentStats": {
         "totalGrantedWorldwide": "1,370+ Patents Issued",
-        "keyJurisdictions": "United States (USPTO), Taiwan (TIPO), China (CNIPA), Europe (EPO), Japan (JPO)",
+        "keyJurisdictions": "United States, Taiwan, China, Europe, Japan",
         "foundryCoverage": "TSMC, UMC, GlobalFoundries, SMIC, Vanguard (VIS), Tower Semiconductor",
-        "waferShipment": "Over 100 Billion Cumulative Commercial Silicon Shipments",
+        "waferShipment": "79M+ cumulative wafers shipped",
         "grantedSource": {
           "url": "https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf",
           "date": "2026-08-19",
           "page": 4
+        },
+        "metricSources": {
+          "keyJurisdictions": {
+            "label": "Patent Portfolio Regions",
+            "title": "2024 ESG Report",
+            "url": "https://www.ememory.com.tw/Content/Upload/files/ESG/20250730/2024%E5%B9%B4%E5%BA%A6%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8%E8%8B%B1%E6%96%87%E7%89%88V1.pdf",
+            "date": "2025-08",
+            "dateKind": "published",
+            "page": 56,
+            "note": "Regions covered by eMemory and PUFsecurity portfolios in 2024; not a claim that every patent is granted in all five regions."
+          },
+          "foundryCoverage": {
+            "label": "Public Foundry Partners",
+            "title": "Official foundry partners",
+            "url": "https://www.ememory.com.tw/en-US/About/Foundry",
+            "date": "2026-10-14",
+            "dateKind": "checked",
+            "note": "Examples listed on the official page, which has no update date. Partnership does not establish qualification of every IP or process node."
+          },
+          "waferShipment": {
+            "label": "Cumulative Wafer Shipments",
+            "title": "Company briefing",
+            "url": "https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf",
+            "date": "2026-08-19",
+            "dateKind": "published",
+            "page": 4,
+            "note": "Company-reported cumulative shipments of wafers using eMemory IP, not chip units. Page 4 does not specify a wafer-size conversion for this cumulative total."
+          }
         }
       },
       "strategy": "The foundational philosophy of eMemory's patent portfolio is 'Zero Mask Adder' and '100% Standard CMOS Logic Process Compatibility'. Unlike conventional eFlash architectures that demand 3 to 8 additional specialized polysilicon masks or high-temperature thermal steps, eMemory's patent topology builds entirely upon native gate dielectrics, polysilicon gates, and well diffusion regions available in standard CMOS logic. Its patent map unfolds across two foundational vectors: the charge-storage trajectory (NeoBit floating-gate OTP → NeoEE capacitive-coupling MTP → NeoMTP erase-gate MTP) and the dielectric-physics trajectory (NeoFuse gate-oxide antifuse OTP → NeoPUF quantum-tunneling hardware security root of trust), spanning legacy sub-micron nodes down to 2nm GAA nanosheet architectures.",

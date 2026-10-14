@@ -21,6 +21,18 @@ async function checkStatistics(){
       const md=vendorPatentMapsMarkdown(data,()=>'',locale);
       assert.ok(md.includes(baseline?'1,150':'1,370+'));
       if(!baseline){assert.ok(md.includes('2026-08-19'));assert.ok(md.includes('eMemory%20Briefing_eng_20260819.pdf#page=4'));}
+      const stats=data.vendors.find(v=>v.id==='ememory').patentStats;
+      const keys=['keyJurisdictions','foundryCoverage','waferShipment'];
+      if(!baseline){
+        for(const key of keys){
+          const source=stats.metricSources[key];
+          assert.ok(md.includes(stats[key])&&md.includes(source.note)&&md.includes(source.date),'Markdown 保留值、來源日期與適用範圍');
+          assert.ok(md.includes(source.url+(source.page?'#page='+source.page:'')));
+        }
+        const appendix=md.slice(md.indexOf('### '+(locale==='en'?'Appendix: Industry':'附錄：NVM')));
+        for(const key of keys.slice(1)){assert.ok(appendix.includes(stats.metricSources[key].note));assert.ok(appendix.includes(stats[key]));}
+        assert.ok(!md.includes(locale==='en'?'Over 100 Billion':'超過1,000億'),'原無依據晶片顆數不得殘留');
+      }
       for(const width of [1440,390]){
         const page=await browser.newPage({viewport:{width,height:960}});
         await page.goto(`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}#vendor-ememory`);
@@ -32,11 +44,27 @@ async function checkStatistics(){
           assert.equal(await source.getAttribute('href'),data.vendors.find(v=>v.id==='ememory').patentStats.grantedSource.url+'#page=4');
           await source.focus();assert.equal(await source.evaluate(n=>document.activeElement===n),true);
           assert.equal(await cards.first().evaluate(n=>n.scrollWidth<=n.clientWidth),true,'來源與數字不得溢出卡片');
-          if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test(await cards.first().innerText()));
+          for(const [index,key] of keys.entries()){
+            const card=cards.nth(index+1),source=stats.metricSources[key],link=card.locator('a');
+            const text=await card.innerText();
+            assert.ok(text.includes(stats[key])&&(await card.locator('dt').textContent())===source.label&&text.includes(source.note)&&text.includes(source.date),'卡片保留值、標題、日期與範圍');
+            assert.equal(await link.getAttribute('href'),source.url+(source.page?'#page='+source.page:''));
+            await link.focus();assert.equal(await link.evaluate(n=>document.activeElement===n),true);
+            assert.equal(await card.evaluate(n=>n.scrollWidth<=n.clientWidth),true,'來源不得溢出卡片');
+          }
+          if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test((await cards.allInnerTexts()).join('')));
+          const matrix=page.locator('.nvm-vendor-landscape-table tbody tr').first().locator('td').last();
+          for(const key of keys.slice(1)){
+            const source=stats.metricSources[key],text=await matrix.innerText();
+            assert.ok(text.includes(stats[key])&&text.includes(source.note)&&text.includes(source.date),'矩陣沿用同一來源與適用範圍');
+            assert.equal(await matrix.locator(`a[href="${source.url+(source.page?'#page='+source.page:'')}"]`).count(),1);
+          }
+          await matrix.scrollIntoViewIfNeeded();
+          await matrix.screenshot({path:path.join(out,`${locale}-${width}-矩陣.png`)});
         }
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
         await cards.first().scrollIntoViewIfNeeded();await vendor.locator('.nvm-vendor-stats-grid').screenshot({path:path.join(out,`${locale}-${width}.png`)});
-        results.push({locale,width,passed:true,text:await cards.first().innerText(),cards:await cards.count()});await page.close();
+        results.push({locale,width,passed:true,text:await cards.allInnerTexts(),cards:await cards.count()});await page.close();
       }
     }
   }finally{await browser.close();if(server)await server.close();}

@@ -204,6 +204,19 @@ function renderMilestones(milestones, en) {
   return `<section class="nvm-patent-timeline-section"><h4>${sectionTitle}</h4><p class="nvm-timeline-intro">${introText}</p><div class="nvm-patent-timeline">${milestones.map(node => `<article class="nvm-timeline-node"><div class="nvm-timeline-period"><span>${esc(node.period)}</span><small>${esc(node.era)}</small></div><div class="nvm-timeline-content"><h5>${esc(node.theme)}</h5><p>${esc(node.summary)}</p><dl><dt>${en ? 'Foundry Node' : '代表節點'}</dt><dd>${esc(node.nodes)}</dd><dt>${en ? 'Key Patents' : '代表專利'}</dt><dd>${esc(node.keyPatents)}</dd></dl></div></article>`).join('')}</div></section>`;
 }
 
+// 三項營運統計的來源由既有資料欄位共用，卡片、矩陣與匯出保持同一口徑。
+const metricKeys = ['keyJurisdictions', 'foundryCoverage', 'waferShipment'];
+const metricUrl = source => source.url + (source.page ? `#page=${source.page}` : '');
+const metricCitation = (source, en) => `${source.title} · ${source.dateKind === 'checked' ? (en ? 'Checked ' : '查核 ') : (en ? 'Published ' : '發布 ')}${source.date}${source.page ? (en ? ` · p. ${source.page}` : ` · 第 ${source.page} 頁`) : ''}`;
+function metricSourceHtml(stats, key, en) {
+  const source = stats.metricSources?.[key];
+  return source ? `<p class="nvm-stat-source"><a href="${esc(metricUrl(source))}" target="_blank" rel="noopener noreferrer">${esc(metricCitation(source,en))}</a><br>${esc(source.note)}</p>` : '';
+}
+function metricSourceMarkdown(stats, key, en) {
+  const source = stats.metricSources?.[key];
+  return source ? `[${metricCitation(source,en)}](${metricUrl(source)}) — ${source.note}` : '';
+}
+
 /**
  * 渲染以申請機構為核心的專利地圖檔案 (Patent Map Dossier by Filing Company)
  */
@@ -225,6 +238,11 @@ function renderVendorStudy(vendor, en, cite) {
         { label: '晶圓代工驗證平台', value: stats.foundryCoverage },
         { label: '商用晶片量產規模', value: stats.waferShipment }
       ];
+
+  metricKeys.forEach((key,index) => {
+    const item=statLabels[index+1], source=stats.metricSources?.[key];
+    if(source){item.label=source.label;item.sourceNote=metricSourceHtml(stats,key,en);}
+  });
 
   const metaLabels = en
     ? {
@@ -288,7 +306,7 @@ function renderCompetitiveMatrix(data, en) {
       const tooltip = `${esc(p.title)} · ${recordedStatus(p.legalStatus,en)}`;
       return `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="nvm-landscape-patent-badge ${statusClass}" title="${tooltip}"><span class="nvm-status-dot" aria-hidden="true">${isActive ? '●' : '○'}</span> ${esc(p.id)} <span aria-hidden="true">↗</span></a>`;
     }).join(' ');
-    const foundrySummary = `<p class="nvm-landscape-foundry-p"><strong>${en ? 'Foundries:' : '代工平台：'}</strong>${esc(vendor.patentStats.foundryCoverage)}</p><p class="nvm-landscape-foundry-p"><strong>${en ? 'Shipment:' : '量產實績：'}</strong>${esc(vendor.patentStats.waferShipment)}</p>`;
+    const foundrySummary = `<p class="nvm-landscape-foundry-p"><strong>${en ? 'Foundries:' : '代工平台：'}</strong>${esc(vendor.patentStats.foundryCoverage)}</p>${metricSourceHtml(vendor.patentStats,'foundryCoverage',en)}<p class="nvm-landscape-foundry-p"><strong>${en ? 'Shipment:' : '量產實績：'}</strong>${esc(vendor.patentStats.waferShipment)}</p>${metricSourceHtml(vendor.patentStats,'waferShipment',en)}`;
 
     return `<tr><td data-label="${colLabels[0]}"><span class="nvm-landscape-vendor-no">${no}</span><a href="#vendor-${esc(vendor.id)}" class="nvm-landscape-vendor-link"><strong>${esc(vendor.shortName)}</strong></a><p class="nvm-landscape-vendor-sub">${esc(vendor.name)}</p><small class="nvm-landscape-model">${esc(vendor.businessModel)}</small></td><td data-label="${colLabels[1]}">${familiesSummary}</td><td data-label="${colLabels[2]}">${physicsSummary}</td><td data-label="${colLabels[3]}"><div class="nvm-landscape-patents">${patentsSummary}</div></td><td data-label="${colLabels[4]}">${foundrySummary}</td></tr>`;
   }).join('');
@@ -341,6 +359,10 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
       const s=v.patentStats.grantedSource;
       md+=`- [${en?'Company briefing':'公司簡報'} · ${s.date} · ${en?'p.':'第'} ${s.page}${en?'':' 頁'}](${s.url}#page=${s.page}) — ${en?'Company-reported total; not the map count or currently active patents.':'公司揭露總量，非本地圖收錄數或目前有效件數。'}\n`;
     }
+    for(const key of metricKeys){
+      const source=v.patentStats.metricSources?.[key];
+      if(source)md+=`- **${source.label}**: ${v.patentStats[key]} — ${metricSourceMarkdown(v.patentStats,key,en)}\n`;
+    }
     md += `- **${en ? 'Patent Strategy' : '專利護城河戰略'}**: ${v.strategy}\n\n`;
 
     for (const f of v.families) {
@@ -388,7 +410,7 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
     const fam = v.families.map(f => `${f.name.split(' ')[0]} (${f.technologyType})`).join('；');
     const phy = v.families.map(f => `${f.name.split(' ')[0]}: ${f.physicalMechanism}`).join('；');
     const pat = v.families.flatMap(f => f.patents).map(p => `[${p.id} (${recordedStatus(p.legalStatus,en)})](${p.url})`).join(', ');
-    const fnd = `${v.patentStats.foundryCoverage} (${v.patentStats.waferShipment})`;
+    const fnd = `${v.patentStats.foundryCoverage} (${v.patentStats.waferShipment})${v.patentStats.metricSources ? '<br>'+['foundryCoverage','waferShipment'].map(key=>metricSourceMarkdown(v.patentStats,key,en)).join('<br>') : ''}`;
     md += `| ${no}. ${v.shortName} | ${fam} | ${phy} | ${pat} | ${fnd} |\n`;
   }
   md += '\n\n';
