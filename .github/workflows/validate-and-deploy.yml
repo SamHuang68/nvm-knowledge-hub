@@ -38,7 +38,7 @@ jobs:
         run: python tools/codex/變更驗證.py --plan .github/驗證計畫.json --evidence-dir "$RUNNER_TEMP/變更驗證證據" --check
       - name: 僅為計畫指定案例準備瀏覽器
         if: steps.plan.outputs.browser == 'true' && steps.plan.outputs.deferred != 'true'
-        run: node node_modules/playwright/cli.js install --with-deps chromium
+        run: node node_modules/playwright/cli.js install --with-deps chromium webkit
       - name: 執行或沿用相同輸入的案例
         env:
           GH_TOKEN: ${{ github.token }}
