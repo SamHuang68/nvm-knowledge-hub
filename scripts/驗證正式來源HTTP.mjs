@@ -36,9 +36,11 @@ cases.push(
 );
 cases.push(...['強制中斷不保留舊成功','同目錄並行拒絕','循序重跑使用新識別','初始報告寫入失敗停止請求','完成報告替換失敗不宣告成功','中斷處理器保存失敗','未處理例外保存失敗','舊報告移存失敗停止請求','完成報告部分寫入不破壞紀錄','報告路徑為資料夾拒絕'].map(name=>({name,lifecycle:true})));
 const selected=process.argv.slice(2);
+cases.push(...['鎖遭替換不得寫入或刪除','鎖檔實體遭替換保留','執行中恢復保留原鎖','強制中斷後獨立恢復','恢復失敗不得沿用舊成功','恢復未指定資源不得掃描'].map(name=>({name,recovery:true})));
 assert.ok(selected.every(arg=>arg.startsWith('--case=')&&cases.some(item=>item.name===arg.slice(7))),'必須指定存在的案例名稱');
 const results=[];
 for(const item of cases.filter(item=>!selected.length||selected.includes('--case='+item.name))) {
+  if(item.recovery){await checkRecovery(item);continue;}
   if(item.lifecycle){await checkLifecycle(item);continue;}
   const requests=[];
   const foreignRequests=[];
@@ -105,6 +107,62 @@ for(const item of cases.filter(item=>!selected.length||selected.includes('--case
 }
 fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results},null,2));
 console.log(JSON.stringify(results.map(({name,passed,error})=>({name,passed,error}))));
+
+async function checkRecovery(item) {
+  const destination=fs.mkdtempSync(path.join(out,item.name+'-'));
+  const report=path.join(destination,'live-release-verification.json'),lock=path.join(destination,'正式來源驗證.lock');
+  const children=[],requests=[];let firstResponse,notify;
+  const ready=new Promise(resolve=>{notify=resolve;});
+  const server=http.createServer((request,response)=>{
+    requests.push(request.url);
+    if(requests.length===1&&!item.name.startsWith('恢復')){firstResponse=response;notify();return;}
+    response.end(item.name==='恢復失敗不得沿用舊成功'?'不同內容':local);
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  function start(args=['--asset='+asset]) {
+    const child=spawn(process.execPath,['scripts/verify-live-release.mjs',...args],{cwd:root,env:{...process.env,NVM_QA_BASE:`http://127.0.0.1:${server.address().port}/`,NVM_QA_OUTPUT:destination},windowsHide:true});
+    const trace={pid:child.pid,stdout:'',stderr:''};
+    child.stdout.on('data',chunk=>{trace.stdout+=chunk;});child.stderr.on('data',chunk=>{trace.stderr+=chunk;});
+    const done=new Promise((resolve,reject)=>{const timer=setTimeout(()=>{child.kill('SIGKILL');reject(new Error('恢復案例超過 10 秒'));},10000);child.on('error',reject);child.on('close',(code,signal)=>{clearTimeout(timer);resolve(Object.assign(trace,{code,signal}));});});
+    const value={child,done,trace};children.push(value);return value;
+  }
+  try {
+    if(item.name==='鎖遭替換不得寫入或刪除'||item.name==='鎖檔實體遭替換保留') {
+      const first=start();await Promise.race([ready,first.done.then(()=>{throw new Error('未收到請求');})]);
+      const running=fs.readFileSync(report,'utf8'),owner=JSON.parse(fs.readFileSync(lock,'utf8'));
+      const replacement=JSON.stringify(item.name==='鎖檔實體遭替換保留'?owner:{...owner,pid:process.pid});
+      if(item.name==='鎖檔實體遭替換保留'){const other=path.join(destination,'替換鎖');fs.writeFileSync(other,replacement);fs.renameSync(other,lock);}
+      else fs.writeFileSync(lock,replacement);
+      firstResponse.end(local);
+      assert.equal((await first.done).code,1,'鎖內容已被另一程序替換，原程序不得宣告成功');
+      assert.equal(fs.readFileSync(lock,'utf8'),replacement,'不得刪除替換的鎖');
+      assert.equal(fs.readFileSync(report,'utf8'),running,'不得覆寫原紀錄');
+    } else {
+      let first;
+      if(item.name.startsWith('恢復')){
+        fs.writeFileSync(report,JSON.stringify({passed:true,runId:'歷史成功',state:'通過'}));
+        fs.writeFileSync(lock,JSON.stringify({runId:'歷史成功',pid:process.pid}));
+      } else {
+        first=start();await Promise.race([ready,first.done.then(()=>{throw new Error('未收到請求');})]);
+        if(item.name==='強制中斷後獨立恢復'){first.child.kill('SIGKILL');await first.done;}
+      }
+      const beforeReport=fs.readFileSync(report,'utf8'),beforeLock=fs.readFileSync(lock,'utf8');
+      const args=item.name==='恢復未指定資源不得掃描'?['--recover-output']:['--recover-output','--asset='+asset];
+      const recovered=await start(args).done;
+      assert.equal(fs.readFileSync(lock,'utf8'),beforeLock);assert.equal(fs.readFileSync(report,'utf8'),beforeReport);
+      const dirs=fs.readdirSync(destination).filter(name=>name.startsWith('恢復-'));
+      assert.equal(dirs.length,1,'恢復執行必須使用獨立目錄');
+      const current=JSON.parse(fs.readFileSync(path.join(destination,dirs[0],'live-release-verification.json'),'utf8'));
+      const success=!item.name.startsWith('恢復');assert.equal(recovered.code,success?0:1);assert.equal(current.passed,success);
+      assert.notEqual(current.runId,JSON.parse(beforeReport).runId);assert.equal(current.recoveryFrom,destination);
+      assert.equal(current.offlineRequested,false);assert.deepEqual(current.offline,[]);
+      assert.equal(requests.length,item.name==='恢復未指定資源不得掃描'?0:item.name.startsWith('恢復')?1:2);
+      if(first&&item.name==='執行中恢復保留原鎖'){firstResponse.end(local);assert.equal((await first.done).code,0);}
+    }
+    results.push({name:item.name,passed:true,requests,destination});
+  }catch(error){results.push({name:item.name,passed:false,error:error.message,requests,destination});process.exitCode=1;}
+  finally {children.forEach(({child})=>{if(child.exitCode===null&&child.signalCode===null)child.kill('SIGKILL');});await Promise.allSettled(children.map(({done})=>done));fs.writeFileSync(path.join(destination,'程序紀錄.json'),JSON.stringify(children.map(({trace})=>trace),null,2));server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
+}
 
 async function checkLifecycle(item) {
   const destination=fs.mkdtempSync(path.join(out,item.name+'-'));

@@ -10,11 +10,18 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u
 const base='ce3333c6eb7dccb685fa98c395f335e6d8474254';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.3'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.4'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const file=`data/nvm-vendor-patent-maps${suffix}.json`;
-  assert.equal(read(file),original(file),'本次只改閱讀互動，原始雙語資料在換行正規化後完全不變');
+  const actual=JSON.parse(read(file)),before=JSON.parse(original(file));
+  const stats=actual.vendors.find(v=>v.id==='ememory').patentStats;
+  assert.equal(stats.totalGrantedWorldwide,suffix?'1,370+ Patents Issued':'1,370+ 件核准專利');
+  assert.equal(stats.grantedSource.date,'2026-08-19');assert.equal(stats.grantedSource.page,4);
+  assert.equal(stats.grantedSource.url,'https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf');
+  stats.totalGrantedWorldwide=before.vendors.find(v=>v.id==='ememory').patentStats.totalGrantedWorldwide;
+  delete stats.grantedSource;
+  assert.deepEqual(actual,before,'僅更新力旺核准總量與來源；其他統計、日期及全部案卷保持原值');
 }
 function withoutMap(html) {
   const start=html.indexOf('<article id="patent-maps"'); assert.ok(start>=0);

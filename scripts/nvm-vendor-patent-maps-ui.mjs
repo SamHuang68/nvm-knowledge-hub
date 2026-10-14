@@ -209,15 +209,18 @@ function renderMilestones(milestones, en) {
  */
 function renderVendorStudy(vendor, en, cite) {
   const stats = vendor.patentStats;
+  const source=stats.grantedSource;
+  const sourceText=source ? (en?`Company briefing · ${source.date} · p. ${source.page}`:`公司簡報・${source.date}・第 ${source.page} 頁`) : '';
+  const sourceNote=source ? `<p class="nvm-stat-source"><a href="${esc(source.url)}#page=${esc(source.page)}" target="_blank" rel="noopener noreferrer">${esc(sourceText)}</a><br>${en?'Company-reported total; not the map count or currently active patents.':'公司揭露總量，非本地圖收錄數或目前有效件數。'}</p>` : '';
   const statLabels = en
     ? [
-        { label: 'Global Granted Patents', value: stats.totalGrantedWorldwide },
+        { label: 'Global Granted Patents', value: stats.totalGrantedWorldwide, sourceNote },
         { label: 'Key Filing Jurisdictions', value: stats.keyJurisdictions },
         { label: 'Foundry Integration', value: stats.foundryCoverage },
         { label: 'Silicon Production Track Record', value: stats.waferShipment }
       ]
     : [
-        { label: '全球核准專利總量', value: stats.totalGrantedWorldwide },
+        { label: '全球核准專利總量', value: stats.totalGrantedWorldwide, sourceNote },
         { label: '主要專利申請管轄地', value: stats.keyJurisdictions },
         { label: '晶圓代工驗證平台', value: stats.foundryCoverage },
         { label: '商用晶片量產規模', value: stats.waferShipment }
@@ -245,7 +248,7 @@ function renderVendorStudy(vendor, en, cite) {
   const activeCount = allPatents.filter(p => p.legalStatus === 'active').length;
   const expiredCount = allPatents.filter(p => p.legalStatus === 'expired').length;
 
-  return `<section id="vendor-${esc(vendor.id)}" data-map-vendor="${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'COMPANY / IP LINEAGE DOSSIER' : '廠商／IP 沿革案卷'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3><div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Recorded Status:' : '收錄狀態：'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'Recorded active' : '筆標示有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Recorded expired' : '筆標示屆滿'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p></div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, vendor, en)).join('')}</div>${renderLitigationDefense(vendor.litigationDefense, en)}${renderMilestones(vendor.milestones, en)}</section>`;
+  return `<section id="vendor-${esc(vendor.id)}" data-map-vendor="${esc(vendor.id)}" class="nvm-vendor-study nvm-patent-dossier" tabindex="-1"><header class="nvm-vendor-profile-header"><div class="nvm-dossier-kicker-strip"><span class="nvm-dossier-kicker">${en ? 'COMPANY / IP LINEAGE DOSSIER' : '廠商／IP 沿革案卷'}</span><span class="nvm-dossier-model">${esc(vendor.businessModel)}</span></div><h3 class="nvm-dossier-title">${esc(vendor.name)} <small>(${esc(vendor.shortName)})</small></h3><div class="nvm-vendor-meta-strip"><span><strong>${metaLabels.headquarters}:</strong> ${esc(vendor.headquarters)}</span><span><strong>${metaLabels.founded}:</strong> ${esc(vendor.founded)}</span><span><strong>${metaLabels.founders}:</strong> ${esc(vendor.founders)}</span><span class="nvm-meta-status-pill"><strong>${en ? 'Recorded Status:' : '收錄狀態：'}</strong> <span class="nvm-meta-active">${activeCount} ${en ? 'Recorded active' : '筆標示有效'}</span> · <span class="nvm-meta-expired">${expiredCount} ${en ? 'Recorded expired' : '筆標示屆滿'}</span></span></div></header><dl class="nvm-vendor-stats-grid">${statLabels.map(item => `<div class="nvm-vendor-stat-card"><dt>${esc(item.label)}</dt><dd>${esc(item.value)}${item.sourceNote||''}</dd></div>`).join('')}</dl><div class="nvm-vendor-strategy"><h4>${metaLabels.strategy}</h4><p>${esc(vendor.strategy)}</p></div><nav class="nvm-family-jump-nav" aria-label="${metaLabels.portfoliosNav}"><span class="nvm-family-jump-title">${metaLabels.portfoliosNav}：</span>${vendor.families.map(f => `<a href="#family-${esc(f.id)}">${esc(f.name.split(' ')[0])} (${f.patents.length})</a>`).join('')}</nav><div class="nvm-patent-families">${vendor.families.map(f => renderPatentFamily(f, vendor, en)).join('')}</div>${renderLitigationDefense(vendor.litigationDefense, en)}${renderMilestones(vendor.milestones, en)}</section>`;
 }
 
 /**
@@ -334,6 +337,10 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
     md += `- **${en ? 'Business Model' : '商業模式'}**: ${v.businessModel}\n`;
     md += `- **${en ? 'Recorded Portfolio Status' : '組合收錄狀態'}**: ${en ? `${vActive} Recorded active · ${vExpired} Recorded expired` : `資料標示有效 ${vActive} 筆 · 資料標示屆滿 ${vExpired} 筆`}\n`;
     md += `- **${en ? 'Global Patents' : '全球核准專利'}**: ${v.patentStats.totalGrantedWorldwide}\n`;
+    if(v.patentStats.grantedSource){
+      const s=v.patentStats.grantedSource;
+      md+=`- [${en?'Company briefing':'公司簡報'} · ${s.date} · ${en?'p.':'第'} ${s.page}${en?'':' 頁'}](${s.url}#page=${s.page}) — ${en?'Company-reported total; not the map count or currently active patents.':'公司揭露總量，非本地圖收錄數或目前有效件數。'}\n`;
+    }
     md += `- **${en ? 'Patent Strategy' : '專利護城河戰略'}**: ${v.strategy}\n\n`;
 
     for (const f of v.families) {

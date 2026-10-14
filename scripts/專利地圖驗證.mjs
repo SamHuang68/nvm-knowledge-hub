@@ -7,6 +7,41 @@ import {startTestServer} from './test-server.mjs';
 import {validateVendorPatentMaps, renderVendorPatentMaps, vendorPatentMapsMarkdown, patentMapTechnology} from './nvm-vendor-patent-maps-ui.mjs';
 
 const root = path.resolve(import.meta.dirname,'..');
+if(process.argv.includes('--stats-only')){await checkStatistics();process.exit(0);}
+
+async function checkStatistics(){
+  const baseline=process.argv.includes('--baseline');
+  const out=path.join(root,'qa','力旺統計',baseline?'修改前':'修改後');fs.mkdirSync(out,{recursive:true});
+  const base=process.env.NVM_QA_BASE;
+  const server=base?null:await startTestServer(root);
+  const browser=await chromium.launch();const results=[];
+  try{
+    for(const locale of ['zh','en']){
+      const data=JSON.parse(fs.readFileSync(path.join(root,`data/nvm-vendor-patent-maps${locale==='en'?'-en':''}.json`),'utf8'));
+      const md=vendorPatentMapsMarkdown(data,()=>'',locale);
+      assert.ok(md.includes(baseline?'1,150':'1,370+'));
+      if(!baseline){assert.ok(md.includes('2026-08-19'));assert.ok(md.includes('eMemory%20Briefing_eng_20260819.pdf#page=4'));}
+      for(const width of [1440,390]){
+        const page=await browser.newPage({viewport:{width,height:960}});
+        await page.goto(`${base||server.base}nvm-technology-atlas${locale==='zh'?'-zh':''}.html?lang=${locale}#vendor-ememory`);
+        const vendor=page.locator('#vendor-ememory');await vendor.waitFor();await vendor.scrollIntoViewIfNeeded();
+        const cards=vendor.locator('.nvm-vendor-stat-card');assert.equal(await cards.count(),4);
+        assert.ok((await cards.first().innerText()).includes(baseline?'1,150':'1,370+'));
+        if(!baseline){
+          const source=cards.first().locator('a');assert.ok((await source.innerText()).includes('2026-08-19'));
+          assert.equal(await source.getAttribute('href'),data.vendors.find(v=>v.id==='ememory').patentStats.grantedSource.url+'#page=4');
+          await source.focus();assert.equal(await source.evaluate(n=>document.activeElement===n),true);
+          assert.equal(await cards.first().evaluate(n=>n.scrollWidth<=n.clientWidth),true,'來源與數字不得溢出卡片');
+          if(locale==='en')assert.ok(!/[\u3400-\u9fff]/u.test(await cards.first().innerText()));
+        }
+        assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+        await cards.first().scrollIntoViewIfNeeded();await vendor.locator('.nvm-vendor-stats-grid').screenshot({path:path.join(out,`${locale}-${width}.png`)});
+        results.push({locale,width,passed:true,text:await cards.first().innerText(),cards:await cards.count()});await page.close();
+      }
+    }
+  }finally{await browser.close();if(server)await server.close();}
+  fs.writeFileSync(path.join(out,'結果.json'),JSON.stringify({results},null,2));console.log(JSON.stringify(results));
+}
 const engine = process.argv.find(arg=>arg.startsWith('--engine='))?.split('=')[1] || 'chromium';
 assert.ok(['chromium','webkit'].includes(engine), '僅驗證明列的瀏覽器引擎');
 const out = path.join(root,'qa','專利地圖',engine);

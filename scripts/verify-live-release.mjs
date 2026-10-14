@@ -7,25 +7,36 @@ import {chromium} from 'playwright';
 
 const root = path.resolve(import.meta.dirname,'..');
 const userAgent = 'NVM-Knowledge-Hub-Verification/1.0 (+https://hub.samhuang68.org/)';
-const args = process.argv.slice(2);
-const assetsOnly = args.length>0;
+const originalArgs = process.argv.slice(2);
+const recoverOutput = originalArgs.includes('--recover-output');
+const args = originalArgs.filter(arg=>arg!=='--recover-output');
+const assetsOnly = recoverOutput || args.length>0;
 const base = process.env.NVM_QA_BASE || 'https://samhuang68.github.io/nvm-knowledge-hub/';
-const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root,'qa','bilingual-release','live-release'));
 const runId=crypto.randomUUID();
+const requestedOutput = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root,'qa','bilingual-release','live-release'));
+// 恢復只建立新目錄，不判定 PID 存活、不移除原鎖，也不讀取舊成功作為本次結果。
+const output = recoverOutput ? path.join(requestedOutput,`恢復-${runId}`) : requestedOutput;
 const reportPath=path.join(output,'live-release-verification.json');
 const lockPath=path.join(output,'正式來源驗證.lock');
 const temporaryPath=path.join(output,`正式來源驗證-${runId}.tmp`);
 const result = {base,checkedAt:new Date().toISOString(),version:null,userAgent,
   scope:assetsOnly?'指定資源':'完整流程',offlineRequested:!assetsOnly,assets:[],offline:[],passed:false,
-  runId,pid:process.pid,state:'執行中',finishedAt:null};
-let browser,ownsLock=false,started=false,finished=false;
+  runId,pid:process.pid,state:'執行中',finishedAt:null,output,recoveryFrom:recoverOutput?requestedOutput:null};
+let browser,ownsLock=false,started=false,finished=false,lockIdentity;
+function assertLockOwner() {
+  const stat=fs.lstatSync(lockPath);
+  const owner=JSON.parse(fs.readFileSync(lockPath,'utf8'));
+  assert.ok(ownsLock&&stat.isFile()&&stat.dev===lockIdentity?.dev&&stat.ino===lockIdentity?.ino&&owner.runId===runId&&owner.pid===process.pid,
+    '執行鎖已變更；停止寫入與清理，保留現有鎖及報告。');
+}
 function writeReport() {
   let descriptor;
   try {
+    assertLockOwner();
     descriptor=fs.openSync(temporaryPath,'wx',0o600);
     fs.writeFileSync(descriptor,JSON.stringify(result,null,2)+'\n');
     fs.fsyncSync(descriptor);fs.closeSync(descriptor);descriptor=undefined;
-    fs.renameSync(temporaryPath,reportPath);
+    assertLockOwner();fs.renameSync(temporaryPath,reportPath);
   } finally {
     if(descriptor!==undefined)fs.closeSync(descriptor);
     if(fs.existsSync(temporaryPath))fs.unlinkSync(temporaryPath);
@@ -38,7 +49,7 @@ function reportWriteFailure(error) {
 function releaseLock() {
   if(!ownsLock)return;
   try {
-    if(JSON.parse(fs.readFileSync(lockPath,'utf8')).runId===runId)fs.unlinkSync(lockPath);
+    assertLockOwner();fs.unlinkSync(lockPath);
   } catch(error) {console.error(`執行鎖未能清理：${lockPath}；${error.message}。請確認程序與報告識別後處理，勿直接覆寫其他執行。`);}
   ownsLock=false;
 }
@@ -57,9 +68,9 @@ try {
 try {fs.mkdirSync(output,{recursive:true});}catch(error){reportWriteFailure(error);throw error;}
 let lockDescriptor;
 try {
-  lockDescriptor=fs.openSync(lockPath,'wx',0o600);ownsLock=true;
+  lockDescriptor=fs.openSync(lockPath,'wx',0o600);ownsLock=true;lockIdentity=fs.fstatSync(lockDescriptor);
 } catch(error) {
-  if(error.code==='EEXIST')throw new Error(`輸出目錄已有執行鎖：${lockPath}。本次未啟動；先確認原程序與未完成報告，或使用新的 NVM_QA_OUTPUT。`);
+  if(error.code==='EEXIST')throw new Error(`輸出目錄已有執行鎖：${lockPath}。本次 ${runId} 未啟動，既有報告不是本次結果；可加 --recover-output 並明列 --asset，在獨立目錄重新核對。原鎖與原報告會保留。`);
   reportWriteFailure(error);
   throw error;
 }
@@ -67,8 +78,11 @@ try {
   fs.writeFileSync(lockDescriptor,JSON.stringify({runId,pid:process.pid,startedAt:result.checkedAt}));
 } catch(error){reportWriteFailure(error);throw error;}finally {fs.closeSync(lockDescriptor);}
 try {
-  if(fs.existsSync(reportPath)) {
-    assert.ok(fs.lstatSync(reportPath).isFile(),'既有報告路徑必須是一般檔案，不移動資料夾或符號連結。');
+  assertLockOwner();
+  let previousStat;
+  try{previousStat=fs.lstatSync(reportPath);}catch(error){if(error.code!=='ENOENT')throw error;}
+  if(previousStat) {
+    assert.ok(previousStat.isFile(),'既有報告路徑必須是一般檔案，不移動資料夾或符號連結。');
     result.previousReport=`歷史結果-${runId}.json`;
     fs.renameSync(reportPath,path.join(output,result.previousReport));
   }
@@ -76,6 +90,7 @@ try {
   console.log(`正式來源驗證啟動：${runId}；報告 ${reportPath}`);
 } catch(error) {reportWriteFailure(error);throw error;}
 assert.ok(args.every(arg=>arg.startsWith('--asset=') && arg.slice(8)), '局部模式只接受非空的 --asset=相對檔案路徑；可重複指定。');
+assert.ok(!recoverOutput||(args.length>0&&originalArgs.filter(arg=>arg==='--recover-output').length===1),'恢復模式必須明列至少一個 --asset，且只指定一次 --recover-output；不自動啟動完整流程。');
 const baseURL=new URL(base);
 assert.ok(['http:','https:'].includes(baseURL.protocol)&&baseURL.pathname.endsWith('/')&&!baseURL.search&&!baseURL.hash&&!baseURL.username&&!baseURL.password,
   '來源必須是以 / 結尾、不含帳密、查詢或片段的 HTTP(S) 基底網址。');

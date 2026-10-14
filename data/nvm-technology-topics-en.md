@@ -11469,7 +11469,8 @@ Status and term dates are recorded research data, not current legal determinatio
 - **Leadership**: Dr. Charles Ching-Hsiang Hsu, Fang-Cheng Lu, and the R&D team
 - **Business Model**: Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP)
 - **Recorded Portfolio Status**: 7 Recorded active · 7 Recorded expired
-- **Global Patents**: Over 1,150 Worldwide Granted Patents
+- **Global Patents**: 1,370+ Patents Issued
+- [Company briefing · 2026-08-19 · p. 4](https://www.ememory.com.tw/Content/Upload/files/IR/eMemory%20Briefing_eng_20260819.pdf#page=4) — Company-reported total; not the map count or currently active patents.
 - **Patent Strategy**: The foundational philosophy of eMemory's patent portfolio is 'Zero Mask Adder' and '100% Standard CMOS Logic Process Compatibility'. Unlike conventional eFlash architectures that demand 3 to 8 additional specialized polysilicon masks or high-temperature thermal steps, eMemory's patent topology builds entirely upon native gate dielectrics, polysilicon gates, and well diffusion regions available in standard CMOS logic. Its patent map unfolds across two foundational vectors: the charge-storage trajectory (NeoBit floating-gate OTP → NeoEE capacitive-coupling MTP → NeoMTP erase-gate MTP) and the dielectric-physics trajectory (NeoFuse gate-oxide antifuse OTP → NeoPUF quantum-tunneling hardware security root of trust), spanning legacy sub-micron nodes down to 2nm GAA nanosheet architectures.
 
 #### NeoBit® Floating-Gate OTP Patent Family (OTP (One-Time Programmable))
