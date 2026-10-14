@@ -71,6 +71,16 @@ export function validateVendorPatentMaps(data) {
     if (!vendor.patentStats || !vendor.patentStats.totalGrantedWorldwide) {
       throw new Error(`廠商 ${vendor.id} 缺少專利統計數據`);
     }
+    for (const key of metricKeys) {
+      const stats=vendor.patentStats, source=stats.metricSources?.[key];
+      if (!stats[key]) throw new Error(`廠商 ${vendor.id} 缺少統計值：${key}`);
+      if (key==='totalGrantedWorldwide' && stats.grantedSource && !source) continue;
+      for (const item of source ? [source,...(source.references||[])] : [null]) {
+        if (!item?.title || !item.note || !/^https:\/\//u.test(item.url||'') || !/^\d{4}-\d{2}(?:-\d{2})?$/u.test(item.date||'') || !['published','checked'].includes(item.dateKind) || !source.label) {
+          throw new Error(`廠商 ${vendor.id} 統計來源不完整：${key}`);
+        }
+      }
+    }
     if (!Array.isArray(vendor.families) || !vendor.families.length) {
       throw new Error(`廠商 ${vendor.id} 缺少 families 專利家族`);
     }
@@ -204,17 +214,17 @@ function renderMilestones(milestones, en) {
   return `<section class="nvm-patent-timeline-section"><h4>${sectionTitle}</h4><p class="nvm-timeline-intro">${introText}</p><div class="nvm-patent-timeline">${milestones.map(node => `<article class="nvm-timeline-node"><div class="nvm-timeline-period"><span>${esc(node.period)}</span><small>${esc(node.era)}</small></div><div class="nvm-timeline-content"><h5>${esc(node.theme)}</h5><p>${esc(node.summary)}</p><dl><dt>${en ? 'Foundry Node' : '代表節點'}</dt><dd>${esc(node.nodes)}</dd><dt>${en ? 'Key Patents' : '代表專利'}</dt><dd>${esc(node.keyPatents)}</dd></dl></div></article>`).join('')}</div></section>`;
 }
 
-// 三項營運統計的來源由既有資料欄位共用，卡片、矩陣與匯出保持同一口徑。
-const metricKeys = ['keyJurisdictions', 'foundryCoverage', 'waferShipment'];
+// 四項統計的來源由既有資料欄位共用，卡片、矩陣與匯出保持同一口徑。
+const metricKeys = ['totalGrantedWorldwide', 'keyJurisdictions', 'foundryCoverage', 'waferShipment'];
 const metricUrl = source => source.url + (source.page ? `#page=${source.page}` : '');
 const metricCitation = (source, en) => `${source.title} · ${source.dateKind === 'checked' ? (en ? 'Checked ' : '查核 ') : (en ? 'Published ' : '發布 ')}${source.date}${source.page ? (en ? ` · p. ${source.page}` : ` · 第 ${source.page} 頁`) : ''}`;
 function metricSourceHtml(stats, key, en) {
   const source = stats.metricSources?.[key];
-  return source ? `<p class="nvm-stat-source"><a href="${esc(metricUrl(source))}" target="_blank" rel="noopener noreferrer">${esc(metricCitation(source,en))}</a><br>${esc(source.note)}</p>` : '';
+  return source ? [source,...(source.references||[])].map(item=>`<p class="nvm-stat-source"><a href="${esc(metricUrl(item))}" target="_blank" rel="noopener noreferrer">${esc(metricCitation(item,en))}</a><br>${esc(item.note)}</p>`).join('') : '';
 }
 function metricSourceMarkdown(stats, key, en) {
   const source = stats.metricSources?.[key];
-  return source ? `[${metricCitation(source,en)}](${metricUrl(source)}) — ${source.note}` : '';
+  return source ? [source,...(source.references||[])].map(item=>`[${metricCitation(item,en)}](${metricUrl(item)}) — ${item.note}`).join(' / ') : '';
 }
 
 /**
@@ -240,7 +250,7 @@ function renderVendorStudy(vendor, en, cite) {
       ];
 
   metricKeys.forEach((key,index) => {
-    const item=statLabels[index+1], source=stats.metricSources?.[key];
+    const item=statLabels[index], source=stats.metricSources?.[key];
     if(source){item.label=source.label;item.sourceNote=metricSourceHtml(stats,key,en);}
   });
 
@@ -354,7 +364,7 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
     md += `- **${en ? 'Leadership' : '核心研發/發明人'}**: ${v.founders}\n`;
     md += `- **${en ? 'Business Model' : '商業模式'}**: ${v.businessModel}\n`;
     md += `- **${en ? 'Recorded Portfolio Status' : '組合收錄狀態'}**: ${en ? `${vActive} Recorded active · ${vExpired} Recorded expired` : `資料標示有效 ${vActive} 筆 · 資料標示屆滿 ${vExpired} 筆`}\n`;
-    md += `- **${en ? 'Global Patents' : '全球核准專利'}**: ${v.patentStats.totalGrantedWorldwide}\n`;
+    if(!v.patentStats.metricSources?.totalGrantedWorldwide) md += `- **${en ? 'Global Patents' : '全球核准專利'}**: ${v.patentStats.totalGrantedWorldwide}\n`;
     if(v.patentStats.grantedSource){
       const s=v.patentStats.grantedSource;
       md+=`- [${en?'Company briefing':'公司簡報'} · ${s.date} · ${en?'p.':'第'} ${s.page}${en?'':' 頁'}](${s.url}#page=${s.page}) — ${en?'Company-reported total; not the map count or currently active patents.':'公司揭露總量，非本地圖收錄數或目前有效件數。'}\n`;
