@@ -115,7 +115,7 @@
         "node",
         "scripts/驗證專利地圖閱讀互動.mjs",
         "--engine=chromium",
-        "--filter=延遲"
+        "--filter=觸控"
       ],
       "targets": [
         "scripts/驗證專利地圖閱讀互動.mjs"
@@ -156,7 +156,7 @@
         "global-search.css",
         "search-controller.js"
       ],
-      "reason": "整合樣式就緒條件；只驗證直接填值、樣式完成前觸控與 Tab，以及載入後焦點、連續輸入和未操作初始定位。手機矩陣沿用既有證據。",
+      "reason": "Linux Chromium 首次 CI 的直接填值、Tab 與初始定位已通過；只補驗本次修正的觸控前捲動。原始三案有效證據保留於 CI 38537261154 的瀏覽器產物。",
       "prepare": [
         "node",
         "browser"

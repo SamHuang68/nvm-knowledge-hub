@@ -96,7 +96,9 @@ try {
       if(method==='直接填值') {
         await delayed.settleCSS();await query.fill('US6678190');
       } else if(method==='觸控') {
+        await query.scrollIntoViewIfNeeded();
         const box=await query.boundingBox();
+        trace.push({step:'捲至搜尋框後的觸控位置',box});
         assert.ok(box && box.y>=0 && box.y+box.height<=960 && box.x>=0 && box.x+box.width<=390,'搜尋框在可觸控視窗內');
         await page.touchscreen.tap(box.x+box.width/2,box.y+box.height/2);
         await page.keyboard.type('US6678190');
