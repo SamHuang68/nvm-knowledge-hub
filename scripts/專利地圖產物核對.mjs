@@ -43,5 +43,10 @@ const policy=JSON.parse(read('data/public-release-policy.json'));
 const originalPolicy=JSON.parse(original('data/public-release-policy.json'));
 for (const key of ['allowedClassifications','blockedClassifications','blockedAttachmentExtensions','allowedAttachmentExceptions','attachmentExceptionEvidence']) assert.deepEqual(policy[key],originalPolicy[key],'公開資料／附件限制未降低');
 for (const item of policy.localizedSourcePathExceptions) assert.ok(item.basis && fs.statSync(path.join(root,item.path)).isFile(),'來源路徑例外均有實體檔與說明');
-console.log('專利地圖產物核對通過：版本一致、原始資料保留、其他章節不變、四項離線資源同步與公開範圍保持。');
+const sourceExceptions=new Set(policy.localizedSourcePathExceptions.map(item=>item.path));
+const addedPaths=execFileSync('git',['diff','--name-only','--diff-filter=A','-z',base,'HEAD'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
+for (const file of addedPaths) {
+  if (/[^\x00-\x7F]/u.test(file)) assert.ok(sourceExceptions.has(file),`新增繁體中文來源路徑須登記精確例外：${file}`);
+}
+console.log('專利地圖產物核對通過：版本一致、原始資料保留、其他章節不變、四項離線資源同步、公開範圍與新增來源命名保持。');
 execFileSync(process.execPath,['scripts/build-release-lineage.mjs','--check'],{cwd:root,stdio:'inherit'});

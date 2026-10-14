@@ -12,61 +12,6 @@
   ],
   "cases": [
     {
-      "id": "專利地圖互動",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/專利地圖驗證.mjs",
-        "--engine=chromium"
-      ],
-      "targets": [
-        "scripts/專利地圖驗證.mjs"
-      ],
-      "changes": [
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "scripts/nvm-vendor-patent-maps-ui.mjs"
-      ],
-      "inputs": [
-        "data/nvm-technology-topics-en.md",
-        "data/nvm-technology-topics.md",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/專利地圖驗證.mjs",
-        "scripts/test-server.mjs",
-        "data/nvm-vendor-patent-maps.json",
-        "data/nvm-vendor-patent-maps-en.json",
-        "nvm-technology-atlas.css",
-        "site-language.js",
-        "atlas-diagram-loader.js",
-        "package.json",
-        "package-lock.json",
-        "nvm-industry-research.css",
-        "editorial-reading-ui.css",
-        "hub-auto-tune.css",
-        "hub-auto-tune.js",
-        "章節閱讀導覽.css",
-        "nvm-bitcell-figures.css",
-        "nvm-ip-cells.css",
-        "nvm-engineering-diagrams.css",
-        "data/nvm-knowledge-data.json",
-        "data/nvm-knowledge-data-en.json",
-        "scripts/update-stage5-dossiers.mjs"
-      ],
-      "reason": "手機矩陣觸控、說明與欄位語意修正，以及共用初始定位保護；驗證既有專利地圖雙語流程保留。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 180
-    },
-    {
       "id": "專利地圖產物保全",
       "kind": "node",
       "targets": [
@@ -84,7 +29,8 @@
         "data/nvm-vendor-patent-maps.json",
         "data/nvm-vendor-patent-maps-en.json",
         "index.html",
-        "scripts/build-nvm-atlas.mjs"
+        "scripts/build-nvm-atlas.mjs",
+        "data/public-release-policy.json"
       ],
       "inputs": [
         "scripts/專利地圖產物核對.mjs",
@@ -154,11 +100,66 @@
         "scripts/build-release-lineage.mjs",
         "scripts/驗證專利地圖閱讀互動.mjs"
       ],
-      "reason": "版本與離線資源更新須一致；核對原始資料、其他 Atlas 章節及公開附件限制完整保留。 發行來源紀錄綁定確切內容提交。",
+      "reason": "版本與離線資源更新須一致；核對原始資料、其他 Atlas 章節及公開附件限制完整保留。 發行來源紀錄綁定確切內容提交。 新增繁體中文來源檔須先核對精確命名例外，避免封裝階段才發現缺漏。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 20
+    },
+    {
+      "id": "專利地圖互動",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/專利地圖驗證.mjs",
+        "--engine=chromium"
+      ],
+      "targets": [
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "changes": [
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/nvm-vendor-patent-maps-ui.mjs"
+      ],
+      "inputs": [
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "scripts/專利地圖驗證.mjs",
+        "scripts/test-server.mjs",
+        "data/nvm-vendor-patent-maps.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "nvm-technology-atlas.css",
+        "site-language.js",
+        "atlas-diagram-loader.js",
+        "package.json",
+        "package-lock.json",
+        "nvm-industry-research.css",
+        "editorial-reading-ui.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "章節閱讀導覽.css",
+        "nvm-bitcell-figures.css",
+        "nvm-ip-cells.css",
+        "nvm-engineering-diagrams.css",
+        "data/nvm-knowledge-data.json",
+        "data/nvm-knowledge-data-en.json",
+        "scripts/update-stage5-dossiers.mjs"
+      ],
+      "reason": "手機矩陣觸控、說明與欄位語意修正，以及共用初始定位保護；驗證既有專利地圖雙語流程保留。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 180
     },
     {
       "id": "專利地圖閱讀互動",
