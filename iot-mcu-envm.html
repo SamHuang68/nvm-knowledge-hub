@@ -612,6 +612,12 @@
       color: #64748b;
       line-height: 1.35;
     }
+    #cam-patch-timing-model th, #cam-patch-timing-model td { padding: 12px; border-bottom: 1px solid #cbd5e1; vertical-align: top; }
+    #cam-patch-timing-model th { background: #e2e8f0; }
+    #cam-patch-table-scroll:focus-visible { outline: 3px solid #006667; outline-offset: 3px; }
+    @media (max-width: 620px) {
+      #cam-patch-timing-model { padding: 12px !important; }
+    }
   </style>
   <link rel="stylesheet" href="model-boundaries.css">
 </head>
@@ -1290,12 +1296,12 @@
           <section id="cam-patch" class="lens-panel" data-lens="lens-05">
             <div class="panel-kicker"><span data-lang="en">LENS 05 · VECTOR PATCH CAM ARCHITECTURE</span><span data-lang="zh">觀點 05 · 向量修補 CAM 架構</span></div>
             <h2>
-              <span data-lang="zh">不可抹除的物理單元，<em>實現零週期線上熱修補</em></span>
-              <span data-lang="en">Immutable Physical Bitcells: <em>Zero-Cycle On-The-Fly Patching</em></span>
+              <span data-lang="zh">不可抹除的物理單元，<em>支援受驗證的線上修補</em></span>
+              <span data-lang="en">Immutable Physical Bitcells: <em>Validated Runtime Patching</em></span>
             </h2>
             <p class="panel-desc">
-              <span data-lang="zh">利用硬體 CAM 嗅探 CPU 程式計數器 (PC)。當比對到缺陷指令位址時，硬體 MUX 於零週期內自動重定向至 AntiFuse OTP 中的修正向量。</span>
-              <span data-lang="en">Hardware CAM intercepts PC address. Upon matching a flaw, hardware MUX redirects execution to the patch vector in OTP with zero wait states.</span>
+              <span data-lang="zh">硬體 CAM 比對 CPU 取指位址；命中後，MUX 可將存取重新導向修補向量。實際延遲依記憶體、匯流排、管線與快取配置而定，不能由 OTP 的不可抹除特性推論零等待。</span>
+              <span data-lang="en">A hardware CAM matches instruction-fetch addresses, allowing a MUX to redirect matching accesses to patch vectors. Actual latency depends on memory, bus, pipeline and cache configuration; OTP immutability does not establish zero-wait operation.</span>
             </p>
 
             <!-- 互動 CAM 匯流排模擬畫布 -->
@@ -1329,16 +1335,16 @@
                   </h3>
                 </div>
                 <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(5, 150, 105, 0.08); color: #059669; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(5, 150, 105, 0.2);">
-                  <span data-lang="zh">Arm FPB / RISC-V Zicbo 規範</span>
-                  <span data-lang="en">Arm FPB / RISC-V Zicbo Spec</span>
+                  <span data-lang="zh">Arm FPB／自訂 RISC-V 修補模型</span>
+                  <span data-lang="en">Arm FPB / Custom RISC-V Patch Model</span>
                 </span>
               </div>
 
               <!-- Simulation Disclaimer Banner -->
               <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
                 <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
-                <span data-lang="zh">本工作台之向量補丁 CAM 查找延遲、修補命中率與熱修復能耗為基於 Arm FPB 與 RISC-V Zicbo 微架構一階集總模型之數值試算，非特定商業微控制器之實體邏輯閘級時序報告。實際中斷重定向延遲受匯流排仲裁 (AXI/AHB) 與流水線排空週期影響。</span>
-                <span data-lang="en">The vector patch CAM lookup latency, hit rates, and hot-patching energy in this workbench are schematic numerical approximations based on first-order Arm FPB and RISC-V Zicbo models, rather than gate-level sign-off timing reports of specific commercial MCUs. Pipeline flush cycles and bus arbitration govern real-world redirection delays.</span>
+                <span data-lang="zh">本工作台參考具名 Arm FPB 功能，並使用本頁自訂 CAM 教學假設，試算查找延遲、修補命中率與能耗；這不是 RISC-V Zicbom 規範所定義的修補模型，也不是商用 MCU 的邏輯閘級時序報告。實際延遲仍受匯流排仲裁、記憶體與管線清空影響。</span>
+                <span data-lang="en">This workbench references named Arm FPB features and uses custom CAM teaching assumptions to estimate lookup latency, patch hit rates and energy. It is not a patch model defined by RISC-V Zicbom or a commercial MCU gate-level timing report. Bus arbitration, memory and pipeline flushes still affect actual latency.</span>
               </div>
 
               <!-- Controls Grid -->
@@ -1438,7 +1444,49 @@
               <div id="patch-out-verdict" style="background: rgba(5, 150, 105, 0.05); border: 1px solid rgba(5, 150, 105, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;" role="status" aria-live="polite">
                 Loading Vector Patch CAM calculations...
               </div>
+
             </div>
+
+              <!-- 微架構時序與暫存器模型：具名實作與教學提案分開 -->
+              <div id="cam-patch-timing-model" style="margin-top: 1.25rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1.25rem;">
+                <h4 style="margin: 0 0 0.75rem; color: #0f172a;">
+                  <span data-lang="zh">微架構解析 · Arm FPB 與 RISC-V 自訂修補模型</span>
+                  <span data-lang="en">Microarchitecture: Arm FPB and a Custom RISC-V Patch Model</span>
+                </h4>
+                <p>
+                  <span data-lang="zh"><strong>證據與假設：</strong>Arm Cortex-M3 的完整 FPB 實作可將指令或資料存取重新映射；下方 RISC-V CAM 則是本頁的教學架構提案。平行位址比對可能縮短修補路徑，但零等待仍須以具名晶片的時序、匯流排與快取行為證明。</span>
+                  <span data-lang="en"><strong>Evidence and assumptions:</strong> The full Cortex-M3 FPB can remap instruction or data accesses. The RISC-V CAM below is a teaching proposal. Parallel address matching may reduce patch latency; zero-wait operation requires timing, bus and cache evidence for a named chip.</span>
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin: 1rem 0;">
+                  <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px;">
+                    <h5><span data-lang="zh">階段 1 · 位址比對</span><span data-lang="en">Stage 1 · Address Matching</span></h5>
+                    <p><span data-lang="zh">以取指位址比對修補槽位。槽位數與比對延遲屬實作參數；本頁不假設所有核心都能在半個週期內完成。</span><span data-lang="en">Compare the fetch address with patch entries. Entry count and match delay are implementation parameters; a half-cycle match is not assumed for every core.</span></p>
+                  </div>
+                  <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px;">
+                    <h5><span data-lang="zh">階段 2 · 替換與取指同步</span><span data-lang="en">Stage 2 · Remapping and Fetch Synchronization</span></h5>
+                    <p><span data-lang="zh">命中後選取替換位址或指令。等待週期、仲裁、管線清空及快取一致性需納入延遲；RISC-V 的 FENCE.I 處理同一 hart 的指令可見性，多核心還需跨 hart 同步。</span><span data-lang="en">A hit selects a replacement address or instruction. Include wait states, arbitration, pipeline flushes and cache coherence. RISC-V FENCE.I synchronizes instruction visibility on the local hart; multicore systems also need inter-hart synchronization.</span></p>
+                  </div>
+                  <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px;">
+                    <h5><span data-lang="zh">階段 3 · 驗證與防回滾</span><span data-lang="en">Stage 3 · Authentication and Rollback Control</span></h5>
+                    <p><span data-lang="zh">教學方案可用 OTP 保存版本下限或驗證信任錨點，並在啟用修補前驗證簽章與版本。不可逆儲存本身不保證更新流程原子性，也不取代故障注入與金鑰保護評估。</span><span data-lang="en">The proposal may store a minimum version or verification anchor in OTP and authenticate the patch before activation. Irreversible storage alone does not guarantee atomic updates or replace fault-injection and key-protection evaluation.</span></p>
+                  </div>
+                </div>
+                <p id="cam-patch-table-help"><span data-lang="zh">窄螢幕可橫向捲動比較表；鍵盤聚焦後可用左右方向鍵閱讀。</span><span data-lang="en">On narrow screens, scroll the table horizontally; focus it and use the arrow keys with a keyboard.</span></p>
+                <div id="cam-patch-table-scroll" style="overflow-x: auto;" tabindex="0" role="region" aria-describedby="cam-patch-table-help" aria-label="修補架構比較表" data-aria-zh="修補架構比較表" data-aria-en="Patch architecture comparison table">
+                  <table style="width: 100%; min-width: 560px; table-layout: fixed; border-collapse: collapse; text-align: left;" aria-label="微架構比較：Cortex-M3 FPB 與自訂 RISC-V CAM" data-aria-en="Microarchitecture comparison: Cortex-M3 FPB and a custom RISC-V CAM" data-aria-zh="微架構比較：Cortex-M3 FPB 與自訂 RISC-V CAM">
+                    <caption><span data-lang="zh">具名硬體功能與教學自訂介面的界線</span><span data-lang="en">Named Hardware Features and Proposed Custom Interfaces</span></caption>
+                    <colgroup><col style="width: 120px;"><col style="width: 220px;"><col style="width: 220px;"></colgroup>
+                    <thead><tr><th scope="col"><span data-lang="zh">項目</span><span data-lang="en">Item</span></th><th scope="col">Cortex-M3 FPB</th><th scope="col"><span data-lang="zh">RISC-V 自訂 CAM 提案</span><span data-lang="en">Proposed RISC-V Custom CAM</span></th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row"><span data-lang="zh">規範依據</span><span data-lang="en">Specification</span></th><td><span data-lang="zh">Cortex-M3 TRM 第 7.3、8.3 節；功能隨完整／精簡配置而異。</span><span data-lang="en">Cortex-M3 TRM Sections 7.3 and 8.3; full and reduced configurations differ.</span></td><td><span data-lang="zh">自訂修補單元；Zicbom 定義快取區塊管理，未定義此 CAM 或修補 CSR。</span><span data-lang="en">Custom patch unit; Zicbom defines cache-block management, not this CAM or patch CSRs.</span></td></tr>
+                      <tr><th scope="row"><span data-lang="zh">控制暫存器</span><span data-lang="en">Control Registers</span></th><td><code>FP_CTRL, FP_REMAP, FP_COMPn</code><br><span data-lang="zh">完整配置為六組指令與兩組 literal 比較器。</span><span data-lang="en">The full configuration has six instruction and two literal comparators.</span></td><td><code>mpatch_ctrl, mpatch_match[i], mpatch_target[i]</code><br><span data-lang="zh">本頁假設名稱；不是 RISC-V 標準暫存器。</span><span data-lang="en">Illustrative names, not standard RISC-V registers.</span></td></tr>
+                      <tr><th scope="row"><span data-lang="zh">重新映射</span><span data-lang="en">Remapping</span></th><td><span data-lang="zh">完整配置可將 code space 存取映射至 system space；比較器也可用於 BKPT。</span><span data-lang="en">The full configuration can remap code-space accesses to system space; comparators can also generate BKPT.</span></td><td><span data-lang="zh">替換與跳躍由自訂單元決定；CBO.INVAL 的快取無效化不等同指令替換。</span><span data-lang="en">Replacement and branching are custom-unit behavior; CBO.INVAL cache invalidation is not instruction replacement.</span></td></tr>
+                      <tr><th scope="row"><span data-lang="zh">NVM 結合</span><span data-lang="en">NVM Integration</span></th><td><span data-lang="zh">由系統設計決定修補映像儲存與載入；FPB 不規定 AntiFuse。</span><span data-lang="en">Patch storage and loading are system choices; FPB does not prescribe AntiFuse.</span></td><td><span data-lang="zh">可評估 OTP 信任錨點與可更新修補儲存區；容量、壽命與更新政策分開驗證。</span><span data-lang="en">OTP anchors and updateable patch storage are options; validate capacity, lifetime and update policy separately.</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="source-note"><span data-lang="zh">原始來源：</span><span data-lang="en">Primary sources: </span><a href="https://documentation-service.arm.com/static/5e8e107f88295d1e18d34714">Arm Cortex-M3 TRM（DDI 0337H）</a> · <a href="https://docs.riscv.org/reference/isa/unpriv/zifencei.html">RISC-V Zifencei</a> · <a href="https://docs.riscv.org/reference/isa/unpriv/cmo.html">RISC-V CMO / Zicbom</a></p>
+              </div>
           </section>
 
           <!-- LENS 06: 四方技術全景對比 (id="compare" 滿足測試) -->

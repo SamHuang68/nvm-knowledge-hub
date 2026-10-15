@@ -1598,6 +1598,42 @@
           </p>
           <small><span data-lang="zh">支援 CNSA 2.0 國家級安全規範、量子抗性 Secure Boot 與雲端 AI 晶片身份證明。</span><span data-lang="en">Mandated for CNSA 2.0 quantum-resistant Secure Boot, AI accelerator identity, and high-assurance HSMs.</span></small>
         </article>
+
+        <!-- 新增子系統：鏈路安全與晶粒內金鑰派生 -->
+        <article id="spdm-ide-key-protection">
+          <span><span data-lang="zh">05 · 高速鏈路與金鑰防護</span><span data-lang="en">05 · LINK &amp; KEY PROTECTION</span></span>
+          <h3><span data-lang="zh">SPDM／IDE 與晶粒內金鑰派生</span><span data-lang="en">SPDM / IDE &amp; On-Die Key Derivation</span></h3>
+          <p>
+            <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
+            <span data-lang="zh">SPDM 1.3 定義能力協商、裝置認證、量測與金鑰交換；雙向認證依雙端能力及流程啟用。PCIe／CXL IDE 另負責資料傳輸的機密性、完整性與重放防護。PCIe IDE 使用 AES-256-GCM；不能從 PCIe／CXL 版本號推定每個裝置都支援或已啟用 SPDM 1.3 與 IDE。</span>
+            <span data-lang="en">SPDM 1.3 defines capability negotiation, device authentication, measurements and key exchange; mutual authentication depends on endpoint capabilities and the selected flow. PCIe/CXL IDE separately protects data confidentiality, integrity and replay. PCIe IDE uses AES-256-GCM; a bus version alone does not establish that every device supports or enables SPDM 1.3 and IDE.</span>
+          </p>
+          <p>
+            <b><span data-lang="zh">上下游分工與 NVM 結合</span><span data-lang="en">Provisioning &amp; NVM Integration</span></b>
+            <span data-lang="zh">設計上可在安全島內，以受保護的 OTP 秘密或重建的 PUF 根值派生裝置金鑰，降低外部明文金鑰注入需求。這是架構選項，並非 SPDM 強制規定；仍須驗證熵源、憑證佈建、金鑰匯出政策、除錯鎖定及側信道。IDE 的鏈路防護也不代表端點或所有實體攻擊都已受防護。</span>
+            <span data-lang="en">A security island may derive device keys from a protected OTP secret or reconstructed PUF root to reduce external plaintext-key provisioning. This architectural option is not mandated by SPDM. Entropy, certificate provisioning, export policy, debug locking and side channels still require validation; link protection does not establish endpoint or universal physical-attack resistance.</span>
+          </p>
+          <small><span data-lang="zh">資料中心、CXL 記憶體池與 HPC 可評估此分工；須逐一確認裝置能力、啟用狀態及信任邊界。</span><span data-lang="en">Data centers, CXL memory pools and HPC systems can evaluate this division of responsibilities; verify device capabilities, enablement and trust boundaries individually.</span></small>
+          <p id="spdm-ide-sources"><a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0274_1.3.0.pdf" target="_blank" rel="noopener noreferrer">DMTF DSP0274 1.3.0</a> · <a href="https://pcisig.com/PCI%20Express/ECN/Base/IntegrityandDataEncryption" target="_blank" rel="noopener noreferrer">PCI-SIG IDE</a> · <a href="https://computeexpresslink.org/blog/questions-from-the-compute-express-link-cxl-link-level-integrity-and-data-encryption-webinar-2428/" target="_blank" rel="noopener noreferrer"><span data-lang="zh">CXL IDE 官方問答</span><span data-lang="en">CXL IDE FAQ</span></a></p>
+        </article>
+
+        <!-- 新增子系統：輔助資料的熵、完整性與實作防護 -->
+        <article id="puf-helper-data-protection">
+          <span><span data-lang="zh">06 · 輔助資料與側信道防護</span><span data-lang="en">06 · HELPER DATA &amp; SIDE-CHANNEL PROTECTION</span></span>
+          <h3><span data-lang="zh">SRAM PUF 輔助資料安全邊界</span><span data-lang="en">SRAM PUF Helper Data Security Boundaries</span></h3>
+          <p>
+            <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
+            <span data-lang="zh">模糊擷取器可利用公開輔助資料重建金鑰，但須依原始 PUF 熵、糾錯碼及擷取器參數評估剩餘熵。Syndrome 指症候（校驗資訊），不是所有 Helper Data 的同義詞；公開不等於零資訊洩漏。Code-offset 與 syndrome 是不同的 secure-sketch 建構方式，BCH 僅是可選糾錯碼之一。</span>
+            <span data-lang="en">A fuzzy extractor can reconstruct a key using public helper data, subject to residual-entropy analysis of the PUF source, code and extractor parameters. A syndrome is parity-check information, not a synonym for all helper data; public does not mean zero information leakage. Code-offset and syndrome sketches are distinct constructions, and BCH is one possible error-correcting code.</span>
+          </p>
+          <p>
+            <b><span data-lang="zh">完整性與實作防護</span><span data-lang="en">Integrity &amp; Implementation Protection</span></b>
+            <span data-lang="zh">外部 SPI NOR 可存放公開輔助資料；主動竄改須另以可信完整性驗證或具穩健性證明的擷取器處理，並考慮裝置綁定與版本重放。常數時間、遮罩與隔離是降低實作洩漏的對策，不能由公開資料的熵界線推導其效果，也不能保證消除高階 DPA 或故障注入；須以實作與攻擊模型驗證。</span>
+            <span data-lang="en">External SPI NOR may hold public helper data. Active tampering requires trusted integrity verification or a proven robust extractor, with device binding and version replay considered. Constant-time execution, masking and isolation address implementation leakage; entropy bounds alone do not establish their effectiveness or eliminate higher-order DPA and fault injection.</span>
+          </p>
+          <small><span data-lang="zh">安全 MCU、車用 HSM 與 eSE／eSIM 的評估應分別提出可靠度、熵、完整性及側信道證據。</span><span data-lang="en">Security MCU, automotive HSM and eSE/eSIM evaluations need separate reliability, entropy, integrity and side-channel evidence.</span></small>
+          <p id="puf-helper-data-sources"><a href="https://arxiv.org/abs/cs/0602007" target="_blank" rel="noopener noreferrer"><span data-lang="zh">模糊擷取器原始論文</span><span data-lang="en">Fuzzy Extractors: Original Paper</span></a> · <a href="https://arxiv.org/abs/0807.0799" target="_blank" rel="noopener noreferrer"><span data-lang="zh">穩健模糊擷取器研究</span><span data-lang="en">Robust Fuzzy Extractors</span></a></p>
+        </article>
       </div>
 
       <!-- PQC Key Budget Comparison Table -->

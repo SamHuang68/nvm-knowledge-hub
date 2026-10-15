@@ -1030,6 +1030,47 @@
           <span id="pqc-out-verdict" role="status" aria-live="polite">Loading Post-Quantum Storage calculations...</span>
         </div>
       </article>
+
+      <!-- 教學架構：SRAM PUF 與 AntiFuse 的信任分工，非商用驗證 -->
+      <article id="hybrid-rot-assurance" class="pqc-hybrid-rot-card" style="margin-top: 20px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 20px 24px; color: var(--ink); overflow-wrap: anywhere;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+          <div>
+            <span style="font-weight: 700; color: var(--teal);"><span data-lang="zh">後量子硬體信任根 · 雙錨點架構評估</span><span data-lang="en">PQC HARDWARE ROOT OF TRUST · DUAL-ANCHOR EVALUATION</span></span>
+            <h3 style="font-size: 1.15rem; line-height: 1.5; color: var(--ink); margin: 8px 0 0;"><span data-lang="zh">SRAM PUF／AntiFuse 混合信任根與輔助資料防護</span><span data-lang="en">SRAM PUF / AntiFuse Hybrid Root of Trust &amp; Helper Data Protection</span></h3>
+          </div>
+          <span style="font-weight: 600; background: var(--paper); color: var(--teal); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--line);"><span data-lang="zh">教學示意 · 非商用晶片驗證</span><span data-lang="en">Teaching Model · No Commercial Silicon Validation</span></span>
+        </div>
+        <p id="hybrid-rot-boundary" style="font-size: 1rem; color: var(--ink); line-height: 1.8; margin: 0 0 20px;">
+          <span data-lang="zh">本段提出可供評估的混合架構：SRAM PUF 重建易失根值，AntiFuse OTP 保存輔助資料的可信摘要或驗證公鑰；若採 HMAC，須另保護其秘密金鑰，HMAC 標記也不是一般雜湊。是否另存 PQC 秘密種子，取決於金鑰生命週期需求；若種子永久儲存，便不能宣稱所有根秘密皆在斷電後不留存。「0-Mask」須有特定製程／IP 證據，並非 AntiFuse 的通用屬性。以下標準與論文支持演算法及威脅分析，不證明此組合已商用、通過認證或具有資訊理論層級的整體硬體安全。</span>
+          <span data-lang="en">This teaching architecture combines a volatile root reconstructed by SRAM PUF with AntiFuse OTP holding a trusted helper-data digest or verification public key. HMAC additionally requires a protected secret key; its tag is not an ordinary hash. Persisting PQC secret seeds is a lifecycle choice and precludes claiming that all root secrets are absent at rest. “0-Mask” requires process/IP-specific evidence. The cited standards and papers support algorithm and threat analysis, not commercial deployment, certification or information-theoretic assurance of the complete hardware.</span>
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px;">
+          <div id="hybrid-helper-entropy" style="min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 16px;">
+            <h4 style="font-size: 1rem; color: var(--teal); margin: 0 0 10px;"><span data-lang="zh">01 · 區分熵損失與主動竄改</span><span data-lang="en">01 · Entropy Loss &amp; Active Tampering</span></h4>
+            <p style="font-size: 1rem; color: var(--ink); line-height: 1.8; margin: 0;">
+              <span data-lang="zh">對 [n, k] 二元線性碼，症候可由 n−k 個獨立校驗位元表示；secure sketch 的熵損失須依建構與來源模型估算，不能把所有 BCH 都寫成每糾正 t 個錯誤即洩漏 7t 位元。公開輔助資料的剩餘熵分析與主動竄改防護是兩個問題。示意設計以可信摘要／簽章驗證、裝置綁定及版本政策拒絕未授權資料；也可評估穩健模糊擷取器，仍須驗證失敗處理與實作側信道。</span>
+              <span data-lang="en">For a binary [n, k] linear code, a syndrome can be represented by n−k independent parity bits. Secure-sketch entropy loss depends on the construction and source model; 7t bits is not a universal BCH rule. Residual-entropy analysis and active-tamper protection are separate. The model uses trusted digest/signature verification, device binding and version policy, or can evaluate a robust fuzzy extractor; failure handling and implementation side channels still require validation.</span>
+            </p>
+            <p><a href="https://people.csail.mit.edu/asmith/PS/DRS-ec2004-final.pdf" target="_blank" rel="noopener noreferrer"><span data-lang="zh">線性碼與熵界線原始論文</span><span data-lang="en">Linear Codes &amp; Entropy Bounds</span></a> · <a href="https://arxiv.org/abs/0807.0799" target="_blank" rel="noopener noreferrer"><span data-lang="zh">穩健擷取器</span><span data-lang="en">Robust Extractors</span></a></p>
+          </div>
+          <div id="hybrid-pqc-seed-budget" style="min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 16px;">
+            <h4 style="font-size: 1rem; color: var(--teal); margin: 0 0 10px;"><span data-lang="zh">02 · PQC 種子與實際儲存預算</span><span data-lang="en">02 · PQC Seeds &amp; Storage Budget</span></h4>
+            <p style="font-size: 1rem; color: var(--ink); line-height: 1.8; margin: 0;">
+              <span data-lang="zh">FIPS 204 的 ML-DSA.KeyGen 使用 32 位元組 ξ；ML-DSA-87 編碼私鑰為 4,896 位元組。FIPS 203 的 ML-KEM.KeyGen 使用 d、z 各 32 位元組，完整重建種子合計 64 位元組。重建須依各標準 KeyGen 與指定雜湊／XOF 流程，不能用任意 AES-CTR 擴張替代。種子須受私鑰等級保護並符合亂數要求；PUF 根值不會自動滿足 FIPS 金鑰生成要求。儲存位元組減少也不等於矽面積等比例縮小，仍須計入輔助資料、工作記憶體、加速器、延遲及輪替。</span>
+              <span data-lang="en">FIPS 204 ML-DSA.KeyGen uses a 32-byte ξ; the ML-DSA-87 encoded private key is 4,896 bytes. FIPS 203 ML-KEM.KeyGen uses 32-byte d and z, totaling 64 bytes for regeneration. Follow each standard’s KeyGen and specified hash/XOF operations, not arbitrary AES-CTR expansion. Seeds need private-key protection and compliant randomness; a PUF root is not automatically a compliant KeyGen input. Byte savings do not imply proportional silicon-area savings: helper data, working memory, accelerators, latency and rotation also matter.</span>
+            </p>
+            <p><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf" target="_blank" rel="noopener noreferrer">NIST FIPS 203 §3.3 / §7.1</a> · <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf" target="_blank" rel="noopener noreferrer">NIST FIPS 204 §5.1 / Table 2</a></p>
+          </div>
+          <div id="hybrid-physical-assurance" style="min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 16px;">
+            <h4 style="font-size: 1rem; color: var(--teal); margin: 0 0 10px;"><span data-lang="zh">03 · 斷電殘留與環境可靠度</span><span data-lang="en">03 · Remanence &amp; Environmental Reliability</span></h4>
+            <p style="font-size: 1rem; color: var(--ink); line-height: 1.8; margin: 0;">
+              <span data-lang="zh">SRAM 斷電後的資料衰減受時間、溫度與電路影響，不能宣稱立即無殘留；應驗證重建根值與工作記憶體清除。PUF 重建錯誤率與 AntiFuse 讀取裕量均須使用目標製程的環境及老化數據。260°C 回焊耐受與零漂移未有本架構的實測佐證，不能當成通用特性；兩種元件並用也不會自動抵抗探針、DPA 或故障注入。此處要求對應證據，不提供未經量測的可靠度數值。</span>
+              <span data-lang="en">SRAM decay after power loss depends on time, temperature and circuitry; immediate absence of remanence is not assured. Validate root and working-memory zeroization. PUF reconstruction errors and AntiFuse read margins require process-specific environmental and aging evidence. This model has no measured support for 260°C reflow tolerance or zero drift. Combining the components does not automatically resist probing, DPA or fault injection; no unmeasured reliability figures are assigned here.</span>
+            </p>
+            <p><a href="https://www.usenix.org/conference/usenixsecurity12/technical-sessions/presentation/rahmati" target="_blank" rel="noopener noreferrer"><span data-lang="zh">USENIX TARDIS：SRAM 殘留實驗</span><span data-lang="en">USENIX TARDIS: SRAM Remanence Experiments</span></a></p>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- SECTION: SUPPLY CHAIN HARDWARE TROJAN, OPTICAL PEM & PUF VERIFICATION SIMULATOR -->

@@ -1273,6 +1273,39 @@
                 </li>
               </ul>
             </article>
+
+            <!-- 專題 4：區分封裝產品事實與供電架構探索 -->
+            <article id="hbm4-bonding-power-evidence" class="hbm4-pillar-card">
+              <div class="hbm4-pillar-meta">
+                <span class="hbm4-pillar-tag"><span data-lang="zh">04 · 3D 鍵合與背面供電協同</span><span data-lang="en">04 · 3D BONDING &amp; BSPDN</span></span>
+              </div>
+              <h4>
+                <span data-lang="zh">Cu-Cu 直接混合鍵合與背面供電網 (BSPDN) 協同</span>
+                <span data-lang="en">Direct Cu-Cu Hybrid Bonding &amp; BSPDN Co-Optimization</span>
+              </h4>
+              <p>
+                <span data-lang="zh">架構探索：高層數堆疊需共同評估熱機械應力、互連與供電。SK hynix 於 2025 年公布的 HBM4 採 Advanced MR-MUF；Cu-Cu 混合鍵合、邏輯晶粒 BSPDN 與 eNVM 修復記錄是不同層級的設計選項，不能視為所有 HBM4 的既有組合。</span>
+                <span data-lang="en">Architecture exploration: taller stacks require joint evaluation of thermomechanical stress, interconnects and power delivery. SK hynix disclosed Advanced MR-MUF for its 2025 HBM4. Cu-Cu hybrid bonding, logic-die BSPDN and eNVM repair records are separate design choices, not an established combination for every HBM4 product.</span>
+              </p>
+              <ul class="hbm4-pillar-bullets">
+                <li>
+                  <strong><span data-lang="zh">Cu-Cu 鍵合與產品範圍：</span><span data-lang="en">Cu-Cu Bonding and Product Scope:</span></strong>
+                  <span data-lang="zh">TSMC SoIC 官方頁面說明鍵合間距從小於 10 μm 的規則起步；該平台資訊不能推導 HBM4 採用小於 1 μm 間距。實際間距、退火條件與 NVM 保留區須依指定製程與 IP 規則。</span>
+                  <span data-lang="en">TSMC describes SoIC bond pitch as starting from a sub-10 μm rule. This platform disclosure does not establish sub-1 μm pitch for HBM4. Actual pitch, annealing conditions and NVM keep-out zones require the selected process and IP rules.</span>
+                </li>
+                <li>
+                  <strong><span data-lang="zh">BSPDN 的適用層級：</span><span data-lang="en">BSPDN Integration Scope:</span></strong>
+                  <span data-lang="zh">TSMC A16 的 Super Power Rail 將邏輯晶片供電移至背面，釋出正面訊號佈線空間。這不等於 HBM4 已採用 BSPDN，也不保證消除 DRAM 堆疊的垂直 IR drop。</span>
+                  <span data-lang="en">TSMC A16 Super Power Rail moves logic-chip power delivery to the backside to free frontside signal routing. This does not establish BSPDN adoption in HBM4 or guarantee elimination of vertical IR drop across the DRAM stack.</span>
+                </li>
+                <li>
+                  <strong><span data-lang="zh">BIRA/BISR 與 eNVM 修復記錄：</span><span data-lang="en">BIRA/BISR and eNVM Repair Records:</span></strong>
+                  <span data-lang="zh">探索方案可由修復邏輯產生備援映射，再以適當 NVM 保存；TSV 與 DRAM 列修復的控制位置、可修復範圍及外部測試需求，必須由具名產品資料確認。本頁未建立通用開機自主修復或免 ATE 的產品證據。</span>
+                  <span data-lang="en">An explored design may generate redundancy maps in repair logic and retain them in suitable NVM. TSV and DRAM-row repair ownership, coverage and external test requirements need named-product evidence. This page does not establish universal autonomous boot-time repair or elimination of ATE.</span>
+                </li>
+              </ul>
+              <p class="hbm4-evidence-sources"><span data-lang="zh">官方來源：</span><span data-lang="en">Official sources:</span> <a href="https://news.skhynix.com/en/sk-hynix-completes-worlds-first-hbm4-development-and-readies-mass-production/">SK hynix HBM4 (2025)</a> · <a href="https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/SoIC.htm">TSMC SoIC</a> · <a href="https://pr.tsmc.com/english/news/3136">TSMC A16 / SPR</a></p>
+            </article>
           </div>
 
           <!-- GENERATIONAL COMPARISON TABLE -->
@@ -1328,6 +1361,12 @@
                   <td><span data-lang="zh">Micronics Japan (MFI 6871.T)、FormFactor</span><span data-lang="en">Micronics Japan (6871.T), FormFactor (FORM)</span></td>
                   <td><span data-lang="zh">旺矽 (MPI 6223)、中華精測 (CHPT 6510)、Technoprobe、FormFactor</span><span data-lang="en">MPI (6223.TW), CHPT (6510.TW), Technoprobe, FormFactor</span></td>
                   <td><span data-lang="zh">微間距 MEMS 探針卡滿足 2048-bit 高針數並行測試與低接觸力規範</span><span data-lang="en">Fine-pitch MEMS probe cards meet 2048-bit parallel sort and low contact force requirements</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><strong><span data-lang="zh">3D 鍵合與電源完整性</span><span data-lang="en">3D Bonding &amp; Power Integrity</span></strong></th>
+                  <td><span data-lang="zh">封裝與間距依供應商產品規格，不能由世代名稱推定</span><span data-lang="en">Packaging and pitch depend on the supplier product, not the generation name alone</span></td>
+                  <td><span data-lang="zh">SK hynix 2025 HBM4 公告採 Advanced MR-MUF；混合鍵合與 BSPDN 須分別確認</span><span data-lang="en">SK hynix disclosed Advanced MR-MUF for 2025 HBM4; hybrid bonding and BSPDN need separate confirmation</span></td>
+                  <td><span data-lang="zh">評估熱應力、供電與修復記錄；量化效益須有指定堆疊與 NVM IP 證據</span><span data-lang="en">Evaluate stress, power delivery and repair records; quantified benefits require a specified stack and NVM IP</span></td>
                 </tr>
               </tbody>
             </table>

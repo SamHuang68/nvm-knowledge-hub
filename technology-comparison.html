@@ -4449,16 +4449,16 @@
           <span data-lang="en">Cu-Cu Direct Hybrid Bonding Thermal Stress, Nanovoids &amp; eNVM Keep-Out Zone (KOZ) Physics</span>
         </h2>
         <p class="hub-sec-subtitle">
-          <span data-lang="zh">剖析亞微米間距晶圓堆疊 (Wafer-on-Wafer / Chip-on-Wafer) 之 CMP 銅微凹陷熱膨脹填補物理、退火殘留剪切應力、壓電電阻閾值電壓漂移與四大 eNVM 邊界可靠度。</span>
-          <span data-lang="en">First-principles analysis of sub-micron pitch wafer stacking (WoW/CoW): CMP dishing closure kinetics, residual shear stress, piezoresistive threshold drift, and array keep-out zones.</span>
+          <span data-lang="zh">探索晶圓堆疊 (Wafer-on-Wafer / Chip-on-Wafer) 的 CMP 銅微凹陷、熱膨脹、退火殘留應力與 eNVM 保留區；模型用於教學，不代表具名產品的製程規格。</span>
+          <span data-lang="en">Explore CMP copper dishing, thermal expansion, residual annealing stress and eNVM keep-out zones in WoW/CoW stacking. The model is educational and does not specify a named product process.</span>
         </p>
       </div>
 
       <!-- 免責橫幅 DISCLAIMER -->
-      <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+      <div id="hybrid-model-evidence-notice" style="background: #fffbeb; border-left: 4px solid #b45309; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #78350f;">
         <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
-        <span data-lang="zh">本模擬器採用彈性力學差分熱膨脹與壓電電阻效應之簡化解析模型，用以示意 Cu-Cu 鍵合降溫剪切應力分佈與保留區 (KOZ) 之工程邊界考量。單晶矽底層通道之壓電敏感度係材料本徵常數，各技術差異主要源自儲存介質物理（固態微絲、磁阻 MTJ、離子微絲 vs 穿隧介電層電荷陷阱 SILC）；所列耐受評級為工程適配性分類，非 JEDEC 或 Foundry 官方分級。</span>
-        <span data-lang="en">This simulator uses simplified thermo-mechanical expansion and piezoresistive analytical models to illustrate Cu-Cu bonding shear stress distribution and keep-out zone (KOZ) engineering considerations. Channel piezoresistive coefficients are intrinsic properties of crystalline silicon; technology differences stem from storage media physics (silicide filaments, MTJ, oxygen vacancies vs. charge-storage SILC). Suitability tiers represent engineering classifications rather than official JEDEC/Foundry standards.</span>
+        <span data-lang="zh">本模擬器的數值與評級是教學假設，未以具名製程或產品量測校準。應力對電性的影響取決於元件方向、偏壓、材料與幾何；不能用單一係數保證臨界電壓變化、KOZ 或可靠度。正式設計需採用代工廠／IP 規則與驗證資料；本模型不構成 JEDEC、代工廠或產品資格認證。</span>
+        <span data-lang="en">Simulator values and ratings are uncalibrated teaching assumptions, not named-process or product measurements. Electrical response to stress depends on device orientation, bias, materials and geometry; one coefficient cannot guarantee threshold shifts, KOZ or reliability. Design decisions require foundry/IP rules and validation data. This model is not JEDEC, foundry or product qualification.</span>
       </div>
 
       <!-- Cu-Cu Hybrid Bonding Simulator Root Workbench -->
@@ -4466,78 +4466,62 @@
 
       <!-- 3D Stacking eNVM Reliability Matrix Table -->
       <div class="table-responsive-wrapper" style="overflow-x: auto; margin-top: 20px;">
-        <table class="data-table" aria-label="3D Stacking eNVM Reliability Matrix" data-aria-en="3D Stacking eNVM Reliability Matrix" data-aria-zh="3D 晶圓堆疊 eNVM 可靠度與耐受性對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <table id="hybrid-nvm-evidence-matrix" class="data-table" aria-label="3D Stacking eNVM Reliability Matrix" data-aria-en="3D Stacking eNVM Reliability Matrix" data-aria-zh="3D 晶圓堆疊 eNVM 可靠度與耐受性對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 13px;">
           <thead>
-            <tr style="background: #1e293b; color: #f8fafc; text-align: left;">
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">eNVM 技術候選</span><span data-lang="en">eNVM Technology</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">整合層級</span><span data-lang="en">Integration Tier</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">最高容許退火溫 (T_max)</span><span data-lang="en">Max Anneal Temp (T_max)</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">殘留熱應力耐受 (σ_limit)</span><span data-lang="en">Stress Limit (σ_limit)</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">推薦最小 KOZ 邊界</span><span data-lang="en">Recommended Min KOZ</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">壓電閾值漂移敏感度</span><span data-lang="en">Piezoresistive Sensitivity</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">3D 堆疊適用評級</span><span data-lang="en">3D Stacking Suitability</span></th>
+            <tr style="background: #e2e8f0; color: #0f172a; text-align: left;">
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">eNVM 技術候選</span><span data-lang="en">eNVM Technology</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">整合層級</span><span data-lang="en">Integration Tier</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">最高容許退火溫 (T_max)</span><span data-lang="en">Max Anneal Temp (T_max)</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">殘留熱應力耐受 (σ_limit)</span><span data-lang="en">Stress Limit (σ_limit)</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">推薦最小 KOZ 邊界</span><span data-lang="en">Recommended Min KOZ</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">應力誘發電性變化</span><span data-lang="en">Stress-Induced Electrical Changes</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">3D 堆疊適用評級</span><span data-lang="en">3D Stacking Suitability</span></th>
             </tr>
           </thead>
           <tbody>
-            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #38bdf8;">
-                <span data-lang="zh">AntiFuse OTP (0-Mask 微絲)</span><span data-lang="en">AntiFuse OTP (0-Mask Filament)</span>
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #075985;">
+                <span data-lang="zh">AntiFuse OTP（依 IP 結構）</span><span data-lang="en">AntiFuse OTP (IP-specific structure)</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">FEOL (邏輯閘極氧層)</span><span data-lang="en">FEOL (Standard Gate Oxide)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">&gt; 400°C (耐完整熱預算)</span><span data-lang="en">&gt; 400°C (Full Thermal Budget)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">450 MPa (微絲無電荷)</span><span data-lang="en">450 MPa (Filament Charge-Free)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;">
-                <span data-lang="zh">0.8 ~ 1.2 μm (緊鄰焊盤)</span><span data-lang="en">0.8 ~ 1.2 μm (Adjacent to Pad)</span>
-              </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">基底矽通道 (~25 mV/100MPa)</span><span data-lang="en">Silicon Channel (~25 mV/100MPa)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;">
-                <span data-lang="zh">優異 (FEOL 高溫相容 / 緊鄰焊盤)</span><span data-lang="en">Preferred (FEOL High-T / Adjacent to Pad)</span>
-              </td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">依具名 IP 堆疊與整合流程確認</span><span data-lang="en">Confirm against the named IP stack and integration flow</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需具名製程與 IP 熱預算資料</span><span data-lang="en">Named-process and IP thermal-budget data required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需指定堆疊的應力模擬與量測</span><span data-lang="en">Stack-specific stress simulation and measurements required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">需具名製程與 IP 版圖規則</span><span data-lang="en">Named-process and IP layout rules required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需元件方向、偏壓與量測條件</span><span data-lang="en">Device orientation, bias and measurement conditions required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">尚未驗證；依指定產品判定</span><span data-lang="en">Unverified; evaluate for the specified product</span></td>
             </tr>
-            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
+            <tr style="background: #e2e8f0; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #1d4ed8;">
                 <span data-lang="zh">STT-MRAM (垂直 MTJ)</span><span data-lang="en">STT-MRAM (Perpendicular MTJ)</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">BEOL (金屬間隔層 M4/M5)</span><span data-lang="en">BEOL (Inter-Metal M4/M5)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 300°C (受限於 MTJ 擴散)</span><span data-lang="en">~ 300°C (Limited by MTJ Diffusion)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">320 MPa (磁光彈效應)</span><span data-lang="en">320 MPa (Magnetostriction)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 600;">
-                <span data-lang="zh">1.5 ~ 2.0 μm</span><span data-lang="en">1.5 ~ 2.0 μm</span>
-              </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">中等 (PMA 能障衰減 ~8%)</span><span data-lang="en">Moderate (PMA Derating ~8%)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;">
-                <span data-lang="zh">良好 (需控制退火熱預算 / 適合 3D 快取)</span><span data-lang="en">Good (Manage anneal budget / 3D LLC)</span>
-              </td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">依具名 IP 堆疊與整合流程確認</span><span data-lang="en">Confirm against the named IP stack and integration flow</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需具名製程與 IP 熱預算資料</span><span data-lang="en">Named-process and IP thermal-budget data required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需指定堆疊的應力模擬與量測</span><span data-lang="en">Stack-specific stress simulation and measurements required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #1d4ed8; font-weight: 600;"><span data-lang="zh">需具名製程與 IP 版圖規則</span><span data-lang="en">Named-process and IP layout rules required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需元件方向、偏壓與量測條件</span><span data-lang="en">Device orientation, bias and measurement conditions required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #1d4ed8; font-weight: 700;"><span data-lang="zh">尚未驗證；依指定產品判定</span><span data-lang="en">Unverified; evaluate for the specified product</span></td>
             </tr>
-            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #92400e;">
                 <span data-lang="zh">Oxide ReRAM (氧空位微絲)</span><span data-lang="en">Oxide ReRAM (Oxygen Vacancy)</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">BEOL (金屬介電層間)</span><span data-lang="en">BEOL (Between Metal Lines)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 260°C (氧離子飄移上限)</span><span data-lang="en">~ 260°C (Ion Migration Limit)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">260 MPa (側向空位擴散)</span><span data-lang="en">260 MPa (Lateral Vacancy Drift)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 600;">
-                <span data-lang="zh">2.0 ~ 2.5 μm</span><span data-lang="en">2.0 ~ 2.5 μm</span>
-              </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">中高 (高阻態 HRS 擴散)</span><span data-lang="en">Moderate-High (HRS Drift)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;">
-                <span data-lang="zh">中等 (需低溫鍵合或 Forming 補償)</span><span data-lang="en">Moderate (Requires Low-T Bonding / Forming)</span>
-              </td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">依具名 IP 堆疊與整合流程確認</span><span data-lang="en">Confirm against the named IP stack and integration flow</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需具名製程與 IP 熱預算資料</span><span data-lang="en">Named-process and IP thermal-budget data required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需指定堆疊的應力模擬與量測</span><span data-lang="en">Stack-specific stress simulation and measurements required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #92400e; font-weight: 600;"><span data-lang="zh">需具名製程與 IP 版圖規則</span><span data-lang="en">Named-process and IP layout rules required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需元件方向、偏壓與量測條件</span><span data-lang="en">Device orientation, bias and measurement conditions required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #92400e; font-weight: 700;"><span data-lang="zh">尚未驗證；依指定產品判定</span><span data-lang="en">Unverified; evaluate for the specified product</span></td>
             </tr>
-            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
+            <tr style="background: #e2e8f0; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #b91c1c;">
                 <span data-lang="zh">Floating-Gate / CT eFlash</span><span data-lang="en">Floating-Gate / CT eFlash</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">FEOL (多晶矽高壓浮閘)</span><span data-lang="en">FEOL (HV Poly Gate Stacks)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">&lt; 250°C (熱預算嚴苛受限)</span><span data-lang="en">&lt; 250°C (Strict Thermal Limit)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">180 MPa (SILC 漏電陷阱)</span><span data-lang="en">180 MPa (SILC Trap Generation)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;">
-                <span data-lang="zh">&gt; 3.5 ~ 4.5 μm (面積懲罰較大)</span><span data-lang="en">&gt; 3.5 ~ 4.5 μm (Area Penalty)</span>
-              </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">較高 (氧化層陷阱誘發 SILC)</span><span data-lang="en">High (Oxide trap SILC risk)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;">
-                <span data-lang="zh">受限 (需注意 SILC 漏電與退火熱預算)</span><span data-lang="en">Constrained (SILC stress &amp; thermal budget)</span>
-              </td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">依具名 IP 堆疊與整合流程確認</span><span data-lang="en">Confirm against the named IP stack and integration flow</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需具名製程與 IP 熱預算資料</span><span data-lang="en">Named-process and IP thermal-budget data required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需指定堆疊的應力模擬與量測</span><span data-lang="en">Stack-specific stress simulation and measurements required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">需具名製程與 IP 版圖規則</span><span data-lang="en">Named-process and IP layout rules required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">需元件方向、偏壓與量測條件</span><span data-lang="en">Device orientation, bias and measurement conditions required</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">尚未驗證；依指定產品判定</span><span data-lang="en">Unverified; evaluate for the specified product</span></td>
             </tr>
           </tbody>
         </table>
@@ -4545,8 +4529,21 @@
 
       <div class="rm-footnote" style="margin-top: 16px;">
         <strong style="color:#805828;"><span data-lang="zh">先進封裝工程評估結論：</span><span data-lang="en">Advanced Packaging Engineering Finding: </span></strong>
-        <span data-lang="zh">3D 晶圓直接混合鍵合中，高密度 Cu Pad 降溫引發之局域剪切應力可達數百 MPa。0-Mask AntiFuse 由於為永久固態物理微絲且無浮閘電荷陷阱，受 SILC 應力漏電影響較小，具備較佳機械容忍度與較小 KOZ；而 eFlash 則需特別管理應力誘發漏電 (SILC) 與高溫退火熱預算，需配置較大保留區。</span>
-        <span data-lang="en">In 3D direct hybrid bonding, localized shear stresses induced during cool-down can reach hundreds of MPa. 0-Mask AntiFuse OTP offers robust mechanical tolerance and smaller KOZ due to its permanent silicide filament without floating charge traps; conversely, eFlash designs require strict management of SILC leakage and anneal thermal budgets, mandating larger keep-out margins.</span>
+        <span data-lang="zh">熱機械應力、熱預算與保留區 (KOZ) 取決於材料堆疊、鍵合流程、元件與 IP 版圖。上表列出待評估維度；未取得具名製程資料的項目，不構成通用設計規則，也不能用儲存機制直接判定 AntiFuse 必然優於 eFlash。</span>
+        <span data-lang="en">Thermomechanical stress, thermal budget and keep-out zones (KOZ) depend on materials, bonding flow, devices and IP layout. The table identifies evaluation dimensions. Entries without named-process evidence are not design rules, and the storage mechanism alone does not establish an AntiFuse advantage over eFlash.</span>
+      </div>
+
+      <div id="hbm4-hybrid-evidence" class="hbm4-hybrid-callout" style="margin-top: 18px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 16px 20px;">
+        <h4 style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 8px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span>
+          <span data-lang="zh">HBM4 邏輯 Base Die、Cu-Cu 鍵合與 TSV 備援：證據與設計邊界</span>
+          <span data-lang="en">HBM4 Logic Base Die, Cu-Cu Bonding and TSV Redundancy: Evidence and Design Boundaries</span>
+        </h4>
+        <p style="font-size: 12.5px; line-height: 1.65; color: #334155; margin: 0;">
+          <span data-lang="zh">TSMC SoIC 官方頁面說明鍵合間距從小於 10 μm 的規則起步；SK hynix 的 2025 HBM4 公告採 Advanced MR-MUF。這些資料不能支持所有 HBM4 均採次微米混合鍵合的推論。熱膨脹差異可形成應力，但局域應力、電晶體臨界電壓變化與 KOZ 必須依指定堆疊模擬及量測；本頁未建立通用 MPa、mV/MPa 或 μm 門檻。BIRA/BISR 與 NVM 保存修復映射屬架構評估，不能據此保證 TSV／DRAM 自主修復、免 ATE 或零額外光罩。</span>
+          <span data-lang="en">TSMC describes SoIC bond pitch as starting from a sub-10 μm rule; SK hynix disclosed Advanced MR-MUF for its 2025 HBM4. Neither establishes universal sub-micron hybrid bonding in HBM4. Thermal expansion mismatch can induce stress, but local stress, transistor threshold shifts and KOZ require stack-specific simulation and measurements; no universal MPa, mV/MPa or μm limits are established here. BIRA/BISR with NVM repair-map retention is an architecture evaluation, not evidence of autonomous TSV/DRAM repair, ATE elimination or zero additional masks.</span>
+        </p>
+        <p style="font-size: 12.5px; line-height: 1.65; color: #334155; margin: 8px 0 0;"><span data-lang="zh">官方來源：</span><span data-lang="en">Official sources:</span> <a href="https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/SoIC.htm">TSMC SoIC</a> · <a href="https://news.skhynix.com/en/sk-hynix-completes-worlds-first-hbm4-development-and-readies-mass-production/">SK hynix HBM4 (2025)</a></p>
       </div>
     </section>
 

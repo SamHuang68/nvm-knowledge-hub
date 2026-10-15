@@ -6344,7 +6344,7 @@
 
 .ai-nvm-page .hbm4-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
   margin-top: clamp(28px, 3.6vw, 44px);
 }

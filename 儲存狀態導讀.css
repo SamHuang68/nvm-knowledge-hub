@@ -46,7 +46,7 @@
 .knowledge-experiment-flow{display:flex;align-items:center;justify-content:center;gap:16px;padding:24px 0;margin:24px 0;border-block:1px solid #cfdee3;font-weight:600;color:#006667}
 .knowledge-experiment-flow>span{padding:12px 16px;border:1px solid #a9c6c7;background:#edf7f3;border-radius:4px;text-align:center}
 .knowledge-experiment-flow b{font-size:24px}
-.knowledge-experiment-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.knowledge-experiment-groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
 .knowledge-experiment-groups>div{border-top:3px solid #006667;padding-top:16px}
 .experiment-number{font-size:13px;color:#a77742;font-weight:700}
 .knowledge-experiment-groups h3{font-size:20px;line-height:1.4;margin:8px 0 12px}
@@ -55,6 +55,7 @@
 .knowledge-experiment-groups a:hover{text-decoration:underline;color:#006667}
 .knowledge-experiment-groups a:focus-visible{outline:3px solid #a77742;outline-offset:3px}
 @media(max-width:620px){.storage-explorer h3{font-size:22px}.storage-state-pair{gap:8px;padding:8px}.storage-explorer button{padding:8px}.storage-playback{gap:6px}.storage-causal-chain li{padding:8px 4px}}
+@media(max-width:1100px){.knowledge-experiment-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.knowledge-experiments h2{font-size:26px}.knowledge-experiment-groups{grid-template-columns:1fr;gap:24px}.knowledge-experiment-flow{gap:8px;font-size:12px}.knowledge-experiment-flow>span{padding:10px 6px}.knowledge-experiment-flow b{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.storage-explorer *{transition:none!important}.probe-live-pulse{animation:none!important}}
 @media print{.knowledge-physics{display:block!important}.knowledge-physics::details-content{content-visibility:visible!important}.storage-mode-controls,.storage-playback{display:none!important}.storage-explorer [data-storage-panel]{display:block!important;break-inside:avoid;margin-bottom:24px}.storage-causal-chain li{background:none!important}.storage-explorer{color:#18394f}.storage-phase-map>span{background:none!important}}
