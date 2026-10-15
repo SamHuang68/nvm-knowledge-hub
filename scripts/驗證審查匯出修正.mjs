@@ -10,8 +10,10 @@ import {calculatePqcDpaMetrics, PQC_STORAGE_TOPOLOGIES} from '../pqc-rot-dpa-sim
 const root = path.resolve(import.meta.dirname, '..');
 const output = path.resolve(root, process.env.NVM_QA_OUTPUT || 'qa/審查匯出修正');
 fs.mkdirSync(output, {recursive: true});
-const server = await startTestServer(root);
-const origin = new URL(server.base).origin;
+const liveBase = process.env.NVM_QA_BASE;
+const server = liveBase ? null : await startTestServer(root);
+const base = liveBase || server.base;
+const origin = new URL(base).origin;
 const results = [];
 let browser;
 let expired = false;
@@ -89,9 +91,12 @@ async function setRange(page, selector, value) {
     element.dispatchEvent(new Event('input', {bubbles: true}));
   }, value);
 }
+const selectedName = process.argv.find(arg => arg.startsWith('--case='))?.slice(7);
+const selectedCases = selectedName ? cases.filter(item => item.name === selectedName) : cases;
+assert.ok(selectedCases.length, '未知案例；拒絕略過所有驗證');
 try {
   browser = await chromium.launch({headless: true, ...(process.env.NVM_QA_BROWSER === 'chromium' ? {} : {channel: 'msedge'})});
-  for (const item of cases) for (const initialLang of ['zh', 'en']) {
+  for (const item of selectedCases) for (const initialLang of ['zh', 'en']) {
     assert.equal(expired, false, '超過 55 秒驗證上限');
     const context = await browser.newContext({serviceWorkers: 'block', viewport: {width: initialLang === 'zh' ? 390 : 1440, height: 900}});
     await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
@@ -101,10 +106,23 @@ try {
     page.setDefaultTimeout(7000);
     page.setDefaultNavigationTimeout(10000);
     try {
-      await page.goto(`${server.base}${item.page}?lang=${initialLang}`, {waitUntil: 'domcontentloaded'});
+      await page.goto(`${base}${item.page}?lang=${initialLang}`, {waitUntil: 'domcontentloaded'});
       const button = page.locator(`#${item.button}`);
       assert.match(await button.innerText(), initialLang === 'zh' ? /匯出/ : /Export/, '初始語言必須正確');
       const config = await item.configure(page, initialLang);
+      if (item.name === 'CiM') {
+        const expected = calculateCimMacMetrics(config);
+        assert.equal(await page.locator('#cim-out-energy').innerText(), expected.energyEfficiencyTopsPerWatt.toFixed(1) + ' TOPS/W', '非預設輸入必須更新畫面結果');
+        assert.equal(await page.locator('#cim-out-accuracy').innerText(), expected.retainedAccuracyPct.toFixed(1) + '%');
+        const canvas = page.locator('#cim-neuro-mac-canvas');
+        const heatmap = await canvas.evaluate(node => node.toDataURL());
+        await page.locator('#cim-mode-tradeoff').click();
+        assert.equal(await page.locator('#cim-mode-tradeoff').getAttribute('aria-pressed'), 'true');
+        assert.notEqual(await canvas.evaluate(node => node.toDataURL()), heatmap, '切換模式必須重繪圖形');
+        await page.locator('#cim-mode-heatmap').click();
+        assert.equal(await page.locator('#cim-mode-heatmap').getAttribute('aria-pressed'), 'true');
+        assert.equal(await canvas.evaluate(node => node.toDataURL()), heatmap, '返回原模式須恢復相同條件圖形');
+      }
       await page.locator('#languageToggle').click();
       assert.match(await button.innerText(), initialLang === 'zh' ? /Export/ : /匯出/, '匯出按鈕必須跟隨語言切換');
       await button.scrollIntoViewIfNeeded();
@@ -143,9 +161,9 @@ try {
 } finally {
   clearTimeout(deadline);
   await browser?.close();
-  await server.close();
+  await server?.close();
 }
-const report = {預期案例: 4, 通過: results.filter(result => result.通過).length, 超時: expired, 結果: results};
+const report = {預期案例: selectedCases.length * 2, 通過: results.filter(result => result.通過).length, 超時: expired, 結果: results};
 fs.writeFileSync(path.join(output, '審查匯出修正結果.json'), JSON.stringify(report, null, 2));
-console.log(`兩工具匯出驗證：${report.通過}／${report.預期案例}`);
-if (report.通過 !== 4 || expired || results.some(result => !result.通過)) process.exitCode = 1;
+console.log(`工具匯出與互動驗證：${report.通過}／${report.預期案例}`);
+if (report.通過 !== report.預期案例 || expired || results.some(result => !result.通過)) process.exitCode = 1;

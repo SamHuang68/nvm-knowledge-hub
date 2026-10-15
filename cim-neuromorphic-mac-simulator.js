@@ -570,6 +570,7 @@ export function initCimMacSimulator() {
 
   const presetContainer = presetSelect?.parentNode;
   if (presetContainer && !presetContainer.querySelector('#cim-neuromorphic-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
     exportBtn.id = 'cim-neuromorphic-export-csv-btn';
     exportBtn.type = 'button';
     exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
