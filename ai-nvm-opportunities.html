@@ -739,6 +739,7 @@
         <div class="research-hero-links">
           <a class="button primary" href="#opportunities"><span data-lang="zh">開啟機會地圖</span><span data-lang="en">Open the opportunity map</span></a>
           <a class="button ghost" href="#evidence"><span data-lang="zh">先看證據邊界</span><span data-lang="en">Start with the evidence boundary</span></a>
+          <a class="button ghost" href="#cim-model-guide"><span data-lang="zh">選擇 CiM 試算與判讀</span><span data-lang="en">Choose and Read a CiM Model</span></a>
         </div>
       </div>
     </section>
@@ -2383,12 +2384,23 @@
           </div>
 
           <!-- COMPUTE-IN-MEMORY (CiM) ANALOG MAC PRECISION & ADC ENOB WORKBENCH -->
-          <div id="cim-mac-precision-root" class="cim-mac-precision-container" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+          <nav id="cim-model-guide" class="cim-model-index" tabindex="-1" aria-labelledby="cim-model-guide-title">
+            <h4 id="cim-model-guide-title"><span data-lang="zh">先選問題，再讀試算結果</span><span data-lang="en">Choose a Question, Then Read the Estimate</span></h4>
+            <p><span data-lang="zh">以下三個模型使用不同的預設、雜訊公式與百分比映射。先固定同一模型的條件，再改變一個參數比較趨勢；跨模型的百分比與 TOPS/W 不能直接排名。</span><span data-lang="en">These three models use different presets, noise formulas and percentage mappings. Hold conditions fixed within one model, then vary one input to compare trends. Percentages and TOPS/W are not directly comparable across models.</span></p>
+            <ol>
+              <li><a href="#cim-mac-precision-root"><span data-lang="zh">01 · ADC 與雜訊如何影響試算？</span><span data-lang="en">01 · How Do ADC Resolution and Noise Affect the Estimate?</span></a><p><span data-lang="zh">看 SINAD、ENOB、巨集能效與模型映射百分比。</span><span data-lang="en">Inspect SINAD, ENOB, macro efficiency and the mapped percentage.</span></p></li>
+              <li><a href="#cim-nn-degradation-simulator-root"><span data-lang="zh">02 · 溫度與留存時間如何影響試算？</span><span data-lang="en">02 · How Do Temperature and Retention Time Affect the Estimate?</span></a><p><span data-lang="zh">看權重 SNR、相對預設基線的降幅與時間門檻估算。</span><span data-lang="en">Inspect weight SNR, the drop from a preset baseline and the time-threshold estimate.</span></p></li>
+              <li><a href="#cim-neuromorphic-simulator-root"><span data-lang="zh">03 · 線阻與 ADC 的取捨是什麼？</span><span data-lang="en">03 · What Is the Wire-Resistance and ADC Tradeoff?</span></a><p><span data-lang="zh">看空間壓降、能效與既有評分公式的變化。</span><span data-lang="en">Inspect spatial voltage drop, efficiency and changes in the scoring formula.</span></p></li>
+            </ol>
+            <p class="cim-model-index-sources"><a href="#evidence"><span data-lang="zh">本頁證據界線</span><span data-lang="en">Page Evidence Boundaries</span></a><a href="#sources"><span data-lang="zh">本頁來源總帳</span><span data-lang="en">Page Source Ledger</span></a><span><span data-lang="zh">來源總帳不代表這三個模型已完成校準。</span><span data-lang="en">The source ledger does not establish calibration of these models.</span></span></p>
+          </nav>
+
+          <div id="cim-mac-precision-root" class="cim-mac-precision-container cim-reading-model" tabindex="-1" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006667; letter-spacing: 0.08em; text-transform: uppercase;">
-                  <span data-lang="zh">前沿混訊實驗室 · CiM 類比 MAC 精度驗證</span>
-                  <span data-lang="en">FRONTIER MIXED-SIGNAL LAB · CiM ANALOG MAC PRECISION</span>
+                  <span data-lang="zh">CiM 混合訊號 · 雜訊與能效試算</span>
+                  <span data-lang="en">CiM MIXED-SIGNAL · NOISE AND EFFICIENCY ESTIMATES</span>
                 </span>
                 <h4 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
                   <span data-lang="zh">CiM 類比陣列乘加 (MAC) 精度與 ADC 訊噪比 (ENOB) 權衡試算器</span>
@@ -2396,15 +2408,16 @@
                 </h4>
               </div>
               <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 102, 103, 0.1); color: #006667; padding: 4px 8px; border-radius: 4px;">
-                <span data-lang="zh">第一性原理雜訊注入模型</span>
-                <span data-lang="en">First-Principles Noise Injection Model</span>
+                <span data-lang="zh">未校準教學模型</span>
+                <span data-lang="en">Uncalibrated Teaching Model</span>
               </span>
             </div>
 
             <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-              <span data-lang="zh">模擬在神經網路層工作負載下，ReRAM / MRAM / Flash / SRAM 單元之電導漂移、微影失配、位元線 IR-Drop 與 ADC 量化雜訊對推論 Top-1 精準度與能效 (TOPS/W) 的綜合劣化影響。</span>
-              <span data-lang="en">Simulates the compound impact of conductance drift, litho mismatch, bitline IR-drop, and ADC quantization noise on inference Top-1 accuracy and energy efficiency (TOPS/W) across neural network layers.</span>
+              <span data-lang="zh">使用預設的 ReRAM／MRAM／Flash／SRAM 參數，試算漂移、失配、IR-Drop 與量化雜訊對 SINAD、ENOB 及能效的影響。Top-1 百分比由公式映射；本工具未執行神經網路或資料集。</span>
+              <span data-lang="en">Preset ReRAM, MRAM, Flash and SRAM parameters estimate how drift, mismatch, IR-drop and quantization noise affect SINAD, ENOB and efficiency. A formula maps these results to a Top-1 percentage; this tool does not execute a neural network or dataset.</span>
             </p>
+            <nav class="cim-reading-links" aria-label="模型判讀導覽" data-aria-zh="模型判讀導覽" data-aria-en="Model Reading Navigation"><a href="#cim-mac-reading-guide"><span data-lang="zh">怎麼讀這些數字</span><span data-lang="en">How to Read These Values</span></a><a href="#cim-model-guide"><span data-lang="zh">選其他 CiM 模型</span><span data-lang="en">Choose Another CiM Model</span></a></nav>
 
             <!-- Controls Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -2466,7 +2479,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                  <span data-lang="zh">實現有效位元 (ENOB)</span><span data-lang="en">REALIZED ENOB</span>
+                  <span data-lang="zh">模型有效位元 (ENOB)</span><span data-lang="en">MODELED ENOB</span>
                 </div>
                 <div id="cim-mac-out-enob" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
@@ -2486,11 +2499,11 @@
 
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                  <span data-lang="zh">推論 Top-1 精準度</span><span data-lang="en">TOP-1 ACCURACY</span>
+                  <span data-lang="zh">Top-1 模型映射值</span><span data-lang="en">MAPPED TOP-1 ESTIMATE</span>
                 </div>
                 <div id="cim-mac-out-accuracy" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                  <span data-lang="zh">神經網路層實際輸出</span><span data-lang="en">Layer model output</span>
+                  <span data-lang="zh">公式試算，未執行資料集</span><span data-lang="en">Formula estimate; no dataset run</span>
                 </div>
               </div>
 
@@ -2537,15 +2550,20 @@
             <div style="background: rgba(0, 102, 103, 0.06); border-left: 3px solid #006667; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
               <span id="cim-mac-out-verdict" role="status" aria-live="polite">Loading CiM analog MAC calculations...</span>
             </div>
+            <section id="cim-mac-reading-guide" class="cim-reading-guide" tabindex="-1" aria-labelledby="cim-mac-reading-title">
+              <h5 id="cim-mac-reading-title"><span data-lang="zh">讀懂雜訊與能效試算</span><span data-lang="en">Read the Noise and Efficiency Estimate</span></h5>
+              <dl><div><dt><span data-lang="zh">先看什麼</span><span data-lang="en">Read First</span></dt><dd><span data-lang="zh">SINAD 與 ENOB 表示本模型的訊號品質；能效含模型已列入的陣列、ADC 與數位功耗項。</span><span data-lang="en">SINAD and ENOB describe modeled signal quality. Efficiency includes the array, ADC and digital power terms represented here.</span></dd></div><div><dt><span data-lang="zh">怎麼比較</span><span data-lang="en">Compare Conditions</span></dt><dd><span data-lang="zh">固定負載、介質、溫度與留存時間，改變 ADC 位元數，觀察訊號品質與能耗的取捨。</span><span data-lang="en">Fix the workload, device, temperature and retention time; vary ADC bits to compare signal quality and energy cost.</span></dd></div><div><dt><span data-lang="zh">判讀界線</span><span data-lang="en">Interpretation Limits</span></dt><dd><span data-lang="zh">Top-1 由 SINAD 與預設敏感度映射，尚無資料集驗證。ENOB 曲線另採固定係數示意，不能把曲線點直接當作目前負載的卡片數值。</span><span data-lang="en">Top-1 is mapped from SINAD and preset sensitivity, without dataset validation. The ENOB curve uses separate fixed illustrative coefficients; its points are not the current workload's card values.</span></dd></div></dl>
+              <a href="#cim-mac-precision-root"><span data-lang="zh">回到參數與結果</span><span data-lang="en">Back to Inputs and Results</span></a>
+            </section>
           </div>
 
           <!-- COMPUTE-IN-MEMORY (CiM) NEURAL NETWORK ACCURACY DEGRADATION WORKBENCH -->
-          <div id="cim-nn-degradation-simulator-root" class="cim-nn-degradation-container" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+          <div id="cim-nn-degradation-simulator-root" class="cim-nn-degradation-container cim-reading-model" tabindex="-1" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006667; letter-spacing: 0.08em; text-transform: uppercase;">
-                  <span data-lang="zh">前沿神經網路評估 · CiM 精度退化分析</span>
-                  <span data-lang="en">FRONTIER NN BENCHMARK · CiM ACCURACY DEGRADATION</span>
+                  <span data-lang="zh">CiM 留存與溫度 · 退化趨勢試算</span>
+                  <span data-lang="en">CiM RETENTION AND TEMPERATURE · DEGRADATION ESTIMATES</span>
                 </span>
                 <h4 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
                   <span data-lang="zh">CiM 類比矩陣乘加單元非理想物理效應與深度神經網路分類精度衰退試算器</span>
@@ -2553,15 +2571,16 @@
                 </h4>
               </div>
               <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 102, 103, 0.1); color: #006667; padding: 4px 8px; border-radius: 4px;">
-                <span data-lang="zh">IEEE TED / IEDM 物理模型</span>
-                <span data-lang="en">IEEE TED / IEDM Physics Model</span>
+                <span data-lang="zh">未校準教學模型</span>
+                <span data-lang="en">Uncalibrated Teaching Model</span>
               </span>
             </div>
 
             <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-              <span data-lang="zh">評估 ReRAM / PCM / Flash / SRAM 類比存算陣列在長期電導漂移 (Conductance Drift)、走線 IR-Drop、微影失配與有限 ADC 量化雜訊疊加下，對 ResNet-50 / MobileNetV2 / ViT-Base / TinyML 權重有效信噪比 (SNR) 與 Top-1 精度衰退曲率的影響，計算建議片上再校準 (Recalibration) 週期。</span>
-              <span data-lang="en">Models compound impact of long-term conductance drift, bitline IR-drop, litho mismatch, and finite ADC quantization noise on weight SNR and Top-1 inference degradation across ResNet-50, MobileNetV2, ViT-Base, and TinyML workloads, deriving recommended on-chip recalibration intervals.</span>
+              <span data-lang="zh">使用漂移、IR-Drop、失配與量化雜訊的簡化公式，觀察權重 SNR 與預設 Top-1 基線的映射變化。ResNet-50／MobileNetV2／ViT／TinyML 是參數情境名稱；本工具未載入權重或執行資料集，時間門檻也不是實際產品的維護週期。</span>
+              <span data-lang="en">Simplified drift, IR-drop, mismatch and quantization formulas show changes in weight SNR and a mapped Top-1 baseline. ResNet-50, MobileNetV2, ViT and TinyML name parameter scenarios; no weights or datasets are executed. The time threshold is not a product maintenance interval.</span>
             </p>
+            <nav class="cim-reading-links" aria-label="模型判讀導覽" data-aria-zh="模型判讀導覽" data-aria-en="Model Reading Navigation"><a href="#cim-nn-reading-guide"><span data-lang="zh">怎麼讀這些數字</span><span data-lang="en">How to Read These Values</span></a><a href="#cim-model-guide"><span data-lang="zh">選其他 CiM 模型</span><span data-lang="en">Choose Another CiM Model</span></a></nav>
 
             <!-- Controls Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -2636,37 +2655,37 @@
                 </div>
                 <div id="cim-nn-out-macbits" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                  <span data-lang="zh">等效無損計算位元</span><span data-lang="en">Effective precision</span>
+                  <span data-lang="zh">模型等效計算位元</span><span data-lang="en">Effective precision</span>
                 </div>
               </div>
 
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                  <span data-lang="zh">推論 Top-1 精準度</span><span data-lang="en">TOP-1 ACCURACY</span>
+                  <span data-lang="zh">Top-1 模型映射值</span><span data-lang="en">MAPPED TOP-1 ESTIMATE</span>
                 </div>
                 <div id="cim-nn-out-top1" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                  <span data-lang="zh">神經網路實際輸出</span><span data-lang="en">End-to-end output</span>
+                  <span data-lang="zh">公式試算，未執行資料集</span><span data-lang="en">Formula estimate; no dataset run</span>
                 </div>
               </div>
 
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                  <span data-lang="zh">精度相對降幅</span><span data-lang="en">PRECISION DROP</span>
+                  <span data-lang="zh">基線降幅（百分點）</span><span data-lang="en">BASELINE DROP (POINTS)</span>
                 </div>
                 <div id="cim-nn-out-drop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                  <span data-lang="zh">相對於數位浮點基準</span><span data-lang="en">vs FP32 baseline</span>
+                  <span data-lang="zh">預設基線減去模型映射值</span><span data-lang="en">Preset baseline minus mapped estimate</span>
                 </div>
               </div>
 
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                  <span data-lang="zh">建議再校準週期</span><span data-lang="en">CALIB INTERVAL</span>
+                  <span data-lang="zh">模型時間門檻估算</span><span data-lang="en">MODEL TIME THRESHOLD</span>
                 </div>
                 <div id="cim-nn-out-refresh" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                  <span data-lang="zh">維持 Δ&lt;1.5% 門檻</span><span data-lang="en">Keep Δ&lt;1.5% bound</span>
+                  <span data-lang="zh">1.5 百分點條件；有上下限與預設值</span><span data-lang="en">1.5-point condition; bounded with defaults</span>
                 </div>
               </div>
             </div>
@@ -2695,6 +2714,11 @@
             <div style="background: rgba(0, 102, 103, 0.06); border-left: 3px solid #006667; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
               <span id="cim-nn-out-verdict" role="status" aria-live="polite">Loading CiM neural network accuracy degradation calculations...</span>
             </div>
+            <section id="cim-nn-reading-guide" class="cim-reading-guide" tabindex="-1" aria-labelledby="cim-nn-reading-title">
+              <h5 id="cim-nn-reading-title"><span data-lang="zh">讀懂留存與溫度試算</span><span data-lang="en">Read the Retention and Temperature Estimate</span></h5>
+              <dl><div><dt><span data-lang="zh">先看什麼</span><span data-lang="en">Read First</span></dt><dd><span data-lang="zh">先看權重 SNR，再看預設基線與模型映射值的差。降幅單位是百分點，不是相對百分比。</span><span data-lang="en">Read weight SNR, then the difference between the preset baseline and mapped estimate. The drop is in percentage points, not a relative percentage.</span></dd></div><div><dt><span data-lang="zh">怎麼比較</span><span data-lang="en">Compare Conditions</span></dt><dd><span data-lang="zh">固定負載、介質與 ADC，分別調整溫度或留存時間。切換負載也會更換基線與敏感度，不能只比較百分比大小。</span><span data-lang="en">Fix the workload, device and ADC; vary temperature or retention time separately. A workload change also changes the baseline and sensitivity, so percentages alone do not rank workloads.</span></dd></div><div><dt><span data-lang="zh">判讀界線</span><span data-lang="en">Interpretation Limits</span></dt><dd><span data-lang="zh">時間估算沿用 1.5 百分點條件、1 至 87,600 小時夾限與預設值。顯示 1 小時可能是下限；不需週期更新的預設回傳上限。兩者都不能證明產品可保持多久或何時必須再校準。</span><span data-lang="en">The time estimate uses a 1.5-point condition, a 1–87,600-hour clamp and defaults. One hour may be the lower bound; a preset without periodic refresh returns the upper default. Neither establishes product retention or a required recalibration schedule.</span></dd></div></dl>
+              <a href="#cim-nn-degradation-simulator-root"><span data-lang="zh">回到參數與結果</span><span data-lang="en">Back to Inputs and Results</span></a>
+            </section>
           </div>
         </div>
 
@@ -2784,11 +2808,11 @@
           </div>
 
           <!-- 互動工作台容器 -->
-          <div class="decision-matrix-card cim-simulator-container" id="cim-neuromorphic-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+          <div class="decision-matrix-card cim-simulator-container cim-reading-model" id="cim-neuromorphic-simulator-root" tabindex="-1" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
-                  <span data-lang="zh">第一性原理互動工作台</span><span data-lang="en">FIRST-PRINCIPLES WORKBENCH</span>
+                  <span data-lang="zh">CiM 線阻與 ADC · 教學試算</span><span data-lang="en">CiM WIRE RESISTANCE AND ADC · TEACHING ESTIMATE</span>
                 </span>
                 <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
                   <span data-lang="zh">類腦神經形態 CiM 矩陣乘加效率與空間 IR-Drop 失真試算器</span>
@@ -2796,9 +2820,11 @@
                 </h5>
               </div>
               <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
-                <span data-lang="zh">類比歐姆定律 · 基爾霍夫總和</span><span data-lang="en">Analog Ohm · Kirchhoff Sum</span>
+                <span data-lang="zh">未校準教學模型</span><span data-lang="en">Uncalibrated Teaching Model</span>
               </span>
             </div>
+
+            <nav class="cim-reading-links" aria-label="模型判讀導覽" data-aria-zh="模型判讀導覽" data-aria-en="Model Reading Navigation"><a href="#cim-neuro-reading-guide"><span data-lang="zh">怎麼讀這些數字</span><span data-lang="en">How to Read These Values</span></a><a href="#cim-model-guide"><span data-lang="zh">選其他 CiM 模型</span><span data-lang="en">Choose Another CiM Model</span></a></nav>
 
             <!-- 控制面板 Controls Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
@@ -2887,18 +2913,18 @@
 
               <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
-                  <span data-lang="zh">推論精度保留</span><span data-lang="en">ACCURACY</span>
+                  <span data-lang="zh">模型映射百分比</span><span data-lang="en">MAPPED PERCENTAGE</span>
                 </div>
                 <div id="cim-out-accuracy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
-                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">% Retained Baseline</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;"><span data-lang="zh">98.5 基線減去模型懲罰</span><span data-lang="en">98.5 baseline minus modeled penalties</span></div>
               </div>
 
               <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
-                  <span data-lang="zh">綜合評等</span><span data-lang="en">RATING</span>
+                  <span data-lang="zh">模型門檻分類</span><span data-lang="en">MODEL THRESHOLD CLASS</span>
                 </div>
                 <div id="cim-out-rating" style="font: 700 13px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
-                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">Architecture Grade</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;"><span data-lang="zh">依試算門檻分類</span><span data-lang="en">Classified by model thresholds</span></div>
               </div>
             </div>
 
@@ -2910,7 +2936,7 @@
                     <span data-lang="zh">交叉陣列空間 IR-Drop 與電導熱力圖</span><span data-lang="en">Crossbar IR-Drop Heatmap</span>
                   </button>
                   <button id="cim-mode-tradeoff" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
-                    <span data-lang="zh">能量效率 vs 推論精度保留權衡曲線</span><span data-lang="en">Efficiency vs Accuracy Tradeoff</span>
+                    <span data-lang="zh">能效與模型映射值權衡曲線</span><span data-lang="en">Efficiency vs Mapped Estimate</span>
                   </button>
                 </div>
                 <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI Neuromorphic Engine</span>
@@ -2924,6 +2950,11 @@
             <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
               <span id="cim-out-verdict" role="status" aria-live="polite">Loading Compute-in-Memory calculations...</span>
             </div>
+            <section id="cim-neuro-reading-guide" class="cim-reading-guide" tabindex="-1" aria-labelledby="cim-neuro-reading-title">
+              <h5 id="cim-neuro-reading-title"><span data-lang="zh">讀懂線阻與 ADC 試算</span><span data-lang="en">Read the Wire-Resistance and ADC Estimate</span></h5>
+              <dl><div><dt><span data-lang="zh">先看什麼</span><span data-lang="en">Read First</span></dt><dd><span data-lang="zh">壓降與 SNR 是本模型的中間量；百分比由固定 98.5 基線扣除 SNR、壓降與漂移懲罰，再限制於 45 至 99。</span><span data-lang="en">Voltage drop and SNR are intermediate model values. The percentage subtracts SNR, voltage-drop and drift penalties from a fixed 98.5 baseline, then clamps the result to 45–99.</span></dd></div><div><dt><span data-lang="zh">怎麼比較</span><span data-lang="en">Compare Conditions</span></dt><dd><span data-lang="zh">固定架構、介質與漂移時間，再調線阻或 ADC。CSV 會沿用這三個固定條件，掃描四種線阻與三種 ADC 解析度。</span><span data-lang="en">Fix the architecture, medium and drift time; then vary wire resistance or ADC bits. CSV export retains those three conditions and sweeps four wire resistances and three ADC resolutions.</span></dd></div><div><dt><span data-lang="zh">判讀界線</span><span data-lang="en">Interpretation Limits</span></dt><dd><span data-lang="zh">百分比不是相對精度保留率，也不是資料集實測。低漂移或零漂移是所選參數假設；能效、吞吐量與門檻分類尚未證明任何具名晶片的效能或適用性。</span><span data-lang="en">The percentage is neither relative accuracy retention nor a dataset measurement. Low or zero drift is a selected parameter assumption. Efficiency, throughput and threshold classes do not establish a named chip's performance or suitability.</span></dd></div></dl>
+              <a href="#cim-neuromorphic-simulator-root"><span data-lang="zh">回到參數與結果</span><span data-lang="en">Back to Inputs and Results</span></a>
+            </section>
           </div>
         </article>
 

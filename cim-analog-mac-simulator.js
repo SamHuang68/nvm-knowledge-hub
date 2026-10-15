@@ -400,10 +400,10 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     // Text labels
     ctx.font = "600 10px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#94a3b8";
-    ctx.fillText(isZh ? "位元線類比累加電流 I_BL (μA)" : "Bitline Current I_BL (μA)", padLeft, height - 10);
+    ctx.fillText(isZh ? "電流分佈示意（正規化位置）" : "Current (normalized illustration)", padLeft, height - 10);
     ctx.fillStyle = "#fbbf24";
     ctx.fillText(
-      isZh ? `IR-Drop 偏移: -${results.irDropPercent}%` : `IR-Drop Skew: -${results.irDropPercent}%`,
+      isZh ? `模型壓降: ${results.irDropPercent}%` : `Model IR-drop: ${results.irDropPercent}%`,
       skewX - 45,
       padTop + 14
     );
@@ -476,7 +476,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
       ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
       ctx.fillStyle = results.isAccuracySafe ? "#34d399" : "#f87171";
       ctx.fillText(
-        `${results.realizedEnob} b → ${results.estimatedAccuracy}%`,
+        isZh ? `${results.realizedEnob} b｜卡片 ${results.estimatedAccuracy}%` : `${results.realizedEnob} b | card ${results.estimatedAccuracy}%`,
         Math.max(padLeft, markerX - 35),
         Math.max(padTop + 12, markerY - 9)
       );
@@ -484,7 +484,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
     ctx.font = "600 10px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#94a3b8";
-    ctx.fillText(isZh ? "實現有效位元 (ENOB)" : "Realized ENOB (bits)", padLeft + plotW * 0.4, height - 10);
+    ctx.fillText(isZh ? "示意位元軸 (bits)" : "Illustrative bit axis", padLeft + plotW * 0.4, height - 10);
   }
 
   // Title in Canvas
@@ -492,8 +492,8 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
   ctx.fillStyle = "#e2e8f0";
   ctx.fillText(
     mode === "histogram"
-      ? (isZh ? "位元線類比加總電流分佈 vs ADC 量化階梯" : "Bitline Current Distribution vs ADC Levels")
-      : (isZh ? "類比推論精準度 vs 實現 ENOB 特性曲線" : "Inference Accuracy vs Realized ENOB Curve"),
+      ? (isZh ? "教學示意：電流分佈與 ADC 階梯" : "Illustrative current / ADC bins")
+      : (isZh ? "教學映射曲線（與卡片公式不同）" : "Teaching curve / separate formula"),
     padLeft,
     padTop - 10
   );
@@ -585,12 +585,12 @@ export function initCimAnalogMacSimulator() {
       const imp = isZh ? res.dominantImpairment.nameZh : res.dominantImpairment.nameEn;
       if (res.isAccuracySafe) {
         outVerdict.innerHTML = isZh
-          ? `<strong>【架構健康】</strong> 當前神經網絡推論精度維持在 <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>（精度退化僅 ${res.accDropPercent.toFixed(1)}%），巨集能效達 <strong>${res.macroTopsPerWatt.toFixed(1)} TOPS/W</strong>。主要非理想雜訊源為 <em>${imp}</em>，維持在安全雜訊裕度內。`
-          : `<strong>[STABLE ARCHITECTURE]</strong> Inference accuracy maintains at <strong>${res.estimatedAccuracy.toFixed(1)}%</strong> (drop: ${res.accDropPercent.toFixed(1)}%), achieving <strong>${res.macroTopsPerWatt.toFixed(1)} TOPS/W</strong>. Dominant analog impairment is <em>${imp}</em>, staying within safe noise margins.`;
+          ? `<strong>【未校準教學估算：降幅在模型門檻內】</strong> 目前負載、介質、ADC、溫度與留存時間下，SINAD 經預設敏感度公式映射為 <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>，較預設基線降低 ${res.accDropPercent.toFixed(1)} 個百分點，未超過 1.5 個百分點門檻。主要模型雜訊項為 <em>${imp}</em>；巨集能效估算為 <strong>${res.macroTopsPerWatt.toFixed(1)} TOPS/W</strong>。可調整參數比較雜訊與能效趨勢；這些百分比未實跑神經網路或資料集，仍須以目標晶片量測與實際工作負載校準。`
+          : `<strong>[UNCALIBRATED TEACHING ESTIMATE: WITHIN MODEL DROP THRESHOLD]</strong> For the selected workload, device, ADC, temperature and retention time, preset sensitivity rules map SINAD to <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>, a drop of ${res.accDropPercent.toFixed(1)} percentage points from the preset baseline, within the 1.5-point threshold. The dominant modeled noise term is <em>${imp}</em>; estimated macro efficiency is <strong>${res.macroTopsPerWatt.toFixed(1)} TOPS/W</strong>. Vary inputs to compare noise and efficiency trends. No neural network or dataset is executed; target-chip measurements and workload calibration are still required.`;
       } else {
         outVerdict.innerHTML = isZh
-          ? `<strong>【精度崩潰警訊】</strong> 推論精度嚴重退化至 <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>（較基線驟降 ${res.accDropPercent.toFixed(1)}%）。原因在於 <em>${imp}</em> 導致實現 ENOB 僅 ${res.realizedEnob.toFixed(2)} bit。建議實施<strong>量化感知訓練 (QAT)</strong> 或提升單元 TMR / 縮減陣列規模以壓制 IR-Drop。`
-          : `<strong>[ACCURACY COLLAPSE ALERT]</strong> Inference accuracy severely drops to <strong>${res.estimatedAccuracy.toFixed(1)}%</strong> (loss: ${res.accDropPercent.toFixed(1)}%). Dominant impairment <em>${imp}</em> throttles realized ENOB down to ${res.realizedEnob.toFixed(2)} bits. Apply <strong>Quantization-Aware Training (QAT)</strong> or downscale array tiles to mitigate IR-drop.`;
+          ? `<strong>【未校準教學估算：降幅超過模型門檻】</strong> 目前負載、介質、ADC、溫度與留存時間下，SINAD 經預設敏感度公式映射為 <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>，較預設基線降低 ${res.accDropPercent.toFixed(1)} 個百分點，超過 1.5 個百分點門檻。主要模型雜訊項為 <em>${imp}</em>，ENOB 估算為 ${res.realizedEnob.toFixed(2)} bit。可比較 ADC 與介質設定對雜訊的影響；百分比未實跑神經網路或資料集，QAT 或陣列分割的實際效益須另以目標模型、電路與量測確認。`
+          : `<strong>[UNCALIBRATED TEACHING ESTIMATE: ABOVE MODEL DROP THRESHOLD]</strong> For the selected workload, device, ADC, temperature and retention time, preset sensitivity rules map SINAD to <strong>${res.estimatedAccuracy.toFixed(1)}%</strong>, a drop of ${res.accDropPercent.toFixed(1)} percentage points from the preset baseline, above the 1.5-point threshold. The dominant modeled noise term is <em>${imp}</em>; estimated ENOB is ${res.realizedEnob.toFixed(2)} bits. Compare ADC and device settings to inspect noise trends. No neural network or dataset is executed; benefits from QAT or array partitioning require target-model, circuit and measurement validation.`;
       }
     }
 

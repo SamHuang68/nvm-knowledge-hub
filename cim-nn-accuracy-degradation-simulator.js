@@ -122,8 +122,8 @@ export const CIM_DEVICE_TECHNOLOGIES = Object.freeze({
   },
   sram_charge_domain: {
     id: "sram_charge_domain",
-    nameZh: "8T SRAM 電荷域存算 (8-bit 等效, 零電導漂移 / 揮發性)",
-    nameEn: "8T SRAM Charge-Domain CiM (Zero Drift / Volatile)",
+    nameZh: "8T SRAM 電荷域存算 (8-bit 等效, 模型假設零漂移 / 揮發性)",
+    nameEn: "8T SRAM Charge-Domain CiM (Assumed Zero Drift / Volatile)",
     nominalCellBits: 1,           // Weighted capacitor binary slice
     driftExponentBase: 0.000,     // Mathematically zero drift
     thermalCoeffDrift: 0.0000,
@@ -230,7 +230,8 @@ export function calculateCimNnDegradation({
   // Base energy per MAC includes cell, ADC conversion, and wire dissipation
   const adcEnergyFactor = Math.pow(2.0, Math.max(0, bAdc - 4)) * 0.8;
   const totalEnergyPerMacFj = device.energyPerMacFj + adcEnergyFactor + (workload.arrayDimension * 0.02);
-  const energyEfficiencyTopsPerWatt = Number((1e15 / (totalEnergyPerMacFj * 1e-15 * 1e12)).toFixed(1)); // 1 TOPS/W = 1 pJ/OP = 1000 fJ/OP -> TOPS/W = 1000 / fJ
+  // 沿用其他 CiM 模型的 1 MAC = 2 次運算；fJ/MAC 轉 TOPS/W 為 2 × 1000 / fJ。
+  const energyEfficiencyTopsPerWatt = Number((2000 / totalEnergyPerMacFj).toFixed(1));
 
   return {
     workloadKey: workload.id,
@@ -266,6 +267,7 @@ export function calculateCimNnDegradation({
  */
 export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
   if (!canvas || !canvas.getContext) return;
+  const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
   const ctx = canvas.getContext("2d");
   const rect = canvas.getBoundingClientRect();
   const width = (canvas.width = (rect.width || 420) * (window.devicePixelRatio || 1));
@@ -381,7 +383,16 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
     // Callout text
     ctx.fillStyle = "#0284c7";
     ctx.font = "10px 'IBM Plex Mono', monospace";
-    ctx.fillText(`Top-1: ${metrics.realizedTop1Pct}% (Δ -${metrics.top1DropPct}%)`, currX + 8, Math.max(30, currY - 6));
+    const calloutParts = isZh
+      ? [`估算 ${metrics.realizedTop1Pct}%`, `(−${metrics.top1DropPct} 百分點)`]
+      : [`Estimate ${metrics.realizedTop1Pct}%`, `(−${metrics.top1DropPct} pp)`];
+    const callout = calloutParts.join(' ');
+    const calloutLines = ctx.measureText(callout).width <= w - 16 ? [callout] : calloutParts;
+    const calloutWidth = Math.max(...calloutLines.map(line => ctx.measureText(line).width));
+    // 長留存點靠近右緣時向左夾限；窄畫布換行，不縮小字體或截去數值。
+    const calloutX = Math.max(8, Math.min(currX + 8, w - calloutWidth - 8));
+    const calloutY = Math.max(30, currY - 6 - (calloutLines.length - 1) * 12);
+    calloutLines.forEach((line, index) => ctx.fillText(line, calloutX, calloutY + index * 12));
   } else {
     // Mode 2: Weight Error Distribution & ADC Quantization Binning
     const plotX0 = 45;
@@ -416,13 +427,21 @@ export function drawCimDegradationCanvas(canvas, metrics, mode = "curve") {
 
     ctx.fillStyle = "#475569";
     ctx.font = "9px 'IBM Plex Mono', monospace";
-    ctx.fillText("-3σ Error", plotX0, h - 10);
-    ctx.fillText("0 (Target)", centerX - 24, h - 10);
-    ctx.fillText("+3σ Error", plotX1 - 45, h - 10);
+    ctx.fillText(isZh ? "−3σ 示意" : "−3σ model", plotX0, h - 10);
+    ctx.fillText(isZh ? "0（目標）" : "0 (Target)", centerX - 24, h - 10);
+    ctx.fillText(isZh ? "+3σ 示意" : "+3σ model", plotX1 - 45, h - 10);
 
     ctx.fillStyle = "#b45309";
     ctx.font = "10px 'IBM Plex Mono', monospace";
-    ctx.fillText(`Quant Noise: ${metrics.sigmaQuant} | Drift: ${metrics.sigmaDrift}`, plotX0, 20);
+    const noiseParts = isZh
+      ? [`模型 σ：量化 ${metrics.sigmaQuant}`, `漂移 ${metrics.sigmaDrift}`]
+      : [`Model σ: ADC ${metrics.sigmaQuant}`, `drift ${metrics.sigmaDrift}`];
+    const noiseLabel = noiseParts.join(' | ');
+    if (ctx.measureText(noiseLabel).width <= w - plotX0 - 8) {
+      ctx.fillText(noiseLabel, plotX0, 20);
+    } else {
+      noiseParts.forEach((line, index) => ctx.fillText(line, 8, 11 + index * 11));
+    }
   }
 }
 
@@ -478,6 +497,7 @@ export function initCimNnDegradationSimulator(container) {
   }
 
   function update() {
+    const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     const workloadKey = workloadSelect ? workloadSelect.value : "resnet50_imagenet";
     const deviceKey = deviceSelect ? deviceSelect.value : "reram_oxram_mlc";
     const adcBits = adcSelect ? Number(adcSelect.value) : 6;
@@ -506,16 +526,16 @@ export function initCimNnDegradationSimulator(container) {
       outTop1.style.color = m.isAccuracyAcceptable ? "#059669" : "#dc2626";
     }
     if (outDrop) {
-      outDrop.textContent = `-${m.top1DropPct}%`;
+      outDrop.textContent = isZh ? `-${m.top1DropPct} 百分點` : `-${m.top1DropPct} pp`;
       outDrop.style.color = m.isAccuracyAcceptable ? "#059669" : "#dc2626";
     }
     if (outRefresh) {
       if (m.recommendedRefreshHours >= 87600) {
-        outRefresh.textContent = "> 10 Years";
+        outRefresh.textContent = isZh ? "10 年（上限／預設）" : "10 years (cap/default)";
       } else if (m.recommendedRefreshHours > 24) {
-        outRefresh.textContent = `Every ${(m.recommendedRefreshHours / 24).toFixed(0)} Days`;
+        outRefresh.textContent = isZh ? `約 ${(m.recommendedRefreshHours / 24).toFixed(0)} 天` : `Approx. ${(m.recommendedRefreshHours / 24).toFixed(0)} days`;
       } else {
-        outRefresh.textContent = `Every ${m.recommendedRefreshHours} Hrs`;
+        outRefresh.textContent = isZh ? `${m.recommendedRefreshHours} 小時` : `${m.recommendedRefreshHours} hrs`;
       }
     }
 
@@ -524,10 +544,9 @@ export function initCimNnDegradationSimulator(container) {
     }
 
     if (outVerdict) {
-      const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>存算一體推論判定：</strong> 在 <code>${m.deviceKey}</code> 於 <code>${m.tempC}°C</code> 運行 <code>${m.tHours} 小時</code> 下，累積電導漂移 (ν=${m.sigmaDrift}) 與 ${m.bAdc}-bit ADC 量化雜訊造成有效信噪比為 <strong>${m.weightSnrDb} dB</strong>。神經網路 <code>${m.workloadNameZh}</code> Top-1 準確率自基準 <strong>${m.baselineTop1Pct}%</strong> 衰退至 <strong>${m.realizedTop1Pct}%</strong> (相對降幅 -${m.top1DropPct}%)。建議設定每隔 <strong>${outRefresh ? outRefresh.textContent : ''}</strong> 執行一次片上權重再校準 (On-Chip Recalibration) 以維持分類可靠度。`
-        : `<strong>CiM Inference Verdict:</strong> Under <code>${m.deviceKey}</code> operating at <code>${m.tempC}°C</code> for <code>${m.tHours} hrs</code>, conductance drift (ν=${m.sigmaDrift}) combined with ${m.bAdc}-bit ADC quantization yields an effective weight SNR of <strong>${m.weightSnrDb} dB</strong>. Top-1 accuracy for <code>${m.workloadNameEn}</code> degrades from baseline <strong>${m.baselineTop1Pct}%</strong> to <strong>${m.realizedTop1Pct}%</strong> (Δ -${m.top1DropPct}%). On-chip recalibration is recommended <strong>${outRefresh ? outRefresh.textContent : ''}</strong> to preserve target inference confidence.`;
+        ? `<strong>未校準教學估算：</strong> 在 <code>${m.deviceKey}</code>、<code>${m.tempC}°C</code>、<code>${m.tHours} 小時</code> 與 ${m.bAdc}-bit ADC 設定下，模型漂移雜訊 σ 為 ${m.sigmaDrift}，權重 SNR 為 <strong>${m.weightSnrDb} dB</strong>。<code>${m.workloadNameZh}</code> 的預設基線 <strong>${m.baselineTop1Pct}%</strong> 經總雜訊與敏感度公式映射為 <strong>${m.realizedTop1Pct}%</strong>，差距為 ${m.top1DropPct} 個百分點；未實跑網路或資料集。時間欄 <strong>${outRefresh ? outRefresh.textContent : ''}</strong> 是 1.5 個百分點降幅的門檻時間估算，含最小變異及 1 小時至 10 年夾限；不啟用週期更新的介質沿用 10 年預設。可比較時間、溫度與 ADC 的模型趨勢；實際準確率與校準週期須以目標硬體、資料集及量測確認。`
+        : `<strong>Uncalibrated teaching estimate:</strong> With <code>${m.deviceKey}</code>, <code>${m.tempC}°C</code>, <code>${m.tHours} hrs</code> and a ${m.bAdc}-bit ADC, modeled drift noise σ is ${m.sigmaDrift} and weight SNR is <strong>${m.weightSnrDb} dB</strong>. Total noise and sensitivity rules map the preset <strong>${m.baselineTop1Pct}%</strong> baseline for <code>${m.workloadNameEn}</code> to <strong>${m.realizedTop1Pct}%</strong>, a difference of ${m.top1DropPct} percentage points. No network or dataset is executed. The time field, <strong>${outRefresh ? outRefresh.textContent : ''}</strong>, estimates the 1.5-point drop threshold with a minimum variance and a 1-hour to 10-year clamp; media without periodic refresh use a 10-year default. Compare time, temperature and ADC trends within the model. Actual accuracy and recalibration intervals require target hardware, datasets and measurements.`;
     }
   }
 
