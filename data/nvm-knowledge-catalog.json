@@ -356,6 +356,33 @@
           "en": "SRAM Repair Capacity Estimate"
         }
       ]
+    },
+    {
+      "id": "packaging-rot",
+      "titleZh": "先進封裝與信任根",
+      "titleEn": "Advanced Packaging and RoT",
+      "links": [
+        {
+          "url": "ai-nvm-opportunities.html#hbm4-repair-probe-simulator-root",
+          "zh": "HBM4 Base Die 修復與探針",
+          "en": "HBM4 Base Die Repair & Probing"
+        },
+        {
+          "url": "specialty-nvm.html#hybrid-bonding-tsv-simulator-root",
+          "zh": "Cu-Cu 混合鍵合與 KGD",
+          "en": "Cu-Cu Hybrid Bonding & KGD"
+        },
+        {
+          "url": "security-assurance.html#sec-pqc-dpa",
+          "zh": "後量子 PUF 與 DPA 側信道防禦",
+          "en": "Post-Quantum PUF & DPA Defense"
+        },
+        {
+          "url": "automotive-nvm.html#auto-hbm4-scrubbing-simulator-root",
+          "zh": "車規 HBM4 巡檢清洗",
+          "en": "Automotive HBM4 Scrubbing"
+        }
+      ]
     }
   ]
 }
