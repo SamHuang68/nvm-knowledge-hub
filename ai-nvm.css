@@ -6497,6 +6497,70 @@
   }
 }
 
+/* CiM 判讀與導覽：限定三個既有模型，保留控制與圖表版面。 */
+.ai-nvm-page .cim-model-index,
+.ai-nvm-page .cim-reading-guide {
+  scroll-margin-top: 140px;
+  color: var(--ai-ink);
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.ai-nvm-page .cim-model-index {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--ai-line);
+  border-top: 3px solid var(--ai-teal);
+  border-radius: var(--ai-radius);
+}
+.ai-nvm-page .cim-model-index h4,
+.ai-nvm-page .cim-reading-guide h5 {
+  margin: 0 0 10px;
+  color: var(--ai-ink);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.ai-nvm-page .cim-model-index p { margin: 0 0 12px; }
+.ai-nvm-page .cim-model-index ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+}
+.ai-nvm-page .cim-model-index li { border-top: 1px solid var(--ai-line); padding-top: 10px; }
+.ai-nvm-page .cim-model-index li p { margin: 6px 0 0; }
+.ai-nvm-page .cim-model-index a,
+.ai-nvm-page .cim-reading-links a,
+.ai-nvm-page .cim-reading-guide > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  color: #006667;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ai-nvm-page .cim-model-index-sources,
+.ai-nvm-page .cim-reading-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.ai-nvm-page .cim-model-index-sources > span { flex-basis: 100%; }
+.ai-nvm-page .cim-reading-links { margin: 10px 0 16px; font-size: 1rem; line-height: 1.6; }
+.ai-nvm-page .cim-reading-model { scroll-margin-top: 140px; }
+.ai-nvm-page .cim-reading-guide { margin-top: 18px; padding: 16px; border: 1px solid var(--ai-line); border-radius: var(--ai-radius); }
+.ai-nvm-page .cim-reading-guide dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0 0 10px; }
+.ai-nvm-page .cim-reading-guide dt { font-weight: 700; color: #006667; margin-bottom: 4px; }
+.ai-nvm-page .cim-reading-guide dd { margin: 0; }
+.ai-nvm-page :is(.cim-model-index, .cim-reading-links, .cim-reading-guide) a:focus-visible,
+.ai-nvm-page :is(.cim-model-index, .cim-reading-guide, .cim-reading-model):focus-visible { outline: 2px solid #006667; outline-offset: 4px; }
+@media (max-width: 900px) {
+  .ai-nvm-page .cim-model-index ol,
+  .ai-nvm-page .cim-reading-guide dl { grid-template-columns: 1fr; gap: 14px; }
+  .ai-nvm-page .cim-model-index { padding: 16px; }
+  .ai-nvm-page .cim-reading-guide { padding: 12px; }
+}
+
 /* =========================================================
    全站語系切換最上層治理規範：英文為第一預設 (English as Default)
    ========================================================= */

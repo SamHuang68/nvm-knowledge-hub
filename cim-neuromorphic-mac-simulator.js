@@ -54,8 +54,8 @@ export const CIM_SYSTEM_PRESETS = {
     inputPrecisionBits: 4,
     weightPrecisionBits: 4,
     clockFreqMhz: 50,
-    descriptionZh: '常時連線 (Always-On) 邊緣聲學模型，128x64 陣列，重視微瓦級靜態漏電與次 10us 喚醒延遲。',
-    descriptionEn: 'Always-On acoustic keyword model, 128x64 array, optimized for sub-microWatt leakage and sub-10us wakeup.'
+    descriptionZh: '常時啟用 (Always-On) 聲學應用的 128×64 陣列教學預設；未執行聲學網路，也未估算待機漏電或喚醒延遲。',
+    descriptionEn: 'A 128×64 teaching preset for always-on acoustic applications; it does not execute an acoustic network or estimate standby leakage or wakeup latency.'
   },
   vision_transformer_vit_patch: {
     id: 'vision_transformer_vit_patch',
@@ -66,8 +66,8 @@ export const CIM_SYSTEM_PRESETS = {
     inputPrecisionBits: 8,
     weightPrecisionBits: 4,
     clockFreqMhz: 200,
-    descriptionZh: '高維注意力機制線性投影矩陣，重視高密度突觸陣列與多通道 ADC 循序轉換吞吐量。',
-    descriptionEn: 'High-dimensional attention projection matrix, emphasizing high synaptic density and multi-channel ADC throughput.'
+    descriptionZh: '注意力投影應用的陣列尺寸與時脈教學預設；未載入 ViT 權重，也未模擬完整注意力層或 ADC 排程。',
+    descriptionEn: 'Teaching array-size and clock presets for attention projection; no ViT weights, full attention layer or ADC scheduling are simulated.'
   },
   neuromorphic_spiking_snn: {
     id: 'neuromorphic_spiking_snn',
@@ -78,8 +78,8 @@ export const CIM_SYSTEM_PRESETS = {
     inputPrecisionBits: 1, // 1-bit event spikes
     weightPrecisionBits: 2,
     clockFreqMhz: 100,
-    descriptionZh: '仿生事件驅動非同步突觸網，極稀疏輸入脈衝 (Spike Sparsity > 95%)，基爾霍夫漏電積分發放 (LIF)。',
-    descriptionEn: 'Bio-inspired asynchronous synaptic mesh with high event sparsity (>95%) and Leaky Integrate-and-Fire (LIF) dynamics.'
+    descriptionZh: '脈衝神經網路應用的陣列與位元數教學預設；本模型未執行事件排程、脈衝稀疏度或 LIF 神經元動態。',
+    descriptionEn: 'Teaching array and bit-width presets for spiking networks; event scheduling, spike sparsity and LIF neuron dynamics are not executed.'
   },
   deep_learning_llm_quantized: {
     id: 'deep_learning_llm_quantized',
@@ -90,8 +90,8 @@ export const CIM_SYSTEM_PRESETS = {
     inputPrecisionBits: 4,
     weightPrecisionBits: 4,
     clockFreqMhz: 400,
-    descriptionZh: '512x512 巨型交叉陣列，聚焦線電阻 IR-Drop 補償與矩陣階數擴展下之巨量吞吐 (TOPS)。',
-    descriptionEn: '512x512 massive crossbar array, focused on parasitic wire IR-drop compensation and raw multi-TOPS throughput.'
+    descriptionZh: '512×512 交叉陣列教學預設，用於比較線阻、ADC 與吞吐量估算；未執行語言模型，也未實作 IR-Drop 補償。',
+    descriptionEn: 'A 512×512 crossbar teaching preset for wire-resistance, ADC and throughput estimates; no language model or IR-drop compensation is executed.'
   }
 };
 
@@ -110,8 +110,8 @@ export const CIM_MEMORY_MEDIA = {
     writeEnergyPj: 12.0,
     readLatencyNs: 15.0,
     maskAdders: 4,
-    notesZh: '金屬氧化物導電微絲多階電導，具備最高類比突觸密度，但存在弛豫效應 (Relaxation Drift) 與溫度漂移。',
-    notesEn: 'Metal-oxide filament multi-level conductance with highest analog density, subject to relaxation drift.'
+    notesZh: '以多階電導與 ν=0.08 漂移係數代表 ReRAM 的教學假設；未計算實體密度或溫度依賴，須以製程與元件量測校準。',
+    notesEn: 'Teaching assumptions represent ReRAM with multilevel conductance and drift coefficient ν=0.08; physical density and temperature dependence are not calculated and require process and device calibration.'
   },
   stt_mram_binary_xbar: {
     id: 'stt_mram_binary_xbar',
@@ -123,8 +123,8 @@ export const CIM_MEMORY_MEDIA = {
     writeEnergyPj: 8.5,
     readLatencyNs: 6.0,
     maskAdders: 3,
-    notesZh: '磁性穿隧接面 (MTJ) 具備幾乎為零之電導漂移與極佳耐久度，但開關比有限 (2.5x)，需差動位元胞感知。',
-    notesEn: 'Magnetic tunnel junction with negligible drift and extreme endurance; bounded TMR requires differential sensing.'
+    notesZh: '本模型為 MTJ 設定 ν=0.001 與 2.5 倍電導開關比；低漂移是教學參數，未模擬耐久度或完整差動感測電路。',
+    notesEn: 'The model assigns MTJs ν=0.001 and a 2.5 conductance on/off ratio; low drift is a teaching parameter, with no endurance or full differential-sensing simulation.'
   },
   antifuse_stochastic_puf: {
     id: 'antifuse_stochastic_puf',
@@ -136,8 +136,8 @@ export const CIM_MEMORY_MEDIA = {
     writeEnergyPj: 15.0, // High-voltage programming breakdown pulse energy
     readLatencyNs: 3.5,
     maskAdders: 0,
-    notesZh: '零額外光罩邏輯相容，金屬矽化物微絲具永久穩定零漂移；僅支援單次寫入固化推論 (OTP/WORM) 與機率位元流運算，不具線上權重覆寫能力。',
-    notesEn: 'Zero extra mask adders; permanent silicon filament ensures zero drift; supports fixed inference (OTP/WORM) and stochastic bitstream, without online weight rewritability.'
+    notesZh: '本教學設定假設零額外光罩與 ν=0，並不保證實際製程相容性或永久零漂移。OTP/WORM 權重寫入後不能線上覆寫；固化推論或機率位元流仍需個別電路驗證。',
+    notesEn: 'This teaching profile assumes zero extra masks and ν=0; it does not establish process compatibility or permanent zero drift. OTP/WORM weights cannot be rewritten online; fixed inference or stochastic bitstreams require circuit validation.'
   },
   sram_standard_digital_mac: {
     id: 'sram_standard_digital_mac',
@@ -149,8 +149,8 @@ export const CIM_MEMORY_MEDIA = {
     writeEnergyPj: 0.1,
     readLatencyNs: 2.0,
     maskAdders: 0,
-    notesZh: '完全數位全擺幅運算，無類比噪訊或電導漂移，但單元面積龐大 (150 F²)，靜態待機漏電高。',
-    notesEn: 'Full digital-rail computation without analog noise or drift, at the cost of massive cell area and leakage.'
+    notesZh: '以 ν=0 表示 SRAM 的教學參考設定；仍沿用本模擬器的共用 SNR 與能耗公式，未模擬完整數位 MAC、單元面積或待機漏電。',
+    notesEn: 'The SRAM teaching reference uses ν=0 and the shared SNR and energy formulas; it does not simulate a full digital MAC, cell area or standby leakage.'
   }
 };
 
@@ -228,23 +228,23 @@ export function calculateCimMacMetrics(params = {}) {
   const energyEfficiencyTopsPerWatt = 1.0 / (energyPerOpPj); // 1 / pJ = TOPS/W
 
   // System Verdict & Compliance
-  let ratingZh = '優異 (EXCELLENT)';
-  let ratingEn = 'EXCELLENT';
+  let ratingZh = '模型門檻：較低損失';
+  let ratingEn = 'MODEL THRESHOLD: LOWER LOSS';
   let gradeColor = '#059669';
 
   if (retainedAccuracyPct < 85.0 || worstCaseIrDropPct > 15.0) {
-    ratingZh = '受限 (DEGRADED)';
-    ratingEn = 'DEGRADED';
+    ratingZh = '模型門檻：損失升高';
+    ratingEn = 'MODEL THRESHOLD: ELEVATED LOSS';
     gradeColor = '#f59e0b';
   }
   if (retainedAccuracyPct < 70.0 || worstCaseIrDropPct > 25.0) {
-    ratingZh = '臨界失真 (CRITICAL)';
-    ratingEn = 'CRITICAL';
+    ratingZh = '模型門檻：較高損失';
+    ratingEn = 'MODEL THRESHOLD: HIGHER LOSS';
     gradeColor = '#dc2626';
   }
 
-  let verdictZh = `在 ${preset.nameZh} 架構下，採用 ${media.nameZh} 進行 ${preset.arrayRows}×${preset.arrayCols} 類比矩陣乘加。最遠單元線路 IR-Drop 壓降為 ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%)，經 ${driftHours} 小時電導漂移率為 ${conductanceLossPct.toFixed(1)}%。系統有效 SNR 達 ${effectiveSnrDb.toFixed(1)} dB，推論精度保留率為 ${retainedAccuracyPct.toFixed(1)}%。全陣列能量效率達 ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W，運算吞吐量為 ${throughputTops.toFixed(2)} TOPS。`;
-  let verdictEn = `Under ${preset.nameEn} with ${media.nameEn} in a ${preset.arrayRows}×${preset.arrayCols} crossbar, the worst-case parasitic IR-drop is ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%). Conductance drift after ${driftHours} hours is ${conductanceLossPct.toFixed(1)}%. Effective array SNR reaches ${effectiveSnrDb.toFixed(1)} dB, retaining ${retainedAccuracyPct.toFixed(1)}% inference accuracy. Overall energy efficiency achieves ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W with ${throughputTops.toFixed(2)} TOPS throughput.`;
+  let verdictZh = `未校準教學估算：在 ${preset.nameZh}、${media.nameZh} 的 ${preset.arrayRows}×${preset.arrayCols} 陣列設定下，最遠單元壓降估算為 ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%)，${driftHours} 小時後的電導損失估算為 ${conductanceLossPct.toFixed(1)}%，SNR 為 ${effectiveSnrDb.toFixed(1)} dB。百分比 ${retainedAccuracyPct.toFixed(1)}% 由固定 98.5 基線扣除 SNR、壓降與漂移懲罰項，再依公式上下限夾限；不是相對 FP32 的實測保留率，也未實跑網路或資料集。能效 ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W 與吞吐量 ${throughputTops.toFixed(2)} TOPS 也屬模型估算。可比較線阻、ADC 與時間的趨勢；分級只反映預設門檻，實際準確率、功耗與可靠度須以目標電路及工作負載量測確認。`;
+  let verdictEn = `Uncalibrated teaching estimate: for the ${preset.nameEn} preset and ${media.nameEn} in a ${preset.arrayRows}×${preset.arrayCols} array, estimated farthest-cell IR-drop is ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%), conductance loss after ${driftHours} hours is ${conductanceLossPct.toFixed(1)}%, and SNR is ${effectiveSnrDb.toFixed(1)} dB. The ${retainedAccuracyPct.toFixed(1)}% output subtracts SNR, IR-drop and drift penalties from a fixed 98.5 baseline and applies formula limits. It is not measured retention relative to FP32; no network or dataset is executed. Efficiency of ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W and throughput of ${throughputTops.toFixed(2)} TOPS are also modeled estimates. Compare wire resistance, ADC and time trends; ratings reflect preset thresholds only. Actual accuracy, power and reliability require target-circuit and workload measurements.`;
 
   if (media.id === 'antifuse_stochastic_puf') {
     verdictZh += ' (架構邊界提示：AntiFuse 為單次物理擊穿 OTP，僅支援靜態固化推論或隨機機率流運算，不具備線上動態權重覆寫能力；若需頻繁更新權重，應選擇 ReRAM/MRAM 或 SRAM。)';
@@ -282,6 +282,7 @@ export function calculateCimMacMetrics(params = {}) {
 export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
+  const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
 
   const dpr = Math.min(window.devicePixelRatio || 1, 3);
   const width = canvas.clientWidth || 420;
@@ -309,16 +310,20 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     const gridCols = 16;
     const gridRows = 16;
     const paddingLeft = 40;
-    const paddingTop = 25;
+    ctx.font = '600 10.5px "IBM Plex Mono", monospace';
+    const titleParts = isZh ? ['模型壓降示意', '（16×16）'] : ['ILLUSTRATIVE IR-DROP', 'MAP (16×16)'];
+    const title = titleParts.join(isZh ? '' : ' ');
+    const titleLines = ctx.measureText(title).width <= width - 16 ? [title] : titleParts;
+    const paddingTop = titleLines.length > 1 ? 36 : 25;
     const gridWidth = width - 110;
-    const gridHeight = height - 50;
+    const gridHeight = height - paddingTop - 25;
     const cellW = gridWidth / gridCols;
     const cellH = gridHeight / gridRows;
 
     // Title / Kicker
     ctx.fillStyle = '#0284c7';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
-    ctx.fillText('CROSSBAR IR-DROP & CONDUCTANCE GRADIENT (16×16 MAP)', paddingLeft, 16);
+    titleLines.forEach((line, index) => ctx.fillText(line, 8, 14 + index * 12));
 
     for (let r = 0; r < gridRows; r++) {
       for (let c = 0; c < gridCols; c++) {
@@ -382,13 +387,16 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
   } else {
     // Mode 2: Energy Efficiency (TOPS/W) vs Accuracy Retention Curve
     const padX = 45;
-    const padY = 25;
+    ctx.font = '600 10.5px "IBM Plex Mono", monospace';
+    const titleParts = isZh ? ['公式映射百分比與能效估算', '（線阻掃描）'] : ['MODEL % / TOPS/W', '(WIRE SWEEP)'];
+    const title = titleParts.join(isZh ? '' : ' ');
+    const titleLines = ctx.measureText(title).width <= width - 16 ? [title] : titleParts;
+    const padY = titleLines.length > 1 ? 36 : 25;
     const plotW = width - 65;
-    const plotH = height - 55;
+    const plotH = height - padY - 30;
 
     ctx.fillStyle = '#059669';
-    ctx.font = '600 10.5px "IBM Plex Mono", monospace';
-    ctx.fillText('ACCURACY RETENTION VS ENERGY EFFICIENCY (TOPS/W)', padX, 16);
+    titleLines.forEach((line, index) => ctx.fillText(line, 8, 14 + index * 12));
 
     // Axes
     ctx.strokeStyle = '#cbd5e1';
@@ -448,7 +456,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.stroke();
 
     // Operating point label backdrop badge to prevent overlap with curve
-    const opLabel = `Operating: ${metrics.energyEfficiencyTopsPerWatt.toFixed(1)} T/W (${metrics.retainedAccuracyPct.toFixed(1)}%)`;
+    const opLabel = isZh ? `估算 ${metrics.energyEfficiencyTopsPerWatt.toFixed(1)} T/W (${metrics.retainedAccuracyPct.toFixed(1)}%)` : `Estimate: ${metrics.energyEfficiencyTopsPerWatt.toFixed(1)} T/W (${metrics.retainedAccuracyPct.toFixed(1)}%)`;
     ctx.font = '600 9.5px "IBM Plex Mono", monospace';
     const opTextW = ctx.measureText(opLabel).width;
     const opBadgeX = Math.min(width - opTextW - 14, curX + 6);
