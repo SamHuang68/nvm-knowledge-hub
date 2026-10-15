@@ -631,3 +631,24 @@ test('Suite 15: CPO 矽光子熱漂移、CXL 延遲階層化、CiM 精度衰退�
 
 
 
+
+// 混合輸入防護不能代替模型契約；本案以具名有效輸入確認實際路徑。
+test('CPO 契約：有效預設、溫度響應與非法鍵回退', () => {
+  const heater = calculateCpoSiphMetrics({presetId: 'ai_accelerator_oio', techId: 'active_thermal_heater', ambientTempC: 85, laserPowerMw: 60, channelCount: 32});
+  assert.equal(heater.preset.id, 'ai_accelerator_oio');
+  assert.equal(heater.tech.id, 'active_thermal_heater');
+  assert.equal(heater.actualTechPowerTotalW, heater.baselineHeaterPowerTotalW);
+  assert.equal(heater.savedTuningPowerW, 0);
+  assert.equal(heater.powerSavingsPercent, 0);
+  const base = {presetId: 'hyperscale_cpo_51t', techId: 'antifuse_zero_static', laserPowerMw: 100, channelCount: 64};
+  const cool = calculateCpoSiphMetrics({...base, ambientTempC: 85});
+  const hot = calculateCpoSiphMetrics({...base, ambientTempC: 105});
+  assert.ok(Math.abs(hot.junctionTempC - cool.junctionTempC - 20) < 1e-9);
+  assert.equal(hot.deltaT, cool.deltaT);
+  assert.equal(hot.wavelengthDriftNm, cool.wavelengthDriftNm);
+  assert.ok(hot.accelerationFactor > cool.accelerationFactor);
+  assert.ok(hot.estimatedRetentionYears < cool.estimatedRetentionYears);
+  for (const key of ['__proto__', 'constructor', '不存在的預設']) {
+    assert.deepEqual(calculateCpoSiphMetrics({...base, presetId: key, techId: key, ambientTempC: 85}), cool);
+  }
+});
