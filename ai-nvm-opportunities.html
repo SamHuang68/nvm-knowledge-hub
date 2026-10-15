@@ -1273,6 +1273,38 @@
                 </li>
               </ul>
             </article>
+
+            <!-- PILLAR 4: 3D HYBRID BONDING & BSPDN CO-OPTIMIZATION -->
+            <article class="hbm4-pillar-card">
+              <div class="hbm4-pillar-meta">
+                <span class="hbm4-pillar-tag"><span data-lang="zh">04 · 3D 鍵合與背面供電協同</span><span data-lang="en">04 · 3D BONDING &amp; BSPDN</span></span>
+              </div>
+              <h4>
+                <span data-lang="zh">Cu-Cu 直接混合鍵合與背面供電網 (BSPDN) 協同</span>
+                <span data-lang="en">Direct Cu-Cu Hybrid Bonding &amp; BSPDN Co-Optimization</span>
+              </h4>
+              <p>
+                <span data-lang="zh">進入 HBM4 16-Hi 極限堆疊與次微米間距，熱機械剪切應力、TSV 阻抗及 IR Drop 成為瓶頸。藉由微米級 Cu-Cu 鍵合與背面供電網 (BSPDN)，結合 eNVM 自主 BIRA/BISR 暫存，全面維護垂直訊號與電源完整性 (SI/PI)。</span>
+                <span data-lang="en">In 16-Hi stacking at sub-micron pitch, thermomechanical shear stress, TSV parasitic resistance, and IR drop become critical. Micron-pitch Cu-Cu bonding paired with Backside Power Delivery (BSPDN) and eNVM autonomous BIRA/BISR preserves vertical SI/PI integrity.</span>
+              </p>
+              <ul class="hbm4-pillar-bullets">
+                <li>
+                  <strong><span data-lang="zh">次微米 Cu-Cu 鍵合：</span><span data-lang="en">Sub-Micron Cu-Cu Direct Bonding:</span></strong>
+                  <span data-lang="zh">晶圓直接鍵合 (TSMC SoIC-X) 焊盤間距縮小至 1 μm 以下，熱膨脹退火應力需透過極小 KOZ 的 AntiFuse 避免壓電敏感度衰減。</span>
+                  <span data-lang="en">Direct bonding (TSMC SoIC-X) scales bump pitch below 1 μm, requiring tight-KOZ AntiFuse to resist thermomechanical annealing stresses.</span>
+                </li>
+                <li>
+                  <strong><span data-lang="zh">BSPDN 消除垂直壓降：</span><span data-lang="en">BSPDN Eliminates IR Drop:</span></strong>
+                  <span data-lang="zh">背面供電解耦電源線與 2048-bit 超寬信號線，大幅降低 16 層 DRAM 頂層至底層的供電噪聲與時鐘偏斜。</span>
+                  <span data-lang="en">Backside power routing decouples power delivery from 2048-bit PHY lines, drastically reducing supply noise and clock skew across 16 DRAM tiers.</span>
+                </li>
+                <li>
+                  <strong><span data-lang="zh">自主 BIRA/BISR 重組閉環：</span><span data-lang="en">Autonomous BIRA/BISR Loop:</span></strong>
+                  <span data-lang="zh">Base Die 內嵌硬體修復演算法在開機自檢時重映射故障 TSV 與 Core DRAM 壞列，無需外部測試機台介入。</span>
+                  <span data-lang="en">Embedded BIRA engines remap faulted TSVs and DRAM core rows during power-on self-test without external ATE intervention.</span>
+                </li>
+              </ul>
+            </article>
           </div>
 
           <!-- GENERATIONAL COMPARISON TABLE -->
@@ -1328,6 +1360,12 @@
                   <td><span data-lang="zh">Micronics Japan (MFI 6871.T)、FormFactor</span><span data-lang="en">Micronics Japan (6871.T), FormFactor (FORM)</span></td>
                   <td><span data-lang="zh">旺矽 (MPI 6223)、中華精測 (CHPT 6510)、Technoprobe、FormFactor</span><span data-lang="en">MPI (6223.TW), CHPT (6510.TW), Technoprobe, FormFactor</span></td>
                   <td><span data-lang="zh">微間距 MEMS 探針卡滿足 2048-bit 高針數並行測試與低接觸力規範</span><span data-lang="en">Fine-pitch MEMS probe cards meet 2048-bit parallel sort and low contact force requirements</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><strong><span data-lang="zh">3D 鍵合與電源完整性</span><span data-lang="en">3D Bonding &amp; Power Integrity</span></strong></th>
+                  <td><span data-lang="zh">微凸塊鍵合 (~25-35 μm 間距) 搭配前段供電 (FSPDN)</span><span data-lang="en">Micro-bump bonding (~25-35 μm pitch) with frontside power (FSPDN)</span></td>
+                  <td><span data-lang="zh">次微米 Cu-Cu 混合鍵合 (&lt;1 μm 間距) 協同背面供電 (BSPDN)</span><span data-lang="en">Sub-micron Cu-Cu hybrid bonding (&lt;1 μm) co-optimized with BSPDN</span></td>
+                  <td><span data-lang="zh">消除 16-Hi DRAM 垂直供電壓降，0-Mask AntiFuse 守護 TSV 備援閉環</span><span data-lang="en">Eliminates 16-Hi IR drop; 0-Mask AntiFuse secures the TSV redundancy loop</span></td>
                 </tr>
               </tbody>
             </table>

@@ -4548,6 +4548,18 @@
         <span data-lang="zh">3D 晶圓直接混合鍵合中，高密度 Cu Pad 降溫引發之局域剪切應力可達數百 MPa。0-Mask AntiFuse 由於為永久固態物理微絲且無浮閘電荷陷阱，受 SILC 應力漏電影響較小，具備較佳機械容忍度與較小 KOZ；而 eFlash 則需特別管理應力誘發漏電 (SILC) 與高溫退火熱預算，需配置較大保留區。</span>
         <span data-lang="en">In 3D direct hybrid bonding, localized shear stresses induced during cool-down can reach hundreds of MPa. 0-Mask AntiFuse OTP offers robust mechanical tolerance and smaller KOZ due to its permanent silicide filament without floating charge traps; conversely, eFlash designs require strict management of SILC leakage and anneal thermal budgets, mandating larger keep-out margins.</span>
       </div>
+
+      <div class="hbm4-hybrid-callout" style="margin-top: 18px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 16px 20px;">
+        <h4 style="font-size: 14px; font-weight: 700; color: #38bdf8; margin: 0 0 8px; display: flex; align-items: center; gap: 8px;">
+          <span>⚡</span>
+          <span data-lang="zh">HBM4 邏輯 Base Die 與次微米 Cu-Cu 鍵合之熱力學剪切應力與 TSV 備援閉環</span>
+          <span data-lang="en">HBM4 Logic Base Die, Sub-Micron Cu-Cu Hybrid Bonding &amp; TSV Redundancy Closed-Loop</span>
+        </h4>
+        <p style="font-size: 12.5px; line-height: 1.65; color: #cbd5e1; margin: 0;">
+          <span data-lang="zh">當 3D 封裝焊盤間距縮小至次微米（&lt;1 μm，如 TSMC SoIC-X 與 Intel Foveros Direct），退火降溫（400°C 至 25°C）引發之差分熱膨脹（Cu: ~16.5 ppm/K vs Si: ~2.6 ppm/K）將在鍵合介面產生高達 400 MPa 的局域剪切應力。此應力會使相鄰晶體管產生壓電電阻閾值漂移（ΔVth ~25 mV / 100 MPa）。0-Mask AntiFuse 由於為 FEOL 物理歐姆微絲，其禁制保留區 (KOZ &lt; 1.2 μm) 顯著小於電荷型 eFlash (KOZ &gt; 3.5 μm)，得以緊鄰 2048 條 TSV 訊號線配置 BIRA/BISR 暫存單元，達成無額外光罩之 16-Hi DRAM 複合良率閉環。</span>
+          <span data-lang="en">As 3D bonding pitch scales below 1 μm (e.g., TSMC SoIC-X and Intel Foveros Direct), post-anneal cooling (400°C to 25°C) differential thermal expansion (Cu: ~16.5 ppm/K vs Si: ~2.6 ppm/K) induces localized shear stresses exceeding 400 MPa, driving piezoresistive threshold shifts (ΔVth ~25 mV / 100 MPa). 0-Mask AntiFuse utilizes FEOL permanent ohmic filaments with an ultra-tight keep-out zone (KOZ &lt; 1.2 μm) compared to charge-trap eFlash (KOZ &gt; 3.5 μm), enabling placement adjacent to 2048 TSV interconnects for autonomous BIRA/BISR without extra mask adders in 16-Hi DRAM stacks.</span>
+        </p>
+      </div>
     </section>
 
 <section id="sec-pipeline" class="lens-panel" aria-labelledby="pipeline-sec-title">

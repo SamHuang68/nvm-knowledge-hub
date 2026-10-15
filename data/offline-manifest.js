@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "a7b702696a87e2fe0335",
+  "version": "3ecda1cdd8f3ebff16ce",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -164,9 +164,9 @@ self.NVMOfflineManifest = {
     "advanced-finfet-gaa-simulator.js": "9827e615b9c15c5d6972b8b4b77a7b7696411723faa1b2dfd8cadceccd079b54",
     "advanced-packaging-pdks-simulator.js": "4d2404d987d70369fa036d31416325891cb0cc3b8c2852ed8c393a049162da6f",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "de4db193d1f872df5d8463ab69102331f9a17313b8d263be3db1e5a19b64f796",
+    "ai-nvm-opportunities.html": "4ec69215066e487b03b8e2eb9ee65ccd35870ae152bef3035d26b0935bba91ad",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
-    "ai-nvm.css": "8b26b90dbded678bfb38c9f4f8dde1ebfe8b696492e73214bd5e4d1f287a706f",
+    "ai-nvm.css": "227980099c1f5acb2ff9a6dcbf2d84d48a6cee606f5dd3323400a379d0166df8",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
     "app.js": "868aa3433af48bfc4d0e796a6d0427c583f4b16f7a30eed852f581cbdbebb16e",
     "assets/apple-touch-icon.png": "ff5ad64c71b4c26eae7c4ca4b8f293401cd1771e1d94e53e6b2176e7add13d24",
@@ -279,7 +279,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
     "secure-storage.html": "4822a3150066893ff8d5fe475d76dc53fd6670c23dfb31d666a577e59ff44d07",
-    "security-assurance.html": "c9d25f05e84ef23d7f71a08731375f17a54b3927ce9eba8cd347623ce8454bca",
+    "security-assurance.html": "a157f59c09c077ba0be0fd54a234d9e8994fc962bb901fcc4b77037a2d879d68",
     "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "e0be1801f842a6de45943708a13cad4c15c8d1c65d47321dbe7506fb50fa3312",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -300,7 +300,7 @@ self.NVMOfflineManifest = {
     "supply-chain-hardware-trojan-pem-simulator.js": "e0ed7318ad0748ce0405e78e2560570175f82c334fe2bdc1f900eebfa36e5f08",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "cff199278e33e4c63a70b23775dd524e3146889bc8f87fe0d056901e1cdb98dd",
-    "technology-comparison.html": "6cd56845a8dfb26784e302d8e202e756ec84e607a3708c2feec9e9cf6407b21e",
+    "technology-comparison.html": "f19205e44e76c8391c1c248f9da51874eebfb68a8f8ebf3c590b4613a87b2e63",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "e60f6f9a09bd72b73687ea50ad4f9c09054f560dc194d37bf9b2db063d9038f9",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16277698
+  "totalBytes": 16291018
 };

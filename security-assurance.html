@@ -1030,6 +1030,66 @@
           <span id="pqc-out-verdict" role="status" aria-live="polite">Loading Post-Quantum Storage calculations...</span>
         </div>
       </article>
+
+      <!-- Architectural Deep Dive: SRAM PUF + 0-Mask AntiFuse Hybrid RoT & Helper Data Defense -->
+      <article class="pqc-hybrid-rot-card" style="margin-top: 20px; background: #0b1120; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 8px; padding: 20px 24px; color: #f8fafc;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 10px;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #38bdf8; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">後量子硬體信任根演進 · 雙錨點架構</span>
+              <span data-lang="en">PQC HARDWARE ROT EVOLUTION · DUAL-ANCHOR ARCHITECTURE</span>
+            </span>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin: 4px 0 0;">
+              <span data-lang="zh">SRAM PUF 與 0-Mask AntiFuse 混合雙階信任根 (Hybrid RoT) 與 Helper Data 洩漏防禦</span>
+              <span data-lang="en">Hybrid Dual-Anchor Hardware RoT: SRAM PUF, 0-Mask AntiFuse &amp; Helper Data Leakage Defense</span>
+            </h3>
+          </div>
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
+            <span data-lang="zh">MIT 專利分析 · FIPS 203/204 實體落地</span>
+            <span data-lang="en">MIT Patent Analysis · FIPS 203/204 Hardware Grounding</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; color: #cbd5e1; line-height: 1.7; margin: 0 0 16px;">
+          <span data-lang="zh">在後量子密碼 (PQC) 時代，ML-KEM (FIPS 203) 與 ML-DSA (FIPS 204) 之私鑰向量達數千位元組。產學界長期探索由 SRAM 開機未定義態（依據 MIT 核心專利 US 7,818,569 與 US 7,681,103 所定義之元件固有失配特性）產生動態晶片唯一值。然而，SRAM PUF 需藉由 Fuzzy Extractor 與糾錯碼（如 BCH）生成輔助資料 (Helper Data / Syndrome)，該數據若暴露於外部非揮發性儲存器，將產生最小熵損失（Syndrome Information Leakage）並面臨主動竄改風險。最先進之硬體防禦採取「SRAM PUF + 0-Mask AntiFuse 混合信任根」：由 0-Mask AntiFuse 作為不可變信任錨點 (Immutable Anchor)，永久儲存 Helper Data 完整性雜湊 (HMAC Hash) 與 PQC 根種子；開機自檢時動態引導 SRAM PUF 重構易失金鑰，達成物理抗逆向工程與資訊理論安全的雙重閉環。</span>
+          <span data-lang="en">In the Post-Quantum Cryptography era, ML-KEM (FIPS 203) and ML-DSA (FIPS 204) require private key vectors spanning thousands of bytes. Industry and academia have leveraged SRAM power-up uninitialized mismatch states (as articulated in foundational MIT patents US 7,818,569 and US 7,681,103) to generate ephemeral device-unique roots. However, SRAM PUF reconstruction requires Fuzzy Extractor helper data (syndrome bits); if stored in unprotected external NVM, this introduces syndrome information leakage (min-entropy loss) and tamper exposure. State-of-the-art architectures deploy a "Hybrid Dual-Anchor RoT" pairing 0-Mask AntiFuse with SRAM PUF: AntiFuse serves as the immutable anchor locking helper data integrity (HMAC hash) and PQC expansion seeds, while SRAM PUF reconstructs volatile keys on-chip, achieving physical anti-tamper resilience and information-theoretic assurance.</span>
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+          <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; padding: 14px 16px;">
+            <h4 style="font-size: 13px; font-weight: 700; color: #38bdf8; margin: 0 0 6px;">
+              <span data-lang="zh">01 · 輔助資料 (Helper Data) 洩漏與竄改防護</span>
+              <span data-lang="en">01 · Helper Data Leakage &amp; Integrity Defense</span>
+            </h4>
+            <p style="font-size: 12px; color: #94a3b8; line-height: 1.6; margin: 0;">
+              <span data-lang="zh">BCH 碼每糾正 t 個位元即產生 7t 位元之公開校驗症候（Syndrome），導致最小熵直接衰減。AntiFuse 於晶片內原生物理儲存 Helper Data 簽章與驗證金鑰，徹底防止攻擊者透過外掛 SPI Flash 替換校驗碼以誘導重構特定弱金鑰。</span>
+              <span data-lang="en">BCH decoding releases 7t public syndrome bits for correcting t errors, directly reducing residual min-entropy. AntiFuse on-chip physical storage anchors helper data signatures and validation keys, preventing attackers from substituting external flash syndromes to induce weak key states.</span>
+            </p>
+          </div>
+
+          <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 14px 16px;">
+            <h4 style="font-size: 13px; font-weight: 700; color: #10b981; margin: 0 0 6px;">
+              <span data-lang="zh">02 · PQC 大金鑰 32 位元組種子極限壓縮</span>
+              <span data-lang="en">02 · PQC 32-Byte Seed Extreme Compression</span>
+            </h4>
+            <p style="font-size: 12px; color: #94a3b8; line-height: 1.6; margin: 0;">
+              <span data-lang="zh">FIPS 204 (ML-DSA-87) 私鑰達 4,896 位元組，若以原生陣列儲存將佔用過大矽晶圓面積。混合架構僅需由 AntiFuse 或 PUF 保持 32/64 位元組根種子，透過 SHAKE-256 / AES-CTR 演算法即時延伸出完整多項式，節省逾 98% 矽面積。</span>
+              <span data-lang="en">FIPS 204 (ML-DSA-87) requires 4,896 bytes of private key material, which consumes prohibitive silicon area if stored raw. The hybrid architecture retains only a 32/64-byte root seed in AntiFuse/PUF, deterministically expanding into full polynomials via SHAKE-256 / AES-CTR to save &gt;98% silicon area.</span>
+            </p>
+          </div>
+
+          <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; padding: 14px 16px;">
+            <h4 style="font-size: 13px; font-weight: 700; color: #f59e0b; margin: 0 0 6px;">
+              <span data-lang="zh">03 · 斷電無電荷與高溫漂移互補閉環</span>
+              <span data-lang="en">03 · Absent-at-Rest &amp; Thermal Drift Synergy</span>
+            </h4>
+            <p style="font-size: 12px; color: #94a3b8; line-height: 1.6; margin: 0;">
+              <span data-lang="zh">SRAM PUF 具備斷電無殘留電荷優勢，但 125°C 高溫下 BER 顯著劣化；AntiFuse 歐姆微絲具備完整耐受 260°C 回焊與零漂移特性，兩者相互校驗，構成同時抵抗浸潤式探針、側信道分析與極端環境劣化的強韌信任根。</span>
+              <span data-lang="en">SRAM PUF ensures absent-at-rest key erasure but experiences BER degradation at 125°C; AntiFuse ohmic filaments endure 260°C reflow with zero drift. Co-verifying both yields an ultra-resilient RoT withstanding physical probing, DPA analysis, and environmental extremes.</span>
+            </p>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- SECTION: SUPPLY CHAIN HARDWARE TROJAN, OPTICAL PEM & PUF VERIFICATION SIMULATOR -->
