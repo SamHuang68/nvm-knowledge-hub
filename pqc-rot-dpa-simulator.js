@@ -213,13 +213,17 @@ export const PQC_STORAGE_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive security metrics
  */
 export function calculatePqcDpaMetrics(params = {}) {
-  const preset = PQC_SECURITY_PRESETS[params.presetId] || PQC_SECURITY_PRESETS.fips140_3_lvl4;
-  const topology = PQC_STORAGE_TOPOLOGIES[params.topologyId] || PQC_STORAGE_TOPOLOGIES.antifuse_rot_puf;
+  const preset = (params.presetId && Object.prototype.hasOwnProperty.call(PQC_SECURITY_PRESETS, params.presetId))
+    ? PQC_SECURITY_PRESETS[params.presetId]
+    : PQC_SECURITY_PRESETS.fips140_3_lvl4;
+  const topology = (params.topologyId && Object.prototype.hasOwnProperty.call(PQC_STORAGE_TOPOLOGIES, params.topologyId))
+    ? PQC_STORAGE_TOPOLOGIES[params.topologyId]
+    : PQC_STORAGE_TOPOLOGIES.antifuse_rot_puf;
 
   const diffSensing = params.customDiff !== undefined ? Boolean(params.customDiff) : preset.differentialSensing;
   const blinding = params.customBlinding !== undefined ? Boolean(params.customBlinding) : preset.currentBlinding;
   const jitter = params.customJitter !== undefined ? Boolean(params.customJitter) : preset.randomJitter;
-  const noiseSigma = params.customNoise !== undefined ? Number(params.customNoise) : preset.noiseSigma;
+  const noiseSigma = Number.isFinite(Number(params.customNoise)) ? Number(params.customNoise) : (Number(preset.noiseSigma) || 3.0);
 
   // 1. Effective Side-Channel Signal Delta (Δ_signal)
   let effectiveDelta = topology.baseSignalDelta;

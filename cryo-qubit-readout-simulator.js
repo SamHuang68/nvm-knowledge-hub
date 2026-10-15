@@ -148,8 +148,12 @@ export function calculateCryoQubitReadout({
   customBFieldTesla,
   customRfPowerDbm,
 } = {}) {
-  const preset = QUBIT_CONTROL_PRESETS[presetKey] || QUBIT_CONTROL_PRESETS.superconducting_transmon_4k;
-  const tech = CRYO_MEMORY_TOPOLOGIES[techKey] || CRYO_MEMORY_TOPOLOGIES.antifuse_cryo_filament;
+  const preset = Object.hasOwn(QUBIT_CONTROL_PRESETS, presetKey)
+    ? QUBIT_CONTROL_PRESETS[presetKey]
+    : QUBIT_CONTROL_PRESETS.superconducting_transmon_4k;
+  const tech = Object.hasOwn(CRYO_MEMORY_TOPOLOGIES, techKey)
+    ? CRYO_MEMORY_TOPOLOGIES[techKey]
+    : CRYO_MEMORY_TOPOLOGIES.antifuse_cryo_filament;
 
   const tempK = preset.temperatureK;
   const bField = customBFieldTesla !== undefined ? customBFieldTesla : preset.magneticFieldTesla;

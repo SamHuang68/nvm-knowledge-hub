@@ -135,8 +135,12 @@ export function calculateCryogenicPhysics({
   senseTimeNs = 10,
   readBiasMv = 200,
 } = {}) {
-  const env = CRYO_ENV_PRESETS[envKey] || CRYO_ENV_PRESETS.cryo_4k;
-  const tech = CRYO_TECH_PROFILES[techKey] || CRYO_TECH_PROFILES.antifuse_cryo;
+  const env = (envKey && Object.prototype.hasOwnProperty.call(CRYO_ENV_PRESETS, envKey))
+    ? CRYO_ENV_PRESETS[envKey]
+    : CRYO_ENV_PRESETS.cryo_4k;
+  const tech = (techKey && Object.prototype.hasOwnProperty.call(CRYO_TECH_PROFILES, techKey))
+    ? CRYO_TECH_PROFILES[techKey]
+    : CRYO_TECH_PROFILES.antifuse_cryo;
 
   const T = Math.max(1.0, Math.min(350.0, Number(env.tempKelvin) || 4.2));
   const t_sense = Math.max(0.5, Math.min(100.0, Number(senseTimeNs) || 10.0)) * 1e-9;

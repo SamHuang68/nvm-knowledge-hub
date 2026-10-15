@@ -204,8 +204,16 @@ export function calculateHbm4ProbeMetrics({
   stackLayers = 16,
   pinCount = 8192
 } = {}) {
-  const preset = HBM4_SYSTEM_PRESETS[presetId] || HBM4_SYSTEM_PRESETS.sk_hynix_tsmc_12nm_16hi;
-  const probeCard = PROBE_CARD_ARCHITECTURES[probeCardId] || PROBE_CARD_ARCHITECTURES.mpi_taiwan;
+  const preset = (presetId && Object.prototype.hasOwnProperty.call(HBM4_SYSTEM_PRESETS, presetId))
+    ? HBM4_SYSTEM_PRESETS[presetId]
+    : HBM4_SYSTEM_PRESETS.sk_hynix_tsmc_12nm_16hi;
+  const probeCard = (probeCardId && Object.prototype.hasOwnProperty.call(PROBE_CARD_ARCHITECTURES, probeCardId))
+    ? PROBE_CARD_ARCHITECTURES[probeCardId]
+    : PROBE_CARD_ARCHITECTURES.mpi_taiwan;
+
+  const validCoreDieYield = Number.isFinite(Number(coreDieYield)) ? Number(coreDieYield) : 0.955;
+  const validStackLayers = Number.isFinite(Number(stackLayers)) ? Number(stackLayers) : 16;
+  const validPinCount = Number.isFinite(Number(pinCount)) ? Number(pinCount) : 8192;
 
   // Base die wafer sort yield
   const yBase = preset.baseDieYield;
@@ -214,8 +222,8 @@ export function calculateHbm4ProbeMetrics({
   const yBondPerLayer = preset.baseDieTech === 'tsmc_3nm' ? 0.998 : 0.996;
 
   // Raw unrepaired stack compound yield: Y_raw = Y_base * (Y_core)^N * (Y_bond)^N
-  const rawCoreStackYield = Math.pow(coreDieYield, stackLayers);
-  const rawBondStackYield = Math.pow(yBondPerLayer, stackLayers);
+  const rawCoreStackYield = Math.pow(validCoreDieYield, validStackLayers);
+  const rawBondStackYield = Math.pow(yBondPerLayer, validStackLayers);
   const rawStackYield = yBase * rawCoreStackYield * rawBondStackYield;
 
   // Redundancy allocation and post-package repair (hPPR) recovery model
@@ -228,8 +236,8 @@ export function calculateHbm4ProbeMetrics({
   const retentionThermalFactor = isDramBase ? 0.92 : 0.98;
 
   // Repaired effective core die yield
-  const effectiveCoreDieYield = coreDieYield + (1.0 - coreDieYield) * repairEfficiency * retentionThermalFactor;
-  const repairedCoreStackYield = Math.pow(effectiveCoreDieYield, stackLayers);
+  const effectiveCoreDieYield = validCoreDieYield + (1.0 - validCoreDieYield) * repairEfficiency * retentionThermalFactor;
+  const repairedCoreStackYield = Math.pow(effectiveCoreDieYield, validStackLayers);
   const repairedStackYield = Math.min(0.96, yBase * repairedCoreStackYield * rawBondStackYield);
 
   // Absolute yield recovery delta
@@ -237,18 +245,18 @@ export function calculateHbm4ProbeMetrics({
   const yieldDeltaPercent = yieldDelta * 100.0;
 
   // Typical module cost/ASP for HBM module (4-Hi: $200, 8-Hi: $320, 12-Hi: $420, 16-Hi: $520 USD)
-  const hbmModuleAspUsd = 160 + stackLayers * 22.5;
+  const hbmModuleAspUsd = 160 + validStackLayers * 22.5;
   const valueRecoveryPerHbm = yieldDelta * hbmModuleAspUsd;
 
   // Probe card economics
-  const pinScalingFactor = Math.max(0.2, (pinCount - 2048) / 10000);
+  const pinScalingFactor = Math.max(0.2, (validPinCount - 2048) / 10000);
   const probeCardAsp = probeCard.baseAspUsd * (1 + pinScalingFactor * 0.70);
 
   // Wafer sort test time per wafer (seconds): Base scan + 2048-bit PHY trim + TSV BIST
-  const testTimePerWaferSec = 140 + (pinCount / 1000.0) * 11.5;
+  const testTimePerWaferSec = 140 + (validPinCount / 1000.0) * 11.5;
 
   // Touchdown count required per wafer (lower is faster)
-  const touchdownsPerWafer = pinCount >= 8192 ? 1 : (pinCount >= 4096 ? 2 : 4);
+  const touchdownsPerWafer = validPinCount >= 8192 ? 1 : (validPinCount >= 4096 ? 2 : 4);
 
   // Logic probe card HBM exposure index (0 - 100)
   const hbmExposureIndex = Math.min(

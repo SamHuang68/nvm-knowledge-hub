@@ -235,8 +235,12 @@ export const CRYO_NVM_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive physics metrics
  */
 export function calculateCryoRadhardMetrics(params = {}) {
-  const preset = CRYO_ENVIRONMENT_PRESETS[params.presetId] || CRYO_ENVIRONMENT_PRESETS.quantum_cryo_4k;
-  const topology = CRYO_NVM_TOPOLOGIES[params.topologyId] || CRYO_NVM_TOPOLOGIES.antifuse_radhard;
+  const preset = Object.hasOwn(CRYO_ENVIRONMENT_PRESETS, params.presetId)
+    ? CRYO_ENVIRONMENT_PRESETS[params.presetId]
+    : CRYO_ENVIRONMENT_PRESETS.quantum_cryo_4k;
+  const topology = Object.hasOwn(CRYO_NVM_TOPOLOGIES, params.topologyId)
+    ? CRYO_NVM_TOPOLOGIES[params.topologyId]
+    : CRYO_NVM_TOPOLOGIES.antifuse_radhard;
 
   const tempK = params.customTempK !== undefined ? Number(params.customTempK) : preset.tempK;
   const tidKrad = params.customTidKrad !== undefined ? Number(params.customTidKrad) : preset.tidKrad;
@@ -344,9 +348,15 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
 
   ctx.clearRect(0, 0, width, height);
 
-  // Background
-  ctx.fillStyle = '#0f172a';
+  // Background - Surgical Light Mode
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 70;
   const padRight = 30;
@@ -356,7 +366,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 5; i++) {
@@ -377,7 +387,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     const maxT = 450.0;
 
     // Draw Axis Labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 6; j++) {
@@ -394,7 +404,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     }
 
     // Axis titles
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? '電壓 (V)' : 'Voltage (V)', padLeft, padTop - 12);
@@ -404,7 +414,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
 
     // Plot Curves: Effective Vth & VDD Margin
     // Curve 1: Nominal VDD Line
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.strokeStyle = 'rgba(2, 132, 199, 0.4)';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     const vddY = padTop + plotH * (1.0 - metrics.topology.baseVdd / 1.5);
@@ -414,7 +424,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.setLineDash([]);
 
     // Curve 2: Vth(T) profile across temperatures
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#b45309';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 60; j++) {
@@ -428,7 +438,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.stroke();
 
     // Curve 3: Sense Margin Window
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 60; j++) {
@@ -446,7 +456,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     const opX = padLeft + plotW * ((metrics.tempK - minT) / (maxT - minT));
     const opY = padTop + plotH * (1.0 - Math.min(1.5, metrics.effectiveMargin) / 1.5);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.beginPath();
     ctx.arc(opX, opY, 5, 0, Math.PI * 2);
     ctx.fill();
@@ -459,8 +469,8 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     const legBoxH = 24;
     const legBoxX = padLeft + 8;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -471,11 +481,11 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     // Legend
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#fbbf24';
+    ctx.fillStyle = '#b45309';
     ctx.fillText(lang === 'zh' ? '— 閾值 Vth(T)' : '— Vth(T)', legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.fillText(lang === 'zh' ? '— 感測裕度 Margin' : '— Margin', legBoxX + 130, legBoxY + 16);
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.fillText(`VDD = ${metrics.topology.baseVdd}V`, legBoxX + 270, legBoxY + 16);
 
   } else {
@@ -487,7 +497,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     const logMin = -10.0;
     const logMax = -5.0;
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     for (let j = 0; j <= 5; j++) {
@@ -503,7 +513,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`10^${exp}`, padLeft - 8, y);
     }
 
-    ctx.fillStyle = '#f43f5e';
+    ctx.fillStyle = '#e11d48';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(lang === 'zh' ? 'SEU 截面積 (cm²/bit, Log)' : 'SEU Cross-Section (cm²/bit, Log)', padLeft, padTop - 12);
@@ -533,7 +543,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.setLineDash([]);
 
     // Plot Curve 2: Current Selected Topology
-    ctx.strokeStyle = metrics.topology.id === 'antifuse_radhard' ? '#10b981' : '#f59e0b';
+    ctx.strokeStyle = metrics.topology.id === 'antifuse_radhard' ? '#059669' : '#b45309';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let j = 0; j <= 60; j++) {
@@ -553,7 +563,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     // Mark Threshold LET
     if (metrics.topology.letThreshold < 100.0) {
       const thX = padLeft + plotW * ((metrics.topology.letThreshold - minLet) / (maxLet - minLet));
-      ctx.strokeStyle = 'rgba(245, 158, 11, 0.6)';
+      ctx.strokeStyle = 'rgba(180, 83, 9, 0.6)';
       ctx.lineWidth = 1;
       ctx.setLineDash([2, 2]);
       ctx.beginPath();
@@ -562,7 +572,7 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = '#b45309';
       ctx.font = '10px "IBM Plex Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText(`LETth=${metrics.topology.letThreshold}`, thX, padTop + 30);
@@ -573,8 +583,8 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     const legBoxH = 24;
     const legBoxX = padLeft + 8;
     const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
@@ -585,9 +595,9 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     // Legend
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = metrics.topology.id === 'antifuse_radhard' ? '#10b981' : '#fbbf24';
+    ctx.fillStyle = metrics.topology.id === 'antifuse_radhard' ? '#059669' : '#b45309';
     ctx.fillText(`${lang === 'zh' ? '目前技術' : 'Active'}: ${lang === 'zh' ? metrics.topology.zh.name : metrics.topology.en.name}`, legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#f87171';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText(lang === 'zh' ? '— SRAM 對照基準' : '— SRAM Baseline', legBoxX + 230, legBoxY + 16);
   }
 }
@@ -711,7 +721,17 @@ export function initCryoRadhardSimulator(containerId) {
     modeTempBtn.addEventListener('click', () => {
       currentMode = 'temp_voltage_window';
       modeTempBtn.classList.add('active');
-      if (modeSeuBtn) modeSeuBtn.classList.remove('active');
+      modeTempBtn.setAttribute('aria-pressed', 'true');
+      modeTempBtn.style.background = '#0284c7';
+      modeTempBtn.style.color = '#ffffff';
+      modeTempBtn.style.borderColor = '#0284c7';
+      if (modeSeuBtn) {
+        modeSeuBtn.classList.remove('active');
+        modeSeuBtn.setAttribute('aria-pressed', 'false');
+        modeSeuBtn.style.background = '#f1f5f9';
+        modeSeuBtn.style.color = '#475569';
+        modeSeuBtn.style.borderColor = '#cbd5e1';
+      }
       update();
     });
   }
@@ -720,7 +740,17 @@ export function initCryoRadhardSimulator(containerId) {
     modeSeuBtn.addEventListener('click', () => {
       currentMode = 'weibull_seu_cross_section';
       modeSeuBtn.classList.add('active');
-      if (modeTempBtn) modeTempBtn.classList.remove('active');
+      modeSeuBtn.setAttribute('aria-pressed', 'true');
+      modeSeuBtn.style.background = '#0284c7';
+      modeSeuBtn.style.color = '#ffffff';
+      modeSeuBtn.style.borderColor = '#0284c7';
+      if (modeTempBtn) {
+        modeTempBtn.classList.remove('active');
+        modeTempBtn.setAttribute('aria-pressed', 'false');
+        modeTempBtn.style.background = '#f1f5f9';
+        modeTempBtn.style.color = '#475569';
+        modeTempBtn.style.borderColor = '#cbd5e1';
+      }
       update();
     });
   }

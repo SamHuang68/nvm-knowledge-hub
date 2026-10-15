@@ -170,8 +170,12 @@ export function calculateCimAnalogMac({
   temperatureC = 85,
   clockFreqMHz = 100,
 } = {}) {
-  const workload = CIM_WORKLOAD_PRESETS[workloadKey] || CIM_WORKLOAD_PRESETS.transformer_attn;
-  const dev = CIM_DEVICE_ARCHITECTURES[deviceKey] || CIM_DEVICE_ARCHITECTURES.reram_oxram;
+  const workload = Object.hasOwn(CIM_WORKLOAD_PRESETS, workloadKey)
+    ? CIM_WORKLOAD_PRESETS[workloadKey]
+    : CIM_WORKLOAD_PRESETS.transformer_attn;
+  const dev = Object.hasOwn(CIM_DEVICE_ARCHITECTURES, deviceKey)
+    ? CIM_DEVICE_ARCHITECTURES[deviceKey]
+    : CIM_DEVICE_ARCHITECTURES.reram_oxram;
 
   const N_rows = Math.max(16, Math.min(1024, Number(workload.matrixRows) || 256));
   const M_cols = Math.max(16, Math.min(1024, Number(workload.matrixCols) || 256));

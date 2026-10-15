@@ -206,12 +206,16 @@ export const LOW_VOLTAGE_NVM_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive electrical and energy metrics
  */
 export function calculateSubthresholdMetrics(params = {}) {
-  const preset = LOW_VOLTAGE_SUPPLY_PRESETS[params.presetId] || LOW_VOLTAGE_SUPPLY_PRESETS.nearthreshold_0_50v;
-  const topology = LOW_VOLTAGE_NVM_TOPOLOGIES[params.topologyId] || LOW_VOLTAGE_NVM_TOPOLOGIES.antifuse_lowvoltage;
+  const preset = (params.presetId && Object.prototype.hasOwnProperty.call(LOW_VOLTAGE_SUPPLY_PRESETS, params.presetId))
+    ? LOW_VOLTAGE_SUPPLY_PRESETS[params.presetId]
+    : LOW_VOLTAGE_SUPPLY_PRESETS.nearthreshold_0_50v;
+  const topology = (params.topologyId && Object.prototype.hasOwnProperty.call(LOW_VOLTAGE_NVM_TOPOLOGIES, params.topologyId))
+    ? LOW_VOLTAGE_NVM_TOPOLOGIES[params.topologyId]
+    : LOW_VOLTAGE_NVM_TOPOLOGIES.antifuse_lowvoltage;
 
-  const vdd = params.customVdd !== undefined ? Number(params.customVdd) : preset.nominalVdd;
-  const tempC = params.customTempC !== undefined ? Number(params.customTempC) : preset.ambientTempC;
-  const capacityKb = params.customCapacityKb !== undefined ? Number(params.customCapacityKb) : 64.0;
+  const vdd = Number.isFinite(Number(params.customVdd)) ? Number(params.customVdd) : (Number(preset.nominalVdd) || 0.50);
+  const tempC = Number.isFinite(Number(params.customTempC)) ? Number(params.customTempC) : (Number(preset.ambientTempC) || 25.0);
+  const capacityKb = Number.isFinite(Number(params.customCapacityKb)) ? Number(params.customCapacityKb) : 64.0;
 
   const tempK = tempC + 273.15;
   const kb = 8.617e-5;

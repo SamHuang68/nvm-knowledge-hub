@@ -133,8 +133,12 @@ export function calculateNormallyOffEnergy({
   customCapacitorUf,
   customDutyCyclePct,
 } = {}) {
-  const source = HARVESTING_SOURCE_PRESETS[sourceKey] || HARVESTING_SOURCE_PRESETS.indoor_solar_100lux;
-  const memory = MCU_MEMORY_POWER_PROFILES[memoryKey] || MCU_MEMORY_POWER_PROFILES.antifuse_normally_off;
+  const source = Object.hasOwn(HARVESTING_SOURCE_PRESETS, sourceKey)
+    ? HARVESTING_SOURCE_PRESETS[sourceKey]
+    : HARVESTING_SOURCE_PRESETS.indoor_solar_100lux;
+  const memory = Object.hasOwn(MCU_MEMORY_POWER_PROFILES, memoryKey)
+    ? MCU_MEMORY_POWER_PROFILES[memoryKey]
+    : MCU_MEMORY_POWER_PROFILES.antifuse_normally_off;
 
   const capUf = customCapacitorUf !== undefined ? customCapacitorUf : 47.0; // 47 uF ceramic capacitor
   const dutyPct = customDutyCyclePct !== undefined ? customDutyCyclePct : 0.5; // 0.5% duty cycle
@@ -239,11 +243,18 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
   const w = width;
   const h = height;
 
-  ctx.fillStyle = "#0c121e";
+  // Background - Surgical Light Mode
+  const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f1f5f9");
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, w, h);
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
 
   // Subtle grid
-  ctx.strokeStyle = "rgba(51, 65, 85, 0.4)";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.06)";
   ctx.lineWidth = 1;
   const gridX = 40;
   const gridY = 30;
@@ -269,7 +280,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
 
   if (mode === "voltage_trace") {
     // Mode A: Capacitor Voltage Trace Profile (Sawtooth Charge/Discharge)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -277,7 +288,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("V_cap (V)", 6, plotY0 + 6);
     ctx.fillText("0s", plotX0, plotY1 + 16);
@@ -293,7 +304,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     // Draw Cutoff Voltage Threshold Line
     const vCut = metrics.memoryKey === "antifuse_normally_off" ? 0.75 : (metrics.memoryKey === "eflash_charge_pump" ? 1.6 : 0.9);
     const cutY = plotY1 - (Math.min(maxV, vCut) / maxV) * plotH;
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.6)";
+    ctx.strokeStyle = "rgba(225, 29, 72, 0.6)";
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(plotX0, cutY);
@@ -301,13 +312,13 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#e11d48";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText(`V_cut = ${vCut}V`, plotX1 - 70, cutY - 4);
 
     // Draw Voltage Sawtooth Waveform
     ctx.beginPath();
-    ctx.strokeStyle = metrics.isSelfSustaining && metrics.isInrushSafe ? "#10b981" : "#f59e0b";
+    ctx.strokeStyle = metrics.isSelfSustaining && metrics.isInrushSafe ? "#059669" : "#b45309";
     ctx.lineWidth = 2.5;
 
     const periods = 3;
@@ -336,13 +347,13 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     }
     ctx.stroke();
 
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#059669";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Cap: ${metrics.capUf} µF | Harvester: ${metrics.pSourceUw} µW`, plotX0 + 10, plotY0 + 12);
 
   } else {
     // Mode B: Duty Cycle (0.01% to 5%) vs Average Power (uW)
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#cbd5e1";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(plotX0, plotY0);
@@ -350,7 +361,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     ctx.lineTo(plotX1, plotY1);
     ctx.stroke();
 
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("Power (µW)", 6, plotY0 + 6);
     ctx.fillText("0.01%", plotX0, plotY1 + 16);
@@ -364,7 +375,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
 
     // Draw Harvester Power Generation Rail (Horizontal line)
     const harvestY = plotY1 - (Math.min(maxPower, metrics.pSourceUw) / maxPower) * plotH;
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.setLineDash([4, 3]);
     ctx.beginPath();
     ctx.moveTo(plotX0, harvestY);
@@ -372,7 +383,7 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0284c7";
     ctx.font = "9px 'IBM Plex Mono', monospace";
     ctx.fillText(`Harvester In: ${metrics.pSourceUw} µW`, plotX1 - 110, harvestY - 4);
 
@@ -403,9 +414,9 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
       ctx.setLineDash([]);
     };
 
-    drawPowerCurve("eflash_charge_pump", "#ef4444", "eFlash", metrics.memoryKey === "eflash_charge_pump");
-    drawPowerCurve("sram_dvs_sleep", "#f59e0b", "SRAM DVS", metrics.memoryKey === "sram_dvs_sleep");
-    drawPowerCurve("antifuse_normally_off", "#10b981", "AntiFuse", metrics.memoryKey === "antifuse_normally_off");
+    drawPowerCurve("eflash_charge_pump", "#dc2626", "eFlash", metrics.memoryKey === "eflash_charge_pump");
+    drawPowerCurve("sram_dvs_sleep", "#b45309", "SRAM DVS", metrics.memoryKey === "sram_dvs_sleep");
+    drawPowerCurve("antifuse_normally_off", "#059669", "AntiFuse", metrics.memoryKey === "antifuse_normally_off");
 
     // Current Operating Marker
     const currDuty = Math.min(5.0, metrics.dutyPct);
@@ -417,11 +428,11 @@ export function drawNormallyOffCanvas(canvas, metrics, mode = "voltage_trace") {
     ctx.beginPath();
     ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = "#10b981";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#059669";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`Duty: ${currDuty}% | P_avg: ${currP} µW`, Math.min(markerX + 8, plotX1 - 150), Math.max(markerY - 8, plotY0 + 12));
   }
@@ -550,7 +561,7 @@ export function initNormallyOffSimulator(container) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'normally-off-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(15, 23, 42, 0.6); color: #34d399; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #059669; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出常時關閉能量平衡 CSV' : '📥 Export Energy Balance CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出常時關閉能量採集與微功耗平衡資料集為 CSV 檔案' : 'Export normally-off energy harvesting and power balance dataset as CSV file');
@@ -588,13 +599,13 @@ export function initNormallyOffSimulator(container) {
       btnVoltage.setAttribute("aria-pressed", "true");
       btnVoltage.style.background = "#0284c7";
       btnVoltage.style.color = "#ffffff";
-      btnVoltage.style.borderColor = "#38bdf8";
+      btnVoltage.style.borderColor = "#0284c7";
       if (btnPower) {
         btnPower.classList.remove("active");
         btnPower.setAttribute("aria-pressed", "false");
-        btnPower.style.background = "#1e293b";
-        btnPower.style.color = "#94a3b8";
-        btnPower.style.borderColor = "#475569";
+        btnPower.style.background = "#f1f5f9";
+        btnPower.style.color = "#475569";
+        btnPower.style.borderColor = "#cbd5e1";
       }
       update();
     });
@@ -607,13 +618,13 @@ export function initNormallyOffSimulator(container) {
       btnPower.setAttribute("aria-pressed", "true");
       btnPower.style.background = "#0284c7";
       btnPower.style.color = "#ffffff";
-      btnPower.style.borderColor = "#38bdf8";
+      btnPower.style.borderColor = "#0284c7";
       if (btnVoltage) {
         btnVoltage.classList.remove("active");
         btnVoltage.setAttribute("aria-pressed", "false");
-        btnVoltage.style.background = "#1e293b";
-        btnVoltage.style.color = "#94a3b8";
-        btnVoltage.style.borderColor = "#475569";
+        btnVoltage.style.background = "#f1f5f9";
+        btnVoltage.style.color = "#475569";
+        btnVoltage.style.borderColor = "#cbd5e1";
       }
       update();
     });

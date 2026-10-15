@@ -150,8 +150,12 @@ export const CRYO_NVM_TECHS = {
  * @returns {Object} Physical calculation results
  */
 export function calculateCryoNvmMetrics(params = {}) {
-  const preset = CRYO_SYSTEM_PRESETS[params.presetKey] || CRYO_SYSTEM_PRESETS.cryo_dilution_fridge_4k;
-  const tech = CRYO_NVM_TECHS[params.techKey] || CRYO_NVM_TECHS.antifuse_ohmic_filament;
+  const preset = Object.hasOwn(CRYO_SYSTEM_PRESETS, params.presetKey)
+    ? CRYO_SYSTEM_PRESETS[params.presetKey]
+    : CRYO_SYSTEM_PRESETS.cryo_dilution_fridge_4k;
+  const tech = Object.hasOwn(CRYO_NVM_TECHS, params.techKey)
+    ? CRYO_NVM_TECHS[params.techKey]
+    : CRYO_NVM_TECHS.antifuse_ohmic_filament;
   const tempK = params.customTempK !== undefined ? Math.max(0.05, Math.min(350.0, params.customTempK)) : preset.targetTempK;
   const vBiasMv = params.readBiasMv !== undefined ? Math.max(50, Math.min(1200, params.readBiasMv)) : 400.0;
 
@@ -260,8 +264,14 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
   ctx.scale(dpr, dpr);
 
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#0f172a';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padX = 45;
   const padY = 25;
@@ -270,12 +280,12 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
 
   if (mode === 'temperature_sweep_ss') {
     // Mode 1: Temperature Sweep 4K -> 300K vs Subthreshold Swing (SS)
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
     ctx.fillText('SUBTHRESHOLD SWING (SS) & BANDGAP VS TEMP (4K - 300K)', padX, 16);
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padX, padY);
@@ -284,7 +294,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.stroke();
 
     // Labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('80 mV/dec', padX - 42, padY + 6);
     ctx.fillText('40', padX - 22, padY + plotH * 0.5);
@@ -294,7 +304,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.fillText('300K', padX + plotW - 25, padY + plotH + 14);
 
     // Curve: SS vs Temperature
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2;
     ctx.beginPath();
 
@@ -329,18 +339,18 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = '600 9.5px "IBM Plex Mono", monospace';
     ctx.fillText(`@${metrics.tempK}K: SS=${metrics.effectiveSsMvPerDec.toFixed(1)} mV/dec`, Math.min(width - 150, curX + 8), Math.max(padY + 15, curY - 6));
 
   } else {
     // Mode 2: Readout Power vs Cooling Budget & Coherence Margin
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
     ctx.fillText('READOUT POWER VS QUBIT COHERENCE MARGIN', padX, 16);
 
     // Axes
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padX, padY);
@@ -348,7 +358,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.lineTo(padX + plotW, padY + plotH);
     ctx.stroke();
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('100% Margin', padX - 44, padY + 6);
     ctx.fillText('50%', padX - 24, padY + plotH * 0.5);
@@ -358,7 +368,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.fillText('10 uW', padX + plotW - 25, padY + plotH + 14);
 
     // Curve: Power Sweep vs Coherence
-    ctx.strokeStyle = '#a855f7';
+    ctx.strokeStyle = '#7c3aed';
     ctx.lineWidth = 2;
     ctx.beginPath();
 
@@ -393,7 +403,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = '600 9.5px "IBM Plex Mono", monospace';
     ctx.fillText(`P=${metrics.readPowerNw.toFixed(1)} nW (Margin: ${metrics.coherenceMarginPct.toFixed(1)}%)`, Math.min(width - 165, curX + 8), Math.max(padY + 15, curY - 6));
   }
@@ -498,7 +508,7 @@ export function initCryoNvmSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'cryo-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0284c7; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 Cryo-CMOS 低溫特性 CSV' : '📥 Export Cryo-CMOS CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出極低溫量子介面載子凍結與讀出功耗分析資料集為 CSV 檔案' : 'Export cryogenic quantum interface carrier freeze-out and readout power dataset as CSV file');
@@ -544,8 +554,8 @@ export function initCryoNvmSimulator() {
       if (btnModePower) {
         btnModePower.classList.remove('active');
         btnModePower.setAttribute('aria-pressed', 'false');
-        btnModePower.style.background = '#1e293b';
-        btnModePower.style.color = '#94a3b8';
+        btnModePower.style.background = '#f1f5f9';
+        btnModePower.style.color = '#475569';
       }
       update();
     });
@@ -562,8 +572,8 @@ export function initCryoNvmSimulator() {
       if (btnModeSs) {
         btnModeSs.classList.remove('active');
         btnModeSs.setAttribute('aria-pressed', 'false');
-        btnModeSs.style.background = '#1e293b';
-        btnModeSs.style.color = '#94a3b8';
+        btnModeSs.style.background = '#f1f5f9';
+        btnModeSs.style.color = '#475569';
       }
       update();
     });

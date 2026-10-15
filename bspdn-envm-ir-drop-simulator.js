@@ -113,7 +113,9 @@ export const BSPDN_PRESETS = {
  * @returns {Object} Calculated metrics
  */
 export function calculateBspdnMetrics(params = {}) {
-  const preset = BSPDN_PRESETS[params.presetKey] || BSPDN_PRESETS.tsmc_a16_spr;
+  const preset = Object.hasOwn(BSPDN_PRESETS, params.presetKey)
+    ? BSPDN_PRESETS[params.presetKey]
+    : BSPDN_PRESETS.tsmc_a16_spr;
   const fspdnBaseline = BSPDN_PRESETS.fspdn_3nm_baseline;
 
   const peakWriteCurrent = typeof params.peakWriteCurrent === 'number' ? params.peakWriteCurrent : (preset.defaultPeakCurrent || 12);
@@ -181,8 +183,8 @@ export function calculateBspdnMetrics(params = {}) {
 
   if (params.presetKey === 'fspdn_3nm_baseline') {
     architectureRating = effectiveVddCurrent >= preset.targetVwriteMin ? 'MARGINAL_RISK' : 'CRITICAL_VIOLATION';
-    verdictZh = `【未校準教學分類：正面供電基準】在 ${params.peakWriteCurrent.toFixed(1)} mA 瞬態寫入下，18 層正面金屬的模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV)。宏單元模型有效偏壓為 ${effectiveVddCurrent.toFixed(3)} V，${effectiveVddCurrent < preset.targetVwriteMin ? '低於模型指定的擊穿門檻，寫入良率教學指標為 ' + writeYield.toFixed(2) + '%' : '高於模型指定門檻，電壓裕度為 ' + writeMarginCurrent.toFixed(1) + ' mV'}。厚矽基底熱阻設定為 ${preset.thermalResistance.toFixed(1)} K/W。分類與良率指標由簡化門檻決定，實際製程能力及可靠度仍需產品參數與實測驗證。`;
-    verdictEn = `[Uncalibrated Teaching Class: Front-Side PDN Baseline] Under ${params.peakWriteCurrent.toFixed(1)} mA pulse write, the 18-tier front-metal model gives ${(totalDropCurrent * 1000).toFixed(1)} mV total sag (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV). Modeled macro voltage is ${effectiveVddCurrent.toFixed(3)} V, ${effectiveVddCurrent < preset.targetVwriteMin ? 'below the assumed breakdown threshold, with a teaching write-yield index of ' + writeYield.toFixed(2) + '%' : 'above the assumed threshold with ' + writeMarginCurrent.toFixed(1) + ' mV headroom'}. Bulk-silicon thermal resistance is set to ${preset.thermalResistance.toFixed(1)} K/W. Classification and yield index follow simplified thresholds; actual process capability and reliability require product parameters and measured validation.`;
+    verdictZh = `【未校準教學分類：正面供電基準】在 ${peakWriteCurrent.toFixed(1)} mA 瞬態寫入下，18 層正面金屬的模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV)。宏單元模型有效偏壓為 ${effectiveVddCurrent.toFixed(3)} V，${effectiveVddCurrent < preset.targetVwriteMin ? '低於模型指定的擊穿門檻，寫入良率教學指標為 ' + writeYield.toFixed(2) + '%' : '高於模型指定門檻，電壓裕度為 ' + writeMarginCurrent.toFixed(1) + ' mV'}。厚矽基底熱阻設定為 ${preset.thermalResistance.toFixed(1)} K/W。分類與良率指標由簡化門檻決定，實際製程能力及可靠度仍需產品參數與實測驗證。`;
+    verdictEn = `[Uncalibrated Teaching Class: Front-Side PDN Baseline] Under ${peakWriteCurrent.toFixed(1)} mA pulse write, the 18-tier front-metal model gives ${(totalDropCurrent * 1000).toFixed(1)} mV total sag (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV). Modeled macro voltage is ${effectiveVddCurrent.toFixed(3)} V, ${effectiveVddCurrent < preset.targetVwriteMin ? 'below the assumed breakdown threshold, with a teaching write-yield index of ' + writeYield.toFixed(2) + '%' : 'above the assumed threshold with ' + writeMarginCurrent.toFixed(1) + ' mV headroom'}. Bulk-silicon thermal resistance is set to ${preset.thermalResistance.toFixed(1)} K/W. Classification and yield index follow simplified thresholds; actual process capability and reliability require product parameters and measured validation.`;
   } else {
     architectureRating = 'SUPERIOR_BSPDN';
     verdictZh = `【未校準教學分類：背面供電與熱折衷】${preset.nameZh} 的直接背面通孔集總模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV（相較正面基準減少 ${irDropSavingPct}%）。模型有效寫入偏壓為 ${effectiveVddCurrent.toFixed(3)} V（電壓裕度 ${writeMarginCurrent.toFixed(1)} mV，寫入良率教學指標 ${writeYield.toFixed(2)}%）。晶圓減薄與介電隔離的熱累積由熱阻設定示意：${preset.thermalResistance.toFixed(1)} K/W（接面溫升 +${deltaTCurrent.toFixed(1)}°C vs 正面基準 +${deltaTBaseline.toFixed(1)}°C）。背面厚銅電軌與封裝散熱路徑需另行分析；此分類與指標未經產品校準，實際供電、良率及可靠度仍需完整模型與實測驗證。`;

@@ -167,8 +167,12 @@ class TunnelingSimulator {
       btn.addEventListener('click', () => {
         const preset = btn.getAttribute('data-preset');
         this.applyPreset(preset);
-        this.presetButtons.forEach((b) => b.classList.remove('active'));
+        this.presetButtons.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
       });
     });
 
@@ -436,10 +440,16 @@ class TunnelingSimulator {
     const toX = (v) => padL + ((v - vMin) / (vMax - vMin)) * plotW;
     const toY = (logJ) => padT + ((logJMax - logJ) / (logJMax - logJMin)) * plotH;
 
-    // Clear background
+    // Clear background - Surgical Light Mode
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#0f172a';
+    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+    bgGrad.addColorStop(0, '#f8fafc');
+    bgGrad.addColorStop(1, '#f1f5f9');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
 
     // Draw background region shading
     const vBreakdown = SIM_CONSTANTS.CRITICAL_BREAKDOWN_MV * (this.tox * 0.1);
@@ -448,18 +458,18 @@ class TunnelingSimulator {
     if (xBreakdown < padL + plotW) {
       const grad = ctx.createLinearGradient(xBreakdown, 0, padL + plotW, 0);
       grad.addColorStop(0, 'rgba(239, 68, 68, 0.05)');
-      grad.addColorStop(1, 'rgba(239, 68, 68, 0.25)');
+      grad.addColorStop(1, 'rgba(239, 68, 68, 0.20)');
       ctx.fillStyle = grad;
       ctx.fillRect(xBreakdown, padT, padL + plotW - xBreakdown, plotH);
     }
 
     // Grid lines & labels
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 1;
     ctx.setLineDash([3, 3]);
 
     // Horizontal grid (log J)
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
@@ -491,7 +501,7 @@ class TunnelingSimulator {
     const phiB = SIM_CONSTANTS.BARRIER_HEIGHT_EV;
     if (phiB >= vMin && phiB <= vMax) {
       const xPhi = toX(phiB);
-      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeStyle = '#0284c7';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -500,7 +510,7 @@ class TunnelingSimulator {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#38bdf8';
+      ctx.fillStyle = '#0284c7';
       ctx.font = '10px "Plus Jakarta Sans", sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText('Φ_B = 3.15V (Direct → FN)', xPhi + 4, padT + 8);
@@ -508,7 +518,7 @@ class TunnelingSimulator {
 
     // Plot J-V curve for current tox
     ctx.beginPath();
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
 
     const steps = 150;
@@ -532,8 +542,8 @@ class TunnelingSimulator {
 
     // Glow effect
     const radGrad = ctx.createRadialGradient(curX, curY, 2, curX, curY, 14);
-    radGrad.addColorStop(0, 'rgba(239, 68, 68, 0.9)');
-    radGrad.addColorStop(0.5, 'rgba(239, 68, 68, 0.4)');
+    radGrad.addColorStop(0, 'rgba(239, 68, 68, 0.8)');
+    radGrad.addColorStop(0.5, 'rgba(239, 68, 68, 0.3)');
     radGrad.addColorStop(1, 'rgba(239, 68, 68, 0)');
     ctx.fillStyle = radGrad;
     ctx.beginPath();
@@ -545,12 +555,12 @@ class TunnelingSimulator {
     ctx.beginPath();
     ctx.arc(curX, curY, 4, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Operating point label
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 11px "JetBrains Mono", monospace';
     ctx.textAlign = curX > w - 120 ? 'right' : 'left';
     ctx.textBaseline = curY < padT + 40 ? 'bottom' : 'top';
@@ -559,7 +569,7 @@ class TunnelingSimulator {
     ctx.fillText(`(${this.vox.toFixed(1)}V, 10^${curLogJ.toFixed(1)})`, curX + offsetX, curY + offsetY);
 
     // Axis titles
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = '#475569';
     ctx.font = '600 11px "Plus Jakarta Sans", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
