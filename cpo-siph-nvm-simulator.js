@@ -167,15 +167,19 @@ export const SIPH_CONSTANTS = {
  * @param {number} params.channelCount
  * @returns {Object} Comprehensive calculation metrics
  */
-export function calculateCpoSiphMetrics({
-  presetId = 'hyperscale_cpo_51t',
-  techId = 'antifuse_zero_static',
-  ambientTempC = 45.0,
-  laserPowerMw = 100.0,
-  channelCount = 64
-} = {}) {
-  const preset = CPO_SYSTEM_PRESETS[presetId] || CPO_SYSTEM_PRESETS.hyperscale_cpo_51t;
-  const tech = OPTICAL_NVM_TECHS[techId] || OPTICAL_NVM_TECHS.antifuse_zero_static;
+export function calculateCpoSiphMetrics(params = {}) {
+  const pKey = params.presetId || params.presetKey || 'hyperscale_cpo_51t';
+  const tKey = params.techId || params.techKey || 'antifuse_zero_static';
+  const preset = Object.hasOwn(CPO_SYSTEM_PRESETS, pKey)
+    ? CPO_SYSTEM_PRESETS[pKey]
+    : CPO_SYSTEM_PRESETS.hyperscale_cpo_51t;
+  const tech = Object.hasOwn(OPTICAL_NVM_TECHS, tKey)
+    ? OPTICAL_NVM_TECHS[tKey]
+    : OPTICAL_NVM_TECHS.antifuse_zero_static;
+
+  const ambientTempC = typeof params.ambientTempC === 'number' ? params.ambientTempC : (typeof params.tempC === 'number' ? params.tempC : 45.0);
+  const laserPowerMw = typeof params.laserPowerMw === 'number' ? params.laserPowerMw : 100.0;
+  const channelCount = typeof params.channelCount === 'number' ? params.channelCount : 64;
 
   // 1. Laser self-heating power calculation
   // Total optical power = channelCount * laserPowerMw (mW)
@@ -288,10 +292,17 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
   ctx.save();
   ctx.scale(dpr, dpr);
 
-  // Background
+  // Background - Surgical Light Mode (Rule 0003)
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = '#060d17';
+  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f1f5f9');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 48;
   const padRight = 24;
@@ -301,7 +312,7 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = '#1e293b';
+  ctx.strokeStyle = 'rgba(15, 23, 42, 0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i <= 4; i++) {
@@ -333,7 +344,7 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
     };
 
     // Draw baseline spectrum (Cold / Nominal)
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -348,7 +359,7 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
     ctx.setLineDash([]);
 
     // Draw shifted spectrum (Hot / Drifted)
-    ctx.strokeStyle = '#f43f5e';
+    ctx.strokeStyle = '#e11d48';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let xPix = 0; xPix <= plotW; xPix++) {
@@ -365,8 +376,8 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
     const x1 = padLeft + ((Math.min(lambdaMax, peakShifted) - lambdaMin) / (lambdaMax - lambdaMin)) * plotW;
     const yArrow = padTop + 20;
 
-    ctx.strokeStyle = '#10b981';
-    ctx.fillStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
+    ctx.fillStyle = '#059669';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(x0, yArrow);
@@ -380,14 +391,14 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
 
     // Text labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('1308nm', padLeft, height - 10);
     ctx.fillText('1310nm', padLeft + plotW * 0.5 - 18, height - 10);
     ctx.fillText('1312nm', padLeft + plotW - 36, height - 10);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0284c7';
     ctx.fillText('Cold (25°C)', padLeft + 6, padTop + 14);
-    ctx.fillStyle = '#f43f5e';
+    ctx.fillStyle = '#e11d48';
     ctx.fillText(`Hot (+${metrics.deltaT.toFixed(0)}°C, Δλ=${metrics.wavelengthDriftNm.toFixed(2)}nm)`, padLeft + 80, padTop + 14);
 
   } else {
@@ -397,7 +408,7 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
     const pMax = 200;
 
     // Draw Temp line
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let xPix = 0; xPix <= plotW; xPix++) {
@@ -421,7 +432,7 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
     const currentNormY = Math.max(0, Math.min(1, (metrics.junctionTempC - 40.0) / 100.0));
     const currentY = padTop + plotH * (1.0 - currentNormY);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.beginPath();
     ctx.arc(currentX, currentY, 5, 0, Math.PI * 2);
     ctx.fill();
@@ -431,12 +442,12 @@ export function drawCpoSiphCanvas(canvas, metrics, mode = 'mrr_resonance_shift')
 
     // Labels
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('20mW', padLeft, height - 10);
     ctx.fillText('100mW (Laser/Ch)', padLeft + plotW * 0.4, height - 10);
     ctx.fillText('200mW', padLeft + plotW - 32, height - 10);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#d97706';
     ctx.fillText(`Junction Temp: ${metrics.junctionTempC.toFixed(1)}°C (Retention ~ ${metrics.estimatedRetentionYears.toFixed(1)} yrs)`, padLeft + 6, padTop + 14);
   }
 
@@ -545,7 +556,7 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
     const exportBtn = document.createElement('button');
     exportBtn.id = 'cpo-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 CPO 微環調諧 CSV' : '📥 Export CPO SiPh CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出 CPO 光學微環調諧數值資料集為 CSV 檔案' : 'Export CPO optical micro-ring tuning metrics dataset as CSV file');
@@ -571,6 +582,21 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
     presetContainer.appendChild(exportBtn);
   }
 
+  function syncCpoModeBtnStyles() {
+    if (modeMrrBtn && modeLaserBtn) {
+      const isMrr = currentMode === 'mrr_resonance_shift';
+      modeMrrBtn.style.background = isMrr ? '#0284c7' : '#f1f5f9';
+      modeMrrBtn.style.borderColor = isMrr ? '#0284c7' : '#cbd5e1';
+      modeMrrBtn.style.color = isMrr ? '#ffffff' : '#475569';
+      modeMrrBtn.setAttribute('aria-pressed', isMrr ? 'true' : 'false');
+
+      modeLaserBtn.style.background = !isMrr ? '#0284c7' : '#f1f5f9';
+      modeLaserBtn.style.borderColor = !isMrr ? '#0284c7' : '#cbd5e1';
+      modeLaserBtn.style.color = !isMrr ? '#ffffff' : '#475569';
+      modeLaserBtn.setAttribute('aria-pressed', !isMrr ? 'true' : 'false');
+    }
+  }
+
   if (presetSelect) presetSelect.addEventListener('change', update);
   if (techSelect) techSelect.addEventListener('change', update);
   if (ambientSlider) ambientSlider.addEventListener('input', update);
@@ -581,33 +607,21 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
     modeMrrBtn.addEventListener('click', () => {
       currentMode = 'mrr_resonance_shift';
       modeMrrBtn.classList.add('active');
-      modeMrrBtn.setAttribute('aria-pressed', 'true');
       modeLaserBtn.classList.remove('active');
-      modeLaserBtn.setAttribute('aria-pressed', 'false');
-      modeMrrBtn.style.background = '#0284c7';
-      modeMrrBtn.style.borderColor = '#38bdf8';
-      modeMrrBtn.style.color = '#ffffff';
-      modeLaserBtn.style.background = '#1e293b';
-      modeLaserBtn.style.borderColor = '#475569';
-      modeLaserBtn.style.color = '#94a3b8';
+      syncCpoModeBtnStyles();
       update();
     });
 
     modeLaserBtn.addEventListener('click', () => {
       currentMode = 'laser_thermal_retention';
       modeLaserBtn.classList.add('active');
-      modeLaserBtn.setAttribute('aria-pressed', 'true');
       modeMrrBtn.classList.remove('active');
-      modeMrrBtn.setAttribute('aria-pressed', 'false');
-      modeLaserBtn.style.background = '#0284c7';
-      modeLaserBtn.style.borderColor = '#38bdf8';
-      modeLaserBtn.style.color = '#ffffff';
-      modeMrrBtn.style.background = '#1e293b';
-      modeMrrBtn.style.borderColor = '#475569';
-      modeMrrBtn.style.color = '#94a3b8';
+      syncCpoModeBtnStyles();
       update();
     });
   }
+
+  syncCpoModeBtnStyles();
 
   // Language mutation observer
   const observer = new MutationObserver(() => update());

@@ -165,14 +165,22 @@ export function calculateVertical3dMetrics({
   metalThicknessNm = 25.0,
   arrayLengthUm = 120.0
 } = {}) {
-  const preset = VERTICAL_3D_PRESETS[presetId] || VERTICAL_3D_PRESETS.vert_3d_antifuse_64l;
-  const conductor = WORDLINE_CONDUCTORS[conductorId] || WORDLINE_CONDUCTORS.molybdenum_mo_pvd;
+  const preset = (presetId && Object.prototype.hasOwnProperty.call(VERTICAL_3D_PRESETS, presetId))
+    ? VERTICAL_3D_PRESETS[presetId]
+    : VERTICAL_3D_PRESETS.vert_3d_antifuse_64l;
+  const conductor = (conductorId && Object.prototype.hasOwnProperty.call(WORDLINE_CONDUCTORS, conductorId))
+    ? WORDLINE_CONDUCTORS[conductorId]
+    : WORDLINE_CONDUCTORS.molybdenum_mo_pvd;
+
+  const validTierCount = Number.isFinite(Number(tierCount)) ? Number(tierCount) : 64;
+  const validMetalThicknessNm = Number.isFinite(Number(metalThicknessNm)) ? Number(metalThicknessNm) : 25.0;
+  const validArrayLengthUm = Number.isFinite(Number(arrayLengthUm)) ? Number(arrayLengthUm) : 120.0;
 
   // 1. Thin-Film Metal Resistivity Size-Effect (Fuchs-Sondheimer & Mayadas-Shatzkes)
   // rho_eff = rho_0 * [ 1 + (3/8)*(1-p)*(lambda / t) + 1.5*(R / (1-R))*(lambda / d_grain) ]
   // Assume grain size d_grain ~ metalThicknessNm
   const lambda = conductor.electronMeanFreePathNm;
-  const t = Math.max(5.0, metalThicknessNm);
+  const t = Math.max(5.0, validMetalThicknessNm);
   const p = conductor.surfaceSpecularityP;
   const R = conductor.grainBoundaryReflectivityR;
 
@@ -185,22 +193,22 @@ export function calculateVertical3dMetrics({
   // 2. Staircase Contact Etch Geometry
   // Bottom tier (Tier 1) traverses the full array PLUS the entire staircase contact run
   // Top tier (Tier N) only traverses the array
-  const totalStackHeightUm = (tierCount * preset.tierThicknessNm) / 1000.0;
-  const maxStaircaseLengthUm = tierCount * VERTICAL_3D_CONSTANTS.STAIRCASE_STEP_PITCH_UM;
+  const totalStackHeightUm = (validTierCount * preset.tierThicknessNm) / 1000.0;
+  const maxStaircaseLengthUm = validTierCount * VERTICAL_3D_CONSTANTS.STAIRCASE_STEP_PITCH_UM;
 
   // Word-line cross-sectional area (m2)
-  const crossSectionAreaM2 = (VERTICAL_3D_CONSTANTS.WORDLINE_WIDTH_NM * 1e-9) * (metalThicknessNm * 1e-9);
+  const crossSectionAreaM2 = (VERTICAL_3D_CONSTANTS.WORDLINE_WIDTH_NM * 1e-9) * (validMetalThicknessNm * 1e-9);
 
   // Resistance per meter (Ohm / m)
   const resistancePerMeter = effectiveResistivityOhmM / crossSectionAreaM2;
 
   // Capacitance per meter (inter-tier parallel plate + fringing)
   // C = epsilon * (Width / Thickness) + fringing
-  const dielectricThicknessM = (preset.tierThicknessNm - metalThicknessNm) * 1e-9;
+  const dielectricThicknessM = (preset.tierThicknessNm - validMetalThicknessNm) * 1e-9;
   const capPerMeter = (VERTICAL_3D_CONSTANTS.DIELECTRIC_PERMITTIVITY_K * VERTICAL_3D_CONSTANTS.EPSILON_0 * (VERTICAL_3D_CONSTANTS.WORDLINE_WIDTH_NM * 1e-9) / Math.max(5e-9, dielectricThicknessM)) * 2.0; // Both top and bottom sides
 
   // 3. Worst-Case Tier (Bottom Tier 1) RC Delay
-  const worstLengthUm = arrayLengthUm + maxStaircaseLengthUm;
+  const worstLengthUm = validArrayLengthUm + maxStaircaseLengthUm;
   const worstLengthM = worstLengthUm * 1e-6;
   const worstResistanceOhm = resistancePerMeter * worstLengthM;
   const worstCapacitanceF = capPerMeter * worstLengthM;
@@ -210,7 +218,7 @@ export function calculateVertical3dMetrics({
   const worstWlDelayNs = worstWlDelaySec * 1e9;
 
   // Best-Case Tier (Top Tier N) RC Delay
-  const bestLengthUm = arrayLengthUm;
+  const bestLengthUm = validArrayLengthUm;
   const bestLengthM = bestLengthUm * 1e-6;
   const bestResistanceOhm = resistancePerMeter * bestLengthM;
   const bestCapacitanceF = capPerMeter * bestLengthM;

@@ -208,8 +208,12 @@ export const CHIPLET_NVM_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive packaging and electrical metrics
  */
 export function calculateChipletHeteroMetrics(params = {}) {
-  const preset = CHIPLET_PACKAGING_PRESETS[params.presetId] || CHIPLET_PACKAGING_PRESETS.tsmc_soic_hybrid;
-  const topology = CHIPLET_NVM_TOPOLOGIES[params.topologyId] || CHIPLET_NVM_TOPOLOGIES.antifuse_base_die;
+  const preset = Object.hasOwn(CHIPLET_PACKAGING_PRESETS, params.presetId)
+    ? CHIPLET_PACKAGING_PRESETS[params.presetId]
+    : CHIPLET_PACKAGING_PRESETS.tsmc_soic_hybrid;
+  const topology = Object.hasOwn(CHIPLET_NVM_TOPOLOGIES, params.topologyId)
+    ? CHIPLET_NVM_TOPOLOGIES[params.topologyId]
+    : CHIPLET_NVM_TOPOLOGIES.antifuse_base_die;
 
   const computePowerW = params.customComputePowerW !== undefined ? Number(params.customComputePowerW) : 120.0;
   const d2dLengthMm = params.customD2dLengthMm !== undefined ? Number(params.customD2dLengthMm) : 3.5;

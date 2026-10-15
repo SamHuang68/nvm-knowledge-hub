@@ -149,11 +149,15 @@ export function calculateNanosheetBspdnNvm({
   customArrayMb,
   customActivityRatePct,
 } = {}) {
-  const node = ADVANCED_NODE_PRESETS[nodeKey] || ADVANCED_NODE_PRESETS.tsmc_a16_spr;
-  const tech = NANOSHEET_NVM_TOPOLOGIES[techKey] || NANOSHEET_NVM_TOPOLOGIES.antifuse_nanosheet_logic;
+  const node = (nodeKey && Object.prototype.hasOwnProperty.call(ADVANCED_NODE_PRESETS, nodeKey))
+    ? ADVANCED_NODE_PRESETS[nodeKey]
+    : ADVANCED_NODE_PRESETS.tsmc_a16_spr;
+  const tech = (techKey && Object.prototype.hasOwnProperty.call(NANOSHEET_NVM_TOPOLOGIES, techKey))
+    ? NANOSHEET_NVM_TOPOLOGIES[techKey]
+    : NANOSHEET_NVM_TOPOLOGIES.antifuse_nanosheet_logic;
 
-  const arrayMb = customArrayMb !== undefined ? customArrayMb : 1.0; // 1 Mb macro
-  const activityPct = customActivityRatePct !== undefined ? customActivityRatePct : 15.0; // 15% write/read activity
+  const arrayMb = Number.isFinite(Number(customArrayMb)) ? Number(customArrayMb) : 1.0; // 1 Mb macro
+  const activityPct = Number.isFinite(Number(customActivityRatePct)) ? Number(customActivityRatePct) : 15.0; // 15% write/read activity
 
   // 1. IR-Drop under Backside Power Delivery Network
   const irDropFactor = node.hasBspdn ? 0.55 : 1.0;
