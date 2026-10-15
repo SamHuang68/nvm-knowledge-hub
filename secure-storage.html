@@ -1598,6 +1598,40 @@
           </p>
           <small><span data-lang="zh">支援 CNSA 2.0 國家級安全規範、量子抗性 Secure Boot 與雲端 AI 晶片身份證明。</span><span data-lang="en">Mandated for CNSA 2.0 quantum-resistant Secure Boot, AI accelerator identity, and high-assurance HSMs.</span></small>
         </article>
+
+        <!-- Subsystem 5: SPDM & IDE High-Speed Link Security -->
+        <article>
+          <span><span data-lang="zh">05 · 高速鏈路與金鑰防護</span><span data-lang="en">05 · LINK &amp; KEY DEFENSE</span></span>
+          <h3>SPDM 1.3 / IDE &amp; Zero-Exposure KDF</h3>
+          <p>
+            <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
+            <span data-lang="zh"><b>高速匯流排鏈路加密與私鑰不落地：</b>在 PCIe 6.0/7.0 與 CXL 3.1 匯流排上，依循 DMTF SPDM 1.3 執行硬體交互認證與 IDE (Integrity and Data Encryption) 線速 AES-256-GCM 加密，徹底防禦實體 Interposer 中間人探針竊聽。</span>
+            <span data-lang="en"><b>High-Speed Bus Encryption &amp; Zero-Exposure Root:</b> Executes DMTF SPDM 1.3 mutual hardware attestation and line-rate PCIe 6.0/7.0 &amp; CXL 3.1 IDE (AES-256-GCM) link encryption, defending against physical interposer probing.</span>
+          </p>
+          <p>
+            <b><span data-lang="zh">上下游分工與 NVM 結合</span><span data-lang="en">Supply Chain Split &amp; NVM Impact</span></b>
+            <span data-lang="zh">晶片原生私鑰由晶圓內物理根信任 (AntiFuse OTP / PUF) 於內部安全島 (Security Island) 直接派生（On-Die KDF），私鑰自生成至銷毀永不出晶粒，徹底免除封裝後測試 (OSAT) 實體金鑰注入過程之外洩風險。</span>
+            <span data-lang="en">Chip-unique private keys are derived directly on-die (On-Die KDF) from silicon Root-of-Trust (AntiFuse OTP / PUF) within the security island, eliminating external key injection exposure during OSAT manufacturing.</span>
+          </p>
+          <small><span data-lang="zh">大型資料中心 AI 加速叢集、CXL 記憶體池化與高效能運算 (HPC) 關鍵節點標配。</span><span data-lang="en">Standard for hyperscale data center AI clusters, CXL memory pooling, and HPC accelerator nodes.</span></small>
+        </article>
+
+        <!-- Subsystem 6: SRAM PUF Helper Data Zero-Leakage & Side-Channel Shielding -->
+        <article>
+          <span><span data-lang="zh">06 · 症狀洩漏與側信道防禦</span><span data-lang="en">06 · HELPER DATA &amp; DPA SHIELD</span></span>
+          <h3>SRAM PUF Helper Data Shielding</h3>
+          <p>
+            <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
+            <span data-lang="zh"><b>症狀洩漏防禦與模糊提取器遮罩：</b>針對 SRAM PUF Activation Code (Helper Data) 的症狀洩漏（Syndrome Leakage）理論邊界，採用 Code-Offset BCH 糾錯並在安全隔離區 (Secure Enclave) 內實施常數時間 (Constant-Time) 解碼與隨機掩碼 (Masking)。</span>
+            <span data-lang="en"><b>Syndrome Leakage Defense &amp; DPA Masking:</b> Enforces information-theoretic bounds against syndrome leakage in SRAM PUF Activation Codes, combining Code-Offset BCH error correction with constant-time decoding and side-channel power masking.</span>
+          </p>
+          <p>
+            <b><span data-lang="zh">上下游分工與快取隔離</span><span data-lang="en">Supply Chain Split &amp; Cache Isolation</span></b>
+            <span data-lang="zh">Helper Data 雖可公開存放於外部 SPI NOR Flash，但解密運算被嚴格隔離在 Secure Enclave 硬體防護邊界內，防止一階與高階差分功耗分析 (DPA) 還原原生 SRAM 偏置，杜絕記憶體重放與故障注入。</span>
+            <span data-lang="en">While Helper Data may reside in external SPI NOR Flash, reconstruction execution is strictly isolated inside the Secure Enclave, neutralizing first-order and high-order DPA attacks against SRAM power-up biases.</span>
+          </p>
+          <small><span data-lang="zh">高資安防偽微控制器、車用安全閘道器 (HSM) 與金融級 eSE / eSIM 核心防護。</span><span data-lang="en">Essential for high-assurance security MCUs, automotive HSM gateways, and banking-grade eSE / eSIM controllers.</span></small>
+        </article>
       </div>
 
       <!-- PQC Key Budget Comparison Table -->

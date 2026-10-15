@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "84f01a7e45e829bcec8f",
+  "version": "f0d0348d69b5d2d78163",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -236,7 +236,7 @@ self.NVMOfflineManifest = {
     "hybrid-bonding-tsv-kgd-simulator.js": "164be83e6b904455b0f3be08f4cb5fcf9608a62d67da6a9b35e41788608d118a",
     "index.html": "9c5f9dee25e9c3b992dd078bc2695ccb3362fe9c285a8730cd274f45546bfe61",
     "iot-energy-tradeoff-calculator.js": "057bce8aa8ccc9a8c94224ed4816b36879b3b304428f4b54389d043f10be15db",
-    "iot-mcu-envm.html": "ce085226d7da83f9ab6ac105c88f290b5a719bd0cbc93263bd9ee0cba17e047b",
+    "iot-mcu-envm.html": "7d9d6190cdde812c3acdb5798ec3c0de63b3790b97238e54dff817ccb1ef1825",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -278,7 +278,7 @@ self.NVMOfflineManifest = {
     "research.css": "b0d39322f51c4175ffe3166266c3f137252c1312f32e5ba591936b30a913049e",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
-    "secure-storage.html": "4822a3150066893ff8d5fe475d76dc53fd6670c23dfb31d666a577e59ff44d07",
+    "secure-storage.html": "4c4dc51c4373c425e17f2fe0337976b38bc7a3fdd1e702a2294fc872bf5bc958",
     "security-assurance.html": "a157f59c09c077ba0be0fd54a234d9e8994fc962bb901fcc4b77037a2d879d68",
     "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "e0be1801f842a6de45943708a13cad4c15c8d1c65d47321dbe7506fb50fa3312",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16291967
+  "totalBytes": 16306013
 };
