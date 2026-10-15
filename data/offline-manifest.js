@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "f0d0348d69b5d2d78163",
+  "version": "e9c67045344ae08cdb58",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -185,7 +185,7 @@ self.NVMOfflineManifest = {
     "automotive-load-dump-clamp-simulator.js": "147a3cf5396f1f0a87602f2365d7582f3be87bc60849a4013b3d6b5a44dab9dc",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "ec0f7292bf281a0df3468350b8aa0815f7cf568aa32f5984f706ba62328c3a47",
+    "automotive-nvm.html": "644def11c3f0012ae807dea1102c9913aeed9b98b0cb78f8d5fe4ce050ac5e59",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "b3cba98b3310464ef26cd0b6505453e8403ee8eaf1df2a96fc370079671cdaef",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16306013
+  "totalBytes": 16309767
 };
