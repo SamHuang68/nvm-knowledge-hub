@@ -203,7 +203,13 @@
         "normally-off-energy-harvesting-simulator.js",
         "tunneling-breakdown-simulator.js",
         "tddb-weibull-simulator.js",
-        "wafer-cost-tco-calculator.js"
+        "wafer-cost-tco-calculator.js",
+        "advanced-packaging-pdks-simulator.js",
+        "cim-analog-mac-simulator.js",
+        "cryogenic-nvm-physics-simulator.js",
+        "hbm4-base-die-repair-probe-simulator.js",
+        "hybrid-bonding-tsv-kgd-simulator.js",
+        "sram-yield-bira-simulator.js"
       ],
       "inputs": [
         "tests/test-physics-robustness.test.mjs",

@@ -10,7 +10,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8').replace(/^\uFEFF/u
 const base='ce3333c6eb7dccb685fa98c395f335e6d8474254';
 const original=file=>execFileSync('git',['show',`${base}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).replaceAll('\r\n','\n');
 const pkg=JSON.parse(read('package.json')), lock=JSON.parse(read('package-lock.json'));
-assert.equal(pkg.version,'1.5.2'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
+assert.equal(pkg.version,'1.5.3'); assert.equal(lock.version,pkg.version); assert.equal(lock.packages[''].version,pkg.version);
 assert.deepEqual(pkg.devDependencies,JSON.parse(original('package.json')).devDependencies,'既有依賴不變');
 for (const suffix of ['','-en']) {
   const currentMaps = JSON.parse(read(`data/nvm-vendor-patent-maps${suffix}.json`));
