@@ -3282,6 +3282,122 @@
   </div>
 </div>
 </div>
+
+<!-- =========================================================
+     TOPIC 03.2: 矽基微顯示 (OLEDoS / MicroLED) 與空間光學校準
+     ========================================================= -->
+<div class="sub-topic-block" id="subtopic-oledos-microled" style="margin-top: 2rem;">
+  <div class="sub-topic-header">
+    <h3>
+      <span data-lang="zh">3.2 矽基微顯示 (OLEDoS / MicroLED) 與空間微觀光學補償架構</span>
+      <span data-lang="en">3.2 Silicon Backplane Micro-Display (OLEDoS / MicroLED) &amp; Spatial Optical Trim</span>
+    </h3>
+    <span class="tag-accent"><span data-lang="zh">近眼 AR/VR · 3000+ PPI</span><span data-lang="en">NEAR-EYE AR/VR · 3000+ PPI</span></span>
+  </div>
+
+  <p style="font-size: 0.88rem; line-height: 1.6; color: #334155; margin-bottom: 1.25rem;">
+    <span data-lang="zh">在 AR/VR/MR 近眼顯示中，次世代矽基 OLED (OLEDoS) 與微米發光二極體 (MicroLED) 採用 28nm/40nm/55nm 邏輯 CMOS 晶圓背板替代傳統玻璃基板，將像素密度推升至 3,000~4,500 PPI（子像素間距 &lt; 7 µm）。極致微縮帶來的微腔諧振厚度變異與驅動電晶體臨界電壓失配（ΔVth），推動顯示驅動向 0-Mask 內嵌 NVM 閉迴路校準演進：</span>
+    <span data-lang="en">For AR/VR near-eye displays, Silicon-based OLED (OLEDoS) and MicroLED leverage 28nm/40nm/55nm CMOS backplanes over glass substrates, pushing pixel densities to 3,000&ndash;4,500 PPI (sub-pixel pitch &lt; 7 µm). Extreme scaling introduces micro-cavity thickness deviations and driving transistor threshold variations (ΔVth), necessitating 0-mask embedded NVM closed-loop optical compensation:</span>
+  </p>
+
+  <!-- 3-Pillar Architecture Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; margin-bottom: 1.25rem;">
+    <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="font: 700 11px 'IBM Plex Mono', monospace; color: #785021; text-transform: uppercase;">
+        <span data-lang="zh">01 · 矽基背板與微腔相位匹配</span>
+        <span data-lang="en">01 · SILICON BACKPLANE &amp; CAVITY PHASE</span>
+      </div>
+      <h4 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #0f172a;">
+        <span data-lang="zh">頂部發光微腔與色純度校準</span>
+        <span data-lang="en">Top-Emission Cavity &amp; Color Purity</span>
+      </h4>
+      <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #334155;">
+        <span data-lang="zh">頂部發光 OLEDoS 陽極與半反半透陰極間的微腔長度（Cavity Length）若存在埃級 (Å) 沉積偏差，將導致 RGB 光譜中心頻率漂移。利用出廠測得之微腔相位補償矩陣，透過 0-Mask AntiFuse OTP 鎖定各色通道初始諧振點。</span>
+        <span data-lang="en">Sub-nanometer thickness variations in top-emission OLEDoS optical cavities alter RGB central emission wavelengths. Factory-measured cavity phase compensation matrices are locked into 0-mask AntiFuse OTP to calibrate baseline resonance.</span>
+      </p>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669; text-transform: uppercase;">
+        <span data-lang="zh">02 · MicroLED 空間固定模式噪訊</span>
+        <span data-lang="en">02 · MICROLED FIXED PATTERN NOISE</span>
+      </div>
+      <h4 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #0f172a;">
+        <span data-lang="zh">巨量轉移導通壓降補償 (ΔVf)</span>
+        <span data-lang="en">Mass-Transfer Forward Voltage Trim</span>
+      </h4>
+      <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #334155;">
+        <span data-lang="zh">MicroLED 巨量轉移至矽基背板時，晶粒正向導通電壓 Vf 與驅動電晶體 ΔVth 分布存在統計離散，造成肉眼可辨之顆粒狀固定模式噪訊 (FPN)。藉由內嵌 NVM 儲存像素級定電流偏置，將全螢幕亮度均勻性拉升至 99% 以上。</span>
+        <span data-lang="en">Mass-transferred micro-scale LEDs exhibit forward voltage (Vf) and drive transistor ΔVth dispersion, generating perceptible fixed pattern noise (FPN). Embedded NVM stores per-pixel current trim offsets to restore full-screen uniformity above 99%.</span>
+      </p>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid rgba(2, 132, 199, 0.35); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="font: 700 11px 'IBM Plex Mono', monospace; color: #0284c7; text-transform: uppercase;">
+        <span data-lang="zh">03 · 無快閃記憶體輕量近眼模組</span>
+        <span data-lang="en">03 · FLASHLESS NEAR-EYE ARCHITECTURE</span>
+      </div>
+      <h4 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #0f172a;">
+        <span data-lang="zh">開機影子映射與零外掛 BOM</span>
+        <span data-lang="en">Boot Shadowing &amp; Zero SPI BOM</span>
+      </h4>
+      <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #334155;">
+        <span data-lang="zh">頭戴式裝置對重量與散熱極度敏感。晶片內建 32 Kb ~ 128 Kb 0-Mask MTP / OTP 儲存 10-bit / 12-bit Gamma 與暗點遮蔽表，開機直接載入周邊驅動暫存器，徹底免除外掛 SPI NOR Flash，消除高頻 EMI 輻射。</span>
+        <span data-lang="en">Near-eye optics demand strict weight and thermal envelopes. On-chip 32&ndash;128 Kb 0-mask MTP/OTP eliminates external SPI NOR Flash, streaming 10/12-bit Gamma and bad-pixel tables into local registers at boot while removing high-frequency EMI.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Micro-Display Technology Specification Matrix Table -->
+  <div style="overflow-x: auto; margin-bottom: 1.5rem;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.8125rem; text-align: left; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px;" aria-label="Micro-Display Technology Architecture &amp; NVM Specification Matrix" data-aria-en="Micro-Display Technology Architecture &amp; NVM Specification Matrix" data-aria-zh="微顯示技術架構與 NVM 規格對照矩陣">
+      <caption class="sr-only">
+        <span data-lang="zh">玻璃基板 AMOLED vs 矽基 OLEDoS vs 矽基 MicroLED 之驅動與 NVM 架構比較</span>
+        <span data-lang="en">Comparison of Glass AMOLED vs Silicon OLEDoS vs Silicon MicroLED Driver and NVM Architecture</span>
+      </caption>
+      <thead>
+        <tr style="border-bottom: 2px solid #cbd5e1; background: #f1f5f9;">
+          <th scope="col" style="padding: 8px 12px; font-weight: 700; color: #0f172a;"><span data-lang="zh">技術維度</span><span data-lang="en">Technology Metric</span></th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 700; color: #0f172a;"><span data-lang="zh">傳統手機玻璃 AMOLED (LTPO)</span><span data-lang="en">Mobile Glass AMOLED (LTPO)</span></th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 700; color: #785021;"><span data-lang="zh">矽基 OLED (OLEDoS / Micro-OLED)</span><span data-lang="en">Silicon OLEDoS (Micro-OLED)</span></th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 700; color: #059669;"><span data-lang="zh">矽基 MicroLED (MicroLED on Si)</span><span data-lang="en">Silicon MicroLED</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #e2e8f0;">
+          <td style="padding: 8px 12px; font-weight: 600;"><span data-lang="zh">背板材料與製程</span><span data-lang="en">Backplane Material &amp; Node</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">玻璃基板低溫多晶氧化物 (LTPO TFT)</span><span data-lang="en">Glass Substrate Low-Temp Poly-Oxide (LTPO TFT)</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #785021;"><span data-lang="zh">28nm / 40nm / 55nm 高壓邏輯 CMOS 晶圓</span><span data-lang="en">28nm / 40nm / 55nm High-Voltage Logic CMOS</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #059669;"><span data-lang="zh">28nm / 40nm 邏輯 CMOS + 巨量轉移鍵合</span><span data-lang="en">28nm / 40nm Logic CMOS + Mass Transfer Bonding</span></td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+          <td style="padding: 8px 12px; font-weight: 600;"><span data-lang="zh">像素密度 (PPI)</span><span data-lang="en">Pixel Density (PPI)</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">450 ~ 550 PPI</span><span data-lang="en">450 ~ 550 PPI</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #785021;"><span data-lang="zh">3,000 ~ 4,000+ PPI（子像素間距 &lt; 7 µm）</span><span data-lang="en">3,000 ~ 4,000+ PPI (Sub-pixel pitch &lt; 7 µm)</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #059669;"><span data-lang="zh">4,000 ~ 6,000+ PPI（子像素間距 &lt; 4 µm）</span><span data-lang="en">4,000 ~ 6,000+ PPI (Sub-pixel pitch &lt; 4 µm)</span></td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e2e8f0;">
+          <td style="padding: 8px 12px; font-weight: 600;"><span data-lang="zh">峰值亮度與光學挑戰</span><span data-lang="en">Peak Brightness &amp; Optics</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">1,500 ~ 3,000 nits（大面積發光不均）</span><span data-lang="en">1,500 ~ 3,000 nits (Large-area non-uniformity)</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">3,000 ~ 5,000 nits（微腔長度相位偏移）</span><span data-lang="en">3,000 ~ 5,000 nits (Cavity length phase shift)</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">10,000 ~ 100,000+ nits（Vf 離散與暗點缺陷）</span><span data-lang="en">10,000 ~ 100,000+ nits (Vf dispersion &amp; bad pixels)</span></td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+          <td style="padding: 8px 12px; font-weight: 600;"><span data-lang="zh">內嵌 NVM 關鍵角色</span><span data-lang="en">Embedded NVM Key Role</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">外掛 SPI NOR Flash 載入 De-Mura LUT</span><span data-lang="en">External SPI NOR Flash streaming De-Mura LUT</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #785021;"><span data-lang="zh">0-Mask AntiFuse 鎖定微腔相位 + MTP 灰階調諧</span><span data-lang="en">0-Mask AntiFuse cavity lock + MTP Gamma tuning</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #059669;"><span data-lang="zh">0-Mask AntiFuse 像素級 ΔVth 補償與壞點屏蔽</span><span data-lang="en">0-Mask AntiFuse per-pixel ΔVth trim &amp; defect masking</span></td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 12px; font-weight: 600;"><span data-lang="zh">BOM 形態與 EMI 防護</span><span data-lang="en">BOM &amp; EMI Profile</span></td>
+          <td style="padding: 8px 12px;"><span data-lang="zh">COG / COF 封裝，需外部 Flash 晶片</span><span data-lang="en">COG / COF package, requires external Flash chip</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #785021;"><span data-lang="zh">單晶片完全無快閃記憶體 (Flashless)，零高頻 EMI</span><span data-lang="en">Single-die completely flashless, zero high-frequency EMI</span></td>
+          <td style="padding: 8px 12px; font-weight: 600; color: #059669;"><span data-lang="zh">單晶片完全無快閃記憶體 (Flashless)，極致微型化</span><span data-lang="en">Single-die completely flashless, ultra-miniaturized</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </section>
 <!-- =========================================================
          TOPIC 04: E-INK ULTRA-HV DRIVERS & MTP->OTP MIGRATION

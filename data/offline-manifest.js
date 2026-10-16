@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e9c67045344ae08cdb58",
+  "version": "698d4058433e999f6146",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -285,7 +285,7 @@ self.NVMOfflineManifest = {
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "bc6d2dae6aea294a01fc9ae319d4fb82e8e16825f165ce03f7bcff6d0cb7f793",
     "specialty-nvm.css": "0b1f35be0c42afd2ae50460d7f95468b5f5b3ed6a4c5b419977ddbd3013e8ad7",
-    "specialty-nvm.html": "a77f59a3f399e9a71bb93a1c4fbc4fd2a4c8a575c89bb6b1b2f03686cae8d9df",
+    "specialty-nvm.html": "da37bb432766e15bd6b1ab0db659cff468f662f7c0f587fbd6ecb7a01e59b0bf",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "fc36eda8031d72c3c82017a6db1d16dc5ad4b83e43abcc883d6232d41d336c1d",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16309767
+  "totalBytes": 16321899
 };
