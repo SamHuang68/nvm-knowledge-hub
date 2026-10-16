@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "a7f88f5a0768fe9eadf1",
+  "version": "59381c52bd3eeb419bc6",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -279,7 +279,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
     "secure-storage.html": "4c4dc51c4373c425e17f2fe0337976b38bc7a3fdd1e702a2294fc872bf5bc958",
-    "security-assurance.html": "a157f59c09c077ba0be0fd54a234d9e8994fc962bb901fcc4b77037a2d879d68",
+    "security-assurance.html": "aa0929f02295b7443e8265baa1e8da4537f9062f03f4fe25b599e9d79b06a929",
     "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "e0be1801f842a6de45943708a13cad4c15c8d1c65d47321dbe7506fb50fa3312",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16334912
+  "totalBytes": 16336555
 };
