@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "6821e59850aad2c28156",
+  "version": "a7f88f5a0768fe9eadf1",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -236,7 +236,7 @@ self.NVMOfflineManifest = {
     "hybrid-bonding-tsv-kgd-simulator.js": "164be83e6b904455b0f3be08f4cb5fcf9608a62d67da6a9b35e41788608d118a",
     "index.html": "9c5f9dee25e9c3b992dd078bc2695ccb3362fe9c285a8730cd274f45546bfe61",
     "iot-energy-tradeoff-calculator.js": "057bce8aa8ccc9a8c94224ed4816b36879b3b304428f4b54389d043f10be15db",
-    "iot-mcu-envm.html": "7d9d6190cdde812c3acdb5798ec3c0de63b3790b97238e54dff817ccb1ef1825",
+    "iot-mcu-envm.html": "202305b1ca61cbbbb69354aa23b044efec68a68b3927b723df239c522e58af9b",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16325713
+  "totalBytes": 16334912
 };
