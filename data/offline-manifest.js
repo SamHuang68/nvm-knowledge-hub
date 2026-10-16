@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "698d4058433e999f6146",
+  "version": "6821e59850aad2c28156",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -247,7 +247,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "0b44586ac4a101ff353a0bd7dcc20bb8c4c8d489eab7f06e620b1687d78aff44",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "4fe99c52b8215f9437770ab4ccec3705fbaace9aa0200c9498793bd8592a486a",
+    "memory-physics.html": "8500e5cbc0de6091efb0aa0f8c0d918016c8f1045b339971872ecb287fd95515",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nanosheet-bspdn-nvm-simulator.js": "4cb975e2ce11d2bf8b234ae70b85970c6688e5bca306ef06abbfc4fd0dc242f3",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 16321899
+  "totalBytes": 16325713
 };

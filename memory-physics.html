@@ -1977,13 +1977,13 @@
           <div>
             <p class="paper-kicker"><span data-lang="zh">02 · 第一性原理物理</span><span data-lang="en">02 · FIRST-PRINCIPLES PHYSICS</span></p>
             <h2>
-              <span data-lang="zh">量子穿隧、微絲滲透崩潰<br><em>與次閾值熱力學極限</em></span>
-              <span data-lang="en">Quantum Tunneling, Filament Percolation<br><em>and Subthreshold Thermal Limits</em></span>
+              <span data-lang="zh">量子穿隧、微絲滲透崩潰、<br><em>次閾值極限與阿瑞尼斯活化能</em></span>
+              <span data-lang="en">Quantum Tunneling, Filament Percolation,<br><em>Subthreshold Limits &amp; Arrhenius Activation</em></span>
             </h2>
           </div>
           <p>
-            <span data-lang="zh">記憶體儲存機制與物理安全性，根植於微觀半導體物理。以下推導三組決定穿隧臨界、介電質永久破壞與靜態待機漏電的第一性原理方程式，作為跨製程選型與側信道分析的物理基底。</span>
-            <span data-lang="en">Memory storage mechanisms and physical security are rooted in device physics. Below are three sets of first-principles equations governing tunneling thresholds, permanent breakdown and subthreshold leakage.</span>
+            <span data-lang="zh">記憶體儲存機制與物理安全性，根植於微觀半導體物理。以下推導四組決定穿隧臨界、介電質永久破壞、靜態待機漏電與熱力學數據留存的第一性原理方程式，作為跨製程選型與可靠度預測的物理基底。</span>
+            <span data-lang="en">Memory storage mechanisms and physical security are rooted in device physics. Below are four sets of first-principles equations governing tunneling thresholds, permanent breakdown, subthreshold leakage, and thermodynamic data retention.</span>
           </p>
         </div>
 
@@ -2059,6 +2059,28 @@
               <li>
                 <span data-lang="zh"><b>SRAM 待機功耗本質：</b>6T SRAM 關閉通道仍受次閾值漏電與閘極穿隧制約，隨接面溫度升高呈指數級惡化；而 AntiFuse 的已編程微絲為永久金屬態/歐姆通道，未編程單元待機漏電 &lt;0.01 pA/cell，具備極致低功耗靜態優勢。</span>
                 <span data-lang="en"><b>Standby Power Implications:</b> 6T SRAM remains bounded by subthreshold diffusion and gate tunneling, degrading exponentially at elevated junction temperatures. In contrast, unprogrammed AntiFuse cells exhibit sub-0.01 pA/cell leakage.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Formula Card 4: Arrhenius Retention & Activation Energy -->
+          <article class="physics-formula-card">
+            <span class="evidence-tag"><span data-lang="zh">熱力學與留存</span><span data-lang="en">THERMODYNAMICS &amp; RETENTION</span></span>
+            <h3>
+              <span data-lang="zh">阿瑞尼斯熱加速與數據保持活化能模型</span>
+              <span data-lang="en">Arrhenius Thermal Acceleration &amp; Retention Activation</span>
+            </h3>
+            <div class="physics-formula-math" data-math-latex="AF = \exp\left[\frac{E_a}{k_B}\left(\frac{1}{T_{\text{use}}} - \frac{1}{T_{\text{stress}}}\right)\right], \quad t_{\text{ret}} = t_0 \exp\left(\frac{E_a}{k_B T}\right)" aria-label="Arrhenius Thermal Acceleration Factor: AF = exp[(E_a/k_B) * (1/T_use - 1/T_stress)] and retention lifetime t_ret = t0 * exp(E_a / (k_B * T))" data-aria-en="Arrhenius Thermal Acceleration Factor: AF = exp[(E_a/k_B) * (1/T_use - 1/T_stress)] and retention lifetime t_ret = t0 * exp(E_a / (k_B * T))" data-aria-zh="阿瑞尼斯熱加速係數方程式：AF = exp[(E_a/k_B) * (1/T_use - 1/T_stress)] 與留存壽命 t_ret = t0 * exp(E_a / (k_B * T))">
+              <em>AF</em> = exp[(<em>E</em><sub>a</sub>/<em>k</em><sub>B</sub>) (1/<em>T</em><sub>use</sub> &minus; 1/<em>T</em><sub>stress</sub>)], &nbsp; <em>t</em><sub>ret</sub> = <em>t</em><sub>0</sub> exp[<em>E</em><sub>a</sub> / (<em>k</em><sub>B</sub><em>T</em>)]
+            </div>
+            <ul class="physics-notes-list">
+              <li>
+                <span data-lang="zh"><b>電荷型 NVM 的熱激發脫附 (Thermal De-trapping)：</b>浮閘 (FG) 與電荷陷阱 (Charge Trap / SONOS) 依賴多晶矽或氮化矽捕捉電子。隨接面溫度升高，電子越過能障或經陷阱輔助穿隧逸失，典型活化能為 <em>E</em><sub>a</sub> &approx; 0.5&sim;1.1 eV。車規 150&deg;C&sim;175&deg;C 下熱加速因子 <em>AF</em> 呈指數級放大，促使 10 年留存壽命急遽縮短至數月甚至數小時，必須仰賴 ECC 校驗與週期性背景更新 (Data Refresh)。</span>
+                <span data-lang="en"><b>Charge-Loss De-trapping:</b> Floating Gate (FG) and Charge-Trap (SONOS) devices store discrete electron charges. At elevated temperatures, trapped carriers escape via thermal de-trapping over oxide barriers or trap-assisted tunneling, with typical activation energy <em>E</em><sub>a</sub> &approx; 0.5–1.1 eV. Under automotive temperatures (150&deg;C–175&deg;C junction), thermal acceleration <em>AF</em> escalates exponentially, shortening 10-year retention to months or hours and requiring periodic ECC refresh cycles.</span>
+              </li>
+              <li>
+                <span data-lang="zh"><b>物理型微絲 NVM 的熱力學穩定性：</b>AntiFuse 的編程狀態源於介電層硬擊穿後形成之局域矽化物／金屬歐姆微絲，導電機制為金屬自由載子傳輸，不存在「電荷隨時間洩漏」之退化途徑。其熱活化能受限於原子固態擴散能障 (<em>E</em><sub>a</sub> &gt; 1.8&sim;2.1 eV)，在 175&deg;C&sim;250&deg;C 嚴苛環境下仍具備超越 10&sim;20 年之物理留存穩定度。</span>
+                <span data-lang="en"><b>Filament Thermodynamic Stability:</b> AntiFuse programmed states rely on localized silicide/alloy ohmic filaments formed by dielectric breakdown, where conduction is metallic and free from charge-leakage decay paths. Governed by high solid-state atomic diffusion barriers (<em>E</em><sub>a</sub> &gt; 1.8–2.1 eV), AntiFuse preserves retention exceeding 10–20 years even under harsh 175&deg;C–250&deg;C conditions.</span>
               </li>
             </ul>
           </article>
