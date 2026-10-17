@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "4bb337d4e65afc2b22b9",
+  "version": "7f3ed17aa91434c29f7b",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -164,7 +164,7 @@ self.NVMOfflineManifest = {
     "advanced-finfet-gaa-simulator.js": "9827e615b9c15c5d6972b8b4b77a7b7696411723faa1b2dfd8cadceccd079b54",
     "advanced-packaging-pdks-simulator.js": "4d2404d987d70369fa036d31416325891cb0cc3b8c2852ed8c393a049162da6f",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "4ec69215066e487b03b8e2eb9ee65ccd35870ae152bef3035d26b0935bba91ad",
+    "ai-nvm-opportunities.html": "14bd955179ed4b7e47345fa88a02022b1204140f9699e6064dd430345306b7aa",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "227980099c1f5acb2ff9a6dcbf2d84d48a6cee606f5dd3323400a379d0166df8",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -185,7 +185,7 @@ self.NVMOfflineManifest = {
     "automotive-load-dump-clamp-simulator.js": "147a3cf5396f1f0a87602f2365d7582f3be87bc60849a4013b3d6b5a44dab9dc",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "644def11c3f0012ae807dea1102c9913aeed9b98b0cb78f8d5fe4ce050ac5e59",
+    "automotive-nvm.html": "cad86089acb422e39e7eefe6031c4009e3098e5b0783d6244ec04e59192b2b57",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "b3cba98b3310464ef26cd0b6505453e8403ee8eaf1df2a96fc370079671cdaef",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -244,7 +244,7 @@ self.NVMOfflineManifest = {
     "literature-paper.js": "27c8c9b515bf42651a568c86c2c22fc69c514992cde4e89f14a7823c9bec33c5",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
     "mcu-vector-patch-simulator.js": "12eec310c779f6fc1894da56a116892f4e9d63c84f838af5faae76d36504c819",
-    "memory-evidence.html": "0b44586ac4a101ff353a0bd7dcc20bb8c4c8d489eab7f06e620b1687d78aff44",
+    "memory-evidence.html": "bfe99d6d37c5573bd090bf4ac74af808799fc33101a0ca8fef5637eaf213d68a",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
     "memory-physics.html": "8500e5cbc0de6091efb0aa0f8c0d918016c8f1045b339971872ecb287fd95515",
@@ -300,7 +300,7 @@ self.NVMOfflineManifest = {
     "supply-chain-hardware-trojan-pem-simulator.js": "e0ed7318ad0748ce0405e78e2560570175f82c334fe2bdc1f900eebfa36e5f08",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "cff199278e33e4c63a70b23775dd524e3146889bc8f87fe0d056901e1cdb98dd",
-    "technology-comparison.html": "f19205e44e76c8391c1c248f9da51874eebfb68a8f8ebf3c590b4613a87b2e63",
+    "technology-comparison.html": "8ab0e5130496ce6165e69f3e7e85b0b40373a3422a5e6b467e43a7c71f12f165",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "e60f6f9a09bd72b73687ea50ad4f9c09054f560dc194d37bf9b2db063d9038f9",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17342162
+  "totalBytes": 17342141
 };
