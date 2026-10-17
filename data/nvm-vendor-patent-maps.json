@@ -4700,6 +4700,470 @@
                   "note": "2017 年核准公報首頁列申請人及受讓人 Micron Technology, Inc.。不支持原 Attopsemi 歸屬；原分析已由具來源的新案卷取代；此更正紀錄不判定目前權利人。"
                 }
               }
+            },
+            {
+              "id": "US9431127B2",
+              "title": "利用接面二極體作為金屬熔絲編程選擇器之電路與系統",
+              "grantDate": "2016-08-30",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US9431127B2/en",
+              "coreProblem": "傳統金屬電熔絲在 CMOS 邏輯製程中需要額外光罩與高壓元件，且容易因電流突波熔斷導致微裂縫與矽渣噴濺；亟需利用標準接面二極體作為大電流選擇器並受控引發電遷移。",
+              "mechanism": "利用標準 FEOL 之 N+/P-well 或 P+/N-well 接面二極體（1R1D 拓撲）提供高電流密度，並在熔絲路徑中導入通孔 (vias) 與跳線 (jumpers) 聚焦焦耳熱，使熔絲材料在未破壞絕緣層的前提下發生原子熱輔助電遷移。",
+              "claimFocus": "權利項 1 包含複數 OTP 單元，各單元包含金屬熔絲元件與接面二極體選擇器；於編程路徑中構建多個通孔或跳線以產生聚焦焦耳熱輔助編程，將金屬電阻受控提高。",
+              "productLink": "對應 Attopsemi 核心 I-fuse® 之 1R1D 熔絲單元與高密度二極體陣列架構。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "記憶體裝置與二極體選擇器項",
+              "patentCategoryEn": "Memory Device and Diode Selector",
+              "generation": "I-fuse® 1R1D 二極體選擇器架構 · 2016 年核准",
+              "generationEn": "I-fuse® 1R1D Diode Selector Architecture · 2016 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2016-08-30",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/99/b3/64/40e752ce4ead66/US9431127.pdf",
+                  "date": "2016-08-30",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 86 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 86,
+                  "pdfSHA256": "ccc2996c31a1150e88a1c333e565095c1ff3af0f6ee4a1fb9937e99c86e35a1a"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US9431127B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9431127B2",
+                "url": "https://patents.google.com/patent/US9431127B2/en",
+                "note": "US9431127B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9431127B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/99/b3/64/40e752ce4ead66/US9431127.pdf",
+                  "date": "2016-08-30",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9460807B2",
+              "title": "利用 FinFET 技術之單次可編程記憶體元件",
+              "grantDate": "2016-10-04",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US9460807B2/en",
+              "coreProblem": "在先進 FinFET 製程（如 16nm/12nm/7nm）下，立體 Fin 鰭狀通道熱耗散與 3D 幾何結構極度嚴苛，平面 bulk CMOS 的熔絲佈局無法直接縮小移植，容易導致局部熱失控或閘極氧化層穿孔。",
+              "mechanism": "將 OTP 元件整合於 FinFET 邏輯架構中，利用 MOS 閘極或虛擬閘極二極體作為選擇器分割 Fin 結構為兩個主動區；在閘極或金屬熔絲兩端設計超出設計規則之延伸區域以精確導引電流，實現低電壓 FinFET 原生相容 OTP。",
+              "claimFocus": "權利項 1 包含複數 OTP 記憶胞，各胞包含形成於 MOS 閘極且耦合至第一供應電壓線之 OTP 元件，以及具備分割至少一鰭狀結構 (fin structure) 為兩主動區之選擇器。",
+              "productLink": "對應 Attopsemi 成功驗證於 12nm / 7nm FinFET 先進製程之 I-fuse® IP 佈局架構。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "FinFET 記憶體裝置項",
+              "patentCategoryEn": "FinFET Memory Device",
+              "generation": "FinFET 先進節點 OTP 架構 · 2016 年核准",
+              "generationEn": "FinFET Advanced Node OTP Architecture · 2016 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2016-10-04",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/6f/c2/17/e3b27fcbb24f55/US9460807.pdf",
+                  "date": "2016-10-04",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 88 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 88,
+                  "pdfSHA256": "9ff12000ddecf26de78d577ab6cc6372685027c2a19b83697fb8151defb1dc32"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US9460807B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9460807B2",
+                "url": "https://patents.google.com/patent/US9460807B2/en",
+                "note": "US9460807B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9460807B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/6f/c2/17/e3b27fcbb24f55/US9460807.pdf",
+                  "date": "2016-10-04",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9496265B2",
+              "title": "高密度反熔絲之電路與系統",
+              "grantDate": "2016-11-15",
+              "priorityDate": "2011-12-08",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US9496265B2/en",
+              "coreProblem": "傳統反熔絲陣列因需要獨立的隔離井與存取電晶體，位元胞面積龐大（通常 >30~50 F²），難以在物聯網與超小型標籤晶片中達到極致高密度與低成本。",
+              "mechanism": "在兩條互相垂直之多晶矽與金屬導電線交點構築超高密度反熔絲胞（Cross-point 架構），利用接觸孔中的薄氧化層作為擊穿介質，擊穿後就地形成二極體接面以杜絕交叉漏電。",
+              "claimFocus": "權利項 1 包含構建於複數多晶矽導電線與垂直金屬線交點之反熔絲記憶體，於交點接觸孔中形成薄隔離氧化層；透過施加偏壓使薄氧化層受控擊穿形成非揮發導通態。",
+              "productLink": "對應 Attopsemi 超高密度 Cross-point 交點反熔絲與超緊湊陣列專利佈局。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "高密度交點反熔絲項",
+              "patentCategoryEn": "High-Density Cross-Point Anti-Fuse",
+              "generation": "高密度 Cross-point 反熔絲架構 · 2016 年核准",
+              "generationEn": "High-Density Cross-Point Anti-Fuse Architecture · 2016 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2016-11-15",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/ef/01/97/b29c240b40b862/US9496265.pdf",
+                  "date": "2016-11-15",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 26 頁；申請人、發明人及核准時受讓人見第 1 頁。",
+                  "page": 26,
+                  "pdfSHA256": "cecac93c3a42c2a3ee7c2c110a28cc02d1a02fa4421aaf2feedf51b07f125893"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US9496265B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9496265B2",
+                "url": "https://patents.google.com/patent/US9496265B2/en",
+                "note": "US9496265B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9496265B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/ef/01/97/b29c240b40b862/US9496265.pdf",
+                  "date": "2016-11-15",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9824768B2",
+              "title": "具區塊位址映射與編程計數追蹤以模擬 MTP 之積體 OTP 記憶體",
+              "grantDate": "2017-11-21",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US9824768B2/en",
+              "coreProblem": "微控制器需要多次更新參數，但原生 MTP/Flash 製程需要額外光罩與高壓元件；直接以軟體在 OTP 上模擬多次寫入消耗大量處理器開銷且位址管理脆弱。",
+              "mechanism": "晶片內部整合非揮發區塊大小暫存器與計數暫存器，每次寫入前自動更新計數暫存器，由硬體自動將虛擬輸入位址與區塊位址重組映射至新實體區塊，達成純硬體擬 MTP 運作。",
+              "claimFocus": "權利項 1 包含擬 MTP (pseudo-MTP) 記憶體，利用 OTP 記憶陣列、非揮發區塊大小暫存器與編程計數暫存器；藉由硬體邏輯生成內部實體位址以多次覆寫更新參數。",
+              "productLink": "對應 Attopsemi 以純邏輯 OTP 陣列提供免額外光罩之 pseudo-MTP 韌體儲存解決方案。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "擬 MTP 系統與記憶體架構項",
+              "patentCategoryEn": "Pseudo-MTP System and Memory Architecture",
+              "generation": "硬體擬 MTP 區塊映射架構 · 2017 年核准",
+              "generationEn": "Hardware Pseudo-MTP Block Mapping Architecture · 2017 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2017-11-21",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/e3/0a/a4/dea75c81176ca7/US9824768.pdf",
+                  "date": "2017-11-21",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 21 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 21,
+                  "pdfSHA256": "bd56ad92ffc9ac67e456e82551899c0c6b5451ec4b644ba52888691e0386bce8"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US9824768B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9824768B2",
+                "url": "https://patents.google.com/patent/US9824768B2/en",
+                "note": "US9824768B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9824768B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/e3/0a/a4/dea75c81176ca7/US9824768.pdf",
+                  "date": "2017-11-21",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10229746B2",
+              "title": "具高資料安全性與臨界電流電遷移防護之 OTP 記憶體",
+              "grantDate": "2019-03-12",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US10229746B2/en",
+              "coreProblem": "傳統電熔絲在過大電流下會產生破裂、熔融或熱失控，留下肉眼可辨的實體形貌破壞，極易被去層顯微鏡或 SEM/TEM 逆向讀出金鑰；且熱失控導致阻值分散過大。",
+              "mechanism": "嚴格將編程電流控制在臨界電流以下，使熱輔助電遷移成為唯一的材料傳輸機制，杜絕熔融與熱失控；外觀幾何無損達成極高實體防逆向安全，並以漸進脈衝精準收斂阻值。",
+              "claimFocus": "權利項 1 包含具備高安全性的 OTP 記憶體，其編程邏輯受控提供複數電流脈衝，各脈衝電流強度嚴格維持在引起熔絲破裂或熱失控之臨界電流以下，使熔絲僅透過電遷移改變電阻。",
+              "productLink": "對應 Attopsemi I-fuse® 主打之「零實體破壞、防光學與去層逆向工程」高安全物聯網與晶片 ID 方案。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "高安全 OTP 記憶體與控制項",
+              "patentCategoryEn": "High-Security OTP Memory and Control",
+              "generation": "高安全臨界電流防逆向架構 · 2019 年核准",
+              "generationEn": "High-Security Sub-Critical Electromigration Architecture · 2019 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2019-03-12",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/bd/7b/74/79d01ae15348da/US10229746.pdf",
+                  "date": "2019-03-12",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 101 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 101,
+                  "pdfSHA256": "a286f109656774684ad3f51a647bd28a170e021a76a6e9d92b50d99aa30fae75"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US10229746B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10229746B2",
+                "url": "https://patents.google.com/patent/US10229746B2/en",
+                "note": "US10229746B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US10229746B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/bd/7b/74/79d01ae15348da/US10229746.pdf",
+                  "date": "2019-03-12",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10249379B2",
+              "title": "具延伸幾何區域以加速編程之電熔絲 OTP 元件",
+              "grantDate": "2019-04-02",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US10249379B2/en",
+              "coreProblem": "傳統電熔絲為滿足對稱設計規則，接觸孔邊緣留有最小延伸尺寸，在微縮節點下熱量容易向金屬導線與基板快速發散，導致編程需要更長脈衝或更高電壓。",
+              "mechanism": "在電熔絲接觸孔或通孔外側刻意增加長度顯著超越設計規則的非對稱延伸區域 (extended area)，該區域無電流流過，卻能作為局域熱阻障以抑制熱發散，進而顯著加速熱輔助電遷移。",
+              "claimFocus": "權利項 1 包含 OTP 記憶體，其電熔絲具有超出接觸孔或通孔且長於設計規則所需之延伸區域，該延伸區域實質無電流流過；配合選擇器以低電壓觸發快速電遷移編程。",
+              "productLink": "對應 Attopsemi 低功耗 I-fuse® 之熱阻障微縮佈局與快速編程單元設計。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "延伸幾何電熔絲記憶體項",
+              "patentCategoryEn": "Extended-Area Fuse Memory Device",
+              "generation": "熱阻障延伸幾何微縮架構 · 2019 年核准",
+              "generationEn": "Thermal-Barrier Extended Geometry Architecture · 2019 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2019-04-02",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/db/9b/eb/bbb5777a89be28/US10249379.pdf",
+                  "date": "2019-04-02",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 87 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 87,
+                  "pdfSHA256": "fe30b3aa826b0b7d3346536fbab8ebb68393f7c51677baaf754b0418b50bdc3d"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US10249379B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10249379B2",
+                "url": "https://patents.google.com/patent/US10249379B2/en",
+                "note": "US10249379B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US10249379B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/db/9b/eb/bbb5777a89be28/US10249379.pdf",
+                  "date": "2019-04-02",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10586832B2",
+              "title": "利用環繞式閘極 (GAA) 奈米線結構之單次可編程記憶體",
+              "grantDate": "2020-03-10",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US10586832B2/en",
+              "coreProblem": "邁入 3nm/2nm 環繞式閘極 (GAA) 與奈米片世代後，傳統反熔絲高壓擊穿會損毀超薄懸空奈米片，且立體奈米線缺乏原生相容之高可靠度 OTP 單元。",
+              "mechanism": "將 OTP 可程式電阻元件直接構建於 GAA 奈米線/奈米片架構中，利用延伸源極/汲極或 MOS 閘極金屬化物作為電阻元件，在環繞式閘極的靜電控制下提供極致均勻的電流密度。",
+              "claimFocus": "權利項 1 包含構建於至少一奈米線結構之 OTP 記憶體，包含複數 OTP 記憶胞，各胞包含至少一電阻元件與奈米線結構，由 MOS 閘極分割為第一與第二主動區。",
+              "productLink": "對應 Attopsemi 前瞻佈局之次 3nm 環繞閘極 (GAA) 與奈米片製程原生 I-fuse® 架構。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "GAA 奈米線記憶體項",
+              "patentCategoryEn": "Gate-All-Around Nanowire Memory",
+              "generation": "GAA 奈米片次世代節點 OTP 架構 · 2020 年核准",
+              "generationEn": "GAA Nanosheet Next-Gen OTP Architecture · 2020 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2020-03-10",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/7d/f0/a3/2e20f83413f2fa/US10586832.pdf",
+                  "date": "2020-03-10",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 81 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 81,
+                  "pdfSHA256": "8ef055692faf6bd5fb2451eb3e2c88b47f587d126c817188ca763448a6659979"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US10586832B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10586832B2",
+                "url": "https://patents.google.com/patent/US10586832B2/en",
+                "note": "US10586832B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US10586832B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/7d/f0/a3/2e20f83413f2fa/US10586832.pdf",
+                  "date": "2020-03-10",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10916317B2",
+              "title": "薄膜電晶體 (TFT) 技術與可撓式基板上之可編程電阻記憶體",
+              "grantDate": "2021-02-09",
+              "priorityDate": "2010-08-20",
+              "inventors": "Shine C. Chung",
+              "assignee": "上峰科技 Attopsemi Technology Co., Ltd. — 核准公報首頁受讓人",
+              "url": "https://patents.google.com/patent/US10916317B2/en",
+              "coreProblem": "在可撓式電子、穿戴式裝置或顯示器面板整合中，受限於非單晶矽基板與低溫製程（LTPS / IGZO），傳統矽基高溫 OTP 無法直接集成於柔性面板之上。",
+              "mechanism": "利用非單晶矽（非晶矽 a-Si、低溫多晶矽 LTPS、金屬氧化物半導體）薄膜電晶體技術，在塑膠、玻璃或金屬箔等可撓式基板上集成可程式電阻記憶體（OTP/RRAM）。",
+              "claimFocus": "權利項 1 包含於非單晶矽薄膜電晶體技術中形成之可程式電阻記憶體，各胞包含可程式電阻元件與 TFT 選擇器，第一主動區具有第一型摻雜並提供編程電流。",
+              "productLink": "對應 Attopsemi 拓展至面板級 (In-display)、物聯網軟性電子與 TFT 基板之可程式非揮發記憶體佈局。",
+              "legalStatus": "active",
+              "legalStatusZh": "索引標示有效，非即時法律判定",
+              "legalStatusEn": "Indexed active; not a current legal determination",
+              "expirationDate": "未於本次核定",
+              "patentCategory": "TFT 可編程電阻記憶體項",
+              "patentCategoryEn": "TFT Programmable Resistance Memory",
+              "generation": "TFT 薄膜可撓式基板 OTP 架構 · 2021 年核准",
+              "generationEn": "TFT Flexible Substrate OTP Architecture · 2021 Grant",
+              "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+              "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+              "reviewedOn": "2026-10-15",
+              "publicationType": "grant",
+              "publicationDate": "2021-02-09",
+              "identityRole": "assignee",
+              "researchSources": [
+                {
+                  "title": "核准權利項與公報首頁",
+                  "url": "https://patentimages.storage.googleapis.com/d6/c3/c5/e53c77b4ecd471/US10916317.pdf",
+                  "date": "2021-02-09",
+                  "dateKind": "published",
+                  "note": "權利項位於 PDF 第 101 頁；申請人、發明人及核准時受讓人見第 1 頁。主張優先權鏈起於 2010 年。",
+                  "page": 101,
+                  "pdfSHA256": "f1deae95ebadb3e54547e9fead347d23dd25345c7f0f9785ee4a37ff22cbee08"
+                },
+                {
+                  "title": "收錄狀態來源",
+                  "url": "https://patents.google.com/patent/US10916317B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "查核日 Google Patents 索引標示有效；不等於獨立法律判定，本次不填推算期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10916317B2",
+                "url": "https://patents.google.com/patent/US10916317B2/en",
+                "note": "US10916317B2 經審查確認受讓人為 Attopsemi Technology Co Ltd，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US10916317B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/d6/c3/c5/e53c77b4ecd471/US10916317.pdf",
+                  "date": "2021-02-09",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         }

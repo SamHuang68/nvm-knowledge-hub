@@ -72,7 +72,7 @@ export function validateVendorPatentMaps(data) {
     if(vendor.id==='attopsemi'){
       const source=vendor.nameSource;
       if(!source?.note||!source.title||!source.url?.startsWith('https://www.attopsemi.com/')||!source.date||source.dateKind!=='checked'||!vendor.attributionNote)throw new Error('上峰科技名稱來源不完整');
-      if(!vendor.personnelSource||vendor.researchSources?.length!==2||!vendor.founders.includes('Shine Chung')||/[鍾鐘]/u.test(vendor.founders)||vendor.families.flatMap(f=>f.patents).length!==2)throw new Error('上峰人員與研究來源不完整');
+      if(!vendor.personnelSource||vendor.researchSources?.length!==2||!vendor.founders.includes('Shine Chung')||/[鍾鐘]/u.test(vendor.founders)||vendor.families.flatMap(f=>f.patents).length<2)throw new Error('上峰人員與研究來源不完整');
       for(const source of [vendor.personnelSource,...vendor.researchSources])validateResearchSource(source);
       if(vendor.name.includes('寬緯')||vendor.name.includes('Technology Inc.'))throw new Error('上峰科技公司名稱不符合官方來源');
     }
@@ -113,10 +113,18 @@ export function validateVendorPatentMaps(data) {
       for (const patent of family.patents) {
         if(vendor.id==='attopsemi'){
           const pairs={US9711237B2:['US9165979B2',86],US10923204B2:['US9613943B2',104]},expected=pairs[patent.id];
-          if(!expected||patent.correctedFrom?.id!==expected[0]||patent.correctedFrom.url!==`https://patents.google.com/patent/${expected[0]}/en`||!patent.correctedFrom.note)throw new Error('上峰案卷公報或更正對應不正確');
-          if(!patent.assignee.includes('Attopsemi Technology Co., Ltd.')||patent.inventors!=='Shine C. Chung')throw new Error('上峰案卷首頁身分不正確');
-          if(patent.researchSources?.length!==3||patent.researchSources[0].page!==expected[1]||!patent.researchSources[0].url.startsWith('https://patentimages.storage.googleapis.com/'))throw new Error('上峰案卷權利項來源不完整');
-          for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+          if(expected){
+            if(patent.correctedFrom?.id!==expected[0]||patent.correctedFrom.url!==`https://patents.google.com/patent/${expected[0]}/en`||!patent.correctedFrom.note)throw new Error('上峰案卷公報或更正對應不正確');
+            if(!patent.assignee.includes('Attopsemi Technology Co., Ltd.')||patent.inventors!=='Shine C. Chung')throw new Error('上峰案卷首頁身分不正確');
+            if(patent.researchSources?.length!==3||patent.researchSources[0].page!==expected[1]||!patent.researchSources[0].url.startsWith('https://patentimages.storage.googleapis.com/'))throw new Error('上峰案卷權利項來源不完整');
+            for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+          } else {
+            const first=patent.researchSources?.[0];
+            if(patent.reviewedOn!=='2026-10-15'||!first?.url?.startsWith('https://patentimages.storage.googleapis.com/')||!Number.isInteger(first.page)||first.page<2||!/^([a-f0-9]{64})$/u.test(first.pdfSHA256||'')||!patent.correctedFrom?.id||!patent.correctedFrom.note)throw new Error('案卷原件與更正來源不完整');
+            for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+            if(!['grant','application'].includes(patent.publicationType)||!/^\d{4}-\d{2}-\d{2}$/u.test(patent.publicationDate||'')||!['assignee','applicant'].includes(patent.identityRole))throw new Error('公報種類或首頁身分不完整');
+            if(patent.id.endsWith('A1')!==(patent.publicationType==='application')||(patent.publicationType==='application'&&(patent.grantDate!=='—'||patent.legalStatus!=='unverified')))throw new Error('申請公開案不得視為已核准');
+          }
         }
         if(vendor.id!=='attopsemi'){
           const first=patent.researchSources?.[0];

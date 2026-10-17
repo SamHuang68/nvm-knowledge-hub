@@ -11800,6 +11800,470 @@
                     "note": "The 2017 issued front page lists Micron Technology, Inc. as applicant and assignee. This does not support the recorded Attopsemi attribution. The former analysis is now replaced by a sourced dossier; this correction does not determine current ownership."
                   }
                 }
+              },
+              {
+                "id": "US9431127B2",
+                "title": "Circuit and System of Using Junction Diode as Program Selector for Metal Fuses for One-Time Programmable Devices",
+                "grantDate": "2016-08-30",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US9431127B2/en",
+                "coreProblem": "Conventional metal electrical fuses in CMOS logic processes require extra masks or high-voltage devices, and current surge fusing causes micro-cracks or silicon splashing; a junction diode selector is needed to safely drive controlled electromigration.",
+                "mechanism": "Utilizes native CMOS FEOL junction diodes (1R1D topology) for high current density, incorporating vias and jumpers along the fuse path to concentrate Joule heating and initiate thermal electromigration without dielectric rupture.",
+                "claimFocus": "Claim 1 recites an OTP memory with OTP cells having a metal fuse coupled to a first supply line and a junction diode selector, with multiple vias or jumpers along the program path to generate Joule heat assisting programming.",
+                "productLink": "Corresponds to Attopsemi core I-fuse® 1R1D fuse cell and high-density junction diode array architecture.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "記憶體裝置與二極體選擇器項",
+                "patentCategoryEn": "Memory Device and Diode Selector",
+                "generation": "I-fuse® 1R1D 二極體選擇器架構 · 2016 年核准",
+                "generationEn": "I-fuse® 1R1D Diode Selector Architecture · 2016 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2016-08-30",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/99/b3/64/40e752ce4ead66/US9431127.pdf",
+                    "date": "2016-08-30",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 86; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 86,
+                    "pdfSHA256": "ccc2996c31a1150e88a1c333e565095c1ff3af0f6ee4a1fb9937e99c86e35a1a"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US9431127B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9431127B2",
+                  "url": "https://patents.google.com/patent/US9431127B2/en",
+                  "note": "US9431127B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US9431127B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/99/b3/64/40e752ce4ead66/US9431127.pdf",
+                    "date": "2016-08-30",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9460807B2",
+                "title": "One-Time Programmable Memory Devices Using FinFET Technology",
+                "grantDate": "2016-10-04",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US9460807B2/en",
+                "coreProblem": "Under advanced FinFET nodes (e.g. 16nm/12nm/7nm), 3D fin heat dissipation and geometric constraints prevent direct scaling of planar fuse layouts, causing thermal runaway or gate oxide punch-through.",
+                "mechanism": "Integrates OTP elements into FinFET architecture using MOS gates or dummy-gate diodes as selectors dividing fins into active regions, with extended areas beyond design rules directing current for low-voltage FinFET compatibility.",
+                "claimFocus": "Claim 1 recites an OTP memory with cells having an OTP element formed of MOS gates coupled to a first supply line and a selector dividing at least one fin structure into two active regions.",
+                "productLink": "Corresponds to Attopsemi I-fuse® IP architecture verified on 12nm and 7nm FinFET advanced nodes.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "FinFET 記憶體裝置項",
+                "patentCategoryEn": "FinFET Memory Device",
+                "generation": "FinFET 先進節點 OTP 架構 · 2016 年核准",
+                "generationEn": "FinFET Advanced Node OTP Architecture · 2016 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2016-10-04",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/6f/c2/17/e3b27fcbb24f55/US9460807.pdf",
+                    "date": "2016-10-04",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 88; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 88,
+                    "pdfSHA256": "9ff12000ddecf26de78d577ab6cc6372685027c2a19b83697fb8151defb1dc32"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US9460807B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9460807B2",
+                  "url": "https://patents.google.com/patent/US9460807B2/en",
+                  "note": "US9460807B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US9460807B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/6f/c2/17/e3b27fcbb24f55/US9460807.pdf",
+                    "date": "2016-10-04",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9496265B2",
+                "title": "Circuit and System of a High Density Anti-Fuse",
+                "grantDate": "2016-11-15",
+                "priorityDate": "2011-12-08",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US9496265B2/en",
+                "coreProblem": "Conventional anti-fuse arrays require dedicated isolation wells and access transistors, resulting in large cell areas (>30–50 F²) unsuitable for high-density IoT or ultra-compact RFID tags.",
+                "mechanism": "Builds ultra-high-density cross-point anti-fuse cells at intersections of perpendicular polysilicon and metal lines using thin oxide in contact holes, forming an in-situ diode upon rupture to eliminate sneak leakage.",
+                "claimFocus": "Claim 1 recites an anti-fuse memory constructed at cross points of polysilicon conductive lines and perpendicular metal lines, with thin isolation oxide in contact holes ruptured by applied voltages.",
+                "productLink": "Corresponds to Attopsemi ultra-high-density cross-point anti-fuse and compact array patent portfolio.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "高密度交點反熔絲項",
+                "patentCategoryEn": "High-Density Cross-Point Anti-Fuse",
+                "generation": "高密度 Cross-point 反熔絲架構 · 2016 年核准",
+                "generationEn": "High-Density Cross-Point Anti-Fuse Architecture · 2016 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2016-11-15",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/ef/01/97/b29c240b40b862/US9496265.pdf",
+                    "date": "2016-11-15",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 26; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 26,
+                    "pdfSHA256": "cecac93c3a42c2a3ee7c2c110a28cc02d1a02fa4421aaf2feedf51b07f125893"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US9496265B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9496265B2",
+                  "url": "https://patents.google.com/patent/US9496265B2/en",
+                  "note": "US9496265B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US9496265B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/ef/01/97/b29c240b40b862/US9496265.pdf",
+                    "date": "2016-11-15",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9824768B2",
+                "title": "Integrated OTP Memory for Providing MTP Memory",
+                "grantDate": "2017-11-21",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US9824768B2/en",
+                "coreProblem": "Microcontrollers need multiple parameter updates, but native MTP/Flash requires extra masks and high-voltage devices, while software emulation on OTP adds processor overhead and address vulnerability.",
+                "mechanism": "Integrates on-chip non-volatile block and count registers, auto-incrementing the count register before each write and combining it with input address bits to map into new physical blocks in hardware.",
+                "claimFocus": "Claim 1 recites a pseudo-MTP memory using an OTP array, non-volatile block size registers, and count registers, dynamically generating final block addresses from count and block values.",
+                "productLink": "Corresponds to Attopsemi zero-mask pseudo-MTP firmware storage solution based on pure logic OTP arrays.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "擬 MTP 系統與記憶體架構項",
+                "patentCategoryEn": "Pseudo-MTP System and Memory Architecture",
+                "generation": "硬體擬 MTP 區塊映射架構 · 2017 年核准",
+                "generationEn": "Hardware Pseudo-MTP Block Mapping Architecture · 2017 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2017-11-21",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/e3/0a/a4/dea75c81176ca7/US9824768.pdf",
+                    "date": "2017-11-21",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 21; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 21,
+                    "pdfSHA256": "bd56ad92ffc9ac67e456e82551899c0c6b5451ec4b644ba52888691e0386bce8"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US9824768B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9824768B2",
+                  "url": "https://patents.google.com/patent/US9824768B2/en",
+                  "note": "US9824768B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US9824768B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/e3/0a/a4/dea75c81176ca7/US9824768.pdf",
+                    "date": "2017-11-21",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10229746B2",
+                "title": "OTP Memory with High Data Security",
+                "grantDate": "2019-03-12",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US10229746B2/en",
+                "coreProblem": "Conventional fuses programmed with excessive current suffer rupture, melting, or thermal runaway, leaving visible physical damage readable via delayering or SEM/TEM, and causing large resistance spread.",
+                "mechanism": "Strictly constrains programming current below the critical threshold so electromigration remains the sole mechanism, preventing rupture/melting to achieve sub-surface tamper resistance with progressive pulses.",
+                "claimFocus": "Claim 1 recites an OTP memory configured to provide programming pulses maintained below a critical current causing rupture or thermal runaway, ensuring deterministic electromigration.",
+                "productLink": "Corresponds to Attopsemi I-fuse® signature non-destructive anti-tamper security for root-of-trust and secure ID.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "高安全 OTP 記憶體與控制項",
+                "patentCategoryEn": "High-Security OTP Memory and Control",
+                "generation": "高安全臨界電流防逆向架構 · 2019 年核准",
+                "generationEn": "High-Security Sub-Critical Electromigration Architecture · 2019 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2019-03-12",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/bd/7b/74/79d01ae15348da/US10229746.pdf",
+                    "date": "2019-03-12",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 101; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 101,
+                    "pdfSHA256": "a286f109656774684ad3f51a647bd28a170e021a76a6e9d92b50d99aa30fae75"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US10229746B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10229746B2",
+                  "url": "https://patents.google.com/patent/US10229746B2/en",
+                  "note": "US10229746B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US10229746B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/bd/7b/74/79d01ae15348da/US10229746.pdf",
+                    "date": "2019-03-12",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10249379B2",
+                "title": "One-Time Programmable Devices Having Program Selector for Electrical Fuses with Extended Area",
+                "grantDate": "2019-04-02",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US10249379B2/en",
+                "coreProblem": "Symmetrical fuse layouts adhering to standard design rules suffer excessive thermal dissipation into metal lines and substrate, requiring longer pulses or elevated programming voltages.",
+                "mechanism": "Extends the fuse geometry beyond contacts/vias significantly farther than design rules require; this non-current-carrying extension acts as a local thermal barrier to accelerate electromigration.",
+                "claimFocus": "Claim 1 recites an OTP memory where electrical fuses have extended areas beyond contacts/vias longer than design rules require, having substantially no current flowing through during programming.",
+                "productLink": "Corresponds to Attopsemi low-power I-fuse® thermal barrier layout and fast-programming cell design.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "延伸幾何電熔絲記憶體項",
+                "patentCategoryEn": "Extended-Area Fuse Memory Device",
+                "generation": "熱阻障延伸幾何微縮架構 · 2019 年核准",
+                "generationEn": "Thermal-Barrier Extended Geometry Architecture · 2019 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2019-04-02",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/db/9b/eb/bbb5777a89be28/US10249379.pdf",
+                    "date": "2019-04-02",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 87; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 87,
+                    "pdfSHA256": "fe30b3aa826b0b7d3346536fbab8ebb68393f7c51677baaf754b0418b50bdc3d"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US10249379B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10249379B2",
+                  "url": "https://patents.google.com/patent/US10249379B2/en",
+                  "note": "US10249379B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US10249379B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/db/9b/eb/bbb5777a89be28/US10249379.pdf",
+                    "date": "2019-04-02",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10586832B2",
+                "title": "One-Time Programmable Devices Using Gate-All-Around Structures",
+                "grantDate": "2020-03-10",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US10586832B2/en",
+                "coreProblem": "Entering sub-3nm Gate-All-Around (GAA) nanosheet nodes, high-voltage anti-fuse breakdown risks destroying fragile suspended nanosheets, lacking native compatible OTP cells.",
+                "mechanism": "Builds programmable resistive elements directly on GAA nanowire/nanosheet structures using extended source/drain or gate metal as fuses, achieving uniform current control in sub-3nm nodes.",
+                "claimFocus": "Claim 1 recites an OTP memory built in nanowire structures with OTP cells having a resistive element and nanowires divided by a MOS gate into first and second active regions.",
+                "productLink": "Corresponds to Attopsemi forward-looking GAA nanosheet/nanowire sub-3nm native I-fuse® architecture.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "GAA 奈米線記憶體項",
+                "patentCategoryEn": "Gate-All-Around Nanowire Memory",
+                "generation": "GAA 奈米片次世代節點 OTP 架構 · 2020 年核准",
+                "generationEn": "GAA Nanosheet Next-Gen OTP Architecture · 2020 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2020-03-10",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/7d/f0/a3/2e20f83413f2fa/US10586832.pdf",
+                    "date": "2020-03-10",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 81; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 81,
+                    "pdfSHA256": "8ef055692faf6bd5fb2451eb3e2c88b47f587d126c817188ca763448a6659979"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US10586832B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10586832B2",
+                  "url": "https://patents.google.com/patent/US10586832B2/en",
+                  "note": "US10586832B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US10586832B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/7d/f0/a3/2e20f83413f2fa/US10586832.pdf",
+                    "date": "2020-03-10",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10916317B2",
+                "title": "Programmable Resistance Memory on Thin Film Transistor Technology",
+                "grantDate": "2021-02-09",
+                "priorityDate": "2010-08-20",
+                "inventors": "Shine C. Chung",
+                "assignee": "Attopsemi Technology Co., Ltd. — Granted Patent Assignee",
+                "url": "https://patents.google.com/patent/US10916317B2/en",
+                "coreProblem": "Flexible electronics, wearables, and in-display panels lack single-crystal silicon substrates and are limited by low-temperature budgets, preventing direct integration of silicon OTP.",
+                "mechanism": "Integrates programmable resistive memory on non-single-crystalline silicon (a-Si, LTPS, metal oxide) thin film transistors over flexible substrates (plastics, glass, paper, metal foils).",
+                "claimFocus": "Claim 1 recites a programmable resistive memory in non-single-crystalline silicon TFT technology, having cells with a programmable resistive element and a TFT selector providing programming current.",
+                "productLink": "Corresponds to Attopsemi programmable NVM expansion into flexible display, panel-level, and TFT electronics.",
+                "legalStatus": "active",
+                "legalStatusZh": "索引標示有效，非即時法律判定",
+                "legalStatusEn": "Indexed active; not a current legal determination",
+                "expirationDate": "Not determined in this review",
+                "patentCategory": "TFT 可編程電阻記憶體項",
+                "patentCategoryEn": "TFT Programmable Resistance Memory",
+                "generation": "TFT 薄膜可撓式基板 OTP 架構 · 2021 年核准",
+                "generationEn": "TFT Flexible Substrate OTP Architecture · 2021 Grant",
+                "ftoStatus": "本次不判定即時有效性或自由實施。應依完整權利項組合、司法管轄地、審查歷程、維持費與相關權利逐案核對；產品機制相近不能直接判定侵權。",
+                "ftoStatusEn": "Current enforceability and freedom to operate are not determined here; complete claims and related rights require case-specific review.",
+                "reviewedOn": "2026-10-15",
+                "publicationType": "grant",
+                "publicationDate": "2021-02-09",
+                "identityRole": "assignee",
+                "researchSources": [
+                  {
+                    "title": "Granted Claims and Front Page",
+                    "url": "https://patentimages.storage.googleapis.com/d6/c3/c5/e53c77b4ecd471/US10916317.pdf",
+                    "date": "2021-02-09",
+                    "dateKind": "published",
+                    "note": "Claims on PDF page 101; Applicant, inventor, and assignee on page 1. Priority chain traces back to 2010.",
+                    "page": 101,
+                    "pdfSHA256": "f1deae95ebadb3e54547e9fead347d23dd25345c7f0f9785ee4a37ff22cbee08"
+                  },
+                  {
+                    "title": "Legal Status Source",
+                    "url": "https://patents.google.com/patent/US10916317B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Google Patents shows active; not an independent legal determination, expiration date omitted."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10916317B2",
+                  "url": "https://patents.google.com/patent/US10916317B2/en",
+                  "note": "US10916317B2 verified with assignee Attopsemi Technology Co Ltd; technical analysis reconstructed from official publication.",
+                  "source": {
+                    "title": "US10916317B2 · Official Publication Verification",
+                    "url": "https://patentimages.storage.googleapis.com/d6/c3/c5/e53c77b4ecd471/US10916317.pdf",
+                    "date": "2021-02-09",
+                    "dateKind": "published",
+                    "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
