@@ -14315,6 +14315,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US12170110B2",
+                "title": "Silicon-on-insulator (SOI) circuitry for low-voltage memory bit-line and word-line decoders",
+                "grantDate": "2024-12-17",
+                "publicationDate": "2024-12-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-11-19",
+                "inventors": "Lior Dagan",
+                "assignee": "Weebit Nano Ltd",
+                "url": "https://patents.google.com/patent/US12170110B2/en",
+                "coreProblem": "In low-voltage ReRAM arrays, threshold voltage drops and body effects in conventional pass-transistor decoders degrade write voltage headroom and induce crosstalk.",
+                "mechanism": "Implements decoders in fully depleted silicon-on-insulator (FD-SOI) technology, using dynamic back-gate bias tuning to adjust transfer transistor thresholds and eliminate write voltage loss under ultra-low supply.",
+                "claimFocus": "Claim 1 defines a memory system comprising: a memory array having bit-line and word-line inputs, an SOI bit-line decoder coupled to bit-lines, and an SOI word-line decoder coupled to word-lines, operated via dynamic back-gate biasing.",
+                "patentCategory": "電路結構項",
+                "patentCategoryEn": "Circuit Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Weebit ReRAM circuit selection and material comparison; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12170110B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/8e/a7/5b/f081deead6f76c/US12170110.pdf",
+                    "date": "2024-12-17",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventor Lior Dagan and assignee Weebit Nano Ltd; PDF page 15 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "8f8592b9db4ef6c38ec6aaab5be87db316d52bdf30ded1995e82de18a94d0e03",
+                    "page": 15
+                  },
+                  {
+                    "title": "US12170110B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12170110B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12170110B2",
+                  "url": "https://patents.google.com/patent/US12170110B2/en",
+                  "note": "US12170110B2 verified as assigned to Weebit Nano Ltd with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US12170110B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/8e/a7/5b/f081deead6f76c/US12170110.pdf",
+                    "date": "2024-12-17",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Weebit Nano Ltd; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12131777B2",
+                "title": "Resistive random-access memory (ReRAM) cell optimized for reset and set currents",
+                "grantDate": "2024-10-29",
+                "publicationDate": "2024-10-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-09-30",
+                "inventors": "Lior Dagan",
+                "assignee": "Weebit Nano Ltd",
+                "url": "https://patents.google.com/patent/US12131777B2/en",
+                "coreProblem": "SET (filament formation) and RESET (filament rupture) current profiles are highly asymmetric; conventional symmetric selectors cause over-reset stress or insufficient set margins.",
+                "mechanism": "Configures asymmetric dual-path or differential select switching circuitry to tailor forward impedance during SET current compliance and reverse high-drive conductances during RESET pulses, boosting endurance.",
+                "claimFocus": "Claim 1 defines a ReRAM cell comprising a bit-line, source-line, word-line, non-volatile resistive memory element, and a select switch controlled by word-line, featuring distinct conductivity characteristics optimized for set and reset operations.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Weebit ReRAM circuit selection and material comparison; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12131777B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/1e/7c/ab/fee0168866dcb6/US12131777.pdf",
+                    "date": "2024-10-29",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventor Lior Dagan and assignee Weebit Nano Ltd; PDF page 17 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "3ac67763eebfc188c7c00cb6ce49246a1878c6f4ff88178827cfa86aa80b887e",
+                    "page": 17
+                  },
+                  {
+                    "title": "US12131777B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12131777B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12131777B2",
+                  "url": "https://patents.google.com/patent/US12131777B2/en",
+                  "note": "US12131777B2 verified as assigned to Weebit Nano Ltd with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US12131777B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/1e/7c/ab/fee0168866dcb6/US12131777.pdf",
+                    "date": "2024-10-29",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Weebit Nano Ltd; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12040017B2",
+                "title": "Current and voltage limit circuitry for resistive random access memory programming",
+                "grantDate": "2024-07-16",
+                "publicationDate": "2024-07-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-01-28",
+                "inventors": "Lior Dagan",
+                "assignee": "Weebit Nano Ltd",
+                "url": "https://patents.google.com/patent/US12040017B2/en",
+                "coreProblem": "During electroforming or SET switching, abrupt filament percolation triggers surge currents that destroy the dielectric and induce unrecoverable hard breakdown.",
+                "mechanism": "Integrates active current-limiting circuitry in the programming path that detects runaway dI/dt on a picosecond scale, instantly clamping operation into a safe saturation regime to bound filament diameter.",
+                "claimFocus": "Claim 1 defines ReRAM programming circuitry comprising a current-limiting circuit, driver stage coupled to the resistive element, and a feedback clamp monitoring terminal voltage to restrict programming current within safe thresholds.",
+                "patentCategory": "電路結構項",
+                "patentCategoryEn": "Circuit Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Weebit ReRAM circuit selection and material comparison; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12040017B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/83/7a/be/422023c880e7ea/US12040017.pdf",
+                    "date": "2024-07-16",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventor Lior Dagan and assignee Weebit Nano Ltd; PDF page 8 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "203ba95cb0cb3d6dc23e12264e6f3d082b7ab0bd00cf47b30b49987d3e286726",
+                    "page": 8
+                  },
+                  {
+                    "title": "US12040017B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12040017B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12040017B2",
+                  "url": "https://patents.google.com/patent/US12040017B2/en",
+                  "note": "US12040017B2 verified as assigned to Weebit Nano Ltd with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US12040017B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/83/7a/be/422023c880e7ea/US12040017.pdf",
+                    "date": "2024-07-16",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Weebit Nano Ltd; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9129676B2",
+                "title": "Electronic devices containing switchably conductive silicon oxides as switching elements",
+                "grantDate": "2015-09-08",
+                "publicationDate": "2015-09-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-07-31",
+                "inventors": "James M. Tour; Jun Yao; Douglas Natelson; Lin Zhong; Tao He",
+                "assignee": "William Marsh Rice University",
+                "url": "https://patents.google.com/patent/US9129676B2/en",
+                "coreProblem": "Transition metal oxide ReRAMs (HfO2/TaOx) require exotic metallurgy and risk cross-contamination in standard silicon foundries, necessitating pure silicon-compatible solutions.",
+                "mechanism": "Utilizes a silicon-rich silicon oxide (SiOx) layer between electrodes; an electrical bias causes oxygen vacancies to aggregate into conductive silicon filaments, enabling bistable switching in standard oxide.",
+                "claimFocus": "Claim 1 defines a method for operating an electronic device comprising first and second contacts defining a gap filled with a switchably conductive silicon oxide layer, applying voltage pulses to reversibly switch between high and low resistance states.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Weebit ReRAM circuit selection and material comparison; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9129676B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/fe/e0/0f/f12280f90de76b/US9129676.pdf",
+                    "date": "2015-09-08",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors James M. Tour et al. and assignee Rice University (Weebit license foundation); PDF page 46 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "3fb1801493c19790147b929ef03b24c7d71a99d0e25038e07dea67ca054d02e0",
+                    "page": 46
+                  },
+                  {
+                    "title": "US9129676B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9129676B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9129676B2",
+                  "url": "https://patents.google.com/patent/US9129676B2/en",
+                  "note": "US9129676B2 verified as assigned to William Marsh Rice University, commercialized via exclusive license by Weebit Nano, reconstructed from original gazette.",
+                  "source": {
+                    "title": "US9129676B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/fe/e0/0f/f12280f90de76b/US9129676.pdf",
+                    "date": "2015-09-08",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Rice University; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9997705B2",
+                "title": "Porous SiOx materials for improvement in SiOx switching device performances",
+                "grantDate": "2018-06-12",
+                "publicationDate": "2018-06-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-11-19",
+                "inventors": "James M. Tour; Gunuk Wang; Yang Yang; Yongsung Ji",
+                "assignee": "William Marsh Rice University",
+                "url": "https://patents.google.com/patent/US9997705B2/en",
+                "coreProblem": "Dense silicon dioxide possesses high dielectric breakdown fields, resulting in forming voltages exceeding 10V that cannot interface directly with sub-1V advanced core logic.",
+                "mechanism": "Engineers nanoporous silicon oxide with high-density unsaturated dangling bonds and oxygen vacancy channels along pore boundaries, depressing forming voltage below 3V and improving high-temperature retention.",
+                "claimFocus": "Claim 1 defines a method for forming a memory device: depositing bottom electrode on substrate, depositing porous silicon oxide switching layer over electrode, and depositing top electrode, providing high ON/OFF ratio under low operating voltages.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Weebit ReRAM circuit selection and material comparison; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9997705B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/cc/29/0b/c0cad4f3ffdedf/US9997705.pdf",
+                    "date": "2018-06-12",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors James M. Tour et al. and assignee Rice University (Weebit license foundation); PDF page 52 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "9a0f15425447c250b17dab8692eda7a16790595fde9003941764db26c6a48b2b",
+                    "page": 52
+                  },
+                  {
+                    "title": "US9997705B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9997705B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9997705B2",
+                  "url": "https://patents.google.com/patent/US9997705B2/en",
+                  "note": "US9997705B2 verified as assigned to William Marsh Rice University, commercialized via exclusive license by Weebit Nano, reconstructed from original gazette.",
+                  "source": {
+                    "title": "US9997705B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/cc/29/0b/c0cad4f3ffdedf/US9997705.pdf",
+                    "date": "2018-06-12",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Rice University; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
