@@ -13393,6 +13393,62 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7932571B2",
+                "title": "Magnetic memory element having reduced current density and method of manufacturing",
+                "grantDate": "2011-04-26",
+                "publicationDate": "2011-04-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-10-11",
+                "inventors": "Nicholas D. Rizzo; Phillip G. Mather",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US7932571B2/en",
+                "coreProblem": "In dense MRAM arrays, high critical switching current density (Jc) produces excessive Joule heating and demands oversized select transistors.",
+                "mechanism": "Applies engineered tunnel barrier geometry and an interface spin-scattering layer at free layer boundary to maximize spin polarization efficiency, drastically reducing switching current density while maintaining thermal stability factor Delta > 60.",
+                "claimFocus": "Claim 1 defines a memory device structure: fixed magnetic layer, dielectric tunnel barrier, and free magnetic layer engineered for spin transmission efficiency to induce bistable magnetic switching under bidirectional spin-polarized currents.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Toggle MRAM historical source topic; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7932571B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/7d/e9/d0/bcafa573831ab7/US7932571.pdf",
+                    "date": "2011-04-26",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Everspin Technologies, Inc.; PDF page 23 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "1274e6353151e0bd70783a31446fef885406609b55fa3e795095e2f3b2347b6a",
+                    "page": 23
+                  },
+                  {
+                    "title": "US7932571B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7932571B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7932571B2",
+                  "url": "https://patents.google.com/patent/US7932571B2/en",
+                  "note": "US7932571B2 verified as assigned to Everspin Technologies, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US7932571B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/7d/e9/d0/bcafa573831ab7/US7932571.pdf",
+                    "date": "2011-04-26",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -13626,6 +13682,230 @@
                     "date": "2021-01-05",
                     "dateKind": "published",
                     "note": "Original front-page identity check; technical interpretation was corrected against the selected publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7605437B2",
+                "title": "Spin-transfer MRAM structure and methods using dual spin polarizers",
+                "grantDate": "2009-10-20",
+                "publicationDate": "2009-10-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-04-18",
+                "inventors": "Frederick B. Mancoff; Nicholas D. Rizzo",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US7605437B2/en",
+                "coreProblem": "In single-barrier STT-MRAM cells, switching current asymmetry between anti-parallel-to-parallel and parallel-to-anti-parallel transitions imposes high design margins on driver circuits.",
+                "mechanism": "Positions a free magnetic layer between first and second spin polarizers, where at least one polarizer incorporates an unpinned synthetic antiferromagnet (SAF) with unbalanced fixed layer thicknesses to balance spin torque vectors.",
+                "claimFocus": "Claim 1 defines a spin-transfer MRAM bit comprising a free layer between first and second spin polarizers, wherein at least one polarizer comprises an unpinned SAF with first and second fixed layers of non-equal thicknesses separated by a coupling layer.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Everspin pinned SAF and STT-MRAM portfolio; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7605437B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/7a/96/de/d4350220e33f98/US7605437.pdf",
+                    "date": "2009-10-20",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Everspin Technologies, Inc.; PDF page 17 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "eab65d4e5a2dce068c8de527a12e6b8117d39a65812ae871c8efae3288c17d23",
+                    "page": 17
+                  },
+                  {
+                    "title": "US7605437B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7605437B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7605437B2",
+                  "url": "https://patents.google.com/patent/US7605437B2/en",
+                  "note": "US7605437B2 verified as assigned to Everspin Technologies, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US7605437B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/7a/96/de/d4350220e33f98/US7605437.pdf",
+                    "date": "2009-10-20",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8216703B2",
+                "title": "Magnetic tunnel junction device with segmented ferromagnetic layers",
+                "grantDate": "2012-07-10",
+                "publicationDate": "2012-07-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-02-21",
+                "inventors": "Jijun Sun; Jon M. Slaughter",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US8216703B2/en",
+                "coreProblem": "In scaled MTJ cells, demagnetization fields tilt pinned SAF layer magnetizations during heavy write current pulses, degrading TMR ratio and read margins.",
+                "mechanism": "Introduces stepped-thickness segmented regions and thin non-magnetic coupling transitions in SAF layers to close stray fields at the nanoscale, canceling dipole offset fields at junction center.",
+                "claimFocus": "Claim 1 defines a magnetic tunnel junction device comprising a synthetic antiferromagnet (SAF) structure having first and second ferromagnetic layers separated by a coupling layer, wherein the first ferromagnetic layer has distinct first and second portions to minimize stray field interactions.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Everspin pinned SAF and STT-MRAM portfolio; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8216703B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/de/d3/0d/71dd62ec8f40d2/US8216703.pdf",
+                    "date": "2012-07-10",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Everspin Technologies, Inc.; PDF page 19 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "3eb5d37dcf61961e0da39cff244f378bb109e2cc4ed0d82d3c291ed3181bbd03",
+                    "page": 19
+                  },
+                  {
+                    "title": "US8216703B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8216703B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8216703B2",
+                  "url": "https://patents.google.com/patent/US8216703B2/en",
+                  "note": "US8216703B2 verified as assigned to Everspin Technologies, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US8216703B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/de/d3/0d/71dd62ec8f40d2/US8216703.pdf",
+                    "date": "2012-07-10",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8923041B2",
+                "title": "Self-referenced sense amplifier for spin torque MRAM and destructive read method",
+                "grantDate": "2014-12-30",
+                "publicationDate": "2014-12-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-04-11",
+                "inventors": "Thomas Andre; Syed M. Alam; Chitra Subramanian",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US8923041B2/en",
+                "coreProblem": "Process variations cause wide spread in cell resistances (Rp/Rap), rendering fixed reference schemes prone to sense errors in high-density arrays.",
+                "mechanism": "Executes destructive self-referenced read: captures initial cell state voltage on a first capacitor, writes a known reference state, samples second voltage, and differentiates via charge sharing with auto-restore if state flipped.",
+                "claimFocus": "Claim 1 defines a read method comprising applying a read voltage to sample a first voltage on a first capacitor, writing a first data state, applying read voltage to sample a second voltage on a second capacitor, and comparing both to evaluate original data.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Everspin pinned SAF and STT-MRAM portfolio; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8923041B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/3e/f9/2d/771ca7ad8741a0/US8923041.pdf",
+                    "date": "2014-12-30",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Everspin Technologies, Inc.; PDF page 38 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "e7ce176dabab39391d85a85974cef697017852af35b26a64c8131723ea0f2bb9",
+                    "page": 38
+                  },
+                  {
+                    "title": "US8923041B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8923041B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8923041B2",
+                  "url": "https://patents.google.com/patent/US8923041B2/en",
+                  "note": "US8923041B2 verified as assigned to Everspin Technologies, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US8923041B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/3e/f9/2d/771ca7ad8741a0/US8923041.pdf",
+                    "date": "2014-12-30",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11004899B2",
+                "title": "Magnetoresistive devices with interface perpendicular magnetic anisotropy and method therefor",
+                "grantDate": "2021-05-11",
+                "publicationDate": "2021-05-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-04-26",
+                "inventors": "Sanjeev Aggarwal; Jijun Sun",
+                "assignee": "Everspin Technologies, Inc.",
+                "url": "https://patents.google.com/patent/US11004899B2/en",
+                "coreProblem": "In sub-28nm pMTJ nodes, 400°C BEOL thermal budgets cause erratic boron diffusion, degrading perpendicular anisotropy and thermal stability.",
+                "mechanism": "Integrates an interface perpendicular magnetic anisotropy (iPMA) layer with refractory metal dusting (Ta/W/Mo) to absorb excess boron during 400°C annealing, preserving high anisotropy and ultra-low Gilbert damping.",
+                "claimFocus": "Claim 1 defines a method of manufacturing a magnetoresistive device: forming a first ferromagnetic region, dielectric tunnel barrier, and free ferromagnetic region having interface perpendicular magnetic anisotropy maintained after annealing.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against Everspin pinned SAF and STT-MRAM portfolio; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11004899B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/52/76/b6/f4d3175471e179/US11004899.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Everspin Technologies, Inc.; PDF page 64 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "67441b4a30fe88de8684d6c48e9518b996f23dc7adb38a7c7da255bb87c8bb1d",
+                    "page": 64
+                  },
+                  {
+                    "title": "US11004899B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11004899B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11004899B2",
+                  "url": "https://patents.google.com/patent/US11004899B2/en",
+                  "note": "US11004899B2 verified as assigned to Everspin Technologies, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US11004899B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/52/76/b6/f4d3175471e179/US11004899.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
                     "page": 1
                   }
                 }

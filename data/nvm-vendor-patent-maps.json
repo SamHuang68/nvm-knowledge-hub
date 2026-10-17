@@ -6293,6 +6293,62 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US7932571B2",
+              "title": "具備降低翻轉電流密度之磁性記憶元件及製造方法",
+              "grantDate": "2011-04-26",
+              "publicationDate": "2011-04-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-10-11",
+              "inventors": "Nicholas D. Rizzo; Phillip G. Mather",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7932571B2/en",
+              "coreProblem": "MRAM 在高密度微縮時，磁化翻轉所需的臨界電流密度（Jc）過高，不僅引發嚴重焦耳熱，亦需大型選擇電晶體，大幅膨脹單元面積。",
+              "mechanism": "在自由層與固定層之間採用特殊幾何調控之穿隧絕緣障壁層，並在自由磁層引入界面反對稱自旋散射強化層，以極高自旋極化率大幅壓低臨界翻轉電流密度，同時維持高熱穩定性（Thermal Stability Factor Delta > 60）。",
+              "claimFocus": "權利項 1 界定記憶裝置結構：包含固定磁層、介電穿隧障壁層，以及具備調控自旋傳輸效率之自由磁層，藉由通過穿隧結之微小雙向自旋極化電流誘導自由層磁化方向雙穩態翻轉。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Toggle MRAM 歷史技術來源」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7932571B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/7d/e9/d0/bcafa573831ab7/US7932571.pdf",
+                  "date": "2011-04-26",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Nicholas D. Rizzo 等與受讓人 Everspin Technologies, Inc.；PDF 第 23 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "1274e6353151e0bd70783a31446fef885406609b55fa3e795095e2f3b2347b6a",
+                  "page": 23
+                },
+                {
+                  "title": "US7932571B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7932571B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7932571B2",
+                "url": "https://patents.google.com/patent/US7932571B2/en",
+                "note": "US7932571B2 經審查確認受讓人為 Everspin Technologies, Inc.，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US7932571B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/7d/e9/d0/bcafa573831ab7/US7932571.pdf",
+                  "date": "2011-04-26",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -6526,6 +6582,230 @@
                   "date": "2021-01-05",
                   "dateKind": "published",
                   "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7605437B2",
+              "title": "基於雙自旋極化層之自旋轉矩 STT-MRAM 結構與方法",
+              "grantDate": "2009-10-20",
+              "publicationDate": "2009-10-20",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-04-18",
+              "inventors": "Frederick B. Mancoff; Nicholas D. Rizzo",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7605437B2/en",
+              "coreProblem": "單一穿隧障壁之 STT-MRAM 元件中，從反平行（AP）切換至平行（P）與平行切換至反平行之臨界電流存在嚴重不對稱性，限制寫入速度與驅動電路效率。",
+              "mechanism": "將自由磁層配置於第一自旋極化器與第二自旋極化器之間構成雙極化結構，其中至少一個極化器採用非釘扎合成反鐵磁（SAF）架構，利用上下兩側之自旋轉矩向量累加效應大幅消除寫入電流不對稱性。",
+              "claimFocus": "權利項 1 界定自旋轉矩 MRAM 位元：包含配置於第一與第二自旋極化器之間的自由磁層，其中至少一個極化器包含非釘扎合成反鐵磁體（SAF），具備厚度不相等之第一與第二固定磁層，以及配置於其間之非磁性耦合層。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7605437B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/7a/96/de/d4350220e33f98/US7605437.pdf",
+                  "date": "2009-10-20",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Frederick B. Mancoff 等與受讓人 Everspin Technologies, Inc.；PDF 第 17 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "eab65d4e5a2dce068c8de527a12e6b8117d39a65812ae871c8efae3288c17d23",
+                  "page": 17
+                },
+                {
+                  "title": "US7605437B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7605437B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7605437B2",
+                "url": "https://patents.google.com/patent/US7605437B2/en",
+                "note": "US7605437B2 經審查確認受讓人為 Everspin Technologies, Inc.，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US7605437B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/7a/96/de/d4350220e33f98/US7605437.pdf",
+                  "date": "2009-10-20",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8216703B2",
+              "title": "具備分區鐵磁層結構之高穿隧磁阻 MTJ 磁穿隧結元件",
+              "grantDate": "2012-07-10",
+              "publicationDate": "2012-07-10",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-02-21",
+              "inventors": "Jijun Sun; Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8216703B2/en",
+              "coreProblem": "合成反鐵磁（SAF）釘扎層在微縮節點下受邊緣退磁場影響，導致釘扎磁化向量在寫入強電流脈衝下發生傾斜漂移，降低磁阻比（TMR）。",
+              "mechanism": "在 SAF 結構之第一鐵磁層引入特殊梯度厚度分區與極薄非磁性耦合過渡層，在奈米尺度下完全閉合靜磁雜散場（Stray Field），使穿隧結中心處之淨偶極磁場趨近於零。",
+              "claimFocus": "權利項 1 界定磁穿隧結元件：包含由耦合層隔開之第一與第二鐵磁層構成之合成反鐵磁（SAF）結構，其中第一鐵磁層具備不同幾何特徵之第一與第二分區，以最小化對鄰近自由層之靜磁干擾。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8216703B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/de/d3/0d/71dd62ec8f40d2/US8216703.pdf",
+                  "date": "2012-07-10",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Jijun Sun、Jon M. Slaughter 等與受讓人 Everspin Technologies, Inc.；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "3eb5d37dcf61961e0da39cff244f378bb109e2cc4ed0d82d3c291ed3181bbd03",
+                  "page": 19
+                },
+                {
+                  "title": "US8216703B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8216703B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8216703B2",
+                "url": "https://patents.google.com/patent/US8216703B2/en",
+                "note": "US8216703B2 經審查確認受讓人為 Everspin Technologies, Inc.，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US8216703B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/de/d3/0d/71dd62ec8f40d2/US8216703.pdf",
+                  "date": "2012-07-10",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8923041B2",
+              "title": "自旋轉矩 MRAM 之自參考破壞／還原讀取感測放大器與方法",
+              "grantDate": "2014-12-30",
+              "publicationDate": "2014-12-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-04-11",
+              "inventors": "Thomas Andre; Syed M. Alam; Chitra Subramanian",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8923041B2/en",
+              "coreProblem": "STT-MRAM 隨晶圓製程微觀波動，各單元初始電阻（Rp 與 Rap）分佈廣泛，傳統固定參考單元在微弱讀取信號下易發生判讀失誤。",
+              "mechanism": "採用破壞性自參考（Self-Referenced Sensing）技術：先對目標胞進行初始感測並採樣電壓，隨後向目標胞寫入已知參考狀態（如狀態 0），再次讀取後透過電容電荷分享進行差動比較，最後若狀態改變則自動執行回寫還原。",
+              "claimFocus": "權利項 1 界定讀取方法：包含對記憶胞施加讀取電壓並在第一採樣電容儲存第一電壓；對記憶胞寫入第一資料態；再次施加讀取電壓並在第二採樣電容儲存第二電壓；藉由感測放大器比較第一與第二電壓以評估記憶胞之原始資料。",
+              "patentCategory": "方法項",
+              "patentCategoryEn": "Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8923041B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/3e/f9/2d/771ca7ad8741a0/US8923041.pdf",
+                  "date": "2014-12-30",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Thomas Andre 等與受讓人 Everspin Technologies, Inc.；PDF 第 38 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "e7ce176dabab39391d85a85974cef697017852af35b26a64c8131723ea0f2bb9",
+                  "page": 38
+                },
+                {
+                  "title": "US8923041B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8923041B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8923041B2",
+                "url": "https://patents.google.com/patent/US8923041B2/en",
+                "note": "US8923041B2 經審查確認受讓人為 Everspin Technologies, Inc.，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US8923041B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/3e/f9/2d/771ca7ad8741a0/US8923041.pdf",
+                  "date": "2014-12-30",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11004899B2",
+              "title": "具備界面垂直磁各向異性 iPMA 堆疊之先進磁阻元件與製造方法",
+              "grantDate": "2021-05-11",
+              "publicationDate": "2021-05-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-04-26",
+              "inventors": "Sanjeev Aggarwal; Jijun Sun",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11004899B2/en",
+              "coreProblem": "在垂直磁各向異性（pMTJ）微縮至 28nm/22nm 以下節點時，高溫後段製程（400°C BEOL）易引發硼（Boron）元素與過渡金屬原子非均勻熱擴散，破壞垂直各向異性與熱穩定度。",
+              "mechanism": "在自由層與非磁性穿隧絕緣障壁層界面配置界面增強型垂直磁各向異性（iPMA）調控層，並引入特殊高熔點金屬阻擋層（如 Ta/W/Mo 奈米插層）精準捕獲過量硼原子，確保經 400°C 退火後仍維持極高垂直各向異性能量與極低吉爾伯特阻尼係數（Gilbert Damping）。",
+              "claimFocus": "權利項 1 界定磁阻元件製造方法：包含形成第一鐵磁區；於第一鐵磁區上方形成介電質穿隧障壁層；於障壁層上方形成具備界面垂直磁各向異性之自由鐵磁區，並於退火後藉由插層材料維持強界面垂直各向異性。",
+              "patentCategory": "方法項",
+              "patentCategoryEn": "Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11004899B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/52/76/b6/f4d3175471e179/US11004899.pdf",
+                  "date": "2021-05-11",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Sanjeev Aggarwal 等與受讓人 Everspin Technologies, Inc.；PDF 第 64 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "67441b4a30fe88de8684d6c48e9518b996f23dc7adb38a7c7da255bb87c8bb1d",
+                  "page": 64
+                },
+                {
+                  "title": "US11004899B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11004899B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11004899B2",
+                "url": "https://patents.google.com/patent/US11004899B2/en",
+                "note": "US11004899B2 經審查確認受讓人為 Everspin Technologies, Inc.，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US11004899B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/52/76/b6/f4d3175471e179/US11004899.pdf",
+                  "date": "2021-05-11",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
                   "page": 1
                 }
               }
