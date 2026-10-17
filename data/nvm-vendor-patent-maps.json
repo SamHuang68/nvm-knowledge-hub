@@ -4185,6 +4185,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US7821806B2",
+              "title": "基於 MIS 電晶體之非揮發性記憶體電路",
+              "grantDate": "2010-10-26",
+              "publicationDate": "2010-10-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-06-18",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7821806B2/en",
+              "coreProblem": "標準 CMOS 邏輯製程中無浮動閘極時，如何利用單一 MIS 電晶體之通道熱載子陷阱化調控臨界電壓，並與閂鎖器（Latch）直接耦合實現非破壞性快速感測。",
+              "mechanism": "將具備反相第一與第二節點之資料閂鎖器直接耦接至 MIS 記憶電晶體之源汲極，在寫入週期透過通道熱載子效應改變 MIS 電晶體特性，讀取時利用閂鎖器跨導放大差動壓差迅速建立邏輯電平。",
+              "claimFocus": "權利項 1 界定記憶體電路：包含具備互反邏輯電平第一與第二節點之閂鎖器、閘極與源汲極耦合至閂鎖器第一節點之 MIS 電晶體，以及控制電路於第一操作中調控 MIS 電晶體特性使第一節點電位被動態鎖定。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7821806B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/ef/50/65/87620aa5e55141/US7821806.pdf",
+                  "date": "2010-10-26",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人堀內忠彥與受讓人 NSCore Inc.；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "b59696093182208cfc33136fbc2c706db0e7114880a7a196949494d1b8ac0600",
+                  "page": 24
+                },
+                {
+                  "title": "US7821806B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7821806B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7821806B2",
+                "url": "https://patents.google.com/patent/US7821806B2/en",
+                "note": "US7821806B2 為 NSCore 創辦人堀內忠彥之 MIS 電晶體閂鎖器直耦專利，公報受讓人核實為 NSCore Inc.。",
+                "source": {
+                  "title": "US7821806B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/ef/50/65/87620aa5e55141/US7821806.pdf",
+                  "date": "2010-10-26",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7483290B2",
+              "title": "具資料反轉功能之熱載子效應非揮發性記憶體",
+              "grantDate": "2009-01-27",
+              "publicationDate": "2009-01-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-02-02",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7483290B2/en",
+              "coreProblem": "熱載子寫入元件若連續向同一方向注入載子易造成局部介電質過度疲勞與單向閾值漂移。",
+              "mechanism": "設置資料反轉電路（Inverting circuit）與極板線（Plate line），在擦寫週期中利用對稱式雙向偏壓交替反轉儲存電平，平均分攤熱載子應力並擴大讀取電壓判讀視窗。",
+              "claimFocus": "權利項 1 界定記憶體裝置：包含控制電路、反轉電路及矩陣排列之記憶單元，每單元包含具第一與第二互反節點之閂鎖器、極板線，以及耦合至第一節點之第一 MIS 電晶體，藉由反轉操作平衡介電應力。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7483290B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/7a/1f/a9/8025c8d7592af7/US7483290.pdf",
+                  "date": "2009-01-27",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人菊地隆與受讓人 NSCore Inc.；PDF 第 38 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "5d6f7b1b15b69e18ef9a7a175cb3ea1a948c65910a45dca0fe83e7aa01d382f4",
+                  "page": 38
+                },
+                {
+                  "title": "US7483290B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7483290B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7483290B2",
+                "url": "https://patents.google.com/patent/US7483290B2/en",
+                "note": "US7483290B2 為 NSCore 熱載子反轉平衡應力架構專利，公報受讓人核實為 NSCore Inc.。",
+                "source": {
+                  "title": "US7483290B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/7a/1f/a9/8025c8d7592af7/US7483290.pdf",
+                  "date": "2009-01-27",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7518917B2",
+              "title": "支援多次寫入操作之 MIS 記憶電晶體記憶體",
+              "grantDate": "2009-04-14",
+              "publicationDate": "2009-04-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-07-11",
+              "inventors": "Kenji Noda",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7518917B2/en",
+              "coreProblem": "純邏輯 MIS 記憶單元在多次擦寫過程中，熱載子注入累積電荷會使單元飽和，導致後續重寫裕度喪失。",
+              "mechanism": "每單元配置一對對稱 MIS 電晶體並透過字元線驅動器與共用閂鎖器耦合；在寫入與重寫週期中動態交換對稱單元間的偏壓極性，以差動方式實現多次重寫能力（MTP）。",
+              "claimFocus": "權利項 1 界定記憶體裝置：包含儲存資料之閂鎖器、複數條字元線、字元線驅動器，以及耦合至字元線之非揮發性記憶單元；每單元包含兩顆 MIS 電晶體，字元線激活時與閂鎖器交換資料以支援多次寫入。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7518917B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/fa/5a/e6/3f5d239a4b05f7/US7518917.pdf",
+                  "date": "2009-04-14",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人野田研治與受讓人 NSCore Inc.；PDF 第 30 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "813aab0d245ec3cabc774e0b50e76e52771f68f6296a915864c1bc6691a61e13",
+                  "page": 30
+                },
+                {
+                  "title": "US7518917B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7518917B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7518917B2",
+                "url": "https://patents.google.com/patent/US7518917B2/en",
+                "note": "US7518917B2 為 NSCore TwinBit 多次擦寫 MIS 配對專利，公報受讓人核實為 NSCore Inc.。",
+                "source": {
+                  "title": "US7518917B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/fa/5a/e6/3f5d239a4b05f7/US7518917.pdf",
+                  "date": "2009-04-14",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8259505B2",
+              "title": "降低電流消耗之非揮發性記憶體裝置",
+              "grantDate": "2012-09-04",
+              "publicationDate": "2012-09-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2010-05-28",
+              "inventors": "Kazuhiko Oyama",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US8259505B2/en",
+              "coreProblem": "大陣列熱載子 MIS 讀取時，參考單元與記憶單元之電流比值易隨製程角落與溫度漂移，導致讀取功耗居高不下且感測裕度縮小。",
+              "mechanism": "採用三顆以上閘極共接之 FET 組成複合電流源電路，將兩顆以上 FET 之微小電流匯流供給參考單元，在大幅降低整體靜態待機電流的同時提供精確比例之參考基準。",
+              "claimFocus": "權利項 1 界定記憶體架構：包含參考單元電晶體、記憶單元電晶體，以及包含三顆以上閘極相連 FET 之電流源電路，其中兩顆以上 FET 之電流疊加流入參考單元，建立抗漂移之低電流讀取基準。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8259505B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/e6/f1/d0/9838b41c4f54c2/US8259505.pdf",
+                  "date": "2012-09-04",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人小山和彥與受讓人 NSCore Inc.；PDF 第 34 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "869670aae0ad998e71b27a35562e4c757c8911930f65dc37dd52b72803f7538a",
+                  "page": 34
+                },
+                {
+                  "title": "US8259505B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8259505B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8259505B2",
+                "url": "https://patents.google.com/patent/US8259505B2/en",
+                "note": "US8259505B2 為 NSCore 低功耗電流源讀取專利，公報受讓人核實為 NSCore Inc.。",
+                "source": {
+                  "title": "US8259505B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/e6/f1/d0/9838b41c4f54c2/US8259505.pdf",
+                  "date": "2012-09-04",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7630247B2",
+              "title": "基於 MIS 電晶體之交叉耦合閂鎖非揮發性記憶體",
+              "grantDate": "2009-12-08",
+              "publicationDate": "2009-12-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-02-25",
+              "inventors": "Kenji Noda",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7630247B2/en",
+              "coreProblem": "單一電晶體感測在低壓差讀取時易受電晶體閾值失配影響，造成二元邏輯翻轉錯誤。",
+              "mechanism": "將非揮發性儲存節點直接整合進反相器交叉耦合閂鎖器內部，第一反相器與第二反相器之源極端共同接至極板線，利用交叉回授在極小電壓差下自動觸發雪崩式精準鎖定。",
+              "claimFocus": "權利項 1 界定記憶體結構：包含極板線、由第一反相器與第二反相器交叉耦合構成之閂鎖電路，各反相器包含串聯之不同導電型 MIS 電晶體，且源極共接至極板線，實現自我放大之非揮發性感測。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7630247B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/4d/d1/4c/a741b698be21cd/US7630247.pdf",
+                  "date": "2009-12-08",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人野田研治與受讓人 NSCore Inc.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "bcc22520901547b0f752cee820f9a8fabee9e250a077cc6974fd836a9fb8e6ce",
+                  "page": 18
+                },
+                {
+                  "title": "US7630247B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7630247B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7630247B2",
+                "url": "https://patents.google.com/patent/US7630247B2/en",
+                "note": "US7630247B2 為 NSCore 交叉耦合反相器閂鎖 MIS 記憶體專利，公報受讓人核實為 NSCore Inc.。",
+                "source": {
+                  "title": "US7630247B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/4d/d1/4c/a741b698be21cd/US7630247.pdf",
+                  "date": "2009-12-08",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         }

@@ -4185,6 +4185,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US7821806B2",
+              "title": "Nonvolatile semiconductor memory circuit utilizing a MIS transistor as a memory cell",
+              "grantDate": "2010-10-26",
+              "publicationDate": "2010-10-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-06-18",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7821806B2/en",
+              "coreProblem": "In standard CMOS without floating gates, modulating threshold voltages using channel hot-carrier trapping in a standard MIS transistor while achieving non-destructive high-speed latch sensing.",
+              "mechanism": "A data latch having complementary first and second nodes directly couples to the drain/source of a MIS memory transistor; hot-carrier trapping modifies MIS conductance during write, and latch transconductance rapidly amplifies node differential during read.",
+              "claimFocus": "Claim 1 defines a memory circuit: comprising a latch with mutually inverse first and second nodes, a MIS transistor having a source/drain node coupled to the first node of the latch, and a control circuit modulating MIS characteristics during a first operation to lock the first node potential.",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7821806B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/ef/50/65/87620aa5e55141/US7821806.pdf",
+                  "date": "2010-10-26",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor Tadahiko Horiuchi and assignee NSCore Inc. PDF page 24: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                  "pdfSHA256": "b59696093182208cfc33136fbc2c706db0e7114880a7a196949494d1b8ac0600",
+                  "page": 24
+                },
+                {
+                  "title": "US7821806B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7821806B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7821806B2",
+                "url": "https://patents.google.com/patent/US7821806B2/en",
+                "note": "US7821806B2 is a core MIS transistor latch-coupled NVM patent by NSCore founder Tadahiko Horiuchi, verified as assigned to NSCore Inc.",
+                "source": {
+                  "title": "US7821806B2 · Official Gazette Check",
+                  "url": "https://patentimages.storage.googleapis.com/ef/50/65/87620aa5e55141/US7821806.pdf",
+                  "date": "2010-10-26",
+                  "dateKind": "published",
+                  "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7483290B2",
+              "title": "Nonvolatile memory utilizing hot-carrier effect with data reversal function",
+              "grantDate": "2009-01-27",
+              "publicationDate": "2009-01-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-02-02",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7483290B2/en",
+              "coreProblem": "Continuous unidirectional hot-carrier injection across write cycles causes localized dielectric wearout and asymmetric threshold voltage drift.",
+              "mechanism": "An inverting circuit and plate line configuration symmetrically alternate polarities across write cycles, distributing hot-carrier stress across complementary nodes and widening read sensing margins.",
+              "claimFocus": "Claim 1 defines a memory device: comprising a control circuit, inverting circuit, and matrix of memory units each having a latch with complementary first and second nodes, a plate line, and a first MIS transistor coupled to the first node to execute stress-balanced inversion.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7483290B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/7a/1f/a9/8025c8d7592af7/US7483290.pdf",
+                  "date": "2009-01-27",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor Takashi Kikuchi and assignee NSCore Inc. PDF page 38: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                  "pdfSHA256": "5d6f7b1b15b69e18ef9a7a175cb3ea1a948c65910a45dca0fe83e7aa01d382f4",
+                  "page": 38
+                },
+                {
+                  "title": "US7483290B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7483290B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7483290B2",
+                "url": "https://patents.google.com/patent/US7483290B2/en",
+                "note": "US7483290B2 protects hot-carrier data inversion stress balancing in NSCore, verified as assigned to NSCore Inc.",
+                "source": {
+                  "title": "US7483290B2 · Official Gazette Check",
+                  "url": "https://patentimages.storage.googleapis.com/7a/1f/a9/8025c8d7592af7/US7483290.pdf",
+                  "date": "2009-01-27",
+                  "dateKind": "published",
+                  "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7518917B2",
+              "title": "Nonvolatile memory utilizing MIS memory transistors capable of multiple store operations",
+              "grantDate": "2009-04-14",
+              "publicationDate": "2009-04-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-07-11",
+              "inventors": "Kenji Noda",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7518917B2/en",
+              "coreProblem": "Pure logic MIS memory devices suffer trap saturation after repeated hot-carrier write cycles, deteriorating rewrite margins.",
+              "mechanism": "Each cell incorporates two paired MIS transistors coupled to a shared latch; bias polarities between the paired transistors are dynamically swapped across cycles to support multi-time write capability (MTP).",
+              "claimFocus": "Claim 1 defines a memory device: comprising a data latch, word lines, wordline driver, and nonvolatile memory cells each coupled to the latch to exchange data upon wordline activation, wherein each cell includes two paired MIS transistors enabling multiple store operations.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7518917B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/fa/5a/e6/3f5d239a4b05f7/US7518917.pdf",
+                  "date": "2009-04-14",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor Kenji Noda and assignee NSCore Inc. PDF page 30: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                  "pdfSHA256": "813aab0d245ec3cabc774e0b50e76e52771f68f6296a915864c1bc6691a61e13",
+                  "page": 30
+                },
+                {
+                  "title": "US7518917B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7518917B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7518917B2",
+                "url": "https://patents.google.com/patent/US7518917B2/en",
+                "note": "US7518917B2 protects paired MIS multi-time programmable memory cells in NSCore TwinBit, verified as assigned to NSCore Inc.",
+                "source": {
+                  "title": "US7518917B2 · Official Gazette Check",
+                  "url": "https://patentimages.storage.googleapis.com/fa/5a/e6/3f5d239a4b05f7/US7518917.pdf",
+                  "date": "2009-04-14",
+                  "dateKind": "published",
+                  "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8259505B2",
+              "title": "Nonvolatile memory device with reduced current consumption",
+              "grantDate": "2012-09-04",
+              "publicationDate": "2012-09-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2010-05-28",
+              "inventors": "Kazuhiko Oyama",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US8259505B2/en",
+              "coreProblem": "In dense hot-carrier MIS memory arrays, process corners and temperature variations cause reference and data cell current mismatch, degrading sensing margin.",
+              "mechanism": "A current source combining three or more gate-tied FETs sums minute currents from two or more FETs to supply the reference cell, maintaining precise sensing ratios under dramatically reduced standby current.",
+              "claimFocus": "Claim 1 defines a memory device: comprising reference cell transistors, memory cell transistors, and a current source circuit of three or more gate-connected FETs, where currents from two or more FETs are combined to flow through the reference cell.",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8259505B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e6/f1/d0/9838b41c4f54c2/US8259505.pdf",
+                  "date": "2012-09-04",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor Kazuhiko Oyama and assignee NSCore Inc. PDF page 34: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                  "pdfSHA256": "869670aae0ad998e71b27a35562e4c757c8911930f65dc37dd52b72803f7538a",
+                  "page": 34
+                },
+                {
+                  "title": "US8259505B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8259505B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8259505B2",
+                "url": "https://patents.google.com/patent/US8259505B2/en",
+                "note": "US8259505B2 covers low-current reference source architectures in NSCore, verified as assigned to NSCore Inc.",
+                "source": {
+                  "title": "US8259505B2 · Official Gazette Check",
+                  "url": "https://patentimages.storage.googleapis.com/e6/f1/d0/9838b41c4f54c2/US8259505.pdf",
+                  "date": "2012-09-04",
+                  "dateKind": "published",
+                  "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7630247B2",
+              "title": "MIS-transistor-based nonvolatile memory with cross-coupled latch",
+              "grantDate": "2009-12-08",
+              "publicationDate": "2009-12-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-02-25",
+              "inventors": "Kenji Noda",
+              "assignee": "NSCore Inc.",
+              "url": "https://patents.google.com/patent/US7630247B2/en",
+              "coreProblem": "Single-transistor sensing at reduced supply voltages is vulnerable to threshold voltage mismatch, inducing read state misdetection.",
+              "mechanism": "Nonvolatile storage nodes are integrated directly within a cross-coupled inverter latch; the source nodes of both inverters share a plate line, using positive cross-feedback to trigger accurate binary locking.",
+              "claimFocus": "Claim 1 defines a memory device: comprising a plate line, a latch circuit of cross-coupled first and second inverters each having complementary MIS transistors in series with sources coupled to the plate line to form self-amplifying nonvolatile sensing.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7630247B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/4d/d1/4c/a741b698be21cd/US7630247.pdf",
+                  "date": "2009-12-08",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor Kenji Noda and assignee NSCore Inc. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                  "pdfSHA256": "bcc22520901547b0f752cee820f9a8fabee9e250a077cc6974fd836a9fb8e6ce",
+                  "page": 18
+                },
+                {
+                  "title": "US7630247B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7630247B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7630247B2",
+                "url": "https://patents.google.com/patent/US7630247B2/en",
+                "note": "US7630247B2 protects cross-coupled inverter latch MIS memory in NSCore, verified as assigned to NSCore Inc.",
+                "source": {
+                  "title": "US7630247B2 · Official Gazette Check",
+                  "url": "https://patentimages.storage.googleapis.com/4d/d1/4c/a741b698be21cd/US7630247.pdf",
+                  "date": "2009-12-08",
+                  "dateKind": "published",
+                  "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
             }
           ]
         }
