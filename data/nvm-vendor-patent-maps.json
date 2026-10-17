@@ -4928,6 +4928,174 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9437736B2",
+              "title": "具備基板表面高電阻區之源極側注入非揮發性記憶體",
+              "grantDate": "2016-09-06",
+              "publicationDate": "2016-09-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-03-19",
+              "inventors": "Yasuhiro Taniguchi; Kosuke Okuyama",
+              "assignee": "Floadia Corp",
+              "url": "https://patents.google.com/patent/US9437736B2/en",
+              "coreProblem": "傳統浮閘或電荷阱非揮發記憶體在寫入時需對閘極施加高電壓，導致記憶電晶體及周邊控制電晶體之閘極絕緣層厚度居高不下，妨礙微縮並增加晶片面積。",
+              "mechanism": "在汲極與通道之間的基板表面形成特定高電阻區，寫入週期通道電流流經高電阻區產生局域電壓降，誘發強橫向電場進行源極側載子注入，大幅降低寫入閘極電壓並實現絕緣薄膜微縮。",
+              "claimFocus": "權利項 1 界定記憶裝置：包含汲極、源極、配置於基板與閘極電極間之載子儲存區、通道區，以及配置於汲極與通道間之高電阻區；當寫入電流流經通道時，高電阻區產生電壓降以在載子儲存區累積載子。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9437736B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/84/23/29/8df2f24b7b40ba/US9437736.pdf",
+                  "date": "2016-09-06",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人谷口康裕、奧山幸祐與受讓人 Floadia Corp；PDF 第 27 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "351571be3f036ebbef67fffbcde9a09d9c9b3332ca760bfc903eb7f7d9627054",
+                  "page": 27
+                },
+                {
+                  "title": "US9437736B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9437736B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9437736B2",
+                "url": "https://patents.google.com/patent/US9437736B2/en",
+                "note": "US9437736B2 經審查確認受讓人為 Floadia Corp，發明人為谷口康裕與奧山幸祐，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9437736B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/84/23/29/8df2f24b7b40ba/US9437736.pdf",
+                  "date": "2016-09-06",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9502109B2",
+              "title": "具備對稱補償偏置電路之非揮發性半導體儲存裝置",
+              "grantDate": "2016-11-22",
+              "publicationDate": "2016-11-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-10-19",
+              "inventors": "Yasuhiro Taniguchi; Hideo Kasai; Yutaka Shinagawa; Kosuke Okuyama",
+              "assignee": "Floadia Corp",
+              "url": "https://patents.google.com/patent/US9502109B2/en",
+              "coreProblem": "單層多晶矽或電荷阱陣列中，因微觀製程散佈與長字元線末端壓降，陣列邊界單元容易產生過度抹除或讀取干擾。",
+              "mechanism": "採用多個電氣絕緣之浮閘儲存單元，透過字元線與位元線之對稱偏置驅動電路動態箝位未選取胞電位，消除邊界寄生電場應力。",
+              "claimFocus": "權利項 1 界定記憶體裝置：包含複數個電氣絕緣之浮閘、控制各浮閘電位之字元線與位元線，以及偏壓控制電路於讀取與寫入時對選取胞與非選取胞施加對稱梯度補償電壓。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9502109B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/32/6c/6a/ffe766890e43b9/US9502109.pdf",
+                  "date": "2016-11-22",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人谷口康裕等與受讓人 Floadia Corp；PDF 第 36 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "cbb9c9afe3d0b49fe944b0dca05b1193d7259da39afd419c0661277224d3cef7",
+                  "page": 36
+                },
+                {
+                  "title": "US9502109B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9502109B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9502109B2",
+                "url": "https://patents.google.com/patent/US9502109B2/en",
+                "note": "US9502109B2 經審查確認受讓人為 Floadia Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9502109B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/32/6c/6a/ffe766890e43b9/US9502109.pdf",
+                  "date": "2016-11-22",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10074660B2",
+              "title": "基於字元線與位元線交點之反熔絲半導體記憶裝置",
+              "grantDate": "2018-09-11",
+              "publicationDate": "2018-09-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-02-25",
+              "inventors": "Hideo Kasai; Yasuhiro Taniguchi; Yasuhiko Kawashima; Ryotaro Sakurai; Yutaka Shinagawa; Tatsuro Toya; Takanori Yamaguchi; Fukuo Owada; Shinji Yoshida; Teruo HATADA; Satoshi Noda; Takafumi Kato; Tetsuya Muraya; Kosuke Okuyama",
+              "assignee": "Floadia Corp",
+              "url": "https://patents.google.com/patent/US10074660B2/en",
+              "coreProblem": "反熔絲（Anti-fuse）單元在介電質擊穿後，微絲（Filament）導通電阻分佈寬廣且遇高溫可能阻值回復，造成讀取容限惡化。",
+              "mechanism": "在字元線與位元線交點配置反熔絲單元，並結合雙重感測電路與動態電流箝位回路，確保擊穿微絲截面均勻退火並維持長期低阻態。",
+              "claimFocus": "權利項 1 界定記憶裝置：包含複數條字元線與位元線交點處之反熔絲記憶單元，每一單元包含第一與第二電極及夾於其間之破壞性介電層，並受控於感測放大器依動態參考電平完成判定。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10074660B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/a2/df/b3/33a5ce1ce6a78e/US10074660.pdf",
+                  "date": "2018-09-11",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人笠井秀雄、谷口康裕等與受讓人 Floadia Corp；PDF 第 85 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "d70de574bb6366408e5ecb46cac86561dee43f2dd21f1bdb9f67d010db1efc0b",
+                  "page": 85
+                },
+                {
+                  "title": "US10074660B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10074660B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10074660B2",
+                "url": "https://patents.google.com/patent/US10074660B2/en",
+                "note": "US10074660B2 經審查確認受讓人為 Floadia Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US10074660B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/a2/df/b3/33a5ce1ce6a78e/US10074660.pdf",
+                  "date": "2018-09-11",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -5161,6 +5329,118 @@
                   "date": "2020-11-17",
                   "dateKind": "published",
                   "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9318196B1",
+              "title": "具備非揮發性 SRAM 記憶胞之半導體記憶裝置",
+              "grantDate": "2016-04-19",
+              "publicationDate": "2016-04-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-05-29",
+              "inventors": "Hideo Kasai; Yutaka Shinagawa; Ryotaro Sakurai; Yasuhiro Taniguchi; Kosuke Okuyama",
+              "assignee": "Floadia Corp",
+              "url": "https://patents.google.com/patent/US9318196B1/en",
+              "coreProblem": "如何將非揮發記憶結構無縫結合進標準 SRAM 核心節點，在系統突發斷電時完成微秒級備份，同時維持高靜態讀取噪訊容限（SNM）。",
+              "mechanism": "在 SRAM 交叉耦合之第一與第二儲存節點各自耦接非揮發性浮閘／電荷阱儲存結構，斷電前由單一觸發訊號啟動自偏壓電荷注入，復電時利用臨界電壓差動不平衡引導反相器快速還原。",
+              "claimFocus": "權利項 1 界定非揮發性 SRAM 單元：包含第一負載與驅動電晶體構成之第一節點、第二負載與驅動電晶體構成之第二節點，並分別耦接非揮發性電荷儲存元件與專用寫入／還原電晶體，於斷電時實現電平之非揮發鏡像。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9318196B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/2d/44/24/9b676acb543dc4/US9318196.pdf",
+                  "date": "2016-04-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人笠井秀雄等與受讓人 Floadia Corp；PDF 第 86 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "b4740a5433debe7a978fa8998d74f5536209e17e4bcef0f87c73797640012991",
+                  "page": 86
+                },
+                {
+                  "title": "US9318196B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9318196B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9318196B1",
+                "url": "https://patents.google.com/patent/US9318196B1/en",
+                "note": "US9318196B1 經審查確認受讓人為 Floadia Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9318196B1 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/2d/44/24/9b676acb543dc4/US9318196.pdf",
+                  "date": "2016-04-19",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9842650B2",
+              "title": "非揮發性 SRAM 記憶胞及低功耗常關閉非揮發半導體儲存裝置",
+              "grantDate": "2017-12-12",
+              "publicationDate": "2017-12-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-07-31",
+              "inventors": "Yasuhiro Taniguchi; Yutaka Shinagawa; Hideo Kasai; Ryotaro Sakurai; Tatsuro Toya; Yasuhiko Kawashima; Kosuke Okuyama",
+              "assignee": "Floadia Corp",
+              "url": "https://patents.google.com/patent/US9842650B2/en",
+              "coreProblem": "在常關閉（Normally-Off）物聯網晶片中，nvSRAM 若需複雜高壓抹寫電荷泵，會大幅增加待機漏電流與周邊電路面積。",
+              "mechanism": "將互補儲存節點直連至低壓單層閘極穿隧注入電晶體，利用微小節點電容差動感測，在標準邏輯核心電壓下實現毫微秒級快速非揮發狀態載入。",
+              "claimFocus": "權利項 1 界定非揮發性 SRAM 單元：包含互補之第一與第二儲存節點，以及各自與第一及第二節點直連之非揮發儲存單元，藉由共用控制閘極之單一觸發脈衝實現雙向差動寫入。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9842650B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/1e/42/bc/26b70ee478d03c/US9842650.pdf",
+                  "date": "2017-12-12",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人谷口康裕等與受讓人 Floadia Corp；PDF 第 55 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "6b2b5c53c8fa85e7b0c5d206b05f0027f0ab66b2619bedc5b577bdc9874a6050",
+                  "page": 55
+                },
+                {
+                  "title": "US9842650B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9842650B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9842650B2",
+                "url": "https://patents.google.com/patent/US9842650B2/en",
+                "note": "US9842650B2 經審查確認受讓人為 Floadia Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US9842650B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/1e/42/bc/26b70ee478d03c/US9842650.pdf",
+                  "date": "2017-12-12",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
                   "page": 1
                 }
               }
