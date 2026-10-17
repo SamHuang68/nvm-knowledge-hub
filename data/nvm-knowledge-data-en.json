@@ -10063,6 +10063,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7423903B2",
+                "title": "Single-gate non-volatile memory and operation method thereof",
+                "grantDate": "2008-09-09",
+                "publicationDate": "2008-09-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-04-14",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Ming-Tsang Yang; Hao-Cheng Chang; Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US7423903B2/en",
+                "coreProblem": "Conventional floating gate NVM requires dedicated double-poly processes, increasing mask costs; implementing non-destructive charge injection and erase with standard single-poly CMOS logic.",
+                "mechanism": "A single electrically conductive floating gate spans transistor active regions and capacitor coupling structures on a P-substrate, utilizing channel hot electron injection and controlled Fowler-Nordheim tunneling fully compatible with standard logic CMOS.",
+                "claimFocus": "Claim 1 defines an operating method: a memory cell having a P-substrate, a transistor with a first conductive gate and source/drain regions, and an integrated capacitor structure; applying a tunneling voltage to the control gate during erase to tunnel electrons out of the floating gate.",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7423903B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/31/39/03/c46362862f7f76/US7423903.pdf",
+                    "date": "2008-09-09",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Yield Microelectronics Corp. PDF page 28: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                    "pdfSHA256": "2f1d849bab0367001f6292580d5b95f7e091b9642e8c14b300df4d6f5d541641",
+                    "page": 28
+                  },
+                  {
+                    "title": "US7423903B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7423903B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7423903B2",
+                  "url": "https://patents.google.com/patent/US7423903B2/en",
+                  "note": "US7423903B2 is a foundational single-gate NVM patent assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US7423903B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/31/39/03/c46362862f7f76/US7423903.pdf",
+                    "date": "2008-09-09",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Yield Microelectronics Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9601202B2",
+                "title": "Low voltage difference operated EEPROM and operating method thereof",
+                "grantDate": "2017-03-21",
+                "publicationDate": "2017-03-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-05-08",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Ya-Ting Fan; Chia-Hao Tai; Tung-Yu Yeh",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US9601202B2/en",
+                "coreProblem": "High-voltage erase operations (>10V) in standard logic EEPROMs induce gate dielectric fatigue, filament leakage, and require area-intensive charge pump circuitry.",
+                "mechanism": "Same-type ions are implanted into substrate regions adjacent to source/drain and gate interfaces to engineer boundary band bending, coupled with divided voltage biasing to minimize maximum node voltage drop.",
+                "claimFocus": "Claim 1 defines an operating method: implanting same-type ions adjacent to source/drain interfaces of the transistor structure and applying reduced differential voltages during write/erase to limit maximum gate dielectric stress within reliability margins.",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9601202B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/ec/72/b0/7567276adbb2a8/US9601202.pdf",
+                    "date": "2017-03-21",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Yield Microelectronics Corp. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                    "pdfSHA256": "8038b97594df50dab00f4a5f8d38eb64a0eaf3a45606e8bc271a8059943b2f9b",
+                    "page": 18
+                  },
+                  {
+                    "title": "US9601202B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9601202B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9601202B2",
+                  "url": "https://patents.google.com/patent/US9601202B2/en",
+                  "note": "US9601202B2 covers low voltage difference EEPROM operations, verified as assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US9601202B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/ec/72/b0/7567276adbb2a8/US9601202.pdf",
+                    "date": "2017-03-21",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Yield Microelectronics Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10141057B1",
+                "title": "Erasing method of single-gate non-volatile memory",
+                "grantDate": "2018-11-27",
+                "publicationDate": "2018-11-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-11-21",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Wei-Tung Lo",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10141057B1/en",
+                "coreProblem": "Excessive negative control gate bias during single-gate NVM erase triggers over-erase, turning cells into depletion mode and causing severe unselected bitline leakage.",
+                "mechanism": "Erase voltage pulses are applied asymmetrically to the drain without direct strong gate biasing, creating a controlled inversion layer across the channel surface to extract electrons and prevent over-erase.",
+                "claimFocus": "Claim 1 defines an erase method: applying voltage to the drain without applying control voltage to the floating gate to create an inversion layer across the substrate, extracting stored electrons via inversion-layer field gradients to avoid over-erase.",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10141057B1 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/65/86/ed/ba4b8a73bace4e/US10141057.pdf",
+                    "date": "2018-11-27",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Yield Microelectronics Corp. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                    "pdfSHA256": "c2a9c711611647ee6da53756039cb25a283f782d10e29c23667883f9dcef4366",
+                    "page": 16
+                  },
+                  {
+                    "title": "US10141057B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10141057B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10141057B1",
+                  "url": "https://patents.google.com/patent/US10141057B1/en",
+                  "note": "US10141057B1 protects inversion-layer controlled erase avoiding over-erase, verified as assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US10141057B1 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/65/86/ed/ba4b8a73bace4e/US10141057.pdf",
+                    "date": "2018-11-27",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Yield Microelectronics Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10685716B1",
+                "title": "Method of fast erasing low-current EEPROM array",
+                "grantDate": "2020-06-16",
+                "publicationDate": "2020-06-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-04-11",
+                "inventors": "Hsin-Chang Lin; Cheng-Yu Chung; Wen-Chien Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10685716B1/en",
+                "coreProblem": "Bit-by-bit or word-by-word erase in dense low-power EEPROM arrays incurs excessive latency and peak current, incompatible with real-time automotive MCU logging.",
+                "mechanism": "The array is partitioned into sub-memory arrays with grouped bitlines and wordlines; concurrent bias switching across common source lines and bitline groups enables low-current parallel block erase.",
+                "claimFocus": "Claim 1 defines a fast erase method: in an array of sub-memory arrays and grouped bitlines, applying bias to common source lines and coordinated bitline groups to simultaneously erase multiple memory cells during a single erase pulse.",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10685716B1 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a6/03/5d/643416f7f73f92/US10685716.pdf",
+                    "date": "2020-06-16",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Yield Microelectronics Corp. PDF page 22: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                    "pdfSHA256": "097b744ab2b463de3ff166fe2c8d0fd62ebc06809f3b0a6cf6caf2728d11290e",
+                    "page": 22
+                  },
+                  {
+                    "title": "US10685716B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10685716B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10685716B1",
+                  "url": "https://patents.google.com/patent/US10685716B1/en",
+                  "note": "US10685716B1 covers low-current fast block erase in YMC EEPROM arrays, verified as assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US10685716B1 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/a6/03/5d/643416f7f73f92/US10685716.pdf",
+                    "date": "2020-06-16",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Yield Microelectronics Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11380694B2",
+                "title": "Low-voltage anti-fuse element",
+                "grantDate": "2022-07-05",
+                "publicationDate": "2022-07-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2020-02-04",
+                "inventors": "Cheng-Ying Wu; Yu-Ting Huang; Wen-Chien Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US11380694B2/en",
+                "coreProblem": "Planar gate antifuses require high programming voltages risking thin-oxide breakdown in surrounding logic and exhibiting large spread in post-breakdown conductive filament resistance.",
+                "mechanism": "The gate microstructure integrates a body portion with an extending tapered sharp corner portion; point-discharge electric field concentration induces localized soft breakdown at substantially lower programming voltages.",
+                "claimFocus": "Claim 1 defines a device structure: comprising a substrate, gate dielectric layer, gate, and doped region; wherein the gate comprises a body portion and an extending, gradually reducing sharp corner portion adjacent to the gate dielectric layer connected to a wordline.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with YMC Single Floating Gate, Shared Terminal and EEPROM Arrays; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11380694B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/cb/94/22/83335d966ebcb6/US11380694.pdf",
+                    "date": "2022-07-05",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Yield Microelectronics Corp. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication.",
+                    "pdfSHA256": "17dbb065c9f7aeedc35eb6bbe61c7b74cd270dc1745905e5c846e4eb34ac49c8",
+                    "page": 14
+                  },
+                  {
+                    "title": "US11380694B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11380694B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11380694B2",
+                  "url": "https://patents.google.com/patent/US11380694B2/en",
+                  "note": "US11380694B2 covers geometric field-concentrating low-voltage antifuse elements, verified as assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US11380694B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/cb/94/22/83335d966ebcb6/US11380694.pdf",
+                    "date": "2022-07-05",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Yield Microelectronics Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }

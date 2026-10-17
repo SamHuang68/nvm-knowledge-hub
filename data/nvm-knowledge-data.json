@@ -10063,6 +10063,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7423903B2",
+                "title": "單閘極非揮發性記憶體與操作方法",
+                "grantDate": "2008-09-09",
+                "publicationDate": "2008-09-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-04-14",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Ming-Tsang Yang; Hao-Cheng Chang; Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US7423903B2/en",
+                "coreProblem": "傳統浮閘非揮發性記憶體需專門雙層多晶矽（Double-Poly）製程，增加額外光罩；標準邏輯單層多晶矽下如何利用有限電容耦合實現非破壞性電荷注入與抹除。",
+                "mechanism": "在 P 型基板中將單一導電浮動閘極橫跨電晶體主動區與電容耦合結構，藉由通道熱電子注入與控制閘反向穿隧電場，實現與標準 CMOS 邏輯製程完全相容的非揮發性儲存。",
+                "claimFocus": "權利項 1 界定操作方法：單元包含 P 型半導體基板、具第一導電閘極與源汲極之電晶體，以及整合於同一基板內之電容結構；於抹除週期中在控制端施加預定穿隧電壓，將電子自浮閘穿隧抽出以調整臨界電壓。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7423903B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/31/39/03/c46362862f7f76/US7423903.pdf",
+                    "date": "2008-09-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人林信昌團隊與受讓人 Yield Microelectronics Corp.；PDF 第 28 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "2f1d849bab0367001f6292580d5b95f7e091b9642e8c14b300df4d6f5d541641",
+                    "page": 28
+                  },
+                  {
+                    "title": "US7423903B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7423903B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7423903B2",
+                  "url": "https://patents.google.com/patent/US7423903B2/en",
+                  "note": "US7423903B2 為 YMC 單閘極邏輯製程 NVM 開創性基礎專利，受讓人核對為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US7423903B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/31/39/03/c46362862f7f76/US7423903.pdf",
+                    "date": "2008-09-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9601202B2",
+                "title": "低壓差操作之 EEPROM 及其操作方法",
+                "grantDate": "2017-03-21",
+                "publicationDate": "2017-03-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-05-08",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Ya-Ting Fan; Chia-Hao Tai; Tung-Yu Yeh",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US9601202B2/en",
+                "coreProblem": "標準邏輯 EEPROM 傳統高壓抹除（>10V）易導致薄閘氧化層介電質疲勞、微絲漏電，並需佔用大面積之高壓電荷泵電路。",
+                "mechanism": "在源汲極與閘極界面基板植入同型離子以調整邊界能階，配合分壓驅動將節點最大壓差降至耐受裕度內，保證穿隧效率並杜絕讀取干擾。",
+                "claimFocus": "權利項 1 界定操作方法：於電晶體結構源汲極界面鄰近區域植入預定同型離子以調整邊界能階，並在操作中施加差分偏壓，將最大閘氧壓差限制在預定可靠度裕度內完成穿隧抹除。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9601202B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/ec/72/b0/7567276adbb2a8/US9601202.pdf",
+                    "date": "2017-03-21",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Yield Microelectronics Corp.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "8038b97594df50dab00f4a5f8d38eb64a0eaf3a45606e8bc271a8059943b2f9b",
+                    "page": 18
+                  },
+                  {
+                    "title": "US9601202B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9601202B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9601202B2",
+                  "url": "https://patents.google.com/patent/US9601202B2/en",
+                  "note": "US9601202B2 為 YMC 低壓差驅動 EEPROM 代表專利，公報受讓人核實為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US9601202B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/ec/72/b0/7567276adbb2a8/US9601202.pdf",
+                    "date": "2017-03-21",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10141057B1",
+                "title": "單閘非揮發性記憶體之抹除方法",
+                "grantDate": "2018-11-27",
+                "publicationDate": "2018-11-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-11-21",
+                "inventors": "Hsin-Chang Lin; Wen-Chien Huang; Wei-Tung Lo",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10141057B1/en",
+                "coreProblem": "單閘極浮閘單元若在閘極施加強反向偏壓，易引發過度抹除（Over-erase）導致臨界電壓過低成為常開空乏型，產生嚴重漏電。",
+                "mechanism": "在抹除時非對稱地僅對汲極施加抹除脈衝而不直接偏壓浮動閘極，透過汲極空乏區在通道表面建立並控制反轉層，精確引導電子釋放以杜絕過抹除。",
+                "claimFocus": "權利項 1 界定抹除方法：向汲極施加抹除電壓且於浮動閘極不施加控制偏壓下在通道表面建立反轉層，藉由反轉層之電場梯度抽離浮閘電子，防止單元過抹除。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10141057B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/65/86/ed/ba4b8a73bace4e/US10141057.pdf",
+                    "date": "2018-11-27",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Yield Microelectronics Corp.；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "c2a9c711611647ee6da53756039cb25a283f782d10e29c23667883f9dcef4366",
+                    "page": 16
+                  },
+                  {
+                    "title": "US10141057B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10141057B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10141057B1",
+                  "url": "https://patents.google.com/patent/US10141057B1/en",
+                  "note": "US10141057B1 為 YMC 單閘反轉層精確抹除專利，公報受讓人核實為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US10141057B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/65/86/ed/ba4b8a73bace4e/US10141057.pdf",
+                    "date": "2018-11-27",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10685716B1",
+                "title": "低電流 EEPROM 陣列之快速抹除方法",
+                "grantDate": "2020-06-16",
+                "publicationDate": "2020-06-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-04-11",
+                "inventors": "Hsin-Chang Lin; Cheng-Yu Chung; Wen-Chien Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10685716B1/en",
+                "coreProblem": "大容量低功耗 EEPROM 陣列逐位元抹除需耗費大量充電時間與動態電流，難以滿足車載物聯網的高速寫入需求。",
+                "mechanism": "將陣列劃分為多個子陣列並分組位元線與字元線，透過共用源極線與多組位元線之共模偏壓切換，在極低峰值電流下實現多子區塊高速平行抹除。",
+                "claimFocus": "權利項 1 界定快速抹除方法：於包含子陣列與位元線群組之陣列中，透過向共用源極線施加偏壓並協同切換位元線群組，使多個記憶體單元在單一脈衝期間同時完成去陷阱電荷釋放。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10685716B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a6/03/5d/643416f7f73f92/US10685716.pdf",
+                    "date": "2020-06-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Yield Microelectronics Corp.；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "097b744ab2b463de3ff166fe2c8d0fd62ebc06809f3b0a6cf6caf2728d11290e",
+                    "page": 22
+                  },
+                  {
+                    "title": "US10685716B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10685716B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10685716B1",
+                  "url": "https://patents.google.com/patent/US10685716B1/en",
+                  "note": "US10685716B1 為 YMC 低電流快速抹除陣列專利，公報受讓人核實為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US10685716B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/a6/03/5d/643416f7f73f92/US10685716.pdf",
+                    "date": "2020-06-16",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11380694B2",
+                "title": "低電壓反熔絲元件",
+                "grantDate": "2022-07-05",
+                "publicationDate": "2022-07-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2020-02-04",
+                "inventors": "Cheng-Ying Wu; Yu-Ting Huang; Wen-Chien Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US11380694B2/en",
+                "coreProblem": "平面閘極反熔絲元件依賴高壓全面性崩潰，在奈米微縮節點下過高電壓易擊穿周邊薄氧電晶體，且微絲隨機分佈導致讀取阻抗離散。",
+                "mechanism": "閘極微觀形貌包含本體部與延伸漸縮之尖角部（Sharp Corner Portion），利用尖端效應將高電場聚焦於尖角頂點，在大幅降低之電壓下精確誘發局部微觀軟擊穿。",
+                "claimFocus": "權利項 1 界定元件結構：包含基板、閘極介電層、閘極與離子摻雜區；閘極具備本體部與自其一側延伸且逐漸縮小之尖角部，尖角部鄰近於閘極介電層且閘極連接至字元線，定義出局部高電場崩潰幾何。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11380694B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/cb/94/22/83335d966ebcb6/US11380694.pdf",
+                    "date": "2022-07-05",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人吳成英團隊與受讓人 Yield Microelectronics Corp.；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "17dbb065c9f7aeedc35eb6bbe61c7b74cd270dc1745905e5c846e4eb34ac49c8",
+                    "page": 14
+                  },
+                  {
+                    "title": "US11380694B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11380694B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11380694B2",
+                  "url": "https://patents.google.com/patent/US11380694B2/en",
+                  "note": "US11380694B2 為 YMC 尖角幾何聚焦低壓反熔絲專利，公報受讓人核實為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US11380694B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/cb/94/22/83335d966ebcb6/US11380694.pdf",
+                    "date": "2022-07-05",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
