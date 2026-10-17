@@ -9396,6 +9396,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8283751B2",
+                "title": "分割通道非揮發性記憶體單元及形成方法",
+                "grantDate": "2012-10-09",
+                "publicationDate": "2012-10-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-08-30",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8283751B2/en",
+                "coreProblem": "高密度單電晶體反熔絲中，如何精確控制閘氧化層崩潰擊穿發生的微觀幾何位置，避免微絲無序擴散至汲極通道引發不可控漏電。",
+                "mechanism": "沿通道方向將單一電晶體之閘極下介電質分割為變厚度區域；第一區為較薄閘氧化層（反熔絲擊穿區），第二區為較厚閘氧化層（通道開關控制區），將擊穿微絲嚴格鎖定於預定區域，並由厚氧化層提供讀取關斷阻抗。",
+                "claimFocus": "權利項 1 界定非揮發性記憶體單元：包含具有通道區之半導體基板、形成於通道區上方之閘極、位於閘極與通道區間之介電層，其特徵在於介電層沿通道長度方向具備厚度階梯階變，使厚度較薄部分形成可受控抗熔絲崩潰區，而厚度較厚部分構成單元之串聯通道存取電晶體，二者整合於單一物理結構中。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8283751B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/03/bf/c1/8d364f3ba00834/US8283751.pdf",
+                    "date": "2012-10-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Wlodek Kurjanowicz 與受讓人 Sidense Corp.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "a93540e1e695faad8e515d909569736ce85d8820c741e72e18a9fc8e72782e4a",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8283751B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8283751B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8283751B2",
+                  "url": "https://patents.google.com/patent/US8283751B2/en",
+                  "note": "US8283751B2 為 Sidense Split-Channel 核心母案 CIP 延續件，核實受讓人為 Sidense Corp.，杜絕與第三方專利混淆。",
+                  "source": {
+                    "title": "US8283751B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/03/bf/c1/8d364f3ba00834/US8283751.pdf",
+                    "date": "2012-10-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7764532B2",
+                "title": "高速低壓差動感測與互補位元線讀取電路",
+                "grantDate": "2010-07-27",
+                "publicationDate": "2010-07-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-06-29",
+                "inventors": "Wlodek Kurjanowicz; Valery Y. Nelepov",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7764532B2/en",
+                "coreProblem": "反熔絲擊穿後微絲導通電阻存在數 kΩ 至數十 kΩ 的製程離散性，在低供電電壓下難以實現高信噪比與高速（<10ns）讀取。",
+                "mechanism": "採用折疊位元線互補差動感測拓撲，利用參考位元線注入校準參考電荷，在感測放大器節點建立精確差動微伏特壓差，隨後以動態交叉耦合閂鎖器迅速拉開二元軌對軌邏輯電平。",
+                "claimFocus": "權利項 1 界定記憶體讀取架構：包含第一位元線與第二互補位元線、差動感測放大器、連接至第一位元線之反熔絲單元，以及於讀取週期中向第二互補位元線提供預定動態參考信號之電路，使感測放大器依據微小電壓差加速觸發正回饋放大。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7764532B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/2d/2c/c6/d56d9c3250b93e/US7764532.pdf",
+                    "date": "2010-07-27",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Sidense Corp.；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "8294fc02460e0ea2dbaae93d899b760e29af2fd03f1a7615e4498596a871a81f",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7764532B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7764532B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7764532B2",
+                  "url": "https://patents.google.com/patent/US7764532B2/en",
+                  "note": "US7764532B2 為 Sidense 差動感測核心專利，排除先前將第三方 Hynix 相變記憶體專利混入之錯誤。",
+                  "source": {
+                    "title": "US7764532B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/2d/2c/c6/d56d9c3250b93e/US7764532.pdf",
+                    "date": "2010-07-27",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7944727B2",
+                "title": "混合型反熔絲與光罩唯讀記憶體共用陣列架構",
+                "grantDate": "2011-05-17",
+                "publicationDate": "2011-05-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-08-01",
+                "inventors": "Wlodek Kurjanowicz; Valery Y. Nelepov",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7944727B2/en",
+                "coreProblem": "SoC 晶片常同時需要出廠硬編碼開機引導程式（Mask ROM）與出廠後自訂金鑰/校準參數（OTP），傳統上須分置兩個實體陣列，徒增矽晶面積與週邊電路開銷。",
+                "mechanism": "將 1T-Fuse 單元佈局與 Mask ROM 單元幾何結構共存於同一位元線與字元線網格中；部分單元透過光罩金屬層硬線預連接（Mask ROM 狀態），其餘單元保留反熔絲氧化層結構待電氣編程（OTP 狀態），共享同一感測放大器與位址解碼器。",
+                "claimFocus": "權利項 1 界定混合記憶體陣列：在單一連續半導體基板上包含複數條共用字元線與位元線，其交叉點處第一子集單元包含透過光罩金屬互連預定義邏輯狀態之靜態唯讀單元，第二子集單元包含可電氣擊穿閘極介電質之反熔絲單元，兩者共用周邊感測電路。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7944727B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/63/b1/d3/f2f0fed60a469e/US7944727.pdf",
+                    "date": "2011-05-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Sidense Corp.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "7c668d49c6897d6d24daffca7a5f83c8865c05e8c76fb00e42bfad800caf31ff",
+                    "page": 18
+                  },
+                  {
+                    "title": "US7944727B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7944727B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7944727B2",
+                  "url": "https://patents.google.com/patent/US7944727B2/en",
+                  "note": "US7944727B2 為 Sidense 專利佈局中之混合 ROM/OTP 陣列代表案，公報受讓人核對為 Sidense Corp.。",
+                  "source": {
+                    "title": "US7944727B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/63/b1/d3/f2f0fed60a469e/US7944727.pdf",
+                    "date": "2011-05-17",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7755162B2",
+                "title": "具備三角形介電質厚度過渡之非揮發性反熔絲單元",
+                "grantDate": "2010-07-13",
+                "publicationDate": "2010-07-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-04-12",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7755162B2/en",
+                "coreProblem": "傳統厚薄氧化層交界處呈直角突變時，光刻邊緣失真與局部應力集中易導致未選單元在編程高壓下產生非預期的寄生邊緣崩潰或穿透漏電。",
+                "mechanism": "於平面佈局上設計三角形或漸變梯形狀之氧化層交界過渡區，將電場等位線平滑分散，引導崩潰電流嚴格限制在幾何中心，杜絕橫向寄生電流蔓延至相鄰隔離區。",
+                "claimFocus": "權利項 1 界定單元物理形狀：包含第一擴散區與閘極結構，介電層在平面圖中包含一厚氧化層區與一薄氧化層區，其交界線具備非平行於通道長度之斜向或三角形過渡幾何特徵，用以平滑化電場梯度並定義崩潰微絲成核區域。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7755162B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/cc/f7/16/dc2cdd28575bec/US7755162.pdf",
+                    "date": "2010-07-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Wlodek Kurjanowicz 與受讓人 Sidense Corp.；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "f2d1c0f6e69dc2671251ee128868199edd6ff1cfbd0d28ff3272cc15ebf06823",
+                    "page": 16
+                  },
+                  {
+                    "title": "US7755162B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7755162B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7755162B2",
+                  "url": "https://patents.google.com/patent/US7755162B2/en",
+                  "note": "US7755162B2 為 Sidense 專利佈局中之幾何過渡抗熔絲單元，公報受讓人核對為 Sidense Corp.。",
+                  "source": {
+                    "title": "US7755162B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/cc/f7/16/dc2cdd28575bec/US7755162.pdf",
+                    "date": "2010-07-13",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8933492B2",
+                "title": "高壓井獨立偏壓之低臨界電壓反熔絲單元結構",
+                "grantDate": "2015-01-13",
+                "publicationDate": "2015-01-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-06-29",
+                "inventors": "Wlodek Kurjanowicz; Roger Farah",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8933492B2/en",
+                "coreProblem": "先進製程向 28nm 及以下微縮時，核心邏輯電壓降至 0.8V~0.9V，而反熔絲擊穿仍需 5V~6V 編程電壓；傳統將單元置於標準邏輯井中會引發嚴重的井對基板穿遂與突崩擊穿。",
+                "mechanism": "將反熔絲單元隔離於專用高壓深 N 井（Deep N-Well）或獨立高壓井中，並藉由遮蔽部分 Vt 離子植入步驟，形成超低臨界電壓（Low-Vt）讀取通道，兼顧奈米節點的高壓耐受性與超高讀取電流驅動力。",
+                "claimFocus": "權利項 1 界定記憶體結構：包含形成於半導體基板內之隔離高壓井、形成於高壓井內之主動區，以及跨越主動區之閘極，其中單元通道未經臨界電壓提升注入，使單元具備實質低於同晶片標準核心電晶體之臨界電壓，同時井偏壓端子受控於獨立偏壓切換電路。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8933492B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/6e/00/39/78a669baa2be67/US8933492.pdf",
+                    "date": "2015-01-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Sidense Corp.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "7b3eac0da5a7340b5293f55619316cdf945dd61ccf19ce954131119f6d1fc7be",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8933492B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8933492B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8933492B2",
+                  "url": "https://patents.google.com/patent/US8933492B2/en",
+                  "note": "US8933492B2 為 Sidense 獨立高壓井與低 Vt 反熔絲單元專利，核實公報受讓人為 Sidense Corp.。",
+                  "source": {
+                    "title": "US8933492B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/6e/00/39/78a669baa2be67/US8933492.pdf",
+                    "date": "2015-01-13",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }

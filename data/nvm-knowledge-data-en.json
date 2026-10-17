@@ -9396,6 +9396,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8283751B2",
+                "title": "Split channel non-volatile memory cell and method for fabrication thereof",
+                "grantDate": "2012-10-09",
+                "publicationDate": "2012-10-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-08-30",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8283751B2/en",
+                "coreProblem": "In dense single-transistor antifuse memories, precisely confining dielectric breakdown to a microscopic geometric position and preventing filament drift into the drain channel.",
+                "mechanism": "A single gate spans variable-thickness dielectric along the channel: a thin gate oxide region for controlled antifuse breakdown and a thicker oxide region serving as access channel control, locking filament formation while maintaining high off-state impedance.",
+                "claimFocus": "Claim 1 defines a non-volatile memory cell: comprising a substrate with a channel region, a gate overlying the channel, and a gate dielectric having a step-thickness profile along the channel length such that the thinner portion forms an antifuse breakdown region and the thicker portion forms an access transistor in a single integrated structure.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8283751B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/03/bf/c1/8d364f3ba00834/US8283751.pdf",
+                    "date": "2012-10-09",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventor Wlodek Kurjanowicz and assignee Sidense Corp. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication/index.",
+                    "pdfSHA256": "a93540e1e695faad8e515d909569736ce85d8820c741e72e18a9fc8e72782e4a",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8283751B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8283751B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8283751B2",
+                  "url": "https://patents.google.com/patent/US8283751B2/en",
+                  "note": "US8283751B2 is a core split-channel CIP continuation assigned to Sidense Corp., preventing confusion with third-party patents.",
+                  "source": {
+                    "title": "US8283751B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/03/bf/c1/8d364f3ba00834/US8283751.pdf",
+                    "date": "2012-10-09",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7764532B2",
+                "title": "High-speed and low-voltage differential sensing scheme for non-volatile memory",
+                "grantDate": "2010-07-27",
+                "publicationDate": "2010-07-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-06-29",
+                "inventors": "Wlodek Kurjanowicz; Valery Y. Nelepov",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7764532B2/en",
+                "coreProblem": "Process variations in post-breakdown conductive filament resistance (several kΩ to tens of kΩ) hinder high-speed (<10ns) sensing under reduced supply voltages.",
+                "mechanism": "A folded-bitline complementary differential sensing scheme injects calibrated reference charge into the reference line, creating a precise millivolt differential at sense nodes for regenerative cross-coupled latch amplification.",
+                "claimFocus": "Claim 1 defines a memory reading architecture: comprising a first bitline and complementary second bitline, a differential sense amplifier, an antifuse cell on the first bitline, and circuitry injecting a dynamic reference charge onto the second bitline during sensing to accelerate positive-feedback latching.",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7764532B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/2d/2c/c6/d56d9c3250b93e/US7764532.pdf",
+                    "date": "2010-07-27",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Sidense Corp. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication/index.",
+                    "pdfSHA256": "8294fc02460e0ea2dbaae93d899b760e29af2fd03f1a7615e4498596a871a81f",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7764532B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7764532B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7764532B2",
+                  "url": "https://patents.google.com/patent/US7764532B2/en",
+                  "note": "US7764532B2 is Sidense core differential sensing patent, resolving previous error where a third-party PCRAM patent was improperly referenced.",
+                  "source": {
+                    "title": "US7764532B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/2d/2c/c6/d56d9c3250b93e/US7764532.pdf",
+                    "date": "2010-07-27",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7944727B2",
+                "title": "Hybrid anti-fuse and mask read-only memory array architecture",
+                "grantDate": "2011-05-17",
+                "publicationDate": "2011-05-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-08-01",
+                "inventors": "Wlodek Kurjanowicz; Valery Y. Nelepov",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7944727B2/en",
+                "coreProblem": "SoC designs requiring both factory boot code (Mask ROM) and post-fabrication security keys (OTP) incur substantial silicon area overhead when deploying separate dedicated physical arrays.",
+                "mechanism": "1T-Fuse and Mask ROM bitcells share a continuous row-column array mesh where a first subset of cells are hardwired via metal layers (Mask ROM) while a second subset retain programmable antifuse gate dielectrics (OTP), sharing decoding and sensing circuits.",
+                "claimFocus": "Claim 1 defines a hybrid memory array: on a single continuous semiconductor substrate, sharing common wordlines and bitlines, where a first subset of cells contain mask-defined metal interconnects and a second subset contain electrically rupturable antifuse cells, sharing peripheral sensing circuitry.",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7944727B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/63/b1/d3/f2f0fed60a469e/US7944727.pdf",
+                    "date": "2011-05-17",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Sidense Corp. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication/index.",
+                    "pdfSHA256": "7c668d49c6897d6d24daffca7a5f83c8865c05e8c76fb00e42bfad800caf31ff",
+                    "page": 18
+                  },
+                  {
+                    "title": "US7944727B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7944727B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7944727B2",
+                  "url": "https://patents.google.com/patent/US7944727B2/en",
+                  "note": "US7944727B2 represents Sidense hybrid ROM/OTP array architecture, verified as assigned to Sidense Corp.",
+                  "source": {
+                    "title": "US7944727B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/63/b1/d3/f2f0fed60a469e/US7944727.pdf",
+                    "date": "2011-05-17",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7755162B2",
+                "title": "Variable thickness gate oxide antifuse memory cell with geometric transition",
+                "grantDate": "2010-07-13",
+                "publicationDate": "2010-07-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-04-12",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US7755162B2/en",
+                "coreProblem": "Abrupt perpendicular boundary steps between thick and thin gate oxides cause optical lithography distortion and localized mechanical stress, triggering parasitic breakdown in unselected cells.",
+                "mechanism": "A triangular or angled geometric transition boundary between thick and thin oxide regions smooths electric field gradients, confining breakdown current strictly within the geometric center and preventing parasitic fringe leakage.",
+                "claimFocus": "Claim 1 defines cell physical layout: comprising a first diffusion and gate structure, where the gate dielectric includes thick and thin oxide regions in layout view, with an interface boundary forming an angled or triangular geometry non-parallel to channel length to define breakdown filament nucleation.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7755162B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/cc/f7/16/dc2cdd28575bec/US7755162.pdf",
+                    "date": "2010-07-13",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventor Wlodek Kurjanowicz and assignee Sidense Corp. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication/index.",
+                    "pdfSHA256": "f2d1c0f6e69dc2671251ee128868199edd6ff1cfbd0d28ff3272cc15ebf06823",
+                    "page": 16
+                  },
+                  {
+                    "title": "US7755162B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7755162B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7755162B2",
+                  "url": "https://patents.google.com/patent/US7755162B2/en",
+                  "note": "US7755162B2 protects geometric boundary transitions in Sidense antifuse cells, verified as assigned to Sidense Corp.",
+                  "source": {
+                    "title": "US7755162B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/cc/f7/16/dc2cdd28575bec/US7755162.pdf",
+                    "date": "2010-07-13",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8933492B2",
+                "title": "Low-Vt antifuse memory cell formed in high-voltage well",
+                "grantDate": "2015-01-13",
+                "publicationDate": "2015-01-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-06-29",
+                "inventors": "Wlodek Kurjanowicz; Roger Farah",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8933492B2/en",
+                "coreProblem": "As advanced nodes scale below 28nm with core VDD at 0.8V~0.9V while programming requires 5V~6V, placing antifuse cells in standard logic wells risks substrate punchthrough and junction breakdown.",
+                "mechanism": "Antifuse cells are isolated in dedicated high-voltage deep N-wells with threshold-adjust implants blocked from the channel, producing a low-Vt read channel combining high programming breakdown tolerance with enhanced read current drive.",
+                "claimFocus": "Claim 1 defines a memory structure: an isolated high-voltage well in a semiconductor substrate, an active region in the well, and a gate overlying the active region, wherein the channel omits threshold-voltage implants to exhibit lower Vt than core logic transistors, with the well terminal coupled to independent bias circuitry.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8933492B2 · Original Publication",
+                    "url": "https://patentimages.storage.googleapis.com/6e/00/39/78a669baa2be67/US8933492.pdf",
+                    "date": "2015-01-13",
+                    "dateKind": "published",
+                    "note": "Front page 1: inventors and assignee Sidense Corp. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority recorded from publication/index.",
+                    "pdfSHA256": "7b3eac0da5a7340b5293f55619316cdf945dd61ccf19ce954131119f6d1fc7be",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8933492B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8933492B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a current legal determination or verified expiration date."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8933492B2",
+                  "url": "https://patents.google.com/patent/US8933492B2/en",
+                  "note": "US8933492B2 covers Sidense isolated high-voltage well and low-Vt cell architecture, verified as assigned to Sidense Corp.",
+                  "source": {
+                    "title": "US8933492B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/6e/00/39/78a669baa2be67/US8933492.pdf",
+                    "date": "2015-01-13",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
