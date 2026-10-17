@@ -1038,7 +1038,7 @@
             </div>
 
             <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
-              <canvas id="thermalCanvas" role="img" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
+              <canvas id="thermalCanvas" role="img" aria-label="High-temperature retention Arrhenius plot" data-aria-zh="高溫資料留存 Arrhenius 曲線圖" data-aria-en="High-temperature retention Arrhenius plot" tabindex="0" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <p id="thermalSummary" class="model-boundary" aria-live="polite"></p>
 
@@ -1566,7 +1566,7 @@
                   <label for="hbm4-scrub-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
                     <span data-lang="zh">車規任務剖面情境</span><span data-lang="en">MISSION PROFILE PRESET</span>
                   </label>
-                  <select id="hbm4-scrub-mission-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-mission-select" aria-label="Autonomous mission profile" data-aria-zh="車規任務剖面情境" data-aria-en="Autonomous mission profile" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
                     <option value="l4_robotaxi_extreme">L4/L5 Robo-Taxi Autonomous HPC (24/7 Continuous · 115°C Tj)</option>
                     <option value="highway_adas_pilot">Highway Pilot Autonomous ADAS (High Altitude · 95°C Tj)</option>
                     <option value="in_cabin_ai_cockpit">Intelligent AI Cockpit (Infotainment &amp; DMS · 85°C Tj)</option>
@@ -1579,7 +1579,7 @@
                   <label for="hbm4-scrub-repair-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
                     <span data-lang="zh">巡檢清洗與 PPR 修復架構</span><span data-lang="en">REPAIR &amp; SCRUBBING ARCH</span>
                   </label>
-                  <select id="hbm4-scrub-repair-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-repair-select" aria-label="Memory scrubbing and repair architecture" data-aria-zh="巡檢清洗與 PPR 修復架構" data-aria-en="Memory scrubbing and repair architecture" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
                     <option value="hybrid_tier_scrubbing">Tiered Hybrid (Dynamic sPPR Cache + 0-Mask AntiFuse hPPR)</option>
                     <option value="dynamic_sppr_only">Dynamic Soft PPR Only (Register-Based)</option>
                     <option value="hard_anti_fuse_only">Permanent AntiFuse Hard PPR Only (hPPR)</option>
@@ -1699,7 +1699,7 @@
                     <span data-lang="zh">極限環境任務預設 (Extreme Environment Preset):</span>
                     <span data-lang="en">Extreme Environment Preset:</span>
                   </label>
-                  <select id="cryo-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-preset-select" aria-label="Extreme environment preset" data-aria-zh="極限環境預設情境" data-aria-en="Extreme environment preset" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="quantum_cryo_4k">4.2K Liquid-Helium Quantum Cryo-CMOS</option>
                     <option value="leo_satellite">LEO Commercial Satellite (50 krad TID)</option>
                     <option value="deep_space_jupiter">Jupiter Deep Space Probe (500 krad TID)</option>
@@ -1713,7 +1713,7 @@
                     <span data-lang="zh">候選記憶體拓撲架構 (eNVM Topology Architecture):</span>
                     <span data-lang="en">Candidate eNVM Topology:</span>
                   </label>
-                  <select id="cryo-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-topology-select" aria-label="Candidate eNVM topology" data-aria-zh="候選記憶體拓撲架構" data-aria-en="Candidate eNVM topology" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="antifuse_radhard">Logic AntiFuse OTP (0-Mask Hardened Filament)</option>
                     <option value="stt_mram_hardened">BEOL STT-MRAM (Spin-Torque Hardened MTJ)</option>
                     <option value="feram_radhard">FeRAM (Ferroelectric Polarization Dipole)</option>

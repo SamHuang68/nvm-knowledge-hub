@@ -472,7 +472,7 @@
         <!-- CANVAS BITGRID & NIST TEST BARS -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
           <div style="width: 100%; height: 280px; position: relative;">
-            <canvas id="puf-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-en="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-zh="32x32 PUF 空間點陣圖與 NIST SP 800-22 統計 P-value 圖"></canvas>
+            <canvas id="puf-canvas" role="img" tabindex="0" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-en="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-zh="32x32 PUF 空間點陣圖與 NIST SP 800-22 統計 P-value 圖"></canvas>
           </div>
         </div>
 
@@ -511,7 +511,7 @@
               <span data-lang="zh">教學模型防護目標：</span>
               <span data-lang="en">Illustrative Protection Target:</span>
             </label>
-            <select id="pqc-preset-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-preset-select" aria-label="Illustrative protection target" data-aria-zh="教學模型防護目標" data-aria-en="Illustrative protection target" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
               <option value="fips140_3_lvl4" data-zh="教學模型：高防護目標" data-en="Illustrative Model: High Protection Target">Illustrative Model: High Protection Target</option>
               <option value="automotive_evita_high" data-zh="教學模型：中防護目標" data-en="Illustrative Model: Medium Protection Target">Illustrative Model: Medium Protection Target</option>
               <option value="iot_commercial_secure" data-zh="教學模型：基本防護目標" data-en="Illustrative Model: Basic Protection Target">Illustrative Model: Basic Protection Target</option>
@@ -525,7 +525,7 @@
               <span data-lang="zh">底層金鑰儲存 / PUF 拓撲 (Key Storage &amp; PUF Topology):</span>
               <span data-lang="en">Key Storage &amp; PUF Topology:</span>
             </label>
-            <select id="pqc-topology-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-topology-select" aria-label="Key storage and PUF topology" data-aria-zh="底層金鑰儲存與 PUF 拓撲" data-aria-en="Key storage and PUF topology" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
               <option value="antifuse_rot_puf">Logic AntiFuse Nano-Filament PUF / RoT (0-Mask)</option>
               <option value="sram_puf_helper">SRAM Startup PUF (Requires External BCH Helper Data)</option>
               <option value="efuse_metal_poly">Poly-Si / Metal eFuse (Melt Link / SEM Visible)</option>
