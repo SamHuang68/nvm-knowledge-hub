@@ -895,6 +895,13 @@
 
       <!-- PQC Storage Simulator Workbench Root -->
       <article id="pqc-key-storage-simulator-root" class="paper-card physics-model-card" style="margin-top: 14px; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; padding: 20px;">
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+          <span data-lang="zh">本模擬器採用簡化矽面積估算與 DPA 側信道洩漏指數模型，用以示意 NIST FIPS 203/204 後量子密碼演算法在原生私鑰全儲存與分層根種子展開架構下的面積與測試時間折衷。文中推導之 MTD（最小洩漏採樣次數）為理論簡化估算，實際側信道防禦強度需經 ISO/IEC 17825 實驗室 TVLA 實測檢驗；FIPS 140-3 與 SESIP 認證屬系統級晶片 TOE 產品評估範疇，不可由單一儲存介質直接推定。</span>
+          <span data-lang="en">This simulator utilizes simplified silicon area models and exponential DPA leakage estimations to illustrate trade-offs between full raw key storage and tiered root seed derivation for NIST FIPS 203/204 PQC algorithms. The derived MTD figures are theoretical estimates; actual side-channel defense efficacy requires empirical TVLA testing per ISO/IEC 17825 standards. FIPS 140-3 and SESIP certifications apply to comprehensive system-level TOE products and cannot be inferred from the storage medium alone.</span>
+        </div>
+
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
             <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -1099,8 +1106,15 @@
           <p class="kicker" data-zh="05 / 供應鏈硬體木馬與光學側信道" data-en="05 / HARDWARE TROJAN &amp; OPTICAL PEM">05 / HARDWARE TROJAN &amp; OPTICAL PEM</p>
           <h2 data-zh="供應鏈硬體木馬、光學側信道 (PEM) 與 PUF 認證模擬工作台" data-en="Hardware Trojan, Optical PEM &amp; PUF Verification Simulator">Hardware Trojan, Optical PEM &amp; PUF Verification Simulator</h2>
         </div>
-        <p data-zh="第一性原理物理建模：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。" data-en="First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.">First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</p>
+        <p data-zh="物理與統計模型模擬：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。" data-en="Physical &amp; statistical simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.">Physical &amp; statistical simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</p>
       </header>
+
+      <!-- Simulation Disclaimer Banner -->
+      <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+        <span data-lang="zh">本模擬器所採用之熱載子發光 (PEM) 光子計數、矽基板近紅外穿透率、SNSPD 光學信噪比與木馬檢出率為簡化物理與統計推論模型（參考 Becker 2013 與 Schlösser 2012 相關文獻），非實驗室特定破壞性逆向工程機台（如 PHEMOS-1000 / Thermo Fisher Meridian）之實測保證數據。光學側信道發射強度受操作電壓、金屬層覆蓋幾何及晶圓背面研磨厚度影響；防禦能力應透過實體晶片光學顯微檢驗與全生命週期供應鏈管控多層驗證。</span>
+        <span data-lang="en">The hot-carrier luminescence (PEM) photon emission counts, backside NIR transmission, SNSPD optical SNR, and trojan detection probabilities in this simulator are simplified physical and statistical models (referencing Becker 2013 &amp; Schlösser 2012), not empirical test guarantees from specific failure analysis instruments (such as PHEMOS-1000 / Meridian). Physical emission signatures depend on operating voltage, metal layer stack geometry, and backside thinning depth; defense posture must be verified through physical chip optical analysis and multi-tier supply chain chain-of-custody controls.</span>
+      </div>
 
       <!-- Simulator Root Workbench -->
       <div id="trojan-pem-simulator-root" style="margin-bottom: 24px;"></div>

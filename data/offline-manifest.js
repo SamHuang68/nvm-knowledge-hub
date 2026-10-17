@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "65f953f96d01dd1c369d",
+  "version": "cdc0f4c2633f17d6d72e",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -164,7 +164,7 @@ self.NVMOfflineManifest = {
     "advanced-finfet-gaa-simulator.js": "9827e615b9c15c5d6972b8b4b77a7b7696411723faa1b2dfd8cadceccd079b54",
     "advanced-packaging-pdks-simulator.js": "4d2404d987d70369fa036d31416325891cb0cc3b8c2852ed8c393a049162da6f",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "14bd955179ed4b7e47345fa88a02022b1204140f9699e6064dd430345306b7aa",
+    "ai-nvm-opportunities.html": "2755258c2dc6a6b6a8c402ce27eb65eeb12fba2305ede49799eef8ad6e7cc599",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "227980099c1f5acb2ff9a6dcbf2d84d48a6cee606f5dd3323400a379d0166df8",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -185,7 +185,7 @@ self.NVMOfflineManifest = {
     "automotive-load-dump-clamp-simulator.js": "147a3cf5396f1f0a87602f2365d7582f3be87bc60849a4013b3d6b5a44dab9dc",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "a8c3b705d6a9651120bcea998a5328d0795d20e31b2f5205f017a51cf7f63ef5",
+    "automotive-nvm.html": "15f903eeab4c7c065964b82b6c4cae65c01e71479a08ce2f678d390b137954ec",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "b3cba98b3310464ef26cd0b6505453e8403ee8eaf1df2a96fc370079671cdaef",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -264,7 +264,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js": "2511dec36aa3ecd1c5ca22af56a4d93cf2945785fff635b3fbab9c88e5ce81c9",
     "nvm-vendor-patent-maps.css": "b672c5c4cc2b329795cf96df3d69ce627ae85652072ddf8caa619be4dedbd34f",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
-    "oip-secure-storage.html": "4b9731c73d7a98b898b618801c38224bbe93928e7836093b942461257b720016",
+    "oip-secure-storage.html": "97662341ce3ebb88a051fc39c4d0d7f067f6e5af0ad77e1a9e4684432e8bd1f6",
     "pqc-hardware-rot-ledger-simulator.js": "5a3e023fc42601572e78dbc794a3e9808804629e2d08d7ee5337b0c54e22c8f2",
     "pqc-key-storage-simulator.js": "78d2e3166cec560e4e1c224f9c67e9e24848129c900b08bc49e338609244c4ab",
     "pqc-rot-budget-calculator.js": "8d4812b03325f0939fca6b091617ee6e093bb8c1ec2421f6831ad8be02118bda",
@@ -278,14 +278,14 @@ self.NVMOfflineManifest = {
     "research.css": "b0d39322f51c4175ffe3166266c3f137252c1312f32e5ba591936b30a913049e",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
-    "secure-storage.html": "d5a5a8699b4b03d4e92ca852ad2ca0c667dddabb8dd09fd65a3fde7c9add300a",
-    "security-assurance.html": "7ae323dc5b479bbe3f51593876b4db35cc3627d4d27dad696172fd318fa40d71",
+    "secure-storage.html": "b36e9c11ff6f06331b385a44b88e61e50e7f5c4897841f72c7128a813dda1b96",
+    "security-assurance.html": "0f2b63fed895d8fef45870d44b82462989c37a7528aacff4e9d11e1a279b7c09",
     "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "e0be1801f842a6de45943708a13cad4c15c8d1c65d47321dbe7506fb50fa3312",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "bc6d2dae6aea294a01fc9ae319d4fb82e8e16825f165ce03f7bcff6d0cb7f793",
     "specialty-nvm.css": "0b1f35be0c42afd2ae50460d7f95468b5f5b3ed6a4c5b419977ddbd3013e8ad7",
-    "specialty-nvm.html": "c185c7887a4d38044eb4ed1844161b97d1a83c5e74883961534258e409634fa8",
+    "specialty-nvm.html": "dd69f0bfb7f0bb24e2a5950b19768dda7ea55776f9d2b03ecfdcd92320a99c31",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "fc36eda8031d72c3c82017a6db1d16dc5ad4b83e43abcc883d6232d41d336c1d",
@@ -300,7 +300,7 @@ self.NVMOfflineManifest = {
     "supply-chain-hardware-trojan-pem-simulator.js": "e0ed7318ad0748ce0405e78e2560570175f82c334fe2bdc1f900eebfa36e5f08",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "cff199278e33e4c63a70b23775dd524e3146889bc8f87fe0d056901e1cdb98dd",
-    "technology-comparison.html": "cbabbf43af78efbdf835e7de256748d740b35fcea8bc7c9bceb8ea544e6d76e5",
+    "technology-comparison.html": "ea09ba3e25a2e8a0f8f786a77ad94dd1b494ffa1476aa1adb8011b4cfca2c0e4",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "e60f6f9a09bd72b73687ea50ad4f9c09054f560dc194d37bf9b2db063d9038f9",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17343912
+  "totalBytes": 17365160
 };

@@ -317,13 +317,19 @@
             </h2>
           </div>
           <p>
-            <span data-lang="zh">基於第一性原理熱機械切應力模型 (CTE 失配剪切)、Cu-Cu 混合鍵合與微凸塊寄生 RC 讀取延遲、以及頂層 300W 高算力晶粒引發之垂直熱阻堆疊效應，評估 TSMC SoIC、CoWoS-S 與 Foveros 架構下 eNVM 物理可行性。</span>
-            <span data-lang="en">First-principles simulation of interface shear stress from CTE mismatch, Cu-Cu hybrid bonding / micro-bump parasitic RC read latency, and thermal stacking hotspots under 300W compute dies across TSMC SoIC, CoWoS-S, and Foveros architectures.</span>
+            <span data-lang="zh">基於熱機械切應力模型 (CTE 失配剪切)、Cu-Cu 混合鍵合與微凸塊寄生 RC 讀取延遲、以及頂層 300W 高算力晶粒引發之垂直熱阻堆疊效應，評估 TSMC SoIC、CoWoS-S 與 Foveros 架構下 eNVM 物理可行性。</span>
+            <span data-lang="en">Modeling of interface shear stress from CTE mismatch, Cu-Cu hybrid bonding / micro-bump parasitic RC read latency, and thermal stacking hotspots under 300W compute dies across TSMC SoIC, CoWoS-S, and Foveros architectures.</span>
           </p>
         </div>
 
         <p class="paper-note"><span data-lang="zh">與安全儲存的關係：重建金鑰與 OTP 存取可能跨晶粒，互連延遲、熱環境與供電／重設會影響生命週期整合。本模型保留封裝情境作為問題探索；選擇 SoIC、CoWoS 或 Foveros 預設不代表具名產品規格、代工廠認可或安全資格。封裝試算不能替代 PUF、控制器與目標晶片的驗證。</span><span data-lang="en">Relation to secure storage: key reconstruction and OTP access may cross dies, so interconnect latency, temperature and power/reset affect lifecycle integration. Packaging presets remain for exploration; selecting SoIC, CoWoS or Foveros does not establish named-product specifications, foundry approval or security qualification. Packaging estimates do not replace PUF, controller or target-silicon validation.</span></p>
         <div id="chiplet-simulator-root" style="background: #0b1120; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+          <!-- Model Disclaimer & Technical Boundary Notice -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之 CTE 熱失配剪切應力、微凸塊寄生 RC 讀取延遲與垂直熱阻估算為基於一階解析力學與熱流公式之數值示意模型，非代工廠或 OSAT 認證之簽核規範。真實 3D 封裝晶粒可靠度受底部填膠 (Underfill) 流動性、焊點共平面度及完整 3D 有限元素 (FEA) 模擬檢驗判定。</span>
+            <span data-lang="en">The CTE mismatch shear stress, micro-bump parasitic RC delay, and vertical thermal resistance in this workbench are schematic numerical models based on first-order analytical mechanics, rather than official foundry or OSAT sign-off specifications. Physical 3D chiplet reliability depends on underfill flow integrity, bump coplanarity, and full 3D FEA thermomechanical simulation.</span>
+          </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
             <!-- Packaging Preset Selection -->
             <div>

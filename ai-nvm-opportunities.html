@@ -1719,6 +1719,13 @@
               </span>
             </div>
 
+            <!-- Simulation Disclaimer Banner -->
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+              <span data-lang="zh">本模擬器提供之 CXL 3.1 交換器延遲分解、困頓記憶體 (Stranded Memory) 回收率與硬體 CAM 毒化阻斷時間為基於架構規格理論值與統計分佈之解析模擬模型，不構成實體雲端叢集或特定 CXL 控制器之保證效能。真實延遲與隔離能力受 PCIe 6.0 SerDes 物理層重傳 (Retransmission/FEC)、交換器競爭仲裁演算法及作業系統記憶體階層調度影響。</span>
+              <span data-lang="en">The CXL 3.1 switch latency breakdown, stranded memory recovery rate, and HW CAM poison isolation timing provided in this workbench are analytical simulation models based on architectural specification nominals and statistical distributions, not guaranteed metrics for production datacenter clusters or specific ASIC controllers. Physical latencies depend on PCIe 6.0 SerDes physical retransmission (FEC), switch fabric contention arbitration, and OS memory tiering policies.</span>
+            </div>
+
             <!-- 控制面板 Controls Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
               <div>
@@ -1913,6 +1920,13 @@
             <span data-lang="zh">在 51.2T+ 高速交換機與光互連 AI 加速器中，共封裝光學（CPO）將光引擎（OE / PIC）與 ASIC 緊密整合。矽的熱光係數高達 1.86×10⁻⁴ K⁻¹，ASIC 與雷射二極體集中散熱將引發微環諧振腔波長劇烈漂移（約 0.08 nm/K）。傳統微加熱器需耗費數瓦持續電力調諧，而採用非揮發性 AntiFuse / Optical PCM 儲存出廠校準與光權重，可實現零待機熱能耗（Zero-Static Power）。同時，高溫對緊鄰雷射的 eNVM 形成 Arrhenius 留存加速衰減考驗。</span>
             <span data-lang="en">In 51.2T+ switch CPO and photonic AI accelerators, optical engines (OE/PIC) are tightly integrated with host ASICs. Silicon's high thermo-optic coefficient (1.86×10⁻⁴ K⁻¹) triggers severe micro-ring resonator (MRR) resonance drift (~0.08 nm/K) under laser and ASIC thermal dissipation. Conventional resistive micro-heaters burn continuous watts of static power; non-volatile AntiFuse or Optical PCM locks factory calibration and optical weights with zero static standby power, while laser self-heating imposes critical Arrhenius retention constraints.</span>
           </p>
+
+          <!-- Model Disclaimer & Technical Boundary Notice -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之微環諧振波長漂移、熱調諧功耗與雷射熱留存推估為基於一階熱光效應與 Arrhenius 活化能之簡化數值模型，非特定光引擎實體封裝認證規格。實際光模組之波長穩定度取決於 ELS 外部雷射隔離、熱沉設計及閉迴路熱電冷卻 (TEC) 效率。</span>
+            <span data-lang="en">The MRR resonance drift, tuning power, and retention lifetime projections in this workbench are schematic numerical models based on first-order thermo-optic and Arrhenius equations, rather than certified optical engine package specifications. Actual module stability depends on ELS laser thermal decoupling, heat sink designs, and active TEC cooling controls.</span>
+          </div>
 
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
@@ -2540,6 +2554,13 @@
 
           <!-- COMPUTE-IN-MEMORY (CiM) NEURAL NETWORK ACCURACY DEGRADATION WORKBENCH -->
           <div id="cim-nn-degradation-simulator-root" class="cim-nn-degradation-container" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+            <!-- Model Disclaimer & Technical Boundary Notice -->
+            <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+              <span data-lang="zh">本工作台之神經網路分類精度衰退、電導漂移曲率與建議校準週期為基於典型統計噪訊模型與經驗降額公式之數值示意推估，非特定晶片實體推論認證。不同神經網路拓撲的容錯度、量化位元寬度（W4A4/W8A8）及片上校準補償電路設計將顯著影響實際推論精度。</span>
+              <span data-lang="en">The neural network classification degradation, conductance drift curvature, and calibration intervals in this workbench are illustrative estimates based on typical statistical noise models and empirical derating formulas, rather than certified physical measurements. Actual inference accuracy varies significantly with neural network architecture, quantization bitwidth, and on-chip compensation circuitry.</span>
+            </div>
+
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006667; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -2784,10 +2805,17 @@
 
           <!-- 互動工作台容器 -->
           <div class="decision-matrix-card cim-simulator-container" id="cim-neuromorphic-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+            <!-- Model Disclaimer & Technical Boundary Notice -->
+            <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #fde68a;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+              <span data-lang="zh">本模擬器採用基爾霍夫電流定律 (KCL) 與空間集總電阻網格之簡化模型，用以示意類腦存算陣列中金屬位元線 IR-Drop 與有限導通電阻對矩陣乘加 (MAC) 運算精度的空間失真趨勢。實際存內計算晶片之能效 (TOPS/W) 與信噪比取決於感測放大器/ADC 線性度、DAC 驅動精度及陣列版圖佈局。</span>
+              <span data-lang="en">This simulator employs Kirchhoff's Current Law (KCL) and lumped parasitic wire resistance models to illustrate spatial IR-drop distortion trends and matrix multiply-accumulate (MAC) accuracy degradation in neuromorphic compute-in-memory arrays. Actual silicon efficiency (TOPS/W) and SNR are governed by sense amplifier/ADC linearity, DAC precision, and macro physical layout.</span>
+            </div>
+
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
-                  <span data-lang="zh">第一性原理互動工作台</span><span data-lang="en">FIRST-PRINCIPLES WORKBENCH</span>
+                  <span data-lang="zh">神經形態存算物理模型工作台</span><span data-lang="en">NEUROMORPHIC CiM EVALUATION WORKBENCH</span>
                 </span>
                 <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
                   <span data-lang="zh">類腦神經形態 CiM 矩陣乘加效率與空間 IR-Drop 失真試算器</span>
@@ -2996,6 +3024,13 @@
             <span data-lang="zh">在 2nm GAA 奈米片與背面供電網路（BSPDN / PowerVia / SPR）中，背面供電將正面金屬層 100% 釋放給訊號線，大幅降低 IR-Drop 壓降與位元線 RC 延遲；然而晶圓研磨薄化至 5~10 µm 會大幅惡化橫向散熱熱阻，使 eMRAM / ReRAM 高寫入電流引發嚴峻的熱聚集（Thermal Throttle）危機。純邏輯 AntiFuse 讀取功耗僅奈瓦級，無額外光罩與熱阻負擔，在 BSPDN 世代展現天生物理優勢。</span>
             <span data-lang="en">In 2nm GAA nanosheets with Backside Power Delivery Networks (BSPDN / PowerVia / SPR), moving power grids to the backside liberates 100% of frontside metal tracks, eliminating IR-drop and reducing bitline RC delays. However, thinning wafers to 5-10 µm restricts lateral heat spreading, causing high-write-current eMRAM/ReRAM to trigger severe thermal throttle risks. Zero-mask AntiFuse generates negligible read heat, demonstrating unique physical compatibility in BSPDN architectures.</span>
           </p>
+
+          <!-- Model Disclaimer & Technical Boundary Notice -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之 Nano-TSV 互連延遲、橫向熱阻聚集與寫入熱節流估算為基於一階集總 RC 與 1D 熱阻模型之數值示意推估，非晶圓代工廠量產簽核規範。次 2nm 製程之實際熱分佈需配合 3D 熱電協同模擬 (Electro-Thermal Co-Simulation) 與晶粒封裝熱界面材料 (TIM) 實測判定。</span>
+            <span data-lang="en">The Nano-TSV interconnect RC delay, lateral thermal dissipation, and write thermal throttling projections in this workbench are schematic estimates based on lumped RC and 1D thermal resistance models, rather than official foundry sign-off rule decks. Actual sub-2nm thermal profiles require 3D electro-thermal co-simulation and package-level TIM verification.</span>
+          </div>
 
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">

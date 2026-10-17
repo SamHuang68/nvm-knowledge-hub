@@ -1708,9 +1708,16 @@
             </h4>
           </div>
           <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.08); color: #0284c7; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">
-            <span data-lang="zh">CNSA 2.0 / FIPS 140-3 規格</span>
-            <span data-lang="en">CNSA 2.0 / FIPS 140-3 Spec</span>
+            <span data-lang="zh">CNSA 2.0 / FIPS 203/204 參考</span>
+            <span data-lang="en">CNSA 2.0 / FIPS 203/204 Ref</span>
           </span>
+        </div>
+
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+          <span data-lang="zh">本試算器採用 NIST FIPS 203/204 與 CNSA 2.0 金鑰長度標準之記憶體預算估算模型，用以示意全私鑰直接儲存與分層根種子 (Root Seed) 衍生架構下的晶片內 eNVM 面積與燒錄時間開銷。FIPS 140-3 密碼模組認證需經完整 CAVP/CMVP 測試檢驗，本工具試算結果僅供前期架構選型參考，非正式合規背書。</span>
+          <span data-lang="en">This simulator employs memory budget sizing models based on NIST FIPS 203/204 and CNSA 2.0 key parameters to illustrate silicon area and programming time trade-offs between raw key storage and tiered seed expansion. Formal FIPS 140-3 module compliance requires accredited CAVP/CMVP testing; outputs serve as early architectural sizing guidelines rather than certification endorsements.</span>
         </div>
 
         <!-- Presets Row -->

@@ -3317,10 +3317,12 @@
           </span>
         </div>
 
-        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
           <span data-lang="zh">以固定角隅係數乘上 E = V / t，並以 16.5 MV/cm 臨界場強試算硬擊穿電壓；穿隧使用簡化指數與溫度倍率。這是未經實測校準的教學模型，沒有求解三維 Poisson 或 TCAD。電荷泵級數依假設壓降試算；面積比例 0.28／0.42／0.65／1.00 為獨立預設輸入，72% 等縮減值不是由級數或實際佈局算得。不能保證 0-mask 相容、周邊耐壓、車規資格、保持或讀取擾動表現。</span>
           <span data-lang="en">Multiplies E = V / t by a fixed corner coefficient and estimates breakdown using an assumed 16.5 MV/cm critical field. Tunneling uses a simplified exponent and temperature multiplier. This uncalibrated teaching model does not solve 3D Poisson or TCAD. Pump stages use an assumed voltage drop; footprint ratios 0.28 / 0.42 / 0.65 / 1.00 are independent preset inputs, so reductions such as 72% are not calculated from stages or physical layout. Results do not establish mask compatibility, peripheral voltage safety, automotive qualification, retention or read-disturb performance.</span>
-        </p>
+        </div>
 
         <p class="model-note"><span data-lang="zh">公開架構對照：TSMC N3／N3E 為 FinFET，N2 為奈米片；此對照不驗證本工作台的 OTP 電性或面積假設。</span><span data-lang="en">Published architecture context: TSMC N3 / N3E uses FinFET; N2 uses nanosheets. This context does not validate the workbench OTP electrical or footprint assumptions.</span> <a href="https://www.tsmc.com/chinese/dedicatedFoundry/technology/logic/l_3nm" target="_blank" rel="noopener noreferrer">TSMC N3</a> · <a href="https://research.tsmc.com/page/transistor-structure/59.html" target="_blank" rel="noopener noreferrer">TSMC N2</a></p>
 

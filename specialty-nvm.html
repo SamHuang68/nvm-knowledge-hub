@@ -2461,9 +2461,16 @@
         </h4>
       </div>
       <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(16, 185, 129, 0.1); color: #047857; padding: 4px 8px; border-radius: 4px;">
-        <span data-lang="zh">第一性原理封裝傳輸模型</span>
-        <span data-lang="en">First-Principles D2D Transport Model</span>
+        <span data-lang="zh">UCIe D2D 傳輸解析模型</span>
+        <span data-lang="en">UCIe D2D Transport Analytical Model</span>
       </span>
+    </div>
+
+    <!-- Simulation Disclaimer Banner -->
+    <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+      <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+      <span data-lang="zh">本模擬器提供之 UCIe D2D 傳輸延遲分解、互連能耗 (pJ/bit) 與垂直熱阻溫升為基於 UCIe 1.1 規範標稱值與經典 RC 傳輸線之簡化數值模型，不代表實體 2.5D/3D 先進封裝代工廠之量產保證規格。實際物理傳輸表現受基板寄生效應、矽中介層金屬微影間距、熱界面材料 (TIM) 導熱係數與控制器重傳緩衝架構影響。</span>
+      <span data-lang="en">The UCIe D2D transport latency breakdown, interconnect energy (pJ/bit), and vertical thermal resistance rise in this simulator are simplified numerical models based on UCIe 1.1 nominal specifications and classical RC transmission lines, not production-guaranteed metrics from specific 2.5D/3D advanced packaging foundries. Physical transport depends on substrate parasitics, silicon interposer lithographic pitch, thermal interface material (TIM) conductivity, and controller retransmission buffer architectures.</span>
     </div>
 
     <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
@@ -3842,9 +3849,16 @@
 </div>
 
 <p style="font-size: 13.5px; line-height: 1.6; color: #cbd5e1; margin: 0 0 18px;">
-<span data-lang="zh">在近地軌道（LEO）、地球同步軌道（GEO）、阿提米絲月球深空與木星強輻射帶中，宇宙射線重離子與高能質子會引發單粒子翻轉（SEU）、單粒子閂鎖（SEL）與氧化層總游離劑量（TID 100krad~1Mrad）電荷流失。本工作台依據第一性原理 Weibull 截面積模型與氧化層電洞累積定律，計算不同記憶體技術在 10 年任務週期中的存活率與航太等級。</span>
-<span data-lang="en">In LEO, GEO, Artemis lunar deep space, and Jovian extreme radiation environments, cosmic ray heavy ions and solar protons trigger Single Event Upsets (SEU), Single Event Latchup (SEL), and Total Ionizing Dose (TID 100krad~1Mrad) charge loss. This simulator calculates mission survival probability and aerospace qualification grades based on first-principles Weibull cross-section and oxide hole accumulation models.</span>
+<span data-lang="zh">在近地軌道（LEO）、地球同步軌道（GEO）、阿提米絲月球深空與木星強輻射帶中，宇宙射線重離子與高能質子會引發單粒子翻轉（SEU）、單粒子閂鎖（SEL）與氧化層總游離劑量（TID 100krad~1Mrad）電荷流失。本工作台依據經驗擬合 Weibull 截面積模型與氧化層電洞累積模型，評估不同記憶體技術在 10 年任務週期中的存活率示意值。</span>
+<span data-lang="en">In LEO, GEO, Artemis lunar deep space, and Jovian extreme radiation environments, cosmic ray heavy ions and solar protons trigger Single Event Upsets (SEU), Single Event Latchup (SEL), and Total Ionizing Dose (TID 100krad~1Mrad) charge loss. This simulator evaluates mission survival probabilities based on empirical Weibull cross-section and oxide hole accumulation models.</span>
 </p>
+
+<!-- Simulation Disclaimer Banner -->
+<div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+  <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+  <span data-lang="zh">本工作台之 TID 電荷損失、Weibull SEU/SEL 截面積與航太軌道存活率為基於學術文獻參數（如 NASA JPL / ESA 經驗數據）之簡化數值模型，非 MIL-PRF-38535 Class S 或特定航太級晶片之保證規格。真實耐輻射效應受重離子入射角度、封裝屏蔽厚度、製程批次氧化層缺陷與周邊控制電路設計影響；實際深空任務晶片須經迴旋加速器實體重離子束測試驗證。</span>
+  <span data-lang="en">The TID charge loss, Weibull SEU/SEL cross-sections, and orbital survival probabilities in this workbench are simplified numerical models based on academic literature parameters (e.g., NASA JPL / ESA empirical datasets), not certified performance under MIL-PRF-38535 Class S or specific space-qualified parts. Physical radiation tolerance depends on ion incident angles, package shielding thickness, fab lot gate oxide quality, and peripheral control circuit hardening; actual mission flight silicon requires empirical cyclotron heavy-ion beam testing.</span>
+</div>
 
 <!-- Controls Grid -->
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -3995,10 +4009,12 @@
 </span>
 </div>
 
-<p style="font-size: 13.5px; line-height: 1.6; color: #cbd5e1; margin: 0 0 18px;">
-<span data-lang="zh">本試算器用假設參數說明重離子 SEL 與溫度對資料保持模型的影響。460°C 情境、活化能、SEL 門檻與零截面積設定均為教學假設，不是具名 AntiFuse、SiC、MRAM 或 eFlash 的量測、NASA 認證或任務保證。SOI 的介電隔離可排除特定寄生閂鎖路徑，不能據此推定整體元件對 TID、SEU 或所有輻射效應免疫；個別器件、周邊電路、封裝與任務環境仍須測試。高溫 SiC NVRAM 研究亦不等於本模型的 AntiFuse 活化能與保持參數已獲實證。<a href="https://parts.jpl.nasa.gov/asic/Sect.3.4.html" target="_blank" rel="noopener noreferrer">NASA SOI／輻射效應說明</a>；<a href="https://ntrs.nasa.gov/api/citations/20220007839/downloads/MemoryHOTTechQuadV4.pdf?attachment=true" target="_blank" rel="noopener noreferrer">NASA 高溫 JFET-R NVRAM 開發資料</a>。</span>
-<span data-lang="en">This simulator uses assumed parameters to explain modeled SEL and temperature-dependent retention. The 460°C scenario, activation energies, SEL thresholds and zero cross-sections are teaching assumptions, not measurements of named AntiFuse, SiC, MRAM or eFlash devices, NASA certification or mission assurance. SOI dielectric isolation can remove particular parasitic latchup paths; it does not establish immunity to TID, SEU or all radiation effects. Individual devices, peripherals, packages and mission environments require testing. High-temperature SiC NVRAM research does not validate this model’s AntiFuse activation energy or retention parameters. <a href="https://parts.jpl.nasa.gov/asic/Sect.3.4.html" target="_blank" rel="noopener noreferrer">NASA SOI / radiation discussion</a>; <a href="https://ntrs.nasa.gov/api/citations/20220007839/downloads/MemoryHOTTechQuadV4.pdf?attachment=true" target="_blank" rel="noopener noreferrer">NASA JFET-R NVRAM development</a>.</span>
-</p>
+<!-- Simulation Disclaimer Banner -->
+<div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+  <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+  <span data-lang="zh">本試算器用假設參數說明重離子 SEL 與溫度對資料保持模型的影響。460°C 情境、活化能、SEL 門檻與零截面積設定均為教學假設，不是具名 AntiFuse、SiC、MRAM 或 eFlash 的量測、NASA 認證或任務保證。SOI 的介電隔離可排除特定寄生閂鎖路徑，不能據此推定整體元件對 TID、SEU 或所有輻射效應免疫；個別器件、周邊電路、封裝與任務環境仍須測試。高溫 SiC NVRAM 研究亦不等於本模型的 AntiFuse 活化能與保持參數已獲實證。<a href="https://parts.jpl.nasa.gov/asic/Sect.3.4.html" target="_blank" rel="noopener noreferrer" style="color: #67e8f9; text-decoration: underline;">NASA SOI／輻射效應說明</a>；<a href="https://ntrs.nasa.gov/api/citations/20220007839/downloads/MemoryHOTTechQuadV4.pdf?attachment=true" target="_blank" rel="noopener noreferrer" style="color: #67e8f9; text-decoration: underline;">NASA 高溫 JFET-R NVRAM 開發資料</a>。</span>
+  <span data-lang="en">This simulator uses assumed parameters to explain modeled SEL and temperature-dependent retention. The 460°C scenario, activation energies, SEL thresholds and zero cross-sections are teaching assumptions, not measurements of named AntiFuse, SiC, MRAM or eFlash devices, NASA certification or mission assurance. SOI dielectric isolation can remove particular parasitic latchup paths; it does not establish immunity to TID, SEU or all radiation effects. Individual devices, peripherals, packages and mission environments require testing. High-temperature SiC NVRAM research does not validate this model’s AntiFuse activation energy or retention parameters. <a href="https://parts.jpl.nasa.gov/asic/Sect.3.4.html" target="_blank" rel="noopener noreferrer" style="color: #67e8f9; text-decoration: underline;">NASA SOI / radiation discussion</a>; <a href="https://ntrs.nasa.gov/api/citations/20220007839/downloads/MemoryHOTTechQuadV4.pdf?attachment=true" target="_blank" rel="noopener noreferrer" style="color: #67e8f9; text-decoration: underline;">NASA JFET-R NVRAM development</a>.</span>
+</div>
 
 <!-- Controls Grid -->
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -4490,10 +4506,17 @@
 
     <!-- 互動工作台容器 -->
     <div class="topic-simulator-container" id="cryo-cmos-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 20px 22px;">
+      <!-- Model Disclaimer & Technical Boundary Notice -->
+      <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #fde68a;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+        <span data-lang="zh">本模擬器採用 Varshni 能隙展寬、不完全電離 (Freeze-out) 與次閾值擺幅之簡化物理方程式，用以示意 4K / 77K 極低溫下不同記憶體介質（金屬微絲歐姆傳導 vs 穿隧與阻變）之讀出功耗與熱相干預算折衷。微絲本體雖無能隙凍結，但外圍 CMOS 存取閘極與驅動線路仍面臨低溫閾值電壓漂移與衝擊電離挑戰；實際超導量子介面可行性須經稀釋冷凍機 (Dilution Refrigerator) 實體同軸射頻與微波衰減鏈實測判定。</span>
+        <span data-lang="en">This simulator employs simplified physical formulations for Varshni bandgap widening, incomplete carrier ionization (freeze-out), and cryogenic subthreshold swing sharpening to illustrate trade-offs in readout dissipation and thermal coherence margins at 4K / 77K. While metallic filaments avoid internal bandgap freeze-out, peripheral CMOS access gates and drivers still face cryogenic Vth shifts and impact ionization; actual superconducting qubit interface viability requires empirical dilution refrigerator RF cabling and microwave attenuation testing.</span>
+      </div>
+
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
         <div>
           <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
-            <span data-lang="zh">第一性原理極低溫工作台</span><span data-lang="en">FIRST-PRINCIPLES CRYO WORKBENCH</span>
+            <span data-lang="zh">極低溫物理模型評估工作台</span><span data-lang="en">CRYO-PHYSICS EVALUATION WORKBENCH</span>
           </span>
           <h4 style="margin: 2px 0 0; font-size: 16px; color: #f8fafc; font-weight: 700;">
             <span data-lang="zh">4K / 77K 量子介面載子凍結、亞閾值陡峭度與熱相干預算模擬器</span>
