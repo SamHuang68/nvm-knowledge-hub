@@ -12951,6 +12951,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7868375B2",
+                "title": "具備懸挑抹除閘之分裂閘非揮發性快閃記憶胞、陣列及製造方法",
+                "grantDate": "2011-01-11",
+                "publicationDate": "2011-01-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-08-06",
+                "inventors": "Xian Liu; Amitay Levi; Alexander Kotov; Yuri Tkachev; Viktor Markov; James Yingbo Jia; Chien Sheng Su; Yaw Wen Hu",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US7868375B2/en",
+                "coreProblem": "傳統分裂閘快閃記憶體在微縮製程中，若抹除閘（Erase Gate）與浮閘間缺乏尖銳幾何場增強效應，抹除電壓居高不下且容易造成穿隧介電層局部過應力疲乏。",
+                "mechanism": "在浮閘上方形成具有橫向懸挑（Overhang）構造之獨立第三多晶矽抹除閘，並利用浮閘尖銳上邊緣與抹除閘底部形成的局域強電場誘發高效率波勒－諾罕（Fowler-Nordheim）穿隧，達成低壓快速抹除並大幅抑制過度抹除。",
+                "claimFocus": "權利項 1 界定提高記憶胞抹除效率之方法：在單晶半導體基板上形成源汲極與通道，配置選擇閘、覆蓋於浮閘上的控制閘，以及具備橫向突出並懸挑覆蓋於浮閘頂角上方之獨立抹除閘，藉由抹除閘施加正偏壓自浮閘尖端引發電子場致穿隧。",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7868375B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/4c/dd/66/8a6f32e48da4fa/US7868375.pdf",
+                    "date": "2011-01-11",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人劉賢等與受讓人 Silicon Storage Technology, Inc.；PDF 第 36 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "70bbbf168046fc8d952b3acc30424e090f1e91f1fc710ed52eb71f75587138c8",
+                    "page": 36
+                  },
+                  {
+                    "title": "US7868375B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7868375B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7868375B2",
+                  "url": "https://patents.google.com/patent/US7868375B2/en",
+                  "note": "US7868375B2 經審查確認受讓人為 Silicon Storage Technology, Inc.，技術導讀依原件公報重建。",
+                  "source": {
+                    "title": "US7868375B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/4c/dd/66/8a6f32e48da4fa/US7868375.pdf",
+                    "date": "2011-01-11",
+                    "dateKind": "published",
+                    "note": "原件公報首頁核對受讓人 Silicon Storage Technology, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7668013B2",
+                "title": "具備改良抹除耦合比之快閃記憶胞及陣列抹除方法",
+                "grantDate": "2010-02-23",
+                "publicationDate": "2010-02-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-02-07",
+                "inventors": "Geeng-Chuan Michael Chern; Ben Sheen; Jonathan Pabustan; Prateep Tuntasood; Der-Tsyr Fan; Yaw Wen Hu",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US7668013B2/en",
+                "coreProblem": "在成對堆疊浮閘與控制閘陣列中，抹除電壓施加於抹除閘時，若控制閘電容耦合分配不佳，會導致浮閘實際電位被不當拉抬，降低穿隧電場並增加抹除時間。",
+                "mechanism": "藉由精確控制抹除閘與相鄰控制閘之間的介電質厚度與幾何重疊，大幅提高抹除耦合比（Erase Coupling Ratio），在施加低電壓脈衝時將控制閘接地或施加微負壓，顯著放大浮閘至抹除閘之有效壓差。",
+                "claimFocus": "權利項 1 界定快閃記憶胞陣列之抹除方法：包含於基板設置間隔之成對堆疊浮閘與控制閘，並於各成對堆疊間配置獨立抹除閘，抹除時對抹除閘施加高電壓，同時對控制閘施加負電壓，以提升有效抹除電壓比。",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7668013B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a5/0a/27/74cb633df88063/US7668013B2.pdf",
+                    "date": "2010-02-23",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人陳慶全等與受讓人 Silicon Storage Technology, Inc.；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "6083588015098638260b2851427527d18bfb7fc5d1e371599d4f147040d95a69",
+                    "page": 19
+                  },
+                  {
+                    "title": "US7668013B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7668013B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7668013B2",
+                  "url": "https://patents.google.com/patent/US7668013B2/en",
+                  "note": "US7668013B2 經審查確認受讓人為 Silicon Storage Technology, Inc.，技術導讀依原件公報重建。",
+                  "source": {
+                    "title": "US7668013B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/a5/0a/27/74cb633df88063/US7668013B2.pdf",
+                    "date": "2010-02-23",
+                    "dateKind": "published",
+                    "note": "原件公報首頁核對受讓人 Silicon Storage Technology, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8488388B2",
+                "title": "具備獨立抹除閘之分裂閘非揮發性浮閘記憶胞高效率編程方法",
+                "grantDate": "2013-07-16",
+                "publicationDate": "2013-07-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-11-01",
+                "inventors": "Viktor Markov; Jong-Won Yoo; Hung Quoc Nguyen; Alexander Kotov",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8488388B2/en",
+                "coreProblem": "在具備字元線閘、控制閘、浮閘與獨立抹除閘之四端子記憶胞中，若編程時抹除閘電位處於浮動或不當偏壓，會干擾通道熱載子產生並引起寄生洩漏。",
+                "mechanism": "採用源極側注入（SSI）高效率編程，在第一與第二擴散區之間形成雙能峰通道，字元線施加開啟閾值電壓，控制閘施加高耦合電壓，並將獨立抹除閘精準偏置在微正電壓以箝位電場邊界，大幅提升電子熱注入效率並壓低編程功耗。",
+                "claimFocus": "權利項 1 界定記憶胞編程方法：字元線閘配置於鄰接第一區之第一通道上方，控制閘覆蓋於浮閘上方，獨立抹除閘配置於浮閘另一側；編程時對第二區施加正偏壓，對控制閘施加高電壓，同時對字元線閘與抹除閘施加微小控制電壓以觸發源極側熱載子注入。",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8488388B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/7b/17/ab/5e5a5e5c65363b/US8488388.pdf",
+                    "date": "2013-07-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Viktor Markov 等與受讓人 Silicon Storage Technology, Inc.；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "841396809b55f91bbf701183ec16c2dcdf9e7f6716dd6e0711529a5faa9a741c",
+                    "page": 11
+                  },
+                  {
+                    "title": "US8488388B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8488388B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8488388B2",
+                  "url": "https://patents.google.com/patent/US8488388B2/en",
+                  "note": "US8488388B2 經審查確認受讓人為 Silicon Storage Technology, Inc.，技術導讀依原件公報重建。",
+                  "source": {
+                    "title": "US8488388B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/7b/17/ab/5e5a5e5c65363b/US8488388.pdf",
+                    "date": "2013-07-16",
+                    "dateKind": "published",
+                    "note": "原件公報首頁核對受讓人 Silicon Storage Technology, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8384147B2",
+                "title": "高耐久度非揮發性快閃記憶胞及高密度陣列",
+                "grantDate": "2013-02-26",
+                "publicationDate": "2013-02-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-04-29",
+                "inventors": "Nhan Do; Amitay Levi",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8384147B2/en",
+                "coreProblem": "在多次抹寫（Endurance 達 10 萬次以上）循環後，穿隧氧化層產生介電質捕獲缺陷，導致抹除速度變慢並造成相鄰字元線讀取干擾容限急遽惡化。",
+                "mechanism": "透過最佳化控制閘與浮閘之疊層隔離介電膜（ONO/高溫氧化層），並在抹除閘與基板接壤處引入局部階梯厚氧化層，物理阻隔應力誘發洩漏電流（SILC），使單元歷經百萬次循環仍保持極高臨界電壓視窗穩定性。",
+                "claimFocus": "權利項 1 界定可電性編程與抹除之記憶單元：包含半導體基板、相鄰之第一與第二導電區、第一通道部分上方之字元線閘、第二通道部分上方之浮閘、覆蓋於浮閘頂部之控制閘，以及配置於浮閘相對側並具備強化隔離邊界之獨立抹除閘。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8384147B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/c3/7d/91/d00d76fad378ee/US8384147.pdf",
+                    "date": "2013-02-26",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Nhan Do 等與受讓人 Silicon Storage Technology, Inc.；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "035d189b457dbc4f5f0e731a5e744b073eeab13e27bfed02f1a01f63ced9ff0c",
+                    "page": 13
+                  },
+                  {
+                    "title": "US8384147B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8384147B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8384147B2",
+                  "url": "https://patents.google.com/patent/US8384147B2/en",
+                  "note": "US8384147B2 經審查確認受讓人為 Silicon Storage Technology, Inc.，技術導讀依原件公報重建。",
+                  "source": {
+                    "title": "US8384147B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/c3/7d/91/d00d76fad378ee/US8384147.pdf",
+                    "date": "2013-02-26",
+                    "dateKind": "published",
+                    "note": "原件公報首頁核對受讓人 Silicon Storage Technology, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9793279B2",
+                "title": "具備浮閘、字元線、抹除閘之分裂閘非揮發性記憶胞及先進自對準製造方法",
+                "grantDate": "2017-10-17",
+                "publicationDate": "2017-10-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-07-10",
+                "inventors": "Jeng-Wei Yang; Man-Tang Wu; Chun-Ming Chen; Mandana Tadayoni; Chien-Sheng Su; Nhan Do",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US9793279B2/en",
+                "coreProblem": "在先進 40nm/28nm 以下節點，微影疊對誤差（Overlay Error）使浮閘、控制閘與抹除閘之間極微小之側向間距難以精確控制，易引發閘極間短路或抹除速度巨幅波動。",
+                "mechanism": "採用側壁化學機械研磨（CMP）與自對準側壁間隔層（Spacer）技術，在浮閘兩側分別自對準形成字元線選擇閘與第三多晶矽抹除閘，徹底消除多重微影光罩對準誤差，並確保尖端穿隧幾何高度一致。",
+                "claimFocus": "權利項 1 界定記憶裝置結構：包含半導體基板、第一導電型摻雜通道、形成於基板上方之浮閘與控制閘疊層、自對準於疊層第一側壁之選擇字元線閘，以及自對準於疊層第二側壁之共用抹除閘，且抹除閘底部延伸接觸源極區上方絕緣層。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9793279B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/c3/00/4b/a7d0bfd7a8ae02/US9793279.pdf",
+                    "date": "2017-10-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人楊政偉等與受讓人 Silicon Storage Technology, Inc.；PDF 第 38 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "4ecda75ebff386342f529ec49534b2e1c2ccec4f8092d8719c23bda3fbb3356e",
+                    "page": 38
+                  },
+                  {
+                    "title": "US9793279B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9793279B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9793279B2",
+                  "url": "https://patents.google.com/patent/US9793279B2/en",
+                  "note": "US9793279B2 經審查確認受讓人為 Silicon Storage Technology, Inc.，技術導讀依原件公報重建。",
+                  "source": {
+                    "title": "US9793279B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/c3/00/4b/a7d0bfd7a8ae02/US9793279.pdf",
+                    "date": "2017-10-17",
+                    "dateKind": "published",
+                    "note": "原件公報首頁核對受讓人 Silicon Storage Technology, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }

@@ -12951,6 +12951,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7868375B2",
+                "title": "Split gate non-volatile flash memory cell having an erase gate with an overhang over floating gate",
+                "grantDate": "2011-01-11",
+                "publicationDate": "2011-01-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-08-06",
+                "inventors": "Xian Liu; Amitay Levi; Alexander Kotov; Yuri Tkachev; Viktor Markov; James Yingbo Jia; Chien Sheng Su; Yaw Wen Hu",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US7868375B2/en",
+                "coreProblem": "In split-gate flash scaling, lacking geometric field-enhancement between erase gate and floating gate demands excessively high erase voltages, causing dielectric fatigue.",
+                "mechanism": "Creates a third-polysilicon erase gate with lateral overhang overlapping floating gate corners, inducing localized Fowler-Nordheim field emission from sharp tips for low-voltage, over-erase-immune operation.",
+                "claimFocus": "Claim 1 defines a method of increasing erase efficiency: forming select gate, control gate over floating gate, and an independent erase gate with a lateral overhang above floating gate corner to trigger electron tunneling under positive bias.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against SuperFlash split-gate and self-aligned structures; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7868375B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/4c/dd/66/8a6f32e48da4fa/US7868375.pdf",
+                    "date": "2011-01-11",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Silicon Storage Technology, Inc.; PDF page 36 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "70bbbf168046fc8d952b3acc30424e090f1e91f1fc710ed52eb71f75587138c8",
+                    "page": 36
+                  },
+                  {
+                    "title": "US7868375B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7868375B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7868375B2",
+                  "url": "https://patents.google.com/patent/US7868375B2/en",
+                  "note": "US7868375B2 verified as assigned to Silicon Storage Technology, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US7868375B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/4c/dd/66/8a6f32e48da4fa/US7868375.pdf",
+                    "date": "2011-01-11",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Silicon Storage Technology, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7668013B2",
+                "title": "Method for erasing a flash memory cell or array having improved erase coupling ratio",
+                "grantDate": "2010-02-23",
+                "publicationDate": "2010-02-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-02-07",
+                "inventors": "Geeng-Chuan Michael Chern; Ben Sheen; Jonathan Pabustan; Prateep Tuntasood; Der-Tsyr Fan; Yaw Wen Hu",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US7668013B2/en",
+                "coreProblem": "In paired stacked floating gate arrays, erase pulse applied to erase gate couples inadvertently to control gate, lifting floating gate potential and weakening effective tunneling field.",
+                "mechanism": "Engineers dielectric thickness and geometric overlap between erase gate and control gates to maximize Erase Coupling Ratio; simultaneously applies ground or slight negative bias to control gate, maximizing erase voltage differential.",
+                "claimFocus": "Claim 1 defines an erase method: in an array with spaced paired stacked floating/control gates and intermediate erase gates, applying high voltage to erase gate while applying negative voltage to control gates to maximize effective erase differential.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against SuperFlash split-gate and self-aligned structures; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7668013B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/a5/0a/27/74cb633df88063/US7668013B2.pdf",
+                    "date": "2010-02-23",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Silicon Storage Technology, Inc.; PDF page 19 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "6083588015098638260b2851427527d18bfb7fc5d1e371599d4f147040d95a69",
+                    "page": 19
+                  },
+                  {
+                    "title": "US7668013B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7668013B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7668013B2",
+                  "url": "https://patents.google.com/patent/US7668013B2/en",
+                  "note": "US7668013B2 verified as assigned to Silicon Storage Technology, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US7668013B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/a5/0a/27/74cb633df88063/US7668013B2.pdf",
+                    "date": "2010-02-23",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Silicon Storage Technology, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8488388B2",
+                "title": "Method of programming a split gate non-volatile floating gate memory cell having a separate erase gate",
+                "grantDate": "2013-07-16",
+                "publicationDate": "2013-07-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-11-01",
+                "inventors": "Viktor Markov; Jong-Won Yoo; Hung Quoc Nguyen; Alexander Kotov",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8488388B2/en",
+                "coreProblem": "In a 4-terminal cell having word line, control gate, floating gate, and separate erase gate, improper bias on erase gate disrupts channel hot-electron field profiles and induces leakage.",
+                "mechanism": "Applies source-side injection (SSI) programming; precisely biases the separate erase gate at a slight positive potential to clamp fringe fields, maximizing electron injection efficiency while minimizing write current.",
+                "claimFocus": "Claim 1 defines a programming method: word line gate over first channel portion, control gate over floating gate, separate erase gate adjacent floating gate; applying positive bias to second region, high bias to control gate, and controlled bias to word line and erase gate.",
+                "patentCategory": "方法項",
+                "patentCategoryEn": "Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against SuperFlash split-gate and self-aligned structures; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8488388B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/7b/17/ab/5e5a5e5c65363b/US8488388.pdf",
+                    "date": "2013-07-16",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Silicon Storage Technology, Inc.; PDF page 11 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "841396809b55f91bbf701183ec16c2dcdf9e7f6716dd6e0711529a5faa9a741c",
+                    "page": 11
+                  },
+                  {
+                    "title": "US8488388B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8488388B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8488388B2",
+                  "url": "https://patents.google.com/patent/US8488388B2/en",
+                  "note": "US8488388B2 verified as assigned to Silicon Storage Technology, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US8488388B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/7b/17/ab/5e5a5e5c65363b/US8488388.pdf",
+                    "date": "2013-07-16",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Silicon Storage Technology, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8384147B2",
+                "title": "High endurance non-volatile memory cell and array",
+                "grantDate": "2013-02-26",
+                "publicationDate": "2013-02-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-04-29",
+                "inventors": "Nhan Do; Amitay Levi",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US8384147B2/en",
+                "coreProblem": "Repeated cycling beyond 100k cycles induces trap generation in tunnel oxides, causing erase speed deceleration and severe read disturb on adjacent unselected word lines.",
+                "mechanism": "Optimizes inter-poly dielectric stack (ONO/HTO) and integrates a stepped thick oxide at the substrate-erase gate junction to block stress-induced leakage current (SILC), stabilizing Vt window across 1M cycles.",
+                "claimFocus": "Claim 1 defines an electrically programmable and erasable memory cell: substrate, adjacent first/second regions, word line gate over first channel, floating gate over second channel, control gate over floating gate, and separate erase gate on the opposing side with reinforced isolation.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against SuperFlash split-gate and self-aligned structures; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8384147B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/c3/7d/91/d00d76fad378ee/US8384147.pdf",
+                    "date": "2013-02-26",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Silicon Storage Technology, Inc.; PDF page 13 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "035d189b457dbc4f5f0e731a5e744b073eeab13e27bfed02f1a01f63ced9ff0c",
+                    "page": 13
+                  },
+                  {
+                    "title": "US8384147B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8384147B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8384147B2",
+                  "url": "https://patents.google.com/patent/US8384147B2/en",
+                  "note": "US8384147B2 verified as assigned to Silicon Storage Technology, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US8384147B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/c3/7d/91/d00d76fad378ee/US8384147.pdf",
+                    "date": "2013-02-26",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Silicon Storage Technology, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9793279B2",
+                "title": "Split gate non-volatile memory cell having a floating gate, word line, erase gate, and method of manufacturing",
+                "grantDate": "2017-10-17",
+                "publicationDate": "2017-10-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-07-10",
+                "inventors": "Jeng-Wei Yang; Man-Tang Wu; Chun-Ming Chen; Mandana Tadayoni; Chien-Sheng Su; Nhan Do",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US9793279B2/en",
+                "coreProblem": "In sub-40nm/28nm nodes, photolithographic overlay errors across multiple masks result in erratic lateral spacing among floating gate, control gate, and erase gate.",
+                "mechanism": "Utilizes chemical mechanical polishing (CMP) and self-aligned sidewall spacers to form select word line gate and erase gate self-aligned against floating gate sidewalls, eliminating overlay sensitivity.",
+                "claimFocus": "Claim 1 defines a memory device structure: semiconductor substrate, channel, floating/control gate stack, select word line gate self-aligned to stack first sidewall, and common erase gate self-aligned to stack second sidewall with base extending over source region.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical benchmark against SuperFlash split-gate and self-aligned structures; not an approved product-level claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9793279B2 · Official Gazette",
+                    "url": "https://patentimages.storage.googleapis.com/c3/00/4b/a7d0bfd7a8ae02/US9793279.pdf",
+                    "date": "2017-10-17",
+                    "dateKind": "published",
+                    "note": "Front page confirms inventors and assignee Silicon Storage Technology, Inc.; PDF page 38 provides Claim 1 reading. Priority date follows earliest publication record.",
+                    "pdfSHA256": "4ecda75ebff386342f529ec49534b2e1c2ccec4f8092d8719c23bda3fbb3356e",
+                    "page": 38
+                  },
+                  {
+                    "title": "US9793279B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9793279B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status reflects snapshot index only, not real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9793279B2",
+                  "url": "https://patents.google.com/patent/US9793279B2/en",
+                  "note": "US9793279B2 verified as assigned to Silicon Storage Technology, Inc. with technical interpretation reconstructed from original gazette.",
+                  "source": {
+                    "title": "US9793279B2 · Official Gazette Check",
+                    "url": "https://patentimages.storage.googleapis.com/c3/00/4b/a7d0bfd7a8ae02/US9793279.pdf",
+                    "date": "2017-10-17",
+                    "dateKind": "published",
+                    "note": "Original front page confirms assignee Silicon Storage Technology, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
