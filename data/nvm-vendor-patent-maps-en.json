@@ -1597,6 +1597,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US6667902B2",
+              "title": "Semiconductor memory cell and memory array using a breakdown phenomena in an ultra-thin dielectric",
+              "grantDate": "2003-12-23",
+              "publicationDate": "2003-12-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2001-12-17",
+              "inventors": "Jack Zezhong Peng",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US6667902B2/en",
+              "coreProblem": "Traditional floating gate and double-poly OTP technologies require complex high-voltage processes and additional masks, making embedded integration in standard logic CMOS costly.",
+              "mechanism": "Utilizes controlled gate oxide soft/hard breakdown in standard ultra-thin gate dielectrics (1.5–5 nm) under high electric fields to form permanent, reliable low-resistance leakage paths for binary data storage.",
+              "claimFocus": "Claim 11 defines a memory array comprising a plurality of row select lines, column select lines, and program lines, with memory cells comprising a select transistor coupled in series with an ultra-thin dielectric data storage element (Claim 12 recites a MOS half-transistor, Claim 13 recites a MOS capacitor).",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cell; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US6667902B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf",
+                  "date": "2003-12-23",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 18: representative claim 11 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "9c0a99a9782524e2a71b8671e7eb34cc0a8596a95251737e9aadb7867e67ee6f",
+                  "page": 18
+                },
+                {
+                  "title": "US6667902B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US6667902B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6667902B2",
+                "url": "https://patents.google.com/patent/US6667902B2/en",
+                "note": "US6667902B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US6667902B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf",
+                  "date": "2003-12-23",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US6798693B2",
+              "title": "Semiconductor memory cell and memory array using a breakdown phenomena in an ultra-thin dielectric",
+              "grantDate": "2004-09-28",
+              "publicationDate": "2004-09-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2001-09-18",
+              "inventors": "Jack Zezhong Peng",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US6798693B2/en",
+              "coreProblem": "Post-breakdown leakage currents in conventional antifuse cells can be marginal and erratic, vulnerable to capacitive cross-talk from unselected cells.",
+              "mechanism": "Integrates an inversion-enabled region underlying the storage element to establish a direct ohmic interface with the channel inversion layer upon dielectric rupture, significantly boosting sense current and on/off margin.",
+              "claimFocus": "Claim 1 recites a programmable read-only memory cell comprising a MOSFET select transistor and a MOS data storage element having an ultra-thin dielectric, configured to establish a defined cell leakage level by stressing the dielectric into breakdown.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cell; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US6798693B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/0c/8d/e9/dcb6158d8b8350/US6798693.pdf",
+                  "date": "2004-09-28",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "fb826b688c47a5215fd4cf0eee9cc9d1faaacec0886d4b59dad9ab476f8fb551",
+                  "page": 16
+                },
+                {
+                  "title": "US6798693B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US6798693B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6798693B2",
+                "url": "https://patents.google.com/patent/US6798693B2/en",
+                "note": "US6798693B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US6798693B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/0c/8d/e9/dcb6158d8b8350/US6798693.pdf",
+                  "date": "2004-09-28",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US6856540B2",
+              "title": "High density semiconductor memory cell and memory array using a single transistor",
+              "grantDate": "2005-02-15",
+              "publicationDate": "2005-02-15",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2003-05-30",
+              "inventors": "Jack Zezhong Peng; David Fong",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US6856540B2/en",
+              "coreProblem": "2T bitcells occupy larger silicon real estate (>30 F²), hindering high-density embedded code storage scaling.",
+              "mechanism": "Implements column bitlines as transistor gates and row wordlines coupled to source diffusions in a 1T cross-point stack without intervening conductors, forming localized conductive substrate regions during programming to achieve an 8–12 F² footprint.",
+              "claimFocus": "Claim 1 recites a single-transistor programmable memory cell at the cross-point of a column bitline gate and a row wordline source segment, wherein a programmed doped region is formed in the substrate under the gate when programmed.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cell; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US6856540B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/18/d5/4b/fda6531e9aa47b/US6856540.pdf",
+                  "date": "2005-02-15",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "92f3a20b2fd207e365e917d2f3e93111cd9d46c9a49f57edd332546039399ec4",
+                  "page": 14
+                },
+                {
+                  "title": "US6856540B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US6856540B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6856540B2",
+                "url": "https://patents.google.com/patent/US6856540B2/en",
+                "note": "US6856540B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US6856540B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/18/d5/4b/fda6531e9aa47b/US6856540.pdf",
+                  "date": "2005-02-15",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US6940751B2",
+              "title": "High density semiconductor memory cell and memory array using a single transistor and having variable gate oxide breakdown",
+              "grantDate": "2005-09-06",
+              "publicationDate": "2005-09-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-01-26",
+              "inventors": "Jack Zezhong Peng; Michael David Fliesler",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US6940751B2/en",
+              "coreProblem": "Stochastic dielectric breakdown locations in uniform-oxide 1T cells can occur near the source or channel center, compromising channel cutoff and inducing severe cross-talk leakage.",
+              "mechanism": "Employs an engineered variable-thickness or pre-damaged gate dielectric to force dielectric breakdown exclusively near a designated drain diffusion region rather than the source region.",
+              "claimFocus": "Claim 1 recites a programmable memory cell at the cross-point of bitlines and wordlines comprising a transistor whose gate dielectric is formed such that it is more susceptible to breakdown near the first doped region than the second doped region connected to the wordline.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cell; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US6940751B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e7/c3/bb/00e59b70d551fd/US6940751.pdf",
+                  "date": "2005-09-06",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "7bd1c5f963c16f25e3f1a06e3a37c0231b4eb3d231b930f752663538b23af88c",
+                  "page": 16
+                },
+                {
+                  "title": "US6940751B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US6940751B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6940751B2",
+                "url": "https://patents.google.com/patent/US6940751B2/en",
+                "note": "US6940751B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US6940751B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e7/c3/bb/00e59b70d551fd/US6940751.pdf",
+                  "date": "2005-09-06",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9887201B2",
+              "title": "One-time programmable memory and method for making the same",
+              "grantDate": "2018-02-06",
+              "publicationDate": "2018-02-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-08-29",
+              "inventors": "Harry Shengwen Luan",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US9887201B2/en",
+              "coreProblem": "Contact plug and metal pitch scaling limitations in sub-28nm/16nm nodes restrict conventional 1T antifuse bitcell shrinking due to parasitic resistance and leakage.",
+              "mechanism": "Employs buried bitlines within the substrate flanked by deep STI isolation trenches to construct contact-free, ultra-scaled Metal-Insulator-Semiconductor (MIS) crosspoint cells at physical lithography pitch limits.",
+              "claimFocus": "Claim 1 defines an OTP memory cell comprising a buried bitline in a substrate, an even-thickness dielectric layer, insulating isolation trenches deeper than the buried bitline, and a conductive gate, wherein the channel region has no electrical interaction other than to the buried bitline or gate.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with XPM™ Comparison: Single-Transistor Programmable Cell; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9887201B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/4e/60/db/2d0cd1988c8f15/US9887201.pdf",
+                  "date": "2018-02-06",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "78ff28540d4f18a78f8431200236ca138d347097722cfa4284153dc19508e36d",
+                  "page": 16
+                },
+                {
+                  "title": "US9887201B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9887201B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9887201B2",
+                "url": "https://patents.google.com/patent/US9887201B2/en",
+                "note": "US9887201B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US9887201B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/4e/60/db/2d0cd1988c8f15/US9887201.pdf",
+                  "date": "2018-02-06",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -1662,6 +1942,62 @@
                   "date": "2010-01-05",
                   "dateKind": "published",
                   "note": "Original front-page identity check; technical interpretation was corrected against the selected publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9852805B2",
+              "title": "Write enhancement for one time programmable (OTP) semiconductors",
+              "grantDate": "2017-12-26",
+              "publicationDate": "2017-12-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-05-13",
+              "inventors": "Harry Luan; Tao Su; Steve Wang; Charlie Cheng",
+              "assignee": "Kilopass Technology Inc",
+              "url": "https://patents.google.com/patent/US9852805B2/en",
+              "coreProblem": "In advanced HKMG logic nodes, conventional unipolar single-pulse programming risks over-stressing unselected cells along bitlines and inducing soft breakdown degradation.",
+              "mechanism": "Applies an asymmetric bipolar dual-pulse programming sequence, coupling positive bias on select pass gates while applying negative voltage pulses (-1.0V to -2.0V) on the bitline to lower absolute positive voltage stress and stabilize filament rupture.",
+              "claimFocus": "Claim 1 recites a method of programming an OTP memory cell comprising applying a first programming pulse by setting a positive voltage on the pass transistor gate, a positive voltage on the programming gate, and a negative voltage on the bitline to rupture the dielectric layer, followed by a second pulse including negative voltage.",
+              "patentCategory": "操作方法項",
+              "patentCategoryEn": "Operating Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SecretCode™ Comparison: Well-Controlled Antifuse; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9852805B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/dc/91/0c/b34a9a700a1b21/US9852805.pdf",
+                  "date": "2017-12-26",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "21cc29bf71f8c8941965942b8a5a7cdf4df495e2fbfb665b68ab33f78785c6b5",
+                  "page": 12
+                },
+                {
+                  "title": "US9852805B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9852805B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9852805B2",
+                "url": "https://patents.google.com/patent/US9852805B2/en",
+                "note": "US9852805B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US9852805B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/dc/91/0c/b34a9a700a1b21/US9852805.pdf",
+                  "date": "2017-12-26",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee Kilopass Technology Inc and inventors.",
                   "page": 1
                 }
               }

@@ -8697,6 +8697,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US6667902B2",
+                "title": "利用超薄介電質擊穿現象之半導體記憶單元及記憶體陣列",
+                "grantDate": "2003-12-23",
+                "publicationDate": "2003-12-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2001-12-17",
+                "inventors": "Jack Zezhong Peng",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US6667902B2/en",
+                "coreProblem": "傳統浮閘與雙多晶矽 OTP 需要複雜高壓製程與額外光罩，在標準邏輯製程中難以低成本無縫嵌入。",
+                "mechanism": "利用先進邏輯製程標準閘極氧化層（約 1.5~5nm）在高電場下的受控介電質軟擊穿／硬擊穿現象，建立永久性低阻漏電微絲作為二元資料儲存機制。",
+                "claimFocus": "權利項 11 界定記憶體陣列：包含複數條列選擇線、行選擇線與至少一條列編程線，各記憶單元包含一個選擇電晶體與一個資料儲存元件串聯於行選擇線與編程線之間，其中資料儲存元件包含供實體儲存資料的超薄介電質（權利項 12 載明其為 MOS 半電晶體，權利項 13 載明其為 MOS 電容器）。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「XPM™ 對照主題：單電晶體可燒錄單元」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6667902B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf",
+                    "date": "2003-12-23",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁起為代表權利項 11 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "9c0a99a9782524e2a71b8671e7eb34cc0a8596a95251737e9aadb7867e67ee6f",
+                    "page": 18
+                  },
+                  {
+                    "title": "US6667902B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6667902B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6667902B2",
+                  "url": "https://patents.google.com/patent/US6667902B2/en",
+                  "note": "US6667902B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US6667902B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf",
+                    "date": "2003-12-23",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6798693B2",
+                "title": "利用超薄介電質擊穿現象之半導體記憶單元及陣列",
+                "grantDate": "2004-09-28",
+                "publicationDate": "2004-09-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2001-09-18",
+                "inventors": "Jack Zezhong Peng",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US6798693B2/en",
+                "coreProblem": "傳統反熔絲單元在讀取時，擊穿點的漏電流過小且不穩定，容易受相鄰寄生電容與未選單元干擾。",
+                "mechanism": "在 MOS 儲存元件中引入反轉層啟用區域（Inversion-enabled region），使擊穿微絲與導電通道反轉層形成直接歐姆接觸，大幅提高讀取感測電流與開關比。",
+                "claimFocus": "權利項 1 界定可編程唯讀記憶單元：包含一個 MOSFET 選擇晶體與一個 MOS 資料儲存元件，儲存元件包含導電結構、超薄介電質與第一摻雜半導體區，並藉由施加崩潰電壓於超薄介電質以設定記憶單元的漏電電流位準。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「XPM™ 對照主題：單電晶體可燒錄單元」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6798693B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/0c/8d/e9/dcb6158d8b8350/US6798693.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "fb826b688c47a5215fd4cf0eee9cc9d1faaacec0886d4b59dad9ab476f8fb551",
+                    "page": 16
+                  },
+                  {
+                    "title": "US6798693B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6798693B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6798693B2",
+                  "url": "https://patents.google.com/patent/US6798693B2/en",
+                  "note": "US6798693B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US6798693B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/0c/8d/e9/dcb6158d8b8350/US6798693.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6856540B2",
+                "title": "利用單電晶體之高密度半導體記憶單元及記憶體陣列",
+                "grantDate": "2005-02-15",
+                "publicationDate": "2005-02-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2003-05-30",
+                "inventors": "Jack Zezhong Peng; David Fong",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US6856540B2/en",
+                "coreProblem": "2T 反熔絲結構單元面積較大（>30 F²），在大容量代碼儲存應用中晶圓佔用面積過高。",
+                "mechanism": "將位元線作為電晶體閘極，字元線連接至源極，利用閘介電質下方無中介導電層的直接堆疊結構，在編程時於通道基板內形成局部摻雜導電區，實現面積僅約 8~12 F² 的 1T 交叉點單元。",
+                "claimFocus": "權利項 1 界定單晶體可編程記憶單元：由行位元線與列字元線交叉點之單電晶體組成，閘極直接由位元線形成，字元線段連接至第二摻雜區，且當單元被編程時在通道區之基板內形成編程摻雜區。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「XPM™ 對照主題：單電晶體可燒錄單元」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6856540B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/18/d5/4b/fda6531e9aa47b/US6856540.pdf",
+                    "date": "2005-02-15",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "92f3a20b2fd207e365e917d2f3e93111cd9d46c9a49f57edd332546039399ec4",
+                    "page": 14
+                  },
+                  {
+                    "title": "US6856540B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6856540B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6856540B2",
+                  "url": "https://patents.google.com/patent/US6856540B2/en",
+                  "note": "US6856540B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US6856540B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/18/d5/4b/fda6531e9aa47b/US6856540.pdf",
+                    "date": "2005-02-15",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6940751B2",
+                "title": "具非對稱易擊穿閘氧化層之單電晶體高密度半導體記憶單元",
+                "grantDate": "2005-09-06",
+                "publicationDate": "2005-09-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-01-26",
+                "inventors": "Jack Zezhong Peng; Michael David Fliesler",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US6940751B2/en",
+                "coreProblem": "均勻厚度閘氧化層在單電晶體中擊穿位置隨機，靠近源極或通道中央擊穿會破壞選擇通道關斷能力，造成嚴重的行串擾漏電。",
+                "mechanism": "製造非均勻或經離子佈植預損傷之閘介電層，使閘氧化層靠近第一摻雜半導體區的擊穿耐壓顯著低於第二摻雜區（源極端），強制微絲擊穿發生於特定汲極側邊界。",
+                "claimFocus": "權利項 1 界定交叉點單電晶體記憶單元：包含閘極、閘介電層與第一、第二摻雜區界定通道，其中第二摻雜區連接列字元線，且閘介電層配置為在靠近第一摻雜區處比靠近第二摻雜區處更容易發生介電質擊穿。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「XPM™ 對照主題：單電晶體可燒錄單元」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6940751B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e7/c3/bb/00e59b70d551fd/US6940751.pdf",
+                    "date": "2005-09-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "7bd1c5f963c16f25e3f1a06e3a37c0231b4eb3d231b930f752663538b23af88c",
+                    "page": 16
+                  },
+                  {
+                    "title": "US6940751B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6940751B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6940751B2",
+                  "url": "https://patents.google.com/patent/US6940751B2/en",
+                  "note": "US6940751B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US6940751B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e7/c3/bb/00e59b70d551fd/US6940751.pdf",
+                    "date": "2005-09-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9887201B2",
+                "title": "一次性可編程記憶體及其製造方法",
+                "grantDate": "2018-02-06",
+                "publicationDate": "2018-02-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-08-29",
+                "inventors": "Harry Shengwen Luan",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US9887201B2/en",
+                "coreProblem": "先進 28nm/16nm 節點下接觸窗（Contact）與金屬繞線微縮遭遇物理極限，傳統 1T 反熔絲單元因漏電與寄生電阻難以進一步微縮尺寸。",
+                "mechanism": "利用基板內埋入式位元線（Buried Bitline）結合深槽隔離層，建構無接觸插塞的超微縮金屬-絕緣體-半導體（MIS）十字交叉單元，達成微縮極限面積。",
+                "claimFocus": "權利項 1 界定 OTP 記憶單元：包含形成於基板內的埋入式位元線、均勻厚度介電層、兩側深度大於位元線之絕緣層、導電閘極與通道區，且通道區除埋入式位元線與導電閘極外無其他電氣交互作用。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「XPM™ 對照主題：單電晶體可燒錄單元」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9887201B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/4e/60/db/2d0cd1988c8f15/US9887201.pdf",
+                    "date": "2018-02-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "78ff28540d4f18a78f8431200236ca138d347097722cfa4284153dc19508e36d",
+                    "page": 16
+                  },
+                  {
+                    "title": "US9887201B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9887201B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9887201B2",
+                  "url": "https://patents.google.com/patent/US9887201B2/en",
+                  "note": "US9887201B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US9887201B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/4e/60/db/2d0cd1988c8f15/US9887201.pdf",
+                    "date": "2018-02-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -8762,6 +9042,62 @@
                     "date": "2010-01-05",
                     "dateKind": "published",
                     "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9852805B2",
+                "title": "一次性可編程半導體之寫入增強方法",
+                "grantDate": "2017-12-26",
+                "publicationDate": "2017-12-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-05-13",
+                "inventors": "Harry Luan; Tao Su; Steve Wang; Charlie Cheng",
+                "assignee": "Kilopass Technology Inc",
+                "url": "https://patents.google.com/patent/US9852805B2/en",
+                "coreProblem": "在先進高介電金屬閘極（HKMG）與超薄介電層下，傳統單一高壓正脈衝寫入容易引起相鄰未選單元過壓擊穿與電荷注入老化。",
+                "mechanism": "採用非對稱雙極性電壓脈衝組合，於選擇閘施加正向導通電壓同時於位元線施加負壓脈衝（-1.0V 至 -2.0V），壓低單元峰值正向電壓應力並強化擊穿微絲穩定性。",
+                "claimFocus": "權利項 1 界定 OTP 單元編程方法：包含設定第一極性第一電壓於編程元件閘極、第一極性第二電壓於傳遞電晶體閘極，並設定第二極性（負壓）第三電壓於位元線以擊穿氧化層，隨後施加包含負電壓之第二編程脈衝。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SecretCode™ 對照主題：井區控制反熔絲」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9852805B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/dc/91/0c/b34a9a700a1b21/US9852805.pdf",
+                    "date": "2017-12-26",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 12 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "21cc29bf71f8c8941965942b8a5a7cdf4df495e2fbfb665b68ab33f78785c6b5",
+                    "page": 12
+                  },
+                  {
+                    "title": "US9852805B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9852805B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9852805B2",
+                  "url": "https://patents.google.com/patent/US9852805B2/en",
+                  "note": "US9852805B2 依原始核准公報建檔收錄，核對首頁受讓人與發明人。",
+                  "source": {
+                    "title": "US9852805B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/dc/91/0c/b34a9a700a1b21/US9852805.pdf",
+                    "date": "2017-12-26",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc 及發明人。",
                     "page": 1
                   }
                 }
