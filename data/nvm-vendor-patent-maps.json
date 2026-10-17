@@ -7939,6 +7939,230 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US11662978B2",
+              "title": "採用迭代計算之密碼模組化乘加運算電路及操作方法",
+              "grantDate": "2023-05-30",
+              "publicationDate": "2023-05-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-06-04",
+              "inventors": "Wen-Ching Lin",
+              "assignee": "PUFsecurity Corp",
+              "url": "https://patents.google.com/patent/US11662978B2/en",
+              "coreProblem": "公鑰密碼（如 RSA、ECC）與後量子密碼（PQC）中的大數模除運算若採用常規硬體除法器，電路面積過大且極易遭受側信道功率分析（DPA）攻擊。",
+              "mechanism": "將待除大數分段為 K 個區塊，並透過控制器調度專用模乘器與模加器進行管線化迭代運算，在硬體緊湊的面積下實現高吞吐量常數時間（Constant-time）模運算，完全消除側信道洩漏。",
+              "claimFocus": "權利項 1 界定密碼系統模運算電路操作方法：電路包含控制器、模乘器與模加器，控制器將第一數值劃分為 K 個片段，並在多個週期內迭代計算各片段對於第二數值之模餘數以生成最終密鑰輸出。",
+              "patentCategory": "方法項",
+              "patentCategoryEn": "Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11662978B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/e0/42/94/7f33fd531b5a97/US11662978.pdf",
+                  "date": "2023-05-30",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人林文慶與受讓人 PUFsecurity Corp；PDF 第 7 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "ad8e2edefeebbed5f21b06e17f0a8326eccfbcbb8207ab3d1aa08bbe73c9ed9a",
+                  "page": 7
+                },
+                {
+                  "title": "US11662978B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11662978B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11662978B2",
+                "url": "https://patents.google.com/patent/US11662978B2/en",
+                "note": "US11662978B2 經審查確認受讓人為 PUFsecurity Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US11662978B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/e0/42/94/7f33fd531b5a97/US11662978.pdf",
+                  "date": "2023-05-30",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 PUFsecurity Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11893141B2",
+              "title": "基於靜態與動態雙熵源之電子裝置資訊管理方法與控制電路",
+              "grantDate": "2024-02-06",
+              "publicationDate": "2024-02-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-02-18",
+              "inventors": "Kai-Hsin Chuang",
+              "assignee": "PUFsecurity Corp",
+              "url": "https://patents.google.com/patent/US11893141B2/en",
+              "coreProblem": "物聯網安全晶片若僅依賴外部注入金鑰，易在供應鏈運送或封測端遭到截獲或篡改，且動態更新憑證管理成本高昂。",
+              "mechanism": "利用晶片內部靜態熵源（PUF 物理不可複製特徵）生成裝置原生唯一身分識別（UID），並在執行資訊更新時透過內部控制電路即時混淆衍生臨時金鑰，確保敏感憑證永不出晶片。",
+              "claimFocus": "權利項 1 界定電子裝置資訊管理方法：包含利用靜態熵源提供靜態熵資料、控制電路根據靜態熵資料與外部指令動態生成會話鑑權向量，並在記憶體內執行原位驗證與存取授權。",
+              "patentCategory": "方法項",
+              "patentCategoryEn": "Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11893141B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/34/d2/f0/e4b801300eb195/US11893141.pdf",
+                  "date": "2024-02-06",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人莊凱昕與受讓人 PUFsecurity Corp；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "9bad054a7868894bf13669ac8c559570ca0e0de769d3347a0a23a9ade3e207c8",
+                  "page": 19
+                },
+                {
+                  "title": "US11893141B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11893141B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11893141B2",
+                "url": "https://patents.google.com/patent/US11893141B2/en",
+                "note": "US11893141B2 經審查確認受讓人為 PUFsecurity Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US11893141B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/34/d2/f0/e4b801300eb195/US11893141.pdf",
+                  "date": "2024-02-06",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 PUFsecurity Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11870444B1",
+              "title": "基於數位電路亞穩態之高熵真隨機數熵源電路",
+              "grantDate": "2024-01-09",
+              "publicationDate": "2024-01-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2022-08-04",
+              "inventors": "Chun-Heng You; Kai-Hsin Chuang; Chi-Yi Shao",
+              "assignee": "PUFsecurity Corp",
+              "url": "https://patents.google.com/patent/US11870444B1/en",
+              "coreProblem": "傳統環形振盪器（RO）或熱噪訊熵源對環境溫度與電源電壓波動極度敏感，在極端車規溫度下熵值易發生退化導致隨機性失效。",
+              "mechanism": "利用純數位邏輯閘傳輸延遲之微小製程波動誘導亞穩態（Metastability），並在第一與第二時間點之間引入自適應時序擾動採樣回路，持續輸出通過 NIST SP 800-90B 測試標準的高品質真隨機熵流。",
+              "claimFocus": "權利項 1 界定熵源電路：包含數位電路根據第一時間點接收之輸入資料於第二時間點產生結果資料，其中時間延遲受晶片物理微觀不確定性調控，從而提取純隨機熵位元。",
+              "patentCategory": "電路結構項",
+              "patentCategoryEn": "Circuit Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11870444B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/86/f0/fc/a4649054f59775/US11870444.pdf",
+                  "date": "2024-01-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人游畯閎等與受讓人 PUFsecurity Corp；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "1ef10db39747fa51fff6cb01603dfeda91582636ced4e25cf94860e4cc6454d1",
+                  "page": 16
+                },
+                {
+                  "title": "US11870444B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11870444B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11870444B1",
+                "url": "https://patents.google.com/patent/US11870444B1/en",
+                "note": "US11870444B1 經審查確認受讓人為 PUFsecurity Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US11870444B1 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/86/f0/fc/a4649054f59775/US11870444.pdf",
+                  "date": "2024-01-09",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 PUFsecurity Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11487505B2",
+              "title": "基於物理不可複製函數（PUF）之真隨機數產生器及產生方法",
+              "grantDate": "2022-11-01",
+              "publicationDate": "2022-11-01",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-06-04",
+              "inventors": "Chun-Yuan Yu; Yung-Hsiang Liu; Kai-Hsin Chuang",
+              "assignee": "PUFsecurity Corp",
+              "url": "https://patents.google.com/patent/US11487505B2/en",
+              "coreProblem": "傳統虛擬隨機數發生器（PRNG）若初始種子（Seed）遭重放或受限於固定密碼算法，無法抵禦進階硬體反向工程或側信道探測。",
+              "mechanism": "將 PUF 池提供之靜態物理不可複製值與動態初步種子送入第一混淆電路（Obfuscation Circuit）執行非線性多重混淆，生成兼具不可預測性與密碼學統計隨機性之終端金鑰種子。",
+              "claimFocus": "權利項 1 界定基於 PUF 之真隨機數產生器：包含自晶片內部 PUF 池取得第一 PUF 數值之第一混淆電路，並根據第一 PUF 數值對初步種子執行第一混淆運算以生成最終種子輸出。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11487505B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/6f/40/d4/a660af247d1e8f/US11487505.pdf",
+                  "date": "2022-11-01",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人余俊元等與受讓人 PUFsecurity Corp；PDF 第 26 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                  "pdfSHA256": "1ae70e83aed00c118f82a76e41fbedba3db5913cfea37ae31d0e0f838dc7dcef",
+                  "page": 26
+                },
+                {
+                  "title": "US11487505B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11487505B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11487505B2",
+                "url": "https://patents.google.com/patent/US11487505B2/en",
+                "note": "US11487505B2 經審查確認受讓人為 PUFsecurity Corp，技術導讀依原件公報重建。",
+                "source": {
+                  "title": "US11487505B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/6f/40/d4/a660af247d1e8f/US11487505.pdf",
+                  "date": "2022-11-01",
+                  "dateKind": "published",
+                  "note": "原件公報首頁核對受讓人 PUFsecurity Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
