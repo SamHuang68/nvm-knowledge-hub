@@ -10673,6 +10673,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US7221596B2",
+                "title": "pFET 非揮發性記憶體單元",
+                "grantDate": "2007-05-22",
+                "publicationDate": "2007-05-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-05-05",
+                "inventors": "Alberto Pesavento; Christopher J. Diorio; John D. Hyde",
+                "assignee": "Impinj Inc.",
+                "url": "https://patents.google.com/patent/US7221596B2/en",
+                "coreProblem": "標準邏輯 CMOS 製程中，如何利用 pFET 讀出電晶體實現低壓操作、低待機功耗與高可靠度的單層多晶矽浮閘記憶單元。",
+                "mechanism": "以浮動閘極 pFET 作為讀出電晶體（源極接 VDD），結合獨立控制電容與穿隧電容；藉由 Fowler-Nordheim 穿隧與熱載子注入調控浮閘電荷，以汲極感測電流判定記憶狀態。",
+                "claimFocus": "權利項 1 界定非揮發性記憶單元：包含第一浮動閘極、閘極端耦合至浮動閘極之第一 pFET、耦合至第一電壓節點之控制電容結構，以及耦合至第二電壓節點之穿隧電容結構，構成獨立偏壓之三端耦合浮閘儲存節點。",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7221596B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a3/ad/d4/e43fb81e6147c7/US7221596.pdf",
+                    "date": "2007-05-22",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Diorio 團隊與受讓人 Impinj Inc.；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "38f3b33f8a579a58affb397ba311174224f68fc85eb4435098df0360456e5980",
+                    "page": 22
+                  },
+                  {
+                    "title": "US7221596B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7221596B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7221596B2",
+                  "url": "https://patents.google.com/patent/US7221596B2/en",
+                  "note": "US7221596B2 為 Impinj AEON pFET 浮閘架構核心專利，公報受讓人核實為 Impinj Inc.。",
+                  "source": {
+                    "title": "US7221596B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/a3/ad/d4/e43fb81e6147c7/US7221596.pdf",
+                    "date": "2007-05-22",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Impinj Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7474568B2",
+                "title": "帶至帶穿隧與碰撞游離編程非揮發性記憶體",
+                "grantDate": "2009-01-06",
+                "publicationDate": "2009-01-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-11-16",
+                "inventors": "Kim-Kwong Michael Han; Narbeh Derhacobian",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7474568B2/en",
+                "coreProblem": "微縮節點下傳統通道熱電子注入編程電流過大，造成功耗居高不下且加速閘氧化層崩潰老化。",
+                "mechanism": "利用汲極接面帶至帶穿隧（BTBT）引發之載子在強橫向電場下發生二次碰撞游離（Impact Ionization），產生高能量閘極注入電流，以極低功耗高效寫入浮閘。",
+                "claimFocus": "權利項 1 界定編程方法：向浮動閘極寫入電荷包含第一注入電流與由第二電晶體基板區域帶至帶穿隧引發之載子所產生的第二注入電流組合，以複合注入機制完成高能效編程。",
+                "patentCategory": "操作方法項",
+                "patentCategoryEn": "Operating Method",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7474568B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/57/3d/47/1bfd5ab6485b3d/US7474568.pdf",
+                    "date": "2009-01-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Virage Logic Corp.；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "d0f8b0b7639195a4acdee7732973e6c8890004ae185b4c141f68d19ec3018db3",
+                    "page": 14
+                  },
+                  {
+                    "title": "US7474568B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7474568B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7474568B2",
+                  "url": "https://patents.google.com/patent/US7474568B2/en",
+                  "note": "US7474568B2 為 Virage Logic AEON 低功耗帶至帶穿隧編程專利，公報受讓人核實為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7474568B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/57/3d/47/1bfd5ab6485b3d/US7474568.pdf",
+                    "date": "2009-01-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7679957B2",
+                "title": "具抗應力漏電之備援非揮發性記憶單元",
+                "grantDate": "2010-03-16",
+                "publicationDate": "2010-03-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-04-15",
+                "inventors": "Alberto Pesavento; Terry D. Hass",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7679957B2/en",
+                "coreProblem": "薄閘氧化層在多次擦寫後產生的應力誘發漏電流（SILC）會導致單一浮閘電荷流失，造成晶片儲存資料丟失。",
+                "mechanism": "將兩個浮閘元件以串聯或並聯的冗餘電路架構整合為單一邏輯位元，即使單一單元發生 SILC 微觀漏電，互補或備援單元仍能維持二元狀態判讀正確性。",
+                "claimFocus": "權利項 1 界定記憶體電路：包含第一類型之第一場效電晶體與第二場效電晶體，兩者均具備可編程之浮動閘極，且兩電晶體以備援電路架構相互耦接，消除單點氧化層漏電失效。",
+                "patentCategory": "電路結構項",
+                "patentCategoryEn": "Circuit Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7679957B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/95/ff/02/976609ecc22433/US7679957B2.pdf",
+                    "date": "2010-03-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Virage Logic Corp.；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "a9af39bb27417b1f55e35560273d7346b15da9dd4c377aba9ab8cf5a2c0808a2",
+                    "page": 18
+                  },
+                  {
+                    "title": "US7679957B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7679957B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7679957B2",
+                  "url": "https://patents.google.com/patent/US7679957B2/en",
+                  "note": "US7679957B2 為 Virage Logic AEON 冗餘備援防 SILC 專利，公報受讓人核實為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7679957B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/95/ff/02/976609ecc22433/US7679957B2.pdf",
+                    "date": "2010-03-16",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7715236B2",
+                "title": "具同位校驗容錯之非揮發性記憶體與讀取方法",
+                "grantDate": "2010-05-11",
+                "publicationDate": "2010-05-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-03-09",
+                "inventors": "Alberto Pesavento; Terry D. Hass",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7715236B2/en",
+                "coreProblem": "在高溫惡劣環境下浮閘電荷微幅漂移時，傳統單一參考臨界電壓感測易發生誤判，且缺乏即時校驗機制。",
+                "mechanism": "在感測放大器中設置中性值上下之雙臨界閾值進行一致性比較判讀，並配合資料區塊中的專用同位校驗單元（Parity NVM Cell）進行硬體級即時誤差校正。",
+                "claimFocus": "權利項 1 界定記憶體裝置：包含由複數組 NVM 單元組成之記憶區塊，每組包含資料單元與同位校驗單元，配合感測放大器依據雙閾值比較輸出之一致性判定讀取狀態並執行同位更正。",
+                "patentCategory": "系統與電路項",
+                "patentCategoryEn": "System and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7715236B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/0b/34/69/f22ccfc19af257/US7715236.pdf",
+                    "date": "2010-05-11",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人與受讓人 Virage Logic Corp.；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "73e1eccc5e329d8558f68311635629f51824d9582a398b3498841a028f6ce861",
+                    "page": 16
+                  },
+                  {
+                    "title": "US7715236B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7715236B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7715236B2",
+                  "url": "https://patents.google.com/patent/US7715236B2/en",
+                  "note": "US7715236B2 為 Virage Logic AEON 雙閾值同位校驗容錯架構專利，公報受讓人核實為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7715236B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/0b/34/69/f22ccfc19af257/US7715236.pdf",
+                    "date": "2010-05-11",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7580311B2",
+                "title": "用於非揮發性記憶體之緊湊型高壓開關電路",
+                "grantDate": "2009-08-25",
+                "publicationDate": "2009-08-25",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-08-30",
+                "inventors": "Alberto Pesavento",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7580311B2/en",
+                "coreProblem": "高壓編程開關通常需要大型預充電電晶體與動態節點重設電路，佔據大量周邊矽晶面積且易受動態漏電干擾。",
+                "mechanism": "免除核心電路之動態預充電元件，改以一對靜態驅動電路控制核心電路中之疊接（Cascode）電晶體對，在超小面積下實現無靜態功耗的高壓安全切換。",
+                "claimFocus": "權利項 1 界定記憶體電路：包含供電節點、接地節點、獨立高壓節點及記憶單元，高壓電路介於高壓節點與記憶單元之間，包含第一與第二 FET 疊接對，透過靜態驅動電平控制高壓傳輸路徑。",
+                "patentCategory": "周邊電路結構項",
+                "patentCategoryEn": "Peripheral Circuit Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7580311B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/8e/51/70/5b63a0022eac1e/US7580311.pdf",
+                    "date": "2009-08-25",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Pesavento 與受讓人 Virage Logic Corp.；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報最早主張日收錄。",
+                    "pdfSHA256": "88c7ac6c5771b903a3909e86c935f43f029d87522d6f622d707e4c2320204127",
+                    "page": 16
+                  },
+                  {
+                    "title": "US7580311B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7580311B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7580311B2",
+                  "url": "https://patents.google.com/patent/US7580311B2/en",
+                  "note": "US7580311B2 為 Virage Logic AEON 疊接靜態緊湊型高壓開關專利，公報受讓人核實為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7580311B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/8e/51/70/5b63a0022eac1e/US7580311.pdf",
+                    "date": "2009-08-25",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
