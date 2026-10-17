@@ -313,27 +313,27 @@
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px;">
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-mesh" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-mesh" aria-label="Active Top Mesh defense (+4 points)" data-aria-en="Active Top Mesh defense (+4 points)" data-aria-zh="頂層主動 PRBS 網格防禦 (+4 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">頂層主動 PRBS 網格 (+4 pts)</span><span data-lang="en">Active Top Mesh (+4 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-zero" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-zero" aria-label="Single-Cycle Zeroize circuit (+3 points)" data-aria-en="Single-Cycle Zeroize circuit (+3 points)" data-aria-zh="單週期電容急毀迴路 (+3 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">單週期電容急毀迴路 (+3 pts)</span><span data-lang="en">Single-Cycle Zeroize (+3 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-scramble" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-scramble" aria-label="Address/Data Scrambling (+2 points)" data-aria-en="Address/Data Scrambling (+2 points)" data-aria-zh="位址／資料密碼學擾碼 (+2 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">位址／資料密碼學擾碼 (+2 pts)</span><span data-lang="en">Address/Data Scrambling (+2 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-antifuse" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-antifuse" aria-label="AntiFuse 3–8nm Filament (+3 points)" data-aria-en="AntiFuse 3–8nm Filament (+3 points)" data-aria-zh="AntiFuse 3–8nm 隨機微絲 (+3 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">AntiFuse 3–8nm 隨機微絲 (+3 pts)</span><span data-lang="en">AntiFuse 3–8nm Filament (+3 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-puf" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-puf" aria-label="SRAM PUF Absent-at-Rest (+4 points)" data-aria-en="SRAM PUF Absent-at-Rest (+4 points)" data-aria-zh="SRAM PUF 斷電無電荷 (+4 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">SRAM PUF 斷電無電荷 (+4 pts)</span><span data-lang="en">SRAM PUF Absent-at-Rest (+4 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-diff" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-diff" aria-label="Differential Read DPA Filter (+2 points)" data-aria-en="Differential Read DPA Filter (+2 points)" data-aria-zh="互補差分讀取衰減 DPA (+2 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">互補差分讀取衰減 DPA (+2 pts)</span><span data-lang="en">Differential Read DPA Filter (+2 pts)</span></span>
             </label>
           </div>
@@ -538,15 +538,15 @@
         <div style="background: #131b2e; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
           <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 12px;">
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-diff-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-diff-check" aria-label="Differential Complementary Sensing defense" data-aria-en="Differential Complementary Sensing defense" data-aria-zh="差分互補對稱感測防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">差分互補對稱感測 (Differential Sensing)</span><span data-lang="en">Differential Complementary Sensing</span></span>
             </label>
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-blinding-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-blinding-check" aria-label="Random Current Blinding and Masking defense" data-aria-en="Random Current Blinding and Masking defense" data-aria-zh="內部隨機電流偽裝與遮罩防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">內部隨機電流偽裝 (Current Blinding)</span><span data-lang="en">Random Current Blinding &amp; Masking</span></span>
             </label>
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-jitter-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-jitter-check" aria-label="Dynamic Clock Jitter defense" data-aria-en="Dynamic Clock Jitter defense" data-aria-zh="動態隨機時脈抖動防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">動態隨機時脈抖動 (Dynamic Clock Jitter)</span><span data-lang="en">Dynamic Clock Jitter</span></span>
             </label>
           </div>
@@ -588,17 +588,17 @@
               <span data-lang="en">Side-Channel Correlation &amp; PUF Entropy Visualization</span>
             </h3>
             <div style="display: flex; gap: 6px;">
-              <button type="button" id="pqc-mode-cpa-btn" class="active" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-cpa-btn" class="active" aria-label="Switch to CPA Correlation Traces chart" data-aria-en="Switch to CPA Correlation Traces chart" data-aria-zh="切換為 CPA 相關係數軌跡圖表" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">CPA 相關係數軌跡</span>
                 <span data-lang="en">CPA Correlation Traces</span>
               </button>
-              <button type="button" id="pqc-mode-puf-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-puf-btn" aria-label="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-en="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-zh="切換為 PUF 晶片間漢明距離分佈圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">PUF 晶片間漢明距離</span>
                 <span data-lang="en">PUF Inter-Chip Hamming</span>
               </button>
             </div>
           </div>
-          <canvas id="pqc-rot-dpa-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+          <canvas id="pqc-rot-dpa-canvas" role="img" aria-label="Side-Channel CPA Correlation and PUF Entropy Distribution Canvas" data-aria-en="Side-Channel CPA Correlation and PUF Entropy Distribution Canvas" data-aria-zh="側信道 CPA 相關係數軌跡與 PUF 熵分佈視覺化畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
         </div>
 
         <!-- Verdict Banner -->
@@ -1214,9 +1214,9 @@
       <header class="section-head"><div><p class="kicker" data-zh="05 / 認證導引" data-en="05 / CERTIFICATION NAVIGATOR">05 / CERTIFICATION NAVIGATOR</p><h2 data-zh="先界定評估目標（TOE），再談認證名稱" data-en="Define the Target of Evaluation before naming a scheme">Define the Target of Evaluation before naming a scheme</h2></div><p data-zh="這是方向建議，不代表產品已認證，也不取代實驗室或認證制度負責單位的正式判定。" data-en="Directional guidance only. It does not claim certification or replace a lab or scheme owner's formal determination.">Directional guidance only. It does not claim certification or replace a lab or scheme owner's formal determination.</p></header>
       <div class="navigator-shell">
         <form id="certForm">
-          <label><span data-zh="評估目標" data-en="Evaluation target">Evaluation target</span><select id="targetSelect"><option value="ip">Silicon IP / subsystem</option><option value="soc">SoC / secure IC</option><option value="device">Connected device</option></select></label>
-          <label><span data-zh="目標市場" data-en="Target market">Target market</span><select id="marketSelect"><option value="iot">IoT / platform</option><option value="auto"><span data-lang="zh">車用技術</span><span data-lang="en">Automotive</span></option><option value="payment">Payment / secure element</option><option value="general">General assurance</option></select></label>
-          <label><span data-zh="確證目標" data-en="Assurance goal">Assurance goal</span><select id="goalSelect"><option value="baseline">Baseline market trust</option><option value="reuse">Reusable IP evidence</option><option value="high">High-assurance certification (SESIP L3+ / CC AVA_VAN.5)</option></select></label>
+          <label><span data-zh="評估目標" data-en="Evaluation target">Evaluation target</span><select id="targetSelect" aria-label="Evaluation target (TOE)" data-aria-en="Evaluation target (TOE)" data-aria-zh="評估目標 (TOE)"><option value="ip">Silicon IP / subsystem</option><option value="soc">SoC / secure IC</option><option value="device">Connected device</option></select></label>
+          <label><span data-zh="目標市場" data-en="Target market">Target market</span><select id="marketSelect" aria-label="Target market application" data-aria-en="Target market application" data-aria-zh="目標市場應用"><option value="iot">IoT / platform</option><option value="auto">Automotive</option><option value="payment">Payment / secure element</option><option value="general">General assurance</option></select></label>
+          <label><span data-zh="確證目標" data-en="Assurance goal">Assurance goal</span><select id="goalSelect" aria-label="Security assurance goal" data-aria-en="Security assurance goal" data-aria-zh="安全確證目標"><option value="baseline">Baseline market trust</option><option value="reuse">Reusable IP evidence</option><option value="high">High-assurance certification (SESIP L3+ / CC AVA_VAN.5)</option></select></label>
         </form>
         <div id="certResult" class="cert-result" aria-live="polite"></div>
       </div>

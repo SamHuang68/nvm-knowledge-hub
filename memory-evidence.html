@@ -119,7 +119,7 @@
           <p class="evidence-noscript-message"><span data-lang="en">JavaScript is unavailable; the complete bilingual ledger and source links remain below.</span><span data-lang="zh">目前未啟用 JavaScript；下方仍提供完整雙語總帳與來源連結。</span></p>
         </noscript>
         <div class="evidence-toolbar">
-          <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" placeholder="Search author, technology, attack or DOI…" data-placeholder-en="Search author, technology, attack or DOI…" data-placeholder-zh="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
+          <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" aria-label="Search evidence records by author, technology, or DOI" data-aria-en="Search evidence records by author, technology, or DOI" data-aria-zh="依作者、技術或 DOI 搜尋證據紀錄" placeholder="Search author, technology, attack or DOI…" data-placeholder-en="Search author, technology, attack or DOI…" data-placeholder-zh="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
           <div class="evidence-filters" id="evidenceFilters" role="group">
             <button class="active" type="button" data-type="all" aria-pressed="true"><span data-lang="zh">全部</span><span data-lang="en">ALL</span></button>
             <button type="button" data-type="paper" aria-pressed="false"><span data-lang="zh">論文</span><span data-lang="en">PAPERS</span></button>
@@ -130,11 +130,11 @@
         </div>
         <div id="evidenceWorkbench" class="evidence-workbench" hidden>
           <div id="evidenceChips" class="evidence-chips" role="group">
-            <button type="button" data-remove-filter="type" hidden></button>
-            <button type="button" data-remove-filter="query" hidden></button>
+            <button type="button" data-remove-filter="type" aria-label="Remove category filter" data-aria-en="Remove category filter" data-aria-zh="移除類別篩選" hidden></button>
+            <button type="button" data-remove-filter="query" aria-label="Remove search query filter" data-aria-en="Remove search query filter" data-aria-zh="移除搜尋關鍵字篩選" hidden></button>
           </div>
           <div class="evidence-actions">
-            <button id="evidenceExport" type="button"></button>
+            <button id="evidenceExport" type="button" aria-label="Export filtered evidence records" data-aria-en="Export filtered evidence records" data-aria-zh="匯出已篩選的證據紀錄"></button>
           </div>
           <p id="evidenceWorkbenchStatus" class="evidence-workbench-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
@@ -147,8 +147,8 @@
             <table id="evidenceIndex">
               <caption></caption>
               <thead><tr>
-                <th scope="col" data-sort="id" aria-sort="ascending"><button type="button" data-evidence-sort="id"></button></th>
-                <th scope="col" data-sort="year" aria-sort="none"><button type="button" data-evidence-sort="year"></button></th>
+                <th scope="col" data-sort="id" aria-sort="ascending"><button type="button" data-evidence-sort="id" aria-label="Sort evidence records by Identifier" data-aria-en="Sort evidence records by Identifier" data-aria-zh="依識別碼排序證據紀錄"></button></th>
+                <th scope="col" data-sort="year" aria-sort="none"><button type="button" data-evidence-sort="year" aria-label="Sort evidence records by Publication Year" data-aria-en="Sort evidence records by Publication Year" data-aria-zh="依發表年份排序證據紀錄"></button></th>
                 <th scope="col" data-column="title"></th>
               </tr></thead>
               <tbody></tbody>

@@ -1778,17 +1778,17 @@
                     <span data-lang="en">First-Principles Physics Profiles</span>
                   </h3>
                   <div style="display: flex; gap: 6px;">
-                    <button type="button" id="cryo-mode-temp-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-temp-btn" class="active" aria-label="Switch to Temperature vs Read Margin chart" data-aria-en="Switch to Temperature vs Read Margin chart" data-aria-zh="切換為溫度與讀取裕度圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">溫度 vs 電壓裕度</span>
                       <span data-lang="en">Temp vs Margin</span>
                     </button>
-                    <button type="button" id="cryo-mode-seu-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-seu-btn" aria-label="Switch to Weibull SEU Cross-Section chart" data-aria-en="Switch to Weibull SEU Cross-Section chart" data-aria-zh="切換為 Weibull 重離子單粒子翻轉截面積圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">Weibull SEU 截面積</span>
                       <span data-lang="en">Weibull SEU Cross-Section</span>
                     </button>
                   </div>
                 </div>
-                <canvas id="cryo-radhard-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+                <canvas id="cryo-radhard-canvas" role="img" aria-label="Cryogenic and Radiation-Hardened NVM Physics Simulation Canvas" data-aria-en="Cryogenic and Radiation-Hardened NVM Physics Simulation Canvas" data-aria-zh="低溫與抗輻照 NVM 物理模擬畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
               </div>
 
               <!-- Verdict Banner -->

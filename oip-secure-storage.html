@@ -409,17 +409,17 @@
                 <span data-lang="en">3D Packaging Physical Profiles</span>
               </h3>
               <div style="display: flex; gap: 6px;">
-                <button type="button" id="chiplet-mode-thermal-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <button type="button" id="chiplet-mode-thermal-btn" class="active" aria-label="Switch to Power vs Junction Temp and Thermal Stress chart" data-aria-en="Switch to Power vs Junction Temp and Thermal Stress chart" data-aria-zh="切換為熱功耗與接面溫升及熱應力圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                   <span data-lang="zh">熱功耗 vs 接面溫升/應力</span>
                   <span data-lang="en">Power vs Temp/Stress</span>
                 </button>
-                <button type="button" id="chiplet-mode-latency-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <button type="button" id="chiplet-mode-latency-btn" aria-label="Switch to Trace Length vs Read Latency chart" data-aria-en="Switch to Trace Length vs Read Latency chart" data-aria-zh="切換為走線長度與讀取延遲圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                   <span data-lang="zh">走線長度 vs 讀取延遲</span>
                   <span data-lang="en">Length vs Read Latency</span>
                 </button>
               </div>
             </div>
-            <canvas id="chiplet-hetero-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+            <canvas id="chiplet-hetero-canvas" role="img" aria-label="Chiplet Heterogeneous Integration Thermal and Interconnect Simulation Canvas" data-aria-en="Chiplet Heterogeneous Integration Thermal and Interconnect Simulation Canvas" data-aria-zh="小晶片異質整合熱應力與互連延遲模擬畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
           </div>
 
           <!-- Verdict Banner -->
