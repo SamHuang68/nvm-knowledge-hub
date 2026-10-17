@@ -230,6 +230,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US7405972B1",
+              "title": "Non-volatile memory array",
+              "grantDate": "2008-07-29",
+              "publicationDate": "2008-07-29",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-06-08",
+              "inventors": "Yen-Tai Lin; Shih-Jye Shen; Ching-Sung Yang; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US7405972B1/en",
+              "coreProblem": "In large-scale arrays of single-poly floating-gate cells, capacitive cross-coupling between bit lines and source lines induces read disturb and parasitic crosstalk leakage.",
+              "mechanism": "Employs shared source lines and symmetrical virtual ground geometry, utilizing alternating bias switching to suppress charging and discharging of parasitic capacitances in unselected cells.",
+              "claimFocus": "Claim 1 recites an array architecture comprising a plurality of bit lines, word lines, and single-poly cells each including a select transistor and a floating-gate transistor, wherein adjacent columns share a source line and a low bias voltage is applied during read operations to suppress read disturb.",
+              "patentCategory": "陣列與電路項",
+              "patentCategoryEn": "Array and Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7405972B1 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/23/99/4a/52bbc6d77fb6c2/US7405972.pdf",
+                  "date": "2008-07-29",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "b948dcb6e47bbdf5737ea523898dfbcadc578d509c79c644f45a8be696cb45a3",
+                  "page": 16
+                },
+                {
+                  "title": "US7405972B1 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7405972B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7405972B1",
+                "url": "https://patents.google.com/patent/US7405972B1/en",
+                "note": "US7405972B1 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US7405972B1 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/23/99/4a/52bbc6d77fb6c2/US7405972.pdf",
+                  "date": "2008-07-29",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7417897B2",
+              "title": "Method for reading single poly 1T non-volatile memory cell",
+              "grantDate": "2008-08-26",
+              "publicationDate": "2008-08-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-07-24",
+              "inventors": "Hsin-Ming Chen; Shih-Jye Shen; Ching-Sung Yang; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US7417897B2/en",
+              "coreProblem": "Conventional 2T cells occupy significant silicon area, whereas 1T single-transistor cells without dedicated selectors suffer from unselected leakage and over-erase conduction.",
+              "mechanism": "Leverages sub-micron channel weak-inversion sensing with dynamic source-drain bias reversal to achieve precise threshold voltage window discrimination on 1T cells, suppressing over-erase and unselected leakage.",
+              "claimFocus": "Claim 1 recites a method of reading a single-poly single-transistor memory cell by applying a read voltage to the gate and establishing a small sensing voltage differential between drain and source to determine binary states non-destructively based on channel conduction influenced by floating-gate stored electrons.",
+              "patentCategory": "操作方法項",
+              "patentCategoryEn": "Operating Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7417897B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/aa/bc/c5/f636a7fa987e5b/US7417897B2.pdf",
+                  "date": "2008-08-26",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 14: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "cfa685cf436df6fd2f61cb2dfaf369e7c6ba19597e18e1467a6aea9ff001d63d",
+                  "page": 14
+                },
+                {
+                  "title": "US7417897B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7417897B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7417897B2",
+                "url": "https://patents.google.com/patent/US7417897B2/en",
+                "note": "US7417897B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US7417897B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/aa/bc/c5/f636a7fa987e5b/US7417897B2.pdf",
+                  "date": "2008-08-26",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -466,6 +578,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9324381B2",
+              "title": "Anti-fuse memory cell",
+              "grantDate": "2016-04-26",
+              "publicationDate": "2016-04-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-06-11",
+              "inventors": "Meng-Yi Wu; Te-Hsun Hsu; Hsueh-Wei Chen; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9324381B2/en",
+              "coreProblem": "Standard gate oxide antifuse breakdown produces unconstrained stochastic thermal filament rupture, causing wide post-breakdown resistance spread and localized silicon lattice cratering.",
+              "mechanism": "Introduces graded doped halo buffer wells and gate edge electric field modulation to confine dielectric breakdown to an engineered gate overlap edge, achieving low-voltage deterministic rupture.",
+              "claimFocus": "Claim 1 defines an antifuse memory cell comprising a substrate, a gate dielectric layer, and a conductive gate electrode forming an overlap region over a graded diffusion well, configured such that programming voltage induces localized oxide rupture exclusively at the predetermined edge region.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9324381B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/df/b4/81/fa82f0a183ec97/US9324381.pdf",
+                  "date": "2016-04-26",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 25: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "efeba642613f3af8a3fb58ed447bffd05a503e32809c856fb38f81a6bf288cc8",
+                  "page": 25
+                },
+                {
+                  "title": "US9324381B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9324381B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9324381B2",
+                "url": "https://patents.google.com/patent/US9324381B2/en",
+                "note": "US9324381B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US9324381B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/df/b4/81/fa82f0a183ec97/US9324381.pdf",
+                  "date": "2016-04-26",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9799410B2",
+              "title": "Programming method for non-volatile memory cell",
+              "grantDate": "2017-10-24",
+              "publicationDate": "2017-10-24",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-08-20",
+              "inventors": "Meng-Yi Wu; Te-Hsun Hsu; Hsueh-Wei Chen; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9799410B2/en",
+              "coreProblem": "High programming electric fields in antifuse arrays induce severe half-select gate dielectric stress and substrate punch-through in unselected cells along the same bitline.",
+              "mechanism": "Applies a multi-step staircase pulse programming profile with intermediate inhibit bias clamps on half-selected bitlines, limiting peak transient electric field while ensuring reliable filament rupture in selected cells.",
+              "claimFocus": "Claim 1 recites a programming method for an antifuse cell array comprising applying a progressive step-up voltage sequence to selected wordlines while driving inhibit bias to unselected columns to maintain dielectric field margins below soft-breakdown thresholds.",
+              "patentCategory": "操作方法項",
+              "patentCategoryEn": "Operating Method",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9799410B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/b3/36/ec/9567c35eeda9ac/US9799410.pdf",
+                  "date": "2017-10-24",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 18: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "280906f58162f4ae6d2ecd4f18fe648961d007b72802a74a9d1a558e06a04378",
+                  "page": 18
+                },
+                {
+                  "title": "US9799410B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9799410B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9799410B2",
+                "url": "https://patents.google.com/patent/US9799410B2/en",
+                "note": "US9799410B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US9799410B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/b3/36/ec/9567c35eeda9ac/US9799410.pdf",
+                  "date": "2017-10-24",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -590,6 +814,62 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9508447B2",
+              "title": "Erasable non-volatile memory cell",
+              "grantDate": "2016-11-29",
+              "publicationDate": "2016-11-29",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-05-20",
+              "inventors": "Meng-Yi Wu; Te-Hsun Hsu; Hsueh-Wei Chen; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9508447B2/en",
+              "coreProblem": "Single-poly EEPROM cells degrade rapidly during high-voltage Fowler-Nordheim cycling due to trapped hole accumulation and oxide interface state generation, limiting endurance below 10K cycles.",
+              "mechanism": "Integrates a self-converging detrapping diffusion well adjacent to the floating gate, alternating FN tunneling polarities to dynamically neutralize interface traps and extend write endurance beyond 100K cycles.",
+              "claimFocus": "Claim 1 recites an erasable non-volatile memory cell fabricated in standard CMOS logic comprising a floating gate extending over a program diffusion and an erase diffusion, configured to execute bidirectional Fowler-Nordheim charge transfer with self-limiting detrapping.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9508447B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/b1/ea/9f/43cd53f7ce6461/US9508447.pdf",
+                  "date": "2016-11-29",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 12: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "0b3cc2aeadaf63377394139cb43b273070162158f05680eb2ded000a198dfaf6",
+                  "page": 12
+                },
+                {
+                  "title": "US9508447B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9508447B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9508447B2",
+                "url": "https://patents.google.com/patent/US9508447B2/en",
+                "note": "US9508447B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US9508447B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/b1/ea/9f/43cd53f7ce6461/US9508447.pdf",
+                  "date": "2016-11-29",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -711,6 +991,62 @@
                   "date": "2007-01-02",
                   "dateKind": "published",
                   "note": "Original front-page identity check; technical interpretation was corrected against the selected publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10797063B2",
+              "title": "Multiple-time programmable non-volatile memory",
+              "grantDate": "2020-10-06",
+              "publicationDate": "2020-10-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-01-29",
+              "inventors": "Chih-Min Wang; Shih-Jye Shen; Ching-Sung Yang; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10797063B2/en",
+              "coreProblem": "Multi-time programmable single-poly cells typically suffer from large cell dimensions (>50 F²) and inter-cell capacitive coupling during hot-carrier injection programming.",
+              "mechanism": "Employs an integrated assistant gate (AG) shielding structure that focuses the lateral electric field for channel hot-electron injection while screening neighboring cell fringe fields, scaling cell area down to ~20 F².",
+              "claimFocus": "Claim 1 defines an MTP memory cell comprising a select gate, a floating gate, and an assistant gate electrode disposed adjacent to the channel region to focus carrier injection trajectories and shield parasitic fringing capacitance during programming.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10797063B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/2f/19/c3/7a1052f196f9a5/US10797063.pdf",
+                  "date": "2020-10-06",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 20: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "2b66d98959b199b1a563597cb293f4d18829fb9522946365205b6fdd68123f9b",
+                  "page": 20
+                },
+                {
+                  "title": "US10797063B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10797063B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10797063B2",
+                "url": "https://patents.google.com/patent/US10797063B2/en",
+                "note": "US10797063B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US10797063B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/2f/19/c3/7a1052f196f9a5/US10797063.pdf",
+                  "date": "2020-10-06",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
                   "page": 1
                 }
               }
@@ -891,6 +1227,62 @@
                   "date": "2020-09-08",
                   "dateKind": "published",
                   "note": "Original front-page identity check; technical interpretation was corrected against the selected publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11055065B2",
+              "title": "Physical unclonable function and method of operating the same",
+              "grantDate": "2021-07-06",
+              "publicationDate": "2021-07-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-09-07",
+              "inventors": "Meng-Yi Wu; Te-Hsun Hsu; Hsueh-Wei Chen; Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11055065B2/en",
+              "coreProblem": "Traditional SRAM PUF and ring-oscillator PUF suffer from temperature drift, aging instability, and vulnerability to EM injection or photon emission side-channel analysis.",
+              "mechanism": "Harnesses intrinsic microscopic oxide quantum tunneling thickness variations in unprogrammed paired antifuse dielectric cells to extract truly random, non-deterministic microscopic physical entropy without requiring destructive breakdown.",
+              "claimFocus": "Claim 1 recites a physical unclonable function device comprising a pair of unprogrammed antifuse structures having native gate oxide quantum tunneling variations, and a differential sensing circuit coupled to compare minute tunneling currents to generate stable, unclonable digital entropy keys.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11055065B2 · Original Publication",
+                  "url": "https://patentimages.storage.googleapis.com/04/e3/50/a67788d346dde7/US11055065.pdf",
+                  "date": "2021-07-06",
+                  "dateKind": "published",
+                  "note": "Front page 1: inventor names and assignee. PDF page 16: representative claim 1 reading; not an exhaustive claim chart. Earliest claimed priority is recorded from the publication/index, without determining entitlement of every claim.",
+                  "pdfSHA256": "31b0afc33479250aa4d9b616b5f2630464d8a37b5e38e01970427a26e2ce5b58",
+                  "page": 16
+                },
+                {
+                  "title": "US11055065B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11055065B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a current legal determination or a verified expiration date."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11055065B2",
+                "url": "https://patents.google.com/patent/US11055065B2/en",
+                "note": "US11055065B2 indexed from the original grant publication; front-page assignee and inventors verified.",
+                "source": {
+                  "title": "US11055065B2 · Front-Page Identity Verification",
+                  "url": "https://patentimages.storage.googleapis.com/04/e3/50/a67788d346dde7/US11055065.pdf",
+                  "date": "2021-07-06",
+                  "dateKind": "published",
+                  "note": "Verified original publication front-page assignee eMemory Technology Inc. and inventors.",
                   "page": 1
                 }
               }
