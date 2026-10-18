@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "cac550c03c56860222fc",
+  "version": "9c0a277f3fccea5bcf85",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -164,7 +164,7 @@ self.NVMOfflineManifest = {
     "advanced-finfet-gaa-simulator.js": "9827e615b9c15c5d6972b8b4b77a7b7696411723faa1b2dfd8cadceccd079b54",
     "advanced-packaging-pdks-simulator.js": "4d2404d987d70369fa036d31416325891cb0cc3b8c2852ed8c393a049162da6f",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "5c6980f1a8c6ae6320d22ef0642073d867922d33767873528db95bb849a7aeed",
+    "ai-nvm-opportunities.html": "0f5c6b253dbc5dbf2f39d022e2fd803104ef4d3ef03e5f113fe0d4a1a1005b9b",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "9dd149c4a00943630888e2554967df7858c20080c28067df0393d7be39c6dcb7",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -236,7 +236,7 @@ self.NVMOfflineManifest = {
     "hybrid-bonding-tsv-kgd-simulator.js": "164be83e6b904455b0f3be08f4cb5fcf9608a62d67da6a9b35e41788608d118a",
     "index.html": "9c5f9dee25e9c3b992dd078bc2695ccb3362fe9c285a8730cd274f45546bfe61",
     "iot-energy-tradeoff-calculator.js": "057bce8aa8ccc9a8c94224ed4816b36879b3b304428f4b54389d043f10be15db",
-    "iot-mcu-envm.html": "3aff8eda0a2f5db7101cfd7b64e7672202e0645b00b7f8f5213651d06f37fc8d",
+    "iot-mcu-envm.html": "ce4ac7bdf0e921d714eaa900b1535810400bf1d18f7155f81ebbe287355097ee",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -318,5 +318,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17388320
+  "totalBytes": 17388364
 };
