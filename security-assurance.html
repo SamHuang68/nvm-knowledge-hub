@@ -313,27 +313,27 @@
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px;">
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-mesh" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-mesh" aria-label="Active Top Mesh defense (+4 points)" data-aria-en="Active Top Mesh defense (+4 points)" data-aria-zh="頂層主動 PRBS 網格防禦 (+4 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">頂層主動 PRBS 網格 (+4 pts)</span><span data-lang="en">Active Top Mesh (+4 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-zero" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-zero" aria-label="Single-Cycle Zeroize circuit (+3 points)" data-aria-en="Single-Cycle Zeroize circuit (+3 points)" data-aria-zh="單週期電容急毀迴路 (+3 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">單週期電容急毀迴路 (+3 pts)</span><span data-lang="en">Single-Cycle Zeroize (+3 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-scramble" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-scramble" aria-label="Address/Data Scrambling (+2 points)" data-aria-en="Address/Data Scrambling (+2 points)" data-aria-zh="位址／資料密碼學擾碼 (+2 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">位址／資料密碼學擾碼 (+2 pts)</span><span data-lang="en">Address/Data Scrambling (+2 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-antifuse" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-antifuse" aria-label="AntiFuse 3–8nm Filament (+3 points)" data-aria-en="AntiFuse 3–8nm Filament (+3 points)" data-aria-zh="AntiFuse 3–8nm 隨機微絲 (+3 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">AntiFuse 3–8nm 隨機微絲 (+3 pts)</span><span data-lang="en">AntiFuse 3–8nm Filament (+3 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-puf" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-puf" aria-label="SRAM PUF Absent-at-Rest (+4 points)" data-aria-en="SRAM PUF Absent-at-Rest (+4 points)" data-aria-zh="SRAM PUF 斷電無電荷 (+4 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">SRAM PUF 斷電無電荷 (+4 pts)</span><span data-lang="en">SRAM PUF Absent-at-Rest (+4 pts)</span></span>
             </label>
             <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
-              <input type="checkbox" id="cc-chk-diff" checked style="accent-color: #785021;">
+              <input type="checkbox" id="cc-chk-diff" aria-label="Differential Read DPA Filter (+2 points)" data-aria-en="Differential Read DPA Filter (+2 points)" data-aria-zh="互補差分讀取衰減 DPA (+2 分)" checked style="accent-color: #785021;">
               <span><span data-lang="zh">互補差分讀取衰減 DPA (+2 pts)</span><span data-lang="en">Differential Read DPA Filter (+2 pts)</span></span>
             </label>
           </div>
@@ -472,7 +472,7 @@
         <!-- CANVAS BITGRID & NIST TEST BARS -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
           <div style="width: 100%; height: 280px; position: relative;">
-            <canvas id="puf-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-en="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-zh="32x32 PUF 空間點陣圖與 NIST SP 800-22 統計 P-value 圖"></canvas>
+            <canvas id="puf-canvas" role="img" tabindex="0" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-en="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-zh="32x32 PUF 空間點陣圖與 NIST SP 800-22 統計 P-value 圖"></canvas>
           </div>
         </div>
 
@@ -511,7 +511,7 @@
               <span data-lang="zh">教學模型防護目標：</span>
               <span data-lang="en">Illustrative Protection Target:</span>
             </label>
-            <select id="pqc-preset-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-preset-select" aria-label="Illustrative protection target" data-aria-zh="教學模型防護目標" data-aria-en="Illustrative protection target" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
               <option value="fips140_3_lvl4" data-zh="教學模型：高防護目標" data-en="Illustrative Model: High Protection Target">Illustrative Model: High Protection Target</option>
               <option value="automotive_evita_high" data-zh="教學模型：中防護目標" data-en="Illustrative Model: Medium Protection Target">Illustrative Model: Medium Protection Target</option>
               <option value="iot_commercial_secure" data-zh="教學模型：基本防護目標" data-en="Illustrative Model: Basic Protection Target">Illustrative Model: Basic Protection Target</option>
@@ -525,7 +525,7 @@
               <span data-lang="zh">底層金鑰儲存 / PUF 拓撲 (Key Storage &amp; PUF Topology):</span>
               <span data-lang="en">Key Storage &amp; PUF Topology:</span>
             </label>
-            <select id="pqc-topology-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-topology-select" aria-label="Key storage and PUF topology" data-aria-zh="底層金鑰儲存與 PUF 拓撲" data-aria-en="Key storage and PUF topology" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
               <option value="antifuse_rot_puf">Logic AntiFuse Nano-Filament PUF / RoT (0-Mask)</option>
               <option value="sram_puf_helper">SRAM Startup PUF (Requires External BCH Helper Data)</option>
               <option value="efuse_metal_poly">Poly-Si / Metal eFuse (Melt Link / SEM Visible)</option>
@@ -538,15 +538,15 @@
         <div style="background: #131b2e; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
           <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 12px;">
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-diff-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-diff-check" aria-label="Differential Complementary Sensing defense" data-aria-en="Differential Complementary Sensing defense" data-aria-zh="差分互補對稱感測防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">差分互補對稱感測 (Differential Sensing)</span><span data-lang="en">Differential Complementary Sensing</span></span>
             </label>
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-blinding-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-blinding-check" aria-label="Random Current Blinding and Masking defense" data-aria-en="Random Current Blinding and Masking defense" data-aria-zh="內部隨機電流偽裝與遮罩防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">內部隨機電流偽裝 (Current Blinding)</span><span data-lang="en">Random Current Blinding &amp; Masking</span></span>
             </label>
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
-              <input type="checkbox" id="pqc-jitter-check" checked style="accent-color: #c4a574;">
+              <input type="checkbox" id="pqc-jitter-check" aria-label="Dynamic Clock Jitter defense" data-aria-en="Dynamic Clock Jitter defense" data-aria-zh="動態隨機時脈抖動防禦" checked style="accent-color: #c4a574;">
               <span><span data-lang="zh">動態隨機時脈抖動 (Dynamic Clock Jitter)</span><span data-lang="en">Dynamic Clock Jitter</span></span>
             </label>
           </div>
@@ -588,17 +588,17 @@
               <span data-lang="en">Side-Channel Correlation &amp; PUF Entropy Visualization</span>
             </h3>
             <div style="display: flex; gap: 6px;">
-              <button type="button" id="pqc-mode-cpa-btn" class="active" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-cpa-btn" class="active" aria-label="Switch to CPA Correlation Traces chart" data-aria-en="Switch to CPA Correlation Traces chart" data-aria-zh="切換為 CPA 相關係數軌跡圖表" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">CPA 相關係數軌跡</span>
                 <span data-lang="en">CPA Correlation Traces</span>
               </button>
-              <button type="button" id="pqc-mode-puf-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-puf-btn" aria-label="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-en="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-zh="切換為 PUF 晶片間漢明距離分佈圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">PUF 晶片間漢明距離</span>
                 <span data-lang="en">PUF Inter-Chip Hamming</span>
               </button>
             </div>
           </div>
-          <canvas id="pqc-rot-dpa-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+          <canvas id="pqc-rot-dpa-canvas" role="img" aria-label="Side-Channel CPA Correlation and PUF Entropy Distribution Canvas" data-aria-en="Side-Channel CPA Correlation and PUF Entropy Distribution Canvas" data-aria-zh="側信道 CPA 相關係數軌跡與 PUF 熵分佈視覺化畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
         </div>
 
         <!-- Verdict Banner -->
@@ -895,6 +895,13 @@
 
       <!-- PQC Storage Simulator Workbench Root -->
       <article id="pqc-key-storage-simulator-root" class="paper-card physics-model-card" style="margin-top: 14px; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; padding: 20px;">
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+          <span data-lang="zh">本模擬器採用簡化矽面積估算與 DPA 側信道洩漏指數模型，用以示意 NIST FIPS 203/204 後量子密碼演算法在原生私鑰全儲存與分層根種子展開架構下的面積與測試時間折衷。文中推導之 MTD（最小洩漏採樣次數）為理論簡化估算，實際側信道防禦強度需經 ISO/IEC 17825 實驗室 TVLA 實測檢驗；FIPS 140-3 與 SESIP 認證屬系統級晶片 TOE 產品評估範疇，不可由單一儲存介質直接推定。</span>
+          <span data-lang="en">This simulator utilizes simplified silicon area models and exponential DPA leakage estimations to illustrate trade-offs between full raw key storage and tiered root seed derivation for NIST FIPS 203/204 PQC algorithms. The derived MTD figures are theoretical estimates; actual side-channel defense efficacy requires empirical TVLA testing per ISO/IEC 17825 standards. FIPS 140-3 and SESIP certifications apply to comprehensive system-level TOE products and cannot be inferred from the storage medium alone.</span>
+        </div>
+
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
             <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -1080,8 +1087,15 @@
           <p class="kicker" data-zh="05 / 供應鏈硬體木馬與光學側信道" data-en="05 / HARDWARE TROJAN &amp; OPTICAL PEM">05 / HARDWARE TROJAN &amp; OPTICAL PEM</p>
           <h2 data-zh="供應鏈硬體木馬、光學側信道 (PEM) 與 PUF 認證模擬工作台" data-en="Hardware Trojan, Optical PEM &amp; PUF Verification Simulator">Hardware Trojan, Optical PEM &amp; PUF Verification Simulator</h2>
         </div>
-        <p data-zh="第一性原理物理建模：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。" data-en="First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.">First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</p>
+        <p data-zh="物理與統計模型模擬：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。" data-en="Physical &amp; statistical simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.">Physical &amp; statistical simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</p>
       </header>
+
+      <!-- Simulation Disclaimer Banner -->
+      <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+        <span data-lang="zh">本模擬器所採用之熱載子發光 (PEM) 光子計數、矽基板近紅外穿透率、SNSPD 光學信噪比與木馬檢出率為簡化物理與統計推論模型（參考 Becker 2013 與 Schlösser 2012 相關文獻），非實驗室特定破壞性逆向工程機台（如 PHEMOS-1000 / Thermo Fisher Meridian）之實測保證數據。光學側信道發射強度受操作電壓、金屬層覆蓋幾何及晶圓背面研磨厚度影響；防禦能力應透過實體晶片光學顯微檢驗與全生命週期供應鏈管控多層驗證。</span>
+        <span data-lang="en">The hot-carrier luminescence (PEM) photon emission counts, backside NIR transmission, SNSPD optical SNR, and trojan detection probabilities in this simulator are simplified physical and statistical models (referencing Becker 2013 &amp; Schlösser 2012), not empirical test guarantees from specific failure analysis instruments (such as PHEMOS-1000 / Meridian). Physical emission signatures depend on operating voltage, metal layer stack geometry, and backside thinning depth; defense posture must be verified through physical chip optical analysis and multi-tier supply chain chain-of-custody controls.</span>
+      </div>
 
       <!-- Simulator Root Workbench -->
       <div id="trojan-pem-simulator-root" style="margin-bottom: 24px;"></div>
@@ -1179,6 +1193,8 @@
         <div class="matrix-row"><b>SRAM PUF</b><span data-zh="根金鑰不永久儲存" data-en="Root is not stored">Root is not stored</span><span data-zh="SCA · FI · PVT · 老化" data-en="SCA · FI · PVT · aging">SCA · FI · PVT · aging</span><span data-zh="重建率、洩漏、失敗模式" data-en="Reconstruction, leakage, failure mode">Reconstruction, leakage, failure mode</span><span data-zh="運作時仍有敏感中間值" data-en="Sensitive intermediates exist at runtime">Sensitive intermediates exist at runtime</span></div>
         <div class="matrix-row"><b>AES / KDF</b><span data-zh="讀取 OTP 不等於取得明文" data-en="OTP readout does not equal plaintext">OTP readout does not equal plaintext</span><span data-zh="DPA／CPA · DFA · 協定濫用" data-en="DPA/CPA · DFA · protocol abuse">DPA/CPA · DFA · protocol abuse</span><span data-zh="攻擊成本與殘餘風險" data-en="Attack cost and residual risk">Attack cost and residual risk</span><span data-zh="實作與整合品質決定結果" data-en="Implementation and integration determine outcome">Implementation and integration determine outcome</span></div>
         <div class="matrix-row"><b>ANTIFUSE OTP</b><span data-zh="永久保存密文與狀態" data-en="Retains ciphertext and state">Retains ciphertext and state</span><span data-zh="讀取 · 顯微觀測 · 映射" data-en="readout · microscopy · mapping">readout · microscopy · mapping</span><span data-zh="可觀察內容與可利用性" data-en="Observable content and exploitability">Observable content and exploitability</span><span data-zh="不可假設單元完全不可讀" data-en="Do not assume cells are unreadable">Do not assume cells are unreadable</span></div>
+        <div class="matrix-row"><b>PQC / HYBRID ROT</b><span data-zh="傳統演算法與後量子雙重綁定" data-en="Hybrid classical &amp; quantum-resistant binding">Hybrid classical &amp; quantum-resistant binding</span><span data-zh="ML-KEM · ML-DSA · 側通道 · 故障" data-en="ML-KEM · ML-DSA · SCA · Fault injection">ML-KEM · ML-DSA · SCA · Fault injection</span><span data-zh="常數時間實作、抗 DPA 高階遮罩" data-en="Constant-time execution, higher-order DPA masking">Constant-time execution, higher-order DPA masking</span><span data-zh="公私鑰長度顯著增加，需評估儲存開銷" data-en="Escalated key and ciphertext sizes increase NVM footprint">Escalated key and ciphertext sizes increase NVM footprint</span></div>
+        <div class="matrix-row"><b data-zh="主動屏蔽網" data-en="ACTIVE SHIELD">ACTIVE SHIELD</b><span data-zh="偵測實體去層化、研磨與微探針侵入" data-en="Detects physical delayering and microprobing">Detects physical delayering and microprobing</span><span data-zh="FIB 穿刺 · 網格切斷 · 阻抗/電容漂移" data-en="FIB breach · line open · impedance/capacitance drift">FIB breach · line open · impedance/capacitance drift</span><span data-zh="動態隨機激勵、單週期瞬時密鑰歸零" data-en="Dynamic PRBS excitation, single-cycle zeroization">Dynamic PRBS excitation, single-cycle zeroization</span><span data-zh="封裝熱應力與環境溫濕度可能引起校準誤報" data-en="Packaging stress and environmental shifts may induce false triggers">Packaging stress and environmental shifts may induce false triggers</span></div>
         <div class="matrix-row"><b data-zh="控制器" data-en="CONTROLLER">CONTROLLER</b><span data-zh="統一存取與生命週期政策" data-en="Owns access and lifecycle policy">Owns access and lifecycle policy</span><span data-zh="突波 · 重設 · 順序濫用" data-en="glitch · reset · sequence abuse">glitch · reset · sequence abuse</span><span data-zh="失敗時維持安全、原子性、錯誤處理" data-en="Fail-secure, atomicity, error handling">Fail-secure, atomicity, error handling</span><span data-zh="SoC 整合可破壞 IP 假設" data-en="SoC integration can break IP assumptions">SoC integration can break IP assumptions</span></div>
       </div>
     </section>
@@ -1193,9 +1209,9 @@
       <header class="section-head"><div><p class="kicker" data-zh="05 / 認證導引" data-en="05 / CERTIFICATION NAVIGATOR">05 / CERTIFICATION NAVIGATOR</p><h2 data-zh="先界定評估目標（TOE），再談認證名稱" data-en="Define the Target of Evaluation before naming a scheme">Define the Target of Evaluation before naming a scheme</h2></div><p data-zh="這是方向建議，不代表產品已認證，也不取代實驗室或認證制度負責單位的正式判定。" data-en="Directional guidance only. It does not claim certification or replace a lab or scheme owner's formal determination.">Directional guidance only. It does not claim certification or replace a lab or scheme owner's formal determination.</p></header>
       <div class="navigator-shell">
         <form id="certForm">
-          <label><span data-zh="評估目標" data-en="Evaluation target">Evaluation target</span><select id="targetSelect"><option value="ip">Silicon IP / subsystem</option><option value="soc">SoC / secure IC</option><option value="device">Connected device</option></select></label>
-          <label><span data-zh="目標市場" data-en="Target market">Target market</span><select id="marketSelect"><option value="iot">IoT / platform</option><option value="auto"><span data-lang="zh">車用技術</span><span data-lang="en">Automotive</span></option><option value="payment">Payment / secure element</option><option value="general">General assurance</option></select></label>
-          <label><span data-zh="確證目標" data-en="Assurance goal">Assurance goal</span><select id="goalSelect"><option value="baseline">Baseline market trust</option><option value="reuse">Reusable IP evidence</option><option value="high">High-assurance certification (SESIP L3+ / CC AVA_VAN.5)</option></select></label>
+          <label><span data-zh="評估目標" data-en="Evaluation target">Evaluation target</span><select id="targetSelect" aria-label="Evaluation target (TOE)" data-aria-en="Evaluation target (TOE)" data-aria-zh="評估目標 (TOE)"><option value="ip">Silicon IP / subsystem</option><option value="soc">SoC / secure IC</option><option value="device">Connected device</option></select></label>
+          <label><span data-zh="目標市場" data-en="Target market">Target market</span><select id="marketSelect" aria-label="Target market application" data-aria-en="Target market application" data-aria-zh="目標市場應用"><option value="iot">IoT / platform</option><option value="auto">Automotive</option><option value="payment">Payment / secure element</option><option value="general">General assurance</option></select></label>
+          <label><span data-zh="確證目標" data-en="Assurance goal">Assurance goal</span><select id="goalSelect" aria-label="Security assurance goal" data-aria-en="Security assurance goal" data-aria-zh="安全確證目標"><option value="baseline">Baseline market trust</option><option value="reuse">Reusable IP evidence</option><option value="high">High-assurance certification (SESIP L3+ / CC AVA_VAN.5)</option></select></label>
         </form>
         <div id="certResult" class="cert-result" aria-live="polite"></div>
       </div>

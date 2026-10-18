@@ -899,7 +899,7 @@
                 <span class="meta-code" style="color:#785021;"><span data-lang="en">REALTIME SAMPLING</span><span data-lang="zh">即時取樣</span></span>
               </div>
               <div class="scope-canvas-frame">
-                <p id="iotPowerResult" class="model-boundary" aria-live="polite"></p><canvas id="ntvCanvas" aria-describedby="iotPowerResult" width="560" height="260"></canvas>
+                <p id="iotPowerResult" class="model-boundary" aria-live="polite"></p><canvas id="ntvCanvas" role="img" aria-label="Near-Threshold Voltage 0.5V Boot Power Oscilloscope Canvas" data-aria-en="Near-Threshold Voltage 0.5V Boot Power Oscilloscope Canvas" data-aria-zh="近臨界電壓 0.5V 快速開機功耗示波器模擬畫布" tabindex="0" aria-describedby="iotPowerResult" width="560" height="260"></canvas>
               </div>
               <div class="scope-controls">
                 <div class="slider-group">
@@ -1071,7 +1071,7 @@
                     <span data-lang="zh">超低壓供電場景預設 (Low-Voltage Supply Preset):</span>
                     <span data-lang="en">Low-Voltage Supply Preset:</span>
                   </label>
-                  <select id="subvt-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="subvt-preset-select" aria-label="Low-voltage supply preset" data-aria-zh="超低壓供電場景預設" data-aria-en="Low-voltage supply preset" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="nearthreshold_0_50v" selected>0.50V Near-Threshold Bio-Implantable Capsule (MEP Optimal)</option>
                     <option value="subthreshold_0_35v">0.35V Sub-Threshold Indoor Solar Harvesting (Extreme)</option>
                     <option value="ultralow_0_70v">0.70V Ultra-Low-Voltage Tire Pressure (TPMS 85°C)</option>
@@ -1085,7 +1085,7 @@
                     <span data-lang="zh">候選超低壓 eNVM 拓撲 (Low-Voltage eNVM Topology):</span>
                     <span data-lang="en">Low-Voltage eNVM Topology:</span>
                   </label>
-                  <select id="subvt-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="subvt-topology-select" aria-label="Low-voltage eNVM topology" data-aria-zh="候選超低壓 eNVM 拓撲" data-aria-en="Low-voltage eNVM topology" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="antifuse_lowvoltage" selected>Logic AntiFuse OTP (0-Mask Ohmic Breakdown / Low MEP)</option>
                     <option value="reram_lowcurrent">BEOL OxRAM ReRAM (Low-Current Multi-Cycle)</option>
                     <option value="eflash_charge_sensing">Floating-Gate eFlash (Legacy Charge Sensing)</option>
@@ -1149,17 +1149,17 @@
                     <span data-lang="en">Sub-Threshold Physical Profiles</span>
                   </h3>
                   <div style="display: flex; gap: 6px;">
-                    <button type="button" id="subvt-mode-energy-btn" class="active" style="padding: 4px 8px; background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="subvt-mode-energy-btn" class="active" aria-label="Switch to Voltage vs Energy Minimum Energy Point chart" data-aria-en="Switch to Voltage vs Energy Minimum Energy Point chart" data-aria-zh="切換為電壓與最低能耗點 (MEP) 曲線圖表" style="padding: 4px 8px; background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">電壓 vs 能耗 (MEP 曲線)</span>
                       <span data-lang="en">Voltage vs Energy (MEP)</span>
                     </button>
-                    <button type="button" id="subvt-mode-latency-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="subvt-mode-latency-btn" aria-label="Switch to Voltage vs Delay & Variation chart" data-aria-en="Switch to Voltage vs Delay & Variation chart" data-aria-zh="切換為電壓與延遲及變異分佈圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">電壓 vs 延遲與變異</span>
                       <span data-lang="en">Voltage vs Delay &amp; Variation</span>
                     </button>
                   </div>
                 </div>
-                <canvas id="subvt-lowvoltage-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+                <canvas id="subvt-lowvoltage-canvas" role="img" aria-label="Sub-Threshold Low Voltage eNVM Read Margin Simulation Canvas" data-aria-en="Sub-Threshold Low Voltage eNVM Read Margin Simulation Canvas" data-aria-zh="次臨界低電壓 eNVM 讀取裕度與能耗模擬畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
               </div>
 
               <!-- Verdict Banner -->
@@ -1271,24 +1271,91 @@
             <div class="roadmap-stepper" aria-label="TSMC Roadmap Stepper" data-aria-en="TSMC Roadmap Stepper" data-aria-zh="台積電製程藍圖步進器">
               <div class="roadmap-step-card" style="border-top: 3px solid #64748b;">
                 <span class="roadmap-step-badge"><span data-lang="en">NODE 01 · 22ULL</span><span data-lang="zh">節點 01 · 22ULL</span></span>
-                <h3>TSMC 22ULL (Planar)</h3>
-                <p><span data-lang="zh">待核對：可用記憶體選項、供電與容量。與其他節點的面積比較需要同一設計和版圖條件。</span><span data-lang="en">Verify memory options, supplies and capacity. Cross-node area comparisons need the same design and layout conditions.</span></p>
+                <h3>TSMC 22ULL (Planar HKMG)</h3>
+                <p>
+                  <span data-lang="zh"><strong>超低漏電微縮平面：</strong>延伸 28HPC+ 成熟架構，邏輯核心電壓降至 0.6V~0.8V，靜態待機漏電削減達 90%。支援 BEOL 後段整合之 STT-eMRAM（4~6 道光罩，不破壞前段高熱預算）與 0 額外光罩 AntiFuse OTP（用於安全啟動密鑰、類比 Trimming 與 PUF）。<br><em>待核對：可用記憶體選項、供電與容量；與其他節點面積比較需在同一設計與版圖條件下進行。</em></span>
+                  <span data-lang="en"><strong>Ultra-Low Leakage Planar:</strong> Extends 28HPC+ with logic operating down to 0.6V–0.8V, slashing standby leakage by 90%. Supports BEOL STT-eMRAM (4–6 mask adders without disturbing FEOL thermal budget) and 0-mask AntiFuse OTP (for secure boot keys, analog trim, and PUF).<br><em>Verify memory options, supplies, and capacity; cross-node area comparisons require identical layout constraints.</em></span>
+                </p>
               </div>
               <div class="roadmap-step-card" style="border-top: 3px solid #8a6a42;">
                 <span class="roadmap-step-badge"><span data-lang="en">NODE 02 · 12FFC+</span><span data-lang="zh">節點 02 · 12FFC+</span></span>
-                <h3>TSMC 12FFC+ (FinFET)</h3>
-                <p><span data-lang="zh">待核對：邏輯與記憶體各自的最低電壓、讀取路徑、待機模式及漏電量測條件。</span><span data-lang="en">Verify separate logic and memory voltage limits, read paths, standby modes and leakage measurement conditions.</span></p>
+                <h3>TSMC 12FFC+ (FinFET ULP)</h3>
+                <p>
+                  <span data-lang="zh"><strong>立體鰭式微縮突破：</strong>跨越 28nm 平面微縮斷崖，3D Fin 幾何提供強大閘極靜電控制與近理想次閾值擺幅 (~68 mV/dec)，原生支援 0.5V 近閾值邏輯。傳統 eFlash 完全終止，全面轉向純邏輯 0-Mask AntiFuse 與 16/12nm 車規級 eMRAM。<br><em>待核對：邏輯與記憶體各自的最低電壓、讀取路徑、待機模式及漏電量測條件。</em></span>
+                  <span data-lang="en"><strong>FinFET Scaling Leap:</strong> Overcomes the 28nm planar scaling cliff; 3D fin geometry delivers tight electrostatic gate control with near-ideal subthreshold swing (~68 mV/dec), natively enabling 0.5V near-threshold operation. Replaces discontinued eFlash with 0-mask logic AntiFuse and automotive-grade 16/12nm eMRAM.<br><em>Verify separate logic and memory voltage limits, read paths, standby modes, and leakage test criteria.</em></span>
+                </p>
               </div>
               <div class="roadmap-step-card" style="border-top: 3px solid #c4a574;">
                 <span class="roadmap-step-badge"><span data-lang="en">NODE 03 · N6e</span><span data-lang="zh">節點 03 · N6e</span></span>
                 <h3>TSMC N6e (IoT EUV)</h3>
-                <p><span data-lang="zh">待核對：特定製程版本的 IP 可用性、可配置容量、修補空間與公開量測資料。</span><span data-lang="en">Verify IP availability, configurable capacity, patch reserve and public measurements for the exact process revision.</span></p>
+                <p>
+                  <span data-lang="zh"><strong>EUV 邊緣智慧物聯網：</strong>專為超低功耗常時監控 (AON) 與邊緣 AI 打造，結合 EUV 微影簡化雙重曝光光罩道數，邏輯密度較 12FFC+ 提升逾 100%。採用 0-Mask AntiFuse 搭配硬體 CAM 向量熱修補，替代高昂大面積嵌入式 Flash。<br><em>待核對：特定製程版本的 IP 可用性、可配置容量、修補空間與公開量測資料。</em></span>
+                  <span data-lang="en"><strong>EUV Edge AI &amp; IoT:</strong> Tailored for ultra-low power always-on (AON) sensing and edge inference, leveraging EUV to eliminate multi-patterning masks while doubling logic density over 12FFC+. Pairs 0-mask AntiFuse with hardware CAM vector hot patching to eliminate costly embedded Flash.<br><em>Verify IP availability, configurable capacity, patch reserves, and silicon-proven measurement reports.</em></span>
+                </p>
               </div>
               <div class="roadmap-step-card" style="border-top: 3px solid #d97706;">
                 <span class="roadmap-step-badge"><span data-lang="en">NODE 04 · N4e</span><span data-lang="zh">節點 04 · N4e</span></span>
                 <h3>TSMC N4e (ULP FinFET)</h3>
-                <p><span data-lang="zh">待核對：供應商產品組合、記憶體整合方式與設計支援；節點命名不證明已具備目標產品的 eNVM。</span><span data-lang="en">Verify supplier portfolios, memory integration and design support; a node name does not establish eNVM availability for the target product.</span></p>
+                <p>
+                  <span data-lang="zh"><strong>極致能效次半伏特節點：</strong>延伸 4nm 家族之超低功耗衍生節點，提供次 0.5V 供電能力與頂級 SRAM/Logic 能效比。在先進奈米下完全由 0-Mask AntiFuse 充當硬體信任根 (RoT/PUF)，代碼儲存則外掛極低接腳數 xSPI PSRAM 或 Chiplet 封裝。<br><em>待核對：供應商產品組合、記憶體整合方式與設計支援；節點命名不證明已具備目標產品的 eNVM。</em></span>
+                  <span data-lang="en"><strong>Sub-0.5V Ultra-Efficiency Node:</strong> Extends the 4nm family with sub-0.5V supply capabilities and peak SRAM/logic efficiency. Pure-logic 0-mask AntiFuse anchors hardware Root of Trust (RoT/PUF), while application code offloads to low-pin-count xSPI PSRAM or Chiplet SiP.<br><em>Verify supplier portfolios, memory integration interfaces, and design enablement; node naming alone does not establish eNVM availability.</em></span>
+                </p>
               </div>
+            </div>
+
+            <!-- TSMC ULP eNVM Integration Strategy Table -->
+            <div class="roadmap-summary-table-wrap" style="margin-top: 1.5rem; overflow-x: auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 16px;">
+              <h4 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
+                <span data-lang="zh">TSMC 超低功耗 (ULP) 製程節點與 eNVM 整合策略矩陣</span>
+                <span data-lang="en">TSMC ULP Process Continuum &amp; eNVM Integration Matrix</span>
+              </h4>
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.8125rem; text-align: left;" aria-label="TSMC ULP Process Continuum and eNVM Integration Matrix" data-aria-en="TSMC ULP Process Continuum and eNVM Integration Matrix" data-aria-zh="TSMC 超低功耗製程與 eNVM 整合策略矩陣">
+                <caption class="sr-only"><span data-lang="zh">TSMC 超低功耗製程與 eNVM 整合策略矩陣</span><span data-lang="en">TSMC ULP Process Continuum and eNVM Integration Matrix</span></caption>
+                <thead>
+                  <tr style="border-bottom: 2px solid #cbd5e1; background: #e2e8f0;">
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">製程節點與幾何</span><span data-lang="en">Node &amp; Geometry</span></th>
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">核心電壓範圍 (VDD)</span><span data-lang="en">Core Supply (VDD)</span></th>
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">傳統 eFlash 可行性</span><span data-lang="en">Planar eFlash Feasibility</span></th>
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">後段新興 eNVM (BEOL)</span><span data-lang="en">BEOL Emerging eNVM</span></th>
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">0-Mask 邏輯 AntiFuse 角色</span><span data-lang="en">0-Mask Logic AntiFuse Role</span></th>
+                    <th scope="col" style="padding: 0.5rem 0.6rem;"><span data-lang="zh">IoT 能效關鍵優勢</span><span data-lang="en">IoT Efficiency Advantage</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 0.5rem 0.6rem; font-weight: 600;">22ULL (Planar HKMG)</td>
+                    <td style="padding: 0.5rem 0.6rem; font-family: monospace;">0.6V &sim; 0.8V</td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">極限微縮（需特殊 HV）</span><span data-lang="en">Scaling Limit (Needs Special HV)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">STT-eMRAM 量產 (4&sim;6 光罩)</span><span data-lang="en">STT-eMRAM Qualified (4–6 Masks)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">安全密鑰 / 類比修調 (0-Mask)</span><span data-lang="en">Security Keys / Analog Trim (0-Mask)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">待機漏電削減 90%</span><span data-lang="en">90% Standby Leakage Reduction</span></td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.6rem; font-weight: 600;">12FFC+ (3D FinFET)</td>
+                    <td style="padding: 0.5rem 0.6rem; font-family: monospace;">0.5V &sim; 0.7V</td>
+                    <td style="padding: 0.5rem 0.6rem; color: #dc2626; font-weight: 600;"><span data-lang="zh">完全終止 (微縮斷崖)</span><span data-lang="en">Discontinued (Scaling Cliff)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">16/12nm eMRAM (車規支援)</span><span data-lang="en">16/12nm eMRAM (Automotive Grade)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">高密度修補 / PUF 信任根</span><span data-lang="en">High-Density Patch / PUF RoT</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">0.5V 近閾值邏輯運算</span><span data-lang="en">0.5V Near-Threshold Computing</span></td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 0.5rem 0.6rem; font-weight: 600;">N6e (EUV FinFET)</td>
+                    <td style="padding: 0.5rem 0.6rem; font-family: monospace;">0.45V &sim; 0.65V</td>
+                    <td style="padding: 0.5rem 0.6rem; color: #dc2626; font-weight: 600;"><span data-lang="zh">不相容</span><span data-lang="en">Incompatible</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">先進研發試產 / Chiplet</span><span data-lang="en">Advanced R&amp;D / Chiplet</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">向量 CAM 熱修補 (Zero-Wait)</span><span data-lang="en">Vector CAM Hot Patch (Zero-Wait)</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">邏輯密度提升 &gt;100% + AON</span><span data-lang="en">&gt;100% Logic Density + AON</span></td>
+                  </tr>
+                  <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.6rem; font-weight: 600;">N4e (Advanced FinFET)</td>
+                    <td style="padding: 0.5rem 0.6rem; font-family: monospace;">&lt;0.5V &sim; 0.6V</td>
+                    <td style="padding: 0.5rem 0.6rem; color: #dc2626; font-weight: 600;"><span data-lang="zh">不相容</span><span data-lang="en">Incompatible</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">異質 3D SiP / 外掛 xSPI</span><span data-lang="en">Heterogeneous 3D SiP / xSPI</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">極限微縮不可複製硬體錨點</span><span data-lang="en">Ultralow-Scaling Immutable RoT</span></td>
+                    <td style="padding: 0.5rem 0.6rem;"><span data-lang="zh">極限常關閉與微安級峰值</span><span data-lang="en">Normally-Off &amp; Sub-mA Peak</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
 
@@ -1313,9 +1380,9 @@
                   <span class="meta-code" style="color: #334155;"><span data-lang="en">STATE:</span><span data-lang="zh">狀態：</span> <b id="camOtpState" style="color:#785021;"><span data-lang="en">IDLE / MONITORING</span><span data-lang="zh">閒置／監控中</span></b></span>
                 </div>
               </div>
-              <p id="iotCamResult" class="model-boundary" aria-live="polite"></p><canvas id="camCanvas" aria-describedby="iotCamResult" width="560" height="170" style="width: 100%; height: auto; background: #f8fafc; border-radius: 4px; border: 1px solid #f1f5f9; display: block;"></canvas>
+              <p id="iotCamResult" class="model-boundary" aria-live="polite"></p><canvas id="camCanvas" role="img" aria-label="Vector Patch CAM Hardware Redirection Simulation Canvas" data-aria-en="Vector Patch CAM Hardware Redirection Simulation Canvas" data-aria-zh="向量修補 CAM 硬體重定向模擬畫布" tabindex="0" aria-describedby="iotCamResult" width="560" height="170" style="width: 100%; height: auto; background: #f8fafc; border-radius: 4px; border: 1px solid #f1f5f9; display: block;"></canvas>
               <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 10px;">
-                <button id="camTriggerBtn" class="button primary" type="button" style="padding: 6px 14px; font-size: 0.8125rem;">
+                <button id="camTriggerBtn" class="button primary" type="button" aria-label="Inject bug vector to trigger CAM hardware redirection" data-aria-en="Inject bug vector to trigger CAM hardware redirection" data-aria-zh="注入缺陷指令以觸發 CAM 硬體重定向" style="padding: 6px 14px; font-size: 0.8125rem;">
                   <span data-lang="zh">注入缺陷指令 (Trigger Bug)</span><span data-lang="en">Inject Bug Vector</span>
                 </button>
               </div>

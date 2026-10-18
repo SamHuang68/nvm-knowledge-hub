@@ -317,13 +317,19 @@
             </h2>
           </div>
           <p>
-            <span data-lang="zh">基於第一性原理熱機械切應力模型 (CTE 失配剪切)、Cu-Cu 混合鍵合與微凸塊寄生 RC 讀取延遲、以及頂層 300W 高算力晶粒引發之垂直熱阻堆疊效應，評估 TSMC SoIC、CoWoS-S 與 Foveros 架構下 eNVM 物理可行性。</span>
-            <span data-lang="en">First-principles simulation of interface shear stress from CTE mismatch, Cu-Cu hybrid bonding / micro-bump parasitic RC read latency, and thermal stacking hotspots under 300W compute dies across TSMC SoIC, CoWoS-S, and Foveros architectures.</span>
+            <span data-lang="zh">基於熱機械切應力模型 (CTE 失配剪切)、Cu-Cu 混合鍵合與微凸塊寄生 RC 讀取延遲、以及頂層 300W 高算力晶粒引發之垂直熱阻堆疊效應，評估 TSMC SoIC、CoWoS-S 與 Foveros 架構下 eNVM 物理可行性。</span>
+            <span data-lang="en">Modeling of interface shear stress from CTE mismatch, Cu-Cu hybrid bonding / micro-bump parasitic RC read latency, and thermal stacking hotspots under 300W compute dies across TSMC SoIC, CoWoS-S, and Foveros architectures.</span>
           </p>
         </div>
 
         <p class="paper-note"><span data-lang="zh">與安全儲存的關係：重建金鑰與 OTP 存取可能跨晶粒，互連延遲、熱環境與供電／重設會影響生命週期整合。本模型保留封裝情境作為問題探索；選擇 SoIC、CoWoS 或 Foveros 預設不代表具名產品規格、代工廠認可或安全資格。封裝試算不能替代 PUF、控制器與目標晶片的驗證。</span><span data-lang="en">Relation to secure storage: key reconstruction and OTP access may cross dies, so interconnect latency, temperature and power/reset affect lifecycle integration. Packaging presets remain for exploration; selecting SoIC, CoWoS or Foveros does not establish named-product specifications, foundry approval or security qualification. Packaging estimates do not replace PUF, controller or target-silicon validation.</span></p>
         <div id="chiplet-simulator-root" style="background: #0b1120; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+          <!-- Model Disclaimer & Technical Boundary Notice -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之 CTE 熱失配剪切應力、微凸塊寄生 RC 讀取延遲與垂直熱阻估算為基於一階解析力學與熱流公式之數值示意模型，非代工廠或 OSAT 認證之簽核規範。真實 3D 封裝晶粒可靠度受底部填膠 (Underfill) 流動性、焊點共平面度及完整 3D 有限元素 (FEA) 模擬檢驗判定。</span>
+            <span data-lang="en">The CTE mismatch shear stress, micro-bump parasitic RC delay, and vertical thermal resistance in this workbench are schematic numerical models based on first-order analytical mechanics, rather than official foundry or OSAT sign-off specifications. Physical 3D chiplet reliability depends on underfill flow integrity, bump coplanarity, and full 3D FEA thermomechanical simulation.</span>
+          </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
             <!-- Packaging Preset Selection -->
             <div>
@@ -331,7 +337,7 @@
                 <span data-lang="zh">先進封裝異質整合架構 (Packaging Architecture Preset):</span>
                 <span data-lang="en">Packaging Architecture Preset:</span>
               </label>
-              <select id="chiplet-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+              <select id="chiplet-preset-select" aria-label="Packaging architecture preset" data-aria-zh="先進封裝異質整合架構" data-aria-en="Packaging architecture preset" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                 <option value="tsmc_soic_hybrid">TSMC SoIC 3D Cu-Cu Hybrid Bonding (Pitch &lt; 3um)</option>
                 <option value="tsmc_cowos_s">TSMC CoWoS-S 2.5D Silicon Interposer (40um Micro-bump)</option>
                 <option value="intel_foveros_3d">Intel Foveros 3D Direct Stacking (25um Bump)</option>
@@ -345,7 +351,7 @@
                 <span data-lang="zh">小晶粒 eNVM 拓撲層級 (Chiplet eNVM Topology):</span>
                 <span data-lang="en">Chiplet eNVM Topology:</span>
               </label>
-              <select id="chiplet-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+              <select id="chiplet-topology-select" aria-label="Chiplet eNVM topology" data-aria-zh="小晶粒 eNVM 拓撲層級" data-aria-en="Chiplet eNVM topology" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                 <option value="antifuse_base_die">AntiFuse RoT Base Die (Active Interposer / 0-Mask)</option>
                 <option value="beol_mram_top_cache">BEOL STT-MRAM Top Cache Chiplet (Near-SRAM)</option>
                 <option value="embedded_flash_sidecar">Discrete eFlash Companion Chiplet (28nm Sidecar)</option>
@@ -409,17 +415,17 @@
                 <span data-lang="en">3D Packaging Physical Profiles</span>
               </h3>
               <div style="display: flex; gap: 6px;">
-                <button type="button" id="chiplet-mode-thermal-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <button type="button" id="chiplet-mode-thermal-btn" class="active" aria-label="Switch to Power vs Junction Temp and Thermal Stress chart" data-aria-en="Switch to Power vs Junction Temp and Thermal Stress chart" data-aria-zh="切換為熱功耗與接面溫升及熱應力圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                   <span data-lang="zh">熱功耗 vs 接面溫升/應力</span>
                   <span data-lang="en">Power vs Temp/Stress</span>
                 </button>
-                <button type="button" id="chiplet-mode-latency-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <button type="button" id="chiplet-mode-latency-btn" aria-label="Switch to Trace Length vs Read Latency chart" data-aria-en="Switch to Trace Length vs Read Latency chart" data-aria-zh="切換為走線長度與讀取延遲圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                   <span data-lang="zh">走線長度 vs 讀取延遲</span>
                   <span data-lang="en">Length vs Read Latency</span>
                 </button>
               </div>
             </div>
-            <canvas id="chiplet-hetero-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+            <canvas id="chiplet-hetero-canvas" role="img" aria-label="Chiplet Heterogeneous Integration Thermal and Interconnect Simulation Canvas" data-aria-en="Chiplet Heterogeneous Integration Thermal and Interconnect Simulation Canvas" data-aria-zh="小晶片異質整合熱應力與互連延遲模擬畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
           </div>
 
           <!-- Verdict Banner -->
