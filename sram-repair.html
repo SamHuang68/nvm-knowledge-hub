@@ -131,7 +131,7 @@
         <button type="button" class="secondary" id="scenario-import"><span data-lang="en">Import scenarios JSON</span><span data-lang="zh">匯入情境 JSON</span></button>
         <button type="button" class="primary" id="scenario-summary" disabled><span data-lang="en">Compare / one-page summary</span><span data-lang="zh">對照／一頁摘要</span></button>
       </div>
-      <input type="file" id="scenario-file" accept=".json,application/json" tabindex="-1" hidden>
+      <input type="file" id="scenario-file" aria-label="Upload scenario JSON file" data-aria-en="Upload scenario JSON file" data-aria-zh="上傳情境 JSON 檔案" accept=".json,application/json" tabindex="-1" hidden>
       <p class="scenario-help"><span data-lang="en">Saved scenarios stay in this browser when storage is available; they are not sent to a server. Download JSON for a portable copy. Reloading resets the calculator draft; A and B remain saved. Import accepts this tool’s schema 1 files up to 64 KiB.</span><span data-lang="zh">儲存空間可用時，情境會保存在此瀏覽器，不會上傳伺服器；可下載 JSON 攜帶。重新整理會重設計算器草稿，已存的 A、B 仍保留。匯入接受本工具結構版本 1、最大 64 KiB 的 JSON。</span></p>
       <p id="scenario-storage-note" class="scenario-help" role="status"></p>
       <p id="scenario-status" role="status" class="scenario-feedback"></p>

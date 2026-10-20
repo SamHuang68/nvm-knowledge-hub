@@ -35,10 +35,10 @@ function renderMapExplorer(data, en) {
   return `<section class="nvm-map-explorer" aria-labelledby="nvm-map-heading">
     <header><p class="nvm-kicker">${en ? '01 · FIND → COMPARE → READ' : '01 · 查找 → 比較 → 讀案卷'}</p><h3 id="nvm-map-heading">${en ? 'Explore the Patent Map' : '探索專利地圖'}</h3><p>${en ? 'Search a publication number, company, product or mechanism. Combine filters to narrow the dossiers below.' : '以公報號、廠商、產品或物理機制查找，搭配篩選縮小下方案卷範圍。'}</p></header>
     <form class="nvm-map-controls" role="search" aria-label="${en ? 'Search patent map' : '搜尋專利地圖'}" data-map-controls hidden>
-      <label for="nvm-map-query">${en ? 'Search the map' : '搜尋地圖'}<input id="nvm-map-query" type="search" placeholder="${en ? 'e.g. US6678190B2, NeoBit, tunneling' : '例如 US6678190B2、NeoBit、穿隧'}" autocomplete="off" aria-controls="nvm-map-results nvm-map-dossiers"></label>
-      <label for="nvm-map-company">${en ? 'Company / IP lineage' : '廠商／IP 沿革'}<select id="nvm-map-company"><option value="">${en ? 'All companies / lineages' : '全部廠商／沿革'}</option>${data.vendors.map(v=>`<option value="${esc(v.id)}">${esc(v.shortName)}</option>`).join('')}</select></label>
-      <label for="nvm-map-technology">${en ? 'Technology' : '技術分類'}<select id="nvm-map-technology"><option value="">${en ? 'All technologies' : '全部技術'}</option>${entries.map(([key,value]) => `<option value="${key}">${value.label}</option>`).join('')}</select></label>
-      <label for="nvm-map-status">${en ? 'Recorded status' : '收錄狀態'}<select id="nvm-map-status"><option value="">${en ? 'All statuses' : '全部狀態'}</option><option value="active">${recordedStatus('active',en)}</option><option value="expired">${recordedStatus('expired',en)}</option><option value="unverified">${recordedStatus('unverified',en)}</option></select></label>
+      <label for="nvm-map-query">${en ? 'Search the map' : '搜尋地圖'}<input id="nvm-map-query" type="search" placeholder="${en ? 'e.g. US6678190B2, NeoBit, tunneling' : '例如 US6678190B2、NeoBit、穿隧'}" autocomplete="off" aria-controls="nvm-map-results nvm-map-dossiers" aria-label="${en ? 'Search patent map' : '搜尋專利地圖'}"></label>
+      <label for="nvm-map-company">${en ? 'Company / IP lineage' : '廠商／IP 沿革'}<select id="nvm-map-company" aria-label="${en ? 'Filter by company or IP lineage' : '依廠商或 IP 沿革篩選'}"><option value="">${en ? 'All companies / lineages' : '全部廠商／沿革'}</option>${data.vendors.map(v=>`<option value="${esc(v.id)}">${esc(v.shortName)}</option>`).join('')}</select></label>
+      <label for="nvm-map-technology">${en ? 'Technology' : '技術分類'}<select id="nvm-map-technology" aria-label="${en ? 'Filter by technology' : '依技術分類篩選'}"><option value="">${en ? 'All technologies' : '全部技術'}</option>${entries.map(([key,value]) => `<option value="${key}">${value.label}</option>`).join('')}</select></label>
+      <label for="nvm-map-status">${en ? 'Recorded status' : '收錄狀態'}<select id="nvm-map-status" aria-label="${en ? 'Filter by recorded status' : '依收錄狀態篩選'}"><option value="">${en ? 'All statuses' : '全部狀態'}</option><option value="active">${recordedStatus('active',en)}</option><option value="expired">${recordedStatus('expired',en)}</option><option value="unverified">${recordedStatus('unverified',en)}</option></select></label>
       <button type="reset">${en ? 'Reset filters' : '清除篩選'}</button>
     </form>
     <p id="nvm-map-count" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -72,7 +72,7 @@ export function validateVendorPatentMaps(data) {
     if(vendor.id==='attopsemi'){
       const source=vendor.nameSource;
       if(!source?.note||!source.title||!source.url?.startsWith('https://www.attopsemi.com/')||!source.date||source.dateKind!=='checked'||!vendor.attributionNote)throw new Error('上峰科技名稱來源不完整');
-      if(!vendor.personnelSource||vendor.researchSources?.length!==2||!vendor.founders.includes('Shine Chung')||/[鍾鐘]/u.test(vendor.founders)||vendor.families.flatMap(f=>f.patents).length!==2)throw new Error('上峰人員與研究來源不完整');
+      if(!vendor.personnelSource||vendor.researchSources?.length!==2||!vendor.founders.includes('Shine Chung')||/[鍾鐘]/u.test(vendor.founders)||vendor.families.flatMap(f=>f.patents).length<2)throw new Error('上峰人員與研究來源不完整');
       for(const source of [vendor.personnelSource,...vendor.researchSources])validateResearchSource(source);
       if(vendor.name.includes('寬緯')||vendor.name.includes('Technology Inc.'))throw new Error('上峰科技公司名稱不符合官方來源');
     }
@@ -113,10 +113,18 @@ export function validateVendorPatentMaps(data) {
       for (const patent of family.patents) {
         if(vendor.id==='attopsemi'){
           const pairs={US9711237B2:['US9165979B2',86],US10923204B2:['US9613943B2',104]},expected=pairs[patent.id];
-          if(!expected||patent.correctedFrom?.id!==expected[0]||patent.correctedFrom.url!==`https://patents.google.com/patent/${expected[0]}/en`||!patent.correctedFrom.note)throw new Error('上峰案卷公報或更正對應不正確');
-          if(!patent.assignee.includes('Attopsemi Technology Co., Ltd.')||patent.inventors!=='Shine C. Chung')throw new Error('上峰案卷首頁身分不正確');
-          if(patent.researchSources?.length!==3||patent.researchSources[0].page!==expected[1]||!patent.researchSources[0].url.startsWith('https://patentimages.storage.googleapis.com/'))throw new Error('上峰案卷權利項來源不完整');
-          for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+          if(expected){
+            if(patent.correctedFrom?.id!==expected[0]||patent.correctedFrom.url!==`https://patents.google.com/patent/${expected[0]}/en`||!patent.correctedFrom.note)throw new Error('上峰案卷公報或更正對應不正確');
+            if(!patent.assignee.includes('Attopsemi Technology Co., Ltd.')||patent.inventors!=='Shine C. Chung')throw new Error('上峰案卷首頁身分不正確');
+            if(patent.researchSources?.length!==3||patent.researchSources[0].page!==expected[1]||!patent.researchSources[0].url.startsWith('https://patentimages.storage.googleapis.com/'))throw new Error('上峰案卷權利項來源不完整');
+            for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+          } else {
+            const first=patent.researchSources?.[0];
+            if(patent.reviewedOn!=='2026-10-15'||!first?.url?.startsWith('https://patentimages.storage.googleapis.com/')||!Number.isInteger(first.page)||first.page<2||!/^([a-f0-9]{64})$/u.test(first.pdfSHA256||'')||!patent.correctedFrom?.id||!patent.correctedFrom.note)throw new Error('案卷原件與更正來源不完整');
+            for(const source of [...patent.researchSources,patent.correctedFrom.source])validateResearchSource(source);
+            if(!['grant','application'].includes(patent.publicationType)||!/^\d{4}-\d{2}-\d{2}$/u.test(patent.publicationDate||'')||!['assignee','applicant'].includes(patent.identityRole))throw new Error('公報種類或首頁身分不完整');
+            if(patent.id.endsWith('A1')!==(patent.publicationType==='application')||(patent.publicationType==='application'&&(patent.grantDate!=='—'||patent.legalStatus!=='unverified')))throw new Error('申請公開案不得視為已核准');
+          }
         }
         if(vendor.id!=='attopsemi'){
           const first=patent.researchSources?.[0];

@@ -1038,7 +1038,7 @@
             </div>
 
             <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
-              <canvas id="thermalCanvas" role="img" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
+              <canvas id="thermalCanvas" role="img" aria-label="High-temperature retention Arrhenius plot" data-aria-zh="高溫資料留存 Arrhenius 曲線圖" data-aria-en="High-temperature retention Arrhenius plot" tabindex="0" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <p id="thermalSummary" class="model-boundary" aria-live="polite"></p>
 
@@ -1533,7 +1533,7 @@
                   <span id="asild-out-verdict" role="status" aria-live="polite">Loading ISO 26262 ASIL-D safety calculations...</span>
                 </div>
                 <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-                  <span id="asild-out-rating" style="color: #10b981;">ISO 26262 ASIL-D Verified</span>
+                  <span id="asild-out-rating" style="color: #10b981;">ASIL-D TARGET MET</span>
                 </div>
               </div>
             </div>
@@ -1566,7 +1566,7 @@
                   <label for="hbm4-scrub-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
                     <span data-lang="zh">車規任務剖面情境</span><span data-lang="en">MISSION PROFILE PRESET</span>
                   </label>
-                  <select id="hbm4-scrub-mission-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-mission-select" aria-label="Autonomous mission profile" data-aria-zh="車規任務剖面情境" data-aria-en="Autonomous mission profile" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
                     <option value="l4_robotaxi_extreme">L4/L5 Robo-Taxi Autonomous HPC (24/7 Continuous · 115°C Tj)</option>
                     <option value="highway_adas_pilot">Highway Pilot Autonomous ADAS (High Altitude · 95°C Tj)</option>
                     <option value="in_cabin_ai_cockpit">Intelligent AI Cockpit (Infotainment &amp; DMS · 85°C Tj)</option>
@@ -1579,7 +1579,7 @@
                   <label for="hbm4-scrub-repair-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
                     <span data-lang="zh">巡檢清洗與 PPR 修復架構</span><span data-lang="en">REPAIR &amp; SCRUBBING ARCH</span>
                   </label>
-                  <select id="hbm4-scrub-repair-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-repair-select" aria-label="Memory scrubbing and repair architecture" data-aria-zh="巡檢清洗與 PPR 修復架構" data-aria-en="Memory scrubbing and repair architecture" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
                     <option value="hybrid_tier_scrubbing">Tiered Hybrid (Dynamic sPPR Cache + 0-Mask AntiFuse hPPR)</option>
                     <option value="dynamic_sppr_only">Dynamic Soft PPR Only (Register-Based)</option>
                     <option value="hard_anti_fuse_only">Permanent AntiFuse Hard PPR Only (hPPR)</option>
@@ -1687,11 +1687,17 @@
               <span data-lang="en">Cryogenic Quantum (4K) &amp; Space Rad-Hard eNVM Physical Simulator</span>
             </h2>
             <p class="panel-desc">
-              <span data-lang="zh">基於第一性原理載子凍結模型、不完全游離、總游離劑量 (TID) 氧化層電洞陷阱漂移與重離子 SEU 韋伯 (Weibull) 截面積，評估從 4.2K 液氦超導量子控制到 500 krad 深空木星強輻射下 eNVM 物理可行性。</span>
-              <span data-lang="en">First-principles modeling of carrier freeze-out, incomplete ionization, Total Ionizing Dose (TID) hole trap accumulation, and heavy-ion SEU Weibull cross-section across 4.2K cryo-CMOS and 500 krad Jovian radiation belts.</span>
+              <span data-lang="zh">基於載子凍結、不完全游離、總游離劑量 (TID) 氧化層電洞陷阱漂移與重離子 SEU 韋伯 (Weibull) 截面積模型，評估從 4.2K 液氦超導量子控制到 500 krad 深空木星強輻射下 eNVM 物理可行性。</span>
+              <span data-lang="en">Phenomenological modeling of carrier freeze-out, incomplete ionization, Total Ionizing Dose (TID) hole trap accumulation, and heavy-ion SEU Weibull cross-section across 4.2K cryo-CMOS and 500 krad Jovian radiation belts.</span>
             </p>
 
             <div id="cryo-simulator-root" style="background: #0f172a; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+              <!-- Model Disclaimer & Technical Boundary Notice -->
+              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+                <span data-lang="zh">本工作台之 4.2K 載子凍結、次閾值擺幅與總電離劑量 (TID) 閾值漂移推估為基於簡化低溫物理與 Weibull 重離子截面積之數值模型，非單一 IP 官方太空或極低溫認證報告。深空 Class-S 或量子計算周邊之實際可靠度需依 MIL-STD-883 方法 1019 實施鈷-60 (Co-60) 射源與迴旋加速器實體重離子測試。</span>
+                <span data-lang="en">The 4.2K carrier freeze-out, subthreshold swing, and TID shift projections in this workbench are schematic numerical models based on simplified cryogenic physics and Weibull cross-sections, rather than formal spaceflight qualifications. Real-world mission assurance requires empirical Cobalt-60 and cyclotron heavy-ion irradiation testing per MIL-STD-883 Method 1019.</span>
+              </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
                 <!-- Preset Selection -->
                 <div>
@@ -1699,7 +1705,7 @@
                     <span data-lang="zh">極限環境任務預設 (Extreme Environment Preset):</span>
                     <span data-lang="en">Extreme Environment Preset:</span>
                   </label>
-                  <select id="cryo-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-preset-select" aria-label="Extreme environment preset" data-aria-zh="極限環境預設情境" data-aria-en="Extreme environment preset" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="quantum_cryo_4k">4.2K Liquid-Helium Quantum Cryo-CMOS</option>
                     <option value="leo_satellite">LEO Commercial Satellite (50 krad TID)</option>
                     <option value="deep_space_jupiter">Jupiter Deep Space Probe (500 krad TID)</option>
@@ -1713,7 +1719,7 @@
                     <span data-lang="zh">候選記憶體拓撲架構 (eNVM Topology Architecture):</span>
                     <span data-lang="en">Candidate eNVM Topology:</span>
                   </label>
-                  <select id="cryo-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-topology-select" aria-label="Candidate eNVM topology" data-aria-zh="候選記憶體拓撲架構" data-aria-en="Candidate eNVM topology" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
                     <option value="antifuse_radhard">Logic AntiFuse OTP (0-Mask Hardened Filament)</option>
                     <option value="stt_mram_hardened">BEOL STT-MRAM (Spin-Torque Hardened MTJ)</option>
                     <option value="feram_radhard">FeRAM (Ferroelectric Polarization Dipole)</option>
@@ -1778,17 +1784,17 @@
                     <span data-lang="en">First-Principles Physics Profiles</span>
                   </h3>
                   <div style="display: flex; gap: 6px;">
-                    <button type="button" id="cryo-mode-temp-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-temp-btn" class="active" aria-label="Switch to Temperature vs Read Margin chart" data-aria-en="Switch to Temperature vs Read Margin chart" data-aria-zh="切換為溫度與讀取裕度圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">溫度 vs 電壓裕度</span>
                       <span data-lang="en">Temp vs Margin</span>
                     </button>
-                    <button type="button" id="cryo-mode-seu-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-seu-btn" aria-label="Switch to Weibull SEU Cross-Section chart" data-aria-en="Switch to Weibull SEU Cross-Section chart" data-aria-zh="切換為 Weibull 重離子單粒子翻轉截面積圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">Weibull SEU 截面積</span>
                       <span data-lang="en">Weibull SEU Cross-Section</span>
                     </button>
                   </div>
                 </div>
-                <canvas id="cryo-radhard-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+                <canvas id="cryo-radhard-canvas" role="img" aria-label="Cryogenic and Radiation-Hardened NVM Physics Simulation Canvas" data-aria-en="Cryogenic and Radiation-Hardened NVM Physics Simulation Canvas" data-aria-zh="低溫與抗輻照 NVM 物理模擬畫布" tabindex="0" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
               </div>
 
               <!-- Verdict Banner -->
@@ -2020,6 +2026,13 @@
             </div>
             <!-- INTERACTIVE LAB: ISO 26262 ASIL-D FAULT BLACK-BOX & HOLD-UP CAPACITOR CALCULATOR -->
             <div id="auto-blackbox-simulator-root" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(180, 83, 9, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+              <!-- Model Disclaimer & Technical Boundary Notice -->
+              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+                <span data-lang="zh">本試算器採用電容儲能恆等式 E = 0.5·C·(V_start² - V_uvlo²) 與簡化寫入功耗積分，用以示意斷電瞬間持電電容容值需求與黑盒子快照寫入時長。實際車規 ECU / PMIC 之應急寫入能力取決於電源軌動態負載、電容等效串聯電阻 (ESR)、高低溫老化容值降額 (Derating) 及軟體非揮發快照提交延遲。</span>
+                <span data-lang="en">This simulator employs the capacitor energy equation E = 0.5·C·(V_start² - V_uvlo²) and simplified write power integration to illustrate hold-up capacitance requirements and crash-dump durations. Actual ECU/PMIC emergency logging relies on dynamic rail loading, capacitor equivalent series resistance (ESR), lifetime thermal derating, and firmware persistence commit latency.</span>
+              </div>
+
               <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
                 <div>
                   <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #b45309; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -2032,8 +2045,8 @@
                   </h3>
                 </div>
                 <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(180, 83, 9, 0.1); color: #b45309; padding: 4px 8px; border-radius: 4px;">
-                  <span data-lang="zh">第一性原理斷電儲能模型</span>
-                  <span data-lang="en">First-Principles Hold-Up Energy Model</span>
+                  <span data-lang="zh">斷電應急儲能物理模型</span>
+                  <span data-lang="en">Hold-Up Energy Physical Model</span>
                 </span>
               </div>
 

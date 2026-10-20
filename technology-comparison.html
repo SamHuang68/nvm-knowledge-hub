@@ -2239,7 +2239,7 @@
             <span data-lang="zh">5 軸架構取捨雷達</span>
             <span data-lang="en">5-AXIS ARCHITECTURAL TRADE-OFF RADAR</span>
           </div>
-          <canvas id="selectorRadarCanvas" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
+          <canvas id="selectorRadarCanvas" role="img" aria-label="Five-Axis Architecture Trade-off Dynamic Radar Chart Canvas" data-aria-en="Five-Axis Architecture Trade-off Dynamic Radar Chart Canvas" data-aria-zh="五軸架構取捨動態雷達圖模擬畫布" tabindex="0" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
           <div style="display: flex; gap: 16px; font: 600 10.5px 'IBM Plex Mono', monospace; margin-top: 6px;">
             <span style="color: #0f172a; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel"><span data-lang="zh">AntiFuse OTP（相對適配）</span><span data-lang="en">AntiFuse OTP (relative fit)</span></span></span>
             <span style="color: #805828; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel"><span data-lang="zh">STT-eMRAM（次適配）</span><span data-lang="en">STT-eMRAM (next)</span></span></span>
@@ -2954,8 +2954,8 @@
                 <span class="status-pill status-prod"><span data-lang="zh">100萬次 &lt;1 ppm · HBM4 代工</span><span data-lang="en">&lt;1 ppm @ 1M · HBM4 Foundry</span></span>
               </div>
               <div>
-                <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。此外，SK 海力士 HBM4 Base Die 委託台積電 12nm (N12FFC+) 代工（下一代邁入 3nm 級），採用純邏輯 0-mask AntiFuse OTP 進行 2048-bit PHY 與 16 層 DRAM TSV 缺陷修復，並將晶圓測試 (Wafer Sort) 移入台積電邏輯探針卡生態系（旺矽 6223、精測 6510、Technoprobe、FormFactor）。</span>
-                <span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM qualified in 2025. Furthermore, SK Hynix selected TSMC 12nm (N12FFC+) for HBM4 Base Die manufacturing (advancing to 3nm class), utilizing 0-mask logic AntiFuse OTP for 2048-bit PHY and TSV redundancy repair, transitioning wafer sort testing to TSMC's logic probe card ecosystem (MPI 6223.TW, CHPT 6510.TW, Technoprobe, FormFactor).</span>
+                <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。此外，SK 海力士 HBM4 Base Die 委託台積電 12nm (N12FFC+) 代工（下一代邁入 3nm 級），採用純邏輯 0-mask AntiFuse OTP 進行 2048-bit PHY 與 16 層 DRAM TSV 缺陷修復，並由微間距 MEMS 高針數邏輯探針卡介面（如旺矽科技 MPI、中華精測 CHPT、Technoprobe、FormFactor 等架構）支援晶圓測試 (Wafer Sort)。</span>
+                <span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM qualified in 2025. Furthermore, SK Hynix selected TSMC 12nm (N12FFC+) for HBM4 Base Die manufacturing (advancing to 3nm class), utilizing 0-mask logic AntiFuse OTP for 2048-bit PHY and TSV redundancy repair, supported by fine-pitch high-pin-count logic MEMS probe card interfaces (e.g., architectures from MPI Corp, CHPT, Technoprobe, FormFactor) for wafer sort testing.</span>
               </div>
             </div>
 
@@ -3317,10 +3317,12 @@
           </span>
         </div>
 
-        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
           <span data-lang="zh">以固定角隅係數乘上 E = V / t，並以 16.5 MV/cm 臨界場強試算硬擊穿電壓；穿隧使用簡化指數與溫度倍率。這是未經實測校準的教學模型，沒有求解三維 Poisson 或 TCAD。電荷泵級數依假設壓降試算；面積比例 0.28／0.42／0.65／1.00 為獨立預設輸入，72% 等縮減值不是由級數或實際佈局算得。不能保證 0-mask 相容、周邊耐壓、車規資格、保持或讀取擾動表現。</span>
           <span data-lang="en">Multiplies E = V / t by a fixed corner coefficient and estimates breakdown using an assumed 16.5 MV/cm critical field. Tunneling uses a simplified exponent and temperature multiplier. This uncalibrated teaching model does not solve 3D Poisson or TCAD. Pump stages use an assumed voltage drop; footprint ratios 0.28 / 0.42 / 0.65 / 1.00 are independent preset inputs, so reductions such as 72% are not calculated from stages or physical layout. Results do not establish mask compatibility, peripheral voltage safety, automotive qualification, retention or read-disturb performance.</span>
-        </p>
+        </div>
 
         <p class="model-note"><span data-lang="zh">公開架構對照：TSMC N3／N3E 為 FinFET，N2 為奈米片；此對照不驗證本工作台的 OTP 電性或面積假設。</span><span data-lang="en">Published architecture context: TSMC N3 / N3E uses FinFET; N2 uses nanosheets. This context does not validate the workbench OTP electrical or footprint assumptions.</span> <a href="https://www.tsmc.com/chinese/dedicatedFoundry/technology/logic/l_3nm" target="_blank" rel="noopener noreferrer">TSMC N3</a> · <a href="https://research.tsmc.com/page/transistor-structure/59.html" target="_blank" rel="noopener noreferrer">TSMC N2</a></p>
 
@@ -3422,7 +3424,7 @@
         <!-- CANVAS 3D ELECTROSTATIC & FIELD HEATMAP -->
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
           <div style="width: 100%; height: 260px; position: relative;">
-            <canvas id="finfet-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-en="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-zh="3D FinFET 與 GAA 奈米片靜電場視覺化圖"></canvas>
+            <canvas id="finfet-canvas" role="img" tabindex="0" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-en="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-zh="3D FinFET 與 GAA 奈米片靜電場視覺化圖"></canvas>
           </div>
         </div>
 
@@ -3470,7 +3472,7 @@
               <label for="pkg-preset-select" style="display: block; font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
                 <span data-lang="zh">先進封裝 PDK 拓樸預設</span><span data-lang="en">PACKAGING PDK PRESET</span>
               </label>
-              <select id="pkg-preset-select" style="width: 100%; padding: 8px 10px; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; font-size: 12px; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;">
+              <select id="pkg-preset-select" aria-label="Packaging PDK preset" data-aria-zh="先進封裝 PDK 拓樸預設" data-aria-en="Packaging PDK preset" style="width: 100%; padding: 8px 10px; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; font-size: 12px; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;">
                 <option value="tsmc_cowos_s_hbm">TSMC CoWoS-S 2.5D (Silicon Interposer)</option>
                 <option value="tsmc_cowos_l_chiplet">TSMC CoWoS-L 2.5D (Local Silicon Interconnect LSI Bridge)</option>
                 <option value="tsmc_soic_x_3d">TSMC SoIC-X 3D (Cu-Cu Direct Wafer Hybrid Bonding)</option>
@@ -3559,14 +3561,14 @@
               </button>
             </div>
             <div style="width: 100%; height: 260px; position: relative; overflow-x: auto;" tabindex="0" role="region" aria-label="Advanced packaging chart, horizontally scrollable" data-aria-zh="先進封裝圖表，可橫向捲動" data-aria-en="Advanced packaging chart, horizontally scrollable">
-              <canvas id="pkg-canvas" style="width: 100%; min-width: 560px; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
+              <canvas id="pkg-canvas" role="img" tabindex="0" style="width: 100%; min-width: 560px; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
             </div>
           </div>
 
           <!-- Verdict & Ecosystem Procurement Banner -->
           <div id="pkg-out-verdict" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;" role="status" aria-live="polite">
-            <span data-lang="zh">TSMC CoWoS-S 具備成熟的微凸塊互連技術，但封裝後微凸塊修復高度仰賴 Base Die 內建之 0-Mask AntiFuse OTP 儲存 BIRA 修復向量；晶圓測試需求正由記憶體探針卡廠（如 MJC）向台積電邏輯探針卡供應鏈（如旺矽 MPI、精測 CHPT、Technoprobe）轉移。</span>
-            <span data-lang="en">TSMC CoWoS-S features mature micro-bump interconnects, but post-packaging repair heavily relies on Base Die 0-Mask AntiFuse OTP for BIRA remapping vectors; wafer test procurement transitions from memory probe card vendors (e.g. MJC) to TSMC logic probe card supply chains (e.g. MPI, CHPT, Technoprobe).</span>
+            <span data-lang="zh">TSMC CoWoS-S 具備成熟的微凸塊互連技術，封裝後微凸塊修復可由 Base Die 內建之 0-Mask AntiFuse OTP 儲存 BIRA 重映射向量；高並行晶圓測試則需由微間距 MEMS 超高針數邏輯測試介面（如高密度微懸臂或垂直導向探針架構）支援。</span>
+            <span data-lang="en">TSMC CoWoS-S features mature micro-bump interconnects, where post-packaging repair can utilize Base Die 0-Mask AntiFuse OTP for BIRA redundancy remapping vectors; highly parallel wafer sort is supported by fine-pitch MEMS ultra-high-pin-count logic test interfaces (such as high-density micro-cantilever or vertical guide probe architectures).</span>
           </div>
         </article>
     </section>
