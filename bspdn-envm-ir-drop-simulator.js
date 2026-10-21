@@ -118,9 +118,9 @@ export function calculateBspdnMetrics(params = {}) {
     : BSPDN_PRESETS.tsmc_a16_spr;
   const fspdnBaseline = BSPDN_PRESETS.fspdn_3nm_baseline;
 
-  const peakWriteCurrent = typeof params.peakWriteCurrent === 'number' ? params.peakWriteCurrent : (preset.defaultPeakCurrent || 12);
-  const pulseRiseTime = typeof params.pulseRiseTime === 'number' ? params.pulseRiseTime : (preset.defaultRiseTime || 0.6);
-  const ambientTemp = typeof params.ambientTemp === 'number' ? params.ambientTemp : 25;
+  const peakWriteCurrent = Number.isFinite(Number(params.peakWriteCurrent)) ? Number(params.peakWriteCurrent) : (preset.defaultPeakCurrent || 12);
+  const pulseRiseTime = Number.isFinite(Number(params.pulseRiseTime)) ? Number(params.pulseRiseTime) : (preset.defaultRiseTime || 0.6);
+  const ambientTemp = Number.isFinite(Number(params.ambientTemp)) ? Number(params.ambientTemp) : 25;
 
   const iPeak = peakWriteCurrent * 1e-3; // Convert mA to A
   const tRise = Math.max(0.05, pulseRiseTime) * 1e-9; // Convert ns to s

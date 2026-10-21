@@ -70,7 +70,7 @@ export function calculateHardwareTrojanPemMetrics(params = {}) {
   const trojanPayloadPpm = Number.isFinite(Number(params.trojanPayloadPpm)) ? Math.max(0, Number(params.trojanPayloadPpm)) : 50;
   const techKey = params.tech || 'antifuse_puf';
 
-  const tech = TROJAN_PEM_TECH_PROFILES[techKey] || TROJAN_PEM_TECH_PROFILES['antifuse_puf'];
+  const tech = (techKey && Object.hasOwn(TROJAN_PEM_TECH_PROFILES, techKey)) ? TROJAN_PEM_TECH_PROFILES[techKey] : TROJAN_PEM_TECH_PROFILES['antifuse_puf'];
 
   const lambdaOptUm = 20.0;
   const substrateAbsorptionFactor = Math.exp(-substrateThickUm / lambdaOptUm);

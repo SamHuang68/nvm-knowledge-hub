@@ -86,8 +86,8 @@ export function calculateCuCuBondingMetrics(params = {}) {
   const dielectricKey = params.dielectric || 'sicn';
   const techKey = params.tech || 'antifuse';
 
-  const diel = CU_BONDING_DIELECTRICS[dielectricKey] || CU_BONDING_DIELECTRICS['sicn'];
-  const tech = CU_BONDING_TECH_PROFILES[techKey] || CU_BONDING_TECH_PROFILES['antifuse'];
+  const diel = (dielectricKey && Object.hasOwn(CU_BONDING_DIELECTRICS, dielectricKey)) ? CU_BONDING_DIELECTRICS[dielectricKey] : CU_BONDING_DIELECTRICS['sicn'];
+  const tech = (techKey && Object.hasOwn(CU_BONDING_TECH_PROFILES, techKey)) ? CU_BONDING_TECH_PROFILES[techKey] : CU_BONDING_TECH_PROFILES['antifuse'];
 
   const alphaCu = 16.5e-6;
   const alphaSi = 2.6e-6;

@@ -133,7 +133,7 @@ export function calculatePackagingPdkMetrics({
   // Fine-pitch metal line: Cu resistivity with barrier/scattering rho = 2.2e-8 ohm-m
   const is3D = preset.packagingClass === '3D_Hybrid_Bond';
   // In 3D hybrid bonding, vertical connection is governed by TSV thickness (~25 um / 0.025 mm)
-  const effectiveTraceMm = is3D ? 0.025 : traceLengthMm;
+  const effectiveTraceMm = is3D ? 0.025 : (Number.isFinite(Number(traceLengthMm)) ? Math.max(0.1, Math.min(50.0, Number(traceLengthMm))) : 3.5);
   const traceLengthM = effectiveTraceMm * 1e-3;
 
   // Line resistance per mm: R_unit = rho / (width * thickness)
@@ -158,7 +158,8 @@ export function calculatePackagingPdkMetrics({
   // 3. Thermal Stack Resistance & Junction Temperature Rise
   // Effective thermal resistance (K/W)
   const effectiveThetaKW = preset.baseThermalResistanceKW;
-  const junctionTempRiseC = diePowerWatts * effectiveThetaKW;
+  const cleanPowerWatts = Number.isFinite(Number(diePowerWatts)) ? Math.max(0.0, Math.min(2000.0, Number(diePowerWatts))) : 450.0;
+  const junctionTempRiseC = cleanPowerWatts * effectiveThetaKW;
 
   // 4. Base Die eNVM Configuration & Calibration Role
   // Required calibration OTP budget:

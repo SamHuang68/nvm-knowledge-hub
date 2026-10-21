@@ -632,6 +632,52 @@ test('Suite 15: CPO 矽光子熱漂移、CXL 延遲階層化、CiM 精度衰退�
 
 
 
+// Suite 16: 先進 GAA 微縮、車用負載突波、極端溫度外插與 Chiplet 異質互連壓力測試
+test('Suite 16: 先進 GAA 微縮、車用負載突波、極端溫度外插與 Chiplet 異質互連壓力測試', () => {
+  const suite16Configs = [
+    // 1. 先進 FinFET / GAA 奈米片電場突波與極端薄膜
+    { nodeId: 'tsmc_n3_gaa', appliedVolt: 8.5, tempC: 175.0 },
+    { nodeId: 'planar_28hpc', appliedVolt: 0.4, tempC: -40.0 },
+    { nodeId: '__proto__', appliedVolt: 12.0, tempC: 250.0 },
+
+    // 2. 先進封裝 PDK D2D 互連與高散熱壓力
+    { presetId: 'tsmc_soic_x_3d', traceLengthMm: 50.0, diePowerWatts: 2000.0, dataRateGbps: 64.0 },
+    { presetId: 'intel_foveros_direct', traceLengthMm: 0.1, diePowerWatts: 10.0, dataRateGbps: 0.5 },
+    { presetId: '__proto__', traceLengthMm: 120.0, diePowerWatts: 5000.0, dataRateGbps: 128.0 },
+
+    // 3. 車規 ISO 16750-2 負載突波鉗位極限
+    { pulseKey: 'iso16750_pulse5a_unsuppressed', topologyKey: 'active_fet_surge_stopper', temperatureC: 175, clampLimitV: 65.0 },
+    { pulseKey: 'iso7637_pulse5b_clamped', topologyKey: 'hybrid_multistage', temperatureC: -40, clampLimitV: 14.0 },
+    { pulseKey: '__proto__', topologyKey: '__proto__', temperatureC: 220, clampLimitV: 80.0 },
+
+    // 4. 800V SiC/GaN 牽引高溫活化能極限外插
+    { junctionTemp: 250.0, tech: 'antifuse' },
+    { junctionTemp: -40.0, tech: 'mram' },
+    { junctionTemp: 300.0, tech: '__proto__' },
+
+    // 5. UCIe 32 GT/s Chiplet 異質互連與熱應力
+    { topologyKey: 'chiplet_ucie_advanced', roleKey: 'ai_weight_table', computePowerWatts: 250.0, ambientTempC: 105.0, busWidthLanes: 64 },
+    { topologyKey: 'base_die_3d_stack', roleKey: 'secure_boot_rot', computePowerWatts: 5.0, ambientTempC: -40.0, busWidthLanes: 4 },
+    { topologyKey: '__proto__', roleKey: '__proto__', computePowerWatts: 500.0, ambientTempC: 150.0, busWidthLanes: 128 },
+
+    // 6. 金星登陸器 460°C 極限保持與重離子 SEL 注入
+    { presetId: 'venus_lander_460c', techId: 'sic_widebandgap_envm', targetTempC: 500.0, peakLetMev: 120.0, missionYears: 20.0 },
+    { presetId: 'jupiter_icy_moons', techId: 'antifuse_soi_radhard', targetTempC: -150.0, peakLetMev: 15.0, missionYears: 0.1 },
+    { presetId: '__proto__', techId: '__proto__', targetTempC: 600.0, peakLetMev: 200.0, missionYears: 100.0 }
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite16Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 16 邊界條件`);
+        checkNoNaN(res, `${name}_Suite16`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 16 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});
 // 混合輸入防護不能代替模型契約；本案以具名有效輸入確認實際路徑。
 test('CPO 契約：有效預設、溫度響應與非法鍵回退', () => {
   const heater = calculateCpoSiphMetrics({presetId: 'ai_accelerator_oio', techId: 'active_thermal_heater', ambientTempC: 85, laserPowerMw: 60, channelCount: 32});

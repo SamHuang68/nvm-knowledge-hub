@@ -201,11 +201,13 @@ export function calculateAutomotiveAsilMetrics({
   scrubbingPeriodSec = 60.0,
   customAltitudeM = 1500.0
 } = {}) {
-  const mission = AUTO_MISSION_PROFILES[missionId] || AUTO_MISSION_PROFILES.powertrain_inverter_asild;
-  const nvm = AUTO_NVM_PROFILES[nvmId] || AUTO_NVM_PROFILES.antifuse_charge_free;
-  const ecc = ECC_ARCHITECTURES[eccId] || ECC_ARCHITECTURES.secded_72_64;
+  const mission = (missionId && Object.hasOwn(AUTO_MISSION_PROFILES, missionId)) ? AUTO_MISSION_PROFILES[missionId] : AUTO_MISSION_PROFILES.powertrain_inverter_asild;
+  const nvm = (nvmId && Object.hasOwn(AUTO_NVM_PROFILES, nvmId)) ? AUTO_NVM_PROFILES[nvmId] : AUTO_NVM_PROFILES.antifuse_charge_free;
+  const ecc = (eccId && Object.hasOwn(ECC_ARCHITECTURES, eccId)) ? ECC_ARCHITECTURES[eccId] : ECC_ARCHITECTURES.secded_72_64;
 
-  const altitudeM = customAltitudeM !== undefined ? customAltitudeM : mission.altitudeM;
+  const altitudeM = Number.isFinite(Number(customAltitudeM)) ? Number(customAltitudeM) : mission.altitudeM;
+  const safeCapacityMb = Number.isFinite(Number(arrayCapacityMb)) ? Math.max(0.01, Number(arrayCapacityMb)) : 16.0;
+  const safeScrubPeriodSec = Number.isFinite(Number(scrubbingPeriodSec)) ? Math.max(0.1, Number(scrubbingPeriodSec)) : 60.0;
 
   // 1. Cosmic Ray Fast Neutron Flux Scaling
   // Neutron flux increases exponentially with altitude: Flux(h) / Flux(0) ~ exp(h / 1500m)
@@ -213,15 +215,15 @@ export function calculateAutomotiveAsilMetrics({
 
   // 2. Raw Soft Error Rate Calculation
   // Raw FIT = (rawNeutron * FluxFactor + rawAlpha) * capacityMb
-  const rawNeutronFit = nvm.rawNeutronFitPerMb * neutronFluxFactor * arrayCapacityMb;
-  const rawAlphaFit = nvm.rawAlphaFitPerMb * arrayCapacityMb;
+  const rawNeutronFit = nvm.rawNeutronFitPerMb * neutronFluxFactor * safeCapacityMb;
+  const rawAlphaFit = nvm.rawAlphaFitPerMb * safeCapacityMb;
   const rawTotalFit = rawNeutronFit + rawAlphaFit;
 
   // 3. ECC Protection & Residual Single Point Fault (SPF) FIT
   // Residual FIT = RawFIT * mcuProtectionRatio + Double-accumulation during scrub interval
   // Rate of double bit accumulation = 0.5 * (RawFIT_per_bit)^2 * t_scrub
-  const rawFitPerWord = (rawTotalFit / arrayCapacityMb) * (64.0 / (1024.0 * 1024.0)); // FIT per 64-bit word
-  const accumulationDoubleFit = 0.5 * rawFitPerWord * rawFitPerWord * (scrubbingPeriodSec / 3600.0) * (arrayCapacityMb * 1024.0 * 1024.0 / 64.0);
+  const rawFitPerWord = (rawTotalFit / safeCapacityMb) * (64.0 / (1024.0 * 1024.0)); // FIT per 64-bit word
+  const accumulationDoubleFit = 0.5 * rawFitPerWord * rawFitPerWord * (safeScrubPeriodSec / 3600.0) * (safeCapacityMb * 1024.0 * 1024.0 / 64.0);
 
   let residualFit = 0.0;
   let spfmMetric = 0.0;

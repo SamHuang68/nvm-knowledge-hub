@@ -167,8 +167,8 @@ export function calculateDeepSpaceMetrics({
   peakLetMev = 75.0,
   missionYears = 1.0
 } = {}) {
-  const preset = DEEP_SPACE_MISSION_PRESETS[presetId] || DEEP_SPACE_MISSION_PRESETS.venus_lander_460c;
-  const tech = DEEP_SPACE_TECH_PROFILES[techId] || DEEP_SPACE_TECH_PROFILES.antifuse_soi_radhard;
+  const preset = (presetId && Object.hasOwn(DEEP_SPACE_MISSION_PRESETS, presetId)) ? DEEP_SPACE_MISSION_PRESETS[presetId] : DEEP_SPACE_MISSION_PRESETS.venus_lander_460c;
+  const tech = (techId && Object.hasOwn(DEEP_SPACE_TECH_PROFILES, techId)) ? DEEP_SPACE_TECH_PROFILES[techId] : DEEP_SPACE_TECH_PROFILES.antifuse_soi_radhard;
 
   // 1. Single Event Latchup (SEL) Cross-Section Calculation
   // sigma_SEL = sigma_sat * [ 1 - exp( -((LET - LET_th) / W)^s ) ]
