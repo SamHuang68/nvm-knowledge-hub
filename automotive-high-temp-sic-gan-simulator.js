@@ -72,10 +72,11 @@ export const AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES = Object.freeze({
 });
 
 export function calculateAutomotiveHighTempSicGanMetrics(params = {}) {
-  const junctionTemp = Number.isFinite(Number(params.junctionTemp)) ? Number(params.junctionTemp) : 175;
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const junctionTemp = Number.isFinite(Number(safeParams.junctionTemp)) ? Number(safeParams.junctionTemp) : 175;
   // 先正規化技術代碼，讓參數表與所有公式分支採用同一種技術。
-  const techKey = typeof params.tech === 'string' && Object.hasOwn(AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES, params.tech)
-    ? params.tech : 'antifuse';
+  const techKey = typeof safeParams.tech === 'string' && Object.hasOwn(AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES, safeParams.tech)
+    ? safeParams.tech : 'antifuse';
   const tech = AUTOMOTIVE_HIGH_TEMP_TECH_PROFILES[techKey];
   const kB = 8.617333262145e-5;
 

@@ -135,10 +135,11 @@ export const ENVM_COST_PROFILES = Object.freeze({
  * @returns {Object} Comprehensive calculation results
  */
 export function calculateWaferCostTco(inputs = {}) {
-  const processId = inputs.processId || "28nm_hpc";
-  const envmId = inputs.envmId || "antifuse_logic";
-  const dieAreaMm2 = Math.max(1.0, Math.min(200.0, Number(inputs.dieAreaMm2) || 25.0));
-  const annualWaferVolume = Math.max(500, Math.min(500000, Number(inputs.annualWaferVolume) || 30000));
+  const safeInputs = inputs && typeof inputs === 'object' ? inputs : {};
+  const processId = safeInputs.processId || "28nm_hpc";
+  const envmId = safeInputs.envmId || "antifuse_logic";
+  const dieAreaMm2 = Math.max(1.0, Math.min(200.0, Number(safeInputs.dieAreaMm2) || 25.0));
+  const annualWaferVolume = Math.max(500, Math.min(500000, Number(safeInputs.annualWaferVolume) || 30000));
 
   const process = Object.hasOwn(FOUNDRY_PROCESS_PRESETS, processId)
     ? FOUNDRY_PROCESS_PRESETS[processId]
@@ -147,7 +148,7 @@ export function calculateWaferCostTco(inputs = {}) {
     ? ENVM_COST_PROFILES[envmId]
     : ENVM_COST_PROFILES["antifuse_logic"];
 
-  const maskAdders = Number.isFinite(inputs.customMaskAdders) ? Math.max(0, inputs.customMaskAdders) : envm.maskAdders;
+  const maskAdders = Number.isFinite(safeInputs.customMaskAdders) ? Math.max(0, safeInputs.customMaskAdders) : envm.maskAdders;
   const totalMaskLayers = Math.max(1, process.baseMaskLayers + maskAdders);
 
   // 1. Wafer Fabrication Cost
@@ -155,7 +156,7 @@ export function calculateWaferCostTco(inputs = {}) {
   const waferFabCostUsd = process.baseWaferCostUsd * (1.0 + maskAdderRatio);
 
   // 2. Mask Set NRE Amortization
-  const baseMaskNre = Number.isFinite(inputs.customMaskSetNreUsd) ? inputs.customMaskSetNreUsd : process.baseMaskSetNreUsd;
+  const baseMaskNre = Number.isFinite(safeInputs.customMaskSetNreUsd) ? safeInputs.customMaskSetNreUsd : process.baseMaskSetNreUsd;
   const totalMaskNreUsd = baseMaskNre * (1.0 + envm.maskNreMultiplier);
   const maskAmortizationPerWaferUsd = totalMaskNreUsd / annualWaferVolume;
 

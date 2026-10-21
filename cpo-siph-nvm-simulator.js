@@ -168,8 +168,9 @@ export const SIPH_CONSTANTS = {
  * @returns {Object} Comprehensive calculation metrics
  */
 export function calculateCpoSiphMetrics(params = {}) {
-  const pKey = params.presetId || params.presetKey || 'hyperscale_cpo_51t';
-  const tKey = params.techId || params.techKey || 'antifuse_zero_static';
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pKey = typeof safeParams.presetId === 'string' ? safeParams.presetId : (typeof safeParams.presetKey === 'string' ? safeParams.presetKey : 'hyperscale_cpo_51t');
+  const tKey = typeof safeParams.techId === 'string' ? safeParams.techId : (typeof safeParams.techKey === 'string' ? safeParams.techKey : 'antifuse_zero_static');
   const preset = Object.hasOwn(CPO_SYSTEM_PRESETS, pKey)
     ? CPO_SYSTEM_PRESETS[pKey]
     : CPO_SYSTEM_PRESETS.hyperscale_cpo_51t;
@@ -177,9 +178,9 @@ export function calculateCpoSiphMetrics(params = {}) {
     ? OPTICAL_NVM_TECHS[tKey]
     : OPTICAL_NVM_TECHS.antifuse_zero_static;
 
-  const ambientTempC = typeof params.ambientTempC === 'number' ? params.ambientTempC : (typeof params.tempC === 'number' ? params.tempC : 45.0);
-  const laserPowerMw = typeof params.laserPowerMw === 'number' ? params.laserPowerMw : 100.0;
-  const channelCount = typeof params.channelCount === 'number' ? params.channelCount : 64;
+  const ambientTempC = Number.isFinite(Number(safeParams.ambientTempC)) ? Number(safeParams.ambientTempC) : (Number.isFinite(Number(safeParams.tempC)) ? Number(safeParams.tempC) : 45.0);
+  const laserPowerMw = Number.isFinite(Number(safeParams.laserPowerMw)) ? Math.max(0.1, Number(safeParams.laserPowerMw)) : 100.0;
+  const channelCount = Number.isFinite(Number(safeParams.channelCount)) ? Math.max(1, Math.round(Number(safeParams.channelCount))) : 64;
 
   // 1. Laser self-heating power calculation
   // Total optical power = channelCount * laserPowerMw (mW)

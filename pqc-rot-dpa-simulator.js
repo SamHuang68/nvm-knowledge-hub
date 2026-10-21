@@ -213,17 +213,18 @@ export const PQC_STORAGE_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive security metrics
  */
 export function calculatePqcDpaMetrics(params = {}) {
-  const preset = (params.presetId && Object.prototype.hasOwnProperty.call(PQC_SECURITY_PRESETS, params.presetId))
-    ? PQC_SECURITY_PRESETS[params.presetId]
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const preset = (safeParams.presetId && typeof safeParams.presetId === 'string' && Object.hasOwn(PQC_SECURITY_PRESETS, safeParams.presetId))
+    ? PQC_SECURITY_PRESETS[safeParams.presetId]
     : PQC_SECURITY_PRESETS.fips140_3_lvl4;
-  const topology = (params.topologyId && Object.prototype.hasOwnProperty.call(PQC_STORAGE_TOPOLOGIES, params.topologyId))
-    ? PQC_STORAGE_TOPOLOGIES[params.topologyId]
+  const topology = (safeParams.topologyId && typeof safeParams.topologyId === 'string' && Object.hasOwn(PQC_STORAGE_TOPOLOGIES, safeParams.topologyId))
+    ? PQC_STORAGE_TOPOLOGIES[safeParams.topologyId]
     : PQC_STORAGE_TOPOLOGIES.antifuse_rot_puf;
 
-  const diffSensing = params.customDiff !== undefined ? Boolean(params.customDiff) : preset.differentialSensing;
-  const blinding = params.customBlinding !== undefined ? Boolean(params.customBlinding) : preset.currentBlinding;
-  const jitter = params.customJitter !== undefined ? Boolean(params.customJitter) : preset.randomJitter;
-  const noiseSigma = Number.isFinite(Number(params.customNoise)) ? Number(params.customNoise) : (Number(preset.noiseSigma) || 3.0);
+  const diffSensing = safeParams.customDiff !== undefined ? Boolean(safeParams.customDiff) : preset.differentialSensing;
+  const blinding = safeParams.customBlinding !== undefined ? Boolean(safeParams.customBlinding) : preset.currentBlinding;
+  const jitter = safeParams.customJitter !== undefined ? Boolean(safeParams.customJitter) : preset.randomJitter;
+  const noiseSigma = Number.isFinite(Number(safeParams.customNoise)) ? Number(safeParams.customNoise) : (Number(preset.noiseSigma) || 3.0);
 
   // 1. Effective Side-Channel Signal Delta (Δ_signal)
   let effectiveDelta = topology.baseSignalDelta;

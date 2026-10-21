@@ -133,20 +133,19 @@ export const CLAMP_PROTECTION_TOPOLOGIES = Object.freeze({
  * @param {number} [options.clampLimitV=18.0] - Target clamping threshold (14V to 65V)
  * @returns {Object} Comprehensive load dump calculations
  */
-export function calculateAutomotiveLoadDumpClamp({
-  pulseKey = "iso16750_pulse5a_unsuppressed",
-  topologyKey = "active_fet_surge_stopper",
-  temperatureC = 175,
-  clampLimitV = 18.0,
-} = {}) {
-  const pulse = (pulseKey && Object.hasOwn(LOAD_DUMP_PRESETS, pulseKey)) ? LOAD_DUMP_PRESETS[pulseKey] : LOAD_DUMP_PRESETS.iso16750_pulse5a_unsuppressed;
-  const topology = (topologyKey && Object.hasOwn(CLAMP_PROTECTION_TOPOLOGIES, topologyKey)) ? CLAMP_PROTECTION_TOPOLOGIES[topologyKey] : CLAMP_PROTECTION_TOPOLOGIES.active_fet_surge_stopper;
+export function calculateAutomotiveLoadDumpClamp(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pulseKey = safeParams.pulseKey || 'iso16750_pulse5a_unsuppressed';
+  const topologyKey = safeParams.topologyKey || 'active_fet_surge_stopper';
+  const pulse = (typeof pulseKey === 'string' && Object.hasOwn(LOAD_DUMP_PRESETS, pulseKey)) ? LOAD_DUMP_PRESETS[pulseKey] : LOAD_DUMP_PRESETS.iso16750_pulse5a_unsuppressed;
+  const topology = (typeof topologyKey === 'string' && Object.hasOwn(CLAMP_PROTECTION_TOPOLOGIES, topologyKey)) ? CLAMP_PROTECTION_TOPOLOGIES[topologyKey] : CLAMP_PROTECTION_TOPOLOGIES.active_fet_surge_stopper;
 
-  const tj = Math.max(-40, Math.min(200, Number(temperatureC) || 175));
+  const rawTemp = Number.isFinite(Number(safeParams.temperatureC)) ? Number(safeParams.temperatureC) : (Number.isFinite(Number(safeParams.tempC)) ? Number(safeParams.tempC) : 175);
+  const tj = Math.max(-40, Math.min(200, rawTemp));
   const is48v = pulse.nominalV > 30.0;
 
   // Clamping voltage adjusted for 48V domain and thermal drift:
-  let baseClampV = Number(clampLimitV) || (is48v ? 56.0 : 18.0);
+  let baseClampV = Number.isFinite(Number(safeParams.clampLimitV)) ? Number(safeParams.clampLimitV) : (is48v ? 56.0 : 18.0);
   if (is48v && baseClampV < 50.0) baseClampV = 56.0;
 
   const tempDelta = Math.max(-65, tj - 25);

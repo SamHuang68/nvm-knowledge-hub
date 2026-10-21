@@ -208,16 +208,17 @@ export const CHIPLET_NVM_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive packaging and electrical metrics
  */
 export function calculateChipletHeteroMetrics(params = {}) {
-  const preset = Object.hasOwn(CHIPLET_PACKAGING_PRESETS, params.presetId)
-    ? CHIPLET_PACKAGING_PRESETS[params.presetId]
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const preset = Object.hasOwn(CHIPLET_PACKAGING_PRESETS, safeParams.presetId)
+    ? CHIPLET_PACKAGING_PRESETS[safeParams.presetId]
     : CHIPLET_PACKAGING_PRESETS.tsmc_soic_hybrid;
-  const topology = Object.hasOwn(CHIPLET_NVM_TOPOLOGIES, params.topologyId)
-    ? CHIPLET_NVM_TOPOLOGIES[params.topologyId]
+  const topology = Object.hasOwn(CHIPLET_NVM_TOPOLOGIES, safeParams.topologyId)
+    ? CHIPLET_NVM_TOPOLOGIES[safeParams.topologyId]
     : CHIPLET_NVM_TOPOLOGIES.antifuse_base_die;
 
-  const computePowerW = Number.isFinite(Number(params.customComputePowerW)) ? Math.max(0.0, Number(params.customComputePowerW)) : 120.0;
-  const d2dLengthMm = Number.isFinite(Number(params.customD2dLengthMm)) ? Math.max(0.1, Number(params.customD2dLengthMm)) : 3.5;
-  const deltaTempC = Number.isFinite(Number(params.customDeltaTempC)) ? Math.max(0.0, Number(params.customDeltaTempC)) : 110.0;
+  const computePowerW = Number.isFinite(Number(safeParams.customComputePowerW)) ? Math.max(0.0, Number(safeParams.customComputePowerW)) : 120.0;
+  const d2dLengthMm = Number.isFinite(Number(safeParams.customD2dLengthMm)) ? Math.max(0.1, Number(safeParams.customD2dLengthMm)) : 3.5;
+  const deltaTempC = Number.isFinite(Number(safeParams.customDeltaTempC)) ? Math.max(0.0, Number(safeParams.customDeltaTempC)) : 110.0;
 
   // 1. Thermal Stacking Junction Temperature:
   // Tj = Tambient + P_compute * θ_eff + P_eNVM * θ_silicon (Tambient = 45°C)

@@ -135,13 +135,15 @@ export const NVM_STORAGE_ROLES = Object.freeze({
  * @param {number} options.busWidthLanes - Number of UCIe / D2D lanes (4, 8, 16, 32, 64)
  * @returns {Object} Quantitative calculation metrics
  */
-export function calculateChipletUcieNvm({
+export function calculateChipletUcieNvm(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   topologyKey = "chiplet_ucie_advanced",
   roleKey = "secure_boot_rot",
   computePowerWatts = 45,
   ambientTempC = 70,
   busWidthLanes = 16,
-} = {}) {
+  } = safeParams;
   const top = (topologyKey && Object.hasOwn(CHIPLET_TOPOLOGY_PRESETS, topologyKey)) ? CHIPLET_TOPOLOGY_PRESETS[topologyKey] : CHIPLET_TOPOLOGY_PRESETS.chiplet_ucie_advanced;
   const role = (roleKey && Object.hasOwn(NVM_STORAGE_ROLES, roleKey)) ? NVM_STORAGE_ROLES[roleKey] : NVM_STORAGE_ROLES.secure_boot_rot;
 

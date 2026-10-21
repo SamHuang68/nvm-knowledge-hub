@@ -130,19 +130,20 @@ export const PQC_PRESETS = Object.freeze({
  * @return {Object} Computed budget, byte breakdown, and silicon feasibility.
  */
 export function calculatePqcRotBudget(options = {}) {
-  const dsaAlgo = (options.dsaId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, options.dsaId))
-    ? PQC_ALGORITHMS[options.dsaId]
+  const safeOptions = options && typeof options === 'object' ? options : {};
+  const dsaAlgo = (safeOptions.dsaId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, safeOptions.dsaId))
+    ? PQC_ALGORITHMS[safeOptions.dsaId]
     : PQC_ALGORITHMS.ml_dsa_65;
-  const kemAlgo = (options.kemId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, options.kemId))
-    ? PQC_ALGORITHMS[options.kemId]
+  const kemAlgo = (safeOptions.kemId && Object.prototype.hasOwnProperty.call(PQC_ALGORITHMS, safeOptions.kemId))
+    ? PQC_ALGORITHMS[safeOptions.kemId]
     : null;
-  const pubKeyMode = options.pubKeyMode || 'raw'; // 'raw' or 'hash'
-  const certDepth = Math.max(0, parseInt(options.certDepth, 10) || 0);
-  const keySlots = Math.max(1, parseInt(options.keySlots, 10) || 1);
-  const rollbackBits = Math.max(0, parseInt(options.rollbackBits, 10) || 0);
-  const pufHelperBytes = Math.max(0, parseInt(options.pufHelperBytes, 10) || 0);
-  const includeClassical = Boolean(options.includeClassical);
-  const includeStatefulHash = Boolean(options.includeStatefulHash);
+  const pubKeyMode = safeOptions.pubKeyMode || 'raw'; // 'raw' or 'hash'
+  const certDepth = Math.max(0, parseInt(safeOptions.certDepth, 10) || 0);
+  const keySlots = Math.max(1, parseInt(safeOptions.keySlots, 10) || 1);
+  const rollbackBits = Math.max(0, parseInt(safeOptions.rollbackBits, 10) || 0);
+  const pufHelperBytes = Math.max(0, parseInt(safeOptions.pufHelperBytes, 10) || 0);
+  const includeClassical = Boolean(safeOptions.includeClassical);
+  const includeStatefulHash = Boolean(safeOptions.includeStatefulHash);
 
   // 1. Root Public Key / Digest Bytes
   let rootKeyBytesPerSlot = 0;
@@ -319,9 +320,9 @@ export function initPqcRotCalculator(rootSelector = '#pqc-budget-simulator-root'
       includeStatefulHash: chkStateful?.checked || false,
     };
 
-    if (certDepthVal) certDepthVal.textContent = options.certDepth;
-    if (keySlotsVal) keySlotsVal.textContent = `${options.keySlots}×`;
-    if (rollbackVal) rollbackVal.textContent = `${options.rollbackBits} b`;
+    if (certDepthVal) certDepthVal.textContent = safeOptions.certDepth;
+    if (keySlotsVal) keySlotsVal.textContent = `${safeOptions.keySlots}×`;
+    if (rollbackVal) rollbackVal.textContent = `${safeOptions.rollbackBits} b`;
 
     const res = calculatePqcRotBudget(options);
 

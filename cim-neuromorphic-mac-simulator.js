@@ -166,15 +166,18 @@ export const CIM_MEMORY_MEDIA = {
  * @returns {Object} Calculated metrics
  */
 export function calculateCimMacMetrics(params = {}) {
-  const preset = Object.hasOwn(CIM_SYSTEM_PRESETS, params.presetKey)
-    ? CIM_SYSTEM_PRESETS[params.presetKey]
-    : CIM_SYSTEM_PRESETS.edge_keyword_spotting_kws;
-  const media = Object.hasOwn(CIM_MEMORY_MEDIA, params.mediaKey)
-    ? CIM_MEMORY_MEDIA[params.mediaKey]
-    : CIM_MEMORY_MEDIA.analog_reram_crossbar;
-  const rWire = params.wireResistanceOhm !== undefined ? Math.max(0.1, params.wireResistanceOhm) : 1.5;
-  const adcBits = params.adcResolutionBits !== undefined ? Math.max(2, Math.min(10, params.adcResolutionBits)) : 6;
-  const driftHours = params.driftTimeHours !== undefined ? Math.max(0.1, params.driftTimeHours) : 1000.0;
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pKey = typeof safeParams.presetKey === 'string' && Object.hasOwn(CIM_SYSTEM_PRESETS, safeParams.presetKey)
+    ? safeParams.presetKey
+    : 'edge_keyword_spotting_kws';
+  const mKey = typeof safeParams.mediaKey === 'string' && Object.hasOwn(CIM_MEMORY_MEDIA, safeParams.mediaKey)
+    ? safeParams.mediaKey
+    : 'analog_reram_crossbar';
+  const preset = CIM_SYSTEM_PRESETS[pKey];
+  const media = CIM_MEMORY_MEDIA[mKey];
+  const rWire = Number.isFinite(Number(safeParams.wireResistanceOhm)) ? Math.max(0.1, Number(safeParams.wireResistanceOhm)) : 1.5;
+  const adcBits = Number.isFinite(Number(safeParams.adcResolutionBits)) ? Math.max(2, Math.min(10, Math.round(Number(safeParams.adcResolutionBits)))) : 6;
+  const driftHours = Number.isFinite(Number(safeParams.driftTimeHours)) ? Math.max(0.1, Number(safeParams.driftTimeHours)) : 1000.0;
 
   // 1. First-Principles Parasitic Wire IR-Drop along Wordline and Bitline
   // Total wire resistance across row/column network

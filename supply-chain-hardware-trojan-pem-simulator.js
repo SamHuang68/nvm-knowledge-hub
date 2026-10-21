@@ -65,10 +65,11 @@ export const TROJAN_PEM_TECH_PROFILES = Object.freeze({
 });
 
 export function calculateHardwareTrojanPemMetrics(params = {}) {
-  const substrateThickUm = Number.isFinite(Number(params.substrateThickUm)) ? Math.max(0.1, Number(params.substrateThickUm)) : 8.0;
-  const opticalShieldDb = Number.isFinite(Number(params.opticalShieldDb)) ? Math.max(0, Number(params.opticalShieldDb)) : 45;
-  const trojanPayloadPpm = Number.isFinite(Number(params.trojanPayloadPpm)) ? Math.max(0, Number(params.trojanPayloadPpm)) : 50;
-  const techKey = params.tech || 'antifuse_puf';
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const substrateThickUm = Number.isFinite(Number(safeParams.substrateThickUm)) ? Math.max(0.1, Number(safeParams.substrateThickUm)) : 8.0;
+  const opticalShieldDb = Number.isFinite(Number(safeParams.opticalShieldDb)) ? Math.max(0, Number(safeParams.opticalShieldDb)) : 45;
+  const trojanPayloadPpm = Number.isFinite(Number(safeParams.trojanPayloadPpm)) ? Math.max(0, Number(safeParams.trojanPayloadPpm)) : 50;
+  const techKey = safeParams.tech || 'antifuse_puf';
 
   const tech = (techKey && Object.hasOwn(TROJAN_PEM_TECH_PROFILES, techKey)) ? TROJAN_PEM_TECH_PROFILES[techKey] : TROJAN_PEM_TECH_PROFILES['antifuse_puf'];
 

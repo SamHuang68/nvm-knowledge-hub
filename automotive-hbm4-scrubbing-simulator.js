@@ -139,13 +139,15 @@ export const REPAIR_ARCHITECTURES = {
  * @param {number} params.stackDensityGb - 32, 64, 96 GB
  * @returns {Object}
  */
-export function calculateAutomotiveHbm4Metrics({
+export function calculateAutomotiveHbm4Metrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   missionId = 'l4_robotaxi_extreme',
   repairArchId = 'hybrid_tier_scrubbing',
   junctionTempC = 115.0,
   scrubbingPeriodSec = 1.0,
   stackDensityGb = 64
-} = {}) {
+  } = safeParams;
   const mission = (missionId && Object.hasOwn(AUTOMOTIVE_MISSION_PRESETS, missionId)) ? AUTOMOTIVE_MISSION_PRESETS[missionId] : AUTOMOTIVE_MISSION_PRESETS.l4_robotaxi_extreme;
   const arch = (repairArchId && Object.hasOwn(REPAIR_ARCHITECTURES, repairArchId)) ? REPAIR_ARCHITECTURES[repairArchId] : REPAIR_ARCHITECTURES.hybrid_tier_scrubbing;
 

@@ -148,15 +148,16 @@ export const RAD_NVM_TECHS = {
  * @returns {Object} Metrics
  */
 export function calculateRadMetrics(params = {}) {
-  const preset = (params.presetKey && Object.prototype.hasOwnProperty.call(RAD_PRESETS, params.presetKey))
-    ? RAD_PRESETS[params.presetKey]
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const preset = (safeParams.presetKey && Object.prototype.hasOwnProperty.call(RAD_PRESETS, safeParams.presetKey))
+    ? RAD_PRESETS[safeParams.presetKey]
     : RAD_PRESETS.deep_space_jupiter;
-  const tech = (params.techKey && Object.prototype.hasOwnProperty.call(RAD_NVM_TECHS, params.techKey))
-    ? RAD_NVM_TECHS[params.techKey]
+  const tech = (safeParams.techKey && Object.prototype.hasOwnProperty.call(RAD_NVM_TECHS, safeParams.techKey))
+    ? RAD_NVM_TECHS[safeParams.techKey]
     : RAD_NVM_TECHS.antifuse_ohmic;
 
-  const dose = typeof params.tidDoseKrad === 'number' && !isNaN(params.tidDoseKrad) ? Math.max(0, params.tidDoseKrad) : (preset.targetTidKrad || preset.tidKrad || 100);
-  const letVal = typeof params.heavyIonLet === 'number' && !isNaN(params.heavyIonLet) ? Math.max(0, params.heavyIonLet) : (preset.peakHeavyIonLet || preset.letFlux || 45);
+  const dose = typeof safeParams.tidDoseKrad === 'number' && !isNaN(safeParams.tidDoseKrad) ? Math.max(0, safeParams.tidDoseKrad) : (preset.targetTidKrad || preset.tidKrad || 100);
+  const letVal = typeof safeParams.heavyIonLet === 'number' && !isNaN(safeParams.heavyIonLet) ? Math.max(0, safeParams.heavyIonLet) : (preset.peakHeavyIonLet || preset.letFlux || 45);
 
   // 1. Analytical TID Threshold Shift ΔV_th
   // ΔV_th ∝ t_ox^2 * dose

@@ -158,13 +158,15 @@ export const VERTICAL_3D_CONSTANTS = {
  * @param {number} params.arrayLengthUm - Array horizontal length (um)
  * @returns {Object} Comprehensive calculation results
  */
-export function calculateVertical3dMetrics({
+export function calculateVertical3dMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   presetId = 'vert_3d_antifuse_64l',
   conductorId = 'molybdenum_mo_pvd',
   tierCount = 64,
   metalThicknessNm = 25.0,
   arrayLengthUm = 120.0
-} = {}) {
+  } = safeParams;
   const preset = (presetId && Object.prototype.hasOwnProperty.call(VERTICAL_3D_PRESETS, presetId))
     ? VERTICAL_3D_PRESETS[presetId]
     : VERTICAL_3D_PRESETS.vert_3d_antifuse_64l;

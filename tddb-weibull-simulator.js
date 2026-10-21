@@ -149,13 +149,14 @@ export const BOLTZMANN_EV = 8.617333262e-5; // eV / K
  * @returns {Object} Reliability inference results, Weibull curve points, and verdict
  */
 export function calculateTddbWeibull(params = {}) {
-  const tox = Math.max(1.0, Math.min(6.0, Number(params.toxNm) || 2.8));
-  const vox = Math.max(0.2, Math.min(10.0, Number(params.voxV) || 0.85));
-  const tempC = Math.max(20, Math.min(200, Number(params.tempC) || 150));
-  const modelId = params.modelId && ACCELERATION_MODELS[params.modelId] ? params.modelId : 'e_model';
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const tox = Math.max(1.0, Math.min(6.0, Number(safeParams.toxNm) || 2.8));
+  const vox = Math.max(0.2, Math.min(10.0, Number(safeParams.voxV) || 0.85));
+  const tempC = Math.max(20, Math.min(200, Number(safeParams.tempC) || 150));
+  const modelId = safeParams.modelId && ACCELERATION_MODELS[safeParams.modelId] ? safeParams.modelId : 'e_model';
   const model = ACCELERATION_MODELS[modelId];
-  const arrayConfig = params.arraySizeKey && ARRAY_SIZES[params.arraySizeKey] ? ARRAY_SIZES[params.arraySizeKey] : ARRAY_SIZES['64_kb'];
-  const dutyConfig = params.dutyCycleKey && STRESS_DUTY_CYCLES[params.dutyCycleKey] ? STRESS_DUTY_CYCLES[params.dutyCycleKey] : STRESS_DUTY_CYCLES['array_multiplexed'];
+  const arrayConfig = safeParams.arraySizeKey && ARRAY_SIZES[safeParams.arraySizeKey] ? ARRAY_SIZES[safeParams.arraySizeKey] : ARRAY_SIZES['64_kb'];
+  const dutyConfig = safeParams.dutyCycleKey && STRESS_DUTY_CYCLES[safeParams.dutyCycleKey] ? STRESS_DUTY_CYCLES[safeParams.dutyCycleKey] : STRESS_DUTY_CYCLES['array_multiplexed'];
 
   // 1. Oxide electric field (MV/cm)
   // E_ox = V_ox / (t_ox * 1e-7 cm) / 1e6 = V_ox / (t_ox * 0.1)

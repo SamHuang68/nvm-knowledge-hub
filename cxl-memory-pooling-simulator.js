@@ -116,12 +116,28 @@ export function calculateCxlPoolingMetrics(
   capacityGb = 2048,
   hitRatePct = 95
 ) {
-  const preset = CXL_SYSTEM_PRESETS[presetKey] || CXL_SYSTEM_PRESETS.llm_shared_inference_8host;
-  const policy = CXL_POLICIES[policyKey] || CXL_POLICIES.antifuse_hardware_tag;
+  let pKey = presetKey;
+  let polKey = policyKey;
+  let h = hops;
+  let cap = capacityGb;
+  let hr = hitRatePct;
 
-  const validHops = typeof hops === 'number' && !isNaN(hops) ? Math.max(0, hops) : 1;
-  const validCapacityGb = typeof capacityGb === 'number' && !isNaN(capacityGb) ? Math.max(128, capacityGb) : 2048;
-  const validHitRatePct = typeof hitRatePct === 'number' && !isNaN(hitRatePct) ? hitRatePct : 95.0;
+  if (presetKey && typeof presetKey === 'object') {
+    pKey = presetKey.presetKey || presetKey.presetId || 'llm_shared_inference_8host';
+    polKey = presetKey.policyKey || presetKey.policyId || 'antifuse_hardware_tag';
+    h = presetKey.hops !== undefined ? presetKey.hops : 1;
+    cap = presetKey.capacityGb !== undefined ? presetKey.capacityGb : 2048;
+    hr = presetKey.hitRatePct !== undefined ? presetKey.hitRatePct : 95;
+  }
+
+  const preset = (typeof pKey === 'string' && Object.hasOwn(CXL_SYSTEM_PRESETS, pKey))
+    ? CXL_SYSTEM_PRESETS[pKey] : CXL_SYSTEM_PRESETS.llm_shared_inference_8host;
+  const policy = (typeof polKey === 'string' && Object.hasOwn(CXL_POLICIES, polKey))
+    ? CXL_POLICIES[polKey] : CXL_POLICIES.antifuse_hardware_tag;
+
+  const validHops = Number.isFinite(Number(h)) ? Math.max(0, Math.round(Number(h))) : 1;
+  const validCapacityGb = Number.isFinite(Number(cap)) ? Math.max(128, Number(cap)) : 2048;
+  const validHitRatePct = Number.isFinite(Number(hr)) ? Number(hr) : 95.0;
   const hitRate = Math.max(0.5, Math.min(0.9999, validHitRatePct / 100.0));
   const effectiveTagLatency = preset.antiFuseTagLatencyNs * policy.tagLatencyFactor;
 

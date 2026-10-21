@@ -93,12 +93,13 @@ function poissonCdf(lambda, maxSpares) {
  * @param {number} dieAreaMm2
  * @return {number} Gross dies per wafer.
  */
-export function calculateGdpw300mm(dieAreaMm2) {
+export function calculateGdpw300mm(dieAreaMm2 = 10.0) {
+  const safeArea = Number.isFinite(Number(dieAreaMm2)) && Number(dieAreaMm2) > 0 ? Number(dieAreaMm2) : 10.0;
   const d = 300; // mm
   const r = d / 2;
   const waferArea = Math.PI * r * r;
-  const edgeExclusionPenalty = (Math.PI * d) / Math.sqrt(2 * dieAreaMm2);
-  const rawGdpw = waferArea / dieAreaMm2 - edgeExclusionPenalty;
+  const edgeExclusionPenalty = (Math.PI * d) / Math.sqrt(2 * safeArea);
+  const rawGdpw = waferArea / safeArea - edgeExclusionPenalty;
   return Math.max(1, Math.floor(rawGdpw));
 }
 
@@ -108,16 +109,17 @@ export function calculateGdpw300mm(dieAreaMm2) {
  * @return {Object} Computed yield metrics and dollar savings.
  */
 export function calculateSramYieldRecovery(inputs = {}) {
-  const preset = (inputs.presetId && Object.prototype.hasOwnProperty.call(SRAM_YIELD_PRESETS, inputs.presetId))
+  const safeInputs = inputs && typeof inputs === 'object' ? inputs : {};
+  const preset = (safeInputs.presetId && Object.prototype.hasOwnProperty.call(SRAM_YIELD_PRESETS, inputs.presetId))
     ? SRAM_YIELD_PRESETS[inputs.presetId]
     : SRAM_YIELD_PRESETS.n3_ai_accelerator;
-  const dieAreaMm2 = Math.max(10, parseFloat(inputs.dieAreaMm2) || preset.dieAreaMm2 || 350);
-  const sramAreaPct = Math.min(90, Math.max(10, parseFloat(inputs.sramAreaPct) || preset.sramAreaPct || 65));
-  const defectDensityD0 = Math.max(0.01, parseFloat(inputs.defectDensityD0) || preset.defectDensityD0 || 0.08);
-  const numBanks = Math.max(1, parseInt(inputs.numBanks, 10) || preset.numBanks || 32);
-  const parsedSpares = parseInt(inputs.sparePerBank, 10);
+  const dieAreaMm2 = Math.max(10, parseFloat(safeInputs.dieAreaMm2) || preset.dieAreaMm2 || 350);
+  const sramAreaPct = Math.min(90, Math.max(10, parseFloat(safeInputs.sramAreaPct) || preset.sramAreaPct || 65));
+  const defectDensityD0 = Math.max(0.01, parseFloat(safeInputs.defectDensityD0) || preset.defectDensityD0 || 0.08);
+  const numBanks = Math.max(1, parseInt(safeInputs.numBanks, 10) || preset.numBanks || 32);
+  const parsedSpares = parseInt(safeInputs.sparePerBank, 10);
   const sparePerBank = Math.max(0, Number.isFinite(parsedSpares) ? parsedSpares : preset.sparePerBank);
-  const dieAspUsd = Math.max(1, parseFloat(inputs.dieAspUsd) || preset.dieAspUsd);
+  const dieAspUsd = Math.max(1, parseFloat(safeInputs.dieAspUsd) || preset.dieAspUsd);
 
   // Unit conversion: D0 is in defects/cm^2, 1 cm^2 = 100 mm^2
   const d0Mm2 = defectDensityD0 / 100;

@@ -127,12 +127,14 @@ export const MCU_MEMORY_POWER_PROFILES = Object.freeze({
  * @param {number} [params.customDutyCyclePct]
  * @returns {Object} Calculated metrics
  */
-export function calculateNormallyOffEnergy({
+export function calculateNormallyOffEnergy(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   sourceKey = "indoor_solar_100lux",
   memoryKey = "antifuse_normally_off",
   customCapacitorUf,
   customDutyCyclePct,
-} = {}) {
+  } = safeParams;
   const source = Object.hasOwn(HARVESTING_SOURCE_PRESETS, sourceKey)
     ? HARVESTING_SOURCE_PRESETS[sourceKey]
     : HARVESTING_SOURCE_PRESETS.indoor_solar_100lux;

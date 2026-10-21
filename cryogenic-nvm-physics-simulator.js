@@ -129,22 +129,21 @@ export const CRYO_TECH_PROFILES = Object.freeze({
  * @param {number} options.readBiasMv - Applied read voltage in mV (50..800 mV)
  * @returns {Object} Quantitative calculation metrics
  */
-export function calculateCryogenicPhysics({
-  envKey = "cryo_4k",
-  techKey = "antifuse_cryo",
-  senseTimeNs = 10,
-  readBiasMv = 200,
-} = {}) {
-  const env = (envKey && Object.prototype.hasOwnProperty.call(CRYO_ENV_PRESETS, envKey))
-    ? CRYO_ENV_PRESETS[envKey]
-    : CRYO_ENV_PRESETS.cryo_4k;
-  const tech = (techKey && Object.prototype.hasOwnProperty.call(CRYO_TECH_PROFILES, techKey))
-    ? CRYO_TECH_PROFILES[techKey]
-    : CRYO_TECH_PROFILES.antifuse_cryo;
+export function calculateCryogenicPhysics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const envKey = typeof safeParams.envKey === 'string' && Object.hasOwn(CRYO_ENV_PRESETS, safeParams.envKey)
+    ? safeParams.envKey : 'cryo_4k';
+  const techKey = typeof safeParams.techKey === 'string' && Object.hasOwn(CRYO_TECH_PROFILES, safeParams.techKey)
+    ? safeParams.techKey : 'antifuse_cryo';
+  const env = CRYO_ENV_PRESETS[envKey];
+  const tech = CRYO_TECH_PROFILES[techKey];
 
-  const T = Math.max(1.0, Math.min(350.0, Number(env.tempKelvin) || 4.2));
-  const t_sense = Math.max(0.5, Math.min(100.0, Number(senseTimeNs) || 10.0)) * 1e-9;
-  const v_read = Math.max(0.02, Math.min(1.2, (Number(readBiasMv) || 200) * 1e-3));
+  const rawTemp = Number.isFinite(Number(safeParams.tempK)) ? Number(safeParams.tempK) : (Number.isFinite(Number(env.tempKelvin)) ? Number(env.tempKelvin) : 4.2);
+  const T = Math.max(1.0, Math.min(350.0, rawTemp));
+  const rawSense = Number.isFinite(Number(safeParams.senseTimeNs)) ? Number(safeParams.senseTimeNs) : 10.0;
+  const t_sense = Math.max(0.5, Math.min(100.0, rawSense)) * 1e-9;
+  const rawBias = Number.isFinite(Number(safeParams.readBiasMv)) ? Number(safeParams.readBiasMv) : 200;
+  const v_read = Math.max(0.02, Math.min(1.2, rawBias * 1e-3));
 
   const kB = 1.380649e-23; // J/K
   const q = 1.602176634e-19; // C

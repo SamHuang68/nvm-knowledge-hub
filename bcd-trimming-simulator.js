@@ -141,14 +141,15 @@ export function normalCdf(x) {
  * @return {Object} Computed yields, DAC quantization metrics, and comparison.
  */
 export function calculateBcdTrimming(inputs = {}) {
-  const preset = (inputs && inputs.presetId && Object.hasOwn(BCD_TRIM_PRESETS, inputs.presetId))
-    ? BCD_TRIM_PRESETS[inputs.presetId]
+  const safeInputs = inputs && typeof inputs === 'object' ? inputs : {};
+  const preset = (safeInputs.presetId && typeof safeInputs.presetId === 'string' && Object.hasOwn(BCD_TRIM_PRESETS, safeInputs.presetId))
+    ? BCD_TRIM_PRESETS[safeInputs.presetId]
     : BCD_TRIM_PRESETS.pmic_bandgap;
-  const targetVal = Math.max(0.001, parseFloat(inputs.targetVal) || preset.targetVal);
-  const specTolPct = Math.max(0.01, parseFloat(inputs.specTolPct) || preset.specTolPct);
-  const rawSpreadPct = Math.max(0.01, parseFloat(inputs.rawSpreadPct) || preset.rawSpreadPct);
-  const trimBits = Math.max(1, Math.min(16, parseInt(inputs.trimBits, 10) || preset.trimBits));
-  const trimRangePct = Math.max(0.01, parseFloat(inputs.trimRangePct) || preset.trimRangePct);
+  const targetVal = Math.max(0.001, Number.isFinite(Number(safeInputs.targetVal)) ? Number(safeInputs.targetVal) : preset.targetVal);
+  const specTolPct = Math.max(0.01, Number.isFinite(Number(safeInputs.specTolPct)) ? Number(safeInputs.specTolPct) : preset.specTolPct);
+  const rawSpreadPct = Math.max(0.01, Number.isFinite(Number(safeInputs.rawSpreadPct)) ? Number(safeInputs.rawSpreadPct) : preset.rawSpreadPct);
+  const trimBits = Math.max(1, Math.min(16, Number.isFinite(Number(safeInputs.trimBits)) ? Math.round(Number(safeInputs.trimBits)) : preset.trimBits));
+  const trimRangePct = Math.max(0.01, Number.isFinite(Number(safeInputs.trimRangePct)) ? Number(safeInputs.trimRangePct) : preset.trimRangePct);
 
   // Spec limits:
   const vHigh = targetVal * (1 + specTolPct / 100);

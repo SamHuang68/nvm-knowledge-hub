@@ -79,14 +79,15 @@ export const BATTERY_PRESETS = Object.freeze({
  * @return {Object} Computed energy breakdown and battery lifetime.
  */
 export function calculateIotEnergyBudget(options = {}) {
-  const profile = (options.profileId && Object.prototype.hasOwnProperty.call(IOT_MCU_PROFILES, options.profileId))
-    ? IOT_MCU_PROFILES[options.profileId]
+  const safeOptions = options && typeof options === 'object' ? options : {};
+  const profile = (safeOptions.profileId && Object.prototype.hasOwnProperty.call(IOT_MCU_PROFILES, safeOptions.profileId))
+    ? IOT_MCU_PROFILES[safeOptions.profileId]
     : IOT_MCU_PROFILES.tiered_antifuse;
-  const battery = (options.batteryId && Object.prototype.hasOwnProperty.call(BATTERY_PRESETS, options.batteryId))
-    ? BATTERY_PRESETS[options.batteryId]
+  const battery = (safeOptions.batteryId && Object.prototype.hasOwnProperty.call(BATTERY_PRESETS, safeOptions.batteryId))
+    ? BATTERY_PRESETS[safeOptions.batteryId]
     : BATTERY_PRESETS.cr2032;
-  const wakeIntervalSec = Math.max(0.1, parseFloat(options.wakeIntervalSec) || 10.0);
-  const activeDurationMs = Math.max(0.1, parseFloat(options.activeDurationMs) || 5.0);
+  const wakeIntervalSec = Math.max(0.1, parseFloat(safeOptions.wakeIntervalSec) || 10.0);
+  const activeDurationMs = Math.max(0.1, parseFloat(safeOptions.activeDurationMs) || 5.0);
 
   const tActiveSec = activeDurationMs / 1000;
   const tSleepSec = Math.max(0, wakeIntervalSec - tActiveSec);

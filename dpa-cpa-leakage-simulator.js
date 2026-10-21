@@ -136,21 +136,17 @@ export const DPA_COUNTERMEASURE_PROFILES = Object.freeze({
  * @param {number} [options.sampleRateGsps=2.5] - Oscilloscope sampling rate (0.5 to 10.0 GSa/s)
  * @returns {Object} Comprehensive calculation metrics
  */
-export function calculateDpaCpaLeakage({
-  presetKey = "fpga_unprotected_aes",
-  defenseKey = "none_single_ended",
-  noiseStd = 1.0,
-  sampleRateGsps = 2.5,
-} = {}) {
-  const preset = Object.hasOwn(DPA_ATTACK_PRESETS, presetKey)
-    ? DPA_ATTACK_PRESETS[presetKey]
-    : DPA_ATTACK_PRESETS.fpga_unprotected_aes;
-  const defense = Object.hasOwn(DPA_COUNTERMEASURE_PROFILES, defenseKey)
-    ? DPA_COUNTERMEASURE_PROFILES[defenseKey]
-    : DPA_COUNTERMEASURE_PROFILES.none_single_ended;
+export function calculateDpaCpaLeakage(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const presetKey = typeof safeParams.presetKey === 'string' && Object.hasOwn(DPA_ATTACK_PRESETS, safeParams.presetKey)
+    ? safeParams.presetKey : 'fpga_unprotected_aes';
+  const defenseKey = typeof safeParams.defenseKey === 'string' && Object.hasOwn(DPA_COUNTERMEASURE_PROFILES, safeParams.defenseKey)
+    ? safeParams.defenseKey : 'none_single_ended';
+  const preset = DPA_ATTACK_PRESETS[presetKey];
+  const defense = DPA_COUNTERMEASURE_PROFILES[defenseKey];
 
-  const noiseScale = Math.max(0.1, Math.min(10.0, Number(noiseStd) || 1.0));
-  const sampleRate = Math.max(0.2, Math.min(20.0, Number(sampleRateGsps) || 2.5));
+  const noiseScale = Math.max(0.1, Math.min(10.0, Number.isFinite(Number(safeParams.noiseStd)) ? Number(safeParams.noiseStd) : 1.0));
+  const sampleRate = Math.max(0.2, Math.min(20.0, Number.isFinite(Number(safeParams.sampleRateGsps)) ? Number(safeParams.sampleRateGsps) : 2.5));
 
   // 1. Effective SNR calculation (dB and linear):
   // SNR_eff = baseSnrDb - differentialCancellationDb - 20*log10(noiseScale)

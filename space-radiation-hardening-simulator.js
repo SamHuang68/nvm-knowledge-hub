@@ -139,12 +139,14 @@ export const RAD_HARD_TECH_PROFILES = Object.freeze({
  * @param {number} [params.customLetMev]
  * @returns {Object} Calculated metrics
  */
-export function calculateSpaceRadiationHardening({
+export function calculateSpaceRadiationHardening(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   missionKey = "geo_telecom_sat",
   techKey = "antifuse_rad_hard",
   customTidKrad,
   customLetMev,
-} = {}) {
+  } = safeParams;
   const mission = (missionKey && Object.prototype.hasOwnProperty.call(SPACE_MISSION_PRESETS, missionKey))
     ? SPACE_MISSION_PRESETS[missionKey]
     : SPACE_MISSION_PRESETS.geo_telecom_sat;
