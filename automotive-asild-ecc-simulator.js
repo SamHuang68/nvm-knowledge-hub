@@ -193,14 +193,16 @@ export const ATMOSPHERIC_NEUTRON_CONSTANTS = {
  * @param {number} params.customAltitudeM - Altitude in meters
  * @returns {Object} Comprehensive calculation results
  */
-export function calculateAutomotiveAsilMetrics({
+export function calculateAutomotiveAsilMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   missionId = 'powertrain_inverter_asild',
   nvmId = 'antifuse_charge_free',
   eccId = 'secded_72_64',
   arrayCapacityMb = 16.0,
   scrubbingPeriodSec = 60.0,
   customAltitudeM = 1500.0
-} = {}) {
+  } = safeParams;
   const mission = (missionId && Object.hasOwn(AUTO_MISSION_PROFILES, missionId)) ? AUTO_MISSION_PROFILES[missionId] : AUTO_MISSION_PROFILES.powertrain_inverter_asild;
   const nvm = (nvmId && Object.hasOwn(AUTO_NVM_PROFILES, nvmId)) ? AUTO_NVM_PROFILES[nvmId] : AUTO_NVM_PROFILES.antifuse_charge_free;
   const ecc = (eccId && Object.hasOwn(ECC_ARCHITECTURES, eccId)) ? ECC_ARCHITECTURES[eccId] : ECC_ARCHITECTURES.secded_72_64;

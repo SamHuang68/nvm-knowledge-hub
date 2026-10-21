@@ -135,13 +135,15 @@ export const PATCH_STORAGE_BACKENDS = Object.freeze({
  * @param {number} [options.supplyVdd=1.2] - 0.5V to 3.3V
  * @returns {Object} Comprehensive calculation metrics
  */
-export function calculateMcuVectorPatch({
+export function calculateMcuVectorPatch(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   workloadKey = "ble_beacon_ulp",
   backendKey = "antifuse_direct",
   camEntries = 16,
   clockMhz = 48.0,
   supplyVdd = 1.2,
-} = {}) {
+  } = safeParams;
   const workload = MCU_PATCH_WORKLOAD_PRESETS[workloadKey] || MCU_PATCH_WORKLOAD_PRESETS.ble_beacon_ulp;
   const backend = PATCH_STORAGE_BACKENDS[backendKey] || PATCH_STORAGE_BACKENDS.antifuse_direct;
 

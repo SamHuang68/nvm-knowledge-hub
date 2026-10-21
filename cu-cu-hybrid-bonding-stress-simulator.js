@@ -78,13 +78,14 @@ export const CU_BONDING_TECH_PROFILES = Object.freeze({
 });
 
 export function calculateCuCuBondingMetrics(params = {}) {
-  const annealTemp = Number.isFinite(Number(params.annealTemp)) ? Number(params.annealTemp) : 300;
-  const cmpDishing = Number.isFinite(Number(params.cmpDishing)) ? Number(params.cmpDishing) : 3.0;
-  const padHeight = Number.isFinite(Number(params.padHeight)) ? Number(params.padHeight) : 1.2;
-  const opTemp = Number.isFinite(Number(params.opTemp)) ? Number(params.opTemp) : 85;
-  const padDiameter = Number.isFinite(Number(params.padDiameter)) ? Number(params.padDiameter) : 0.5;
-  const dielectricKey = params.dielectric || 'sicn';
-  const techKey = params.tech || 'antifuse';
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const annealTemp = Number.isFinite(Number(safeParams.annealTemp)) ? Number(safeParams.annealTemp) : 300;
+  const cmpDishing = Number.isFinite(Number(safeParams.cmpDishing)) ? Number(safeParams.cmpDishing) : 3.0;
+  const padHeight = Number.isFinite(Number(safeParams.padHeight)) ? Number(safeParams.padHeight) : 1.2;
+  const opTemp = Number.isFinite(Number(safeParams.opTemp)) ? Number(safeParams.opTemp) : 85;
+  const padDiameter = Number.isFinite(Number(safeParams.padDiameter)) ? Number(safeParams.padDiameter) : 0.5;
+  const dielectricKey = safeParams.dielectric || 'sicn';
+  const techKey = safeParams.tech || 'antifuse';
 
   const diel = (dielectricKey && Object.hasOwn(CU_BONDING_DIELECTRICS, dielectricKey)) ? CU_BONDING_DIELECTRICS[dielectricKey] : CU_BONDING_DIELECTRICS['sicn'];
   const tech = (techKey && Object.hasOwn(CU_BONDING_TECH_PROFILES, techKey)) ? CU_BONDING_TECH_PROFILES[techKey] : CU_BONDING_TECH_PROFILES['antifuse'];

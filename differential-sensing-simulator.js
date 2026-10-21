@@ -132,22 +132,23 @@ export const SENSING_ARCHITECTURES = Object.freeze({
  * @return {Object} Computed electrical and side-channel metrics.
  */
 export function calculateDifferentialSensing(inputs = {}) {
-  const preset = (inputs && inputs.presetId && Object.hasOwn(DIFF_SENSING_PRESETS, inputs.presetId))
-    ? DIFF_SENSING_PRESETS[inputs.presetId]
+  const safeInputs = inputs && typeof inputs === 'object' ? inputs : {};
+  const preset = (safeInputs.presetId && typeof safeInputs.presetId === 'string' && Object.hasOwn(DIFF_SENSING_PRESETS, safeInputs.presetId))
+    ? DIFF_SENSING_PRESETS[safeInputs.presetId]
     : DIFF_SENSING_PRESETS.automotive_grade0_28nm;
-  const arch = (inputs && inputs.archId && Object.hasOwn(SENSING_ARCHITECTURES, inputs.archId))
-    ? SENSING_ARCHITECTURES[inputs.archId]
+  const arch = (safeInputs.archId && typeof safeInputs.archId === 'string' && Object.hasOwn(SENSING_ARCHITECTURES, safeInputs.archId))
+    ? SENSING_ARCHITECTURES[safeInputs.archId]
     : SENSING_ARCHITECTURES.true_twin_cell;
 
-  const vdd = parseFloat(inputs.vdd) || preset.vdd;
-  const iprogUa = Math.max(5.0, parseFloat(inputs.iprog) || preset.iprog);
-  const tempC = parseFloat(inputs.tempC) || preset.tempC;
-  const cmNoiseMv = Math.max(5.0, parseFloat(inputs.cmNoiseMv) || preset.cmNoiseMv);
-  const tsenseNs = Math.max(0.5, parseFloat(inputs.tsenseNs) || preset.tsenseNs);
-  const cBitlineFf = Math.max(10.0, parseFloat(inputs.cBitlineFf) || preset.cBitlineFf);
+  const vdd = Number.isFinite(Number(safeInputs.vdd)) ? Number(safeInputs.vdd) : preset.vdd;
+  const iprogUa = Math.max(5.0, Number.isFinite(Number(safeInputs.iprog)) ? Number(safeInputs.iprog) : preset.iprog);
+  const tempC = Number.isFinite(Number(safeInputs.tempC)) ? Number(safeInputs.tempC) : preset.tempC;
+  const cmNoiseMv = Math.max(5.0, Number.isFinite(Number(safeInputs.cmNoiseMv)) ? Number(safeInputs.cmNoiseMv) : preset.cmNoiseMv);
+  const tsenseNs = Math.max(0.5, Number.isFinite(Number(safeInputs.tsenseNs)) ? Number(safeInputs.tsenseNs) : preset.tsenseNs);
+  const cBitlineFf = Math.max(10.0, Number.isFinite(Number(safeInputs.cBitlineFf)) ? Number(safeInputs.cBitlineFf) : preset.cBitlineFf);
 
-  // 每個預設的漏電量對應其標示溫度；1.85 倍／10°C 為既有示意係數。
-  const tempDelta = tempC - preset.leakageReferenceTempC;
+  // 每個預設的漏電量對應其標示溫度；限制溫差在安全範圍內防止溢位為 Infinity。
+  const tempDelta = Math.max(-100, Math.min(250, tempC - preset.leakageReferenceTempC));
   const tempLeakMultiplier = Math.pow(1.85, tempDelta / 10);
   const ileakUa = (preset.ileakBaseNa * tempLeakMultiplier) / 1000;
 

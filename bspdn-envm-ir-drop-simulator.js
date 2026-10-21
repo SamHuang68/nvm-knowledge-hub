@@ -113,14 +113,15 @@ export const BSPDN_PRESETS = {
  * @returns {Object} Calculated metrics
  */
 export function calculateBspdnMetrics(params = {}) {
-  const preset = Object.hasOwn(BSPDN_PRESETS, params.presetKey)
-    ? BSPDN_PRESETS[params.presetKey]
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const preset = Object.hasOwn(BSPDN_PRESETS, safeParams.presetKey)
+    ? BSPDN_PRESETS[safeParams.presetKey]
     : BSPDN_PRESETS.tsmc_a16_spr;
   const fspdnBaseline = BSPDN_PRESETS.fspdn_3nm_baseline;
 
-  const peakWriteCurrent = Number.isFinite(Number(params.peakWriteCurrent)) ? Number(params.peakWriteCurrent) : (preset.defaultPeakCurrent || 12);
-  const pulseRiseTime = Number.isFinite(Number(params.pulseRiseTime)) ? Number(params.pulseRiseTime) : (preset.defaultRiseTime || 0.6);
-  const ambientTemp = Number.isFinite(Number(params.ambientTemp)) ? Number(params.ambientTemp) : 25;
+  const peakWriteCurrent = Number.isFinite(Number(safeParams.peakWriteCurrent)) ? Number(safeParams.peakWriteCurrent) : (preset.defaultPeakCurrent || 12);
+  const pulseRiseTime = Number.isFinite(Number(safeParams.pulseRiseTime)) ? Number(safeParams.pulseRiseTime) : (preset.defaultRiseTime || 0.6);
+  const ambientTemp = Number.isFinite(Number(safeParams.ambientTemp)) ? Number(safeParams.ambientTemp) : 25;
 
   const iPeak = peakWriteCurrent * 1e-3; // Convert mA to A
   const tRise = Math.max(0.05, pulseRiseTime) * 1e-9; // Convert ns to s
@@ -181,7 +182,7 @@ export function calculateBspdnMetrics(params = {}) {
 
   const irDropSavingPct = Math.round((1 - (totalDropCurrent / totalDropBaseline)) * 100);
 
-  if (params.presetKey === 'fspdn_3nm_baseline') {
+  if (safeParams.presetKey === 'fspdn_3nm_baseline') {
     architectureRating = effectiveVddCurrent >= preset.targetVwriteMin ? 'MARGINAL_RISK' : 'CRITICAL_VIOLATION';
     verdictZh = `【未校準教學分類：正面供電基準】在 ${peakWriteCurrent.toFixed(1)} mA 瞬態寫入下，18 層正面金屬的模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV)。宏單元模型有效偏壓為 ${effectiveVddCurrent.toFixed(3)} V，${effectiveVddCurrent < preset.targetVwriteMin ? '低於模型指定的擊穿門檻，寫入良率教學指標為 ' + writeYield.toFixed(2) + '%' : '高於模型指定門檻，電壓裕度為 ' + writeMarginCurrent.toFixed(1) + ' mV'}。厚矽基底熱阻設定為 ${preset.thermalResistance.toFixed(1)} K/W。分類與良率指標由簡化門檻決定，實際製程能力及可靠度仍需產品參數與實測驗證。`;
     verdictEn = `[Uncalibrated Teaching Class: Front-Side PDN Baseline] Under ${peakWriteCurrent.toFixed(1)} mA pulse write, the 18-tier front-metal model gives ${(totalDropCurrent * 1000).toFixed(1)} mV total sag (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV). Modeled macro voltage is ${effectiveVddCurrent.toFixed(3)} V, ${effectiveVddCurrent < preset.targetVwriteMin ? 'below the assumed breakdown threshold, with a teaching write-yield index of ' + writeYield.toFixed(2) + '%' : 'above the assumed threshold with ' + writeMarginCurrent.toFixed(1) + ' mV headroom'}. Bulk-silicon thermal resistance is set to ${preset.thermalResistance.toFixed(1)} K/W. Classification and yield index follow simplified thresholds; actual process capability and reliability require product parameters and measured validation.`;

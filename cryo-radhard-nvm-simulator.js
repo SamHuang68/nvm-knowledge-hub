@@ -235,16 +235,17 @@ export const CRYO_NVM_TOPOLOGIES = Object.freeze({
  * @returns {Object} Comprehensive physics metrics
  */
 export function calculateCryoRadhardMetrics(params = {}) {
-  const preset = Object.hasOwn(CRYO_ENVIRONMENT_PRESETS, params.presetId)
-    ? CRYO_ENVIRONMENT_PRESETS[params.presetId]
-    : CRYO_ENVIRONMENT_PRESETS.quantum_cryo_4k;
-  const topology = Object.hasOwn(CRYO_NVM_TOPOLOGIES, params.topologyId)
-    ? CRYO_NVM_TOPOLOGIES[params.topologyId]
-    : CRYO_NVM_TOPOLOGIES.antifuse_radhard;
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pId = typeof safeParams.presetId === 'string' && Object.hasOwn(CRYO_ENVIRONMENT_PRESETS, safeParams.presetId)
+    ? safeParams.presetId : 'quantum_cryo_4k';
+  const tId = typeof safeParams.topologyId === 'string' && Object.hasOwn(CRYO_NVM_TOPOLOGIES, safeParams.topologyId)
+    ? safeParams.topologyId : 'antifuse_radhard';
+  const preset = CRYO_ENVIRONMENT_PRESETS[pId];
+  const topology = CRYO_NVM_TOPOLOGIES[tId];
 
-  const tempK = params.customTempK !== undefined ? Number(params.customTempK) : preset.tempK;
-  const tidKrad = params.customTidKrad !== undefined ? Number(params.customTidKrad) : preset.tidKrad;
-  const letVal = params.customLet !== undefined ? Number(params.customLet) : preset.peakLet;
+  const tempK = Number.isFinite(Number(safeParams.customTempK)) ? Number(safeParams.customTempK) : (Number.isFinite(Number(safeParams.tempK)) ? Number(safeParams.tempK) : preset.tempK);
+  const tidKrad = Number.isFinite(Number(safeParams.customTidKrad)) ? Number(safeParams.customTidKrad) : preset.tidKrad;
+  const letVal = Number.isFinite(Number(safeParams.customLet)) ? Number(safeParams.customLet) : preset.peakLet;
 
   // 1. Incomplete Ionization & Freeze-out Factor (0.0 to 1.0)
   // At 300K, ionization is ~1.0; at 4.2K, thermal excitation is ~0.001

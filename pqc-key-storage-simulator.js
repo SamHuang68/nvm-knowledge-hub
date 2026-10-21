@@ -136,17 +136,17 @@ export const STORAGE_MEDIA_PROFILES = Object.freeze({
  * @param {number} [params.customArrayCapacityKb]
  * @returns {Object} Calculated metrics
  */
-export function calculatePqcKeyStorage({
-  algoKey = "ml_kem_768",
-  mediaKey = "antifuse_append_log",
-  customUpdateCycles,
-  customArrayCapacityKb,
-} = {}) {
-  const algo = PQC_ALGORITHM_PROFILES[algoKey] || PQC_ALGORITHM_PROFILES.ml_kem_768;
-  const media = STORAGE_MEDIA_PROFILES[mediaKey] || STORAGE_MEDIA_PROFILES.antifuse_append_log;
+export function calculatePqcKeyStorage(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const algoKey = typeof safeParams.algoKey === 'string' && Object.hasOwn(PQC_ALGORITHM_PROFILES, safeParams.algoKey)
+    ? safeParams.algoKey : 'ml_kem_768';
+  const mediaKey = typeof safeParams.mediaKey === 'string' && Object.hasOwn(STORAGE_MEDIA_PROFILES, safeParams.mediaKey)
+    ? safeParams.mediaKey : 'antifuse_append_log';
+  const algo = PQC_ALGORITHM_PROFILES[algoKey];
+  const media = STORAGE_MEDIA_PROFILES[mediaKey];
 
-  const updateCycles = customUpdateCycles !== undefined ? customUpdateCycles : 1000;
-  const capacityKb = customArrayCapacityKb !== undefined ? customArrayCapacityKb : 64.0; // 64 KB default
+  const updateCycles = Number.isFinite(Number(safeParams.customUpdateCycles)) ? Math.max(1, Number(safeParams.customUpdateCycles)) : 1000;
+  const capacityKb = Number.isFinite(Number(safeParams.customArrayCapacityKb)) ? Math.max(8, Number(safeParams.customArrayCapacityKb)) : 64.0;
   const capacityBytes = capacityKb * 1024;
 
   const keySizeBytes = algo.totalStorageBytes;

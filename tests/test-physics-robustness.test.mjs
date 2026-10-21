@@ -698,3 +698,62 @@ test('CPO 契約：有效預設、溫度響應與非法鍵回退', () => {
     assert.deepEqual(calculateCpoSiphMetrics({...base, presetId: key, techId: key, ambientTempC: 85}), cool);
   }
 });
+
+// Null-Safety Suite: 驗證所有 50 款物理計算器在接受 null 參數時能安全優雅降級，絕不崩潰且不輸出 NaN/Infinity
+test('Physical Calculators: Null Argument Robustness (All 50 Calculators)', () => {
+  for (const { name, fn } of allCalculators) {
+    let res;
+    try {
+      res = fn(null);
+    } catch (err) {
+      assert.fail(`${name}(null) threw an exception: ${err.message}`);
+    }
+    assert.ok(res !== undefined, `${name}(null) must return a valid result`);
+    checkNoNaN(res, `${name}_null`);
+  }
+});
+
+// Suite 17: 類腦神經形態 CiM、650V/800V DESAT、深低溫量子與 CXL 記憶體池化壓力測試
+test('Suite 17: 類腦神經形態 CiM、650V/800V DESAT、深低溫量子與 CXL 記憶體池化壓力測試', () => {
+  const suite17Configs = [
+    // 1. 類腦神經形態 (Neuromorphic) CiM 與類比 MAC 突波
+    { arrayRows: 1024, arrayCols: 1024, cellBits: 4, inputBits: 8, vReadMv: 200, driftCoeff: 0.15, tempC: 125.0 },
+    { arrayRows: 64, arrayCols: 64, cellBits: 1, inputBits: 1, vReadMv: 50, driftCoeff: 0.001, tempC: -40.0 },
+    { arrayRows: 2048, arrayCols: 2048, cellBits: 8, inputBits: 16, vReadMv: 500, driftCoeff: 0.5, tempC: 175.0 },
+    { arrayRows: '__proto__', arrayCols: '__proto__', cellBits: '__proto__', inputBits: '__proto__' },
+
+    // 2. 650V/800V DESAT 去飽和保護與 SiC/GaN 牽引負載突波
+    { vBusNominalV: 800, vClampV: 1200, iPeakA: 600, desatBlankingNs: 250, rSenseOhm: 0.05, tempC: 175.0 },
+    { vBusNominalV: 400, vClampV: 650, iPeakA: 200, desatBlankingNs: 100, rSenseOhm: 0.01, tempC: -40.0 },
+    { vBusNominalV: 1200, vClampV: 1800, iPeakA: 1500, desatBlankingNs: 500, rSenseOhm: 0.1, tempC: 220.0 },
+    { vBusNominalV: '__proto__', vClampV: '__proto__', iPeakA: '__proto__' },
+
+    // 3. 深低溫稀釋冷凍機 (10mK-4K) 量子位元讀出與微波共振腔熱噪聲
+    { readoutTempK: 0.015, freqGhz: 7.5, photonNumber: 10, ampNoiseTempK: 2.5, integrationTimeNs: 800 },
+    { readoutTempK: 4.2, freqGhz: 4.0, photonNumber: 1, ampNoiseTempK: 8.0, integrationTimeNs: 2000 },
+    { readoutTempK: 77.0, freqGhz: 10.0, photonNumber: 50, ampNoiseTempK: 30.0, integrationTimeNs: 200 },
+    { readoutTempK: '__proto__', freqGhz: '__proto__', photonNumber: '__proto__' },
+
+    // 4. CXL 3.1 記憶體池化 (Multi-Host Pooling) 延遲飽和與熱點命中轉移
+    { poolNodes: 16, hostCount: 8, memTech: 'ddr5_optane_cxl', poolCapacityTb: 64, hitRatioPct: 98.5, fabricOverheadNs: 28 },
+    { poolNodes: 2, hostCount: 1, memTech: 'nvm_storage_class', poolCapacityTb: 4, hitRatioPct: 5.0, fabricOverheadNs: 120 },
+    { poolNodes: 64, hostCount: 32, memTech: 'hbm_hybrid_cxl', poolCapacityTb: 256, hitRatioPct: 85.0, fabricOverheadNs: 45 },
+    { poolNodes: '__proto__', hostCount: '__proto__', memTech: '__proto__' },
+
+    // 5. 原型鏈防禦與非預期資料型別混淆 (Fuzzing / Defensive Regression)
+    { presetId: 'constructor', techId: 'prototype', faultPresetKey: 'valueOf', deviceKey: 'toString' },
+    { presetId: null, techId: null, faultPresetKey: null, deviceKey: null, junctionTemp: null }
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of suite17Configs) {
+      try {
+        const res = fn(cfg);
+        assert.ok(res !== undefined, `${name} 必須安全處理 Suite 17 邊界條件`);
+        checkNoNaN(res, `${name}_Suite17`);
+      } catch (err) {
+        assert.fail(`${name} 處理 Suite 17 邊界條件時失敗：${err.message}`);
+      }
+    }
+  }
+});

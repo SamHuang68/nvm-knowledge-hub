@@ -162,27 +162,26 @@ export const ADC_FOM_MAP = Object.freeze({
  * @param {number} options.clockFreqMHz - Array operating frequency in MHz (20..500)
  * @returns {Object} Quantitative calculation results
  */
-export function calculateCimAnalogMac({
-  workloadKey = "transformer_attn",
-  deviceKey = "reram_oxram",
-  nominalAdcBits = 6,
-  retentionHours = 100,
-  temperatureC = 85,
-  clockFreqMHz = 100,
-} = {}) {
-  const workload = Object.hasOwn(CIM_WORKLOAD_PRESETS, workloadKey)
-    ? CIM_WORKLOAD_PRESETS[workloadKey]
-    : CIM_WORKLOAD_PRESETS.transformer_attn;
-  const dev = Object.hasOwn(CIM_DEVICE_ARCHITECTURES, deviceKey)
-    ? CIM_DEVICE_ARCHITECTURES[deviceKey]
-    : CIM_DEVICE_ARCHITECTURES.reram_oxram;
+export function calculateCimAnalogMac(options = {}) {
+  const opts = options && typeof options === 'object' ? options : {};
+  const workloadKey = typeof opts.workloadKey === 'string' && Object.hasOwn(CIM_WORKLOAD_PRESETS, opts.workloadKey)
+    ? opts.workloadKey
+    : 'transformer_attn';
+  const deviceKey = typeof opts.deviceKey === 'string' && Object.hasOwn(CIM_DEVICE_ARCHITECTURES, opts.deviceKey)
+    ? opts.deviceKey
+    : 'reram_oxram';
 
-  const N_rows = Math.max(16, Math.min(1024, Number(workload.matrixRows) || 256));
-  const M_cols = Math.max(16, Math.min(1024, Number(workload.matrixCols) || 256));
-  const B_adc_nom = Math.max(4, Math.min(9, Math.round(Number(nominalAdcBits) || 6)));
-  const t_ret = Math.max(0.1, Number(retentionHours) || 0.1);
-  const tempK = Math.max(233.15, Math.min(423.15, (Number(temperatureC) || 85) + 273.15));
-  const f_clk = Math.max(10, Math.min(500, Number(clockFreqMHz) || 100)) * 1e6; // Hz
+  const workload = CIM_WORKLOAD_PRESETS[workloadKey];
+  const dev = CIM_DEVICE_ARCHITECTURES[deviceKey];
+
+  const N_rows = Math.max(16, Math.min(1024, Math.round(Number(workload.matrixRows) || 256)));
+  const M_cols = Math.max(16, Math.min(1024, Math.round(Number(workload.matrixCols) || 256)));
+  const B_adc_nom = Math.max(4, Math.min(9, Math.round(Number.isFinite(Number(opts.nominalAdcBits)) ? Number(opts.nominalAdcBits) : 6)));
+  const t_ret = Math.max(0.1, Number.isFinite(Number(opts.retentionHours)) ? Number(opts.retentionHours) : 100);
+  const rawTempC = Number.isFinite(Number(opts.temperatureC)) ? Number(opts.temperatureC) : (Number.isFinite(Number(opts.tempC)) ? Number(opts.tempC) : 85);
+  const tempK = Math.max(233.15, Math.min(423.15, rawTempC + 273.15));
+  const rawFreq = Number.isFinite(Number(opts.clockFreqMHz)) ? Number(opts.clockFreqMHz) : 100;
+  const f_clk = Math.max(10, Math.min(500, rawFreq)) * 1e6; // Hz
 
   // 1. Device Conductance & Retention Drift Calculation
   // G(t) = G_0 * (t / t_0)^{-\nu}, reference t_0 = 1 hour

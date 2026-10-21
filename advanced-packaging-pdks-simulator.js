@@ -115,12 +115,14 @@ export const PACKAGING_PRESETS = {
  * @param {number} params.dataRateGbps - Per-lane D2D data rate (Gbps)
  * @returns {Object} Calculated metrics
  */
-export function calculatePackagingPdkMetrics({
+export function calculatePackagingPdkMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   presetId = 'tsmc_cowos_s_hbm',
   traceLengthMm = 3.5,
   diePowerWatts = 450.0,
   dataRateGbps = 8.0
-} = {}) {
+  } = safeParams;
   const preset = Object.hasOwn(PACKAGING_PRESETS, presetId)
     ? PACKAGING_PRESETS[presetId]
     : PACKAGING_PRESETS.tsmc_cowos_s_hbm;

@@ -197,13 +197,10 @@ export const PROBE_CARD_ARCHITECTURES = {
  * @param {number} params.pinCount - Probe card pin count (2048 - 12800)
  * @returns {Object} Calculated metrics
  */
-export function calculateHbm4ProbeMetrics({
-  presetId = 'sk_hynix_tsmc_12nm_16hi',
-  probeCardId = 'mpi_taiwan',
-  coreDieYield = 0.955,
-  stackLayers = 16,
-  pinCount = 8192
-} = {}) {
+export function calculateHbm4ProbeMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const presetId = typeof safeParams.presetId === 'string' ? safeParams.presetId : 'sk_hynix_tsmc_12nm_16hi';
+  const probeCardId = typeof safeParams.probeCardId === 'string' ? safeParams.probeCardId : 'mpi_taiwan';
   const preset = (presetId && Object.prototype.hasOwnProperty.call(HBM4_SYSTEM_PRESETS, presetId))
     ? HBM4_SYSTEM_PRESETS[presetId]
     : HBM4_SYSTEM_PRESETS.sk_hynix_tsmc_12nm_16hi;
@@ -211,9 +208,12 @@ export function calculateHbm4ProbeMetrics({
     ? PROBE_CARD_ARCHITECTURES[probeCardId]
     : PROBE_CARD_ARCHITECTURES.mpi_taiwan;
 
-  const validCoreDieYield = Number.isFinite(Number(coreDieYield)) ? Number(coreDieYield) : 0.955;
-  const validStackLayers = Number.isFinite(Number(stackLayers)) ? Number(stackLayers) : 16;
-  const validPinCount = Number.isFinite(Number(pinCount)) ? Number(pinCount) : 8192;
+  const validCoreDieYield = Number.isFinite(Number(safeParams.coreDieYield)) ? Number(safeParams.coreDieYield) : 0.955;
+  const validStackLayers = Number.isFinite(Number(safeParams.stackLayers)) ? Number(safeParams.stackLayers) : 16;
+  const validPinCount = Number.isFinite(Number(safeParams.pinCount)) ? Number(safeParams.pinCount) : 8192;
+  const coreDieYield = validCoreDieYield;
+  const stackLayers = validStackLayers;
+  const pinCount = validPinCount;
 
   // Base die wafer sort yield
   const yBase = preset.baseDieYield;

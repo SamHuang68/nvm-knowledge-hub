@@ -142,22 +142,20 @@ export const CRYO_MEMORY_TOPOLOGIES = Object.freeze({
  * @param {number} [params.customRfPowerDbm]
  * @returns {Object} Calculated metrics
  */
-export function calculateCryoQubitReadout({
-  presetKey = "superconducting_transmon_4k",
-  techKey = "antifuse_cryo_filament",
-  customBFieldTesla,
-  customRfPowerDbm,
-} = {}) {
-  const preset = Object.hasOwn(QUBIT_CONTROL_PRESETS, presetKey)
-    ? QUBIT_CONTROL_PRESETS[presetKey]
-    : QUBIT_CONTROL_PRESETS.superconducting_transmon_4k;
-  const tech = Object.hasOwn(CRYO_MEMORY_TOPOLOGIES, techKey)
-    ? CRYO_MEMORY_TOPOLOGIES[techKey]
-    : CRYO_MEMORY_TOPOLOGIES.antifuse_cryo_filament;
+export function calculateCryoQubitReadout(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pKey = typeof safeParams.presetKey === 'string' && Object.hasOwn(QUBIT_CONTROL_PRESETS, safeParams.presetKey)
+    ? safeParams.presetKey : 'superconducting_transmon_4k';
+  const tKey = typeof safeParams.techKey === 'string' && Object.hasOwn(CRYO_MEMORY_TOPOLOGIES, safeParams.techKey)
+    ? safeParams.techKey : 'antifuse_cryo_filament';
+  const presetKey = pKey;
+  const techKey = tKey;
+  const preset = QUBIT_CONTROL_PRESETS[pKey];
+  const tech = CRYO_MEMORY_TOPOLOGIES[tKey];
 
-  const tempK = preset.temperatureK;
-  const bField = customBFieldTesla !== undefined ? customBFieldTesla : preset.magneticFieldTesla;
-  const rfPower = customRfPowerDbm !== undefined ? customRfPowerDbm : preset.rfPowerDbm;
+  const tempK = Number.isFinite(Number(safeParams.tempK)) ? Number(safeParams.tempK) : preset.temperatureK;
+  const bField = Number.isFinite(Number(safeParams.customBFieldTesla)) ? Number(safeParams.customBFieldTesla) : preset.magneticFieldTesla;
+  const rfPower = Number.isFinite(Number(safeParams.customRfPowerDbm)) ? Number(safeParams.customRfPowerDbm) : preset.rfPowerDbm;
   const rfFreqGhz = preset.rfFrequencyGhz;
   const isolationDb = preset.rfIsolationDb;
 

@@ -150,14 +150,19 @@ export const CRYO_NVM_TECHS = {
  * @returns {Object} Physical calculation results
  */
 export function calculateCryoNvmMetrics(params = {}) {
-  const preset = Object.hasOwn(CRYO_SYSTEM_PRESETS, params.presetKey)
-    ? CRYO_SYSTEM_PRESETS[params.presetKey]
-    : CRYO_SYSTEM_PRESETS.cryo_dilution_fridge_4k;
-  const tech = Object.hasOwn(CRYO_NVM_TECHS, params.techKey)
-    ? CRYO_NVM_TECHS[params.techKey]
-    : CRYO_NVM_TECHS.antifuse_ohmic_filament;
-  const tempK = params.customTempK !== undefined ? Math.max(0.05, Math.min(350.0, params.customTempK)) : preset.targetTempK;
-  const vBiasMv = params.readBiasMv !== undefined ? Math.max(50, Math.min(1200, params.readBiasMv)) : 400.0;
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const pKey = typeof safeParams.presetKey === 'string' && Object.hasOwn(CRYO_SYSTEM_PRESETS, safeParams.presetKey)
+    ? safeParams.presetKey : 'cryo_dilution_fridge_4k';
+  const tKey = typeof safeParams.techKey === 'string' && Object.hasOwn(CRYO_NVM_TECHS, safeParams.techKey)
+    ? safeParams.techKey : 'antifuse_ohmic_filament';
+  const preset = CRYO_SYSTEM_PRESETS[pKey];
+  const tech = CRYO_NVM_TECHS[tKey];
+  const tempK = Number.isFinite(Number(safeParams.customTempK))
+    ? Math.max(0.05, Math.min(350.0, Number(safeParams.customTempK)))
+    : (Number.isFinite(Number(safeParams.tempK)) ? Math.max(0.05, Math.min(350.0, Number(safeParams.tempK))) : preset.targetTempK);
+  const vBiasMv = Number.isFinite(Number(safeParams.readBiasMv))
+    ? Math.max(50, Math.min(1200, Number(safeParams.readBiasMv)))
+    : 400.0;
 
   // 1. First-Principles Bandgap Expansion (Varshni Equation for Silicon):
   // Eg(T) = Eg(0) - (alpha * T^2) / (T + beta)

@@ -145,23 +145,23 @@ export const CIM_DEVICE_TECHNOLOGIES = Object.freeze({
  * @param {number} [options.temperatureC=85] - -40°C to 150°C
  * @returns {Object} Comprehensive degradation calculation metrics
  */
-export function calculateCimNnDegradation({
-  workloadKey = "resnet50_imagenet",
-  deviceKey = "reram_oxram_mlc",
-  adcResolutionBits = 6,
-  retentionHours = 720,
-  temperatureC = 85,
-} = {}) {
-  const workload = Object.hasOwn(CIM_NN_WORKLOAD_PRESETS, workloadKey)
-    ? CIM_NN_WORKLOAD_PRESETS[workloadKey]
-    : CIM_NN_WORKLOAD_PRESETS.resnet50_imagenet;
-  const device = Object.hasOwn(CIM_DEVICE_TECHNOLOGIES, deviceKey)
-    ? CIM_DEVICE_TECHNOLOGIES[deviceKey]
-    : CIM_DEVICE_TECHNOLOGIES.reram_oxram_mlc;
+export function calculateCimNnDegradation(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const workloadKey = typeof safeParams.workloadKey === 'string' && Object.hasOwn(CIM_NN_WORKLOAD_PRESETS, safeParams.workloadKey)
+    ? safeParams.workloadKey
+    : 'resnet50_imagenet';
+  const deviceKey = typeof safeParams.deviceKey === 'string' && Object.hasOwn(CIM_DEVICE_TECHNOLOGIES, safeParams.deviceKey)
+    ? safeParams.deviceKey
+    : 'reram_oxram_mlc';
 
-  const bAdc = Math.max(3, Math.min(10, Number(adcResolutionBits) || 6));
-  const tHours = Math.max(0.1, Math.min(87600, Number(retentionHours) || 720));
-  const tempK = (Number(temperatureC) || 85) + 273.15;
+  const workload = CIM_NN_WORKLOAD_PRESETS[workloadKey];
+  const device = CIM_DEVICE_TECHNOLOGIES[deviceKey];
+
+  const bAdc = Math.max(3, Math.min(10, Math.round(Number.isFinite(Number(safeParams.adcResolutionBits)) ? Number(safeParams.adcResolutionBits) : 6)));
+  const tHours = Math.max(0.1, Math.min(87600, Number.isFinite(Number(safeParams.retentionHours)) ? Number(safeParams.retentionHours) : 720));
+  const rawTempC = Number.isFinite(Number(safeParams.temperatureC)) ? Number(safeParams.temperatureC) : (Number.isFinite(Number(safeParams.tempC)) ? Number(safeParams.tempC) : 85);
+  const temperatureC = rawTempC;
+  const tempK = rawTempC + 273.15;
 
   // 1. Conductance Drift Noise \sigma_drift:
   // t_0 = 1 sec = 1/3600 hour. Ratio = (tHours * 3600).

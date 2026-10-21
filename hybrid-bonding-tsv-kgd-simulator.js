@@ -178,19 +178,20 @@ export const KGD_PROBE_ARCHITECTURES = {
  * @param {number} params.contactForceGrams - Contact force per pin (grams)
  * @returns {Object} Calculated metrics
  */
-export function calculateHybridBondingMetrics({
-  presetId = 'hbm4_hybrid_bonding_1um',
-  probeId = 'mpi_zero_mark_mems',
-  pitchUm = 1.0,
-  operatingFreqGhz = 3.2,
-  contactForceGrams = 0.35
-} = {}) {
+export function calculateHybridBondingMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const presetId = typeof safeParams.presetId === 'string' ? safeParams.presetId : 'hbm4_hybrid_bonding_1um';
+  const probeId = typeof safeParams.probeId === 'string' ? safeParams.probeId : 'mpi_zero_mark_mems';
   const preset = (presetId && Object.prototype.hasOwnProperty.call(HYBRID_BONDING_PRESETS, presetId))
     ? HYBRID_BONDING_PRESETS[presetId]
     : HYBRID_BONDING_PRESETS.hbm4_hybrid_bonding_1um;
   const probe = (probeId && Object.prototype.hasOwnProperty.call(KGD_PROBE_ARCHITECTURES, probeId))
     ? KGD_PROBE_ARCHITECTURES[probeId]
     : KGD_PROBE_ARCHITECTURES.mpi_zero_mark_mems;
+
+  const pitchUm = safeParams.pitchUm;
+  const operatingFreqGhz = safeParams.operatingFreqGhz;
+  const contactForceGrams = Number.isFinite(Number(safeParams.contactForceGrams)) ? Number(safeParams.contactForceGrams) : 0.35;
 
   // 1. Interconnect Density (connections per mm^2)
   // Hexagonal or square pitch: Density = 1 / (pitch * 10^-3 mm)^2

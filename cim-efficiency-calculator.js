@@ -74,12 +74,14 @@ export const ADC_ENERGY_TABLE = Object.freeze({
  * @param {number} params.freqMHz - Operating clock frequency in MHz (default 100)
  * @returns {Object} Comprehensive calculation results
  */
-export function calculateCimMetrics({
+export function calculateCimMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   arraySize = 256,
   deviceKey = "reram",
   adcBits = 6,
   freqMHz = 100,
-} = {}) {
+  } = safeParams;
   const profile = (deviceKey && Object.prototype.hasOwnProperty.call(CIM_DEVICE_PROFILES, deviceKey))
     ? CIM_DEVICE_PROFILES[deviceKey]
     : CIM_DEVICE_PROFILES.reram;

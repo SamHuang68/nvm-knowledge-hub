@@ -143,12 +143,14 @@ export const NANOSHEET_NVM_TOPOLOGIES = Object.freeze({
  * @param {number} [params.customActivityRatePct]
  * @returns {Object} Calculated metrics
  */
-export function calculateNanosheetBspdnNvm({
+export function calculateNanosheetBspdnNvm(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   nodeKey = "tsmc_a16_spr",
   techKey = "antifuse_nanosheet_logic",
   customArrayMb,
   customActivityRatePct,
-} = {}) {
+  } = safeParams;
   const node = (nodeKey && Object.prototype.hasOwnProperty.call(ADVANCED_NODE_PRESETS, nodeKey))
     ? ADVANCED_NODE_PRESETS[nodeKey]
     : ADVANCED_NODE_PRESETS.tsmc_a16_spr;

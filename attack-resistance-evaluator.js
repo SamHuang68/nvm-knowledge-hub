@@ -124,22 +124,23 @@ export const CC_PRESETS = Object.freeze({
  * @return {Object} Computed attack potential, rating level, and audit verdict.
  */
 export function calculateAttackPotential(inputs = {}) {
-  const timePts = CEM_SCORING_WEIGHTS.elapsedTime[inputs.elapsedTime]?.points || 0;
-  const expPts = CEM_SCORING_WEIGHTS.expertise[inputs.expertise]?.points || 0;
-  const knowPts = CEM_SCORING_WEIGHTS.knowledge[inputs.knowledge]?.points || 0;
-  const accPts = CEM_SCORING_WEIGHTS.access[inputs.access]?.points || 0;
-  const eqPts = CEM_SCORING_WEIGHTS.equipment[inputs.equipment]?.points || 0;
+  const safeInputs = inputs && typeof inputs === 'object' ? inputs : {};
+  const timePts = CEM_SCORING_WEIGHTS.elapsedTime[safeInputs.elapsedTime]?.points || 0;
+  const expPts = CEM_SCORING_WEIGHTS.expertise[safeInputs.expertise]?.points || 0;
+  const knowPts = CEM_SCORING_WEIGHTS.knowledge[safeInputs.knowledge]?.points || 0;
+  const accPts = CEM_SCORING_WEIGHTS.access[safeInputs.access]?.points || 0;
+  const eqPts = CEM_SCORING_WEIGHTS.equipment[safeInputs.equipment]?.points || 0;
 
   const rawPotential = timePts + expPts + knowPts + accPts + eqPts;
 
   // Countermeasure Bonuses (Defense-in-depth multipliers)
   let defenseBonus = 0;
-  if (inputs.activeMesh) defenseBonus += 4;   // Breaching active mesh requires sub-micron cryogenic microprobing
-  if (inputs.zeroization) defenseBonus += 3;  // Single-cycle zeroization eliminates key before readout
-  if (inputs.scrambling) defenseBonus += 2;   // Physical address/data scrambling renders raw bits unintelligible
-  if (inputs.antifuse) defenseBonus += 3;     // 3-8nm filament invisible under optical/TEM without FIB-PVC
-  if (inputs.puf) defenseBonus += 4;          // Absent at rest; no charge stored when powered off
-  if (inputs.diffRead) defenseBonus += 2;     // Complementary differential read attenuates DPA/CPA traces
+  if (safeInputs.activeMesh) defenseBonus += 4;   // Breaching active mesh requires sub-micron cryogenic microprobing
+  if (safeInputs.zeroization) defenseBonus += 3;  // Single-cycle zeroization eliminates key before readout
+  if (safeInputs.scrambling) defenseBonus += 2;   // Physical address/data scrambling renders raw bits unintelligible
+  if (safeInputs.antifuse) defenseBonus += 3;     // 3-8nm filament invisible under optical/TEM without FIB-PVC
+  if (safeInputs.puf) defenseBonus += 4;          // Absent at rest; no charge stored when powered off
+  if (safeInputs.diffRead) defenseBonus += 2;     // Complementary differential read attenuates DPA/CPA traces
 
   const effectivePotential = rawPotential + defenseBonus;
 

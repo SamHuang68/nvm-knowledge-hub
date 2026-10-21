@@ -25,8 +25,9 @@ export const SIM_CONSTANTS = Object.freeze({
  * @return {Object} Evaluated metrics.
  */
 export function calculateTunnelingBreakdownMetrics(params = {}) {
-  const tox = Number.isFinite(Number(params.tox)) ? Math.max(0.1, Number(params.tox)) : 2.2;
-  const vox = Number.isFinite(Number(params.vox)) ? Math.max(0, Number(params.vox)) : 3.5;
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const tox = Number.isFinite(Number(safeParams.tox)) ? Math.max(0.1, Number(safeParams.tox)) : 2.2;
+  const vox = Number.isFinite(Number(safeParams.vox)) ? Math.max(0, Number(safeParams.vox)) : 3.5;
 
   const eox = vox / (tox * 0.1); // MV/cm
 

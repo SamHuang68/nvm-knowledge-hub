@@ -113,10 +113,13 @@ export const PQC_ALGORITHMS = {
  * @returns {Object} Calculated metrics
  */
 export function calculatePqcStorageMetrics(params = {}) {
-  const algo = PQC_ALGORITHMS[params.algoKey] || PQC_ALGORITHMS.ml_kem_768;
-  const isSeedExpansion = params.storageArch !== 'pure_raw_storage';
-  const maskingOrder = Math.max(0, Math.min(2, params.maskingOrder || 1));
-  const node = Math.max(3, params.processNodeNm || 12);
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const algo = (typeof safeParams.algoKey === 'string' && Object.hasOwn(PQC_ALGORITHMS, safeParams.algoKey))
+    ? PQC_ALGORITHMS[safeParams.algoKey] : PQC_ALGORITHMS.ml_kem_768;
+  const isSeedExpansion = safeParams.storageArch !== 'pure_raw_storage';
+  const maskingOrder = Number.isFinite(Number(safeParams.maskingOrder))
+    ? Math.max(0, Math.min(2, Math.round(Number(safeParams.maskingOrder)))) : 1;
+  const node = Math.max(3, Number.isFinite(Number(safeParams.processNodeNm)) ? Number(safeParams.processNodeNm) : 12);
 
   // 1. Storage Capacity Requirements (Bytes)
   const actualStorageBytes = isSeedExpansion ? algo.seedBytes : algo.rawPrivateKeyBytes;
@@ -166,7 +169,7 @@ export function calculatePqcStorageMetrics(params = {}) {
 
   return {
     algo,
-    storageArch: params.storageArch,
+    storageArch: safeParams.storageArch || (isSeedExpansion ? 'antifuse_seed_expansion' : 'pure_raw_storage'),
     actualStorageBytes,
     areaReductionRatio,
     storageSavedPct,

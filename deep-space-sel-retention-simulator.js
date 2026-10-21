@@ -160,13 +160,15 @@ export const DEEP_SPACE_CONSTANTS = {
  * @param {number} params.missionYears
  * @returns {Object} Comprehensive calculation metrics
  */
-export function calculateDeepSpaceMetrics({
+export function calculateDeepSpaceMetrics(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   presetId = 'venus_lander_460c',
   techId = 'antifuse_soi_radhard',
   targetTempC = 460.0,
   peakLetMev = 75.0,
   missionYears = 1.0
-} = {}) {
+  } = safeParams;
   const preset = (presetId && Object.hasOwn(DEEP_SPACE_MISSION_PRESETS, presetId)) ? DEEP_SPACE_MISSION_PRESETS[presetId] : DEEP_SPACE_MISSION_PRESETS.venus_lander_460c;
   const tech = (techId && Object.hasOwn(DEEP_SPACE_TECH_PROFILES, techId)) ? DEEP_SPACE_TECH_PROFILES[techId] : DEEP_SPACE_TECH_PROFILES.antifuse_soi_radhard;
 

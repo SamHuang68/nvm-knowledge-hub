@@ -146,14 +146,16 @@ export const AUTO_NVM_TECH_PROFILES = Object.freeze({
  * @param {number} options.junctionTempC - Operating junction temperature in °C (-40..175)
  * @returns {Object} Quantitative calculation metrics
  */
-export function calculateBlackboxJournal({
+export function calculateBlackboxJournal(params = {}) {
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const {
   faultPresetKey = "powertrain_inverter",
   nvmTechKey = "logic_mtp_ee",
   bufferSizeKb = 256,
   converterEfficiency = 0.85,
   safetyMargin = 1.35,
   junctionTempC = 125,
-} = {}) {
+  } = safeParams;
   const fault = (faultPresetKey && Object.prototype.hasOwnProperty.call(AUTOMOTIVE_FAULT_PRESETS, faultPresetKey))
     ? AUTOMOTIVE_FAULT_PRESETS[faultPresetKey]
     : AUTOMOTIVE_FAULT_PRESETS.powertrain_inverter;

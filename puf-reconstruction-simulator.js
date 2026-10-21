@@ -42,11 +42,12 @@ function binomialCoeff(n, k) {
  * @return {Object} Computed BER, failure rates, entropy, and distributions.
  */
 export function calculatePufReconstruction(params = {}) {
-  const tempC = typeof params.tempC === 'number' ? params.tempC : 25;
-  const agingYears = typeof params.agingYears === 'number' ? params.agingYears : 0;
-  const eccCapabilityT = typeof params.eccCapabilityT === 'number' ? params.eccCapabilityT : 12; // correctable bits
+  const safeParams = params && typeof params === 'object' ? params : {};
+  const tempC = typeof safeParams.tempC === 'number' ? safeParams.tempC : 25;
+  const agingYears = typeof safeParams.agingYears === 'number' ? safeParams.agingYears : 0;
+  const eccCapabilityT = typeof safeParams.eccCapabilityT === 'number' ? safeParams.eccCapabilityT : 12; // correctable bits
   const blockSizeN = 128; // standard BCH block size
-  const keyBits = params.keyBits === 128 ? 128 : 256;
+  const keyBits = safeParams.keyBits === 128 ? 128 : 256;
   // k = 128 - 7t 是示意近似；保留全部輸入，明示非正碼率時無法外推。
   const approximateInfoBits = blockSizeN - eccCapabilityT * 7;
   if (!Number.isFinite(tempC) || !Number.isFinite(agingYears) || agingYears < 0
