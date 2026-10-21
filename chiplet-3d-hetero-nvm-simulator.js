@@ -215,9 +215,9 @@ export function calculateChipletHeteroMetrics(params = {}) {
     ? CHIPLET_NVM_TOPOLOGIES[params.topologyId]
     : CHIPLET_NVM_TOPOLOGIES.antifuse_base_die;
 
-  const computePowerW = params.customComputePowerW !== undefined ? Number(params.customComputePowerW) : 120.0;
-  const d2dLengthMm = params.customD2dLengthMm !== undefined ? Number(params.customD2dLengthMm) : 3.5;
-  const deltaTempC = params.customDeltaTempC !== undefined ? Number(params.customDeltaTempC) : 110.0;
+  const computePowerW = Number.isFinite(Number(params.customComputePowerW)) ? Math.max(0.0, Number(params.customComputePowerW)) : 120.0;
+  const d2dLengthMm = Number.isFinite(Number(params.customD2dLengthMm)) ? Math.max(0.1, Number(params.customD2dLengthMm)) : 3.5;
+  const deltaTempC = Number.isFinite(Number(params.customDeltaTempC)) ? Math.max(0.0, Number(params.customDeltaTempC)) : 110.0;
 
   // 1. Thermal Stacking Junction Temperature:
   // Tj = Tambient + P_compute * θ_eff + P_eNVM * θ_silicon (Tambient = 45°C)

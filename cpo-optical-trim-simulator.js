@@ -129,12 +129,26 @@ export const CPO_TRIM_TECH_POLICIES = {
  * @returns {Object} Calculated physical & economic metrics.
  */
 export function calculateCpoTrimMetrics(presetKey = 'cpo_switch_51t_coupe', policyKey = 'ld_mtp_closed_loop', deltaTC = 45, dacBits = 10, channels = 32) {
-  const preset = CPO_TRIM_SYSTEM_PRESETS[presetKey] || CPO_TRIM_SYSTEM_PRESETS.cpo_switch_51t_coupe;
-  const policy = CPO_TRIM_TECH_POLICIES[policyKey] || CPO_TRIM_TECH_POLICIES.ld_mtp_closed_loop;
+  let pKey = presetKey;
+  let polKey = policyKey;
+  let dtVal = deltaTC;
+  let dacVal = dacBits;
+  let chVal = channels;
 
-  const dt = typeof deltaTC === 'number' && !isNaN(deltaTC) ? Math.max(5.0, Math.min(100.0, deltaTC)) : 45.0;
-  const nDac = typeof dacBits === 'number' && !isNaN(dacBits) ? Math.max(6, Math.min(14, Math.round(dacBits))) : 10;
-  const nCh = typeof channels === 'number' && !isNaN(channels) ? Math.max(4, Math.min(256, Math.round(channels))) : 32;
+  if (typeof presetKey === 'object' && presetKey !== null) {
+    pKey = presetKey.presetKey || presetKey.presetId || 'cpo_switch_51t_coupe';
+    polKey = presetKey.policyKey || presetKey.techKey || presetKey.policyId || 'ld_mtp_closed_loop';
+    dtVal = presetKey.deltaTC !== undefined ? presetKey.deltaTC : presetKey.tempC;
+    dacVal = presetKey.dacBits;
+    chVal = presetKey.channels || presetKey.channelCount;
+  }
+
+  const preset = (pKey && Object.hasOwn(CPO_TRIM_SYSTEM_PRESETS, pKey)) ? CPO_TRIM_SYSTEM_PRESETS[pKey] : CPO_TRIM_SYSTEM_PRESETS.cpo_switch_51t_coupe;
+  const policy = (polKey && Object.hasOwn(CPO_TRIM_TECH_POLICIES, polKey)) ? CPO_TRIM_TECH_POLICIES[polKey] : CPO_TRIM_TECH_POLICIES.ld_mtp_closed_loop;
+
+  const dt = Number.isFinite(Number(dtVal)) ? Math.max(5.0, Math.min(100.0, Number(dtVal))) : 45.0;
+  const nDac = Number.isFinite(Number(dacVal)) ? Math.max(6, Math.min(14, Math.round(Number(dacVal)))) : 10;
+  const nCh = Number.isFinite(Number(chVal)) ? Math.max(4, Math.min(256, Math.round(Number(chVal)))) : 32;
 
   // 1. Thermo-Optic Effect Physics
   // Delta n = (dn/dT) * Delta T

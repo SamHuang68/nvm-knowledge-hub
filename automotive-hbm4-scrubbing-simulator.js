@@ -146,8 +146,8 @@ export function calculateAutomotiveHbm4Metrics({
   scrubbingPeriodSec = 1.0,
   stackDensityGb = 64
 } = {}) {
-  const mission = AUTOMOTIVE_MISSION_PRESETS[missionId] || AUTOMOTIVE_MISSION_PRESETS.l4_robotaxi_extreme;
-  const arch = REPAIR_ARCHITECTURES[repairArchId] || REPAIR_ARCHITECTURES.hybrid_tier_scrubbing;
+  const mission = (missionId && Object.hasOwn(AUTOMOTIVE_MISSION_PRESETS, missionId)) ? AUTOMOTIVE_MISSION_PRESETS[missionId] : AUTOMOTIVE_MISSION_PRESETS.l4_robotaxi_extreme;
+  const arch = (repairArchId && Object.hasOwn(REPAIR_ARCHITECTURES, repairArchId)) ? REPAIR_ARCHITECTURES[repairArchId] : REPAIR_ARCHITECTURES.hybrid_tier_scrubbing;
 
   // 1. Cosmic Fast-Neutron Altitude Factor: F_alt = exp(altitude / 1500m)
   const altitudeFactor = Math.exp(mission.altitudeMeters / 1500.0);

@@ -109,10 +109,16 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
  * @returns {Object} Analytical scaling metrics, leakage, charge pump footprint, and verdict
  */
 export function calculateAdvancedFinfetGaa(params = {}) {
-  const nodeId = params.nodeId && FOUNDRY_ADVANCED_NODES[params.nodeId] ? params.nodeId : 'tsmc_n3_gaa';
+  const nodeId = (params.nodeId && Object.hasOwn(FOUNDRY_ADVANCED_NODES, params.nodeId))
+    ? params.nodeId
+    : 'tsmc_n3_gaa';
   const node = FOUNDRY_ADVANCED_NODES[nodeId];
-  const appliedVolt = Math.max(0.4, Math.min(8.5, Number(params.appliedVolt) || node.vddNominal));
-  const tempC = Math.max(25, Math.min(175, Number(params.tempC) || 125));
+  const appliedVolt = Number.isFinite(Number(params.appliedVolt))
+    ? Math.max(0.4, Math.min(8.5, Number(params.appliedVolt)))
+    : node.vddNominal;
+  const tempC = Number.isFinite(Number(params.tempC))
+    ? Math.max(25, Math.min(175, Number(params.tempC)))
+    : 125;
 
   // 1. Physical 1D field vs 3D Corner Enhanced Field
   // E_1d = V / (t_phys * 1e-7 cm) / 1e6 = V / (t_phys * 0.1) MV/cm

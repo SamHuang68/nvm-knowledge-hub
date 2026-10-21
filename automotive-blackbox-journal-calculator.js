@@ -281,7 +281,7 @@ export function drawBlackboxCanvas(canvas, results, mode = "discharge_curve", is
 
   ctx.strokeStyle = "#e2e8f0";
   ctx.lineWidth = 1;
-  ctx.strokeRect(0, 0, width, height);
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
 
   const padLeft = 40;
   const padRight = 24;

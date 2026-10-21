@@ -142,8 +142,8 @@ export function calculateChipletUcieNvm({
   ambientTempC = 70,
   busWidthLanes = 16,
 } = {}) {
-  const top = CHIPLET_TOPOLOGY_PRESETS[topologyKey] || CHIPLET_TOPOLOGY_PRESETS.chiplet_ucie_advanced;
-  const role = NVM_STORAGE_ROLES[roleKey] || NVM_STORAGE_ROLES.secure_boot_rot;
+  const top = (topologyKey && Object.hasOwn(CHIPLET_TOPOLOGY_PRESETS, topologyKey)) ? CHIPLET_TOPOLOGY_PRESETS[topologyKey] : CHIPLET_TOPOLOGY_PRESETS.chiplet_ucie_advanced;
+  const role = (roleKey && Object.hasOwn(NVM_STORAGE_ROLES, roleKey)) ? NVM_STORAGE_ROLES[roleKey] : NVM_STORAGE_ROLES.secure_boot_rot;
 
   const P_compute = Math.max(1.0, Math.min(300.0, Number(computePowerWatts) || 45.0));
   const T_amb = Math.max(-40.0, Math.min(125.0, Number(ambientTempC) || 70.0));
