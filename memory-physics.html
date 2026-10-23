@@ -2906,6 +2906,133 @@
           </div>
         </article>
 
+        <!-- MODEL 10: 2nm GAA Nanosheet Quantum Confinement & Direct Tunneling Leakage Simulator -->
+        <article class="paper-card physics-model-card" id="gaa-nanosheet-simulator-root" style="margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
+              <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 10</span><span data-lang="en">PHYSICAL MODEL 10</span></p>
+              <h3 class="paper-title" style="margin: 0 0 8px;"><span data-lang="zh">2nm GAA 奈米片量子穿隧與次閾值漏電模型</span><span data-lang="en">2nm GAA Nanosheet Quantum Tunneling &amp; Subthreshold Leakage</span></h3>
+            </div>
+          </div>
+
+          <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+            <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於一維量子箱能帶偏移與 Tsu-Esaki 穿隧近似，僅供架構微縮趨勢評估，非晶圓代工廠簽核級 TCAD 實測。</span>
+            <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Grounded in 1D quantum box subband shift and Tsu-Esaki approximations; illustrative only, not foundry sign-off TCAD.</span>
+          </div>
+
+          <p class="paper-abstract">
+            <span data-lang="zh">在 2nm 全環繞閘極 (Gate-All-Around / MBCFET) 架構下，4 面包覆的奈米片通道提供極致靜電控制，但小於 5nm 的超薄厚度引發量子限制效應使傳導帶上移，且等效氧化層 (EOT &lt; 0.8nm) 下直接穿隧漏電成為非揮發性巨集周邊控制電路之關鍵挑戰。</span>
+            <span data-lang="en">Under 2nm Gate-All-Around (GAA / MBCFET) architectures, four-sided gate wrapping provides superior electrostatic gate control; however, sub-5nm sheet thickness induces quantum confinement shifting the conduction band, while direct tunneling through sub-0.8nm EOT dominates peripheral leakage.</span>
+          </p>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+            <div>
+              <label for="gaa-sheets-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">堆疊奈米片層數 (N_sheets)：</span><span data-lang="en">Stacked Sheets (N_sheets):</span>
+              </label>
+              <input type="number" id="gaa-sheets-input" value="3" min="2" max="5" step="1" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="GAA Stacked Sheets Number" data-aria-en="GAA Stacked Sheets Number" data-aria-zh="GAA 堆疊奈米片層數">
+            </div>
+            <div>
+              <label for="gaa-width-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">奈米片寬度 (W_ns, nm)：</span><span data-lang="en">Sheet Width (W_ns, nm):</span>
+              </label>
+              <input type="number" id="gaa-width-input" value="35" min="15" max="60" step="5" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="GAA Sheet Width" data-aria-en="GAA Sheet Width" data-aria-zh="GAA 奈米片寬度">
+            </div>
+            <div>
+              <label for="gaa-thick-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">奈米片厚度 (T_ns, nm)：</span><span data-lang="en">Sheet Thickness (T_ns, nm):</span>
+              </label>
+              <input type="number" id="gaa-thick-input" value="5" min="3" max="8" step="1" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="GAA Sheet Thickness" data-aria-en="GAA Sheet Thickness" data-aria-zh="GAA 奈米片厚度">
+            </div>
+            <div>
+              <label for="gaa-eot-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">等效氧化層厚度 (EOT, nm)：</span><span data-lang="en">Equivalent Oxide (EOT, nm):</span>
+              </label>
+              <input type="number" id="gaa-eot-input" value="0.8" min="0.6" max="1.5" step="0.1" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="GAA EOT Thickness" data-aria-en="GAA EOT Thickness" data-aria-zh="GAA 等效氧化層厚度">
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-around; background:#ffffff; border:1px solid #cddbdc; padding:12px; border-radius:6px; text-align:center; flex-wrap:wrap; gap:10px;" aria-live="polite">
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">有效導電通道寬度</span><span data-lang="en">Effective Channel Weff</span></small>
+              <strong id="gaa-weff-out" style="display:block; font-size:1.05rem; color:#0f172a;">240 nm</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">量子限制能帶上移</span><span data-lang="en">Confinement Subband Shift</span></small>
+              <strong id="gaa-shift-out" style="display:block; font-size:1.05rem; color:#006f70;">+0.058 eV</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">閘極直接穿隧漏電</span><span data-lang="en">Direct Gate Leakage</span></small>
+              <strong id="gaa-leakage-out" style="display:block; font-size:1.05rem; color:#b45309;">2.45 pA</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">次閾值斜率因數</span><span data-lang="en">Subthreshold Swing</span></small>
+              <strong id="gaa-ss-out" style="display:block; font-size:1.05rem; color:#047857;">65.5 mV/dec</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODEL 11: BSPDN Thermal Bottleneck & High-Temp Retention Degradation Simulator -->
+        <article class="paper-card physics-model-card" id="bspdn-thermal-simulator-root" style="margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
+              <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 11</span><span data-lang="en">PHYSICAL MODEL 11</span></p>
+              <h3 class="paper-title" style="margin: 0 0 8px;"><span data-lang="zh">背面供電 (BSPDN) 熱阻集中與 NVM 高溫保持退化模型</span><span data-lang="en">BSPDN Thermal Impedance Bottleneck &amp; NVM Retention Loss</span></h3>
+            </div>
+          </div>
+
+          <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+            <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型採用一維熱通量與 nTSV 等效熱阻公式，模擬背面供電引入之微觀熱阻集中趨勢，非全晶片三維 CFD 熱傳導模擬。</span>
+            <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Employs 1D heat flux and nTSV composite thermal resistance equations; illustrative only, not 3D CFD thermal simulation.</span>
+          </div>
+
+          <p class="paper-abstract">
+            <span data-lang="zh">背面供電網絡 (BSPDN / PowerVia) 雖將 IR-Drop 降低 30%，但極薄晶圓 (10~20µm) 與高密度穿矽微孔 (nTSV) 的氧化層絕緣環構成垂直熱阻屏障。局部熱點 (Hotspot) 溫升可達 15°C~25°C，對浮閘與電荷捕捉型 NVM 造成 Arrhenius 指數級保持壽命衰減。</span>
+            <span data-lang="en">While Backside Power Delivery Networks (BSPDN / PowerVia) slash IR-Drop by 30%, extreme wafer thinning (10~20µm) and dense nano-TSV oxide liners form a vertical thermal barrier. Local hotspot elevations of 15°C~25°C cause exponential Arrhenius retention degradation in charge-storage NVM.</span>
+          </p>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+            <div>
+              <label for="bspdn-power-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">晶粒功率密度 (W/cm²)：</span><span data-lang="en">Die Power Density (W/cm²):</span>
+              </label>
+              <input type="number" id="bspdn-power-input" value="120" min="50" max="300" step="10" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="BSPDN Die Power Density" data-aria-en="BSPDN Die Power Density" data-aria-zh="BSPDN 晶粒功率密度">
+            </div>
+            <div>
+              <label for="bspdn-thick-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">減薄基板厚度 (µm)：</span><span data-lang="en">Thinned Substrate (µm):</span>
+              </label>
+              <input type="number" id="bspdn-thick-input" value="15" min="5" max="40" step="5" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="BSPDN Substrate Thickness" data-aria-en="BSPDN Substrate Thickness" data-aria-zh="BSPDN 減薄基板厚度">
+            </div>
+            <div>
+              <label for="bspdn-temp-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                <span data-lang="zh">晶片基準結溫 (Tj, °C)：</span><span data-lang="en">Baseline Junction Tj (°C):</span>
+              </label>
+              <input type="number" id="bspdn-temp-input" value="105" min="85" max="150" step="5" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="BSPDN Baseline Junction Temp" data-aria-en="BSPDN Baseline Junction Temp" data-aria-zh="BSPDN 晶片基準結溫">
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-around; background:#ffffff; border:1px solid #cddbdc; padding:12px; border-radius:6px; text-align:center; flex-wrap:wrap; gap:10px;" aria-live="polite">
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">局部熱點溫升</span><span data-lang="en">Hotspot Delta T</span></small>
+              <strong id="bspdn-delta-out" style="display:block; font-size:1.05rem; color:#b45309;">+14.4 °C</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">NVM 局部有效結溫</span><span data-lang="en">Effective NVM Tj</span></small>
+              <strong id="bspdn-temp-out" style="display:block; font-size:1.05rem; color:#0f172a;">119.4 °C</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">Arrhenius 漏電加速倍數</span><span data-lang="en">Thermal Acceleration</span></small>
+              <strong id="bspdn-af-out" style="display:block; font-size:1.05rem; color:#dc2626;">3.85×</strong>
+            </div>
+            <div>
+              <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">高溫保持壽命折減</span><span data-lang="en">Retention Lifetime Loss</span></small>
+              <strong id="bspdn-loss-out" style="display:block; font-size:1.05rem; color:#dc2626;">-74.0%</strong>
+            </div>
+          </div>
+        </article>
+
+
         <div class="f1-evidence-links">
           <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
           <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
@@ -3523,5 +3650,8 @@
   <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261005"></script>
   <script type="module" src="cryo-qubit-readout-simulator.js?v=20261005"></script>
   <script type="module" src="bspdn-envm-ir-drop-simulator.js?v=20261006"></script>
+
+<script type="module" src="gaa-nanosheet-tunneling-leakage-simulator.js?v=20261024"></script>
+<script type="module" src="bspdn-backside-power-thermal-simulator.js?v=20261024"></script>
 </body>
 </html>

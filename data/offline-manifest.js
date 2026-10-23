@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e75a536a9aa340cb3c93",
+  "version": "fd0ed09bd9e1e8f79a31",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -30,6 +30,7 @@ self.NVMOfflineManifest = {
     "automotive-thermal.js",
     "bcd-trimming-simulator.js",
     "briefing/index.html",
+    "bspdn-backside-power-thermal-simulator.js",
     "bspdn-envm-ir-drop-simulator.js",
     "chapter-lens.css",
     "chiplet-3d-hetero-nvm-simulator.js",
@@ -60,6 +61,7 @@ self.NVMOfflineManifest = {
     "evidence-workbench.css",
     "evidence-workbench.js",
     "f1-card-align.js",
+    "gaa-nanosheet-tunneling-leakage-simulator.js",
     "global-reading-system.css",
     "global-search.css",
     "hbm4-base-die-repair-probe-simulator.js",
@@ -193,6 +195,7 @@ self.NVMOfflineManifest = {
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "b7637e8757fe0df2442a1a13a171f3e7a510f061caab60b58ba924e91bedc712",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
+    "bspdn-backside-power-thermal-simulator.js": "e9b4a54c968e465070459adae413e91312b4b5f0b7e2443019da508e741f1c9e",
     "bspdn-envm-ir-drop-simulator.js": "b8f0006227bb34735ddd300ab58a83a6338db51d867b6f1f5fd651f9aab27286",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "7afa13d4442f9266af7210758810afd856b529a28ca778ea13a8fd9ee0adc6b0",
@@ -223,6 +226,7 @@ self.NVMOfflineManifest = {
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
+    "gaa-nanosheet-tunneling-leakage-simulator.js": "c5dcc2af2cc3ce9bdfb34b7404f916b1ee621eb22bdad64d24e325798563e75a",
     "global-reading-system.css": "ae3882c28f129de001969e6f16f0e07a27528026abb45d765f74f0a6186cc56d",
     "global-search.css": "e4ebc7367408f07c0b004d853f785edbaad18c4afb666bae776fe8e221c3a313",
     "hbm4-base-die-repair-probe-simulator.js": "be3a2e4a4cd440d74d992c9285aca2d24c7850cd7f128b543c3bebf28ee73c3d",
@@ -255,7 +259,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "35755081cd452909d409c2f22f743a6af5614ce85e4615e76bbd6ba76e1c5bef",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "c6a702ffc0d4755108d73075b4c646b4b0eb17a3bde0a28995d7d58229926cab",
+    "memory-physics.html": "f02b021a6fb48bc0a61127402bd23e47d355d1bcf5fbe91edb2074feefb39b08",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nanosheet-bspdn-nvm-simulator.js": "5d8e923698be059266e857b42e3ee1437a140d32bc2780cf363c55634ae6a900",
@@ -326,5 +330,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17570517
+  "totalBytes": 17594122
 };
