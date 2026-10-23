@@ -1,3 +1,11 @@
+import { calculateMacroOverhead } from '../ip-architect-macro-overhead-calculator.js';
+import { calculateAteTestCost } from '../ip-architect-ate-test-cost-calculator.js';
+import { calculateArrheniusRetention } from '../ip-architect-arrhenius-auto-extrapolator.js';
+import { calculateGaaTunneling } from '../gaa-nanosheet-tunneling-leakage-simulator.js';
+import { calculateBspdnThermalImpact } from '../bspdn-backside-power-thermal-simulator.js';
+import { calculateSubthresholdSer } from '../iot-subthreshold-ser-simulator.js';
+import { calculateEvBmsLogging } from '../ev-bms-cmti-isolation-journal-simulator.js';
+
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -756,4 +764,46 @@ test('Suite 17: 類腦神經形態 CiM、650V/800V DESAT、深低溫量子與 CX
       }
     }
   }
+});
+
+test('Suite 18: 全譜系 IP 決策、2nm GAA 量子穿隧、BSPDN 熱阻、次閾值 SER 與 800V EV BMS 整合壓力測試', () => {
+  // 1. Macro Overhead & Dilution stress
+  const macroRes = calculateMacroOverhead({ tech: 'antifuse', node: '2nm', capacityKb: 64 });
+  assert.equal(macroRes.tech, 'antifuse');
+  assert(macroRes.macroAreaMm2 > 0);
+  assert(macroRes.dilutionPercent > 0 && macroRes.dilutionPercent < 100);
+
+  // 2. ATE Test Cost stress
+  const ateRes = calculateAteTestCost({ tech: 'antifuse', bitsToProgram: 4096, gangSites: 8 });
+  assert(ateRes.testTimeSecPerDie > 0);
+  assert(ateRes.costSavingsUsd >= 0);
+
+  // 3. Arrhenius AEC-Q100 thermal stress
+  const arrRes = calculateArrheniusRetention({ tech: 'antifuse', junctionTempC: 175 });
+  assert(arrRes.projectedRetentionYrs >= 15);
+  assert.equal(arrRes.smtReflowImmunity, true);
+
+  // 4. 2nm GAA Nanosheet tunneling stress
+  const gaaRes = calculateGaaTunneling({ numSheets: 4, sheetWidthNm: 40, sheetThicknessNm: 5, eotNm: 0.7 });
+  assert.equal(gaaRes.totalWeffNm, 360);
+  assert(gaaRes.quantumConfinementShiftEv > 0);
+  assert(gaaRes.subthresholdSwingMvDec >= 60);
+
+  // 5. BSPDN Thermal bottleneck stress
+  const bspdnRes = calculateBspdnThermalImpact({ diePowerDensityWcm2: 180, substrateThicknessUm: 12, ntsvPitchNm: 150 });
+  assert(bspdnRes.deltaTHotspotC > 0);
+  assert(bspdnRes.retentionAccelerationFactor > 1.0);
+
+  // 6. IoT Subthreshold SER stress
+  const serRes = calculateSubthresholdSer({ tech: 'antifuse', vddVolts: 0.45, tempC: 85 });
+  assert(serRes.ireadNa > 0);
+  assert(serRes.serFitPerMbit < 1.0);
+  assert.equal(serRes.alphaImmunity, true);
+
+  // 7. 800V EV BMS CMTI & Crash journal stress
+  const bmsRes = calculateEvBmsLogging({ tech: 'antifuse', packVoltageVolts: 800, sicDvDtKvUs: 180, snapshotBytes: 128 });
+  assert(bmsRes.dispCurrentMa > 0);
+  assert(bmsRes.cmtiMarginRatio > 1.0);
+  assert(bmsRes.emergencyFreezeLatencyMs <= 2.0);
+  assert.equal(bmsRes.asilDQualified, true);
 });

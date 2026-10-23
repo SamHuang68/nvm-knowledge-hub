@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "084c639f8922cc46886391cd75d33b55b7eb764e",
+  "baseCommit": "12261a905dcdcb20ea561bfe8c9d64a95328a608",
   "documentation": [
     "docs/網站分階段優化紀錄-20261008.md"
   ],
@@ -19,62 +19,17 @@
         "tests/test-physics-robustness.test.mjs"
       ],
       "changes": [
-        "advanced-finfet-gaa-simulator.js",
-        "advanced-packaging-pdks-simulator.js",
-        "attack-resistance-evaluator.js",
-        "automotive-asild-ecc-simulator.js",
-        "automotive-blackbox-journal-calculator.js",
-        "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
-        "automotive-load-dump-clamp-simulator.js",
-        "bcd-trimming-simulator.js",
-        "bspdn-envm-ir-drop-simulator.js",
-        "chiplet-3d-hetero-nvm-simulator.js",
-        "chiplet-ucie-nvm-simulator.js",
-        "cim-analog-mac-simulator.js",
-        "cim-efficiency-calculator.js",
-        "cim-neuromorphic-mac-simulator.js",
-        "cim-nn-accuracy-degradation-simulator.js",
-        "cpo-siph-nvm-simulator.js",
-        "cryo-cmos-quantum-nvm-simulator.js",
-        "cryo-qubit-readout-simulator.js",
-        "cryo-radhard-nvm-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
-        "cu-cu-hybrid-bonding-stress-simulator.js",
-        "cxl-memory-pooling-simulator.js",
+        "antifuse-puf-entropy-health-monitor.js",
         "data/offline-manifest.js",
         "data/release-lineage.json",
-        "deep-space-sel-retention-simulator.js",
-        "demura-lut-calculator.js",
-        "differential-sensing-simulator.js",
-        "dpa-cpa-leakage-simulator.js",
-        "hbm4-base-die-repair-probe-simulator.js",
-        "hybrid-bonding-tsv-kgd-simulator.js",
-        "iot-energy-tradeoff-calculator.js",
-        "mcu-vector-patch-simulator.js",
-        "nanosheet-bspdn-nvm-simulator.js",
-        "normally-off-energy-harvesting-simulator.js",
         "package-lock.json",
         "package.json",
-        "pqc-hardware-rot-ledger-simulator.js",
-        "pqc-key-storage-simulator.js",
-        "pqc-rot-budget-calculator.js",
-        "pqc-rot-dpa-simulator.js",
-        "puf-reconstruction-simulator.js",
-        "rad-hard-nvm-simulator.js",
-        "space-radiation-hardening-simulator.js",
-        "sram-yield-bira-simulator.js",
-        "subthreshold-lowvoltage-nvm-simulator.js",
-        "supply-chain-hardware-trojan-pem-simulator.js",
-        "tddb-weibull-simulator.js",
-        "tests/test-physics-robustness.test.mjs",
-        "tunneling-breakdown-simulator.js",
-        "vertical-3d-nvm-simulator.js",
-        "wafer-cost-tco-calculator.js"
+        "tests/test-physics-robustness.test.mjs"
       ],
       "inputs": [
         "advanced-finfet-gaa-simulator.js",
         "advanced-packaging-pdks-simulator.js",
+        "antifuse-puf-entropy-health-monitor.js",
         "attack-resistance-evaluator.js",
         "automotive-asild-ecc-simulator.js",
         "automotive-blackbox-journal-calculator.js",
@@ -82,6 +37,7 @@
         "automotive-high-temp-sic-gan-simulator.js",
         "automotive-load-dump-clamp-simulator.js",
         "bcd-trimming-simulator.js",
+        "bspdn-backside-power-thermal-simulator.js",
         "bspdn-envm-ir-drop-simulator.js",
         "chiplet-3d-hetero-nvm-simulator.js",
         "chiplet-ucie-nvm-simulator.js",
@@ -103,9 +59,16 @@
         "demura-lut-calculator.js",
         "differential-sensing-simulator.js",
         "dpa-cpa-leakage-simulator.js",
+        "ev-bms-cmti-isolation-journal-simulator.js",
+        "gaa-nanosheet-tunneling-leakage-simulator.js",
         "hbm4-base-die-repair-probe-simulator.js",
         "hybrid-bonding-tsv-kgd-simulator.js",
         "iot-energy-tradeoff-calculator.js",
+        "iot-subthreshold-ser-simulator.js",
+        "ip-architect-arrhenius-auto-extrapolator.js",
+        "ip-architect-ate-test-cost-calculator.js",
+        "ip-architect-macro-overhead-calculator.js",
+        "ip-architect-master-matrix.js",
         "mcu-vector-patch-simulator.js",
         "nanosheet-bspdn-nvm-simulator.js",
         "normally-off-energy-harvesting-simulator.js",
@@ -128,11 +91,211 @@
         "vertical-3d-nvm-simulator.js",
         "wafer-cost-tco-calculator.js"
       ],
-      "reason": "加固全站 50 款物理計算器 Null-Safety 防呆與原型鏈防護，Suite 17 健全性測試通過升版 v1.8.0",
+      "reason": "加固全站 50 款物理計算器 Null-Safety 防呆與原型鏈防護，Suite 18 終極物理壓力測試通過升版 v1.9.0",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 60
+    },
+    {
+      "id": "IP架構師試算器與量化決策矩陣",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-ip-architect-calculators.test.mjs"
+      ],
+      "targets": [
+        "tests/test-ip-architect-calculators.test.mjs"
+      ],
+      "changes": [
+        "ip-architect-arrhenius-auto-extrapolator.js",
+        "ip-architect-ate-test-cost-calculator.js",
+        "ip-architect-macro-overhead-calculator.js",
+        "ip-architect-master-matrix.js",
+        "tests/test-ip-architect-calculators.test.mjs"
+      ],
+      "inputs": [
+        "ip-architect-arrhenius-auto-extrapolator.js",
+        "ip-architect-ate-test-cost-calculator.js",
+        "ip-architect-macro-overhead-calculator.js",
+        "ip-architect-master-matrix.js",
+        "tests/test-ip-architect-calculators.test.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證全譜系 11 大 NVM IP 考量點決策總表之 Macro 開銷、ATE 測試成本與 Arrhenius 高溫壽命試算器單元測試與邊界防護。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "先進2nm GAA與BSPDN熱阻物理模型",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-gaa-bspdn-thermal.test.mjs"
+      ],
+      "targets": [
+        "tests/test-gaa-bspdn-thermal.test.mjs"
+      ],
+      "changes": [
+        "bspdn-backside-power-thermal-simulator.js",
+        "gaa-nanosheet-tunneling-leakage-simulator.js",
+        "tests/test-gaa-bspdn-thermal.test.mjs"
+      ],
+      "inputs": [
+        "bspdn-backside-power-thermal-simulator.js",
+        "gaa-nanosheet-tunneling-leakage-simulator.js",
+        "tests/test-gaa-bspdn-thermal.test.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證 2nm GAA 量子穿隧洩漏與晶背供電 (BSPDN) 封裝熱阻保持退化數值模型單元測試與物理單調性。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "IoT MCU次閾值與軟錯誤率SER模型",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-iot-subthreshold-ser.test.mjs"
+      ],
+      "targets": [
+        "tests/test-iot-subthreshold-ser.test.mjs"
+      ],
+      "changes": [
+        "iot-subthreshold-ser-simulator.js",
+        "tests/test-iot-subthreshold-ser.test.mjs"
+      ],
+      "inputs": [
+        "iot-subthreshold-ser-simulator.js",
+        "tests/test-iot-subthreshold-ser.test.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證 IoT MCU 次閾值感測裕度與軟錯誤率 (SER) 物理模型單元測試與電壓極限箝位防護。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "800V EV BMS共模瞬態與黑盒子日誌模型",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-ev-bms-cmti-journal.test.mjs"
+      ],
+      "targets": [
+        "tests/test-ev-bms-cmti-journal.test.mjs"
+      ],
+      "changes": [
+        "ev-bms-cmti-isolation-journal-simulator.js",
+        "tests/test-ev-bms-cmti-journal.test.mjs"
+      ],
+      "inputs": [
+        "ev-bms-cmti-isolation-journal-simulator.js",
+        "tests/test-ev-bms-cmti-journal.test.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證 800V EV BMS 共模瞬態免疫度 (CMTI) 隔離與黑盒子崩潰防禦日誌物理模型單元測試。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "全站模擬器技術邊界免責橫幅與雙語無障礙門禁",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/scan-all-simulators-disclaimer.mjs"
+      ],
+      "targets": [
+        "scripts/scan-all-simulators-disclaimer.mjs"
+      ],
+      "changes": [
+        "automotive-nvm.html",
+        "iot-mcu-envm.html",
+        "memory-physics.html",
+        "technology-comparison.html"
+      ],
+      "inputs": [
+        "automotive-nvm.html",
+        "iot-mcu-envm.html",
+        "memory-physics.html",
+        "technology-comparison.html",
+        "scripts/scan-all-simulators-disclaimer.mjs",
+        "ai-nvm-opportunities.html",
+        "memory-evidence.html",
+        "oip-secure-storage.html",
+        "secure-storage.html",
+        "security-assurance.html",
+        "specialty-nvm.html",
+        "sram-repair.html"
+      ],
+      "reason": "常態掃描全站 40 座互動模擬器技術邊界免責橫幅 100% 覆蓋，避免簡化數值模型被誤解為實測保證。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "專利地圖與知識圖譜建置一致性",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/build-nvm-atlas.mjs",
+        "--check"
+      ],
+      "targets": [
+        "scripts/build-nvm-atlas.mjs"
+      ],
+      "changes": [
+        "data/nvm-comparison-systems-en.json",
+        "data/nvm-comparison-systems.json",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "scripts/build-nvm-atlas.mjs"
+      ],
+      "inputs": [
+        "data/nvm-comparison-systems-en.json",
+        "data/nvm-comparison-systems.json",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-industry-research-ui.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "data/nvm-technology-topics.md",
+        "data/nvm-technology-topics-en.md",
+        "scripts/nvm-patent-diagrams.mjs",
+        "scripts/nvm-ememory-ip-diagrams.mjs",
+        "scripts/nvm-emerging-operation-diagrams.mjs",
+        "data/nvm-emerging-topics.json",
+        "data/nvm-emerging-topics-en.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證 16 個技術、2 個整合專題、22 件專利與 334 筆來源之衍生 HTML 與 JSON 內容雜湊一致。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
     }
   ]
 }

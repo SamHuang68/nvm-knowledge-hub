@@ -994,5 +994,829 @@
       "term": "NVM 製程選項",
       "definition": "在選定晶圓代工平台上額外採用的記憶體製程模組；是否需要第二層多晶矽、穿隧氧化層或新增光罩，須按該模組核對。邏輯相容與零額外光罩是分別需要證據的整合條件。"
     }
-  ]
+  ],
+  "ipCriteriaMasterTable": {
+    "kicker": "01C · IP 架構師選型全景決策總表",
+    "title": "從單元物理到 SoC 系統整合：全譜系 NVM IP 實務決策矩陣",
+    "subtitle": "對齊學術技術指標（S. Yu 2016/2021），升維轉化為晶圓成本、電源軌契約、測試時間、車規溫度與先進節點微縮之十三大 IP 整合考量點",
+    "methodologyNote": "學術基準（如 Shimeng Yu 教授 2016/2021 彙整）側重於單元物理理論極限（Cell Area F²、翻轉電壓與寫入時間）；而在商業 SoC 與晶片設計實務中，架構師必須面對晶圓光罩加價、晶片內建電荷泵、量產 ATE 機台測試成本、SMT 迴焊耐溫、車規 AEC-Q100 活化能與實體防竄改等系統層級真實約束。下表將全譜系 11 大 NVM IP 形態與 13 大系統級考量維度完整展開對齊。",
+    "columns": [
+      {
+        "id": "efuse",
+        "name": "Foundry eFuse",
+        "category": "foundry",
+        "label": "晶圓廠 eFuse",
+        "highlight": false
+      },
+      {
+        "id": "maskrom",
+        "name": "Mask ROM",
+        "category": "foundry",
+        "label": "光罩 ROM",
+        "highlight": false
+      },
+      {
+        "id": "antifuse",
+        "name": "Logic AntiFuse OTP",
+        "category": "otp",
+        "label": "邏輯反熔絲 OTP",
+        "highlight": true
+      },
+      {
+        "id": "fgotp",
+        "name": "Logic FG-OTP",
+        "category": "otp",
+        "label": "浮閘邏輯 OTP",
+        "highlight": false
+      },
+      {
+        "id": "ldmtp",
+        "name": "Logic LD-MTP",
+        "category": "mtp",
+        "label": "低干擾邏輯 MTP",
+        "highlight": false
+      },
+      {
+        "id": "hdmtp",
+        "name": "Logic HD-MTP",
+        "category": "mtp",
+        "label": "高密度邏輯 MTP",
+        "highlight": false
+      },
+      {
+        "id": "sst",
+        "name": "Split-Gate eFlash (SST)",
+        "category": "eflash",
+        "label": "分離閘快閃 (SST)",
+        "highlight": false
+      },
+      {
+        "id": "sonos",
+        "name": "Charge-Trap eFlash (SONOS)",
+        "category": "eflash",
+        "label": "電荷捕捉快閃 (SONOS)",
+        "highlight": false
+      },
+      {
+        "id": "mram",
+        "name": "Embedded STT-MRAM",
+        "category": "emerging",
+        "label": "嵌入式 STT-MRAM",
+        "highlight": false
+      },
+      {
+        "id": "reram",
+        "name": "Embedded OxRAM (ReRAM)",
+        "category": "emerging",
+        "label": "阻變記憶體 (ReRAM)",
+        "highlight": false
+      },
+      {
+        "id": "feram",
+        "name": "Embedded FeRAM / FeFET",
+        "category": "emerging",
+        "label": "鐵電記憶體 (FeRAM/FeFET)",
+        "highlight": false
+      }
+    ],
+    "categories": [
+      {
+        "id": "all",
+        "label": "全部 11 類 NVM IP"
+      },
+      {
+        "id": "zeromask",
+        "label": "零額外光罩邏輯 IP (5)"
+      },
+      {
+        "id": "embedded_flash",
+        "label": "高密度快閃與新興儲存 (5)"
+      },
+      {
+        "id": "security_focus",
+        "label": "安全信任根與金鑰選型"
+      },
+      {
+        "id": "auto_focus",
+        "label": "車規高溫高可靠度選型"
+      }
+    ],
+    "dimensions": [
+      {
+        "id": "dim_mask_wafer",
+        "number": "01",
+        "name": "微影光罩道數與晶圓加價率",
+        "academicMapping": "原圖無對應（原圖僅看 Cell F²，忽略製程光罩成本是 SoC 決定生死的第一道關卡）",
+        "architecturalTradeoff": "0-Mask 完全相容標準邏輯製程（晶圓零加價）；eFlash 增加 8~12 道光罩導致晶圓加價 25~40%，小晶粒極不經濟；BEOL 新興技術（ReRAM/MRAM）增加 2~5 道後段光罩，增加 8~15% 晶圓成本。",
+        "values": {
+          "efuse": {
+            "val": "+0 道（純邏輯）",
+            "note": "標準代工庫原生整合，晶圓 0 加價"
+          },
+          "maskrom": {
+            "val": "0 ~ +1 道",
+            "note": "金屬層或 Contact/Via 改動，極低光罩費用"
+          },
+          "antifuse": {
+            "val": "+0 道（純邏輯）",
+            "note": "100% 邏輯相容，零額外光罩，小晶粒總成本最低"
+          },
+          "fgotp": {
+            "val": "+0 道（純邏輯）",
+            "note": "單層多晶矽邏輯相容，晶圓零加價"
+          },
+          "ldmtp": {
+            "val": "通常 +0 道",
+            "note": "單層多晶矽 FN 穿隧，零光罩至 +1 道注入"
+          },
+          "hdmtp": {
+            "val": "+0 ~ +2 道",
+            "note": "依供應商與 PDK 分流（基線 +0，高密度版 +2 道井注入）"
+          },
+          "sst": {
+            "val": "+8 ~ +12 道（FEOL）",
+            "note": "前段專用高溫/浮閘光罩，晶圓加價 25%~40%，28nm 以下停滯"
+          },
+          "sonos": {
+            "val": "+2 ~ +4 道（FEOL）",
+            "note": "O-N-O 捕捉層模組，晶圓加價 10%~18%"
+          },
+          "mram": {
+            "val": "+3 ~ +5 道（BEOL）",
+            "note": "後段金屬層 MTJ 模組，晶圓加價 12%~18%"
+          },
+          "reram": {
+            "val": "+2 ~ +4 道（BEOL）",
+            "note": "後段金屬層過渡金屬氧化物模組，晶圓加價 6%~10%"
+          },
+          "feram": {
+            "val": "+2 ~ +4 道（BEOL/FEOL）",
+            "note": "鐵電電容或 HfO2 薄膜，晶圓加價 8%~12%"
+          }
+        }
+      },
+      {
+        "id": "dim_macro_density",
+        "number": "02",
+        "name": "巨集實體密度與周邊電路開銷",
+        "academicMapping": "對應原圖 Cell Area (F²)，升維至包含電荷泵、感測放大器與高壓隔離間距的巨集實體面積",
+        "architecturalTradeoff": "小容量（1Kb~64Kb）下，高壓幫浦與周邊開銷佔巨集 80% 面積，Cell F² 影響極小；大容量（>4Mb）下，Cell F² 才是矽面積主導因素。",
+        "values": {
+          "efuse": {
+            "val": "極低密度（周邊極大）",
+            "note": "60–120 F²；大電流金屬線路與感測電路使小容量巨集龐大"
+          },
+          "maskrom": {
+            "val": "最高密度（極緊湊）",
+            "note": "<8 F²；無高壓幫浦，周邊極簡，矽面積極小"
+          },
+          "antifuse": {
+            "val": "小容量最優（極緊湊）",
+            "note": "10–25 F²；高壓幫浦小，1Kb~64Kb 巨集面積業界最小"
+          },
+          "fgotp": {
+            "val": "中等密度",
+            "note": "12–30 F²；浮閘電容耦合需求限制巨集進一步微縮"
+          },
+          "ldmtp": {
+            "val": "中低密度（電容開銷大）",
+            "note": "60–120+ F²；單層多晶矽需 >80% 面積作為控制電容"
+          },
+          "hdmtp": {
+            "val": "中高密度（25–50 F²）",
+            "note": "25–50 F²；熱電洞注入縮小耦合電容，適合 16Kb~512Kb"
+          },
+          "sst": {
+            "val": "大容量高密度",
+            "note": "12–30 F²；專用 FEOL 單元緊湊，但有巨大高壓泵周邊"
+          },
+          "sonos": {
+            "val": "大容量高密度",
+            "note": "15–35 F²；電荷捕捉層單元緊湊，適合 1Mb~32Mb"
+          },
+          "mram": {
+            "val": "先進節點超高密度",
+            "note": "30–50 F²；BEOL 垂直堆疊，不佔用邏輯 FEOL 面積"
+          },
+          "reram": {
+            "val": "先進節點高密度",
+            "note": "15–35 F²；交叉點陣列 (Crossbar) 極具 3D 堆疊潛力"
+          },
+          "feram": {
+            "val": "中高密度（6–50 F²）",
+            "note": "6–50 F²；1T1C 電容面積受限，FeFET 具 1T 高密度"
+          }
+        }
+      },
+      {
+        "id": "dim_supply_pump",
+        "number": "03",
+        "name": "電源軌契約與晶片內建高壓幫浦",
+        "academicMapping": "對應原圖 Voltage (<1V, >10V, <3V...)，升維至單電源 Core VDD vs 外接 VPP 針腳、峰值電流與 IR-Drop",
+        "architecturalTradeoff": "是否需要專用外接高壓針腳（增加封裝 Pin 腳與板級成本）？內建 Charge Pump 的開機升壓時間（Ramp-up）與瞬態突波電流（Inrush Current）對低功耗系統的衝擊。",
+        "values": {
+          "efuse": {
+            "val": "需高電流源（~10-15mA）",
+            "note": "通常需專用 1.8V/2.5V 電源軌或外接高電流 Pad"
+          },
+          "maskrom": {
+            "val": "純單一核心 VDD",
+            "note": "0.75V~1.2V 直接運作，無任何高壓或特殊電源需求"
+          },
+          "antifuse": {
+            "val": "單一供電，內建微型幫浦",
+            "note": "核心 VDD 供電，內建幫浦升至 5~7V 擊穿，微安級瞬態"
+          },
+          "fgotp": {
+            "val": "單一供電或雙電源",
+            "note": "內建 6~8V 幫浦，熱載子注入需要毫安級瞬間電流"
+          },
+          "ldmtp": {
+            "val": "單一供電，內建 FN 幫浦",
+            "note": "內建 10~14V 幫浦，純電壓穿隧，電流極低（<1µA）"
+          },
+          "hdmtp": {
+            "val": "單一供電，內建幫浦",
+            "note": "內建 8~12V 幫浦，寫入電流依機制（FN 微安級 vs CHI 毫安級）"
+          },
+          "sst": {
+            "val": "大型雙重內建高壓幫浦",
+            "note": "寫入需 10V+5V，抹除需 12~15V，升壓延遲 10~20µs"
+          },
+          "sonos": {
+            "val": "內建高壓幫浦",
+            "note": "FN 寫抹需 9~12V 高壓，讀取直接使用核心 VDD"
+          },
+          "mram": {
+            "val": "純單一核心低電壓",
+            "note": "~1.0-1.2V 直接翻轉，完全無高壓幫浦，但寫入需 30-80µA 脈衝"
+          },
+          "reram": {
+            "val": "低壓輔助幫浦（~2.5V）",
+            "note": "成形需 2.5V，SET/RESET 僅需 1.2-1.5V，幫浦極小"
+          },
+          "feram": {
+            "val": "純單一核心低電壓",
+            "note": "1.2V~1.8V 直接電場翻轉，完全無高壓幫浦"
+          }
+        }
+      },
+      {
+        "id": "dim_read_latency",
+        "number": "04",
+        "name": "讀取延遲、直讀時脈與就地執行",
+        "academicMapping": "對應原圖 Read time (~1ns, ~10ns, ~50ns...)，升維至系統匯流排直讀頻率與是否強制 Shadow 到 SRAM",
+        "architecturalTradeoff": "能否直接透過 AHB/AXI 匯流排執行程式碼（Execute-In-Place / XIP）？還是必須在開機時額外耗時複製（Shadowing）到系統 SRAM？",
+        "values": {
+          "efuse": {
+            "val": "慢速，強制 Shadow",
+            "note": "感測延遲 ~1µs，必須在開機時整組 Shadow 到 SRAM 暫存器"
+          },
+          "maskrom": {
+            "val": "超高速直讀（~5-15ns）",
+            "note": "直接靜態 1T 陣列，支援 100MHz+ 匯流排無等待直讀"
+          },
+          "antifuse": {
+            "val": "中速直讀（~25-40ns）",
+            "note": "受單元導通電流限制，支援 20~40MHz 直讀或開機載入"
+          },
+          "fgotp": {
+            "val": "中速直讀（~25-40ns）",
+            "note": "感測放大器翻轉受限，可支援直讀或開機快取"
+          },
+          "ldmtp": {
+            "val": "中速直讀（~20-40ns）",
+            "note": "單元讀取電流適中，支援小區塊直讀或暫存器載入"
+          },
+          "hdmtp": {
+            "val": "中速直讀（~20-35ns）",
+            "note": "支援 30~50MHz 匯流排直讀，多用於參數與常數讀取"
+          },
+          "sst": {
+            "val": "高速直讀（~15-25ns）",
+            "note": "分離閘極讀取電流大，支援 80~133MHz 零等待 XIP 執行"
+          },
+          "sonos": {
+            "val": "中高速直讀（~20-35ns）",
+            "note": "支援 50~80MHz 匯流排 XIP 直讀執行"
+          },
+          "mram": {
+            "val": "類 SRAM 級（~10-25ns）",
+            "note": "TMR 感測快速，支援 100MHz+ 高速無等待隨機 XIP"
+          },
+          "reram": {
+            "val": "高速直讀（~10-20ns）",
+            "note": "低阻態讀取電流充裕，支援高速隨機讀取"
+          },
+          "feram": {
+            "val": "極高速破壞性讀取（~20-40ns）",
+            "note": "感測需翻轉極化並立即預充電寫回（Auto-Restore）"
+          }
+        }
+      },
+      {
+        "id": "dim_write_test_cost",
+        "number": "05",
+        "name": "寫入粒度與量產燒錄測試成本",
+        "academicMapping": "對應原圖 Write time (1ns~1ms)，升維至 Bit/Byte/Sector 粒度與量產 ATE 機台測試燒錄費用",
+        "architecturalTradeoff": "能否進行單一位元/位元組隨機更新？在晶圓測試 (CP) 與最終成品測試 (FT) 階段，燒錄金鑰與韌體需要多少機台秒數？（每增加 1 秒量產百萬顆即是巨額成本）。",
+        "values": {
+          "efuse": {
+            "val": "位元級寫入，測試極耗時",
+            "note": "每個位元需 10~15mA 脈衝數毫秒，高容量燒錄造成 ATE 測試瓶頸"
+          },
+          "maskrom": {
+            "val": "出廠光罩固化，零測試時間",
+            "note": "生產即有資料，僅需常規邏輯測試，零燒錄時間成本"
+          },
+          "antifuse": {
+            "val": "位元級寫入，毫秒級完成",
+            "note": "單一位元崩潰僅數十微秒，1Kb~4Kb 金鑰在 CP 階段數毫秒內完成"
+          },
+          "fgotp": {
+            "val": "位元/位元組級，測試速度中等",
+            "note": "熱電子注入需脈衝驗證循環，測試時間稍長於 AntiFuse"
+          },
+          "ldmtp": {
+            "val": "位元組寫入／整頁抹除",
+            "note": "FN 穿隧抹寫需數毫秒，適合少量校準參數更新"
+          },
+          "hdmtp": {
+            "val": "位元組寫入／區塊抹除",
+            "note": "支援隨機位元組更新，整體量產測試時間受控"
+          },
+          "sst": {
+            "val": "位元組寫入／扇區抹除",
+            "note": "SSI 寫入快速（~10µs/byte），但 Sector 抹除需 5~10ms，整體 FT 燒錄需數秒"
+          },
+          "sonos": {
+            "val": "頁面寫入／扇區抹除",
+            "note": "整頁寫入 ~1-2ms，扇區抹除 ~10ms，測試吞吐量居中"
+          },
+          "mram": {
+            "val": "位元組/字組隨機寫，免抹除",
+            "note": "單元翻轉 <20ns，免除所有抹除步驟，量產 ATE 燒錄最快（毫秒級）"
+          },
+          "reram": {
+            "val": "位元組隨機寫入，需成形",
+            "note": "免抹除，但出廠首次需要 Forming 步驟（增加測試工程流程）"
+          },
+          "feram": {
+            "val": "超高速隨機位元組寫入",
+            "note": "寫入時間等同讀取（<50ns），無抹除延遲，測試極快"
+          }
+        }
+      },
+      {
+        "id": "dim_retention_temp",
+        "number": "06",
+        "name": "高溫資料保持與車規 Mission Profile",
+        "academicMapping": "對應原圖 Retention (>10y, >1y...)，升維至 Arrhenius 活化能 Ea 與 AEC-Q100 Grade 0/1/2 認證",
+        "architecturalTradeoff": "能否承受引擎室、車載底盤或工業高溫環境？AntiFuse 的金屬-矽微絲具極高活化能；浮閘/電荷捕捉受限於高溫熱去捕捉；MRAM 受限於高溫熱擾動退磁。",
+        "values": {
+          "efuse": {
+            "val": "125°C 10 年（車規 Grade 1）",
+            "note": "物理吹斷，高溫無洩漏，但存在極微小金屬再長回風險"
+          },
+          "maskrom": {
+            "val": "永久保持（全溫區 Grade 0）",
+            "note": "實體光罩接線，不隨溫度或時間衰退，無極限問題"
+          },
+          "antifuse": {
+            "val": "175°C 10 年（車規 Grade 0+）",
+            "note": "Ea ~1.8-2.1 eV，永久導通，耐受引擎室極端高溫"
+          },
+          "fgotp": {
+            "val": "125°C 10 年（車規 Grade 1）",
+            "note": "Ea ~1.1 eV，高溫氧化層洩漏限制在 Grade 1 範疇"
+          },
+          "ldmtp": {
+            "val": "125°C 10 年（工業/車規 Grade 1）",
+            "note": "低干擾單層浮閘，125°C 保持良好，高溫退火需校準"
+          },
+          "hdmtp": {
+            "val": "125°C 10 年（工業/車規 Grade 1）",
+            "note": "薄氧化層電荷保持，標準為 125°C 10 年"
+          },
+          "sst": {
+            "val": "150°C 10 年 / 125°C 20 年",
+            "note": "深厚氧化層隔離，車規 Grade 0 標竿量產架構"
+          },
+          "sonos": {
+            "val": "125°C 10 年（部分 Grade 0 驗證）",
+            "note": "氮化矽捕捉層高溫擴散限制，先進世代達成 150°C 保持"
+          },
+          "mram": {
+            "val": "125°C 10 年（高溫磁擾動挑戰）",
+            "note": "熱穩定因數 Δ 隨溫度急遽下降，150°C 需犧牲寫入電流或容量"
+          },
+          "reram": {
+            "val": "85°C ~ 105°C（工業級）",
+            "note": "氧空缺在高溫下自發擴散，高溫車規 Grade 0 仍屬研發邊界"
+          },
+          "feram": {
+            "val": "85°C 10 年 / 125°C 受限",
+            "note": "居里溫度 (Curie Temp) 限制，高溫去極化需嚴格控管"
+          }
+        }
+      },
+      {
+        "id": "dim_smt_reflow",
+        "number": "07",
+        "name": "SMT 迴焊爐耐溫與預燒錄出貨能力",
+        "academicMapping": "原圖無對應（原圖未考慮封裝打件 260°C 熱歷程對金鑰與韌體的毀滅性風險）",
+        "architecturalTradeoff": "能否在晶圓或裸晶階段預先燒錄安全金鑰與 Bootloader，再送入 260°C 無鉛迴焊爐打件？還是必須在打件後透過 JTAG 板級燒錄？",
+        "values": {
+          "efuse": {
+            "val": "100% 免疫迴焊熱衝擊",
+            "note": "金屬或矽化物實體開路，耐受 260°C 迴焊，支援晶圓預燒"
+          },
+          "maskrom": {
+            "val": "100% 絕對免疫",
+            "note": "金屬佈線層，耐受任何封裝與迴焊熱處理"
+          },
+          "antifuse": {
+            "val": "100% 免疫迴焊熱衝擊",
+            "note": "歐姆導通微絲極端穩定，支援晶圓級預先燒錄安全金鑰"
+          },
+          "fgotp": {
+            "val": "具熱漏失風險，建議後燒",
+            "note": "260°C 烘烤可能導致微量熱電子逸出，降低感測裕度"
+          },
+          "ldmtp": {
+            "val": "建議 SMT 打件後燒錄",
+            "note": "迴焊熱應力影響浮閘電荷，量產建議在 SMT 後進行校準燒錄"
+          },
+          "hdmtp": {
+            "val": "建議 SMT 打件後燒錄",
+            "note": "薄氧化層電荷對 260°C 敏感，打件後燒錄最具可靠性"
+          },
+          "sst": {
+            "val": "厚氧化層耐受性佳，可預燒",
+            "note": "ESF3 厚熱氧化層在 260°C 表現穩定，但車規常規仍採後燒"
+          },
+          "sonos": {
+            "val": "中度耐受，需嚴密熱預算",
+            "note": "氮化矽深能階捕捉電荷可耐受短暫迴焊，需注意烘烤次數"
+          },
+          "mram": {
+            "val": "極敏感（磁退火風險）",
+            "note": "260°C 高溫易誘發 MTJ 自由層熱退磁與擴散，需特殊高阻抗防護"
+          },
+          "reram": {
+            "val": "成形前打件最優",
+            "note": "未成形狀態下耐溫良好；若已燒錄導電細絲在高溫有自癒風險"
+          },
+          "feram": {
+            "val": "去極化風險，需重新極化",
+            "note": "接近居里點時極化電荷衰退，打件後需重新寫入確認"
+          }
+        }
+      },
+      {
+        "id": "dim_endurance_mgmt",
+        "number": "08",
+        "name": "覆寫壽命與系統磨損管理負擔",
+        "academicMapping": "對應原圖 Endurance (1E5, 1E6-1E9, 1E14...)，升維至 SoC 韌體磨損平衡 (Wear-Leveling) 與壞區管理負擔",
+        "architecturalTradeoff": "能否直接取代 SRAM/BRAM？若是 eFlash/ReRAM，SoC 是否必須耗費寶貴的 CPU 與記憶體執行耗損平均（Wear-Leveling）演算法與垃圾回收？",
+        "values": {
+          "efuse": {
+            "val": "1 次（OTP，不可逆）",
+            "note": "吹斷後物理結構永久改變，不可抹寫"
+          },
+          "maskrom": {
+            "val": "0 次（唯讀）",
+            "note": "光罩固定，完全不可寫入或更改"
+          },
+          "antifuse": {
+            "val": "1 次（可採虛擬多 Bank 更新）",
+            "note": "物理 1 次，但架構可劃分多個區塊透過指標實現數次版本更新"
+          },
+          "fgotp": {
+            "val": "1 次（部分支援紫外線清除）",
+            "note": "封裝後為 1 次；開模紫外線照射理論可清，量產不實用"
+          },
+          "ldmtp": {
+            "val": "10⁴ ~ 10⁵ 次抹寫",
+            "note": "低干擾單層多晶矽，足以支援產品生命週期內所有參數校準"
+          },
+          "hdmtp": {
+            "val": "10³ ~ 10⁴ 次抹寫",
+            "note": "氧化層較薄，適合百次至千次級別之代碼補丁與日誌"
+          },
+          "sst": {
+            "val": "10⁴ ~ 10⁵ 次抹寫",
+            "note": "MCU 標準韌體儲存，需配合 Flash 檔案系統進行區塊管理"
+          },
+          "sonos": {
+            "val": "10⁴ ~ 10⁵ 次抹寫",
+            "note": "捕捉層介電質疲勞磨損，需配合擦寫計數與 ECC 校驗"
+          },
+          "mram": {
+            "val": "10¹⁰ ~ 10¹² 次（近無限）",
+            "note": "自旋翻轉無物理磨損，可直接作為 Working RAM，零磨損演算法負擔"
+          },
+          "reram": {
+            "val": "10⁵ ~ 10⁶ 次抹寫",
+            "note": "細絲反覆生長斷裂存在累積缺陷，需適度磨損均衡機制"
+          },
+          "feram": {
+            "val": "10¹² ~ 10¹⁴ 次（極高耐久）",
+            "note": "極化翻轉疲勞極低，可直接取代 SRAM 進行無限制即時日誌記錄"
+          }
+        }
+      },
+      {
+        "id": "dim_power_normally_off",
+        "number": "09",
+        "name": "動態功耗與常關閉即時開機能力",
+        "academicMapping": "對應原圖 Write Energy (fJ~100pJ)，升維至系統級動態電流、常關閉（Normally-Off）待機零漏電與開機能量",
+        "architecturalTradeoff": "在電池供電的邊緣 IoT 或車用電子中，能否在待機時徹底切斷電源（Zero Standby Leakage）並在微秒內即時喚醒（Instant-On）？",
+        "values": {
+          "efuse": {
+            "val": "讀取低功耗，寫入高功耗",
+            "note": "寫入需 10~15mA 峰值電流，電池供電裝置幾乎無法在線燒錄"
+          },
+          "maskrom": {
+            "val": "極低動態功耗，零待機漏電",
+            "note": "僅靜態 1T 邏輯切換，斷電無漏電，開機 0 延遲"
+          },
+          "antifuse": {
+            "val": "極低功耗，完美常關閉",
+            "note": "讀取 <0.5mW，斷電零漏電，喚醒僅數十納秒，最佳 IoT 金鑰"
+          },
+          "fgotp": {
+            "val": "低動態功耗，零待機漏電",
+            "note": "斷電完全不耗電，開機即讀，適合感測器配置"
+          },
+          "ldmtp": {
+            "val": "純電壓寫入，低功耗",
+            "note": "FN 寫抹電流 <1µA，電池供電裝置可輕易完成參數更新"
+          },
+          "hdmtp": {
+            "val": "低至中功耗",
+            "note": "寫抹功耗適中，支援斷電零漏電與快速喚醒"
+          },
+          "sst": {
+            "val": "寫抹高功耗（高壓泵突波）",
+            "note": "高壓電荷泵瞬態電流 15~30mA，需較大電源去耦電容"
+          },
+          "sonos": {
+            "val": "中等寫抹功耗",
+            "note": "電荷捕捉層寫抹效率高於傳統浮閘，支援低功耗 MCU"
+          },
+          "mram": {
+            "val": "寫入電流大，讀取極低功耗",
+            "note": "讀取如 SRAM，但 STT 翻轉需 30~80µA/bit；斷電完全零漏電"
+          },
+          "reram": {
+            "val": "超低讀寫能耗（~pJ 級）",
+            "note": "SET/RESET 脈衝極短（<50ns），是邊緣 AI 類腦運算首選"
+          },
+          "feram": {
+            "val": "極致超低功耗（~100fJ 級）",
+            "note": "電場極化翻轉幾乎不消耗電荷，業界寫入能耗最低架構"
+          }
+        }
+      },
+      {
+        "id": "dim_process_scaling",
+        "number": "10",
+        "name": "製程微縮可攜性與先進架構支援",
+        "academicMapping": "原圖無對應（原圖未分析 FinFET、GAA 奈米片與 BSPDN 背側供電的實體整合邊界）",
+        "architecturalTradeoff": "能否跟隨主晶片微縮至 16nm/7nm/3nm/2nm GAA？eFlash 在 28nm 平面停滯；AntiFuse 可原生縮放至 2nm；MRAM/ReRAM 在 BEOL 低溫堆疊不受前段限制。",
+        "values": {
+          "efuse": {
+            "val": "可移植至先進節點，面積大",
+            "note": "金屬線路與接觸窗隨節點縮小，但寄生電阻使吹斷越來越困難"
+          },
+          "maskrom": {
+            "val": "可移植，但先進光罩極昂貴",
+            "note": "先進 EUV 節點光罩費用數百萬美元，極少用於高階 ASIC"
+          },
+          "antifuse": {
+            "val": "一路微縮至 2nm GAA / BSPDN",
+            "note": "利用核心薄閘氧電崩潰，完美跟隨微縮，先進節點唯一 0-Mask"
+          },
+          "fgotp": {
+            "val": "平面 28nm 止步",
+            "note": "浮閘結構與 FinFET 3D 鰭片幾何衝突，無法經濟移植"
+          },
+          "ldmtp": {
+            "val": "平面 28nm 止步",
+            "note": "大面積控制電容在 FinFET 難以成形，成熟節點為主"
+          },
+          "hdmtp": {
+            "val": "平面 28nm 止步",
+            "note": "熱電洞注入依賴平面基板特性，先進 FinFET 難以相容"
+          },
+          "sst": {
+            "val": "平面 28nm 嚴格止步",
+            "note": "分裂閘三維高溫熱氧化層無法在 FinFET 3D 鰭片上成形"
+          },
+          "sonos": {
+            "val": "平面 28nm / 40nm BCD",
+            "note": "成熟車規與 BCD 混合訊號主力，難以經濟跨入 FinFET"
+          },
+          "mram": {
+            "val": "BEOL 堆疊，跨入 22nm~12nm",
+            "note": "後段金屬低溫製程（<400°C），與前段邏輯完全解耦，主流替代 eFlash"
+          },
+          "reram": {
+            "val": "BEOL 堆疊，可延伸至 12nm+",
+            "note": "後段兩道金屬層間整合，極具微縮潛力，與 FinFET 相容"
+          },
+          "feram": {
+            "val": "FeFET 具 GAA 縮放潛力",
+            "note": "傳統 1T1C FeRAM 難微縮；新興 HfO2 FeFET 可直接整合於 GAA 閘極"
+          }
+        }
+      },
+      {
+        "id": "dim_security_tamper",
+        "number": "11",
+        "name": "實體層防竄改與硬體信任根 (Root of Trust)",
+        "academicMapping": "原圖無對應（原圖完全無安全考量，但 IP 評估中這是晶片防禦逆向工程的核心）",
+        "architecturalTradeoff": "斷電後 SEM/TEM 顯微鏡下是否可見數據？是否防禦 FIB 電壓對比探針？能否原生衍生物理不可複製功能 (PUF) 晶片指紋？",
+        "values": {
+          "efuse": {
+            "val": "極差（SEM 顯微鏡立即可見）",
+            "note": "金屬或多晶矽物理熔斷開口在顯微鏡下立即可讀出，無安全性"
+          },
+          "maskrom": {
+            "val": "極差（去層逆向光學可讀）",
+            "note": "接觸窗與通孔圖樣去層後透過光學顯微鏡即可全盤逆向"
+          },
+          "antifuse": {
+            "val": "極致安全（無實體痕跡，PUF 原生）",
+            "note": "奈米級介電質崩潰微絲，TEM 無可辨特徵，FIB 無法探測，原生 PUF"
+          },
+          "fgotp": {
+            "val": "中等（存在電荷感測洩漏）",
+            "note": "可透過微光顯微鏡 (EMMI) 或光學誘導放電分析"
+          },
+          "ldmtp": {
+            "val": "中等（浮閘電荷易被探測）",
+            "note": "浮閘儲存之電荷受限於雷射攻擊與電壓對比探針"
+          },
+          "hdmtp": {
+            "val": "中等（需主動屏蔽保護）",
+            "note": "需配合頂層金屬主動屏蔽（Active Metal Shield）以防探針攻擊"
+          },
+          "sst": {
+            "val": "良好（分離閘極具幾何遮蔽）",
+            "note": "控制閘極在幾何上覆蓋浮閘，具良好實體遮蔽防禦力"
+          },
+          "sonos": {
+            "val": "優良（絕緣捕捉層不聚電荷）",
+            "note": "電子分散於氮化矽奈米捕捉位點，探針極難局部讀出"
+          },
+          "mram": {
+            "val": "優良（防電氣探針，但懼強磁）",
+            "note": "TEM 無法分辨磁矩，FIB 無法直接探測，但需防強外部磁場竄改"
+          },
+          "reram": {
+            "val": "優良（奈米導電絲難以觀測）",
+            "note": "氧空缺細絲極細微，常規顯微鏡無特徵，抗逆向工程佳"
+          },
+          "feram": {
+            "val": "優良（晶格偶極無光學特徵）",
+            "note": "鐵電晶格自發極化，無宏觀電荷或幾何形貌差異"
+          }
+        }
+      },
+      {
+        "id": "dim_foundry_ecosystem",
+        "number": "12",
+        "name": "晶圓代工 PDK 生態、成熟度與多源供應",
+        "academicMapping": "原圖無對應（學術研究未考量商業代工廠 PDK 支援與跨廠移植風險）",
+        "architecturalTradeoff": "主流代工廠（TSMC、UMC、GF、Samsung）是否有現成合格 PDK？是否存在單一 IP 供應商鎖定（Vendor Lock-in）？量產出貨顆數與驗證成熟度？",
+        "values": {
+          "efuse": {
+            "val": "各代工廠原生支援，介面互異",
+            "note": "TSMC/UMC 等廠原生免費提供，但各廠控制介面完全不相容"
+          },
+          "maskrom": {
+            "val": "各代工廠原生支援",
+            "note": "成熟製程標準選單，極低風險，全球代工廠通用"
+          },
+          "antifuse": {
+            "val": "全球量產標竿（數百億顆出貨）",
+            "note": "力旺 (eMemory)、Synopsys 全球各大廠 PDK 100% 覆蓋，量產實績第一"
+          },
+          "fgotp": {
+            "val": "成熟量產，多廠支援",
+            "note": "力旺 NeoBit 累積出貨數百億顆，0.5µm~55nm 成熟代工廠標配"
+          },
+          "ldmtp": {
+            "val": "力旺/Floadia 等多廠 PDK",
+            "note": "TSMC/UMC/Vanguard/SMIC 廣泛採用，成熟混合訊號主力"
+          },
+          "hdmtp": {
+            "val": "力旺/Synopsys 等量產實績",
+            "note": "NeoMTP / AEON 在主流代工廠 180nm~40nm 具多年量產實績"
+          },
+          "sst": {
+            "val": "代工廠專屬授權，專利門檻高",
+            "note": "TSMC/UMC/GF 提供，但需支付專利授權金與晶圓提成（Royalty）"
+          },
+          "sonos": {
+            "val": "代工廠與特定 IP 廠提供",
+            "note": "UMC、GF、Floadia 提供 PDK，多用於特定車規與 BCD 平台"
+          },
+          "mram": {
+            "val": "TSMC / Samsung / GF 主力平台",
+            "note": "TSMC 22/16nm、Samsung 28/14nm、GF 22FDX 商業量產，各廠材料獨立"
+          },
+          "reram": {
+            "val": "TSMC / UMC / Weebit 逐漸普及",
+            "note": "TSMC 40/28/22nm、UMC 22nm 陸續推出商業 PDK，處於高速擴張期"
+          },
+          "feram": {
+            "val": "少數代工廠專屬（Infineon/TI/TSMC）",
+            "note": "傳統 FeRAM 僅少數 IDM 掌握；HfO2 FeFET 處於大廠先端 R&D 階段"
+          }
+        }
+      },
+      {
+        "id": "dim_sweet_spot_app",
+        "number": "13",
+        "name": "SoC 系統最佳適配場景與核心定位",
+        "academicMapping": "原圖無對應（學術表未提供終端晶片架構落地的最佳應用場景分類）",
+        "architecturalTradeoff": "是作為晶片身分證？安全密鑰？類比校準？韌體執行碼？還是高速即時日誌？精確選型決定晶片毛利與競爭力。",
+        "values": {
+          "efuse": {
+            "val": "晶圓瑕疵修補、封裝 ID",
+            "note": "SRAM 備援替換、極低容量晶片識別碼（Chip ID）"
+          },
+          "maskrom": {
+            "val": "大量平價 Boot ROM",
+            "note": "出貨數千萬顆之固定引導碼，零授權金，低成本極致"
+          },
+          "antifuse": {
+            "val": "安全金鑰、PUF 信任根、類比修補",
+            "note": "Secure Boot 金鑰、AES/RSA/PQC 根金鑰、PMIC 類比精細修補"
+          },
+          "fgotp": {
+            "val": "感測器校準、多媒體金鑰",
+            "note": "CMOS 影像感測器 (CIS) 校準、顯示驅動 IC (DDIC) Gamma 修補"
+          },
+          "ldmtp": {
+            "val": "穿戴常態參數、校準更新",
+            "note": "藍牙 BLE 裝置配對金鑰、感測器生命週期定期重新校準"
+          },
+          "hdmtp": {
+            "val": "小型 MCU 代碼、物聯網日誌",
+            "note": "8/16-bit MCU 韌體儲存、智慧電表參數與低頻率日誌記錄"
+          },
+          "sst": {
+            "val": "車用高性能 MCU 主程式碼",
+            "note": "車身控制器、底盤動力 MCU 程式碼快閃（Code Flash）"
+          },
+          "sonos": {
+            "val": "BCD 電源管理、工業控制韌體",
+            "note": "高壓馬達驅動、工業微控制器程式碼儲存"
+          },
+          "mram": {
+            "val": "車用黑盒子、邊緣 AI 緩存、SRAM 替換",
+            "note": "車載即時駕駛日誌、AI 推論模型權重暫存、低功耗常關閉 MCU"
+          },
+          "reram": {
+            "val": "類腦神經形態運算、高密度儲存",
+            "note": "記憶體內運算 (CiM) 矩陣乘法、低成本物聯網 MCU 代碼"
+          },
+          "feram": {
+            "val": "工業關鍵儀表、防竄改即時記錄",
+            "note": "智慧電表不斷電秒級記錄、醫療監護儀器即時狀態保存"
+          }
+        }
+      }
+    ],
+    "workbenchBaselines": {
+      "macroOverhead": {
+        "description": "基於 28nm/22nm/16nm/7nm/3nm/2nm 之單元 F² 與周邊幫浦開銷換算模型",
+        "crossoverThresholdKb": 256,
+        "zeroMaskAdvantage": "容量低於 256Kb 時，零光罩邏輯 OTP/MTP 在巨集總面積與晶圓成本上具備絕對優勢"
+      },
+      "ateEconomics": {
+        "description": "基於 Teradyne / Advantest 高階機台時薪 ($150/hr) 之測試秒數與量產溢價推算",
+        "gangParallelSites": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "programVerifyPenaltyMultiplier": 3.5
+      },
+      "arrheniusAecQ100": {
+        "description": "基於 Arrhenius 方程式與 J-STD-020 260°C 迴焊衝擊之高溫保持外插模型",
+        "boltzmannConstEv": 0.00008617333,
+        "grade0TempC": 150,
+        "grade1TempC": 125,
+        "antifuseTypicalEa": 2.1,
+        "floatingGateTypicalEa": 1.2
+      }
+    }
+  }
 }
