@@ -3202,7 +3202,805 @@
         "term": "NVM Process Option",
         "definition": "An optional memory process module on a selected foundry platform. Verify second-poly, tunnel-oxide and added-mask requirements for that module. Logic compatibility and zero added masks are separate integration claims."
       }
-    ]
+    ],
+    "ipCriteriaMasterTable": {
+      "kicker": "01C · IP ARCHITECTURAL SELECTION MASTER MATRIX",
+      "title": "From Cell Physics to SoC Integration: Comprehensive NVM IP Decision Matrix",
+      "subtitle": "Elevating Academic Technology Metrics (S. Yu 2016/2021) into 13 System-Level IP Criteria Across Mask Cost, Power Rails, ATE Test Time, Automotive Thermal Profile, and Advanced Node Scaling",
+      "methodologyNote": "Academic benchmarks (such as Shimeng Yu 2016/2021 surveys) focus on isolated cell physics theoretical limits (Cell Area F², switching voltage, cell write time). In commercial SoC and ASIC practice, chip architects confront wafer mask adders, integrated charge pump silicon overhead, mass-production ATE test time cost, SMT reflow heat tolerance, automotive AEC-Q100 activation energy, and physical anti-tamper security. The table below comprehensively compares all 11 mainstream and emerging NVM IP categories across 13 system-level evaluation dimensions.",
+      "columns": [
+        {
+          "id": "efuse",
+          "name": "Foundry eFuse",
+          "category": "foundry",
+          "label": "Foundry eFuse",
+          "highlight": false
+        },
+        {
+          "id": "maskrom",
+          "name": "Mask ROM",
+          "category": "foundry",
+          "label": "Mask ROM",
+          "highlight": false
+        },
+        {
+          "id": "antifuse",
+          "name": "Logic AntiFuse OTP",
+          "category": "otp",
+          "label": "Logic AntiFuse OTP",
+          "highlight": true
+        },
+        {
+          "id": "fgotp",
+          "name": "Logic FG-OTP",
+          "category": "otp",
+          "label": "Logic FG-OTP",
+          "highlight": false
+        },
+        {
+          "id": "ldmtp",
+          "name": "Logic LD-MTP",
+          "category": "mtp",
+          "label": "Logic LD-MTP",
+          "highlight": false
+        },
+        {
+          "id": "hdmtp",
+          "name": "Logic HD-MTP",
+          "category": "mtp",
+          "label": "Logic HD-MTP",
+          "highlight": false
+        },
+        {
+          "id": "sst",
+          "name": "Split-Gate eFlash (SST)",
+          "category": "eflash",
+          "label": "Split-Gate eFlash (SST)",
+          "highlight": false
+        },
+        {
+          "id": "sonos",
+          "name": "Charge-Trap eFlash (SONOS)",
+          "category": "eflash",
+          "label": "Charge-Trap eFlash (SONOS)",
+          "highlight": false
+        },
+        {
+          "id": "mram",
+          "name": "Embedded STT-MRAM",
+          "category": "emerging",
+          "label": "Embedded STT-MRAM",
+          "highlight": false
+        },
+        {
+          "id": "reram",
+          "name": "Embedded OxRAM (ReRAM)",
+          "category": "emerging",
+          "label": "Embedded OxRAM (ReRAM)",
+          "highlight": false
+        },
+        {
+          "id": "feram",
+          "name": "Embedded FeRAM / FeFET",
+          "category": "emerging",
+          "label": "Embedded FeRAM / FeFET",
+          "highlight": false
+        }
+      ],
+      "categories": [
+        {
+          "id": "all",
+          "label": "All 11 NVM IPs"
+        },
+        {
+          "id": "zeromask",
+          "label": "0-Mask Logic IPs (5)"
+        },
+        {
+          "id": "embedded_flash",
+          "label": "Flash & Emerging NVM (5)"
+        },
+        {
+          "id": "security_focus",
+          "label": "Security & RoT Focus"
+        },
+        {
+          "id": "auto_focus",
+          "label": "Automotive Grade 0 Focus"
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "dim_mask_wafer",
+          "number": "01",
+          "name": "Mask Adders & Wafer Cost Impact",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "0-Mask logic CMOS compatibility eliminates wafer cost adder (0%); eFlash requires 8-12 front-end masks (+25~40% wafer adder), highly uneconomic on small dies; BEOL emerging NVMs (ReRAM/MRAM) add 2-5 back-end masks (+8~18% wafer cost).",
+          "values": {
+            "efuse": {
+              "val": "+0 (Standard Logic)",
+              "note": "Foundry native baseline, 0% wafer adder"
+            },
+            "maskrom": {
+              "val": "0 ~ +1 Mask",
+              "note": "Contact/via programming layer only"
+            },
+            "antifuse": {
+              "val": "+0 (Pure Logic CMOS)",
+              "note": "100% logic compatible, 0 adder, lowest TCO on small dies"
+            },
+            "fgotp": {
+              "val": "+0 (Standard Logic)",
+              "note": "Single-poly standard logic, 0 adder"
+            },
+            "ldmtp": {
+              "val": "Typically +0",
+              "note": "Single-poly FN, 0-mask or optional +1 well implant"
+            },
+            "hdmtp": {
+              "val": "+0 ~ +2 Masks",
+              "note": "Vendor-split: baseline +0, Gen2 +2 well-implants"
+            },
+            "sst": {
+              "val": "+8 ~ +12 (FEOL)",
+              "note": "Front-end dedicated masks, +25~40% cost, stalls <28nm"
+            },
+            "sonos": {
+              "val": "+2 ~ +4 (FEOL)",
+              "note": "O-N-O trapping module, +10~18% wafer cost adder"
+            },
+            "mram": {
+              "val": "+3 ~ +5 (BEOL)",
+              "note": "Back-end MTJ stack, +12~18% wafer cost adder"
+            },
+            "reram": {
+              "val": "+2 ~ +4 (BEOL)",
+              "note": "Back-end transition-metal oxide, +6~10% wafer adder"
+            },
+            "feram": {
+              "val": "+2 ~ +4 (BEOL/FEOL)",
+              "note": "Ferroelectric cap or HfO2 gate, +8~12% wafer adder"
+            }
+          }
+        },
+        {
+          "id": "dim_macro_density",
+          "number": "02",
+          "name": "Macro-Level Density & Silicon Overhead",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "At small capacities (1Kb-64Kb), high-voltage pumps and peripheral circuits consume 80%+ macro area, making cell F² secondary; at >4Mb, array cell F² dominates total silicon area.",
+          "values": {
+            "efuse": {
+              "val": "Very Low Density",
+              "note": "60–120 F²; heavy wiring & drivers dominate small macros"
+            },
+            "maskrom": {
+              "val": "Ultra-High Density",
+              "note": "<8 F²; no pumps, minimal peripheral, lowest area"
+            },
+            "antifuse": {
+              "val": "Optimal for Small Capacity",
+              "note": "10–25 F²; small pump, industry smallest for 1Kb~64Kb"
+            },
+            "fgotp": {
+              "val": "Medium Density",
+              "note": "12–30 F²; coupling capacitor limits aggressive scaling"
+            },
+            "ldmtp": {
+              "val": "Low-Medium Density",
+              "note": "60–120+ F²; >80% area dedicated to coupling capacitors"
+            },
+            "hdmtp": {
+              "val": "Medium-High Density",
+              "note": "25–50 F²; hot-carrier injection shrinks capacitor size"
+            },
+            "sst": {
+              "val": "High Density for >1Mb",
+              "note": "12–30 F²; tight cell, but massive HV charge pump overhead"
+            },
+            "sonos": {
+              "val": "High Density for >1Mb",
+              "note": "15–35 F²; charge trap cell, optimal for 1Mb~32Mb"
+            },
+            "mram": {
+              "val": "Ultra-High in Adv. Nodes",
+              "note": "30–50 F²; BEOL integration saves valuable logic area"
+            },
+            "reram": {
+              "val": "High Density in Adv. Nodes",
+              "note": "15–35 F²; crossbar structure enables multi-layer 3D stacking"
+            },
+            "feram": {
+              "val": "Medium-High Density",
+              "note": "6–50 F²; 1T1C capacitor limited, FeFET enables 1T scaling"
+            }
+          }
+        },
+        {
+          "id": "dim_supply_pump",
+          "number": "03",
+          "name": "Supply Rail Contract & On-Chip Charge Pump",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Assesses whether external high-voltage VPP pins are required (increasing package cost) versus integrated on-chip charge pumps, inrush current surges, and pump ramp-up latency.",
+          "values": {
+            "efuse": {
+              "val": "High Current (~10-15mA)",
+              "note": "Requires dedicated high-current supply rail or pad"
+            },
+            "maskrom": {
+              "val": "Pure Core VDD Only",
+              "note": "0.75V~1.2V core rail, zero HV or analog pump needed"
+            },
+            "antifuse": {
+              "val": "Single Supply, Small Pump",
+              "note": "Internal pump from core VDD to 5~7V, µA-level transient"
+            },
+            "fgotp": {
+              "val": "Single or Dual Supply",
+              "note": "Internal 6~8V pump, mA-level current for CHEI"
+            },
+            "ldmtp": {
+              "val": "Single Supply, FN Pump",
+              "note": "Internal 10~14V pump, pure FN tunneling, ultra-low current"
+            },
+            "hdmtp": {
+              "val": "Single Supply, Internal Pump",
+              "note": "Internal 8~12V pump, current depends on FN vs CHI mode"
+            },
+            "sst": {
+              "val": "Large Dual HV Pumps",
+              "note": "Prog 10V+5V, Erase 12~15V, pump ramp-up latency 10~20µs"
+            },
+            "sonos": {
+              "val": "Internal HV Charge Pump",
+              "note": "FN P/E requires 9~12V, direct core VDD for sensing"
+            },
+            "mram": {
+              "val": "Pure Single Low-Voltage",
+              "note": "~1.0-1.2V direct switching, zero pump, 30-80µA write pulse"
+            },
+            "reram": {
+              "val": "Low-V Boost Pump (~2.5V)",
+              "note": "Forming ~2.5V, SET/RESET 1.2-1.5V, minimal pump area"
+            },
+            "feram": {
+              "val": "Pure Single Low-Voltage",
+              "note": "1.2V~1.8V direct electric field switching, zero pump"
+            }
+          }
+        },
+        {
+          "id": "dim_read_latency",
+          "number": "04",
+          "name": "Read Latency, XIP Clock & Bus Execution",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Whether code can execute directly from the array over AHB/AXI buses (Execute-In-Place / XIP) or strictly mandates power-up boot shadowing into system SRAM.",
+          "values": {
+            "efuse": {
+              "val": "Slow (~1µs), Shadow Req.",
+              "note": "Access ~1µs, strictly requires boot shadowing to SRAM"
+            },
+            "maskrom": {
+              "val": "Ultra-Fast XIP (~5-15ns)",
+              "note": "Static 1T array, supports 100MHz+ zero-wait XIP execution"
+            },
+            "antifuse": {
+              "val": "Direct XIP (~25-40ns)",
+              "note": "Cell-current limited, supports 20~40MHz XIP or boot-load"
+            },
+            "fgotp": {
+              "val": "Direct XIP (~25-40ns)",
+              "note": "Sense amplifier trip limited, direct read or cacheable"
+            },
+            "ldmtp": {
+              "val": "Direct Read (~20-40ns)",
+              "note": "Moderate read current, supports direct read or shadow"
+            },
+            "hdmtp": {
+              "val": "Direct Read (~20-35ns)",
+              "note": "Supports 30~50MHz direct read for calibration & constants"
+            },
+            "sst": {
+              "val": "High-Speed XIP (~15-25ns)",
+              "note": "Split-gate high current, 80~133MHz zero-wait XIP MCU code"
+            },
+            "sonos": {
+              "val": "Direct XIP (~20-35ns)",
+              "note": "Supports 50~80MHz bus XIP execution"
+            },
+            "mram": {
+              "val": "SRAM-like XIP (~10-25ns)",
+              "note": "Fast TMR sensing, 100MHz+ zero-wait random XIP execution"
+            },
+            "reram": {
+              "val": "Fast Direct Read (~10-20ns)",
+              "note": "Low-resistance state provides ample sensing margin"
+            },
+            "feram": {
+              "val": "Destructive Read (~20-40ns)",
+              "note": "Polarization charge sensing requires automatic write-back"
+            }
+          }
+        },
+        {
+          "id": "dim_write_test_cost",
+          "number": "05",
+          "name": "Programming Granularity & ATE Test Cost",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Single bit/byte random programming versus block erase; wafer-level CP and package-level FT burn-in time per chip on multi-million dollar ATE testers directly dictates production unit margins.",
+          "values": {
+            "efuse": {
+              "val": "Bit-level, High Test Cost",
+              "note": "ms-level pulse per bit, heavy ATE machine-time penalty"
+            },
+            "maskrom": {
+              "val": "Zero Test Time (Factory)",
+              "note": "Manufactured with data, zero programming test time"
+            },
+            "antifuse": {
+              "val": "Bit-level, Fast CP/FT Test",
+              "note": "µs breakdown per bit; 1-4Kb keys programmed in <10ms"
+            },
+            "fgotp": {
+              "val": "Bit/Byte, Moderate Test",
+              "note": "CHEI requires pulse-verify loop; slightly longer than AntiFuse"
+            },
+            "ldmtp": {
+              "val": "Byte Write / Page Erase",
+              "note": "FN P/E requires ms-level pulses; optimal for trim updates"
+            },
+            "hdmtp": {
+              "val": "Byte Write / Sector Erase",
+              "note": "Supports random byte update; controlled ATE test time"
+            },
+            "sst": {
+              "val": "Byte Write / Sector Erase",
+              "note": "Fast SSI (~10µs/B), but sector erase 5-10ms; multi-sec FT"
+            },
+            "sonos": {
+              "val": "Page Write / Sector Erase",
+              "note": "Page write ~1-2ms, sector erase ~10ms; medium test speed"
+            },
+            "mram": {
+              "val": "Byte/Word In-Place, No Erase",
+              "note": "<20ns flip, zero erase required; fastest ATE burn-in"
+            },
+            "reram": {
+              "val": "Byte In-Place, Needs Forming",
+              "note": "No erase needed, but requires factory forming step"
+            },
+            "feram": {
+              "val": "Ultra-Fast Byte In-Place",
+              "note": "Write speed equals read (<50ns), zero erase overhead"
+            }
+          }
+        },
+        {
+          "id": "dim_retention_temp",
+          "number": "06",
+          "name": "High-Temp Retention & AEC-Q100 Profile",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Arrhenius thermal acceleration activation energy (Ea); AntiFuse ohmic filaments exhibit high Ea (>1.8eV) surviving 175°C Grade 0+, while charge-trap and magnetic cells face thermal leakage at extreme junctions.",
+          "values": {
+            "efuse": {
+              "val": "125°C 10yr (Auto Grade 1)",
+              "note": "Physical rupture, but micro-risk of metal electromigration heal"
+            },
+            "maskrom": {
+              "val": "Permanent (Auto Grade 0)",
+              "note": "Hardwired mask layers, zero thermal degradation over time"
+            },
+            "antifuse": {
+              "val": "175°C 10yr (Auto Grade 0+)",
+              "note": "Ea ~1.8-2.1 eV, irreversible filament, AEC-Q100 Grade 0+"
+            },
+            "fgotp": {
+              "val": "125°C 10yr (Auto Grade 1)",
+              "note": "Ea ~1.1 eV, oxide thermal leakage bounds to Grade 1"
+            },
+            "ldmtp": {
+              "val": "125°C 10yr (Grade 1)",
+              "note": "Low-disturb single poly, solid at 125°C, bounds Grade 1"
+            },
+            "hdmtp": {
+              "val": "125°C 10yr (Grade 1)",
+              "note": "Thin-oxide charge storage, standardized at 125°C 10yr"
+            },
+            "sst": {
+              "val": "150°C 10yr / 125°C 20yr",
+              "note": "Thick oxide isolation, golden standard for Auto Grade 0"
+            },
+            "sonos": {
+              "val": "125°C 10yr (Some Grade 0)",
+              "note": "SiN traps can diffuse; newer gens qualified to 150°C"
+            },
+            "mram": {
+              "val": "125°C 10yr (Grade 1 typical)",
+              "note": "Thermal factor Δ drops with temp; 150°C requires larger Ic"
+            },
+            "reram": {
+              "val": "85°C ~ 105°C (Industrial)",
+              "note": "Oxygen vacancies diffuse at high temp; Grade 0 remains R&D"
+            },
+            "feram": {
+              "val": "85°C 10yr / 125°C limited",
+              "note": "Curie temperature bound, thermal depolarization at high temp"
+            }
+          }
+        },
+        {
+          "id": "dim_smt_reflow",
+          "number": "07",
+          "name": "SMT Reflow Tolerance & Pre-Programming",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Ability to withstand JEDEC J-STD-020 lead-free 260°C reflow heat without data corruption, enabling pre-programmed wafer/die delivery versus requiring post-assembly board-level programming.",
+          "values": {
+            "efuse": {
+              "val": "100% Immune to Reflow",
+              "note": "Physical open-circuit, 100% safe through 260°C reflow"
+            },
+            "maskrom": {
+              "val": "100% Absolute Immune",
+              "note": "Hardwired interconnect, immune to all assembly heat"
+            },
+            "antifuse": {
+              "val": "100% Immune to Reflow",
+              "note": "Ohmic filament is ultra-stable; perfect for pre-program keys"
+            },
+            "fgotp": {
+              "val": "Thermal Risk, Post-Program",
+              "note": "260°C reflow may bleed electrons; post-SMT burn advised"
+            },
+            "ldmtp": {
+              "val": "Post-SMT Recommended",
+              "note": "Thermal stress impacts charge; calibrate post-SMT"
+            },
+            "hdmtp": {
+              "val": "Post-SMT Recommended",
+              "note": "Thin-oxide sensitive to 260°C; post-assembly preferred"
+            },
+            "sst": {
+              "val": "High Tolerance, Pre-Prog OK",
+              "note": "Thick oxide survives 260°C reflow; qualified for pre-prog"
+            },
+            "sonos": {
+              "val": "Moderate, Budget Monitored",
+              "note": "Deep traps survive brief reflow, track cumulative cycles"
+            },
+            "mram": {
+              "val": "Sensitive (Demag Risk)",
+              "note": "260°C heat risks MTJ demagnetization; requires special stack"
+            },
+            "reram": {
+              "val": "Pre-Forming Assembly Best",
+              "note": "Pristine state survives well; pre-formed filament risks diffusion"
+            },
+            "feram": {
+              "val": "Depolarization Risk",
+              "note": "Polarization degrades near Curie point; re-program post-SMT"
+            }
+          }
+        },
+        {
+          "id": "dim_endurance_mgmt",
+          "number": "08",
+          "name": "Endurance Lifecycle & Wear-Leveling",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "From 1-time OTP to 10^5 eFlash and 10^12 MRAM; dictates whether the host SoC CPU and RTOS must implement complex wear-leveling algorithms, bad-block management, and journaled filesystems.",
+          "values": {
+            "efuse": {
+              "val": "1 Cycle (OTP, Irrev.)",
+              "note": "Irreversible physical link blown, strictly 1-time"
+            },
+            "maskrom": {
+              "val": "0 Cycles (Read-Only)",
+              "note": "Mask pattern fixed, zero in-field write capability"
+            },
+            "antifuse": {
+              "val": "1 Cycle (Multi-Bank Emul.)",
+              "note": "Physical 1-cycle; logical multi-bank allows version updates"
+            },
+            "fgotp": {
+              "val": "1 Cycle (UV EPROM mode)",
+              "note": "1-time in package; UV clear theoretical, impractical in mass"
+            },
+            "ldmtp": {
+              "val": "10⁴ ~ 10⁵ P/E Cycles",
+              "note": "Low-disturb FN, ample for lifelong trim and config updates"
+            },
+            "hdmtp": {
+              "val": "10³ ~ 10⁴ P/E Cycles",
+              "note": "Thinner oxide limits cycles; ideal for code patches & logs"
+            },
+            "sst": {
+              "val": "10⁴ ~ 10⁵ P/E Cycles",
+              "note": "MCU code standard; requires wear-leveling filesystem"
+            },
+            "sonos": {
+              "val": "10⁴ ~ 10⁵ P/E Cycles",
+              "note": "Trapping layer fatigue; requires wear-counting & ECC"
+            },
+            "mram": {
+              "val": "10¹⁰ ~ 10¹² (Near-Infinite)",
+              "note": "Spin flip has no wearout; direct SRAM replacement, 0 software"
+            },
+            "reram": {
+              "val": "10⁵ ~ 10⁶ P/E Cycles",
+              "note": "Filament fatigue accumulates defects; requires wear leveling"
+            },
+            "feram": {
+              "val": "10¹² ~ 10¹⁴ Cycles",
+              "note": "Negligible fatigue; directly replaces battery-backed SRAM"
+            }
+          }
+        },
+        {
+          "id": "dim_power_normally_off",
+          "number": "09",
+          "name": "Active Energy & Normally-Off Instant-On",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "System dynamic current during read/write operations versus zero standby power-gated leakage (Normally-Off / Instant-On) for battery-operated edge IoT and AI sensors.",
+          "values": {
+            "efuse": {
+              "val": "Low Read / High Write Pwr",
+              "note": "10-15mA write current makes in-field battery programming hard"
+            },
+            "maskrom": {
+              "val": "Ultra-Low Active / 0 Leak",
+              "note": "Static 1T switching, zero power-off leakage, 0-latency wake"
+            },
+            "antifuse": {
+              "val": "Ultra-Low / Perfect N-Off",
+              "note": "Read <0.5mW, zero leakage, ns-level wakeup; ideal for IoT RoT"
+            },
+            "fgotp": {
+              "val": "Low Active / 0 Leakage",
+              "note": "Zero power-off leakage, instant read for sensor configs"
+            },
+            "ldmtp": {
+              "val": "Pure Voltage FN, Low Power",
+              "note": "FN P/E current <1µA, battery-powered friendly for calibration"
+            },
+            "hdmtp": {
+              "val": "Low to Moderate Power",
+              "note": "Controlled P/E power, zero standby leakage, fast wake"
+            },
+            "sst": {
+              "val": "High Write Pwr (HV Surge)",
+              "note": "HV pump surge 15~30mA, requires hefty decoupling caps"
+            },
+            "sonos": {
+              "val": "Moderate Write Power",
+              "note": "Higher efficiency than floating gate, supports low-power MCUs"
+            },
+            "mram": {
+              "val": "High Write I / Low Read Pwr",
+              "note": "SRAM-like read, but STT write requires 30-80µA; 0 standby leak"
+            },
+            "reram": {
+              "val": "Ultra-Low Energy (~pJ)",
+              "note": "Sub-50ns switching pulses, premier choice for Edge AI CiM"
+            },
+            "feram": {
+              "val": "Extreme Low Power (~100fJ)",
+              "note": "Electric-field displacement current only; lowest write energy"
+            }
+          }
+        },
+        {
+          "id": "dim_process_scaling",
+          "number": "10",
+          "name": "Process Scaling & Advanced Node Support",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Portability to FinFET, GAA nanosheets, and backside power delivery (BSPDN); eFlash strictly stalls at planar 28nm, while AntiFuse scales natively to 2nm GAA, and MRAM/ReRAM stack in low-temp BEOL.",
+          "values": {
+            "efuse": {
+              "val": "Ports to GAA, Huge Area",
+              "note": "Contact scales, but parasitic R makes blowing hard in FinFET"
+            },
+            "maskrom": {
+              "val": "Ports, but Costly Masks",
+              "note": "EUV mask cost ($M) makes Mask ROM uneconomic in GAA"
+            },
+            "antifuse": {
+              "val": "Scales to 2nm GAA / BSPDN",
+              "note": "Tracks core GOX breakdown; sole 0-mask NVM at 2nm/BSPDN"
+            },
+            "fgotp": {
+              "val": "Stalls at Planar 28nm",
+              "note": "Floating gate topology conflicts with 3D FinFET geometry"
+            },
+            "ldmtp": {
+              "val": "Stalls at Planar 28nm",
+              "note": "Large lateral capacitor impractical in FinFET/GAA"
+            },
+            "hdmtp": {
+              "val": "Stalls at Planar 28nm",
+              "note": "Hot-carrier injection physics incompatible with FinFET fins"
+            },
+            "sst": {
+              "val": "Strict Stop at Planar 28nm",
+              "note": "Split-gate 3D thermal budget incompatible with FinFET"
+            },
+            "sonos": {
+              "val": "Planar 28nm / 40nm BCD",
+              "note": "Automotive BCD workhorse; difficult to port to FinFET"
+            },
+            "mram": {
+              "val": "BEOL Stack, 22nm to 12nm",
+              "note": "Low-temp BEOL decoupled from FEOL; primary eFlash successor"
+            },
+            "reram": {
+              "val": "BEOL Stack, 12nm & Beyond",
+              "note": "Simple 2-mask BEOL stack, highly compatible with FinFET"
+            },
+            "feram": {
+              "val": "FeFET Scales with GAA",
+              "note": "1T1C hard to scale; HfO2 FeFET directly integrates into GAA gate"
+            }
+          }
+        },
+        {
+          "id": "dim_security_tamper",
+          "number": "11",
+          "name": "Physical Security, Anti-Tamper & PUF RoT",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Whether stored data is visible under SEM/TEM post delayering; resistance to FIB voltage-contrast micro-probing, DPA side-channel leakage, and ability to derive native PUF hardware fingerprints.",
+          "values": {
+            "efuse": {
+              "val": "Very Poor (Visible via SEM)",
+              "note": "Physical gap clearly visible under SEM; zero optical security"
+            },
+            "maskrom": {
+              "val": "Very Poor (Optically Readable)",
+              "note": "Contact/via patterns easily reverse-engineered via delayering"
+            },
+            "antifuse": {
+              "val": "Top Security (Invisible, PUF)",
+              "note": "Nano-scale filament invisible in TEM; FIB immune; native PUF"
+            },
+            "fgotp": {
+              "val": "Moderate (Charge Emiss. Risk)",
+              "note": "Vulnerable to emission microscopy or UV-induced discharge"
+            },
+            "ldmtp": {
+              "val": "Moderate (Charge Probing)",
+              "note": "Floating gate charge vulnerable to voltage contrast & laser"
+            },
+            "hdmtp": {
+              "val": "Moderate (Shielding Req.)",
+              "note": "Requires active metal shield over macro against probing"
+            },
+            "sst": {
+              "val": "Good (Split-Gate Shielding)",
+              "note": "Control gate physically overhangs FG, providing physical shield"
+            },
+            "sonos": {
+              "val": "Very Good (Localized Traps)",
+              "note": "Electrons trapped locally in SiN; immune to single-probe drain"
+            },
+            "mram": {
+              "val": "Very Good (V-probe immune)",
+              "note": "Magnetic state invisible in TEM; requires magnetic shielding"
+            },
+            "reram": {
+              "val": "Very Good (Nano Filament)",
+              "note": "Sub-nm vacancy filament undetectable by standard microscopy"
+            },
+            "feram": {
+              "val": "Very Good (Lattice Dipole)",
+              "note": "Spontaneous crystal polarization has zero geometric footprint"
+            }
+          }
+        },
+        {
+          "id": "dim_foundry_ecosystem",
+          "number": "12",
+          "name": "Foundry PDK Maturity & Multi-Sourcing",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Commercial PDK availability and volume production track record across TSMC, UMC, GlobalFoundries, and Samsung; mitigation of single-vendor lock-in risks.",
+          "values": {
+            "efuse": {
+              "val": "Foundry Native, Unique APIs",
+              "note": "Free native IP, but interfaces completely proprietary per fab"
+            },
+            "maskrom": {
+              "val": "Universal Foundry Support",
+              "note": "Standard commodity offering across all global foundries"
+            },
+            "antifuse": {
+              "val": "Global Benchmark (10B+ dies)",
+              "note": "eMemory & Synopsys ported to TSMC/UMC/GF/SMIC/Samsung; 10B+ shipped"
+            },
+            "fgotp": {
+              "val": "Mature, Multi-Fab Support",
+              "note": "eMemory NeoBit benchmark in 0.5µm~55nm, massive volume"
+            },
+            "ldmtp": {
+              "val": "Multi-Fab PDK Available",
+              "note": "Widely available across TSMC/UMC/VIS/SMIC mixed-signal PDKs"
+            },
+            "hdmtp": {
+              "val": "Proven Volume Track Record",
+              "note": "NeoMTP & AEON qualified across 180nm~40nm global PDKs"
+            },
+            "sst": {
+              "val": "Fab License, High IP Barrier",
+              "note": "Available at TSMC/UMC/GF; high license fee and wafer royalty"
+            },
+            "sonos": {
+              "val": "Foundry & IP Vendor",
+              "note": "Offered on specific automotive & BCD lines at UMC/GF/Floadia"
+            },
+            "mram": {
+              "val": "TSMC / Samsung / GF Active",
+              "note": "Production at TSMC 22/16, Samsung 28/14, GF 22FDX; non-portable"
+            },
+            "reram": {
+              "val": "TSMC / UMC / Weebit Growing",
+              "note": "Commercial PDKs ramping at TSMC 40/28/22 and UMC 22nm"
+            },
+            "feram": {
+              "val": "Specialized (Infineon/TI/TSMC)",
+              "note": "Traditional FeRAM IDM-bound; HfO2 FeFET in advanced foundry R&D"
+            }
+          }
+        },
+        {
+          "id": "dim_sweet_spot_app",
+          "number": "13",
+          "name": "Target SoC Sweet-Spot Applications",
+          "academicMapping": "Corresponds to academic technology metrics, elevated to SoC system integration criteria.",
+          "architecturalTradeoff": "Optimal architectural socket mapping: Security Root-of-Trust, analog trimming, MCU code flash, edge AI weight buffering, or mission-critical flight recorders.",
+          "values": {
+            "efuse": {
+              "val": "Wafer Repair & Package ID",
+              "note": "SRAM redundancy repair, minimal chip serial ID"
+            },
+            "maskrom": {
+              "val": "High-Volume ASIC Boot ROM",
+              "note": "Ultra-high volume fixed bootloaders, zero license cost"
+            },
+            "antifuse": {
+              "val": "Root-of-Trust, PUF, Trim",
+              "note": "Secure boot root keys, PQC seeds, PMIC precision analog trim"
+            },
+            "fgotp": {
+              "val": "Sensor Trim, Media DRM Keys",
+              "note": "CIS sensor calibration, DDIC gamma trim, HDMI/HDCP keys"
+            },
+            "ldmtp": {
+              "val": "Wearable Params, Sensor Cal.",
+              "note": "BLE pairing records, periodic sensor recalibration"
+            },
+            "hdmtp": {
+              "val": "Small MCU Code & IoT Logs",
+              "note": "8/16-bit MCU code storage, smart meter event logging"
+            },
+            "sst": {
+              "val": "Auto High-Perf MCU Firmware",
+              "note": "Automotive body & chassis MCU main code flash with OTA"
+            },
+            "sonos": {
+              "val": "BCD PMIC & Industrial MCU",
+              "note": "High-voltage motor drive controllers, industrial MCU code"
+            },
+            "mram": {
+              "val": "Auto Blackbox, Edge AI, SRAM",
+              "note": "Mission-critical flight recorders, Edge AI weights, normally-off"
+            },
+            "reram": {
+              "val": "Neuromorphic CiM, High-Density",
+              "note": "In-memory computing crossbars, cost-effective IoT MCU storage"
+            },
+            "feram": {
+              "val": "Critical Metering & Fast Logs",
+              "note": "Smart metering instant power-loss logs, medical instrument state"
+            }
+          }
+        }
+      ]
+    }
   },
   "foundry": {
     "title": "GF, TSMC and UMC Embedded Memory Roadmaps",

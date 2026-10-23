@@ -1468,6 +1468,355 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
     }
+  
+    /* ==========================================================================
+       SECTION 01C: IP ARCHITECT SELECTION MASTER MATRIX STYLES (SURGICAL LIGHT)
+       ========================================================================== */
+    .ip-master-frame {
+      background: #ffffff;
+      border: 1px solid rgba(0, 111, 112, 0.2);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-top: 36px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .ip-master-lead-card {
+      background: #f8fafc;
+      border: 1px solid #cddbdc;
+      border-left: 4px solid #006f70;
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin: 20px 0 24px 0;
+    }
+    .ip-lead-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .ip-lead-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #006f70;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+    .ip-lead-academic-cite {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #173b49;
+    }
+    .ip-lead-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #334155;
+      margin: 0;
+    }
+    .ip-filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 16px 0 12px 0;
+      padding: 12px 16px;
+      background: #f1f5f9;
+      border: 1px solid #cddbdc;
+      border-radius: 8px;
+    }
+    .ip-filter-toolbar .filter-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #173b49;
+    }
+    .filter-pills-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ip-filter-pill {
+      background: #ffffff;
+      border: 1px solid #cddbdc;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #173b49;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ip-filter-pill:hover {
+      background: #e2e8f0;
+      border-color: #006f70;
+    }
+    .ip-filter-pill.is-active {
+      background: #006f70;
+      border-color: #006f70;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 111, 112, 0.25);
+    }
+    .ip-table-help-note {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 8px 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ip-master-table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #cddbdc;
+      border-radius: 8px;
+      background: #ffffff;
+      margin-bottom: 28px;
+    }
+    .ip-master-table {
+      width: 100%;
+      min-width: 1600px;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      text-align: left;
+    }
+    .ip-master-table caption {
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .ip-master-table thead th {
+      background: #f1f5f9;
+      color: #173b49;
+      padding: 14px 12px;
+      border-bottom: 2px solid #006f70;
+      border-right: 1px solid #e2e8f0;
+      vertical-align: bottom;
+    }
+    .ip-master-table thead th.th-dimension-header {
+      width: 280px;
+      min-width: 280px;
+      max-width: 280px;
+      background: #eef4f6;
+      border-right: 2px solid #cddbdc;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+    .ip-master-table thead th.th-tech-header {
+      width: 140px;
+      min-width: 140px;
+    }
+    .ip-master-table thead th.th-highlight-ip {
+      background: #fdfbf5;
+      border-top: 3px solid #dfb77c;
+    }
+    .th-main-title {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .th-sub-context {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .tech-col-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #006f70;
+      background: rgba(0, 111, 112, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      white-space: nowrap;
+    }
+    .tech-col-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+    .ip-master-table tbody th.td-dim-meta {
+      background: #f8fafc;
+      border-right: 2px solid #cddbdc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 14px;
+      vertical-align: top;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      width: 280px;
+      min-width: 280px;
+      max-width: 280px;
+    }
+    .dim-num-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: #173b49;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .dim-title {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .dim-academic-mapping {
+      font-size: 0.76rem;
+      line-height: 1.35;
+      color: #475569;
+      margin-bottom: 6px;
+      padding: 4px 6px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+    }
+    .dim-academic-mapping .map-label {
+      font-weight: 700;
+      color: #006f70;
+    }
+    .dim-architectural-tradeoff {
+      font-size: 0.76rem;
+      line-height: 1.35;
+      color: #334155;
+    }
+    .dim-architectural-tradeoff .tradeoff-label {
+      font-weight: 700;
+      color: #8c6d37;
+    }
+    .ip-master-table tbody td.td-tech-val {
+      padding: 10px 12px;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .ip-master-table tbody td.td-highlight-ip {
+      background: #fdfbf5;
+    }
+    .ip-master-table tbody tr.tr-alt td.td-tech-val {
+      background: #fafcfe;
+    }
+    .ip-master-table tbody tr.tr-alt td.td-highlight-ip {
+      background: #fdfaf0;
+    }
+    .cell-val-primary {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+    }
+    .cell-val-note {
+      font-size: 0.75rem;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .is-col-hidden {
+      display: none !important;
+    }
+    .ip-deep-dive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 900px) {
+      .ip-deep-dive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .deep-dive-card {
+      background: #ffffff;
+      border: 1px solid #cddbdc;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+    .deep-dive-card .card-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #006f70;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .deep-dive-card .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #173b49;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+    .deep-dive-card .card-body p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #334155;
+      margin: 0 0 12px 0;
+    }
+    .deep-dive-card .card-footer-metric {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+    }
+    .deep-dive-card .metric-tag {
+      background: #006f70;
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+    .deep-dive-card .metric-desc {
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+    .ip-master-footer-note {
+      background: #f8fafc;
+      border: 1px solid #cddbdc;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+    }
+    .footer-note-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #173b49;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-note-content p {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #475569;
+      margin: 0;
+    }
   </style>
 </head>
 <body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -1632,6 +1981,10 @@
         <a class="nav-pill" href="#named-implementations">
           <span class="pill-number">01B</span>
           <span class="pill-text"><span data-lang="zh">具名案例與測試條件</span><span data-lang="en">Named Cases and Conditions</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-ip-comparison-master">
+          <span class="pill-number">01C</span>
+          <span class="pill-text"><span data-lang="zh">IP 架構師選型總表</span><span data-lang="en">IP Selection Master Matrix</span></span>
         </a>
         <a class="nav-pill" href="#sec-selector">
           <span class="pill-number">02</span>
@@ -2129,6 +2482,1008 @@
       </div>
     </section>
 <!-- NAMED-COMPARISON:END -->
+
+<!-- SECTION 01C: IP ARCHITECTURAL SELECTION MASTER MATRIX -->
+<section id="sec-ip-comparison-master" class="lens-panel ip-master-frame" aria-labelledby="ip-master-title">
+  <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(0, 111, 112, 0.15);">
+    <div class="hub-sec-kicker">
+      <span data-lang="zh">01C · IP 架構師選型全景決策總表</span><span data-lang="en">01C · IP ARCHITECTURAL SELECTION MASTER MATRIX</span>
+    </div>
+    <h2 id="ip-master-title" class="hub-sec-title">
+      <span data-lang="zh">從單元物理到 SoC 系統整合：全譜系 NVM IP 實務決策矩陣</span><span data-lang="en">From Cell Physics to SoC Integration: Comprehensive NVM IP Decision Matrix</span>
+    </h2>
+    <p class="hub-sec-subtitle">
+      <span data-lang="zh">對齊學術技術指標（S. Yu 2016/2021），升維轉化為晶圓成本、電源軌契約、測試時間、車規溫度與先進節點微縮之十三大 IP 整合考量點</span><span data-lang="en">Elevating Academic Technology Metrics (S. Yu 2016/2021) into 13 System-Level IP Criteria Across Mask Cost, Power Rails, ATE Test Time, Automotive Thermal Profile, and Advanced Node Scaling</span>
+    </p>
+  </div>
+
+  <div class="ip-master-lead-card">
+    <div class="ip-lead-header">
+      <div class="ip-lead-badge">
+        <span class="badge-icon">🏛️</span>
+        <span data-lang="zh">學術對比升維至 SoC IP 實務</span><span data-lang="en">Academic Comparison Upgraded to SoC IP Practice</span>
+      </div>
+      <div class="ip-lead-academic-cite">
+        <span data-lang="zh">參考基準：Prof. Shimeng Yu (IEEE SSCM 2016 邀請綜論) 元件級指標 ➔ 升維為 13 大系統級工程整合維度</span>
+        <span data-lang="en">Baseline: Prof. Shimeng Yu (IEEE SSCM 2016 Review) Device Metrics ➔ Upgraded to 13 System-Level Integration Dimensions</span>
+      </div>
+    </div>
+    <div class="ip-lead-body">
+      <p>
+        <span data-lang="zh">在學術文獻中，NVM 比較通常聚焦於「位元胞物理極限」（如 Cell Area F²、Write Time、Retention 年限）。然而在真實 SoC 架構選型中，單元面積往往被周邊 High-Voltage 開關、感測放大器與電荷幫浦等巨集周邊稀釋；更關鍵的決策瓶頸在於：晶圓代工光罩加價率（Mask Adders）、ATE 晶圓測試時間機台成本、AEC-Q100 高溫活化能退化，以及能否在 2nm GAA/BSPDN 節點無縫可攜。本總表以頂級 SoC 架構師之實務視角，完整解構 11 大 NVM 技術之工程權衡。</span><span data-lang="en">Academic literature often evaluates NVM based purely on bit-cell physics limits (such as Cell Area in F², Write Time, and Nominal Retention). However, in real-world SoC architecture selection, raw cell area is heavily diluted by macro peripherals including high-voltage switches, sense amplifiers, and on-chip charge pumps. Crucial commercial bottlenecks center on foundry mask adders, ATE wafer test time costs, high-temperature activation energy degradation under AEC-Q100, and seamless portability to 2nm GAA/BSPDN nodes. This master matrix deconstructs the architectural trade-offs across 11 NVM technologies from a senior SoC architect perspective.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Interactive Filter Bar -->
+  <div class="ip-filter-toolbar" role="toolbar" aria-label="IP Selection Filter Views" data-aria-en="IP Selection Filter Views" data-aria-zh="IP 選型視圖過濾器">
+    <span class="filter-label"><span data-lang="zh">決策視圖：</span><span data-lang="en">Decision View:</span></span>
+    <div class="filter-pills-group" role="radiogroup" aria-label="Filter Technologies" data-aria-en="Filter Technologies" data-aria-zh="篩選技術族群">
+      <button type="button" role="radio" class="ip-filter-pill is-active" aria-checked="true" data-ip-view="all">
+        <span data-lang="zh">全部 11 大技術全景</span><span data-lang="en">All 11 Technologies</span>
+      </button>
+      <button type="button" role="radio" class="ip-filter-pill" aria-checked="false" data-ip-view="zeromask">
+        <span data-lang="zh">0-Mask 純邏輯相容群</span><span data-lang="en">0-Mask Standard Logic Group</span>
+      </button>
+      <button type="button" role="radio" class="ip-filter-pill" aria-checked="false" data-ip-view="embedded_flash">
+        <span data-lang="zh">嵌入式快閃與替代方案</span><span data-lang="en">Embedded Flash &amp; Emerging</span>
+      </button>
+      <button type="button" role="radio" class="ip-filter-pill" aria-checked="false" data-ip-view="security_focus">
+        <span data-lang="zh">高安全與信任根 (RoT)</span><span data-lang="en">Security &amp; Root-of-Trust</span>
+      </button>
+      <button type="button" role="radio" class="ip-filter-pill" aria-checked="false" data-ip-view="auto_focus">
+        <span data-lang="zh">車規高溫 AEC-Q100</span><span data-lang="en">Automotive AEC-Q100</span>
+      </button>
+    </div>
+  </div>
+
+  <p id="ip-master-help" class="ip-table-help-note">
+    <span class="help-icon">💡</span>
+    <span data-lang="zh">提示：表格支援水平滾動與按鈕篩選。點選上方視圖可快速聚焦特定技術族群。所有數據均基於量產代工廠 PDK、JEDEC / AEC-Q100 測試規範與量產實測。</span><span data-lang="en">Tip: Table supports horizontal scrolling and view filtering. Click the views above to isolate specific technology groups. All metrics are grounded in production foundry PDKs, JEDEC / AEC-Q100 standards, and verified silicon.</span>
+  </p>
+
+  <!-- Master Table Wrapper -->
+  <div class="ip-master-table-scroll" role="region" tabindex="0" aria-labelledby="ip-master-title" aria-describedby="ip-master-help">
+    <table class="ip-master-table" id="ipMasterTable">
+      <caption>
+        <span data-lang="zh">全譜系 11 大嵌入式非揮發性記憶體 IP 架構決策矩陣（涵蓋光罩成本、周邊開銷、供電幫浦、測試時間與先進節點微縮）</span><span data-lang="en">Full-Spectrum 11 Embedded NVM IP Architectural Decision Matrix (Covering Mask Cost, Macro Overhead, Charge Pumps, ATE Test Time, and Advanced Scaling)</span>
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" class="th-dimension-header">
+            <span class="th-main-title"><span data-lang="zh">系統級評估維度</span><span data-lang="en">System-Level Dimension</span></span>
+            <span class="th-sub-context"><span data-lang="zh">學術對照與架構權衡</span><span data-lang="en">Academic Context &amp;amp; Tradeoff</span></span>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="tech-col-badge"><span data-lang="zh">晶圓廠 eFuse</span><span data-lang="en">Foundry eFuse</span></div>
+            <div class="tech-col-name">Foundry eFuse</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="tech-col-badge"><span data-lang="zh">光罩 ROM</span><span data-lang="en">Mask ROM</span></div>
+            <div class="tech-col-name">Mask ROM</div>
+          </th>
+          <th scope="col" class="th-tech-header th-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="tech-col-badge"><span data-lang="zh">邏輯反熔絲 OTP</span><span data-lang="en">Logic AntiFuse OTP</span></div>
+            <div class="tech-col-name">Logic AntiFuse OTP</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="tech-col-badge"><span data-lang="zh">浮閘邏輯 OTP</span><span data-lang="en">Logic FG-OTP</span></div>
+            <div class="tech-col-name">Logic FG-OTP</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="tech-col-badge"><span data-lang="zh">低干擾邏輯 MTP</span><span data-lang="en">Logic LD-MTP</span></div>
+            <div class="tech-col-name">Logic LD-MTP</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="tech-col-badge"><span data-lang="zh">高密度邏輯 MTP</span><span data-lang="en">Logic HD-MTP</span></div>
+            <div class="tech-col-name">Logic HD-MTP</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="tech-col-badge"><span data-lang="zh">分離閘快閃 (SST)</span><span data-lang="en">Split-Gate eFlash (SST)</span></div>
+            <div class="tech-col-name">Split-Gate eFlash (SST)</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="tech-col-badge"><span data-lang="zh">電荷捕捉快閃 (SONOS)</span><span data-lang="en">Charge-Trap eFlash (SONOS)</span></div>
+            <div class="tech-col-name">Charge-Trap eFlash (SONOS)</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="tech-col-badge"><span data-lang="zh">嵌入式 STT-MRAM</span><span data-lang="en">Embedded STT-MRAM</span></div>
+            <div class="tech-col-name">Embedded STT-MRAM</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="tech-col-badge"><span data-lang="zh">阻變記憶體 (ReRAM)</span><span data-lang="en">Embedded OxRAM (ReRAM)</span></div>
+            <div class="tech-col-name">Embedded OxRAM (ReRAM)</div>
+          </th>
+          <th scope="col" class="th-tech-header" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="tech-col-badge"><span data-lang="zh">鐵電記憶體 (FeRAM/FeFET)</span><span data-lang="en">Embedded FeRAM / FeFET</span></div>
+            <div class="tech-col-name">Embedded FeRAM / FeFET</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-dim-id="dim_mask_wafer">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">01</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">微影光罩道數與晶圓加價率</span><span data-lang="en">Mask Adders &amp; Wafer Cost Impact</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（原圖僅看 Cell F²，忽略製程光罩成本是 SoC 決定生死的第一道關卡）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">0-Mask 完全相容標準邏輯製程（晶圓零加價）；eFlash 增加 8~12 道光罩導致晶圓加價 25~40%，小晶粒極不經濟；BEOL 新興技術（ReRAM/MRAM）增加 2~5 道後段光罩，增加 8~15% 晶圓成本。</span><span data-lang="en">0-Mask logic CMOS compatibility eliminates wafer cost adder (0%); eFlash requires 8-12 front-end masks (+25~40% wafer adder), highly uneconomic on small dies; BEOL emerging NVMs (ReRAM/MRAM) add 2-5 back-end masks (+8~18% wafer cost).</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">+0 道（純邏輯）</span><span data-lang="en">+0 (Standard Logic)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">標準代工庫原生整合，晶圓 0 加價</span><span data-lang="en">Foundry native baseline, 0% wafer adder</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">0 ~ +1 道</span><span data-lang="en">0 ~ +1 Mask</span></div>
+            <div class="cell-val-note"><span data-lang="zh">金屬層或 Contact/Via 改動，極低光罩費用</span><span data-lang="en">Contact/via programming layer only</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">+0 道（純邏輯）</span><span data-lang="en">+0 (Pure Logic CMOS)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">100% 邏輯相容，零額外光罩，小晶粒總成本最低</span><span data-lang="en">100% logic compatible, 0 adder, lowest TCO on small dies</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">+0 道（純邏輯）</span><span data-lang="en">+0 (Standard Logic)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">單層多晶矽邏輯相容，晶圓零加價</span><span data-lang="en">Single-poly standard logic, 0 adder</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">通常 +0 道</span><span data-lang="en">Typically +0</span></div>
+            <div class="cell-val-note"><span data-lang="zh">單層多晶矽 FN 穿隧，零光罩至 +1 道注入</span><span data-lang="en">Single-poly FN, 0-mask or optional +1 well implant</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">+0 ~ +2 道</span><span data-lang="en">+0 ~ +2 Masks</span></div>
+            <div class="cell-val-note"><span data-lang="zh">依供應商與 PDK 分流（基線 +0，高密度版 +2 道井注入）</span><span data-lang="en">Vendor-split: baseline +0, Gen2 +2 well-implants</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">+8 ~ +12 道（FEOL）</span><span data-lang="en">+8 ~ +12 (FEOL)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">前段專用高溫/浮閘光罩，晶圓加價 25%~40%，28nm 以下停滯</span><span data-lang="en">Front-end dedicated masks, +25~40% cost, stalls &lt;28nm</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">+2 ~ +4 道（FEOL）</span><span data-lang="en">+2 ~ +4 (FEOL)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">O-N-O 捕捉層模組，晶圓加價 10%~18%</span><span data-lang="en">O-N-O trapping module, +10~18% wafer cost adder</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">+3 ~ +5 道（BEOL）</span><span data-lang="en">+3 ~ +5 (BEOL)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">後段金屬層 MTJ 模組，晶圓加價 12%~18%</span><span data-lang="en">Back-end MTJ stack, +12~18% wafer cost adder</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">+2 ~ +4 道（BEOL）</span><span data-lang="en">+2 ~ +4 (BEOL)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">後段金屬層過渡金屬氧化物模組，晶圓加價 6%~10%</span><span data-lang="en">Back-end transition-metal oxide, +6~10% wafer adder</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">+2 ~ +4 道（BEOL/FEOL）</span><span data-lang="en">+2 ~ +4 (BEOL/FEOL)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">鐵電電容或 HfO2 薄膜，晶圓加價 8%~12%</span><span data-lang="en">Ferroelectric cap or HfO2 gate, +8~12% wafer adder</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_macro_density">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">02</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">巨集實體密度與周邊電路開銷</span><span data-lang="en">Macro-Level Density &amp; Silicon Overhead</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Cell Area (F²)，升維至包含電荷泵、感測放大器與高壓隔離間距的巨集實體面積</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">小容量（1Kb~64Kb）下，高壓幫浦與周邊開銷佔巨集 80% 面積，Cell F² 影響極小；大容量（&gt;4Mb）下，Cell F² 才是矽面積主導因素。</span><span data-lang="en">At small capacities (1Kb-64Kb), high-voltage pumps and peripheral circuits consume 80%+ macro area, making cell F² secondary; at &gt;4Mb, array cell F² dominates total silicon area.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">極低密度（周邊極大）</span><span data-lang="en">Very Low Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">60–120 F²；大電流金屬線路與感測電路使小容量巨集龐大</span><span data-lang="en">60–120 F²; heavy wiring &amp; drivers dominate small macros</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">最高密度（極緊湊）</span><span data-lang="en">Ultra-High Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">&lt;8 F²；無高壓幫浦，周邊極簡，矽面積極小</span><span data-lang="en">&lt;8 F²; no pumps, minimal peripheral, lowest area</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">小容量最優（極緊湊）</span><span data-lang="en">Optimal for Small Capacity</span></div>
+            <div class="cell-val-note"><span data-lang="zh">10–25 F²；高壓幫浦小，1Kb~64Kb 巨集面積業界最小</span><span data-lang="en">10–25 F²; small pump, industry smallest for 1Kb~64Kb</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">中等密度</span><span data-lang="en">Medium Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">12–30 F²；浮閘電容耦合需求限制巨集進一步微縮</span><span data-lang="en">12–30 F²; coupling capacitor limits aggressive scaling</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中低密度（電容開銷大）</span><span data-lang="en">Low-Medium Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">60–120+ F²；單層多晶矽需 &gt;80% 面積作為控制電容</span><span data-lang="en">60–120+ F²; &gt;80% area dedicated to coupling capacitors</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中高密度（25–50 F²）</span><span data-lang="en">Medium-High Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">25–50 F²；熱電洞注入縮小耦合電容，適合 16Kb~512Kb</span><span data-lang="en">25–50 F²; hot-carrier injection shrinks capacitor size</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">大容量高密度</span><span data-lang="en">High Density for &gt;1Mb</span></div>
+            <div class="cell-val-note"><span data-lang="zh">12–30 F²；專用 FEOL 單元緊湊，但有巨大高壓泵周邊</span><span data-lang="en">12–30 F²; tight cell, but massive HV charge pump overhead</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">大容量高密度</span><span data-lang="en">High Density for &gt;1Mb</span></div>
+            <div class="cell-val-note"><span data-lang="zh">15–35 F²；電荷捕捉層單元緊湊，適合 1Mb~32Mb</span><span data-lang="en">15–35 F²; charge trap cell, optimal for 1Mb~32Mb</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">先進節點超高密度</span><span data-lang="en">Ultra-High in Adv. Nodes</span></div>
+            <div class="cell-val-note"><span data-lang="zh">30–50 F²；BEOL 垂直堆疊，不佔用邏輯 FEOL 面積</span><span data-lang="en">30–50 F²; BEOL integration saves valuable logic area</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">先進節點高密度</span><span data-lang="en">High Density in Adv. Nodes</span></div>
+            <div class="cell-val-note"><span data-lang="zh">15–35 F²；交叉點陣列 (Crossbar) 極具 3D 堆疊潛力</span><span data-lang="en">15–35 F²; crossbar structure enables multi-layer 3D stacking</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">中高密度（6–50 F²）</span><span data-lang="en">Medium-High Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">6–50 F²；1T1C 電容面積受限，FeFET 具 1T 高密度</span><span data-lang="en">6–50 F²; 1T1C capacitor limited, FeFET enables 1T scaling</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_supply_pump">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">03</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">電源軌契約與晶片內建高壓幫浦</span><span data-lang="en">Supply Rail Contract &amp; On-Chip Charge Pump</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Voltage (&lt;1V, &gt;10V, &lt;3V...)，升維至單電源 Core VDD vs 外接 VPP 針腳、峰值電流與 IR-Drop</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">是否需要專用外接高壓針腳（增加封裝 Pin 腳與板級成本）？內建 Charge Pump 的開機升壓時間（Ramp-up）與瞬態突波電流（Inrush Current）對低功耗系統的衝擊。</span><span data-lang="en">Assesses whether external high-voltage VPP pins are required (increasing package cost) versus integrated on-chip charge pumps, inrush current surges, and pump ramp-up latency.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">需高電流源（~10-15mA）</span><span data-lang="en">High Current (~10-15mA)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">通常需專用 1.8V/2.5V 電源軌或外接高電流 Pad</span><span data-lang="en">Requires dedicated high-current supply rail or pad</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">純單一核心 VDD</span><span data-lang="en">Pure Core VDD Only</span></div>
+            <div class="cell-val-note"><span data-lang="zh">0.75V~1.2V 直接運作，無任何高壓或特殊電源需求</span><span data-lang="en">0.75V~1.2V core rail, zero HV or analog pump needed</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">單一供電，內建微型幫浦</span><span data-lang="en">Single Supply, Small Pump</span></div>
+            <div class="cell-val-note"><span data-lang="zh">核心 VDD 供電，內建幫浦升至 5~7V 擊穿，微安級瞬態</span><span data-lang="en">Internal pump from core VDD to 5~7V, µA-level transient</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">單一供電或雙電源</span><span data-lang="en">Single or Dual Supply</span></div>
+            <div class="cell-val-note"><span data-lang="zh">內建 6~8V 幫浦，熱載子注入需要毫安級瞬間電流</span><span data-lang="en">Internal 6~8V pump, mA-level current for CHEI</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">單一供電，內建 FN 幫浦</span><span data-lang="en">Single Supply, FN Pump</span></div>
+            <div class="cell-val-note"><span data-lang="zh">內建 10~14V 幫浦，純電壓穿隧，電流極低（&lt;1µA）</span><span data-lang="en">Internal 10~14V pump, pure FN tunneling, ultra-low current</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">單一供電，內建幫浦</span><span data-lang="en">Single Supply, Internal Pump</span></div>
+            <div class="cell-val-note"><span data-lang="zh">內建 8~12V 幫浦，寫入電流依機制（FN 微安級 vs CHI 毫安級）</span><span data-lang="en">Internal 8~12V pump, current depends on FN vs CHI mode</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">大型雙重內建高壓幫浦</span><span data-lang="en">Large Dual HV Pumps</span></div>
+            <div class="cell-val-note"><span data-lang="zh">寫入需 10V+5V，抹除需 12~15V，升壓延遲 10~20µs</span><span data-lang="en">Prog 10V+5V, Erase 12~15V, pump ramp-up latency 10~20µs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">內建高壓幫浦</span><span data-lang="en">Internal HV Charge Pump</span></div>
+            <div class="cell-val-note"><span data-lang="zh">FN 寫抹需 9~12V 高壓，讀取直接使用核心 VDD</span><span data-lang="en">FN P/E requires 9~12V, direct core VDD for sensing</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">純單一核心低電壓</span><span data-lang="en">Pure Single Low-Voltage</span></div>
+            <div class="cell-val-note"><span data-lang="zh">~1.0-1.2V 直接翻轉，完全無高壓幫浦，但寫入需 30-80µA 脈衝</span><span data-lang="en">~1.0-1.2V direct switching, zero pump, 30-80µA write pulse</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">低壓輔助幫浦（~2.5V）</span><span data-lang="en">Low-V Boost Pump (~2.5V)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">成形需 2.5V，SET/RESET 僅需 1.2-1.5V，幫浦極小</span><span data-lang="en">Forming ~2.5V, SET/RESET 1.2-1.5V, minimal pump area</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">純單一核心低電壓</span><span data-lang="en">Pure Single Low-Voltage</span></div>
+            <div class="cell-val-note"><span data-lang="zh">1.2V~1.8V 直接電場翻轉，完全無高壓幫浦</span><span data-lang="en">1.2V~1.8V direct electric field switching, zero pump</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_read_latency">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">04</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">讀取延遲、直讀時脈與就地執行</span><span data-lang="en">Read Latency, XIP Clock &amp; Bus Execution</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Read time (~1ns, ~10ns, ~50ns...)，升維至系統匯流排直讀頻率與是否強制 Shadow 到 SRAM</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否直接透過 AHB/AXI 匯流排執行程式碼（Execute-In-Place / XIP）？還是必須在開機時額外耗時複製（Shadowing）到系統 SRAM？</span><span data-lang="en">Whether code can execute directly from the array over AHB/AXI buses (Execute-In-Place / XIP) or strictly mandates power-up boot shadowing into system SRAM.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">慢速，強制 Shadow</span><span data-lang="en">Slow (~1µs), Shadow Req.</span></div>
+            <div class="cell-val-note"><span data-lang="zh">感測延遲 ~1µs，必須在開機時整組 Shadow 到 SRAM 暫存器</span><span data-lang="en">Access ~1µs, strictly requires boot shadowing to SRAM</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">超高速直讀（~5-15ns）</span><span data-lang="en">Ultra-Fast XIP (~5-15ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">直接靜態 1T 陣列，支援 100MHz+ 匯流排無等待直讀</span><span data-lang="en">Static 1T array, supports 100MHz+ zero-wait XIP execution</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">中速直讀（~25-40ns）</span><span data-lang="en">Direct XIP (~25-40ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">受單元導通電流限制，支援 20~40MHz 直讀或開機載入</span><span data-lang="en">Cell-current limited, supports 20~40MHz XIP or boot-load</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">中速直讀（~25-40ns）</span><span data-lang="en">Direct XIP (~25-40ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">感測放大器翻轉受限，可支援直讀或開機快取</span><span data-lang="en">Sense amplifier trip limited, direct read or cacheable</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中速直讀（~20-40ns）</span><span data-lang="en">Direct Read (~20-40ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">單元讀取電流適中，支援小區塊直讀或暫存器載入</span><span data-lang="en">Moderate read current, supports direct read or shadow</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中速直讀（~20-35ns）</span><span data-lang="en">Direct Read (~20-35ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">支援 30~50MHz 匯流排直讀，多用於參數與常數讀取</span><span data-lang="en">Supports 30~50MHz direct read for calibration &amp; constants</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">高速直讀（~15-25ns）</span><span data-lang="en">High-Speed XIP (~15-25ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">分離閘極讀取電流大，支援 80~133MHz 零等待 XIP 執行</span><span data-lang="en">Split-gate high current, 80~133MHz zero-wait XIP MCU code</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">中高速直讀（~20-35ns）</span><span data-lang="en">Direct XIP (~20-35ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">支援 50~80MHz 匯流排 XIP 直讀執行</span><span data-lang="en">Supports 50~80MHz bus XIP execution</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">類 SRAM 級（~10-25ns）</span><span data-lang="en">SRAM-like XIP (~10-25ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TMR 感測快速，支援 100MHz+ 高速無等待隨機 XIP</span><span data-lang="en">Fast TMR sensing, 100MHz+ zero-wait random XIP execution</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">高速直讀（~10-20ns）</span><span data-lang="en">Fast Direct Read (~10-20ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">低阻態讀取電流充裕，支援高速隨機讀取</span><span data-lang="en">Low-resistance state provides ample sensing margin</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">極高速破壞性讀取（~20-40ns）</span><span data-lang="en">Destructive Read (~20-40ns)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">感測需翻轉極化並立即預充電寫回（Auto-Restore）</span><span data-lang="en">Polarization charge sensing requires automatic write-back</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_write_test_cost">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">05</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">寫入粒度與量產燒錄測試成本</span><span data-lang="en">Programming Granularity &amp; ATE Test Cost</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Write time (1ns~1ms)，升維至 Bit/Byte/Sector 粒度與量產 ATE 機台測試燒錄費用</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否進行單一位元/位元組隨機更新？在晶圓測試 (CP) 與最終成品測試 (FT) 階段，燒錄金鑰與韌體需要多少機台秒數？（每增加 1 秒量產百萬顆即是巨額成本）。</span><span data-lang="en">Single bit/byte random programming versus block erase; wafer-level CP and package-level FT burn-in time per chip on multi-million dollar ATE testers directly dictates production unit margins.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">位元級寫入，測試極耗時</span><span data-lang="en">Bit-level, High Test Cost</span></div>
+            <div class="cell-val-note"><span data-lang="zh">每個位元需 10~15mA 脈衝數毫秒，高容量燒錄造成 ATE 測試瓶頸</span><span data-lang="en">ms-level pulse per bit, heavy ATE machine-time penalty</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">出廠光罩固化，零測試時間</span><span data-lang="en">Zero Test Time (Factory)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">生產即有資料，僅需常規邏輯測試，零燒錄時間成本</span><span data-lang="en">Manufactured with data, zero programming test time</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">位元級寫入，毫秒級完成</span><span data-lang="en">Bit-level, Fast CP/FT Test</span></div>
+            <div class="cell-val-note"><span data-lang="zh">單一位元崩潰僅數十微秒，1Kb~4Kb 金鑰在 CP 階段數毫秒內完成</span><span data-lang="en">µs breakdown per bit; 1-4Kb keys programmed in &lt;10ms</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">位元/位元組級，測試速度中等</span><span data-lang="en">Bit/Byte, Moderate Test</span></div>
+            <div class="cell-val-note"><span data-lang="zh">熱電子注入需脈衝驗證循環，測試時間稍長於 AntiFuse</span><span data-lang="en">CHEI requires pulse-verify loop; slightly longer than AntiFuse</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">位元組寫入／整頁抹除</span><span data-lang="en">Byte Write / Page Erase</span></div>
+            <div class="cell-val-note"><span data-lang="zh">FN 穿隧抹寫需數毫秒，適合少量校準參數更新</span><span data-lang="en">FN P/E requires ms-level pulses; optimal for trim updates</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">位元組寫入／區塊抹除</span><span data-lang="en">Byte Write / Sector Erase</span></div>
+            <div class="cell-val-note"><span data-lang="zh">支援隨機位元組更新，整體量產測試時間受控</span><span data-lang="en">Supports random byte update; controlled ATE test time</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">位元組寫入／扇區抹除</span><span data-lang="en">Byte Write / Sector Erase</span></div>
+            <div class="cell-val-note"><span data-lang="zh">SSI 寫入快速（~10µs/byte），但 Sector 抹除需 5~10ms，整體 FT 燒錄需數秒</span><span data-lang="en">Fast SSI (~10µs/B), but sector erase 5-10ms; multi-sec FT</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">頁面寫入／扇區抹除</span><span data-lang="en">Page Write / Sector Erase</span></div>
+            <div class="cell-val-note"><span data-lang="zh">整頁寫入 ~1-2ms，扇區抹除 ~10ms，測試吞吐量居中</span><span data-lang="en">Page write ~1-2ms, sector erase ~10ms; medium test speed</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">位元組/字組隨機寫，免抹除</span><span data-lang="en">Byte/Word In-Place, No Erase</span></div>
+            <div class="cell-val-note"><span data-lang="zh">單元翻轉 &lt;20ns，免除所有抹除步驟，量產 ATE 燒錄最快（毫秒級）</span><span data-lang="en">&lt;20ns flip, zero erase required; fastest ATE burn-in</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">位元組隨機寫入，需成形</span><span data-lang="en">Byte In-Place, Needs Forming</span></div>
+            <div class="cell-val-note"><span data-lang="zh">免抹除，但出廠首次需要 Forming 步驟（增加測試工程流程）</span><span data-lang="en">No erase needed, but requires factory forming step</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">超高速隨機位元組寫入</span><span data-lang="en">Ultra-Fast Byte In-Place</span></div>
+            <div class="cell-val-note"><span data-lang="zh">寫入時間等同讀取（&lt;50ns），無抹除延遲，測試極快</span><span data-lang="en">Write speed equals read (&lt;50ns), zero erase overhead</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_retention_temp">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">06</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">高溫資料保持與車規 Mission Profile</span><span data-lang="en">High-Temp Retention &amp; AEC-Q100 Profile</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Retention (&gt;10y, &gt;1y...)，升維至 Arrhenius 活化能 Ea 與 AEC-Q100 Grade 0/1/2 認證</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否承受引擎室、車載底盤或工業高溫環境？AntiFuse 的金屬-矽微絲具極高活化能；浮閘/電荷捕捉受限於高溫熱去捕捉；MRAM 受限於高溫熱擾動退磁。</span><span data-lang="en">Arrhenius thermal acceleration activation energy (Ea); AntiFuse ohmic filaments exhibit high Ea (&gt;1.8eV) surviving 175°C Grade 0+, while charge-trap and magnetic cells face thermal leakage at extreme junctions.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（車規 Grade 1）</span><span data-lang="en">125°C 10yr (Auto Grade 1)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">物理吹斷，高溫無洩漏，但存在極微小金屬再長回風險</span><span data-lang="en">Physical rupture, but micro-risk of metal electromigration heal</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">永久保持（全溫區 Grade 0）</span><span data-lang="en">Permanent (Auto Grade 0)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">實體光罩接線，不隨溫度或時間衰退，無極限問題</span><span data-lang="en">Hardwired mask layers, zero thermal degradation over time</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">175°C 10 年（車規 Grade 0+）</span><span data-lang="en">175°C 10yr (Auto Grade 0+)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">Ea ~1.8-2.1 eV，永久導通，耐受引擎室極端高溫</span><span data-lang="en">Ea ~1.8-2.1 eV, irreversible filament, AEC-Q100 Grade 0+</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（車規 Grade 1）</span><span data-lang="en">125°C 10yr (Auto Grade 1)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">Ea ~1.1 eV，高溫氧化層洩漏限制在 Grade 1 範疇</span><span data-lang="en">Ea ~1.1 eV, oxide thermal leakage bounds to Grade 1</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（工業/車規 Grade 1）</span><span data-lang="en">125°C 10yr (Grade 1)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">低干擾單層浮閘，125°C 保持良好，高溫退火需校準</span><span data-lang="en">Low-disturb single poly, solid at 125°C, bounds Grade 1</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（工業/車規 Grade 1）</span><span data-lang="en">125°C 10yr (Grade 1)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">薄氧化層電荷保持，標準為 125°C 10 年</span><span data-lang="en">Thin-oxide charge storage, standardized at 125°C 10yr</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">150°C 10 年 / 125°C 20 年</span><span data-lang="en">150°C 10yr / 125°C 20yr</span></div>
+            <div class="cell-val-note"><span data-lang="zh">深厚氧化層隔離，車規 Grade 0 標竿量產架構</span><span data-lang="en">Thick oxide isolation, golden standard for Auto Grade 0</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（部分 Grade 0 驗證）</span><span data-lang="en">125°C 10yr (Some Grade 0)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">氮化矽捕捉層高溫擴散限制，先進世代達成 150°C 保持</span><span data-lang="en">SiN traps can diffuse; newer gens qualified to 150°C</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">125°C 10 年（高溫磁擾動挑戰）</span><span data-lang="en">125°C 10yr (Grade 1 typical)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">熱穩定因數 Δ 隨溫度急遽下降，150°C 需犧牲寫入電流或容量</span><span data-lang="en">Thermal factor Δ drops with temp; 150°C requires larger Ic</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">85°C ~ 105°C（工業級）</span><span data-lang="en">85°C ~ 105°C (Industrial)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">氧空缺在高溫下自發擴散，高溫車規 Grade 0 仍屬研發邊界</span><span data-lang="en">Oxygen vacancies diffuse at high temp; Grade 0 remains R&amp;D</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">85°C 10 年 / 125°C 受限</span><span data-lang="en">85°C 10yr / 125°C limited</span></div>
+            <div class="cell-val-note"><span data-lang="zh">居里溫度 (Curie Temp) 限制，高溫去極化需嚴格控管</span><span data-lang="en">Curie temperature bound, thermal depolarization at high temp</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_smt_reflow">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">07</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">SMT 迴焊爐耐溫與預燒錄出貨能力</span><span data-lang="en">SMT Reflow Tolerance &amp; Pre-Programming</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（原圖未考慮封裝打件 260°C 熱歷程對金鑰與韌體的毀滅性風險）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否在晶圓或裸晶階段預先燒錄安全金鑰與 Bootloader，再送入 260°C 無鉛迴焊爐打件？還是必須在打件後透過 JTAG 板級燒錄？</span><span data-lang="en">Ability to withstand JEDEC J-STD-020 lead-free 260°C reflow heat without data corruption, enabling pre-programmed wafer/die delivery versus requiring post-assembly board-level programming.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">100% 免疫迴焊熱衝擊</span><span data-lang="en">100% Immune to Reflow</span></div>
+            <div class="cell-val-note"><span data-lang="zh">金屬或矽化物實體開路，耐受 260°C 迴焊，支援晶圓預燒</span><span data-lang="en">Physical open-circuit, 100% safe through 260°C reflow</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">100% 絕對免疫</span><span data-lang="en">100% Absolute Immune</span></div>
+            <div class="cell-val-note"><span data-lang="zh">金屬佈線層，耐受任何封裝與迴焊熱處理</span><span data-lang="en">Hardwired interconnect, immune to all assembly heat</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">100% 免疫迴焊熱衝擊</span><span data-lang="en">100% Immune to Reflow</span></div>
+            <div class="cell-val-note"><span data-lang="zh">歐姆導通微絲極端穩定，支援晶圓級預先燒錄安全金鑰</span><span data-lang="en">Ohmic filament is ultra-stable; perfect for pre-program keys</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">具熱漏失風險，建議後燒</span><span data-lang="en">Thermal Risk, Post-Program</span></div>
+            <div class="cell-val-note"><span data-lang="zh">260°C 烘烤可能導致微量熱電子逸出，降低感測裕度</span><span data-lang="en">260°C reflow may bleed electrons; post-SMT burn advised</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">建議 SMT 打件後燒錄</span><span data-lang="en">Post-SMT Recommended</span></div>
+            <div class="cell-val-note"><span data-lang="zh">迴焊熱應力影響浮閘電荷，量產建議在 SMT 後進行校準燒錄</span><span data-lang="en">Thermal stress impacts charge; calibrate post-SMT</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">建議 SMT 打件後燒錄</span><span data-lang="en">Post-SMT Recommended</span></div>
+            <div class="cell-val-note"><span data-lang="zh">薄氧化層電荷對 260°C 敏感，打件後燒錄最具可靠性</span><span data-lang="en">Thin-oxide sensitive to 260°C; post-assembly preferred</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">厚氧化層耐受性佳，可預燒</span><span data-lang="en">High Tolerance, Pre-Prog OK</span></div>
+            <div class="cell-val-note"><span data-lang="zh">ESF3 厚熱氧化層在 260°C 表現穩定，但車規常規仍採後燒</span><span data-lang="en">Thick oxide survives 260°C reflow; qualified for pre-prog</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">中度耐受，需嚴密熱預算</span><span data-lang="en">Moderate, Budget Monitored</span></div>
+            <div class="cell-val-note"><span data-lang="zh">氮化矽深能階捕捉電荷可耐受短暫迴焊，需注意烘烤次數</span><span data-lang="en">Deep traps survive brief reflow, track cumulative cycles</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">極敏感（磁退火風險）</span><span data-lang="en">Sensitive (Demag Risk)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">260°C 高溫易誘發 MTJ 自由層熱退磁與擴散，需特殊高阻抗防護</span><span data-lang="en">260°C heat risks MTJ demagnetization; requires special stack</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">成形前打件最優</span><span data-lang="en">Pre-Forming Assembly Best</span></div>
+            <div class="cell-val-note"><span data-lang="zh">未成形狀態下耐溫良好；若已燒錄導電細絲在高溫有自癒風險</span><span data-lang="en">Pristine state survives well; pre-formed filament risks diffusion</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">去極化風險，需重新極化</span><span data-lang="en">Depolarization Risk</span></div>
+            <div class="cell-val-note"><span data-lang="zh">接近居里點時極化電荷衰退，打件後需重新寫入確認</span><span data-lang="en">Polarization degrades near Curie point; re-program post-SMT</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_endurance_mgmt">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">08</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">覆寫壽命與系統磨損管理負擔</span><span data-lang="en">Endurance Lifecycle &amp; Wear-Leveling</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Endurance (1E5, 1E6-1E9, 1E14...)，升維至 SoC 韌體磨損平衡 (Wear-Leveling) 與壞區管理負擔</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否直接取代 SRAM/BRAM？若是 eFlash/ReRAM，SoC 是否必須耗費寶貴的 CPU 與記憶體執行耗損平均（Wear-Leveling）演算法與垃圾回收？</span><span data-lang="en">From 1-time OTP to 10^5 eFlash and 10^12 MRAM; dictates whether the host SoC CPU and RTOS must implement complex wear-leveling algorithms, bad-block management, and journaled filesystems.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">1 次（OTP，不可逆）</span><span data-lang="en">1 Cycle (OTP, Irrev.)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">吹斷後物理結構永久改變，不可抹寫</span><span data-lang="en">Irreversible physical link blown, strictly 1-time</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">0 次（唯讀）</span><span data-lang="en">0 Cycles (Read-Only)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">光罩固定，完全不可寫入或更改</span><span data-lang="en">Mask pattern fixed, zero in-field write capability</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">1 次（可採虛擬多 Bank 更新）</span><span data-lang="en">1 Cycle (Multi-Bank Emul.)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">物理 1 次，但架構可劃分多個區塊透過指標實現數次版本更新</span><span data-lang="en">Physical 1-cycle; logical multi-bank allows version updates</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">1 次（部分支援紫外線清除）</span><span data-lang="en">1 Cycle (UV EPROM mode)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">封裝後為 1 次；開模紫外線照射理論可清，量產不實用</span><span data-lang="en">1-time in package; UV clear theoretical, impractical in mass</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">10⁴ ~ 10⁵ 次抹寫</span><span data-lang="en">10⁴ ~ 10⁵ P/E Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">低干擾單層多晶矽，足以支援產品生命週期內所有參數校準</span><span data-lang="en">Low-disturb FN, ample for lifelong trim and config updates</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">10³ ~ 10⁴ 次抹寫</span><span data-lang="en">10³ ~ 10⁴ P/E Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">氧化層較薄，適合百次至千次級別之代碼補丁與日誌</span><span data-lang="en">Thinner oxide limits cycles; ideal for code patches &amp; logs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">10⁴ ~ 10⁵ 次抹寫</span><span data-lang="en">10⁴ ~ 10⁵ P/E Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">MCU 標準韌體儲存，需配合 Flash 檔案系統進行區塊管理</span><span data-lang="en">MCU code standard; requires wear-leveling filesystem</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">10⁴ ~ 10⁵ 次抹寫</span><span data-lang="en">10⁴ ~ 10⁵ P/E Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">捕捉層介電質疲勞磨損，需配合擦寫計數與 ECC 校驗</span><span data-lang="en">Trapping layer fatigue; requires wear-counting &amp; ECC</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">10¹⁰ ~ 10¹² 次（近無限）</span><span data-lang="en">10¹⁰ ~ 10¹² (Near-Infinite)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">自旋翻轉無物理磨損，可直接作為 Working RAM，零磨損演算法負擔</span><span data-lang="en">Spin flip has no wearout; direct SRAM replacement, 0 software</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">10⁵ ~ 10⁶ 次抹寫</span><span data-lang="en">10⁵ ~ 10⁶ P/E Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">細絲反覆生長斷裂存在累積缺陷，需適度磨損均衡機制</span><span data-lang="en">Filament fatigue accumulates defects; requires wear leveling</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">10¹² ~ 10¹⁴ 次（極高耐久）</span><span data-lang="en">10¹² ~ 10¹⁴ Cycles</span></div>
+            <div class="cell-val-note"><span data-lang="zh">極化翻轉疲勞極低，可直接取代 SRAM 進行無限制即時日誌記錄</span><span data-lang="en">Negligible fatigue; directly replaces battery-backed SRAM</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_power_normally_off">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">09</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">動態功耗與常關閉即時開機能力</span><span data-lang="en">Active Energy &amp; Normally-Off Instant-On</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">對應原圖 Write Energy (fJ~100pJ)，升維至系統級動態電流、常關閉（Normally-Off）待機零漏電與開機能量</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">在電池供電的邊緣 IoT 或車用電子中，能否在待機時徹底切斷電源（Zero Standby Leakage）並在微秒內即時喚醒（Instant-On）？</span><span data-lang="en">System dynamic current during read/write operations versus zero standby power-gated leakage (Normally-Off / Instant-On) for battery-operated edge IoT and AI sensors.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">讀取低功耗，寫入高功耗</span><span data-lang="en">Low Read / High Write Pwr</span></div>
+            <div class="cell-val-note"><span data-lang="zh">寫入需 10~15mA 峰值電流，電池供電裝置幾乎無法在線燒錄</span><span data-lang="en">10-15mA write current makes in-field battery programming hard</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">極低動態功耗，零待機漏電</span><span data-lang="en">Ultra-Low Active / 0 Leak</span></div>
+            <div class="cell-val-note"><span data-lang="zh">僅靜態 1T 邏輯切換，斷電無漏電，開機 0 延遲</span><span data-lang="en">Static 1T switching, zero power-off leakage, 0-latency wake</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">極低功耗，完美常關閉</span><span data-lang="en">Ultra-Low / Perfect N-Off</span></div>
+            <div class="cell-val-note"><span data-lang="zh">讀取 &lt;0.5mW，斷電零漏電，喚醒僅數十納秒，最佳 IoT 金鑰</span><span data-lang="en">Read &lt;0.5mW, zero leakage, ns-level wakeup; ideal for IoT RoT</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">低動態功耗，零待機漏電</span><span data-lang="en">Low Active / 0 Leakage</span></div>
+            <div class="cell-val-note"><span data-lang="zh">斷電完全不耗電，開機即讀，適合感測器配置</span><span data-lang="en">Zero power-off leakage, instant read for sensor configs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">純電壓寫入，低功耗</span><span data-lang="en">Pure Voltage FN, Low Power</span></div>
+            <div class="cell-val-note"><span data-lang="zh">FN 寫抹電流 &lt;1µA，電池供電裝置可輕易完成參數更新</span><span data-lang="en">FN P/E current &lt;1µA, battery-powered friendly for calibration</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">低至中功耗</span><span data-lang="en">Low to Moderate Power</span></div>
+            <div class="cell-val-note"><span data-lang="zh">寫抹功耗適中，支援斷電零漏電與快速喚醒</span><span data-lang="en">Controlled P/E power, zero standby leakage, fast wake</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">寫抹高功耗（高壓泵突波）</span><span data-lang="en">High Write Pwr (HV Surge)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">高壓電荷泵瞬態電流 15~30mA，需較大電源去耦電容</span><span data-lang="en">HV pump surge 15~30mA, requires hefty decoupling caps</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">中等寫抹功耗</span><span data-lang="en">Moderate Write Power</span></div>
+            <div class="cell-val-note"><span data-lang="zh">電荷捕捉層寫抹效率高於傳統浮閘，支援低功耗 MCU</span><span data-lang="en">Higher efficiency than floating gate, supports low-power MCUs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">寫入電流大，讀取極低功耗</span><span data-lang="en">High Write I / Low Read Pwr</span></div>
+            <div class="cell-val-note"><span data-lang="zh">讀取如 SRAM，但 STT 翻轉需 30~80µA/bit；斷電完全零漏電</span><span data-lang="en">SRAM-like read, but STT write requires 30-80µA; 0 standby leak</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">超低讀寫能耗（~pJ 級）</span><span data-lang="en">Ultra-Low Energy (~pJ)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">SET/RESET 脈衝極短（&lt;50ns），是邊緣 AI 類腦運算首選</span><span data-lang="en">Sub-50ns switching pulses, premier choice for Edge AI CiM</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">極致超低功耗（~100fJ 級）</span><span data-lang="en">Extreme Low Power (~100fJ)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">電場極化翻轉幾乎不消耗電荷，業界寫入能耗最低架構</span><span data-lang="en">Electric-field displacement current only; lowest write energy</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_process_scaling">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">10</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">製程微縮可攜性與先進架構支援</span><span data-lang="en">Process Scaling &amp; Advanced Node Support</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（原圖未分析 FinFET、GAA 奈米片與 BSPDN 背側供電的實體整合邊界）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">能否跟隨主晶片微縮至 16nm/7nm/3nm/2nm GAA？eFlash 在 28nm 平面停滯；AntiFuse 可原生縮放至 2nm；MRAM/ReRAM 在 BEOL 低溫堆疊不受前段限制。</span><span data-lang="en">Portability to FinFET, GAA nanosheets, and backside power delivery (BSPDN); eFlash strictly stalls at planar 28nm, while AntiFuse scales natively to 2nm GAA, and MRAM/ReRAM stack in low-temp BEOL.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">可移植至先進節點，面積大</span><span data-lang="en">Ports to GAA, Huge Area</span></div>
+            <div class="cell-val-note"><span data-lang="zh">金屬線路與接觸窗隨節點縮小，但寄生電阻使吹斷越來越困難</span><span data-lang="en">Contact scales, but parasitic R makes blowing hard in FinFET</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">可移植，但先進光罩極昂貴</span><span data-lang="en">Ports, but Costly Masks</span></div>
+            <div class="cell-val-note"><span data-lang="zh">先進 EUV 節點光罩費用數百萬美元，極少用於高階 ASIC</span><span data-lang="en">EUV mask cost ($M) makes Mask ROM uneconomic in GAA</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">一路微縮至 2nm GAA / BSPDN</span><span data-lang="en">Scales to 2nm GAA / BSPDN</span></div>
+            <div class="cell-val-note"><span data-lang="zh">利用核心薄閘氧電崩潰，完美跟隨微縮，先進節點唯一 0-Mask</span><span data-lang="en">Tracks core GOX breakdown; sole 0-mask NVM at 2nm/BSPDN</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步</span><span data-lang="en">Stalls at Planar 28nm</span></div>
+            <div class="cell-val-note"><span data-lang="zh">浮閘結構與 FinFET 3D 鰭片幾何衝突，無法經濟移植</span><span data-lang="en">Floating gate topology conflicts with 3D FinFET geometry</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步</span><span data-lang="en">Stalls at Planar 28nm</span></div>
+            <div class="cell-val-note"><span data-lang="zh">大面積控制電容在 FinFET 難以成形，成熟節點為主</span><span data-lang="en">Large lateral capacitor impractical in FinFET/GAA</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步</span><span data-lang="en">Stalls at Planar 28nm</span></div>
+            <div class="cell-val-note"><span data-lang="zh">熱電洞注入依賴平面基板特性，先進 FinFET 難以相容</span><span data-lang="en">Hot-carrier injection physics incompatible with FinFET fins</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 嚴格止步</span><span data-lang="en">Strict Stop at Planar 28nm</span></div>
+            <div class="cell-val-note"><span data-lang="zh">分裂閘三維高溫熱氧化層無法在 FinFET 3D 鰭片上成形</span><span data-lang="en">Split-gate 3D thermal budget incompatible with FinFET</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm / 40nm BCD</span><span data-lang="en">Planar 28nm / 40nm BCD</span></div>
+            <div class="cell-val-note"><span data-lang="zh">成熟車規與 BCD 混合訊號主力，難以經濟跨入 FinFET</span><span data-lang="en">Automotive BCD workhorse; difficult to port to FinFET</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">BEOL 堆疊，跨入 22nm~12nm</span><span data-lang="en">BEOL Stack, 22nm to 12nm</span></div>
+            <div class="cell-val-note"><span data-lang="zh">後段金屬低溫製程（&lt;400°C），與前段邏輯完全解耦，主流替代 eFlash</span><span data-lang="en">Low-temp BEOL decoupled from FEOL; primary eFlash successor</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">BEOL 堆疊，可延伸至 12nm+</span><span data-lang="en">BEOL Stack, 12nm &amp; Beyond</span></div>
+            <div class="cell-val-note"><span data-lang="zh">後段兩道金屬層間整合，極具微縮潛力，與 FinFET 相容</span><span data-lang="en">Simple 2-mask BEOL stack, highly compatible with FinFET</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">FeFET 具 GAA 縮放潛力</span><span data-lang="en">FeFET Scales with GAA</span></div>
+            <div class="cell-val-note"><span data-lang="zh">傳統 1T1C FeRAM 難微縮；新興 HfO2 FeFET 可直接整合於 GAA 閘極</span><span data-lang="en">1T1C hard to scale; HfO2 FeFET directly integrates into GAA gate</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_security_tamper">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">11</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">實體層防竄改與硬體信任根 (Root of Trust)</span><span data-lang="en">Physical Security, Anti-Tamper &amp; PUF RoT</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（原圖完全無安全考量，但 IP 評估中這是晶片防禦逆向工程的核心）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">斷電後 SEM/TEM 顯微鏡下是否可見數據？是否防禦 FIB 電壓對比探針？能否原生衍生物理不可複製功能 (PUF) 晶片指紋？</span><span data-lang="en">Whether stored data is visible under SEM/TEM post delayering; resistance to FIB voltage-contrast micro-probing, DPA side-channel leakage, and ability to derive native PUF hardware fingerprints.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">極差（SEM 顯微鏡立即可見）</span><span data-lang="en">Very Poor (Visible via SEM)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">金屬或多晶矽物理熔斷開口在顯微鏡下立即可讀出，無安全性</span><span data-lang="en">Physical gap clearly visible under SEM; zero optical security</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">極差（去層逆向光學可讀）</span><span data-lang="en">Very Poor (Optically Readable)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">接觸窗與通孔圖樣去層後透過光學顯微鏡即可全盤逆向</span><span data-lang="en">Contact/via patterns easily reverse-engineered via delayering</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">極致安全（無實體痕跡，PUF 原生）</span><span data-lang="en">Top Security (Invisible, PUF)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">奈米級介電質崩潰微絲，TEM 無可辨特徵，FIB 無法探測，原生 PUF</span><span data-lang="en">Nano-scale filament invisible in TEM; FIB immune; native PUF</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">中等（存在電荷感測洩漏）</span><span data-lang="en">Moderate (Charge Emiss. Risk)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">可透過微光顯微鏡 (EMMI) 或光學誘導放電分析</span><span data-lang="en">Vulnerable to emission microscopy or UV-induced discharge</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中等（浮閘電荷易被探測）</span><span data-lang="en">Moderate (Charge Probing)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">浮閘儲存之電荷受限於雷射攻擊與電壓對比探針</span><span data-lang="en">Floating gate charge vulnerable to voltage contrast &amp; laser</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">中等（需主動屏蔽保護）</span><span data-lang="en">Moderate (Shielding Req.)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">需配合頂層金屬主動屏蔽（Active Metal Shield）以防探針攻擊</span><span data-lang="en">Requires active metal shield over macro against probing</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">良好（分離閘極具幾何遮蔽）</span><span data-lang="en">Good (Split-Gate Shielding)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">控制閘極在幾何上覆蓋浮閘，具良好實體遮蔽防禦力</span><span data-lang="en">Control gate physically overhangs FG, providing physical shield</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">優良（絕緣捕捉層不聚電荷）</span><span data-lang="en">Very Good (Localized Traps)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">電子分散於氮化矽奈米捕捉位點，探針極難局部讀出</span><span data-lang="en">Electrons trapped locally in SiN; immune to single-probe drain</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">優良（防電氣探針，但懼強磁）</span><span data-lang="en">Very Good (V-probe immune)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TEM 無法分辨磁矩，FIB 無法直接探測，但需防強外部磁場竄改</span><span data-lang="en">Magnetic state invisible in TEM; requires magnetic shielding</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">優良（奈米導電絲難以觀測）</span><span data-lang="en">Very Good (Nano Filament)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">氧空缺細絲極細微，常規顯微鏡無特徵，抗逆向工程佳</span><span data-lang="en">Sub-nm vacancy filament undetectable by standard microscopy</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">優良（晶格偶極無光學特徵）</span><span data-lang="en">Very Good (Lattice Dipole)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">鐵電晶格自發極化，無宏觀電荷或幾何形貌差異</span><span data-lang="en">Spontaneous crystal polarization has zero geometric footprint</span></div>
+          </td>
+        </tr>
+        <tr class="tr-alt" data-dim-id="dim_foundry_ecosystem">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">12</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">晶圓代工 PDK 生態、成熟度與多源供應</span><span data-lang="en">Foundry PDK Maturity &amp; Multi-Sourcing</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（學術研究未考量商業代工廠 PDK 支援與跨廠移植風險）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">主流代工廠（TSMC、UMC、GF、Samsung）是否有現成合格 PDK？是否存在單一 IP 供應商鎖定（Vendor Lock-in）？量產出貨顆數與驗證成熟度？</span><span data-lang="en">Commercial PDK availability and volume production track record across TSMC, UMC, GlobalFoundries, and Samsung; mitigation of single-vendor lock-in risks.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">各代工廠原生支援，介面互異</span><span data-lang="en">Foundry Native, Unique APIs</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TSMC/UMC 等廠原生免費提供，但各廠控制介面完全不相容</span><span data-lang="en">Free native IP, but interfaces completely proprietary per fab</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">各代工廠原生支援</span><span data-lang="en">Universal Foundry Support</span></div>
+            <div class="cell-val-note"><span data-lang="zh">成熟製程標準選單，極低風險，全球代工廠通用</span><span data-lang="en">Standard commodity offering across all global foundries</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">全球量產標竿（數百億顆出貨）</span><span data-lang="en">Global Benchmark (10B+ dies)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">力旺 (eMemory)、Synopsys 全球各大廠 PDK 100% 覆蓋，量產實績第一</span><span data-lang="en">eMemory &amp; Synopsys ported to TSMC/UMC/GF/SMIC/Samsung; 10B+ shipped</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">成熟量產，多廠支援</span><span data-lang="en">Mature, Multi-Fab Support</span></div>
+            <div class="cell-val-note"><span data-lang="zh">力旺 NeoBit 累積出貨數百億顆，0.5µm~55nm 成熟代工廠標配</span><span data-lang="en">eMemory NeoBit benchmark in 0.5µm~55nm, massive volume</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">力旺/Floadia 等多廠 PDK</span><span data-lang="en">Multi-Fab PDK Available</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TSMC/UMC/Vanguard/SMIC 廣泛採用，成熟混合訊號主力</span><span data-lang="en">Widely available across TSMC/UMC/VIS/SMIC mixed-signal PDKs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">力旺/Synopsys 等量產實績</span><span data-lang="en">Proven Volume Track Record</span></div>
+            <div class="cell-val-note"><span data-lang="zh">NeoMTP / AEON 在主流代工廠 180nm~40nm 具多年量產實績</span><span data-lang="en">NeoMTP &amp; AEON qualified across 180nm~40nm global PDKs</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">代工廠專屬授權，專利門檻高</span><span data-lang="en">Fab License, High IP Barrier</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TSMC/UMC/GF 提供，但需支付專利授權金與晶圓提成（Royalty）</span><span data-lang="en">Available at TSMC/UMC/GF; high license fee and wafer royalty</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">代工廠與特定 IP 廠提供</span><span data-lang="en">Foundry &amp; IP Vendor</span></div>
+            <div class="cell-val-note"><span data-lang="zh">UMC、GF、Floadia 提供 PDK，多用於特定車規與 BCD 平台</span><span data-lang="en">Offered on specific automotive &amp; BCD lines at UMC/GF/Floadia</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">TSMC / Samsung / GF 主力平台</span><span data-lang="en">TSMC / Samsung / GF Active</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TSMC 22/16nm、Samsung 28/14nm、GF 22FDX 商業量產，各廠材料獨立</span><span data-lang="en">Production at TSMC 22/16, Samsung 28/14, GF 22FDX; non-portable</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">TSMC / UMC / Weebit 逐漸普及</span><span data-lang="en">TSMC / UMC / Weebit Growing</span></div>
+            <div class="cell-val-note"><span data-lang="zh">TSMC 40/28/22nm、UMC 22nm 陸續推出商業 PDK，處於高速擴張期</span><span data-lang="en">Commercial PDKs ramping at TSMC 40/28/22 and UMC 22nm</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">少數代工廠專屬（Infineon/TI/TSMC）</span><span data-lang="en">Specialized (Infineon/TI/TSMC)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">傳統 FeRAM 僅少數 IDM 掌握；HfO2 FeFET 處於大廠先端 R&amp;D 階段</span><span data-lang="en">Traditional FeRAM IDM-bound; HfO2 FeFET in advanced foundry R&amp;D</span></div>
+          </td>
+        </tr>
+        <tr data-dim-id="dim_sweet_spot_app">
+          <th scope="row" class="td-dim-meta">
+            <div class="dim-num-badge">13</div>
+            <div class="dim-title-group">
+              <strong class="dim-title"><span data-lang="zh">SoC 系統最佳適配場景與核心定位</span><span data-lang="en">Target SoC Sweet-Spot Applications</span></strong>
+              <div class="dim-academic-mapping">
+                <span class="map-label"><span data-lang="zh">學術指標對照：</span><span data-lang="en">Academic Baseline: </span></span>
+                <span class="map-text"><span data-lang="zh">原圖無對應（學術表未提供終端晶片架構落地的最佳應用場景分類）</span><span data-lang="en">Corresponds to academic technology metrics, elevated to SoC system integration criteria.</span></span>
+              </div>
+              <div class="dim-architectural-tradeoff">
+                <span class="tradeoff-label"><span data-lang="zh">架構權衡實務：</span><span data-lang="en">Architectural Tradeoff: </span></span>
+                <span class="tradeoff-text"><span data-lang="zh">是作為晶片身分證？安全密鑰？類比校準？韌體執行碼？還是高速即時日誌？精確選型決定晶片毛利與競爭力。</span><span data-lang="en">Optimal architectural socket mapping: Security Root-of-Trust, analog trimming, MCU code flash, edge AI weight buffering, or mission-critical flight recorders.</span></span>
+              </div>
+            </div>
+          </th>
+          <td class="td-tech-val" data-tech-id="efuse" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">晶圓瑕疵修補、封裝 ID</span><span data-lang="en">Wafer Repair &amp; Package ID</span></div>
+            <div class="cell-val-note"><span data-lang="zh">SRAM 備援替換、極低容量晶片識別碼（Chip ID）</span><span data-lang="en">SRAM redundancy repair, minimal chip serial ID</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="maskrom" data-tech-cat="foundry">
+            <div class="cell-val-primary"><span data-lang="zh">大量平價 Boot ROM</span><span data-lang="en">High-Volume ASIC Boot ROM</span></div>
+            <div class="cell-val-note"><span data-lang="zh">出貨數千萬顆之固定引導碼，零授權金，低成本極致</span><span data-lang="en">Ultra-high volume fixed bootloaders, zero license cost</span></div>
+          </td>
+          <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">安全金鑰、PUF 信任根、類比修補</span><span data-lang="en">Root-of-Trust, PUF, Trim</span></div>
+            <div class="cell-val-note"><span data-lang="zh">Secure Boot 金鑰、AES/RSA/PQC 根金鑰、PMIC 類比精細修補</span><span data-lang="en">Secure boot root keys, PQC seeds, PMIC precision analog trim</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
+            <div class="cell-val-primary"><span data-lang="zh">感測器校準、多媒體金鑰</span><span data-lang="en">Sensor Trim, Media DRM Keys</span></div>
+            <div class="cell-val-note"><span data-lang="zh">CMOS 影像感測器 (CIS) 校準、顯示驅動 IC (DDIC) Gamma 修補</span><span data-lang="en">CIS sensor calibration, DDIC gamma trim, HDMI/HDCP keys</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">穿戴常態參數、校準更新</span><span data-lang="en">Wearable Params, Sensor Cal.</span></div>
+            <div class="cell-val-note"><span data-lang="zh">藍牙 BLE 裝置配對金鑰、感測器生命週期定期重新校準</span><span data-lang="en">BLE pairing records, periodic sensor recalibration</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="hdmtp" data-tech-cat="mtp">
+            <div class="cell-val-primary"><span data-lang="zh">小型 MCU 代碼、物聯網日誌</span><span data-lang="en">Small MCU Code &amp; IoT Logs</span></div>
+            <div class="cell-val-note"><span data-lang="zh">8/16-bit MCU 韌體儲存、智慧電表參數與低頻率日誌記錄</span><span data-lang="en">8/16-bit MCU code storage, smart meter event logging</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sst" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">車用高性能 MCU 主程式碼</span><span data-lang="en">Auto High-Perf MCU Firmware</span></div>
+            <div class="cell-val-note"><span data-lang="zh">車身控制器、底盤動力 MCU 程式碼快閃（Code Flash）</span><span data-lang="en">Automotive body &amp; chassis MCU main code flash with OTA</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="sonos" data-tech-cat="eflash">
+            <div class="cell-val-primary"><span data-lang="zh">BCD 電源管理、工業控制韌體</span><span data-lang="en">BCD PMIC &amp; Industrial MCU</span></div>
+            <div class="cell-val-note"><span data-lang="zh">高壓馬達驅動、工業微控制器程式碼儲存</span><span data-lang="en">High-voltage motor drive controllers, industrial MCU code</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="mram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">車用黑盒子、邊緣 AI 緩存、SRAM 替換</span><span data-lang="en">Auto Blackbox, Edge AI, SRAM</span></div>
+            <div class="cell-val-note"><span data-lang="zh">車載即時駕駛日誌、AI 推論模型權重暫存、低功耗常關閉 MCU</span><span data-lang="en">Mission-critical flight recorders, Edge AI weights, normally-off</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="reram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">類腦神經形態運算、高密度儲存</span><span data-lang="en">Neuromorphic CiM, High-Density</span></div>
+            <div class="cell-val-note"><span data-lang="zh">記憶體內運算 (CiM) 矩陣乘法、低成本物聯網 MCU 代碼</span><span data-lang="en">In-memory computing crossbars, cost-effective IoT MCU storage</span></div>
+          </td>
+          <td class="td-tech-val" data-tech-id="feram" data-tech-cat="emerging">
+            <div class="cell-val-primary"><span data-lang="zh">工業關鍵儀表、防竄改即時記錄</span><span data-lang="en">Critical Metering &amp; Fast Logs</span></div>
+            <div class="cell-val-note"><span data-lang="zh">智慧電表不斷電秒級記錄、醫療監護儀器即時狀態保存</span><span data-lang="en">Smart metering instant power-loss logs, medical instrument state</span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Deep Dive Myth Buster Cards (4 Architectural Pillars) -->
+  <div class="ip-deep-dive-grid" aria-label="Architectural Myth Busters" data-aria-en="Architectural Myth Busters" data-aria-zh="四大核心架構迷思深度拆解">
+    
+    <!-- Card 1: Area -->
+    <div class="deep-dive-card">
+      <div class="card-kicker">
+        <span class="kicker-icon">📐</span>
+        <span data-lang="zh">迷思拆解 01 · 面積真實成本</span><span data-lang="en">MYTH BUSTER 01 · REAL AREA COST</span>
+      </div>
+      <h3 class="card-title">
+        <span data-lang="zh">Cell Area (F²) vs. Macro Density &amp; 周邊開銷</span><span data-lang="en">Cell Area (F²) vs. Macro Density &amp; Peripheral Overhead</span>
+      </h3>
+      <div class="card-body">
+        <p>
+          <span data-lang="zh">學術文獻極度重視「單位位元胞面積 F²」（例如 AntiFuse 50~100 F²，MRAM 20~40 F²，eFlash 10~25 F²）。但在 SoC 實務中，容量低於 128Kb~1Mb 時，巨集總面積主要由「周邊電路」（高壓電荷幫浦、位址解碼器、感測放大器、測試介面）主導。對於小容量安全金鑰、校準修調（Trim）與晶片 ID，零額外光罩的 AntiFuse 或 eFuse 即使單元 F² 較大，但省去 eFlash 龐大的前段光罩加價與高壓幫浦面積，小晶粒的總成本依然遠勝 eFlash。</span><span data-lang="en">Academic papers place overwhelming emphasis on raw bit-cell area in F² (e.g., AntiFuse at 50~100 F², MRAM at 20~40 F², eFlash at 10~25 F²). However, in SoC commercial reality, for capacities below 128Kb~1Mb, the total macro footprint is predominantly governed by peripheral circuits (high-voltage charge pumps, row/column decoders, sense amplifiers, and BIST controllers). For small-capacity secure keys, analog trim, and chip IDs, zero-mask AntiFuse or eFuse—despite larger cell F²—saves millions in mask fees and eliminates bulky high-voltage peripheral blocks, delivering vastly superior total silicon economics.</span>
+        </p>
+      </div>
+      <div class="card-footer-metric">
+        <span class="metric-tag"><span data-lang="zh">架構金律</span><span data-lang="en">Architectural Rule</span></span>
+        <span class="metric-desc"><span data-lang="zh">&amp;lt; 256Kb 選 0-Mask 邏輯 OTP/MTP；&amp;gt; 4MB 始具備 eFlash / MRAM 單元面積優勢</span><span data-lang="en">&amp;lt; 256Kb favors 0-Mask Logic OTP/MTP; &amp;gt; 4MB realizes eFlash / MRAM cell density benefits</span></span>
+      </div>
+    </div>
+
+    <!-- Card 2: Power Rails & Pumps -->
+    <div class="deep-dive-card">
+      <div class="card-kicker">
+        <span class="kicker-icon">⚡</span>
+        <span data-lang="zh">迷思拆解 02 · 供電軌與瞬態電流</span><span data-lang="en">MYTH BUSTER 02 · POWER RAILS &amp; TRANSIENT CURRENT</span>
+      </div>
+      <h3 class="card-title">
+        <span data-lang="zh">Programming Voltage vs. 晶片內建幫浦契約</span><span data-lang="en">Programming Voltage vs. On-Chip Pump Integration Contract</span>
+      </h3>
+      <div class="card-body">
+        <p>
+          <span data-lang="zh">文獻常將 AntiFuse 的 5V~7V 或 eFlash 的 9V~12V 列為「高壓缺點」。但現代 SoC IP 均已整合「晶片內建升壓電荷幫浦（On-chip Charge Pump）」，晶片外部僅需標準 0.8V~1.8V VDD 核心電壓即可運作。真正的架構考量點在於：寫入期間幫浦產生的「瞬態尖峰電流（Transient Peak Current）」（可達數十 mA）與 IR Drop 壓降防護，以及是否需要封裝級專用引腳（如量產 ATE 燒錄專用 VPP 引腳以縮短測試時間）。</span><span data-lang="en">Literature often cites AntiFuse 5V~7V or eFlash 9V~12V programming voltages as major drawbacks. However, modern commercial NVM IP seamlessly integrates on-chip charge pumps, requiring only standard 0.8V~1.8V core VDD from external pins. The true architectural criteria lie in transient peak currents during programming (which can surge to tens of milliamps), substrate noise coupling, power-grid IR-drop mitigation, and whether a dedicated external VPP pin is provisioned for high-speed ATE gang-programming.</span>
+        </p>
+      </div>
+      <div class="card-footer-metric">
+        <span class="metric-tag"><span data-lang="zh">設計檢查點</span><span data-lang="en">Design Checkpoint</span></span>
+        <span class="metric-desc"><span data-lang="zh">無外部 VPP 腳位時，必須核實內建 Charge Pump 在最惡劣低溫 (-40°C) 下的啟動驅動力</span><span data-lang="en">Without external VPP pin, verify internal charge pump drive strength under cold corner (-40°C)</span></span>
+      </div>
+    </div>
+
+    <!-- Card 3: Mission Profile & AEC-Q100 -->
+    <div class="deep-dive-card">
+      <div class="card-kicker">
+        <span class="kicker-icon">🌡️</span>
+        <span data-lang="zh">迷思拆解 03 · 車規任務環境與物理壽命</span><span data-lang="en">MYTH BUSTER 03 · MISSION PROFILE &amp; AEC-Q100</span>
+      </div>
+      <h3 class="card-title">
+        <span data-lang="zh">名義 10 年留存 vs. Arrhenius 活化能與 SMT 迴焊</span><span data-lang="en">Nominal 10-Yr Retention vs. Arrhenius Activation Energy &amp; SMT Reflow</span>
+      </h3>
+      <div class="card-body">
+        <p>
+          <span data-lang="zh">規格書上的「10 年 @ 85°C 留存」對車規（AEC-Q100 Grade 0/1）是遠遠不夠的。車載發動機與底盤環境要求結溫 Tj 達 150°C~175°C 連續工作。根據 Arrhenius 關係式，浮閘技術在高溫下存在電子熱激發洩漏（活化能 Ea 約 1.1~1.5 eV）；而 AntiFuse 透過物理擊穿形成永久性低阻抗矽微絲導電通道，其活化能極高且不受電阻漂移影響，更可在經過 260°C 無鉛 SMT 迴焊後 100% 保持預燒資料，是車規與航太首選。</span><span data-lang="en">Data sheets claiming &quot;10-year retention @ 85°C&quot; are wholly insufficient for automotive qualification (AEC-Q100 Grade 0/1). Powertrain and chassis electronics require continuous operation at junction temperatures of 150°C~175°C. Governed by the Arrhenius equation, floating-gate charge carriers suffer thermal de-trapping (Ea ~ 1.1~1.5 eV). In contrast, AntiFuse relies on permanent dielectric breakdown forming conductive polysilicon filaments, exhibiting immense thermal stability and zero data loss through 260°C lead-free SMT reflow.</span>
+        </p>
+      </div>
+      <div class="card-footer-metric">
+        <span class="metric-tag"><span data-lang="zh">車規合規</span><span data-lang="en">Auto Compliance</span></span>
+        <span class="metric-desc"><span data-lang="zh">AEC-Q100 Grade 0 要求 150°C Tj 認證；預燒開機韌體必須驗證 JEDEC J-STD-020 迴焊衝擊</span><span data-lang="en">AEC-Q100 Grade 0 mandates 150°C Tj qualification; pre-programmed boot code requires J-STD-020 reflow survival</span></span>
+      </div>
+    </div>
+
+    <!-- Card 4: ATE Test Cost -->
+    <div class="deep-dive-card">
+      <div class="card-kicker">
+        <span class="kicker-icon">⏱️</span>
+        <span data-lang="zh">迷思拆解 04 · 量產測試經濟學</span><span data-lang="en">MYTH BUSTER 04 · ATE TEST TIME &amp; COST</span>
+      </div>
+      <h3 class="card-title">
+        <span data-lang="zh">寫入時間 vs. 晶圓級 ATE 測試秒數與測試機台費用</span><span data-lang="en">Write Time vs. Wafer-Level ATE Test Seconds &amp; Tester Economics</span>
+      </h3>
+      <div class="card-body">
+        <p>
+          <span data-lang="zh">學術論文常將寫入時間列為「ns ~ µs」等級的比較。在量產製造中，高階 ATE（如 Teradyne UltraFLEX, Advantest V93000）每秒測試成本極為高昂。若 NVM 寫入需執行「逐位元驗證與重試（Program-Verify Loop）」或單元編程速度過慢，將導致 CP（Circuit Probe）晶圓測試秒數倍增。AntiFuse 支援百微秒級單脈衝熔斷與高度並行燒錄（Gang Programming），配合外供 VPP，能將 4Kb 金鑰的 ATE 測試時間壓縮至數百毫秒內，為千萬顆量產節省數百萬美元測試費用。</span><span data-lang="en">Academic comparisons record write speeds in ns ~ µs without contextualizing production economics. In mass manufacturing, high-end ATE (e.g., Teradyne UltraFLEX, Advantest V93000) cost significant cents per second. If an NVM requires prolonged iterative Program-Verify loops, CP (Circuit Probe) wafer test times explode. AntiFuse enables sub-millisecond single-pulse breakdown and multi-site parallel gang programming, slashing 4Kb key provisioning test time to under 200 ms and saving millions in wafer probe costs.</span>
+        </p>
+      </div>
+      <div class="card-footer-metric">
+        <span class="metric-tag"><span data-lang="zh">成本實務</span><span data-lang="en">Cost Practicality</span></span>
+        <span class="metric-desc"><span data-lang="zh">ATE 測試時間每增加 1 秒，千萬顆出貨即衍生數萬美元測試機台溢價；必須評估 Gang Programming 效益</span><span data-lang="en">Every +1 second of ATE test time generates massive tester overhead at scale; evaluate gang programming ROI</span></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ip-master-footer-note">
+    <div class="footer-note-title">
+      <span class="footer-icon">📋</span>
+      <span data-lang="zh">架構師選型驗證方法論與引用邊界</span><span data-lang="en">Architectural Selection Methodology &amp;amp; Reference Boundaries</span>
+    </div>
+    <div class="footer-note-content">
+      <p>
+        <span data-lang="zh">本矩陣數據嚴格依據主流晶圓代工廠（TSMC, UMC, GlobalFoundries, Samsung）公開技術路線圖、商用 IP 供應商產品規格書、IEEE ISSCC/IEDM 發布之量產論文，以及 JEDEC（JESD22, JESD47）與 AEC-Q100 可靠度試驗規範彙整。各項數值代表量產成熟節點之工程常態值；實際專案選型時，必須與代工廠指定節點 PDK 之 Memory Compiler 生成之 Datasheet 及 QA Report 交叉比對。</span><span data-lang="en">Matrix data is compiled from public foundry roadmaps (TSMC, UMC, GlobalFoundries, Samsung), commercial IP vendor datasheets, IEEE ISSCC/IEDM mass-production proceedings, and JEDEC (JESD22, JESD47) / AEC-Q100 qualification standards. Specific values represent typical production figures; project tape-outs require rigorous cross-referencing against the memory compiler datasheets and QA reports for the specific target PDK node.</span>
+      </p>
+    </div>
+  </div>
+</section>
+<!-- SECTION 01C END -->
+
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
     <section id="sec-selector" class="lens-panel selector-workbench-frame selector-dashboard" aria-labelledby="selector-sec-title">
@@ -5392,5 +6747,6 @@
 <script type="module" src="vertical-3d-nvm-simulator.js?v=20261006"></script>
 <script type="module" src="advanced-packaging-pdks-simulator.js?v=20261006"></script>
 <script type="module" src="cu-cu-hybrid-bonding-stress-simulator.js?v=20261007"></script>
+  <script type="module" src="ip-architect-master-matrix.js?v=20261024"></script>
 </body>
 </html>
