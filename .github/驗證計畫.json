@@ -128,7 +128,7 @@
         "vertical-3d-nvm-simulator.js",
         "wafer-cost-tco-calculator.js"
       ],
-      "reason": "加固全站 50 款物理計算器 Null-Safety 防呆與原型鏈防護，Suite 17 健全性測試通過升版 v1.8.0",
+      "reason": "加固全站 50 款物理計算器 Null-Safety 防呆與原型鏈防護，Suite 17 健全性測試通過升版 v1.9.0",
       "prepare": [
         "node"
       ],
