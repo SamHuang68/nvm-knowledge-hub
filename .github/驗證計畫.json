@@ -97,16 +97,18 @@
         "scripts/build-offline-manifest.mjs"
       ],
       "changes": [
-        "data/offline-manifest.js"
+        "data/offline-manifest.js",
+        "data/release-lineage.json"
       ],
       "inputs": [
         "data/offline-manifest.js",
+        "data/release-lineage.json",
         "scripts/build-offline-manifest.mjs",
         "package.json",
         "package-lock.json",
         "technology-comparison.html"
       ],
-      "reason": "核對比較表與知識資料庫更新後，離線快取 Manifest 與追蹤資源位元組一致性。",
+      "reason": "核對比較表與知識資料庫更新後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
       "prepare": [
         "node"
       ],
