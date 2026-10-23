@@ -1649,6 +1649,29 @@
       color: #0f172a;
       line-height: 1.25;
     }
+    .tech-col-brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 6px;
+    }
+    .brand-pill {
+      display: inline-block;
+      font-size: 0.67rem;
+      font-weight: 600;
+      color: #0c4a6e;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      padding: 1px 5px;
+      border-radius: 3px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .th-highlight-ip .brand-pill {
+      background: #fefce8;
+      border-color: #fef08a;
+      color: #854d0e;
+    }
     .ip-master-table tbody th.td-dim-meta {
       background: #f8fafc;
       border-right: 2px solid #cddbdc;
@@ -2666,7 +2689,7 @@
       <span data-lang="zh">從單元物理到 SoC 系統整合：全譜系 NVM IP 實務決策矩陣</span><span data-lang="en">From Cell Physics to SoC Integration: Comprehensive NVM IP Decision Matrix</span>
     </h2>
     <p class="hub-sec-subtitle">
-      <span data-lang="zh">對齊學術技術指標（S. Yu 2016/2021），升維轉化為晶圓成本、電源軌契約、測試時間、車規溫度與先進節點微縮之十三大 IP 整合考量點</span><span data-lang="en">Elevating Academic Technology Metrics (S. Yu 2016/2021) into 13 System-Level IP Criteria Across Mask Cost, Power Rails, ATE Test Time, Automotive Thermal Profile, and Advanced Node Scaling</span>
+      <span data-lang="zh">對齊學術技術指標（S. Yu 2016/2021），升維轉化為晶圓成本、電源軌契約、測試時間、車規溫度與先進節點微縮之十四大 IP 整合考量點</span><span data-lang="en">Elevating Academic Technology Metrics (S. Yu 2016/2021) into 14 System-Level IP Criteria Across Mask Cost, Power Rails, ATE Test Time, Automotive Thermal Profile, and Advanced Node Scaling</span>
     </p>
   </div>
 
@@ -2677,8 +2700,8 @@
         <span data-lang="zh">學術對比升維至 SoC IP 實務</span><span data-lang="en">Academic Comparison Upgraded to SoC IP Practice</span>
       </div>
       <div class="ip-lead-academic-cite">
-        <span data-lang="zh">參考基準：Prof. Shimeng Yu (IEEE SSCM 2016 邀請綜論) 元件級指標 ➔ 升維為 13 大系統級工程整合維度</span>
-        <span data-lang="en">Baseline: Prof. Shimeng Yu (IEEE SSCM 2016 Review) Device Metrics ➔ Upgraded to 13 System-Level Integration Dimensions</span>
+        <span data-lang="zh">參考基準：Prof. Shimeng Yu (IEEE SSCM 2016 邀請綜論) 元件級指標 ➔ 升維為 14 大系統級工程整合維度</span>
+        <span data-lang="en">Baseline: Prof. Shimeng Yu (IEEE SSCM 2016 Review) Device Metrics ➔ Upgraded to 14 System-Level Integration Dimensions</span>
       </div>
     </div>
     <div class="ip-lead-body">
@@ -2730,46 +2753,106 @@
           <th scope="col" class="th-tech-header" data-tech-id="efuse" data-tech-cat="foundry">
             <div class="tech-col-badge"><span data-lang="zh">晶圓廠 eFuse</span><span data-lang="en">Foundry eFuse</span></div>
             <div class="tech-col-name">Foundry eFuse</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">TSMC eFuse</span>
+              <span class="brand-pill">GF FDX eFuse</span>
+              <span class="brand-pill">DesignWare®</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="maskrom" data-tech-cat="foundry">
             <div class="tech-col-badge"><span data-lang="zh">光罩 ROM</span><span data-lang="en">Mask ROM</span></div>
             <div class="tech-col-name">Mask ROM</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">XtraROM®</span>
+              <span class="brand-pill">Artisan® ROM</span>
+              <span class="brand-pill">TSMC ROM</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header th-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
             <div class="tech-col-badge"><span data-lang="zh">邏輯反熔絲 OTP</span><span data-lang="en">Logic AntiFuse OTP</span></div>
             <div class="tech-col-name">Logic AntiFuse OTP</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">NeoFuse®</span>
+              <span class="brand-pill">XPM®</span>
+              <span class="brand-pill">1T-Fuse™</span>
+              <span class="brand-pill">I-fuse™</span>
+              <span class="brand-pill">PUFiot®</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="fgotp" data-tech-cat="otp">
             <div class="tech-col-badge"><span data-lang="zh">浮閘邏輯 OTP</span><span data-lang="en">Logic FG-OTP</span></div>
             <div class="tech-col-name">Logic FG-OTP</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">NeoBit®</span>
+              <span class="brand-pill">Faraday OTP</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="ldmtp" data-tech-cat="mtp">
             <div class="tech-col-badge"><span data-lang="zh">低干擾邏輯 MTP</span><span data-lang="en">Logic LD-MTP</span></div>
             <div class="tech-col-name">Logic LD-MTP</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">NeoEE®</span>
+              <span class="brand-pill">AEON®</span>
+              <span class="brand-pill">LogicFlash™</span>
+              <span class="brand-pill">TwinBit™</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="hdmtp" data-tech-cat="mtp">
             <div class="tech-col-badge"><span data-lang="zh">高密度邏輯 MTP</span><span data-lang="en">Logic HD-MTP</span></div>
             <div class="tech-col-name">Logic HD-MTP</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">NeoMTP®</span>
+              <span class="brand-pill">YMC MTP®</span>
+              <span class="brand-pill">LEE Flash ZT™</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="sst" data-tech-cat="eflash">
             <div class="tech-col-badge"><span data-lang="zh">分離閘快閃 (SST)</span><span data-lang="en">Split-Gate eFlash (SST)</span></div>
             <div class="tech-col-name">Split-Gate eFlash (SST)</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">SuperFlash® (ESF3)</span>
+              <span class="brand-pill">SG-MONOS™</span>
+              <span class="brand-pill">pFusion®</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="sonos" data-tech-cat="eflash">
             <div class="tech-col-badge"><span data-lang="zh">電荷捕捉快閃 (SONOS)</span><span data-lang="en">Charge-Trap eFlash (SONOS)</span></div>
             <div class="tech-col-name">Charge-Trap eFlash (SONOS)</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">SONOS eFlash</span>
+              <span class="brand-pill">MONOS™</span>
+              <span class="brand-pill">LEE Flash G2™</span>
+              <span class="brand-pill">Y-Flash™</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="mram" data-tech-cat="emerging">
             <div class="tech-col-badge"><span data-lang="zh">嵌入式 STT-MRAM</span><span data-lang="en">Embedded STT-MRAM</span></div>
             <div class="tech-col-name">Embedded STT-MRAM</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">TSMC eMRAM</span>
+              <span class="brand-pill">AutoPro150™</span>
+              <span class="brand-pill">Toggle MRAM®</span>
+              <span class="brand-pill">NuPro™</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="reram" data-tech-cat="emerging">
             <div class="tech-col-badge"><span data-lang="zh">阻變記憶體 (ReRAM)</span><span data-lang="en">Embedded OxRAM (ReRAM)</span></div>
             <div class="tech-col-name">Embedded OxRAM (ReRAM)</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">TSMC 22RRAM</span>
+              <span class="brand-pill">22FDX+ OxRAM™</span>
+              <span class="brand-pill">Weebit SiOx</span>
+              <span class="brand-pill">CBRAM®</span>
+            </div>
           </th>
           <th scope="col" class="th-tech-header" data-tech-id="feram" data-tech-cat="emerging">
             <div class="tech-col-badge"><span data-lang="zh">鐵電記憶體 (FeRAM/FeFET)</span><span data-lang="en">Embedded FeRAM / FeFET</span></div>
             <div class="tech-col-name">Embedded FeRAM / FeFET</div>
+            <div class="tech-col-brands">
+              <span class="brand-pill">EXCELON™ F-RAM</span>
+              <span class="brand-pill">MSP430 FRAM</span>
+              <span class="brand-pill">22FDX FeFET</span>
+            </div>
           </th>
         </tr>
       </thead>
@@ -3496,7 +3579,7 @@
         </tr>
         <tr data-dim-id="dim_sweet_spot_app">
           <th scope="row" class="td-dim-meta">
-            <div class="dim-num-badge">13</div>
+            <div class="dim-num-badge">14</div>
             <div class="dim-title-group">
               <strong class="dim-title"><span data-lang="zh">SoC 系統最佳適配場景與核心定位</span><span data-lang="en">Target SoC Sweet-Spot Applications</span></strong>
               <div class="dim-academic-mapping">
