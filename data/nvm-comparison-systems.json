@@ -1006,77 +1006,370 @@
         "name": "Foundry eFuse",
         "category": "foundry",
         "label": "晶圓廠 eFuse",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "TSMC eFuse · GF FDX eFuse · DesignWare® eFuse",
+        "commercialTradeNames": [
+          {
+            "vendor": "台積電 (TSMC)",
+            "brandName": "TSMC Poly-fuse / Metal eFuse Macro",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "格羅方德 (GlobalFoundries)",
+            "brandName": "GF FDX eFuse Macro (22FDX)",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "聯電 (UMC)",
+            "brandName": "UMC eFuse Macro & Compiler",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "新思科技 (Synopsys)",
+            "brandName": "DesignWare® eFuse IP",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "maskrom",
         "name": "Mask ROM",
         "category": "foundry",
         "label": "光罩 ROM",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "Macronix XtraROM® · ARM Artisan® Via ROM · TSMC ROM Compiler",
+        "commercialTradeNames": [
+          {
+            "vendor": "旺宏電子 (Macronix)",
+            "brandName": "XtraROM® (平面單元光罩 ROM)",
+            "category": "IDM / Vendor"
+          },
+          {
+            "vendor": "ARM (Artisan)",
+            "brandName": "Artisan® Embedded Via ROM Compiler",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "台積電 (TSMC)",
+            "brandName": "TSMC Contact/Via Mask ROM Compiler",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "智原科技 (Faraday)",
+            "brandName": "Faraday Via ROM Compiler",
+            "category": "Design Service"
+          }
+        ]
       },
       {
         "id": "antifuse",
         "name": "Logic AntiFuse OTP",
         "category": "otp",
         "label": "邏輯反熔絲 OTP",
-        "highlight": true
+        "highlight": true,
+        "tradeNamesSummary": "NeoFuse® · Kilopass XPM® · Sidense 1T-Fuse™ · Attopsemi I-fuse™ · PUFiot®",
+        "commercialTradeNames": [
+          {
+            "vendor": "力旺電子 (eMemory)",
+            "brandName": "NeoFuse® (介電質擊穿 OTP)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "新思科技 (Synopsys / Kilopass)",
+            "brandName": "Kilopass XPM® (2T 反熔絲)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "新思科技 (Synopsys / Sidense)",
+            "brandName": "Sidense 1T-Fuse™ / SLP™ / ULP™ (分裂通道反熔絲)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "上峰科技 (Attopsemi)",
+            "brandName": "I-fuse™ (熱輔助電遷移微熔絲)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "熵碼科技 (PUFsecurity)",
+            "brandName": "PUFiot® / PUFse® (硬體信任根)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "富提亞科技 (Floadia)",
+            "brandName": "LEE Fuse ZA™ (反熔絲 OTP)",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "fgotp",
         "name": "Logic FG-OTP",
         "category": "otp",
         "label": "浮閘邏輯 OTP",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "NeoBit® · Faraday Logic OTP · Foundry 1P-OTP",
+        "commercialTradeNames": [
+          {
+            "vendor": "力旺電子 (eMemory)",
+            "brandName": "NeoBit® (單層多晶矽浮閘 OTP)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "智原科技 (Faraday)",
+            "brandName": "Faraday Single-Poly Logic OTP Compiler",
+            "category": "Design Service"
+          },
+          {
+            "vendor": "晶圓代工生態",
+            "brandName": "Foundry-qualified NeoBit® IP Portfolio (TSMC, UMC, GF)",
+            "category": "Foundry"
+          }
+        ]
       },
       {
         "id": "ldmtp",
         "name": "Logic LD-MTP",
         "category": "mtp",
         "label": "低干擾邏輯 MTP",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "NeoEE® · Synopsys AEON® · Actt LogicFlash™ · NSCore TwinBit™",
+        "commercialTradeNames": [
+          {
+            "vendor": "力旺電子 (eMemory)",
+            "brandName": "NeoEE® (純 FN 穿隧邏輯 EEPROM)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "新思科技 (Synopsys / Impinj)",
+            "brandName": "AEON® / Embedded Logic EEPROM IP",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "億天科技 (Actt)",
+            "brandName": "LogicFlash™ MTP Macro",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "日商 NSCore",
+            "brandName": "TwinBit™ Pch Schottky MTP",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "hdmtp",
         "name": "Logic HD-MTP",
         "category": "mtp",
         "label": "高密度邏輯 MTP",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "NeoMTP® · YMC MTP® · Floadia LEE Flash ZT™",
+        "commercialTradeNames": [
+          {
+            "vendor": "力旺電子 (eMemory)",
+            "brandName": "NeoMTP® (高密度熱載子邏輯 MTP)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "億而得微電子 (YMC)",
+            "brandName": "YMC MTP® / Logic eFlash Macro",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "富提亞科技 (Floadia)",
+            "brandName": "LEE Flash ZT™ (FN 浮閘邏輯 MTP)",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "sst",
         "name": "Split-Gate eFlash (SST)",
         "category": "eflash",
         "label": "分離閘快閃 (SST)",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "Microchip SuperFlash® (ESF3) · TSMC eFlash · Renesas SG-MONOS™ · Chingis pFusion®",
+        "commercialTradeNames": [
+          {
+            "vendor": "微芯科技 (Microchip / SST)",
+            "brandName": "SuperFlash® ESF1 / ESF2 / ESF3 (分離閘快閃)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "台積電 (TSMC)",
+            "brandName": "TSMC Embedded Flash (SST SuperFlash® 授權製程)",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "聯電 (UMC) / 格羅方德 (GF)",
+            "brandName": "UMC / GF 55nm / 40nm SuperFlash® eFlash",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "瑞薩電子 (Renesas)",
+            "brandName": "SG-MONOS™ (分離閘金屬氧化氮化矽快閃)",
+            "category": "IDM"
+          },
+          {
+            "vendor": "常憶科技 (Chingis)",
+            "brandName": "pFusion® (PMOS 分離閘快閃)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "智憶科技 (IOTMemory)",
+            "brandName": "SilvoFlash® (單低電源浮閘分離式快閃)",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "sonos",
         "name": "Charge-Trap eFlash (SONOS)",
         "category": "eflash",
         "label": "電荷捕捉快閃 (SONOS)",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "Infineon SONOS · Renesas MONOS™ · Floadia G1/G2™ · Tower Y-Flash™",
+        "commercialTradeNames": [
+          {
+            "vendor": "英飛凌 (Infineon / Cypress)",
+            "brandName": "SONOS eFlash Macro / MirrorBit®",
+            "category": "IDM / IP"
+          },
+          {
+            "vendor": "瑞薩電子 (Renesas)",
+            "brandName": "MONOS™ (金屬氧化氮化矽電荷捕捉快閃)",
+            "category": "IDM"
+          },
+          {
+            "vendor": "富提亞科技 (Floadia)",
+            "brandName": "LEE Flash G1™ / G2™ (分散型 SONOS eFlash)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "高塔半導體 (Tower Semiconductor)",
+            "brandName": "Y-Flash™ (低光罩電荷捕捉記憶體)",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "恩智浦 (NXP)",
+            "brandName": "Thin-Film Storage (TFS™) SONOS",
+            "category": "IDM"
+          }
+        ]
       },
       {
         "id": "mram",
         "name": "Embedded STT-MRAM",
         "category": "emerging",
         "label": "嵌入式 STT-MRAM",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "TSMC 22ULL/16FFC eMRAM · GF AutoPro150™ eMRAM · Samsung eMRAM · Everspin Toggle/ST-MRAM",
+        "commercialTradeNames": [
+          {
+            "vendor": "台積電 (TSMC)",
+            "brandName": "TSMC 22ULL / 16FFC / 12FFC Embedded STT-MRAM Macro",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "格羅方德 (GlobalFoundries)",
+            "brandName": "GF 22FDX® eMRAM / AutoPro150™ eMRAM (AEC-Q100 Grade 1)",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "三星代工 (Samsung Foundry)",
+            "brandName": "Samsung 28FDS / 14FBC eMRAM Solution",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "Everspin Technologies",
+            "brandName": "Toggle MRAM® / Spin-Torque MRAM (ST-MRAM)™ / EMXX Macro",
+            "category": "IDM / IP"
+          },
+          {
+            "vendor": "Numem",
+            "brandName": "NuComp™ Controller / NuPro™ Smart MRAM IP Core",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "Avalanche Technology",
+            "brandName": "pMTJ STT-MRAM / Statnv™ Persistent SRAM",
+            "category": "IDM / IP"
+          }
+        ]
       },
       {
         "id": "reram",
         "name": "Embedded OxRAM (ReRAM)",
         "category": "emerging",
         "label": "阻變記憶體 (ReRAM)",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "TSMC 22RRAM (22ULL) · GF 22FDX+ OxRAM™ · Weebit SiOx ReRAM · Panasonic TaOx ReRAM · Adesto CBRAM®",
+        "commercialTradeNames": [
+          {
+            "vendor": "台積電 (TSMC)",
+            "brandName": "TSMC 40nm / 28nm / 22RRAM (22ULL) Macro",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "格羅方德 (GlobalFoundries)",
+            "brandName": "GF 22FDX+ OxRAM™ (與 CEA-Leti 合作)",
+            "category": "Foundry"
+          },
+          {
+            "vendor": "Weebit Nano",
+            "brandName": "Weebit ReRAM IP Macro (氧化矽導電絲)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "松下 (Panasonic / RAMXEED)",
+            "brandName": "TaOx-based ReRAM (MN101L MCU 商業量產)",
+            "category": "IDM"
+          },
+          {
+            "vendor": "Adesto / 瑞薩 (Renesas)",
+            "brandName": "CBRAM® (導電橋接記憶體)",
+            "category": "IDM / IP"
+          },
+          {
+            "vendor": "Crossbar",
+            "brandName": "Crossbar ReRAM® (銀-非晶矽金屬導電絲)",
+            "category": "IP Vendor"
+          },
+          {
+            "vendor": "TetraMem",
+            "brandName": "Analog In-Memory Computing (AiMC) ReRAM",
+            "category": "IP Vendor"
+          }
+        ]
       },
       {
         "id": "feram",
         "name": "Embedded FeRAM / FeFET",
         "category": "emerging",
         "label": "鐵電記憶體 (FeRAM/FeFET)",
-        "highlight": false
+        "highlight": false,
+        "tradeNamesSummary": "Infineon EXCELON™ F-RAM · TI MSP430FR FRAM · Fujitsu FeRAM · FMC 22FDX FeFET",
+        "commercialTradeNames": [
+          {
+            "vendor": "英飛凌 (Infineon / Ramtron)",
+            "brandName": "EXCELON™ Ultra F-RAM / F-RAM™ 產品家族",
+            "category": "IDM"
+          },
+          {
+            "vendor": "德州儀器 (TI)",
+            "brandName": "MSP430FRxx FRAM® 超低功耗微控制器 (130nm eFRAM)",
+            "category": "IDM"
+          },
+          {
+            "vendor": "富士通 (Fujitsu / Ramxeed)",
+            "brandName": "Fujitsu Embedded FeRAM Macro",
+            "category": "Foundry / IDM"
+          },
+          {
+            "vendor": "FMC (Ferroelectric Memory GmbH)",
+            "brandName": "HfO2-based FeFET Memory Compiler (聯手 GF 22FDX®)",
+            "category": "IP Vendor"
+          }
+        ]
       }
     ],
     "categories": [
@@ -1686,6 +1979,24 @@
         }
       },
       {
+        "id": "dim_commercial_branding",
+        "name": "產業界代表商標與供應鏈商用名",
+        "academicContext": "從專利授權、代工 PDK 命名到正式商標代號之供應鏈識別",
+        "cells": {
+          "efuse": "【主要代工廠原生編譯器】台積電 TSMC Poly-fuse / Metal eFuse Macro、格羅方德 GF FDX eFuse Compiler、聯電 UMC eFuse Macro；【IP 供應商】新思科技 Synopsys DesignWare® eFuse IP。特點為標準 PDK 內建（0 加價），由晶圓廠直接保證高溫不回退。",
+          "maskrom": "【代表性商業產品】旺宏電子 Macronix XtraROM®（高密度平坦單元光罩唯讀記憶體）；【編譯器 IP】ARM Artisan® Embedded Via ROM Compiler、智原 Faraday Via ROM Compiler、台積電 TSMC Via-programmable ROM Compiler。特點為單一 Via/Contact 光罩客製，晶片出廠永久固化。",
+          "antifuse": "【純邏輯閘氧擊穿標竿】力旺 eMemory NeoFuse®（涵蓋 0.35um 至 3nm 先進節點）與 NeoPUF® 量子穿隧密鑰；【新思旗下雙主力】Kilopass XPM®（2T 結構）與 Sidense 1T-Fuse™ / SLP™（單多晶矽分裂通道）；【微熔絲與信任根】上峰 Attopsemi I-fuse™、富提亞 Floadia LEE Fuse ZA™、熵碼科技 PUFiot® 硬體信任根模組。",
+          "fgotp": "【全球單層多晶矽浮閘標竿】力旺 eMemory NeoBit®（累積出貨逾數百億顆，授權全球超過 30 家代工廠）；【設計服務相容巨集】智原 Faraday Single-Poly Logic OTP Compiler、台積電/聯電標準 NeoBit 代工庫。特點為 0 光罩成熟電荷儲存，開蓋紫外線可重置。",
+          "ldmtp": "【純對稱穿隧邏輯 EEPROM】力旺 eMemory NeoEE®（純 FN/FN 穿隧，寫入電流 pA 級，支援 1,000 次耐久度與 AEC-Q100 Grade 0 車規）；【歷史經典譜系】Synopsys AEON®（源自 Impinj / Virage Logic 譜系之 0-mask EEPROM）；【特色架構】億天 Actt LogicFlash™、日商 NSCore TwinBit™。",
+          "hdmtp": "【快速寫入高密度 MTP】力旺 eMemory NeoMTP®（CHI 快速寫入 / FN 抹除，單元面積小於 NeoEE，廣泛應用於電源管理 PMIC、觸控 TDDI）；【顯示面板與 MCU 專精】億而得 YMC MTP® / Logic eFlash（熱電子寫入 / 帶間穿隧熱電洞抹除，具高度量產實績）；富提亞 Floadia LEE Flash ZT™。",
+          "sst": "【全球車規 MCU 核心主流】微芯 Microchip / SST SuperFlash®（第三代 ESF3 採用自對齊分離閘，授權台積電、聯電、格羅方德、中芯國際等各大代工廠，AEC-Q100 Grade 0 標竿）；【車規 IDM 專有架構】瑞薩 Renesas SG-MONOS™（用於 RH850 / RX 車用 MCU）；常憶 Chingis pFusion®、智憶 IOTMemory SilvoFlash®。",
+          "sonos": "【微縮氮化矽電荷捕捉旗艦】英飛凌 Infineon (Cypress) SONOS eFlash Macro 與 MirrorBit® 技術；【IDM 大廠專有陣列】瑞薩 Renesas MONOS™、恩智浦 NXP TFS™；【超低寫入功耗與耐溫】富提亞 Floadia LEE Flash G1™/G2™（夾層分散式電子陷阱，支援 200°C 高溫）；高塔半導體 Tower Y-Flash™。",
+          "mram": "【三大晶圓代工廠先進節點 eMRAM】台積電 TSMC 22ULL / 16FFC / 12FFC eMRAM（車規級量產認證）；格羅方德 GF 22FDX® eMRAM 與 AutoPro150™（150°C 保持力認證）；三星 Samsung 28FDS / 14FBC eMRAM；【獨立與 IP 供應商】Everspin Toggle MRAM® 與 EMXX ST-MRAM、Numem NuPro™、Avalanche pMTJ。",
+          "reram": "【晶圓代工廠量產方案】台積電 TSMC 22RRAM (22ULL) 超低功耗嵌入式阻變記憶體；格羅方德 GF 22FDX+ OxRAM™（氧化鉿介質）；【獨立 IP 旗艦】Weebit Nano SiOx ReRAM（授權 DB HiTek、SkyWater）；【歷史量產先驅】松下 Panasonic TaOx ReRAM（MN101L 商業 MCU）；Adesto (Renesas) CBRAM®、Crossbar ReRAM®。",
+          "feram": "【車規與工業超高耐久標竿】英飛凌 Infineon (Ramtron) EXCELON™ Ultra F-RAM（10¹⁴ 次極限讀寫壽命、151 年保持力）；【商業嵌入式 MCU 先鋒】德州儀器 TI MSP430FRxx FRAM®（130nm 純鐵電整合）；富士通 Fujitsu FeRAM Macro；【先進節點 FeFET 領先群】FMC 攜手格羅方德之 GF 22FDX® FeFET eNVM。"
+        }
+      },
+      {
         "id": "dim_foundry_ecosystem",
         "number": "12",
         "name": "晶圓代工 PDK 生態、成熟度與多源供應",
@@ -1811,7 +2122,7 @@
       },
       "arrheniusAecQ100": {
         "description": "基於 Arrhenius 方程式與 J-STD-020 260°C 迴焊衝擊之高溫保持外插模型",
-        "boltzmannConstEv": 0.00008617333,
+        "boltzmannConstEv": 8.617333e-05,
         "grade0TempC": 150,
         "grade1TempC": 125,
         "antifuseTypicalEa": 2.1,

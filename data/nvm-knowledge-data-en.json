@@ -3214,77 +3214,370 @@
           "name": "Foundry eFuse",
           "category": "foundry",
           "label": "Foundry eFuse",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "TSMC eFuse · GF FDX eFuse · DesignWare® eFuse",
+          "commercialTradeNames": [
+            {
+              "vendor": "TSMC",
+              "brandName": "TSMC Poly-fuse / Metal eFuse Macro",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "GlobalFoundries",
+              "brandName": "GF FDX eFuse Macro (22FDX)",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "UMC",
+              "brandName": "UMC eFuse Macro & Compiler",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Synopsys",
+              "brandName": "DesignWare® eFuse IP",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "maskrom",
           "name": "Mask ROM",
           "category": "foundry",
           "label": "Mask ROM",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "Macronix XtraROM® · ARM Artisan® Via ROM · TSMC ROM Compiler",
+          "commercialTradeNames": [
+            {
+              "vendor": "Macronix",
+              "brandName": "XtraROM® (Planar Mask ROM)",
+              "category": "IDM / Vendor"
+            },
+            {
+              "vendor": "ARM (Artisan)",
+              "brandName": "Artisan® Embedded Via ROM Compiler",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "TSMC",
+              "brandName": "TSMC Contact/Via Mask ROM Compiler",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Faraday",
+              "brandName": "Faraday Via ROM Compiler",
+              "category": "Design Service"
+            }
+          ]
         },
         {
           "id": "antifuse",
           "name": "Logic AntiFuse OTP",
           "category": "otp",
           "label": "Logic AntiFuse OTP",
-          "highlight": true
+          "highlight": true,
+          "tradeNamesSummary": "NeoFuse® · Kilopass XPM® · Sidense 1T-Fuse™ · Attopsemi I-fuse™ · PUFiot®",
+          "commercialTradeNames": [
+            {
+              "vendor": "eMemory",
+              "brandName": "NeoFuse® (Dielectric Breakdown OTP)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Synopsys / Kilopass",
+              "brandName": "Kilopass XPM® (2T Anti-fuse)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Synopsys / Sidense",
+              "brandName": "Sidense 1T-Fuse™ / SLP™ / ULP™ (Split-channel Anti-fuse)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Attopsemi",
+              "brandName": "I-fuse™ (Thermal-assisted Electromigration)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "PUFsecurity",
+              "brandName": "PUFiot® / PUFse® (Hardware Root of Trust)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Floadia",
+              "brandName": "LEE Fuse ZA™ (Anti-fuse OTP)",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "fgotp",
           "name": "Logic FG-OTP",
           "category": "otp",
           "label": "Logic FG-OTP",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "NeoBit® · Faraday Logic OTP · Foundry 1P-OTP",
+          "commercialTradeNames": [
+            {
+              "vendor": "eMemory",
+              "brandName": "NeoBit® (Single-Poly Floating-Gate OTP)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Faraday",
+              "brandName": "Faraday Single-Poly Logic OTP Compiler",
+              "category": "Design Service"
+            },
+            {
+              "vendor": "Foundry Ecosystem",
+              "brandName": "Foundry-qualified NeoBit® IP Portfolio (TSMC, UMC, GF)",
+              "category": "Foundry"
+            }
+          ]
         },
         {
           "id": "ldmtp",
           "name": "Logic LD-MTP",
           "category": "mtp",
           "label": "Logic LD-MTP",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "NeoEE® · Synopsys AEON® · Actt LogicFlash™ · NSCore TwinBit™",
+          "commercialTradeNames": [
+            {
+              "vendor": "eMemory",
+              "brandName": "NeoEE® (Pure FN Tunneling Logic EEPROM)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Synopsys / Impinj",
+              "brandName": "AEON® / Embedded Logic EEPROM IP",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Actt",
+              "brandName": "LogicFlash™ MTP Macro",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "NSCore",
+              "brandName": "TwinBit™ Pch Schottky MTP",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "hdmtp",
           "name": "Logic HD-MTP",
           "category": "mtp",
           "label": "Logic HD-MTP",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "NeoMTP® · YMC MTP® · Floadia LEE Flash ZT™",
+          "commercialTradeNames": [
+            {
+              "vendor": "eMemory",
+              "brandName": "NeoMTP® (High-density Hot-Carrier Logic MTP)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Yield Microelectronics (YMC)",
+              "brandName": "YMC MTP® / Logic eFlash Macro",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Floadia",
+              "brandName": "LEE Flash ZT™ (FN FG Logic MTP)",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "sst",
           "name": "Split-Gate eFlash (SST)",
           "category": "eflash",
           "label": "Split-Gate eFlash (SST)",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "Microchip SuperFlash® (ESF3) · TSMC eFlash · Renesas SG-MONOS™ · Chingis pFusion®",
+          "commercialTradeNames": [
+            {
+              "vendor": "Microchip / SST",
+              "brandName": "SuperFlash® ESF1 / ESF2 / ESF3 (Split-Gate Flash)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "TSMC",
+              "brandName": "TSMC Embedded Flash (SST SuperFlash® licensed platform)",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "UMC / GlobalFoundries",
+              "brandName": "UMC / GF 55nm / 40nm SuperFlash® eFlash",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Renesas",
+              "brandName": "SG-MONOS™ (Split-Gate MONOS Flash)",
+              "category": "IDM"
+            },
+            {
+              "vendor": "Chingis Technology",
+              "brandName": "pFusion® (PMOS Split-Gate Flash)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "IOTMemory",
+              "brandName": "SilvoFlash® (Low-voltage Floating-Gate Flash)",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "sonos",
           "name": "Charge-Trap eFlash (SONOS)",
           "category": "eflash",
           "label": "Charge-Trap eFlash (SONOS)",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "Infineon SONOS · Renesas MONOS™ · Floadia G1/G2™ · Tower Y-Flash™",
+          "commercialTradeNames": [
+            {
+              "vendor": "Infineon / Cypress",
+              "brandName": "SONOS eFlash Macro / MirrorBit®",
+              "category": "IDM / IP"
+            },
+            {
+              "vendor": "Renesas",
+              "brandName": "MONOS™ (Metal-Oxide-Nitride-Oxide-Silicon)",
+              "category": "IDM"
+            },
+            {
+              "vendor": "Floadia",
+              "brandName": "LEE Flash G1™ / G2™ (Localized SONOS eFlash)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Tower Semiconductor",
+              "brandName": "Y-Flash™ (Low-mask Trapping Flash)",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "NXP",
+              "brandName": "Thin-Film Storage (TFS™) SONOS",
+              "category": "IDM"
+            }
+          ]
         },
         {
           "id": "mram",
           "name": "Embedded STT-MRAM",
           "category": "emerging",
           "label": "Embedded STT-MRAM",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "TSMC 22ULL/16FFC eMRAM · GF AutoPro150™ eMRAM · Samsung eMRAM · Everspin Toggle/ST-MRAM",
+          "commercialTradeNames": [
+            {
+              "vendor": "TSMC",
+              "brandName": "TSMC 22ULL / 16FFC / 12FFC Embedded STT-MRAM Macro",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "GlobalFoundries",
+              "brandName": "GF 22FDX® eMRAM / AutoPro150™ eMRAM (AEC-Q100 Grade 1)",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Samsung Foundry",
+              "brandName": "Samsung 28FDS / 14FBC eMRAM Solution",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Everspin Technologies",
+              "brandName": "Toggle MRAM® / Spin-Torque MRAM (ST-MRAM)™ / EMXX Macro",
+              "category": "IDM / IP"
+            },
+            {
+              "vendor": "Numem",
+              "brandName": "NuComp™ Controller / NuPro™ Smart MRAM IP Core",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Avalanche Technology",
+              "brandName": "pMTJ STT-MRAM / Statnv™ Persistent SRAM",
+              "category": "IDM / IP"
+            }
+          ]
         },
         {
           "id": "reram",
           "name": "Embedded OxRAM (ReRAM)",
           "category": "emerging",
           "label": "Embedded OxRAM (ReRAM)",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "TSMC 22RRAM (22ULL) · GF 22FDX+ OxRAM™ · Weebit SiOx ReRAM · Panasonic TaOx ReRAM · Adesto CBRAM®",
+          "commercialTradeNames": [
+            {
+              "vendor": "TSMC",
+              "brandName": "TSMC 40nm / 28nm / 22RRAM (22ULL) Macro",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "GlobalFoundries",
+              "brandName": "GF 22FDX+ OxRAM™ (with CEA-Leti)",
+              "category": "Foundry"
+            },
+            {
+              "vendor": "Weebit Nano",
+              "brandName": "Weebit ReRAM IP Macro (Silicon Oxide Filament)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "Panasonic / RAMXEED",
+              "brandName": "TaOx-based ReRAM (MN101L MCU Volume Production)",
+              "category": "IDM"
+            },
+            {
+              "vendor": "Adesto / Renesas",
+              "brandName": "CBRAM® (Conductive Bridging RAM)",
+              "category": "IDM / IP"
+            },
+            {
+              "vendor": "Crossbar",
+              "brandName": "Crossbar ReRAM® (Ag-a-Si Filamentary)",
+              "category": "IP Vendor"
+            },
+            {
+              "vendor": "TetraMem",
+              "brandName": "Analog In-Memory Computing (AiMC) ReRAM",
+              "category": "IP Vendor"
+            }
+          ]
         },
         {
           "id": "feram",
           "name": "Embedded FeRAM / FeFET",
           "category": "emerging",
           "label": "Embedded FeRAM / FeFET",
-          "highlight": false
+          "highlight": false,
+          "tradeNamesSummary": "Infineon EXCELON™ F-RAM · TI MSP430FR FRAM · Fujitsu FeRAM · FMC 22FDX FeFET",
+          "commercialTradeNames": [
+            {
+              "vendor": "Infineon / Ramtron",
+              "brandName": "EXCELON™ Ultra F-RAM / F-RAM™ Family",
+              "category": "IDM"
+            },
+            {
+              "vendor": "Texas Instruments (TI)",
+              "brandName": "MSP430FRxx FRAM® Microcontrollers (130nm eFRAM)",
+              "category": "IDM"
+            },
+            {
+              "vendor": "Fujitsu / Ramxeed",
+              "brandName": "Fujitsu Embedded FeRAM Macro",
+              "category": "Foundry / IDM"
+            },
+            {
+              "vendor": "FMC",
+              "brandName": "HfO2-based FeFET Memory Compiler (with GF 22FDX®)",
+              "category": "IP Vendor"
+            }
+          ]
         }
       ],
       "categories": [
@@ -3891,6 +4184,24 @@
               "val": "Very Good (Lattice Dipole)",
               "note": "Spontaneous crystal polarization has zero geometric footprint"
             }
+          }
+        },
+        {
+          "id": "dim_commercial_branding",
+          "name": "Commercial IP Trade Names & Foundry Branding",
+          "academicContext": "Supply chain taxonomy across patent licenses, foundry PDK naming, and official commercial trademarks",
+          "cells": {
+            "efuse": "Foundry Native: TSMC Poly-fuse / Metal eFuse Macro, GlobalFoundries GF FDX eFuse Compiler, UMC eFuse Macro; IP Vendors: Synopsys DesignWare® eFuse IP. Key feature: Included in standard foundry PDKs (0 mask adder) with zero high-temp relaxation.",
+            "maskrom": "Commercial Products: Macronix XtraROM® (high-density planar cell mask ROM); Compiler IPs: ARM Artisan® Embedded Via ROM Compiler, Faraday Via ROM Compiler, TSMC Via-programmable ROM Compiler. Key feature: Single Via/Contact mask customization, permanently unalterable.",
+            "antifuse": "Pure Logic Breakdown Benchmarks: eMemory NeoFuse® (0.35um to 3nm GAA) and NeoPUF® quantum tunneling security; Synopsys Dual Flags: Kilopass XPM® (2T cell) and Sidense 1T-Fuse™ / SLP™ (split-channel); Microfuse & RoT: Attopsemi I-fuse™, Floadia LEE Fuse ZA™, PUFsecurity PUFiot® security sub-systems.",
+            "fgotp": "Global Benchmark: eMemory NeoBit® (tens of billions of units shipped, licensed across 30+ foundries); Compatible Macros: Faraday Single-Poly Logic OTP Compiler, TSMC/UMC NeoBit qualified portfolios. Key feature: 0-mask mature charge-storage OTP, UV-erasable upon decapsulation.",
+            "ldmtp": "Symmetric Tunneling Logic EEPROM: eMemory NeoEE® (pure FN/FN tunneling, pA-level write current, 1,000 cycles, AEC-Q100 Grade 0); Classic Lineage: Synopsys AEON® (Impinj / Virage Logic legacy 0-mask EEPROM); Niche Architectures: Actt LogicFlash™, NSCore TwinBit™ Pch Schottky MTP.",
+            "hdmtp": "Fast-Write High-Density MTP: eMemory NeoMTP® (CHI injection program / FN erase, compact cell area for PMIC & TDDI); Display & MCU Specialist: YMC MTP® / Logic eFlash (hot-electron program / BTHTH erase, proven volume production); Floadia LEE Flash ZT™.",
+            "sst": "Automotive Dominance: Microchip / SST SuperFlash® (Gen 3 ESF3 self-aligned split-gate, licensed to TSMC, UMC, GF, SMIC, AEC-Q100 Grade 0 standard); Automotive IDM Flagship: Renesas SG-MONOS™ (RH850 & RX automotive MCUs); Niche Players: Chingis pFusion®, IOTMemory SilvoFlash®.",
+            "sonos": "Silicon Nitride Charge-Trap Flagships: Infineon (Cypress) SONOS eFlash Macro & MirrorBit®; IDM Proprietary: Renesas MONOS™, NXP TFS™; Extreme Temperature & Low Power: Floadia LEE Flash G1™/G2™ (localized traps supporting 200°C); Tower Semiconductor Y-Flash™.",
+            "mram": "Big-3 Foundry Commercial eMRAM: TSMC 22ULL / 16FFC / 12FFC eMRAM (automotive certified); GlobalFoundries 22FDX® eMRAM & AutoPro150™ (150°C retention); Samsung 28FDS / 14FBC eMRAM; Discrete & IP Specialists: Everspin Toggle MRAM® & EMXX ST-MRAM, Numem NuPro™, Avalanche pMTJ.",
+            "reram": "Foundry Volume Solutions: TSMC 22RRAM (22ULL) ultra-low-power embedded ReRAM; GlobalFoundries 22FDX+ OxRAM™ (HfOx dielectric); Pure IP Leaders: Weebit Nano SiOx ReRAM (licensed to DB HiTek & SkyWater); Commercial Pioneer: Panasonic TaOx ReRAM (MN101L MCU); Adesto (Renesas) CBRAM®, Crossbar ReRAM®.",
+            "feram": "Automotive & Industrial High-Endurance: Infineon (Ramtron) EXCELON™ Ultra F-RAM (10¹⁴ write cycles, 151-yr retention); Commercial eMCU Pioneer: Texas Instruments MSP430FRxx FRAM® (130nm eFRAM); Fujitsu FeRAM Macro; Advanced FeFET Leader: FMC partnered with GlobalFoundries on GF 22FDX® FeFET eNVM."
           }
         },
         {

@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "55da89cb987508c2459d",
+  "version": "4c0a7f9836b7ed4a4bd3",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -318,7 +318,7 @@ self.NVMOfflineManifest = {
     "supply-chain-hardware-trojan-pem-simulator.js": "ca94564ce2e10ad09f7190bf5fc31b777b3a7d915c8e8c4cce09b43c3a99837f",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "347cd501874da901e8918d8c047dcdd91d8fb725748d95f134650c29e639ba62",
-    "technology-comparison.html": "e61210c6abe6402c58985ff3db52287d4934798cbfe87bdcc45873227dd96ea5",
+    "technology-comparison.html": "8467c21d777a30be2407d700915808068c2835aa6577d9fb2dd1b78279047740",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "e60f6f9a09bd72b73687ea50ad4f9c09054f560dc194d37bf9b2db063d9038f9",
@@ -336,5 +336,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17630355
+  "totalBytes": 17633731
 };
