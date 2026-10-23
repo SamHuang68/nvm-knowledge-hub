@@ -1239,7 +1239,70 @@
       </div>
       <p class="source-policy" data-zh="Riscure／Keysight 名稱僅作為公開來源引用；本網站不宣稱合作、採用其工具或獲得其認證。測試參數與可重現的漏洞利用步驟不放在公開頁面。" data-en="Riscure and Keysight are cited as public sources only. This site does not claim partnership, tool use or certification. Actionable exploit parameters remain outside the public site.">Riscure and Keysight are cited as public sources only. This site does not claim partnership, tool use or certification. Actionable exploit parameters remain outside the public site.</p>
     </section>
-  </main>
+  
+            <!-- MODULE: PQC Laser Fault Injection (LFI) Simulator -->
+            <article class="paper-card physics-model-card" id="pqc-lfi-simulator-root" style="margin-top: 28px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">後量子密碼晶片防禦模型</span><span data-lang="en">POST-QUANTUM CRYPTO DEFENSE MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">PQC 金鑰儲存 1064nm 抗雷射注入 (LFI) 物理防禦模擬器</span><span data-lang="en">PQC Key Storage 1064nm Laser Fault Injection (LFI) Defense Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於矽基底 1064nm 近紅外光電效應與雷射脈衝注入閥值計算，模擬主動金屬屏蔽層之光電信號抑制與熔斷清零響應，供晶片安全架構防護設計參考。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Grounded in silicon 1064nm photoelectric carrier generation equations; models active mesh attenuation and tamper defense.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">在後量子密碼學 (PQC) 晶片中，儲存私鑰的 NVM 容易遭受 1064nm 近紅外超短脈衝雷射攻擊（LFI）。雷射穿透矽基板引發微觀光電突波電流，可能導致位元翻轉洩漏金鑰。本工具評估主動頂層金屬網格屏蔽、差動感測與即時安全熔斷機制對抗 LFI 攻擊之防禦裕度。</span>
+                <span data-lang="en">Post-Quantum Cryptography (PQC) private keys are vulnerable to 1064nm near-IR Laser Fault Injection (LFI). Focused pulses create photocurrent transients that induce bit flips. This tool evaluates active top-metal mesh shielding and rapid tamper zeroization defenses.</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">晶片防護架構</span><span data-lang="en">Protection Architecture</span></label>
+                  <select id="sim-lfi-shield" aria-label="Protection Architecture selection" data-aria-zh="防護架構選擇" data-aria-en="Protection Architecture selection" style="width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.82rem; background:#ffffff;">
+                    <option value="hardened_antifuse_shield">Active Metal Mesh Hardened Anti-fuse OTP</option>
+                    <option value="differential_puf_sensing">Differential Sensing Quantum Tunneling PUF Array</option>
+                    <option value="standard_unshielded_nvm">Standard Unshielded Conventional Charge NVM</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">入射雷射脈衝能量 (nJ)</span><span data-lang="en">Laser Energy (nJ)</span>: <span id="sim-lfi-energy-val">0.50</span> nJ</label>
+                  <input type="range" id="sim-lfi-energy" min="0.05" max="2.50" step="0.05" value="0.50" style="width:100%;">
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">雷射脈衝寬度 (ps)</span><span data-lang="en">Pulse Duration (ps)</span>: <span id="sim-lfi-dur-val">400</span> ps</label>
+                  <input type="range" id="sim-lfi-dur" min="100" max="1500" step="50" value="400" style="width:100%;">
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:12px;">
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">透射有效能量</span><span data-lang="en">Effective Energy</span></div>
+                  <div id="sim-lfi-out-energy" style="font-size:1.15rem; font-weight:800; color:#0f766e; margin-top:2px;">0.0003 nJ</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">金鑰翻轉竄改機率</span><span data-lang="en">Upset Probability</span></div>
+                  <div id="sim-lfi-out-upset" style="font-size:1.15rem; font-weight:800; color:#16a34a; margin-top:2px;">0.0%</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">安全防禦裕度</span><span data-lang="en">Security Margin</span></div>
+                  <div id="sim-lfi-out-margin" style="font-size:1.15rem; font-weight:800; color:#0284c7; margin-top:2px;">+36.2 dB</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">主動安全清零延遲</span><span data-lang="en">Zeroization Delay</span></div>
+                  <div id="sim-lfi-out-zero" style="font-size:1.15rem; font-weight:800; color:#7c3aed; margin-top:2px;">4.5 ns</div>
+                </div>
+              </div>
+
+              <div id="sim-lfi-summary" style="background:#f1f5f9; padding:10px 14px; border-radius:6px; font-size:0.8rem; color:#334155; line-height:1.45; border-left:3px solid #006f70;">
+                <span data-lang="zh">載入中...</span><span data-lang="en">Loading...</span>
+              </div>
+            </article>
+
+</main>
   <footer><a href="index.html">NVM KNOWLEDGE HUB</a><span data-zh="安全儲存 · 實體安全保證" data-en="SECURE STORAGE · PHYSICAL SECURITY ASSURANCE">SECURE STORAGE · PHYSICAL SECURITY ASSURANCE</span><a href="#top" data-zh="回到頂端" data-en="Back to top">Back to top</a></footer>
   <script src="assurance.js?v=20260929-v5"></script>
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
@@ -1256,5 +1319,45 @@
       initPqcDpaSimulator('pqc-dpa-simulator-root');
     }
   </script>
+
+    <script type="module">
+      import { calculatePqcLfiResistance } from './pqc-lfi-laser-fault-injection-simulator.js';
+
+      function updateLfi() {
+        const shield = document.getElementById('sim-lfi-shield')?.value || 'hardened_antifuse_shield';
+        const energy = parseFloat(document.getElementById('sim-lfi-energy')?.value || '0.50');
+        const dur = parseFloat(document.getElementById('sim-lfi-dur')?.value || '400');
+
+        const energyEl = document.getElementById('sim-lfi-energy-val');
+        const durEl = document.getElementById('sim-lfi-dur-val');
+        if (energyEl) energyEl.textContent = energy.toFixed(2);
+        if (durEl) durEl.textContent = dur.toFixed(0);
+
+        const res = calculatePqcLfiResistance({ shieldType: shield, laserPulseEnergyNj: energy, pulseDurationPs: dur });
+
+        const outEnergy = document.getElementById('sim-lfi-out-energy');
+        const outUpset = document.getElementById('sim-lfi-out-upset');
+        const outMargin = document.getElementById('sim-lfi-out-margin');
+        const outZero = document.getElementById('sim-lfi-out-zero');
+        const outSummary = document.getElementById('sim-lfi-summary');
+
+        if (outEnergy) outEnergy.textContent = res.effectiveIncidentEnergyNj.toFixed(4) + ' nJ';
+        if (outUpset) outUpset.textContent = res.lfiUpsetProbabilityPercent.toFixed(1) + '%';
+        if (outMargin) outMargin.textContent = (res.securityMarginDb >= 0 ? '+' : '') + res.securityMarginDb.toFixed(1) + ' dB';
+        if (outZero) outZero.textContent = res.activeZeroizationNs.toFixed(1) + ' ns';
+        if (outSummary) {
+          const isEn = document.documentElement.lang === 'en';
+          outSummary.textContent = isEn ? res.summaryEn : res.summaryZh;
+        }
+      }
+
+      ['sim-lfi-shield', 'sim-lfi-energy', 'sim-lfi-dur'].forEach(id => {
+        document.getElementById(id)?.addEventListener('input', updateLfi);
+      });
+
+      document.addEventListener('DOMContentLoaded', updateLfi);
+      setTimeout(updateLfi, 50);
+    </script>
+
 </body>
 </html>

@@ -59,6 +59,10 @@ import { calculateCimMetrics } from '../cim-efficiency-calculator.js';
 import { calculateDemuraLutStorage } from '../demura-lut-calculator.js';
 import { calculateIotEnergyBudget } from '../iot-energy-tradeoff-calculator.js';
 import { calculatePqcRotBudget } from '../pqc-rot-budget-calculator.js';
+import { calculateUcieInterconnect } from '../ai-chiplet-ucie-interconnect-simulator.js';
+import { calculateCryoSuperconductingNvm } from '../cryo-superconducting-qubit-nvm-simulator.js';
+import { calculatePqcLfiResistance } from '../pqc-lfi-laser-fault-injection-simulator.js';
+import { calculateCpoPhotonicTuning } from '../cpo-photonic-thermal-tuning-nvm-simulator.js';
 
 // 本次契約案例獨立命名，可只執行受影響模型，不重跑整套回歸。
 test('模型契約：未知與繼承技術鍵完整備援至 AntiFuse', () => {
@@ -185,7 +189,11 @@ const allCalculators = [
   { name: 'calculateCimMetrics', fn: calculateCimMetrics },
   { name: 'calculateDemuraLutStorage', fn: calculateDemuraLutStorage },
   { name: 'calculateIotEnergyBudget', fn: calculateIotEnergyBudget },
-  { name: 'calculatePqcRotBudget', fn: calculatePqcRotBudget }
+  { name: 'calculatePqcRotBudget', fn: calculatePqcRotBudget },
+  { name: 'calculateUcieInterconnect', fn: calculateUcieInterconnect },
+  { name: 'calculateCryoSuperconductingNvm', fn: calculateCryoSuperconductingNvm },
+  { name: 'calculatePqcLfiResistance', fn: calculatePqcLfiResistance },
+  { name: 'calculateCpoPhotonicTuning', fn: calculateCpoPhotonicTuning }
 ];
 
 function checkNoNaN(obj, prefix = '') {
@@ -806,4 +814,44 @@ test('Suite 18: 全譜系 IP 決策、2nm GAA 量子穿隧、BSPDN 熱阻、次�
   assert(bmsRes.cmtiMarginRatio > 1.0);
   assert(bmsRes.emergencyFreezeLatencyMs <= 2.0);
   assert.equal(bmsRes.asilDQualified, true);
+});
+
+test('Suite 19: AI Chiplet UCIe 2.0 互連能耗、深低溫量子 FJJ NVM、PQC LFI 抗雷射注入與 CPO 矽光微調整合壓力測試', () => {
+  // 1. AI Chiplet UCIe 1.1/2.0 Interconnect
+  const ucieRes = calculateUcieInterconnect({ packageType: 'advanced_cowos', traceLengthMm: 2.0, dataRateGbps: 16.0, laneCount: 64 });
+  assert.equal(ucieRes.packageKey, 'advanced_cowos');
+  assert(ucieRes.totalBandwidthGBps > 0);
+  assert(ucieRes.interconnectEnergyPjPerBit > 0);
+  assert(ucieRes.nmcEnergySavingsRatio > 10.0);
+  assert.ok(ucieRes.summaryZh.length > 10);
+  assert.ok(ucieRes.summaryEn.length > 10);
+
+  // 2. Cryogenic Superconducting Qubit FJJ NVM
+  const cryoRes = calculateCryoSuperconductingNvm({ materialType: 'nb_alox_fjj', temperatureKelvin: 0.020, microwaveReadFreqGhz: 6.5 });
+  assert.equal(cryoRes.materialKey, 'nb_alox_fjj');
+  assert(cryoRes.criticalCurrentMicroAmp > 0);
+  assert(cryoRes.switchingEnergyAttoJoule > 0);
+  assert(cryoRes.qndFidelityPercent >= 99.0);
+  assert.ok(cryoRes.summaryZh.length > 10);
+  assert.ok(cryoRes.summaryEn.length > 10);
+
+  // 3. PQC LFI Laser Fault Injection Resistance
+  const lfiRes = calculatePqcLfiResistance({ shieldType: 'hardened_antifuse_shield', laserPulseEnergyNj: 0.50, pulseDurationPs: 400 });
+  assert.equal(lfiRes.shieldKey, 'hardened_antifuse_shield');
+  assert(lfiRes.effectiveIncidentEnergyNj > 0);
+  assert(lfiRes.lfiUpsetProbabilityPercent < 1.0);
+  assert(lfiRes.securityMarginDb > 0);
+  assert(lfiRes.activeZeroizationNs <= 100.0);
+  assert.ok(lfiRes.summaryZh.length > 10);
+  assert.ok(lfiRes.summaryEn.length > 10);
+
+  // 4. CPO Silicon Photonics Thermal Drift & NVM LUT Trimming
+  const cpoRes = calculateCpoPhotonicTuning({ photonicPlatform: 'dwdm_o_band', deltaTempC: 35.0, nvmDacResolutionBits: 10 });
+  assert.equal(cpoRes.cpoKey, 'dwdm_o_band');
+  assert(cpoRes.rawWavelengthDriftNm > 0);
+  assert(cpoRes.tuningPowerPerChannelMw > 0);
+  assert(cpoRes.residualWavelengthErrorPm < 1.0);
+  assert(cpoRes.opticalCrossTalkDb < -25);
+  assert.ok(cpoRes.summaryZh.length > 10);
+  assert.ok(cpoRes.summaryEn.length > 10);
 });

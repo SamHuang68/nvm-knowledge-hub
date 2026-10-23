@@ -3392,7 +3392,140 @@
         </div>
       </div>
     </div>
-  </main>
+  
+            <!-- MODULE: 2.5D/3D Chiplet UCIe 1.1/2.0 Interconnect & NMC Simulator -->
+            <article class="paper-card physics-model-card" id="ucie-chiplet-simulator-root" style="margin-top: 28px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">先進封裝互連模型</span><span data-lang="en">ADVANCED PACKAGING INTERCONNECT MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">2.5D/3D Chiplet UCIe 1.1/2.0 互連與近記憶體計算 (NMC) 模擬器</span><span data-lang="en">2.5D/3D Chiplet UCIe 1.1/2.0 Interconnect &amp; Near-Memory Computing (NMC) Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於 UCIe 1.1/2.0 物理層規範、CoWoS/SoIC 集中參數模型與傳輸線分佈式 RC 計算，模擬封裝走線長度與傳輸能耗（pJ/bit），非特定代工廠之實測 S 參數保證。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Derived from UCIe 1.1/2.0 specifications and distributed transmission line models; represents analytical interconnect boundaries.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">在大型 AI 加速晶片中，將 NVM (如 eMRAM、ReRAM) 與主計算核心透過 UCIe 異質整合為 Chiplet，可突破記憶體牆限制。本工具試算不同封裝形態下的走線電容衰減、眼圖抖動、每位元傳輸能耗 (pJ/bit)，並量化近記憶體計算 (NMC) 相較傳統離片 DRAM 帶來的散熱功率節省效益。</span>
+                <span data-lang="en">Heterogeneous integration of NVM chiplets with logic cores via UCIe breaks the Memory Wall. This simulator calculates interconnect trace loss, transmission jitter, energy-per-bit (pJ/bit), and thermal dissipation reduction via Near-Memory Computing (NMC).</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">封裝工藝類型</span><span data-lang="en">Packaging Technology</span></label>
+                  <select id="sim-ucie-pkg" aria-label="Packaging Technology selection" data-aria-zh="封裝工藝類型選擇" data-aria-en="Packaging Technology selection" style="width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.82rem; background:#ffffff;">
+                    <option value="advanced_cowos">CoWoS / SoIC Advanced Packaging (&lt;3mm)</option>
+                    <option value="standard_substrate">Standard Organic Substrate (25mm)</option>
+                    <option value="hybrid_bonding_3d">Cu-Cu Direct Hybrid Bonding (0.1mm)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">互連走線長度 (mm)</span><span data-lang="en">Trace Length (mm)</span>: <span id="sim-ucie-len-val">2.0</span> mm</label>
+                  <input type="range" id="sim-ucie-len" min="0.1" max="25.0" step="0.1" value="2.0" style="width:100%;">
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">通道傳輸率 (Gbps)</span><span data-lang="en">Data Rate (Gbps)</span>: <span id="sim-ucie-rate-val">16.0</span> Gbps</label>
+                  <input type="range" id="sim-ucie-rate" min="4.0" max="32.0" step="2.0" value="16.0" style="width:100%;">
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">通道線數 (Lanes)</span><span data-lang="en">Channel Lanes</span>: <span id="sim-ucie-lanes-val">64</span></label>
+                  <input type="range" id="sim-ucie-lanes" min="16" max="128" step="16" value="64" style="width:100%;">
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:12px;">
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">總線寬頻寬</span><span data-lang="en">Total Bandwidth</span></div>
+                  <div id="sim-ucie-out-bw" style="font-size:1.15rem; font-weight:800; color:#0f766e; margin-top:2px;">128.0 GB/s</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">每位元傳輸能耗</span><span data-lang="en">Energy per Bit</span></div>
+                  <div id="sim-ucie-out-energy" style="font-size:1.15rem; font-weight:800; color:#0284c7; margin-top:2px;">0.33 pJ/bit</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">傳輸延遲</span><span data-lang="en">Latency</span></div>
+                  <div id="sim-ucie-out-lat" style="font-size:1.15rem; font-weight:800; color:#d97706; margin-top:2px;">0.88 ns</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">NMC 能耗節省比</span><span data-lang="en">NMC Energy Savings</span></div>
+                  <div id="sim-ucie-out-savings" style="font-size:1.15rem; font-weight:800; color:#16a34a; margin-top:2px;">106.1x</div>
+                </div>
+              </div>
+
+              <div id="sim-ucie-summary" style="background:#f1f5f9; padding:10px 14px; border-radius:6px; font-size:0.8rem; color:#334155; line-height:1.45; border-left:3px solid #0f766e;">
+                <span data-lang="zh">載入中...</span><span data-lang="en">Loading...</span>
+              </div>
+            </article>
+
+            <!-- MODULE: CPO Silicon Photonics Thermal Drift & NVM Trim Simulator -->
+            <article class="paper-card physics-model-card" id="cpo-thermal-tuning-simulator-root" style="margin-top: 28px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">矽光子光電共封裝模型</span><span data-lang="en">CO-PACKAGED OPTICS MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">CPO 矽光微環諧振器 (MRR) 熱光漂移與 NVM 查找表微調模擬器</span><span data-lang="en">CPO Micro-Ring Resonator Thermal Drift &amp; NVM LUT Trimming Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型依據矽晶熱光效應 (dn/dT ≈ 1.86×10⁻⁴ /K) 與 DWDM 微環多通道譜線模型計算加熱器補償功耗，供光模組與嵌入式 NVM 校準架構參考。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Based on silicon thermo-optic coefficients and DWDM spectral response; illustrative boundary model.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">在 1.6T/3.2T CPO 光引擎中，微環諧振器 (MRR) 波長對晶片溫度波動極為敏感（~0.08 nm/°C）。利用內建超低功耗 NVM 儲存多通道 DAC 調諧矩陣，可精確控制微型 TiN 加熱器消除熱光漂移，鎖定光波長並最小化相鄰光通道串擾。</span>
+                <span data-lang="en">In 1.6T/3.2T CPO optical engines, micro-ring resonators suffer wavelength thermal drift (~0.08 nm/°C). Embedded NVM stores calibration DAC LUTs to control integrated TiN heaters, locking resonant wavelengths and suppressing channel crosstalk.</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">光學波分平台</span><span data-lang="en">Photonic Platform</span></label>
+                  <select id="sim-cpo-platform" aria-label="Photonic Platform selection" data-aria-zh="光學波分平台選擇" data-aria-en="Photonic Platform selection" style="width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.82rem; background:#ffffff;">
+                    <option value="dwdm_o_band">O-Band 1310nm Dense WDM (DWDM)</option>
+                    <option value="cwdm_c_band">C-Band 1550nm Coarse WDM (CWDM)</option>
+                    <option value="ultra_compact_mrr">Ultra-compact Silicon MRR (TiN Heaters)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">晶片溫差偏移 ΔT (°C)</span><span data-lang="en">Temp Delta ΔT (°C)</span>: <span id="sim-cpo-temp-val">35.0</span> °C</label>
+                  <input type="range" id="sim-cpo-temp" min="5.0" max="75.0" step="5.0" value="35.0" style="width:100%;">
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">NVM DAC 解析度</span><span data-lang="en">NVM DAC Resolution</span></label>
+                  <select id="sim-cpo-dac" aria-label="NVM DAC Resolution selection" data-aria-zh="NVM DAC 解析度選擇" data-aria-en="NVM DAC Resolution selection" style="width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.82rem; background:#ffffff;">
+                    <option value="8">8-bit LUT Precision</option>
+                    <option value="10" selected>10-bit High Precision LUT</option>
+                    <option value="12">12-bit Ultra Precision</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:12px;">
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">原始波長漂移</span><span data-lang="en">Raw Drift</span></div>
+                  <div id="sim-cpo-out-drift" style="font-size:1.15rem; font-weight:800; color:#dc2626; margin-top:2px;">2.87 nm</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">單通道加熱功耗</span><span data-lang="en">Heater Power/Ch</span></div>
+                  <div id="sim-cpo-out-power" style="font-size:1.15rem; font-weight:800; color:#d97706; margin-top:2px;">10.2 mW</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">殘餘校準誤差</span><span data-lang="en">Residual Error</span></div>
+                  <div id="sim-cpo-out-err" style="font-size:1.15rem; font-weight:800; color:#0f766e; margin-top:2px;">0.6 pm</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">通道間光學串擾</span><span data-lang="en">Optical Crosstalk</span></div>
+                  <div id="sim-cpo-out-crosstalk" style="font-size:1.15rem; font-weight:800; color:#2563eb; margin-top:2px;">-31.9 dB</div>
+                </div>
+              </div>
+
+              <div id="sim-cpo-summary" style="background:#f1f5f9; padding:10px 14px; border-radius:6px; font-size:0.8rem; color:#334155; line-height:1.45; border-left:3px solid #006f70;">
+                <span data-lang="zh">載入中...</span><span data-lang="en">Loading...</span>
+              </div>
+            </article>
+
+</main>
 
   <footer class="research-footer">
     <p><span data-lang="zh">NVM 知識中心 · AI 系統／持久狀態</span><span data-lang="en">NVM KNOWLEDGE HUB · AI SYSTEMS / PERSISTENT STATE</span></p>
@@ -3456,5 +3589,81 @@
   <script type="module" src="hbm4-base-die-repair-probe-simulator.js?v=20261006"></script>
   <script type="module" src="cxl-memory-pooling-simulator.js?v=20261006"></script>
   <script type="module" src="cim-neuromorphic-mac-simulator.js?v=20261007"></script>
+
+    <script type="module">
+      import { calculateUcieInterconnect } from './ai-chiplet-ucie-interconnect-simulator.js';
+      import { calculateCpoPhotonicTuning } from './cpo-photonic-thermal-tuning-nvm-simulator.js';
+
+      function updateUcie() {
+        const pkg = document.getElementById('sim-ucie-pkg')?.value || 'advanced_cowos';
+        const len = parseFloat(document.getElementById('sim-ucie-len')?.value || '2.0');
+        const rate = parseFloat(document.getElementById('sim-ucie-rate')?.value || '16.0');
+        const lanes = parseInt(document.getElementById('sim-ucie-lanes')?.value || '64', 10);
+
+        const lenEl = document.getElementById('sim-ucie-len-val');
+        const rateEl = document.getElementById('sim-ucie-rate-val');
+        const lanesEl = document.getElementById('sim-ucie-lanes-val');
+        if (lenEl) lenEl.textContent = len.toFixed(1);
+        if (rateEl) rateEl.textContent = rate.toFixed(1);
+        if (lanesEl) lanesEl.textContent = lanes.toString();
+
+        const res = calculateUcieInterconnect({ packageType: pkg, traceLengthMm: len, dataRateGbps: rate, laneCount: lanes });
+        
+        const outBw = document.getElementById('sim-ucie-out-bw');
+        const outEnergy = document.getElementById('sim-ucie-out-energy');
+        const outLat = document.getElementById('sim-ucie-out-lat');
+        const outSavings = document.getElementById('sim-ucie-out-savings');
+        const outSummary = document.getElementById('sim-ucie-summary');
+
+        if (outBw) outBw.textContent = res.totalBandwidthGBps.toFixed(1) + ' GB/s';
+        if (outEnergy) outEnergy.textContent = res.interconnectEnergyPjPerBit.toFixed(2) + ' pJ/bit';
+        if (outLat) outLat.textContent = res.transmissionLatencyNs.toFixed(2) + ' ns';
+        if (outSavings) outSavings.textContent = res.nmcEnergySavingsRatio.toFixed(1) + 'x';
+        if (outSummary) {
+          const isEn = document.documentElement.lang === 'en';
+          outSummary.textContent = isEn ? res.summaryEn : res.summaryZh;
+        }
+      }
+
+      function updateCpo() {
+        const platform = document.getElementById('sim-cpo-platform')?.value || 'dwdm_o_band';
+        const temp = parseFloat(document.getElementById('sim-cpo-temp')?.value || '35.0');
+        const dac = parseInt(document.getElementById('sim-cpo-dac')?.value || '10', 10);
+
+        const tempEl = document.getElementById('sim-cpo-temp-val');
+        if (tempEl) tempEl.textContent = temp.toFixed(1);
+
+        const res = calculateCpoPhotonicTuning({ cpoType: platform, temperatureDeltaC: temp, dacResolutionBits: dac });
+
+        const outDrift = document.getElementById('sim-cpo-out-drift');
+        const outPower = document.getElementById('sim-cpo-out-power');
+        const outErr = document.getElementById('sim-cpo-out-err');
+        const outCross = document.getElementById('sim-cpo-out-crosstalk');
+        const outSummary = document.getElementById('sim-cpo-summary');
+
+        if (outDrift) outDrift.textContent = res.rawWavelengthDriftNm.toFixed(2) + ' nm';
+        if (outPower) outPower.textContent = res.tuningPowerPerChannelMw.toFixed(1) + ' mW';
+        if (outErr) outErr.textContent = res.residualWavelengthErrorPm.toFixed(1) + ' pm';
+        if (outCross) outCross.textContent = res.opticalCrossTalkDb.toFixed(1) + ' dB';
+        if (outSummary) {
+          const isEn = document.documentElement.lang === 'en';
+          outSummary.textContent = isEn ? res.summaryEn : res.summaryZh;
+        }
+      }
+
+      ['sim-ucie-pkg', 'sim-ucie-len', 'sim-ucie-rate', 'sim-ucie-lanes'].forEach(id => {
+        document.getElementById(id)?.addEventListener('input', updateUcie);
+      });
+      ['sim-cpo-platform', 'sim-cpo-temp', 'sim-cpo-dac'].forEach(id => {
+        document.getElementById(id)?.addEventListener('input', updateCpo);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        updateUcie();
+        updateCpo();
+      });
+      setTimeout(() => { updateUcie(); updateCpo(); }, 50);
+    </script>
+
 </body>
 </html>
