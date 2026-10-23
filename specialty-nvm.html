@@ -4650,6 +4650,69 @@
     </div>
   </div>
 </div>
+
+            <!-- MODULE: Cryogenic Superconducting Qubit NVM Simulator -->
+            <article class="paper-card physics-model-card" id="cryo-superconducting-simulator-root" style="margin-top: 28px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">深低溫超導量子模型</span><span data-lang="en">CRYOGENIC SUPERCONDUCTING QUANTUM MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">10mK~4K 深低溫量子運算鐵磁約瑟夫森接面 (FJJ) 超導 NVM 模擬器</span><span data-lang="en">10mK~4K Cryogenic Quantum Superconducting FJJ Memory Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於 BCS 超導能隙理論、約瑟夫森相差位能方程式與單通量量子 (SFQ) 集中參數計算，呈現稀釋冷凍機低溫腔環境之亞阿焦 (sub-aJ) 寫入能耗。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Derived from BCS theory and Josephson phase energy equations; models dilution refrigerator sub-aJ regimes.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">在超導量子計算機中，控制電路位於 10mK 至 4K 低溫環境，冷卻功率極其有限（20mK 僅數十微瓦）。鐵磁約瑟夫森接面 (FJJ) 與超導自旋閥記憶體利用巨磁阻效應切換超導相位差，實現單元寫入能耗僅約 10⁻¹⁹ 焦耳（亞 aJ 級別），並兼具 QND 非破壞性量子讀出與極高抗宇宙重離子輻照能力。</span>
+                <span data-lang="en">In superconducting quantum computers, dilution refrigerator cooling power is strictly bounded (<20µW at 20mK). Ferromagnetic Josephson Junction (FJJ) memories leverage magnetic phase shifts to achieve sub-aJ write energies (~10⁻¹⁹ J) with QND readout and extreme cosmic radiation hardness.</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">超導接面系統</span><span data-lang="en">Superconducting System</span></label>
+                  <select id="sim-cryo-mat" aria-label="Superconducting System selection" data-aria-zh="超導體系選擇" data-aria-en="Superconducting System selection" style="width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.82rem; background:#ffffff;">
+                    <option value="nb_alox_fjj">Nb-based Ferromagnetic Junction (Nb/AlOx/PdNi FJJ)</option>
+                    <option value="nbn_magnetic_spin">NbN High-Tc Spin Valve (NbN/GdN/NbN)</option>
+                    <option value="al_transmon_coupled">Al-based Transmon Microwave Cavity (Al/AlOx)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">冷凍機低溫腔溫度 (K)</span><span data-lang="en">Cryo Temp (K)</span>: <span id="sim-cryo-temp-val">0.020</span> K</label>
+                  <input type="range" id="sim-cryo-temp" min="0.010" max="4.000" step="0.050" value="0.020" style="width:100%;">
+                </div>
+                <div>
+                  <label style="display:block; font-size:0.78rem; font-weight:700; color:#1e293b; margin-bottom:4px;"><span data-lang="zh">微波讀出腔頻率 (GHz)</span><span data-lang="en">Readout Freq (GHz)</span>: <span id="sim-cryo-freq-val">6.5</span> GHz</label>
+                  <input type="range" id="sim-cryo-freq" min="4.0" max="10.0" step="0.5" value="6.5" style="width:100%;">
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-bottom:12px;">
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">臨界電流 Ic</span><span data-lang="en">Critical Current</span></div>
+                  <div id="sim-cryo-out-ic" style="font-size:1.15rem; font-weight:800; color:#0f766e; margin-top:2px;">45.0 µA</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">脈衝寫入能耗</span><span data-lang="en">Write Energy</span></div>
+                  <div id="sim-cryo-out-ej" style="font-size:1.15rem; font-weight:800; color:#2563eb; margin-top:2px;">14.8 aJ</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">微波功率耗散</span><span data-lang="en">Heat Dissipation</span></div>
+                  <div id="sim-cryo-out-diss" style="font-size:1.15rem; font-weight:800; color:#d97706; margin-top:2px;">1.2 nW</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
+                  <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">QND 讀出保真度</span><span data-lang="en">QND Fidelity</span></div>
+                  <div id="sim-cryo-out-qnd" style="font-size:1.15rem; font-weight:800; color:#16a34a; margin-top:2px;">99.8%</div>
+                </div>
+              </div>
+
+              <div id="sim-cryo-summary" style="background:#f1f5f9; padding:10px 14px; border-radius:6px; font-size:0.8rem; color:#334155; line-height:1.45; border-left:3px solid #0f766e;">
+                <span data-lang="zh">載入中...</span><span data-lang="en">Loading...</span>
+              </div>
+            </article>
+
 </main>
   <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
   <footer class="hub-footer">
@@ -4815,5 +4878,45 @@
 <script type="module" src="cpo-optical-trim-simulator.js?v=20261006"></script>
 <script type="module" src="cryo-cmos-quantum-nvm-simulator.js?v=20261007"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
+
+    <script type="module">
+      import { calculateCryoSuperconductingNvm } from './cryo-superconducting-qubit-nvm-simulator.js';
+
+      function updateCryo() {
+        const mat = document.getElementById('sim-cryo-mat')?.value || 'nb_alox_fjj';
+        const temp = parseFloat(document.getElementById('sim-cryo-temp')?.value || '0.020');
+        const freq = parseFloat(document.getElementById('sim-cryo-freq')?.value || '6.5');
+
+        const tempEl = document.getElementById('sim-cryo-temp-val');
+        const freqEl = document.getElementById('sim-cryo-freq-val');
+        if (tempEl) tempEl.textContent = temp.toFixed(3);
+        if (freqEl) freqEl.textContent = freq.toFixed(1);
+
+        const res = calculateCryoSuperconductingNvm({ materialType: mat, temperatureKelvin: temp, microwaveReadFreqGhz: freq });
+
+        const outIc = document.getElementById('sim-cryo-out-ic');
+        const outEj = document.getElementById('sim-cryo-out-ej');
+        const outDiss = document.getElementById('sim-cryo-out-diss');
+        const outQnd = document.getElementById('sim-cryo-out-qnd');
+        const outSummary = document.getElementById('sim-cryo-summary');
+
+        if (outIc) outIc.textContent = res.criticalCurrentMicroAmp.toFixed(1) + ' µA';
+        if (outEj) outEj.textContent = res.switchingEnergyAttoJoule.toFixed(1) + ' aJ';
+        if (outDiss) outDiss.textContent = res.microwaveDissipationNw.toFixed(1) + ' nW';
+        if (outQnd) outQnd.textContent = res.qndFidelityPercent.toFixed(1) + '%';
+        if (outSummary) {
+          const isEn = document.documentElement.lang === 'en';
+          outSummary.textContent = isEn ? res.summaryEn : res.summaryZh;
+        }
+      }
+
+      ['sim-cryo-mat', 'sim-cryo-temp', 'sim-cryo-freq'].forEach(id => {
+        document.getElementById(id)?.addEventListener('input', updateCryo);
+      });
+
+      document.addEventListener('DOMContentLoaded', updateCryo);
+      setTimeout(updateCryo, 50);
+    </script>
+
 </body>
 </html>

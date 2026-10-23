@@ -2,51 +2,76 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "b9a4edf1661b8ec29e55edea8587ee636e41ca1c",
+  "baseCommit": "4b3cf6b01d3244500d86cdf6dc67c8709640e6ad",
   "documentation": [
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
-      "id": "專利地圖與知識圖譜建置一致性",
+      "id": "次世代先進物理模擬器單元測試與物理極限邊界",
       "kind": "command",
       "command": [
         "node",
-        "scripts/build-nvm-atlas.mjs",
-        "--check"
+        "--test",
+        "tests/test-ai-chiplet-ucie.test.mjs",
+        "tests/test-cpo-photonic-tuning.test.mjs",
+        "tests/test-cryo-superconducting-nvm.test.mjs",
+        "tests/test-pqc-lfi-laser-fault.test.mjs"
       ],
       "targets": [
-        "scripts/build-nvm-atlas.mjs"
+        "tests/test-ai-chiplet-ucie.test.mjs",
+        "tests/test-cpo-photonic-tuning.test.mjs",
+        "tests/test-cryo-superconducting-nvm.test.mjs",
+        "tests/test-pqc-lfi-laser-fault.test.mjs"
       ],
       "changes": [
-        "data/nvm-comparison-systems-en.json",
-        "data/nvm-comparison-systems.json",
-        "data/nvm-knowledge-data-en.json",
-        "data/nvm-knowledge-data.json"
+        "ai-chiplet-ucie-interconnect-simulator.js",
+        "cpo-photonic-thermal-tuning-nvm-simulator.js",
+        "cryo-superconducting-qubit-nvm-simulator.js",
+        "pqc-lfi-laser-fault-injection-simulator.js",
+        "tests/test-ai-chiplet-ucie.test.mjs",
+        "tests/test-cpo-photonic-tuning.test.mjs",
+        "tests/test-cryo-superconducting-nvm.test.mjs",
+        "tests/test-pqc-lfi-laser-fault.test.mjs"
       ],
       "inputs": [
-        "data/nvm-comparison-systems-en.json",
-        "data/nvm-comparison-systems.json",
-        "data/nvm-knowledge-data-en.json",
-        "data/nvm-knowledge-data.json",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-industry-research-ui.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "data/nvm-technology-topics.md",
-        "data/nvm-technology-topics-en.md",
-        "scripts/nvm-patent-diagrams.mjs",
-        "scripts/nvm-ememory-ip-diagrams.mjs",
-        "scripts/nvm-emerging-operation-diagrams.mjs",
-        "data/nvm-emerging-topics.json",
-        "data/nvm-emerging-topics-en.json",
-        "data/nvm-vendor-patent-maps-en.json",
-        "data/nvm-vendor-patent-maps.json",
-        "package.json",
-        "package-lock.json"
+        "ai-chiplet-ucie-interconnect-simulator.js",
+        "cpo-photonic-thermal-tuning-nvm-simulator.js",
+        "cryo-superconducting-qubit-nvm-simulator.js",
+        "pqc-lfi-laser-fault-injection-simulator.js",
+        "tests/test-ai-chiplet-ucie.test.mjs",
+        "tests/test-cpo-photonic-tuning.test.mjs",
+        "tests/test-cryo-superconducting-nvm.test.mjs",
+        "tests/test-pqc-lfi-laser-fault.test.mjs"
       ],
-      "reason": "驗證全譜系 11 大 NVM 廠商商業技術名與商標維度注入後，知識圖譜與衍生 JSON 內容雜湊一致。",
+      "reason": "驗證 UCIe 互連能耗、超導量子 FJJ、PQC LFI 抗雷射注入與 CPO 矽光微調四大模型數值正確性與邊界無 NaN。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "Suite 19 全局物理計算器魯棒性與回歸驗證",
+      "kind": "command",
+      "command": [
+        "node",
+        "--test",
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "targets": [
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "changes": [
+        "tests/test-physics-robustness.test.mjs"
+      ],
+      "inputs": [
+        "tests/test-physics-robustness.test.mjs",
+        "ai-chiplet-ucie-interconnect-simulator.js",
+        "cpo-photonic-thermal-tuning-nvm-simulator.js",
+        "cryo-superconducting-qubit-nvm-simulator.js",
+        "pqc-lfi-laser-fault-injection-simulator.js"
+      ],
+      "reason": "整合 Suite 19 次世代模型至 54 類物理計算器回歸池，確認隨機噪音、極值 Fuzzing 與邊界條件全綠。",
       "prepare": [
         "node"
       ],
@@ -63,30 +88,32 @@
         "scripts/scan-all-simulators-disclaimer.mjs"
       ],
       "changes": [
-        "technology-comparison.html"
+        "ai-nvm-opportunities.html",
+        "security-assurance.html",
+        "specialty-nvm.html"
       ],
       "inputs": [
+        "ai-nvm-opportunities.html",
+        "security-assurance.html",
+        "specialty-nvm.html",
         "technology-comparison.html",
-        "scripts/scan-all-simulators-disclaimer.mjs",
         "automotive-nvm.html",
         "iot-mcu-envm.html",
         "memory-physics.html",
-        "ai-nvm-opportunities.html",
         "memory-evidence.html",
         "oip-secure-storage.html",
         "secure-storage.html",
-        "security-assurance.html",
-        "specialty-nvm.html",
-        "sram-repair.html"
+        "sram-repair.html",
+        "scripts/scan-all-simulators-disclaimer.mjs"
       ],
-      "reason": "驗證 technology-comparison.html 增設十四大商業技術名維度後之雙語與模擬器技術免責邊界合規性。",
+      "reason": "驗證新增 4 款次世代模擬器後，全站 44 款互動工作台免責橫幅覆蓋率 100% 且通過雙語純度與 A11y 標籤檢測。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 30
     },
     {
-      "id": "離線產物與離線快取同步",
+      "id": "離線產物與發布血統同步",
       "kind": "command",
       "command": [
         "node",
@@ -98,17 +125,21 @@
       ],
       "changes": [
         "data/offline-manifest.js",
-        "data/release-lineage.json"
+        "data/release-lineage.json",
+        "package.json",
+        "package-lock.json"
       ],
       "inputs": [
         "data/offline-manifest.js",
         "data/release-lineage.json",
-        "scripts/build-offline-manifest.mjs",
         "package.json",
         "package-lock.json",
-        "technology-comparison.html"
+        "scripts/build-offline-manifest.mjs",
+        "ai-nvm-opportunities.html",
+        "security-assurance.html",
+        "specialty-nvm.html"
       ],
-      "reason": "核對比較表與知識資料庫更新後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
+      "reason": "核對全站升版至 v2.0.0 後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
       "prepare": [
         "node"
       ],
