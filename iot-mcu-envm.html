@@ -1167,6 +1167,79 @@
                 Loading ultra-low-voltage telemetry...
               </div>
             </div>
+          
+
+            <!-- MODULE: IoT Subthreshold Sense Margin & Soft Error Rate (SER) Simulator -->
+            <article class="paper-card physics-model-card" id="iot-subthreshold-ser-root" style="margin-top: 24px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">超低壓物理模型</span><span data-lang="en">SUBTHRESHOLD PHYSICS MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">次閾值 (0.4V~0.8V) 感測裕度與軟錯誤率 (SER) 模擬器</span><span data-lang="en">Subthreshold (0.4V-0.8V) Sense Margin &amp; Soft Error Rate Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於 Pelgrom 晶體管失配公式與臨界電荷 (Qcrit) 近似，模擬次閾值感測裕度與 Alpha 粒子軟錯誤趨勢，非特定 MCU 晶片之重離子加速器輻照實測。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Grounded in Pelgrom mismatch and critical charge (Qcrit) approximations; illustrative for subthreshold margin planning, not heavy-ion accelerator radiation test reports.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">當 IoT 節點降壓至近閾值或次閾值區 (0.4V~0.8V VDD) 以追求極致微瓦級節能時，NVM 感測電流從數十微安急降至數十皮安，差分感測裕度極度收窄；同時臨界電荷 (Qcrit) 驟降使 Alpha 粒子與中子引發的軟錯誤率 (SER) 飆升 10~50 倍。本模擬器評估不同 NVM 物理單元在極端低壓下的耐受性。</span>
+                <span data-lang="en">When IoT nodes scale voltage into near-threshold or subthreshold regimes (0.4V-0.8V VDD) for microwatt energy harvesting, NVM read currents collapse into nanoamperes, severely squeezing differential sense margins; simultaneously, plummeted Qcrit spikes alpha-particle soft error rates (SER) by 10~50x.</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label for="iot-tech-select" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">技術類別：</span><span data-lang="en">Technology:</span>
+                  </label>
+                  <select id="iot-tech-select" style="width:100%; padding:6px; font-size:0.82rem; border:1px solid #cbd5e1; border-radius:4px; background:#ffffff;" aria-label="Select IoT Technology" data-aria-en="Select IoT Technology" data-aria-zh="選擇物聯網技術">
+                    <option value="antifuse" selected>Logic AntiFuse OTP (Filament, Zero Floating Node)</option>
+                    <option value="efuse">Foundry eFuse (Metal Void, SER Immune)</option>
+                    <option value="fgotp">Logic FG-OTP (Charge-Storage Floating Gate)</option>
+                    <option value="ldmtp">Logic LD-MTP (FN-Tunneling Floating Poly)</option>
+                    <option value="sst">Split-Gate eFlash (Thick Oxide Charge Trap)</option>
+                    <option value="mram">Embedded STT-MRAM (Magnetic Tunnel Junction)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="iot-vdd-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">VDD 供電電壓 (Volts)：</span><span data-lang="en">VDD Supply (Volts):</span>
+                  </label>
+                  <input type="number" id="iot-vdd-input" value="0.5" min="0.4" max="1.2" step="0.05" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="IoT VDD Supply Voltage" data-aria-en="IoT VDD Supply Voltage" data-aria-zh="物聯網供電電壓">
+                </div>
+                <div>
+                  <label for="iot-temp-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">環境溫度 (°C)：</span><span data-lang="en">Ambient Temp (°C):</span>
+                  </label>
+                  <input type="number" id="iot-temp-input" value="25" min="-40" max="125" step="5" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="IoT Ambient Temperature" data-aria-en="IoT Ambient Temperature" data-aria-zh="物聯網環境溫度">
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-around; background:#ffffff; border:1px solid #cddbdc; padding:12px; border-radius:6px; text-align:center; flex-wrap:wrap; gap:10px;" aria-live="polite">
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">次閾值感測電流 (I_read)</span><span data-lang="en">Read Current (I_read)</span></small>
+                  <strong id="iot-iread-out" style="display:block; font-size:1.05rem; color:#0f172a;">650.0 nA</strong>
+                </div>
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">淨差分感測裕度</span><span data-lang="en">Net Sense Margin</span></small>
+                  <strong id="iot-margin-out" style="display:block; font-size:1.05rem; color:#006f70;">45.2 mV</strong>
+                </div>
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">翻轉臨界電荷 (Qcrit)</span><span data-lang="en">Critical Charge (Qcrit)</span></small>
+                  <strong id="iot-qcrit-out" style="display:block; font-size:1.05rem; color:#b45309;">0.25 fC</strong>
+                </div>
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">軟錯誤率 (SER)</span><span data-lang="en">Soft Error Rate (SER)</span></small>
+                  <strong id="iot-ser-out" style="display:block; font-size:1.05rem; color:#047857;">0.05 FIT/Mb</strong>
+                </div>
+              </div>
+              <div id="iot-verdict-out" style="font-size:0.8rem; color:#334155; margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1;">
+                <span data-lang="zh">零軟錯誤免疫：無電荷儲存節點，次閾值下抗 Alpha 粒子與中子翻轉率達 99.9% 以上，極致適用於長期部署之物聯網感測節點。</span>
+                <span data-lang="en">Soft Error Immune: Zero floating storage node; &gt;99.9% alpha/neutron immunity under subthreshold, ideal for edge IoT sensors.</span>
+              </div>
+            </article>
+
           </section>
 
           <!-- LENS 03: 四項製程整合查核 (id="scaling-cliff" 滿足測試) -->
@@ -2297,5 +2370,6 @@
     initSubthresholdSimulator('subvt-simulator-root');
   }
 </script>
+<script type="module" src="iot-subthreshold-ser-simulator.js?v=20261024"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "fd0ed09bd9e1e8f79a31",
+  "version": "d0c1e4d8c4f0642ab6c8",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -9,6 +9,7 @@ self.NVMOfflineManifest = {
     "ai-nvm-tune.css",
     "ai-nvm.css",
     "ai-nvm.js",
+    "antifuse-puf-entropy-health-monitor.js",
     "app.js",
     "assets/apple-touch-icon.png",
     "assets/favicon.svg",
@@ -82,6 +83,7 @@ self.NVMOfflineManifest = {
     "iot-mcu-envm.html",
     "iot-model-boundaries.js",
     "iot-page-navigation.js",
+    "iot-subthreshold-ser-simulator.js",
     "ip-architect-arrhenius-auto-extrapolator.js",
     "ip-architect-ate-test-cost-calculator.js",
     "ip-architect-macro-overhead-calculator.js",
@@ -174,6 +176,7 @@ self.NVMOfflineManifest = {
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "9dd149c4a00943630888e2554967df7858c20080c28067df0393d7be39c6dcb7",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
+    "antifuse-puf-entropy-health-monitor.js": "25ac19e2c35b64198d813a0a71f4d6b5ed05d40cb12b4be9d71361dc422c3b09",
     "app.js": "868aa3433af48bfc4d0e796a6d0427c583f4b16f7a30eed852f581cbdbebb16e",
     "assets/apple-touch-icon.png": "ff5ad64c71b4c26eae7c4ca4b8f293401cd1771e1d94e53e6b2176e7add13d24",
     "assets/favicon.svg": "46d82af3536edb9db30affcc8140a53fd0f4a2bde9f73e08bd40d438951560ab",
@@ -244,9 +247,10 @@ self.NVMOfflineManifest = {
     "hybrid-bonding-tsv-kgd-simulator.js": "d7044f87d98ce6b068b1e0d5f15ccd5a74404d7a0aea63daf18d90ae897b0fc9",
     "index.html": "9c5f9dee25e9c3b992dd078bc2695ccb3362fe9c285a8730cd274f45546bfe61",
     "iot-energy-tradeoff-calculator.js": "e5368279b51a9e4fb587b7e8f34f7eedee19d01e32a650001ae159d850adb7a8",
-    "iot-mcu-envm.html": "ce4ac7bdf0e921d714eaa900b1535810400bf1d18f7155f81ebbe287355097ee",
+    "iot-mcu-envm.html": "1d82d055aaceda1c0025f6e89e02e94e217a62986e46dec3bfc4b761b08e07d8",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
+    "iot-subthreshold-ser-simulator.js": "087f721c2522facaefdc31d0ce74f04836d857663a4af2719448c0def59a28b7",
     "ip-architect-arrhenius-auto-extrapolator.js": "ceb3e0a4726a8555f5d761f7421871a861172b34e3e218589fbe08052f4cea81",
     "ip-architect-ate-test-cost-calculator.js": "63b8c19984d37f0dc788fc4cf6b24f141c8dbb81d635d992d88170d60bfe0c2c",
     "ip-architect-macro-overhead-calculator.js": "3a8d380e1c12ac66619417158fb4babed0bb66e48ddae28306ab18fc8ed72100",
@@ -330,5 +334,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17594122
+  "totalBytes": 17614629
 };
