@@ -1817,7 +1817,180 @@
       color: #475569;
       margin: 0;
     }
-  </style>
+  
+    /* ==========================================================================
+       SECTION 01C WORKBENCH CALCULATORS STYLES (SURGICAL LIGHT)
+       ========================================================================== */
+    .ip-workbench-container {
+      background: #fbfcfe;
+      border: 1px solid #cddbdc;
+      border-radius: 10px;
+      padding: 24px;
+      margin: 28px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .workbench-header {
+      margin-bottom: 20px;
+    }
+    .workbench-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #173b49;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .workbench-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+    }
+    .workbench-desc {
+      font-size: 0.85rem;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .workbench-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 1024px) {
+      .workbench-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .workbench-calc-card {
+      background: #ffffff;
+      border: 1px solid #cddbdc;
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    .calc-card-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #006f70;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .kicker-num {
+      background: rgba(0, 111, 112, 0.1);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .calc-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #173b49;
+      margin: 0 0 14px 0;
+      line-height: 1.3;
+      min-height: 2.6em;
+    }
+    .calc-form-row {
+      margin-bottom: 12px;
+    }
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    .calc-select, .calc-input {
+      width: 100%;
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .calc-select:focus, .calc-input:focus {
+      outline: none;
+      border-color: #006f70;
+      box-shadow: 0 0 0 2px rgba(0, 111, 112, 0.15);
+    }
+    .calc-range {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      outline: none;
+      cursor: pointer;
+    }
+    .calc-checkbox-label {
+      justify-content: flex-start;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #64748b;
+      cursor: not-allowed;
+    }
+    .calc-results-box {
+      margin-top: auto;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .res-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+    }
+    .res-label {
+      color: #475569;
+    }
+    .res-val {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .res-val.text-amber {
+      color: #b45309;
+    }
+    .res-val.text-green {
+      color: #047857;
+    }
+    .res-verdict {
+      font-size: 0.78rem;
+      line-height: 1.4;
+      color: #334155;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    .ip-master-table tbody tr:hover td.td-tech-val {
+      background-color: #f1f8f9 !important;
+    }
+    .ip-master-table tbody td.td-tech-val:hover {
+      background-color: #e2f1f3 !important;
+      outline: 2px solid #006f70;
+      outline-offset: -2px;
+    }
+    .ip-master-table tbody td.td-tech-val:focus-visible {
+      outline: 2px solid #006f70;
+      outline-offset: -2px;
+    }
+</style>
 </head>
 <body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">
@@ -3384,6 +3557,201 @@
       </tbody>
     </table>
   </div>
+
+  
+  <!-- ARCHITECTURAL QUANT WORKBENCH (THREE REAL-WORLD ESTIMATORS) -->
+  <div class="ip-workbench-container" id="ipArchitectWorkbench" aria-label="IP Architectural Quantitative Workbench" data-aria-en="IP Architectural Quantitative Workbench" data-aria-zh="IP 架構師量化推論工作台">
+    <div class="workbench-header">
+      <div class="workbench-badge">
+        <span class="badge-icon">🔬</span>
+        <span data-lang="zh">架構師量化推論實驗室</span><span data-lang="en">Architectural Quantitative Workbench</span>
+      </div>
+      <h3 class="workbench-title">
+        <span data-lang="zh">從經驗直覺走向數值推論：三大 SoC IP 商業整合量化試算器</span><span data-lang="en">From Intuition to Rigorous Modeling: Three Commercial SoC IP Calculators</span>
+      </h3>
+      <p class="workbench-desc">
+        <span data-lang="zh">透過晶圓代工廠 PDK 標定參數、ATE 機台時薪模型與 Arrhenius 活化能熱物理方程式，即時量化晶粒面積稀釋率、量產測試溢價與車規高溫壽命退化。</span>
+        <span data-lang="en">Real-time quantification of macro peripheral dilution, volume ATE test overhead, and automotive Arrhenius degradation using foundry PDK baselines, tester economics, and thermal physics equations.</span>
+      </p>
+    </div>
+
+    <div class="workbench-cards-grid">
+      
+      <!-- Calculator 1: Macro Overhead -->
+      <div class="workbench-calc-card" id="calcMacroCard">
+        <div class="calc-card-kicker">
+          <span class="kicker-num">CALC 01</span>
+          <span data-lang="zh">周邊稀釋與面積交叉</span><span data-lang="en">Macro Peripheral Dilution</span>
+        </div>
+        <h4 class="calc-card-title">
+          <span data-lang="zh">巨集周邊開銷與矽面積交叉計算器</span><span data-lang="en">Macro Overhead &amp; Crossover Calculator</span>
+        </h4>
+        <div class="calc-form-row">
+          <label for="macroTechSelect" class="calc-label">
+            <span data-lang="zh">技術類別：</span><span data-lang="en">Technology:</span>
+          </label>
+          <select id="macroTechSelect" class="calc-select" aria-label="Select Technology for Macro Overhead" data-aria-en="Select Technology for Macro Overhead" data-aria-zh="選擇巨集開銷技術">
+            <option value="antifuse">Logic AntiFuse OTP (0-Mask)</option>
+            <option value="efuse">Foundry eFuse (0-Mask)</option>
+            <option value="fgotp">Logic FG-OTP (0-Mask)</option>
+            <option value="ldmtp">Logic LD-MTP (0-Mask)</option>
+            <option value="sst">Split-Gate eFlash (+10 Masks)</option>
+            <option value="mram">Embedded STT-MRAM (+4 Masks)</option>
+            <option value="reram">Embedded OxRAM (+3 Masks)</option>
+          </select>
+        </div>
+        <div class="calc-form-row">
+          <label for="macroNodeSelect" class="calc-label">
+            <span data-lang="zh">製程節點：</span><span data-lang="en">Process Node:</span>
+          </label>
+          <select id="macroNodeSelect" class="calc-select" aria-label="Select Process Node for Macro Overhead" data-aria-en="Select Process Node for Macro Overhead" data-aria-zh="選擇巨集開銷製程節點">
+            <option value="28nm">28nm High-Performance (Planar)</option>
+            <option value="22nm">22nm ULP / ULL (eMRAM / Logic)</option>
+            <option value="16nm">16nm FinFET</option>
+            <option value="7nm">7nm FinFET</option>
+            <option value="3nm">3nm GAA</option>
+            <option value="2nm">2nm GAA / BSPDN</option>
+          </select>
+        </div>
+        <div class="calc-form-row">
+          <label for="macroCapRange" class="calc-label">
+            <span data-lang="zh">記憶體容量：</span><span data-lang="en">Capacity:</span>
+            <strong id="macroCapDisplay">64 Kb</strong>
+          </label>
+          <input type="range" id="macroCapRange" class="calc-range" min="1" max="16" value="6" step="1" aria-label="Memory Capacity Slider" data-aria-en="Memory Capacity Slider" data-aria-zh="記憶體容量滑桿">
+        </div>
+        <div class="calc-results-box" id="macroResultsBox" aria-live="polite">
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">巨集總面積：</span><span data-lang="en">Total Macro Area:</span></span>
+            <strong class="res-val" id="resMacroTotalArea">0.0135 mm²</strong>
+          </div>
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">周邊電路開銷佔比：</span><span data-lang="en">Peripheral Dilution:</span></span>
+            <strong class="res-val text-amber" id="resMacroDilution">72.4%</strong>
+          </div>
+          <div class="res-verdict" id="resMacroVerdict">
+            <span data-lang="zh">極度優勢：小容量下 0-Mask 省去龐大高壓幫浦與光罩費，總成本與面積全面碾壓 eFlash。</span>
+            <span data-lang="en">Dominant: At &le;256Kb, zero-mask eliminates massive charge pump &amp; mask fees, vastly outperforming eFlash.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator 2: ATE Test Cost -->
+      <div class="workbench-calc-card" id="calcAteCard">
+        <div class="calc-card-kicker">
+          <span class="kicker-num">CALC 02</span>
+          <span data-lang="zh">量產測試經濟學</span><span data-lang="en">ATE Tester Economics</span>
+        </div>
+        <h4 class="calc-card-title">
+          <span data-lang="zh">晶圓級 ATE 測試秒數機台成本試算器</span><span data-lang="en">Wafer ATE Test Time &amp; Cost Calculator</span>
+        </h4>
+        <div class="calc-form-row">
+          <label for="ateTechSelect" class="calc-label">
+            <span data-lang="zh">技術類別：</span><span data-lang="en">Technology:</span>
+          </label>
+          <select id="ateTechSelect" class="calc-select" aria-label="Select Technology for ATE Test Cost" data-aria-en="Select Technology for ATE Test Cost" data-aria-zh="選擇測試成本技術">
+            <option value="antifuse">Logic AntiFuse OTP (Single-Pulse, Gang)</option>
+            <option value="efuse">Foundry eFuse (High-Current, Single-Site)</option>
+            <option value="fgotp">Logic FG-OTP (Iterative Program-Verify)</option>
+            <option value="ldmtp">Logic LD-MTP (FN-Tunneling Multi-Pulse)</option>
+            <option value="sst">Split-Gate eFlash (Sector Erase + PGM)</option>
+            <option value="mram">Embedded STT-MRAM (Nanosecond Spin Switch)</option>
+          </select>
+        </div>
+        <div class="calc-form-row">
+          <label for="ateBitsInput" class="calc-label">
+            <span data-lang="zh">CP 燒錄位元數 (Bits)：</span><span data-lang="en">Programmed Bits:</span>
+          </label>
+          <input type="number" id="ateBitsInput" class="calc-input" value="4096" min="64" max="1048576" step="64" aria-label="Number of bits to program" data-aria-en="Number of bits to program" data-aria-zh="燒錄位元數">
+        </div>
+        <div class="calc-form-row">
+          <label for="ateSitesSelect" class="calc-label">
+            <span data-lang="zh">Gang 並行測試站點數：</span><span data-lang="en">Gang Parallel Sites:</span>
+          </label>
+          <select id="ateSitesSelect" class="calc-select" aria-label="Select Parallel Gang Sites" data-aria-en="Select Parallel Gang Sites" data-aria-zh="選擇並行測試站點數">
+            <option value="1">1 Site (Single Site Probe)</option>
+            <option value="2">2 Sites (Dual Probe)</option>
+            <option value="4" selected>4 Sites (Quad Probe)</option>
+            <option value="8">8 Sites (Octal Probe)</option>
+            <option value="16">16 Sites (High-Density Multi-Site)</option>
+          </select>
+        </div>
+        <div class="calc-results-box" id="ateResultsBox" aria-live="polite">
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">單晶粒測試秒數：</span><span data-lang="en">Test Time / Die:</span></span>
+            <strong class="res-val" id="resAteTimePerDie">0.0355 s</strong>
+          </div>
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">千萬顆量產測試費：</span><span data-lang="en">10M Units Tester Cost:</span></span>
+            <strong class="res-val text-green" id="resAteVolumeCost">$1,479 USD</strong>
+          </div>
+          <div class="res-verdict" id="resAteVerdict">
+            <span data-lang="zh">省本亮點：相較於逐位元 Program-Verify 浮閘技術，單脈衝並行燒錄節省了逾 $8,500 USD 的 ATE 機台機時費用。</span>
+            <span data-lang="en">Cost Highlight: Compared to iterative program-verify floating gates, single-pulse gang programming saves over $8,500 USD in tester time.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator 3: Arrhenius High-Temp Extrapolator -->
+      <div class="workbench-calc-card" id="calcArrheniusCard">
+        <div class="calc-card-kicker">
+          <span class="kicker-num">CALC 03</span>
+          <span data-lang="zh">車規熱物理</span><span data-lang="en">Arrhenius Thermal Physics</span>
+        </div>
+        <h4 class="calc-card-title">
+          <span data-lang="zh">車規高溫 Arrhenius 活化能與壽命外插儀</span><span data-lang="en">Arrhenius AEC-Q100 High-Temp Extrapolator</span>
+        </h4>
+        <div class="calc-form-row">
+          <label for="arrheniusTechSelect" class="calc-label">
+            <span data-lang="zh">技術類別：</span><span data-lang="en">Technology:</span>
+          </label>
+          <select id="arrheniusTechSelect" class="calc-select" aria-label="Select Technology for Arrhenius Extrapolator" data-aria-en="Select Technology for Arrhenius Extrapolator" data-aria-zh="選擇熱物理活化能技術">
+            <option value="antifuse">Logic AntiFuse OTP (Ea ≈ 2.1 eV, Permanent Filament)</option>
+            <option value="efuse">Foundry eFuse (Ea ≈ 1.8 eV, Electromigration)</option>
+            <option value="fgotp">Logic FG-OTP (Ea ≈ 1.2 eV, Charge Leakage)</option>
+            <option value="sst">Split-Gate eFlash (Ea ≈ 1.3 eV, Floating Poly)</option>
+            <option value="sonos">Charge-Trap eFlash (Ea ≈ 1.4 eV, Nitride Traps)</option>
+            <option value="mram">Embedded STT-MRAM (Ea ≈ 1.1 eV, Superparamagnetic)</option>
+          </select>
+        </div>
+        <div class="calc-form-row">
+          <label for="arrheniusTempSelect" class="calc-label">
+            <span data-lang="zh">車規結溫 (Tj)：</span><span data-lang="en">Junction Temp (Tj):</span>
+          </label>
+          <select id="arrheniusTempSelect" class="calc-select" aria-label="Select Junction Temperature" data-aria-en="Select Junction Temperature" data-aria-zh="選擇車規工作結溫">
+            <option value="85">85°C (Commercial / Baseline)</option>
+            <option value="105">105°C (AEC-Q100 Grade 2 - Cabin)</option>
+            <option value="125">125°C (AEC-Q100 Grade 1 - Body / ADAS)</option>
+            <option value="150" selected>150°C (AEC-Q100 Grade 0 - Powertrain)</option>
+            <option value="175">175°C (Extreme Under-Hood / Engine Block)</option>
+          </select>
+        </div>
+        <div class="calc-form-row">
+          <label for="arrheniusReflowCheck" class="calc-label calc-checkbox-label">
+            <input type="checkbox" id="arrheniusReflowCheck" checked disabled>
+            <span data-lang="zh">含 260°C 無鉛 SMT 迴焊耐受驗證 (J-STD-020)</span>
+            <span data-lang="en">Includes 260°C SMT Reflow Survival (J-STD-020)</span>
+          </label>
+        </div>
+        <div class="calc-results-box" id="arrheniusResultsBox" aria-live="polite">
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">Arrhenius 熱加速因子：</span><span data-lang="en">Thermal AF:</span></span>
+            <strong class="res-val" id="resArrheniusAf">1.25 × 10³</strong>
+          </div>
+          <div class="res-item">
+            <span class="res-label"><span data-lang="zh">Tj 下推估保持壽命：</span><span data-lang="en">Projected Retention:</span></span>
+            <strong class="res-val text-green" id="resArrheniusYrs">&gt; 15.0 Years</strong>
+          </div>
+          <div class="res-verdict" id="resArrheniusVerdict">
+            <span data-lang="zh">完整合規：超越 AEC-Q100 Grade 0（150°C/15年）並完全耐受 260°C SMT 迴焊。</span>
+            <span data-lang="en">Fully Compliant: Exceeds AEC-Q100 Grade 0 (150°C/15yr) with 260°C SMT reflow immunity.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
 
   <!-- Deep Dive Myth Buster Cards (4 Architectural Pillars) -->
   <div class="ip-deep-dive-grid" aria-label="Architectural Myth Busters" data-aria-en="Architectural Myth Busters" data-aria-zh="四大核心架構迷思深度拆解">

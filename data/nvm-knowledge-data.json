@@ -3999,7 +3999,33 @@
             }
           }
         }
-      ]
+      ],
+      "workbenchBaselines": {
+        "macroOverhead": {
+          "description": "基於 28nm/22nm/16nm/7nm/3nm/2nm 之單元 F² 與周邊幫浦開銷換算模型",
+          "crossoverThresholdKb": 256,
+          "zeroMaskAdvantage": "容量低於 256Kb 時，零光罩邏輯 OTP/MTP 在巨集總面積與晶圓成本上具備絕對優勢"
+        },
+        "ateEconomics": {
+          "description": "基於 Teradyne / Advantest 高階機台時薪 ($150/hr) 之測試秒數與量產溢價推算",
+          "gangParallelSites": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "programVerifyPenaltyMultiplier": 3.5
+        },
+        "arrheniusAecQ100": {
+          "description": "基於 Arrhenius 方程式與 J-STD-020 260°C 迴焊衝擊之高溫保持外插模型",
+          "boltzmannConstEv": 0.00008617333,
+          "grade0TempC": 150,
+          "grade1TempC": 125,
+          "antifuseTypicalEa": 2.1,
+          "floatingGateTypicalEa": 1.2
+        }
+      }
     }
   },
   "foundry": {

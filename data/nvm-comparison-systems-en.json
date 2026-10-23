@@ -1791,6 +1791,32 @@
           }
         }
       }
-    ]
+    ],
+    "workbenchBaselines": {
+      "macroOverhead": {
+        "description": "Bit-cell F2 and macro peripheral pump scaling model across 28nm through 2nm",
+        "crossoverThresholdKb": 256,
+        "zeroMaskAdvantage": "Under 256Kb, zero-mask logic OTP/MTP offers overwhelming area and wafer cost advantages"
+      },
+      "ateEconomics": {
+        "description": "Production tester time and cost extrapolation based on high-end ATE ($150/hr)",
+        "gangParallelSites": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "programVerifyPenaltyMultiplier": 3.5
+      },
+      "arrheniusAecQ100": {
+        "description": "Arrhenius thermal extrapolation and J-STD-020 260C lead-free reflow retention model",
+        "boltzmannConstEv": 0.00008617333,
+        "grade0TempC": 150,
+        "grade1TempC": 125,
+        "antifuseTypicalEa": 2.1,
+        "floatingGateTypicalEa": 1.2
+      }
+    }
   }
 }
