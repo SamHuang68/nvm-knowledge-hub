@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "d0c1e4d8c4f0642ab6c8",
+  "version": "55da89cb987508c2459d",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -59,6 +59,7 @@ self.NVMOfflineManifest = {
     "differential-sensing-simulator.js",
     "dpa-cpa-leakage-simulator.js",
     "editorial-reading-ui.css",
+    "ev-bms-cmti-isolation-journal-simulator.js",
     "evidence-workbench.css",
     "evidence-workbench.js",
     "f1-card-align.js",
@@ -194,7 +195,7 @@ self.NVMOfflineManifest = {
     "automotive-load-dump-clamp-simulator.js": "5b629f4edd4a58fc085a8d7dd9cb518e28356fc7146e9770c66a3a98d2812e72",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "33098b55245a1a5a0fbfc73387e31055e8c315a207040fa6050fb7b30e5b7625",
+    "automotive-nvm.html": "d75b744188edf7ee7391330db966968654fc4e012bc173a98d48d9730a6c3d3b",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "b7637e8757fe0df2442a1a13a171f3e7a510f061caab60b58ba924e91bedc712",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -226,6 +227,7 @@ self.NVMOfflineManifest = {
     "differential-sensing-simulator.js": "3a0435545034adf58e582af372dc8c7fbe39f11d375b25f84dd6781cea7dccb5",
     "dpa-cpa-leakage-simulator.js": "fb7c65298793acf410f4c931cb0238c9abc43f266b4a66faf3841e8686179533",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
+    "ev-bms-cmti-isolation-journal-simulator.js": "c8d976da55dc096a510a917385989a17d1cc27e4d72f5fab3445ee9f0b92588b",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
@@ -334,5 +336,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 17614629
+  "totalBytes": 17630355
 };

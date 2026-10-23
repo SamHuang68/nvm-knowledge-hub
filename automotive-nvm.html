@@ -1537,6 +1537,87 @@
                 </div>
               </div>
             </div>
+          
+
+            <!-- MODULE: 800V EV BMS CMTI Isolation & Crash Journal Simulator -->
+            <article class="paper-card physics-model-card" id="ev-bms-cmti-simulator-root" style="margin-top: 24px; background:#ffffff; border:1px solid #cddbdc; border-radius:8px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <p class="paper-kicker" style="margin: 0 0 4px; font-size:0.75rem; font-weight:700; color:#006f70; text-transform:uppercase;"><span data-lang="zh">車規高壓物理模型</span><span data-lang="en">HIGH-VOLTAGE AUTOMOTIVE MODEL</span></p>
+                  <h3 class="paper-title" style="margin: 0 0 8px; font-size:1.1rem; color:#173b49;"><span data-lang="zh">800V EV 電池管理 (BMS) 共模瞬態 (CMTI) 與快照日誌模擬器</span><span data-lang="en">800V EV BMS CMTI Isolation &amp; Crash Freeze-Frame Journal Simulator</span></h3>
+                </div>
+              </div>
+
+              <div class="model-disclaimer-banner" style="background:#fefbf3; border:1px solid #f2dfa9; border-left:4px solid #d97706; padding:8px 12px; border-radius:4px; margin-bottom:14px; font-size:0.78rem; color:#92400e;">
+                <span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：本模型基於 ISO 26262 ASIL-D 功能安全準則與 SiC 逆變器高頻開關 (dV/dt) 集中參數計算，模擬 BMS 斷電快照寫入裕度，非特定車載電池包之實車崩潰破壞性測試。</span>
+                <span data-lang="en">⚠️ Illustrative Simulation Model &amp; Technical Boundary Note: Grounded in ISO 26262 ASIL-D functional safety criteria and SiC inverter dV/dt displacement current equations; illustrative only.</span>
+              </div>
+
+              <p class="paper-abstract" style="font-size:0.85rem; color:#334155; line-height:1.5;">
+                <span data-lang="zh">在 800V 電動車動力系統中，SiC MOSFET 逆變器產生極高共模瞬態噪聲 (CMTI &gt; 150 kV/µs)，透過隔離屏障產生位移電流衝擊電芯監控 AFE 晶片。當發生熱失控或高壓斷開事故時，BMS 晶片內建 NVM 必須在毫秒級掉電保溫窗 (Power-Hold Window &lt; 2ms) 內完成全電芯電壓與溫度黑盒子快照寫入。</span>
+                <span data-lang="en">In 800V EV powertrains, SiC MOSFET switching induces severe Common-Mode Transient Noise (CMTI &gt; 150 kV/µs), driving displacement currents across galvanic isolation into battery cell monitoring AFEs. During thermal runaway, embedded NVM must complete critical freeze-frame telemetry within a 2ms power-hold window.</span>
+              </p>
+
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:16px 0; background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div>
+                  <label for="bms-tech-select" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">技術類別：</span><span data-lang="en">Technology:</span>
+                  </label>
+                  <select id="bms-tech-select" style="width:100%; padding:6px; font-size:0.82rem; border:1px solid #cbd5e1; border-radius:4px; background:#ffffff;" aria-label="Select BMS Memory Technology" data-aria-en="Select BMS Memory Technology" data-aria-zh="選擇電池管理記憶體技術">
+                    <option value="antifuse" selected>Logic AntiFuse OTP (0.15ms Fast Write, 200 kV/µs CMTI)</option>
+                    <option value="ldmtp">Logic LD-MTP (FN Tunneling Low Current, Multi-write)</option>
+                    <option value="sst">Split-Gate eFlash (Sector Erase Risk, 80 kV/µs)</option>
+                    <option value="mram">Embedded STT-MRAM (Nanosecond Spin Switch, 150 kV/µs)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="bms-pack-select" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">電池包系統電壓：</span><span data-lang="en">Pack Voltage:</span>
+                  </label>
+                  <select id="bms-pack-select" style="width:100%; padding:6px; font-size:0.82rem; border:1px solid #cbd5e1; border-radius:4px; background:#ffffff;" aria-label="Select Battery Pack Voltage" data-aria-en="Select Battery Pack Voltage" data-aria-zh="選擇電池包電壓">
+                    <option value="400">400V Architecture (Legacy Passenger EV)</option>
+                    <option value="800" selected>800V Architecture (Fast Charging / SiC Powertrain)</option>
+                    <option value="1000">1000V Architecture (Heavy Commercial / Megawatt Truck)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="bms-dvdt-input" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">逆變器開關瞬態 dV/dt (kV/µs)：</span><span data-lang="en">Inverter dV/dt (kV/µs):</span>
+                  </label>
+                  <input type="number" id="bms-dvdt-input" value="150" min="50" max="250" step="10" style="width:100%; padding:6px; font-size:0.85rem; border:1px solid #cbd5e1; border-radius:4px;" aria-label="Inverter Slew Rate" data-aria-en="Inverter Slew Rate" data-aria-zh="逆變器開關瞬態速率">
+                </div>
+                <div>
+                  <label for="bms-snap-select" style="display:block; font-size:0.8rem; font-weight:600; color:#334155; margin-bottom:4px;">
+                    <span data-lang="zh">崩潰快照日誌大小：</span><span data-lang="en">Crash Snapshot Size:</span>
+                  </label>
+                  <select id="bms-snap-select" style="width:100%; padding:6px; font-size:0.82rem; border:1px solid #cbd5e1; border-radius:4px; background:#ffffff;" aria-label="Crash Snapshot Log Size" data-aria-en="Crash Snapshot Log Size" data-aria-zh="崩潰快照大小選擇">
+                    <option value="64">64 Bytes (Essential Pack Fault Status)</option>
+                    <option value="128" selected>128 Bytes (Full 96s Cell Voltages &amp; Temps)</option>
+                    <option value="256">256 Bytes (Comprehensive 192s SOH Array)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-around; background:#ffffff; border:1px solid #cddbdc; padding:12px; border-radius:6px; text-align:center; flex-wrap:wrap; gap:10px;" aria-live="polite">
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">隔離位移電流 (I_disp)</span><span data-lang="en">Displacement Current</span></small>
+                  <strong id="bms-disp-out" style="display:block; font-size:1.05rem; color:#0f172a;">225.0 mA</strong>
+                </div>
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">CMTI 抗擾安全裕度</span><span data-lang="en">CMTI Safety Margin</span></small>
+                  <strong id="bms-cmti-out" style="display:block; font-size:1.05rem; color:#047857;">1.33× Margin</strong>
+                </div>
+                <div>
+                  <small style="color:#64748b; font-size:0.75rem;"><span data-lang="zh">緊急快照寫入耗時</span><span data-lang="en">Freeze-Frame Latency</span></small>
+                  <strong id="bms-latency-out" style="display:block; font-size:1.05rem; color:#047857;">1.20 ms</strong>
+                </div>
+              </div>
+              <div id="bms-verdict-out" style="font-size:0.8rem; color:#334155; margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1;">
+                <span data-lang="zh">ASIL-D 滿分適配：在 800V SiC 高頻開關下具備充裕 CMTI 裕度，且於 2ms 斷電緩衝期內完成全電芯黑盒子快照寫入。</span>
+                <span data-lang="en">ASIL-D Fully Compliant: Robust CMTI margin under 800V SiC transients; completes full freeze-frame write within 2ms crash buffer.</span>
+              </div>
+            </article>
+
           </section>
 
           <!-- LENS 03D: AUTOMOTIVE ASIL-D HBM4 EXTREME MISSION PROFILE & REPAIR SCRUBBING SIMULATOR -->
@@ -2581,5 +2662,6 @@
   <script type="module" src="automotive-hbm4-scrubbing-simulator.js?v=20261006"></script>
   <script type="module" src="automotive-high-temp-sic-gan-simulator.js?v=20261007"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
+<script type="module" src="ev-bms-cmti-isolation-journal-simulator.js?v=20261024"></script>
 </body>
 </html>
