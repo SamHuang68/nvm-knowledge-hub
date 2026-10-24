@@ -2,111 +2,35 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "4b3cf6b01d3244500d86cdf6dc67c8709640e6ad",
+  "baseCommit": "3c54aeb18e91e403aefbf9c220bb3dd11792ce90",
   "documentation": [
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
-      "id": "次世代先進物理模擬器單元測試與物理極限邊界",
+      "id": "全站模擬器與圖示視覺對比度與無障礙門禁",
       "kind": "command",
       "command": [
         "node",
-        "--test",
-        "tests/test-ai-chiplet-ucie.test.mjs",
-        "tests/test-cpo-photonic-tuning.test.mjs",
-        "tests/test-cryo-superconducting-nvm.test.mjs",
-        "tests/test-pqc-lfi-laser-fault.test.mjs"
+        "scripts/quick-a11y-check.mjs"
       ],
       "targets": [
-        "tests/test-ai-chiplet-ucie.test.mjs",
-        "tests/test-cpo-photonic-tuning.test.mjs",
-        "tests/test-cryo-superconducting-nvm.test.mjs",
-        "tests/test-pqc-lfi-laser-fault.test.mjs"
+        "scripts/quick-a11y-check.mjs"
       ],
       "changes": [
-        "ai-chiplet-ucie-interconnect-simulator.js",
-        "cpo-photonic-thermal-tuning-nvm-simulator.js",
-        "cryo-superconducting-qubit-nvm-simulator.js",
-        "pqc-lfi-laser-fault-injection-simulator.js",
-        "tests/test-ai-chiplet-ucie.test.mjs",
-        "tests/test-cpo-photonic-tuning.test.mjs",
-        "tests/test-cryo-superconducting-nvm.test.mjs",
-        "tests/test-pqc-lfi-laser-fault.test.mjs"
+        "advanced-packaging-pdks-simulator.js",
+        "specialty-nvm.html",
+        "technology-comparison.html"
       ],
       "inputs": [
-        "ai-chiplet-ucie-interconnect-simulator.js",
-        "cpo-photonic-thermal-tuning-nvm-simulator.js",
-        "cryo-superconducting-qubit-nvm-simulator.js",
-        "pqc-lfi-laser-fault-injection-simulator.js",
-        "tests/test-ai-chiplet-ucie.test.mjs",
-        "tests/test-cpo-photonic-tuning.test.mjs",
-        "tests/test-cryo-superconducting-nvm.test.mjs",
-        "tests/test-pqc-lfi-laser-fault.test.mjs"
-      ],
-      "reason": "驗證 UCIe 互連能耗、超導量子 FJJ、PQC LFI 抗雷射注入與 CPO 矽光微調四大模型數值正確性與邊界無 NaN。",
-      "prepare": [
-        "node"
-      ],
-      "timeoutSeconds": 30
-    },
-    {
-      "id": "Suite 19 全局物理計算器魯棒性與回歸驗證",
-      "kind": "command",
-      "command": [
-        "node",
-        "--test",
-        "tests/test-physics-robustness.test.mjs"
-      ],
-      "targets": [
-        "tests/test-physics-robustness.test.mjs"
-      ],
-      "changes": [
-        "tests/test-physics-robustness.test.mjs"
-      ],
-      "inputs": [
-        "tests/test-physics-robustness.test.mjs",
-        "ai-chiplet-ucie-interconnect-simulator.js",
-        "cpo-photonic-thermal-tuning-nvm-simulator.js",
-        "cryo-superconducting-qubit-nvm-simulator.js",
-        "pqc-lfi-laser-fault-injection-simulator.js"
-      ],
-      "reason": "整合 Suite 19 次世代模型至 54 類物理計算器回歸池，確認隨機噪音、極值 Fuzzing 與邊界條件全綠。",
-      "prepare": [
-        "node"
-      ],
-      "timeoutSeconds": 30
-    },
-    {
-      "id": "全站模擬器技術邊界免責橫幅與雙語無障礙門禁",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/scan-all-simulators-disclaimer.mjs"
-      ],
-      "targets": [
-        "scripts/scan-all-simulators-disclaimer.mjs"
-      ],
-      "changes": [
-        "ai-nvm-opportunities.html",
-        "security-assurance.html",
-        "specialty-nvm.html"
-      ],
-      "inputs": [
-        "ai-nvm-opportunities.html",
-        "security-assurance.html",
+        "advanced-packaging-pdks-simulator.js",
         "specialty-nvm.html",
         "technology-comparison.html",
-        "automotive-nvm.html",
-        "iot-mcu-envm.html",
-        "memory-physics.html",
-        "memory-evidence.html",
-        "oip-secure-storage.html",
-        "secure-storage.html",
-        "sram-repair.html",
-        "scripts/scan-all-simulators-disclaimer.mjs"
+        "scripts/quick-a11y-check.mjs",
+        "package.json",
+        "package-lock.json"
       ],
-      "reason": "驗證新增 4 款次世代模擬器後，全站 44 款互動工作台免責橫幅覆蓋率 100% 且通過雙語純度與 A11y 標籤檢測。",
+      "reason": "驗證 2.5D/3D Advanced Packaging 模擬器、Three-Stage Pipeline 與 Specialty NVM 圖示全面重構為外科淡色高對比主題後通過靜態無障礙檢查。",
       "prepare": [
         "node"
       ],
@@ -125,21 +49,16 @@
       ],
       "changes": [
         "data/offline-manifest.js",
-        "data/release-lineage.json",
-        "package.json",
-        "package-lock.json"
+        "data/release-lineage.json"
       ],
       "inputs": [
         "data/offline-manifest.js",
         "data/release-lineage.json",
-        "package.json",
-        "package-lock.json",
         "scripts/build-offline-manifest.mjs",
-        "ai-nvm-opportunities.html",
-        "security-assurance.html",
-        "specialty-nvm.html"
+        "package.json",
+        "package-lock.json"
       ],
-      "reason": "核對全站升版至 v2.0.0 後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
+      "reason": "核對圖示與模擬器視覺更新後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
       "prepare": [
         "node"
       ],
