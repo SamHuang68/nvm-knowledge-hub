@@ -97,8 +97,9 @@
 
 /* --- Header + breadcrumb: hub deep navy + gold accent --- */
 .hub-apps-page:not(.hub-literature-paper) .site-header {
-  background: rgba(248, 250, 252, 0.96) !important;
-  border-bottom: 1px solid rgba(196, 165, 116, 0.14) !important;
+  background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
   backdrop-filter: blur(18px) !important;
   -webkit-backdrop-filter: blur(18px) !important;
 }
