@@ -16,14 +16,51 @@ body.hub-reading-home {
   color: #173b49 !important;
 }
 
-/* 2. 頂部導覽列水晶磨砂 (Frosted Header) */
+/* 2. 頂部導覽列水晶磨砂 (Frosted Header) -> 升級為 Tech Midnight 深邃科技夜幕 */
 .knowledge-header {
-  background: rgba(255, 255, 255, 0.82) !important;
+  background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(205, 219, 220, 0.65) !important;
-  box-shadow: 0 4px 24px rgba(23, 59, 73, 0.04) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  color: #f8fafc !important;
   transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.knowledge-header .brand,
+.knowledge-header .knowledge-mark,
+.knowledge-header .knowledge-wordmark {
+  color: #f8fafc !important;
+}
+
+.knowledge-header .knowledge-wordmark {
+  border-left: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+.knowledge-header nav a {
+  color: #cbd5e1 !important;
+}
+
+.knowledge-header nav a:hover {
+  color: #38bdf8 !important;
+}
+
+.knowledge-header .search-trigger {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #f8fafc !important;
+}
+
+.knowledge-header .search-trigger kbd {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #cbd5e1 !important;
+}
+
+.knowledge-header .language-toggle {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #f8fafc !important;
 }
 
 .knowledge-header nav a {
@@ -444,4 +481,21 @@ body.hub-reading-home {
   .probe-stats-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 13. 首頁頁尾深色夜幕底 (Tech Midnight Footer) */
+.knowledge-footer {
+  background: #0b1523 !important;
+  color: #94a3b8 !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.22) !important;
+}
+.knowledge-footer .brand,
+.knowledge-footer .knowledge-mark {
+  color: #f8fafc !important;
+}
+.knowledge-footer p {
+  color: #94a3b8 !important;
+}
+.knowledge-footer a {
+  color: #38bdf8 !important;
 }

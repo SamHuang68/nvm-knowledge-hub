@@ -5,7 +5,7 @@
   var INK = '#0f172a';
   var MUTED = '#475569';
   var SKIP_BTN = 'a.primary, button.primary, .button.primary, .knowledge-primary, .filter-btn.active, [aria-pressed="true"], .view-tab[aria-selected="true"], .ladder button.active, .role-tabs button.active, .skip-link, .lens-vertical-rail';
-  var SKIP_STRICT = '.skip-link, .lens-vertical-rail';
+  var SKIP_STRICT = '.skip-link, .lens-vertical-rail, .site-header, footer, .hub-footer, .f2-hero, .f2-stat-strip, .stat-bridge';
   // 原生工程圖的材料、載子與訊號顏色由圖稿定義，不能套用文章底色轉換。
   function hasEngineeringPalette(el) {
     var svg = el.closest?.('svg');

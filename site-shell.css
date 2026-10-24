@@ -1067,21 +1067,32 @@ input[type="range"] {
   }
 }
 
-/* Surgical Light Mode SSOT Override */
+/* Modern Silicon Studio Shell (高階半導體科技精密工藝體系) */
 html, body, body.hub-page, body.specialty-page, body.research-page, body.assurance-page, body.ai-nvm-page {
   background-color: #f8fafc !important; color: #0f172a !important;
 }
 .site-header, .topbar, .hub-minimal-header, .studio-header {
-  background: #ffffff !important; color: #0f172a !important; border-bottom: 1px solid #cbd5e1 !important; box-shadow: none !important;
+  background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
+  color: #f8fafc !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18) !important;
 }
 .site-header .brand, .site-header .brand strong, .site-header .brand-copy strong, .topbar .brand, .topbar .brand b, .hub-brand-name, .studio-brand, .studio-brand strong {
-  color: #0f172a !important;
+  color: #f8fafc !important;
+}
+.site-header .brand-section {
+  color: #38bdf8 !important;
 }
 .site-header .primary-nav a, .topbar nav a, .global-nav a {
-  color: #334155 !important;
+  color: #cbd5e1 !important;
 }
 .site-header .primary-nav a:hover, .site-header .primary-nav a[aria-current="location"], .topbar nav a:hover, .global-nav a:hover {
-  color: #0f5866 !important; background: #f1f5f9 !important;
+  color: #38bdf8 !important; background: rgba(255, 255, 255, 0.08) !important;
+}
+.site-header .language-toggle {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #f8fafc !important;
 }
 .site-breadcrumb, .breadcrumb {
   background: #f1f5f9 !important; color: #475569 !important; border-bottom: 1px solid #cbd5e1 !important;

@@ -23,17 +23,32 @@ html body.hub-literature-paper .site-header {
   grid-template-columns: minmax(140px,auto) minmax(0,1fr) minmax(200px,auto) !important;
   align-items: center !important;
   gap: 8px 16px !important;
-  min-height: 62px !important;
+  min-height: 64px !important;
   max-height: none !important;
   padding: 0 var(--hub-keepout, 24px) !important;
-  background: rgba(248, 250, 252, 0.94) !important;
-  color: #0f172a !important;
-  border-bottom: 1px solid #cbd5e1 !important;
+  background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
+  color: #f8fafc !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
 }
-html body.hub-literature-paper .site-header .brand,
-html body.hub-literature-paper .site-header .primary-nav a,
+html body.hub-literature-paper .site-header .brand {
+  color: #f8fafc !important;
+}
+html body.hub-literature-paper .site-header .brand-section {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+html body.hub-literature-paper .site-header .primary-nav a {
+  color: #cbd5e1 !important;
+}
+html body.hub-literature-paper .site-header .primary-nav a:hover,
+html body.hub-literature-paper .site-header .primary-nav a[aria-current="location"] {
+  color: #38bdf8 !important;
+}
 html body.hub-literature-paper .site-header .language-toggle {
-  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #f8fafc !important;
 }
 html body.hub-literature-paper .primary-nav {
   display: flex !important;
@@ -61,13 +76,17 @@ html body.hub-literature-paper .research-label {
 }
 html body.hub-literature-paper .site-breadcrumb,
 html body.hub-literature-paper .topic-switch {
-  background: #eaf1ed !important;
-  color: #47647a !important;
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
   letter-spacing: .03em !important;
 }
-html body.hub-literature-paper .site-breadcrumb a,
+html body.hub-literature-paper .site-breadcrumb a {
+  color: #0284c7 !important;
+  letter-spacing: .02em !important;
+}
 html body.hub-literature-paper .site-breadcrumb strong {
-  color: #173b49 !important;
+  color: #0f172a !important;
   letter-spacing: .02em !important;
 }
 html body.hub-literature-paper .research-hero,
@@ -293,11 +312,11 @@ html body.hub-literature-paper .nvm-figure-caption {
 html body.hub-literature-paper .hub-footer,
 html body.hub-literature-paper .research-footer,
 html body.hub-literature-paper footer {
-  background: #fafaf7 !important;
-  color: #526a72 !important;
-  border-top: 1px solid #cddbdc !important;
+  background: #0b1523 !important;
+  color: #94a3b8 !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.22) !important;
 }
-html body.hub-literature-paper footer a { color: #006f70 !important; }
+html body.hub-literature-paper footer a { color: #38bdf8 !important; }
 @media (max-width: 960px) {
   html body.hub-literature-paper .site-header {
     grid-template-columns: auto 1fr auto !important;
