@@ -244,22 +244,19 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, width, height);
 
-  // Background
-  const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-  bgGrad.addColorStop(0, '#09131e');
-  bgGrad.addColorStop(1, '#020617');
-  ctx.fillStyle = bgGrad;
+  // Background: Surgical Light Theme
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, width, height);
 
-  const padLeft = 56;
+  const padLeft = 60;
   const padRight = 32;
-  const padTop = 32;
+  const padTop = 50;
   const padBottom = 48;
   const plotW = width - padLeft - padRight;
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(51, 65, 85, 0.35)';
+  ctx.strokeStyle = '#e2e8f0';
   ctx.lineWidth = 1;
   for (let i = 0; i <= 4; i++) {
     const y = padTop + (plotH / 4) * i;
@@ -287,13 +284,14 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
         name: p.nameEn.split(' ')[0] || p.id,
         tau: parseFloat(tau.toFixed(1)),
         bw: parseFloat(bw.toFixed(1)),
-        color: isCurrent ? '#06b6d4' : (is3D ? '#c084fc' : '#38bdf8'),
+        fillColor: isCurrent ? '#0284c7' : (is3D ? '#a855f7' : '#38bdf8'),
+        strokeColor: isCurrent ? '#0369a1' : (is3D ? '#7e22ce' : '#0284c7'),
         isCurrent
       };
     });
 
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('60 ps', padLeft - 8, padTop + 4);
     ctx.fillText('45 ps', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -307,39 +305,40 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
       const barH = Math.min(plotH, (c.tau / 60.0) * plotH);
       const y = padTop + plotH - barH;
 
-      ctx.fillStyle = c.color;
+      ctx.fillStyle = c.fillColor;
       ctx.fillRect(x, y, barW, barH);
-      ctx.strokeStyle = c.isCurrent ? '#ffffff' : 'rgba(255,255,255,0.2)';
+      ctx.strokeStyle = c.strokeColor;
       ctx.lineWidth = c.isCurrent ? 2 : 1;
       ctx.strokeRect(x, y, barW, barH);
 
-      // Value label on top
-      ctx.font = '700 10.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = c.isCurrent ? '#38bdf8' : '#f8fafc';
+      // Value label on top (clean separation from padTop and title)
+      ctx.font = '700 11px "IBM Plex Mono", monospace';
+      ctx.fillStyle = c.isCurrent ? '#0284c7' : '#0f172a';
       ctx.textAlign = 'center';
       ctx.fillText(`${c.tau}ps`, x + barW / 2, y - 6);
 
       // Name & Bandwidth below
-      ctx.font = '600 9.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = c.isCurrent ? '#38bdf8' : '#94a3b8';
+      ctx.font = '700 10px "IBM Plex Mono", monospace';
+      ctx.fillStyle = c.isCurrent ? '#0284c7' : '#334155';
       ctx.fillText(c.name, x + barW / 2, height - padBottom + 16);
-      ctx.fillStyle = '#06b6d4';
+      ctx.font = '600 9.5px "IBM Plex Mono", monospace';
+      ctx.fillStyle = '#059669';
       ctx.fillText(`${c.bw}G`, x + barW / 2, height - padBottom + 28);
     });
 
     ctx.textAlign = 'left';
-    ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 11px "IBM Plex Mono", monospace';
+    ctx.fillStyle = '#0f172a';
     ctx.fillText(
       isZh ? '■ 動態 D2D 傳輸延遲 (ps) 與單線頻寬 (Gbps/wire) 模擬' : '■ Dynamic D2D Latency (ps) vs Bandwidth (Gbps/wire) Simulation',
-      padLeft + 10,
-      padTop - 12
+      padLeft,
+      22
     );
 
   } else {
     // Mode 2: Power (100W to 800W) vs Junction Temp Rise (C)
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('120°C', padLeft - 8, padTop + 4);
     ctx.fillText('90°C', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -356,7 +355,7 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     // Thermal throttling safety limit at 85°C
     const yLimit = getY(85.0);
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1.8;
     ctx.beginPath();
     ctx.moveTo(padLeft, yLimit);
@@ -364,8 +363,8 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#ef4444';
+    ctx.font = '700 10.5px "IBM Plex Mono", monospace';
+    ctx.fillStyle = '#b91c1c';
     ctx.textAlign = 'right';
     ctx.fillText(
       isZh ? '85°C 散熱降頻門檻 (Thermal Throttling Limit)' : '85°C Thermal Throttling Limit',
@@ -376,7 +375,7 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     // Selected Preset Curve
     const thetaCurrent = metrics.preset.baseThermalResistanceKW || 0.15;
     ctx.beginPath();
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     for (let p = pMin; p <= pMax; p += 50) {
       const t = p * thetaCurrent;
@@ -391,7 +390,7 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     const thetaRef = metrics.preset.packagingClass === '3D_Hybrid_Bond' ? 0.18 : 0.03;
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
-    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeStyle = '#64748b';
     ctx.lineWidth = 1.8;
     for (let p = pMin; p <= pMax; p += 50) {
       const t = p * thetaRef;
@@ -405,23 +404,24 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
 
     ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('200W', getX(200), height - padBottom + 16);
     ctx.fillText('500W', getX(500), height - padBottom + 16);
     ctx.fillText('800W (Die Power)', getX(800), height - padBottom + 16);
 
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#f87171';
+    ctx.font = '700 10.5px "IBM Plex Mono", monospace';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText(
       isZh ? '--- 2.5D 傳統微凸塊 (0.18 K/W)' : '--- 2.5D Micro-bump (0.18 K/W)',
-      padLeft + 10,
-      padTop - 12
+      padLeft,
+      22
     );
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = '#0284c7';
     ctx.fillText(
       isZh ? '— 3D Cu-Cu 混合鍵合 (0.03 K/W)' : '— 3D Cu-Cu Hybrid Bonding (0.03 K/W)',
-      padLeft + 220,
-      padTop - 12
+      padLeft + 230,
+      22
     );
   }
 
@@ -523,35 +523,34 @@ export function initPackagingPdkSimulator(rootSelector = '#advanced-packaging-si
   if (rateSlider) rateSlider.addEventListener('input', update);
 
   if (modeLatencyBtn && modeThermalBtn) {
+    const updateModeButtons = () => {
+      const isLatency = currentMode === 'interconnect_latency_bandwidth';
+      modeLatencyBtn.classList.toggle('active', isLatency);
+      modeLatencyBtn.setAttribute('aria-pressed', isLatency ? 'true' : 'false');
+      modeLatencyBtn.style.background = isLatency ? '#e0f2fe' : '#f8fafc';
+      modeLatencyBtn.style.borderColor = isLatency ? '#7dd3fc' : '#cbd5e1';
+      modeLatencyBtn.style.color = isLatency ? '#0369a1' : '#475569';
+
+      modeThermalBtn.classList.toggle('active', !isLatency);
+      modeThermalBtn.setAttribute('aria-pressed', !isLatency ? 'true' : 'false');
+      modeThermalBtn.style.background = !isLatency ? '#e0f2fe' : '#f8fafc';
+      modeThermalBtn.style.borderColor = !isLatency ? '#7dd3fc' : '#cbd5e1';
+      modeThermalBtn.style.color = !isLatency ? '#0369a1' : '#475569';
+    };
+
     modeLatencyBtn.addEventListener('click', () => {
       currentMode = 'interconnect_latency_bandwidth';
-      modeLatencyBtn.classList.add('active');
-      modeLatencyBtn.setAttribute('aria-pressed', 'true');
-      modeThermalBtn.classList.remove('active');
-      modeThermalBtn.setAttribute('aria-pressed', 'false');
-      modeLatencyBtn.style.background = '#0284c7';
-      modeLatencyBtn.style.borderColor = '#38bdf8';
-      modeLatencyBtn.style.color = '#ffffff';
-      modeThermalBtn.style.background = '#1e293b';
-      modeThermalBtn.style.borderColor = '#475569';
-      modeThermalBtn.style.color = '#94a3b8';
+      updateModeButtons();
       update();
     });
 
     modeThermalBtn.addEventListener('click', () => {
       currentMode = 'thermal_resistance_gradient';
-      modeThermalBtn.classList.add('active');
-      modeThermalBtn.setAttribute('aria-pressed', 'true');
-      modeLatencyBtn.classList.remove('active');
-      modeLatencyBtn.setAttribute('aria-pressed', 'false');
-      modeThermalBtn.style.background = '#0284c7';
-      modeThermalBtn.style.borderColor = '#38bdf8';
-      modeThermalBtn.style.color = '#ffffff';
-      modeLatencyBtn.style.background = '#1e293b';
-      modeLatencyBtn.style.borderColor = '#475569';
-      modeLatencyBtn.style.color = '#94a3b8';
+      updateModeButtons();
       update();
     });
+
+    updateModeButtons();
   }
 
   // Language mutation observer

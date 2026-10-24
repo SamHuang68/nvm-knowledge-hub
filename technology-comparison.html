@@ -1172,7 +1172,6 @@
     }
     .physics-svg text,
     .pipeline-flow-svg text {
-      fill: currentColor !important;
       stroke: none !important;
       stroke-width: 0 !important;
       paint-order: fill !important;
@@ -4097,98 +4096,80 @@
           </div>
           <div class="physics-svg-wrap">
             <svg class="physics-svg" viewBox="0 0 480 150" role="img" aria-label="Fowler-Nordheim Tunneling and 4-Stage Filament Breakdown Diagram" data-aria-en="Fowler-Nordheim Tunneling and 4-Stage Filament Breakdown Diagram" data-aria-zh="FN 穿隧與四階段局域矽微絲擊穿物理圖解">
-              <defs>
-                <linearGradient id="eq1-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#071d2b"/>
-                  <stop offset="100%" stop-color="#04121c"/>
-                </linearGradient>
-                <linearGradient id="eq1-poly-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#334155"/>
-                  <stop offset="100%" stop-color="#1e293b"/>
-                </linearGradient>
-                <linearGradient id="eq1-ox-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="rgba(56, 189, 248, 0.15)"/>
-                  <stop offset="100%" stop-color="rgba(56, 189, 248, 0.05)"/>
-                </linearGradient>
-                <linearGradient id="eq1-si-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#1e293b"/>
-                  <stop offset="100%" stop-color="#0f172a"/>
-                </linearGradient>
-              </defs>
-              <rect x="0" y="0" width="480" height="150" fill="url(#eq1-bg-grad)"/>
+              <rect x="0" y="0" width="480" height="150" fill="#ffffff" rx="6"/>
 
               <!-- LEFT: ENERGY BAND & FN TUNNELING -->
-              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · FN TUNNELING (TRIANGULAR BARRIER)</tspan><tspan data-lang="zh">A · FN 穿隧（三角位障）</tspan></text>
+              <text x="14" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · FN TUNNELING (TRIANGULAR BARRIER)</tspan><tspan data-lang="zh">A · FN 穿隧（三角位障）</tspan></text>
 
-              <rect x="14" y="24" width="52" height="98" fill="url(#eq1-poly-grad)" stroke="#475569" stroke-width="1"/>
-              <text x="40" y="75" text-anchor="middle" fill="#526a72" font-size="7.5" font-weight="600"><tspan data-lang="en">Poly Gate</tspan><tspan data-lang="zh">多晶矽閘極</tspan></text>
+              <rect x="14" y="24" width="52" height="98" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+              <text x="40" y="75" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">Poly Gate</tspan><tspan data-lang="zh">多晶矽閘極</tspan></text>
 
-              <rect x="68" y="24" width="76" height="98" fill="url(#eq1-ox-grad)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" stroke-dasharray="3 2"/>
-              <text x="106" y="34" text-anchor="middle" fill="#38bdf8" font-size="7" font-weight="700"><tspan data-lang="en">SiO2 Oxide (tox)</tspan><tspan data-lang="zh">SiO2 氧化層（tox）</tspan></text>
+              <rect x="68" y="24" width="76" height="98" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <text x="106" y="34" text-anchor="middle" fill="#0284c7" font-size="7" font-weight="700"><tspan data-lang="en">SiO2 Oxide (tox)</tspan><tspan data-lang="zh">SiO2 氧化層（tox）</tspan></text>
 
-              <rect x="146" y="24" width="72" height="98" fill="url(#eq1-si-grad)" stroke="#475569" stroke-width="1"/>
-              <text x="182" y="75" text-anchor="middle" fill="#526a72" font-size="7.5" font-weight="600"><tspan data-lang="en">Si Substrate</tspan><tspan data-lang="zh">Si 基板</tspan></text>
+              <rect x="146" y="24" width="72" height="98" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+              <text x="182" y="75" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">Si Substrate</tspan><tspan data-lang="zh">Si 基板</tspan></text>
 
               <!-- Poly side Ec flat at y=58 -->
-              <line x1="20" y1="58" x2="68" y2="58" stroke="#fbbf24" stroke-width="1.5"/>
-              <text x="18" y="68" fill="#fbbf24" font-size="6.6" font-weight="700">Ec (Poly)</text>
+              <line x1="20" y1="58" x2="68" y2="58" stroke="#d97706" stroke-width="1.5"/>
+              <text x="18" y="68" fill="#b45309" font-size="6.6" font-weight="700">Ec (Poly)</text>
 
               <!-- Oxide Barrier Top: tilts steeply to y=106 at x=146 -->
               <polygon points="68,36 146,106 146,118 68,118" fill="rgba(245, 158, 11, 0.12)"/>
-              <line x1="68" y1="36" x2="146,106" stroke="#f59e0b" stroke-width="1.8"/>
+              <line x1="68" y1="36" x2="146,106" stroke="#d97706" stroke-width="1.8"/>
 
               <!-- Barrier height ΦB label -->
-              <line x1="64" y1="58" x2="64" y2="36" stroke="#38bdf8" stroke-width="1"/>
-              <text x="61" y="46" text-anchor="end" fill="#38bdf8" font-size="6.4" font-weight="700">&Phi;B=3.15eV</text>
+              <line x1="64" y1="58" x2="64" y2="36" stroke="#0284c7" stroke-width="1.2"/>
+              <text x="61" y="46" text-anchor="end" fill="#0284c7" font-size="6.4" font-weight="700">&Phi;B=3.15eV</text>
 
               <!-- Effective tunneling distance xt -->
-              <line x1="68" y1="58" x2="92" y2="58" stroke="#34d399" stroke-width="1.3" stroke-dasharray="2 1"/>
-              <text x="80" y="68" text-anchor="middle" fill="#34d399" font-size="6.5" font-weight="700">xt=&Phi;B/(qEox)</text>
+              <line x1="68" y1="58" x2="92" y2="58" stroke="#059669" stroke-width="1.3" stroke-dasharray="2 1"/>
+              <text x="80" y="68" text-anchor="middle" fill="#047857" font-size="6.5" font-weight="700">xt=&Phi;B/(qEox)</text>
 
               <!-- Electron wavepacket tunneling through barrier -->
-              <path d="M 46 58 Q 58 54 68 58 Q 80 60 92 58" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
-              <circle cx="50" cy="58" r="2.5" fill="#38bdf8"/>
-              <path d="M 92 58 L 152 58" fill="none" stroke="#34d399" stroke-width="1.5"/>
-              <polygon points="150,55 155,58 150,61" fill="#34d399"/>
-              <text x="158" y="61" fill="#34d399" font-size="7.5" font-weight="800">J_FN</text>
+              <path d="M 46 58 Q 58 54 68 58 Q 80 60 92 58" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+              <circle cx="50" cy="58" r="2.5" fill="#0284c7"/>
+              <path d="M 92 58 L 152 58" fill="none" stroke="#059669" stroke-width="1.5"/>
+              <polygon points="150,55 155,58 150,61" fill="#059669"/>
+              <text x="158" y="61" fill="#047857" font-size="7.5" font-weight="800">J_FN</text>
 
-              <text x="14" y="136" fill="#8ea9b3" font-size="6.5" font-weight="500">Direct (tox &le; 3nm) vs FN (Vox &gt; &Phi;B/q) Triangular</text>
+              <text x="14" y="136" fill="#475569" font-size="6.5" font-weight="600">Direct (tox &le; 3nm) vs FN (Vox &gt; &Phi;B/q) Triangular</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="#cbd5e1" stroke-width="1"/>
 
               <!-- RIGHT: 4-STAGE FILAMENT PERCOLATION -->
-              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · 4-STAGE RECRYSTALLIZED SILICON FILAMENT</tspan><tspan data-lang="zh">B · 再結晶矽細絲的四個階段</tspan></text>
+              <text x="238" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · 4-STAGE RECRYSTALLIZED SILICON FILAMENT</tspan><tspan data-lang="zh">B · 再結晶矽細絲的四個階段</tspan></text>
 
-              <rect x="238" y="26" width="106" height="36" rx="4" fill="#081e2b" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
-              <text x="244" y="39" fill="#7dd3fc" font-size="7.2" font-weight="700"><tspan data-lang="en">1. Stress &amp; Traps</tspan><tspan data-lang="zh">1. 應力與陷阱</tspan></text>
-              <text x="244" y="50" fill="#94a3b8" font-size="6.5" font-weight="500"><tspan data-lang="en">Oxygen vacancy defects</tspan><tspan data-lang="zh">氧空缺缺陷</tspan></text>
+              <rect x="238" y="26" width="106" height="36" rx="4" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.2"/>
+              <text x="244" y="39" fill="#0369a1" font-size="7.2" font-weight="700"><tspan data-lang="en">1. Stress &amp; Traps</tspan><tspan data-lang="zh">1. 應力與陷阱</tspan></text>
+              <text x="244" y="50" fill="#334155" font-size="6.5" font-weight="500"><tspan data-lang="en">Oxygen vacancy defects</tspan><tspan data-lang="zh">氧空缺缺陷</tspan></text>
               <text x="244" y="58" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">E' centers accumulation</tspan><tspan data-lang="zh">E' 中心累積</tspan></text>
 
-              <path d="M 344 44 L 356 44" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
-              <polygon points="354,41 358,44 354,47" fill="#f59e0b"/>
+              <path d="M 344 44 L 356 44" fill="none" stroke="#d97706" stroke-width="1.4"/>
+              <polygon points="354,41 358,44 354,47" fill="#d97706"/>
 
-              <rect x="360" y="26" width="106" height="36" rx="4" fill="#201708" stroke="#f59e0b" stroke-width="1"/>
-              <text x="366" y="39" fill="#fbbf24" font-size="7.2" font-weight="700"><tspan data-lang="en">2. Percolation (SBD)</tspan><tspan data-lang="zh">2. 滲流（SBD）</tspan></text>
-              <text x="366" y="50" fill="#fde68a" font-size="6.5" font-weight="500">N_bd &approx; 10^19~10^20 cm&minus;3</text>
-              <text x="366" y="58" fill="#94a3b8" font-size="6" font-weight="500"><tspan data-lang="en">Soft breakdown onset</tspan><tspan data-lang="zh">軟擊穿起始</tspan></text>
+              <rect x="360" y="26" width="106" height="36" rx="4" fill="#fffbeb" stroke="#fed7aa" stroke-width="1.2"/>
+              <text x="366" y="39" fill="#b45309" font-size="7.2" font-weight="700"><tspan data-lang="en">2. Percolation (SBD)</tspan><tspan data-lang="zh">2. 滲流（SBD）</tspan></text>
+              <text x="366" y="50" fill="#334155" font-size="6.5" font-weight="600">N_bd &approx; 10^19~10^20 cm&minus;3</text>
+              <text x="366" y="58" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">Soft breakdown onset</tspan><tspan data-lang="zh">軟擊穿起始</tspan></text>
 
-              <rect x="238" y="72" width="106" height="38" rx="4" fill="#240c0f" stroke="#ef4444" stroke-width="1"/>
-              <text x="244" y="85" fill="#f87171" font-size="7.2" font-weight="700"><tspan data-lang="en">3. Thermal Runaway</tspan><tspan data-lang="zh">3. 熱失控</tspan></text>
-              <text x="244" y="96" fill="#fca5a5" font-size="6.5" font-weight="500">Local T &gt; 1400&deg;C (HBD)</text>
-              <text x="244" y="105" fill="#fda4af" font-size="6" font-weight="500"><tspan data-lang="en">Molten Si atom migration</tspan><tspan data-lang="zh">熔融 Si 原子遷移</tspan></text>
+              <rect x="238" y="72" width="106" height="38" rx="4" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+              <text x="244" y="85" fill="#b91c1c" font-size="7.2" font-weight="700"><tspan data-lang="en">3. Thermal Runaway</tspan><tspan data-lang="zh">3. 熱失控</tspan></text>
+              <text x="244" y="96" fill="#334155" font-size="6.5" font-weight="600">Local T &gt; 1400&deg;C (HBD)</text>
+              <text x="244" y="105" fill="#dc2626" font-size="6" font-weight="500"><tspan data-lang="en">Molten Si atom migration</tspan><tspan data-lang="zh">熔融 Si 原子遷移</tspan></text>
 
-              <path d="M 344 91 L 356 91" fill="none" stroke="#10b981" stroke-width="1.2"/>
-              <polygon points="354,88 358,91 354,94" fill="#10b981"/>
+              <path d="M 344 91 L 356 91" fill="none" stroke="#059669" stroke-width="1.4"/>
+              <polygon points="354,88 358,91 354,94" fill="#059669"/>
 
-              <rect x="360" y="72" width="106" height="38" rx="4" fill="#032219" stroke="#10b981" stroke-width="1.3"/>
-              <text x="366" y="85" fill="#34d399" font-size="7.2" font-weight="700"><tspan data-lang="en">4. Recrystallized Si</tspan><tspan data-lang="zh">4. 再結晶 Si</tspan></text>
-              <text x="366" y="96" fill="#a7f3d0" font-size="6.5" font-weight="600">&empty; 5~10nm Si Filament</text>
-              <text x="366" y="105" fill="#6ee7b7" font-size="6" font-weight="500"><tspan data-lang="en">Permanent Phase Change</tspan><tspan data-lang="zh">永久相變</tspan></text>
+              <rect x="360" y="72" width="106" height="38" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.2"/>
+              <text x="366" y="85" fill="#047857" font-size="7.2" font-weight="700"><tspan data-lang="en">4. Recrystallized Si</tspan><tspan data-lang="zh">4. 再結晶 Si</tspan></text>
+              <text x="366" y="96" fill="#334155" font-size="6.5" font-weight="600">&empty; 5~10nm Si Filament</text>
+              <text x="366" y="105" fill="#059669" font-size="6" font-weight="500"><tspan data-lang="en">Permanent Phase Change</tspan><tspan data-lang="zh">永久相變</tspan></text>
 
-              <rect x="238" y="118" width="228" height="20" rx="3" fill="#03131e" stroke="rgba(128, 88, 40, 0.3)" stroke-width="1"/>
-              <text x="246" y="131.5" fill="#f87171" font-size="7" font-weight="700">HRS &gt;10^11 &Omega;</text>
-              <text x="316" y="131.5" fill="#805828" font-size="7" font-weight="600">&rarr; Irreversible &rarr;</text>
-              <text x="394" y="131.5" fill="#34d399" font-size="7" font-weight="700">LRS &approx; 10^2 &Omega; (Ohmic)</text>
+              <rect x="238" y="118" width="228" height="20" rx="3" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="246" y="131.5" fill="#dc2626" font-size="7" font-weight="700">HRS &gt;10^11 &Omega;</text>
+              <text x="316" y="131.5" fill="#475569" font-size="7" font-weight="600">&rarr; Irreversible &rarr;</text>
+              <text x="394" y="131.5" fill="#047857" font-size="7" font-weight="700">LRS &approx; 10^2 &Omega; (Ohmic)</text>
             </svg>
           </div>
           <div class="formula-notes">
@@ -4225,61 +4206,55 @@
           </div>
           <div class="physics-svg-wrap">
             <svg class="physics-svg" viewBox="0 0 480 150" role="img" aria-label="Wafer Cost Mask-Adder Escalator and Yield Closure Diagram" data-aria-en="Wafer Cost Mask-Adder Escalator and Yield Closure Diagram" data-aria-zh="光罩成本階梯堆疊與有效良率閉環圖解">
-              <defs>
-                <linearGradient id="eq2-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#071d2b"/>
-                  <stop offset="100%" stop-color="#04121c"/>
-                </linearGradient>
-              </defs>
-              <rect x="0" y="0" width="480" height="150" fill="url(#eq2-bg-grad)"/>
+              <rect x="0" y="0" width="480" height="150" fill="#ffffff" rx="6"/>
 
               <!-- LEFT: MASK ADDER ESCALATOR -->
-              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · MASK ADDER OVERHEAD ESCALATOR</tspan><tspan data-lang="zh">A · 額外光罩成本遞增</tspan></text>
+              <text x="14" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · MASK ADDER OVERHEAD ESCALATOR</tspan><tspan data-lang="zh">A · 額外光罩成本遞增</tspan></text>
 
               <!-- Bar 1: 0-Mask Logic NVM -->
-              <rect x="14" y="28" width="206" height="26" rx="4" fill="#042218" stroke="#10b981" stroke-width="1.2"/>
-              <text x="22" y="41" fill="#34d399" font-size="7.2" font-weight="700"><tspan data-lang="en">0-MASK LOGIC NVM</tspan><tspan data-lang="zh">零額外光罩邏輯 NVM</tspan></text>
-              <text x="22" y="50" fill="#a7f3d0" font-size="6.2" font-weight="500">AntiFuse · I-fuse · TwinBit · LD-MTP</text>
-              <text x="212" y="45" text-anchor="end" fill="#34d399" font-size="7.8" font-weight="700">&Delta;N=0 (1.00&times;)</text>
+              <rect x="14" y="28" width="206" height="26" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.3"/>
+              <text x="22" y="41" fill="#047857" font-size="7.2" font-weight="700"><tspan data-lang="en">0-MASK LOGIC NVM</tspan><tspan data-lang="zh">零額外光罩邏輯 NVM</tspan></text>
+              <text x="22" y="50" fill="#334155" font-size="6.2" font-weight="500">AntiFuse · I-fuse · TwinBit · LD-MTP</text>
+              <text x="212" y="45" text-anchor="end" fill="#047857" font-size="7.8" font-weight="700">&Delta;N=0 (1.00&times;)</text>
 
               <!-- Bar 2: BEOL eNVM (MRAM) -->
-              <rect x="14" y="58" width="206" height="26" rx="4" fill="#1b1130" stroke="#c084fc" stroke-width="1.2"/>
-              <text x="22" y="71" fill="#c084fc" font-size="7.2" font-weight="700">BEOL eNVM (STT-MRAM)</text>
-              <text x="22" y="80" fill="#e9d5ff" font-size="6.2" font-weight="500">&alpha;_BEOL &approx; 1.5%~2.5%/mask</text>
-              <text x="212" y="75" text-anchor="end" fill="#c084fc" font-size="7.8" font-weight="700">+3~5 (+15~22%)</text>
+              <rect x="14" y="58" width="206" height="26" rx="4" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.3"/>
+              <text x="22" y="71" fill="#6d28d9" font-size="7.2" font-weight="700">BEOL eNVM (STT-MRAM)</text>
+              <text x="22" y="80" fill="#334155" font-size="6.2" font-weight="500">&alpha;_BEOL &approx; 1.5%~2.5%/mask</text>
+              <text x="212" y="75" text-anchor="end" fill="#6d28d9" font-size="7.8" font-weight="700">+3~5 (+15~22%)</text>
 
               <!-- Bar 3: FEOL eFlash (SST / SONOS) -->
-              <rect x="14" y="88" width="206" height="26" rx="4" fill="#291b08" stroke="#f59e0b" stroke-width="1.2"/>
-              <text x="22" y="101" fill="#fbbf24" font-size="7.2" font-weight="700">FEOL eFLASH (SST / SONOS)</text>
-              <text x="22" y="110" fill="#fde68a" font-size="6.2" font-weight="500">&alpha;_FEOL &approx; 2.5%~4.0%/mask (High-T)</text>
-              <text x="212" y="105" text-anchor="end" fill="#fbbf24" font-size="7.8" font-weight="700">+4~10 (+30~45%)</text>
+              <rect x="14" y="88" width="206" height="26" rx="4" fill="#fffbeb" stroke="#fed7aa" stroke-width="1.3"/>
+              <text x="22" y="101" fill="#b45309" font-size="7.2" font-weight="700">FEOL eFLASH (SST / SONOS)</text>
+              <text x="22" y="110" fill="#334155" font-size="6.2" font-weight="500">&alpha;_FEOL &approx; 2.5%~4.0%/mask (High-T)</text>
+              <text x="212" y="105" text-anchor="end" fill="#b45309" font-size="7.8" font-weight="700">+4~10 (+30~45%)</text>
 
-              <text x="14" y="136" fill="#8ea9b3" font-size="6.5" font-weight="500">Zero Extra Masks &ne; Free Silicon (Array Area Penalty)</text>
+              <text x="14" y="136" fill="#475569" font-size="6.5" font-weight="600">Zero Extra Masks &ne; Free Silicon (Array Area Penalty)</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="#cbd5e1" stroke-width="1"/>
 
               <!-- RIGHT: EFFECTIVE DIE COST CURVE -->
-              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · EFFECTIVE DIE COST &amp; YIELD IMPACT</tspan><tspan data-lang="zh">B · 有效晶粒成本與良率影響</tspan></text>
+              <text x="238" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · EFFECTIVE DIE COST &amp; YIELD IMPACT</tspan><tspan data-lang="zh">B · 有效晶粒成本與良率影響</tspan></text>
 
               <!-- Axes: X = Die Area Adie, Y = Effective Cost C_die,eff -->
               <line x1="254" y1="116" x2="464" y2="116" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="462,114 466,116 462,118" fill="#64748b"/>
-              <text x="464" y="127" text-anchor="end" fill="#94a3b8" font-size="6.5" font-weight="600"><tspan data-lang="en">Die Area Adie</tspan><tspan data-lang="zh">晶粒面積 Adie</tspan></text>
+              <text x="464" y="127" text-anchor="end" fill="#0f172a" font-size="6.5" font-weight="700"><tspan data-lang="en">Die Area Adie</tspan><tspan data-lang="zh">晶粒面積 Adie</tspan></text>
 
               <line x1="254" y1="116" x2="254" y2="28" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="252,30 254,26 256,30" fill="#64748b"/>
-              <text x="260" y="33" fill="#94a3b8" font-size="6.5" font-weight="600"><tspan data-lang="en">Cost C_die,eff</tspan><tspan data-lang="zh">成本 C_die,eff</tspan></text>
+              <text x="260" y="33" fill="#0f172a" font-size="6.5" font-weight="700"><tspan data-lang="en">Cost C_die,eff</tspan><tspan data-lang="zh">成本 C_die,eff</tspan></text>
 
               <!-- Curve 1: 0-Mask Logic NVM -->
-              <path d="M 258 108 Q 335 100 450 82" fill="none" stroke="#10b981" stroke-width="1.8"/>
-              <text x="405" y="76" fill="#34d399" font-size="6.8" font-weight="700">0-Mask (&Delta;N=0)</text>
+              <path d="M 258 108 Q 335 100 450 82" fill="none" stroke="#059669" stroke-width="2"/>
+              <text x="405" y="76" fill="#047857" font-size="6.8" font-weight="700">0-Mask (&Delta;N=0)</text>
 
               <!-- Curve 2: High Mask Adder + Defectivity -->
-              <path d="M 258 92 Q 335 74 450 42" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3 2"/>
-              <text x="395" y="38" fill="#fbbf24" font-size="6.8" font-weight="700">+Adders &amp; &Delta;Y_nvm</text>
+              <path d="M 258 92 Q 335 74 450 42" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="3 2"/>
+              <text x="395" y="38" fill="#b45309" font-size="6.8" font-weight="700">+Adders &amp; &Delta;Y_nvm</text>
 
-              <rect x="254" y="124" width="210" height="16" rx="2" fill="#03131e" stroke="rgba(196, 165, 116, 0.2)" stroke-width="1"/>
-              <text x="359" y="135" text-anchor="middle" fill="#7dd3fc" font-size="6.5" font-weight="600">GDPW(Adie) &middot; (Y_base &minus; &Delta;Y_nvm) Divisor Penalty</text>
+              <rect x="254" y="124" width="210" height="16" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="359" y="135" text-anchor="middle" fill="#0284c7" font-size="6.5" font-weight="700">GDPW(Adie) &middot; (Y_base &minus; &Delta;Y_nvm) Divisor Penalty</text>
             </svg>
           </div>
           <div class="formula-notes">
@@ -4318,73 +4293,67 @@
           </div>
           <div class="physics-svg-wrap">
             <svg class="physics-svg" viewBox="0 0 480 150" role="img" aria-label="Subthreshold Transfer and Thermodynamic Limit Diagram" data-aria-en="Subthreshold Transfer and Thermodynamic Limit Diagram" data-aria-zh="次閾值轉移特性與熱力學極限圖解">
-              <defs>
-                <linearGradient id="eq3-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#071d2b"/>
-                  <stop offset="100%" stop-color="#04121c"/>
-                </linearGradient>
-              </defs>
-              <rect x="0" y="0" width="480" height="150" fill="url(#eq3-bg-grad)"/>
+              <rect x="0" y="0" width="480" height="150" fill="#ffffff" rx="6"/>
 
               <!-- LEFT: LOG(IDS) VS VGS SUBTHRESHOLD -->
-              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · SUBTHRESHOLD SWING (BOLTZMANN TYRANNY)</tspan><tspan data-lang="zh">A · 次臨界擺幅（Boltzmann 限制）</tspan></text>
+              <text x="14" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">A · SUBTHRESHOLD SWING (BOLTZMANN TYRANNY)</tspan><tspan data-lang="zh">A · 次臨界擺幅（Boltzmann 限制）</tspan></text>
 
               <!-- Axes: X = Vgs, Y = log(Ids) -->
               <line x1="28" y1="116" x2="218" y2="116" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="216,114 220,116 216,118" fill="#64748b"/>
-              <text x="218" y="126" text-anchor="end" fill="#526a72" font-size="6.5" font-weight="600">Vgs (V)</text>
+              <text x="218" y="126" text-anchor="end" fill="#0f172a" font-size="6.5" font-weight="700">Vgs (V)</text>
 
               <line x1="28" y1="116" x2="28" y2="28" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="26,30 28,26 30,30" fill="#64748b"/>
-              <text x="32" y="33" fill="#526a72" font-size="6.5" font-weight="600">log(Ids)</text>
+              <text x="32" y="33" fill="#0f172a" font-size="6.5" font-weight="700">log(Ids)</text>
 
               <!-- Vth vertical dashed line -->
-              <line x1="140" y1="28" x2="140" y2="116" stroke="#475569" stroke-width="1" stroke-dasharray="2 2"/>
-              <text x="140" y="126" text-anchor="middle" fill="#526a72" font-size="6.5" font-weight="600">Vth</text>
+              <line x1="140" y1="28" x2="140" y2="116" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="140" y="126" text-anchor="middle" fill="#475569" font-size="6.5" font-weight="600">Vth</text>
 
               <!-- Boltzmann Thermal Limit Line: S = 60 mV/dec (Green Dash) -->
-              <line x1="46" y1="112" x2="140" y2="48" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
-              <text x="56" y="74" fill="#34d399" font-size="6.5" font-weight="700">60 mV/dec (m=1)</text>
+              <line x1="46" y1="112" x2="140" y2="48" stroke="#059669" stroke-width="1.8" stroke-dasharray="3 2"/>
+              <text x="56" y="74" fill="#047857" font-size="6.5" font-weight="700">60 mV/dec (m=1)</text>
 
               <!-- Planar CMOS Actual Curve: S ≈ 75 mV/dec (Golden Solid) -->
-              <path d="M 50 112 L 140 58 Q 162 48 210 44" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
-              <text x="92" y="94" fill="#fbbf24" font-size="6.8" font-weight="700">CMOS S &approx; 75 mV/dec</text>
+              <path d="M 50 112 L 140 58 Q 162 48 210 44" fill="none" stroke="#d97706" stroke-width="2"/>
+              <text x="92" y="94" fill="#b45309" font-size="6.8" font-weight="700">CMOS S &approx; 75 mV/dec</text>
 
-              <text x="160" y="52" fill="#526a72" font-size="6" font-weight="500"><tspan data-lang="en">Drift Inversion</tspan><tspan data-lang="zh">漂移反轉</tspan></text>
+              <text x="160" y="52" fill="#475569" font-size="6" font-weight="600"><tspan data-lang="en">Drift Inversion</tspan><tspan data-lang="zh">漂移反轉</tspan></text>
 
-              <text x="14" y="136" fill="#526a72" font-size="6.5" font-weight="500">Subthreshold Diffusion Regime (Vgs &lt; Vth)</text>
+              <text x="14" y="136" fill="#475569" font-size="6.5" font-weight="600">Subthreshold Diffusion Regime (Vgs &lt; Vth)</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="#cbd5e1" stroke-width="1"/>
 
               <!-- RIGHT: DRAIN SATURATION FACTOR -->
-              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · DRAIN EQUILIBRIUM SATURATION FACTOR</tspan><tspan data-lang="zh">B · 汲極平衡飽和因子</tspan></text>
+              <text x="238" y="16" fill="#0f172a" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">B · DRAIN EQUILIBRIUM SATURATION FACTOR</tspan><tspan data-lang="zh">B · 汲極平衡飽和因子</tspan></text>
 
               <!-- Axes: X = Vds, Y = [1 - exp(-qVds/kT)] -->
               <line x1="254" y1="116" x2="464" y2="116" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="462,114 466,116 462,118" fill="#64748b"/>
-              <text x="464" y="127" text-anchor="end" fill="#94a3b8" font-size="6.5" font-weight="600">Vds (mV)</text>
+              <text x="464" y="127" text-anchor="end" fill="#0f172a" font-size="6.5" font-weight="700">Vds (mV)</text>
 
               <line x1="254" y1="116" x2="254" y2="28" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="252,30 254,26 256,30" fill="#64748b"/>
-              <text x="260" y="33" fill="#94a3b8" font-size="6.5" font-weight="600">[1 &minus; e^(&minus;qVds/kT)]</text>
+              <text x="260" y="33" fill="#0f172a" font-size="6.5" font-weight="700">[1 &minus; e^(&minus;qVds/kT)]</text>
 
               <!-- 1.0 Saturation Level -->
-              <line x1="254" y1="52" x2="450" y2="52" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
-              <text x="250" y="55" text-anchor="end" fill="#64748b" font-size="6.5" font-weight="600">1.0</text>
+              <line x1="254" y1="52" x2="450" y2="52" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="250" y="55" text-anchor="end" fill="#475569" font-size="6.5" font-weight="600">1.0</text>
 
               <!-- Curve: Starts at (254,116), steep rise to (315, 58) around 3kT/q (~78mV), then flat to 450 -->
-              <path d="M 254 116 Q 280 68 315 56 L 450 52" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+              <path d="M 254 116 Q 280 68 315 56 L 450 52" fill="none" stroke="#0284c7" stroke-width="2"/>
 
               <!-- 3kT/q marker -->
-              <line x1="315" y1="52" x2="315" y2="116" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 1"/>
-              <circle cx="315" cy="56" r="2.5" fill="#38bdf8"/>
-              <text x="315" y="126" text-anchor="middle" fill="#7dd3fc" font-size="6.5" font-weight="700">3kT/q (&approx;78mV)</text>
+              <line x1="315" y1="52" x2="315" y2="116" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2 1"/>
+              <circle cx="315" cy="56" r="2.5" fill="#0284c7"/>
+              <text x="315" y="126" text-anchor="middle" fill="#0284c7" font-size="6.5" font-weight="700">3kT/q (&approx;78mV)</text>
 
-              <text x="338" y="44" fill="#38bdf8" font-size="6.8" font-weight="700">Saturates &rarr; 1.0</text>
-              <text x="258" y="104" fill="#94a3b8" font-size="6.2" font-weight="500">Linear at Vds &rarr; 0</text>
+              <text x="338" y="44" fill="#0284c7" font-size="6.8" font-weight="700">Saturates &rarr; 1.0</text>
+              <text x="258" y="104" fill="#475569" font-size="6.2" font-weight="600">Linear at Vds &rarr; 0</text>
 
-              <rect x="254" y="124" width="210" height="16" rx="2" fill="#03131e" stroke="rgba(196, 165, 116, 0.2)" stroke-width="1"/>
-              <text x="359" y="135" text-anchor="middle" fill="#34d399" font-size="6.5" font-weight="600">Gated Standby Leakage &lt; 10 nA Class</text>
+              <rect x="254" y="124" width="210" height="16" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="359" y="135" text-anchor="middle" fill="#047857" font-size="6.5" font-weight="700">Gated Standby Leakage &lt; 10 nA Class</text>
             </svg>
           </div>
           <div class="formula-notes">
@@ -4478,69 +4447,69 @@
 
         <!-- KPI Cards Strip -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 10px; margin-bottom: 18px;">
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">光罩附加數</span><span data-lang="en">MASK ADDERS</span>
             </div>
-            <div id="m-mask-layers" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">+0 Masks</div>
+            <div id="m-mask-layers" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">+0 Masks</div>
             <div id="m-total-masks" style="font-size: 10px; color: #64748b; margin-top: 2px;">42 Total</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">單片總晶圓成本</span><span data-lang="en">TOTAL WAFER COST</span>
             </div>
-            <div id="m-wafer-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">$3,240</div>
+            <div id="m-wafer-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">$3,240</div>
             <div id="m-nre-amort" style="font-size: 10px; color: #64748b; margin-top: 2px;">+$40 NRE/Wafer</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">毛晶粒數 GDPW</span><span data-lang="en">GROSS DIES (GDPW)</span>
             </div>
-            <div id="m-gdpw" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f8fafc;">2,580</div>
+            <div id="m-gdpw" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">2,580</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">300mm 晶圓幾何</span><span data-lang="en">300mm Geometry</span>
             </div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">Murphy 矽良率</span><span data-lang="en">MURPHY YIELD</span>
             </div>
-            <div id="m-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">92.4%</div>
+            <div id="m-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">92.4%</div>
             <div id="m-good-dies" style="font-size: 10px; color: #64748b; margin-top: 2px;">2,383 Good Dies</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">良品晶片成本</span><span data-lang="en">COST / GOOD DIE</span>
             </div>
-            <div id="m-die-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">$1.37 / Die</div>
+            <div id="m-die-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">$1.37 / Die</div>
             <div id="m-die-cost-sub" style="font-size: 10px; color: #64748b; margin-top: 2px;">Silicon + Test</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">年度總擁有成本</span><span data-lang="en">ANNUAL TCO</span>
             </div>
-            <div id="m-annual-tco" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f43f5e;">$97.2M</div>
-            <div id="m-tco-delta" style="font-size: 10px; color: #10b981; margin-top: 2px;">Baseline (0-Mask)</div>
+            <div id="m-annual-tco" style="font: 700 16px 'IBM Plex Mono', monospace; color: #dc2626;">$97.2M</div>
+            <div id="m-tco-delta" style="font-size: 10px; color: #059669; margin-top: 2px;">Baseline (0-Mask)</div>
           </div>
         </div>
 
         <!-- Interactive Canvas Section -->
-        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+        <div style="background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
-              <button id="tco-chart-mode-vol" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #f59e0b; background: #d97706; color: #ffffff; cursor: pointer;">
+              <button id="tco-chart-mode-vol" type="button" class="active" aria-pressed="true" style="padding: 5px 12px; font: 600 11px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #fed7aa; background: #fffbeb; color: #b45309; cursor: pointer;">
                 <span data-lang="zh">年產量 vs 累計 TCO 曲線</span><span data-lang="en">Volume vs TCO Curve</span>
               </button>
-              <button id="tco-chart-mode-yield" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <button id="tco-chart-mode-yield" type="button" aria-pressed="false" style="padding: 5px 12px; font: 600 11px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #475569; cursor: pointer;">
                 <span data-lang="zh">晶粒面積 vs 良品成本曲線</span><span data-lang="en">Die Area vs Good Die Cost</span>
               </button>
             </div>
-            <span id="tco-badge-savings" style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.2);">
+            <span id="tco-badge-savings" style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #047857; background: #ecfdf5; padding: 4px 10px; border-radius: 4px; border: 1px solid #a7f3d0;">
               <span data-lang="zh">0 光罩純邏輯基準</span><span data-lang="en">0-Mask Reference</span>
             </span>
           </div>
@@ -4639,47 +4608,47 @@
 
         <!-- KPI Cards Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 10px; margin-bottom: 18px;">
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">薄膜有效電阻率</span><span data-lang="en">EFFECTIVE RESISTIVITY</span>
             </span>
-            <div id="vert3d-out-resistivity" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a78bfa;">--</div>
+            <div id="vert3d-out-resistivity" style="font: 700 16px 'IBM Plex Mono', monospace; color: #7c3aed;">--</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">最差層 RC 延遲</span><span data-lang="en">WORST WL DELAY</span>
             </span>
-            <div id="vert3d-out-worstdelay" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+            <div id="vert3d-out-worstdelay" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">--</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">頂底層延遲梯差</span><span data-lang="en">TIER DELAY SKEW</span>
             </span>
-            <div id="vert3d-out-delayskew" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+            <div id="vert3d-out-delayskew" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">--</div>
           </div>
 
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">端到端讀取存取時間</span><span data-lang="en">TOTAL ACCESS TIME</span>
             </span>
-            <div id="vert3d-out-accesstime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+            <div id="vert3d-out-accesstime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">--</div>
           </div>
         </div>
 
         <!-- Dual Mode Canvas Container -->
-        <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+        <div style="background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 14px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div style="display: inline-flex; gap: 6px;" role="group" aria-label="3D Stacking Visualization Mode" data-aria-en="3D Stacking Visualization Mode" data-aria-zh="3D 堆疊視覺化模式">
-              <button id="vert3d-mode-tiers" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #a78bfa; background: #8b5cf6; color: #ffffff; cursor: pointer;">
+              <button id="vert3d-mode-tiers" type="button" class="active" aria-pressed="true" style="padding: 5px 12px; font: 600 11px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #ddd6fe; background: #f5f3ff; color: #6d28d9; cursor: pointer;">
                 <span data-lang="zh">堆疊層數 vs 最差 RC 延遲 (Tiers vs RC Delay)</span><span data-lang="en">Tiers vs RC Delay</span>
               </button>
-              <button id="vert3d-mode-gradient" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <button id="vert3d-mode-gradient" type="button" aria-pressed="false" style="padding: 5px 12px; font: 600 11px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #475569; cursor: pointer;">
                 <span data-lang="zh">垂直層級延遲梯度剖面 (Tier Delay Gradient)</span><span data-lang="en">Tier Delay Gradient</span>
               </button>
             </div>
-            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">3D Stacked Physical Analyzer</span>
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569;">3D Stacked Physical Analyzer</span>
           </div>
           <div style="width: 100%; height: 200px; position: relative;">
             <canvas id="vert3d-canvas" width="480" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="3D Vertical Stacked NVM Simulation Canvas" data-aria-en="3D Vertical Stacked NVM Simulation Canvas" data-aria-zh="3D 垂直堆疊 NVM 模擬畫布"></canvas>
@@ -4687,12 +4656,12 @@
         </div>
 
         <!-- Verdict and Rating Banner -->
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8b5cf6; border-radius: 0 4px 4px 0; padding: 10px 14px;">
-          <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: #f5f3ff; border: 1px solid #ddd6fe; border-left: 4px solid #7c3aed; border-radius: 4px; padding: 12px 16px;">
+          <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #1e1b4b;">
             <span id="vert3d-out-verdict" role="status" aria-live="polite">Loading 3D vertical stacked eNVM calculations...</span>
           </div>
-          <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-            <span id="vert3d-out-grade" style="color: #10b981;">High-Speed 3D Fabric</span>
+          <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #ffffff; padding: 4px 10px; border-radius: 4px; border: 1px solid #cbd5e1; white-space: nowrap;">
+            <span id="vert3d-out-grade" style="color: #047857;">High-Speed 3D Fabric</span>
           </div>
         </div>
       </div>
@@ -5357,14 +5326,21 @@
           </div>
 
           <!-- Dual Mode Interactive Canvas -->
-          <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; padding: 14px; margin-bottom: 1.25rem;">
-            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px;">
-              <button id="pkg-mode-latency" type="button" style="background: #1e293b; color: #38bdf8; border: 1px solid #0284c7; padding: 4px 10px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;">
-                <span data-lang="zh">D2D 延遲與頻寬圖</span><span data-lang="en">Latency &amp; Bandwidth</span>
-              </button>
-              <button id="pkg-mode-thermal" type="button" style="background: #0f172a; color: #94a3b8; border: 1px solid #334155; padding: 4px 10px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;">
-                <span data-lang="zh">熱阻溫升梯度曲線</span><span data-lang="en">Thermal Gradient</span>
-              </button>
+          <div style="background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 18px 20px; margin-bottom: 1.25rem; box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0;">
+              <div style="font: 700 12px/1.4 'IBM Plex Mono', monospace; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #0284c7;"></span>
+                <span data-lang="zh">動態圖表模式：D2D 互連延遲 (ps) 與熱阻溫升梯度分析</span>
+                <span data-lang="en">DYNAMIC CHART: D2D Interconnect Latency (ps) &amp; Thermal Gradient</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button id="pkg-mode-latency" type="button" class="active" style="background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; padding: 5px 12px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" aria-pressed="true">
+                  <span data-lang="zh">D2D 延遲與頻寬圖</span><span data-lang="en">Latency &amp; Bandwidth</span>
+                </button>
+                <button id="pkg-mode-thermal" type="button" style="background: #f8fafc; color: #475569; border: 1px solid #cbd5e1; padding: 5px 12px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" aria-pressed="false">
+                  <span data-lang="zh">熱阻溫升梯度曲線</span><span data-lang="en">Thermal Gradient</span>
+                </button>
+              </div>
             </div>
             <div style="width: 100%; height: 260px; position: relative; overflow-x: auto;" tabindex="0" role="region" aria-label="Advanced packaging chart, horizontally scrollable" data-aria-zh="先進封裝圖表，可橫向捲動" data-aria-en="Advanced packaging chart, horizontally scrollable">
               <canvas id="pkg-canvas" role="img" tabindex="0" style="width: 100%; min-width: 560px; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
@@ -5742,70 +5718,55 @@
           </div>
           <div class="rm-svg-wrap">
             <svg class="rm-svg" viewBox="0 0 420 145" role="img" aria-label="Single-ended read silicon architecture infographic" data-aria-zh="單端讀取微架構視覺圖示" data-aria-en="Single-ended read silicon architecture infographic">
-              <defs>
-                <linearGradient id="se-cell-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#2a1f0a"/>
-                  <stop offset="100%" stop-color="#0e1823"/>
-                </linearGradient>
-                <linearGradient id="se-sa-grad" x1="0%" y1="0%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#4c1d95"/>
-                  <stop offset="100%" stop-color="#1e1035"/>
-                </linearGradient>
-                <linearGradient id="se-leak-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#260b0e"/>
-                  <stop offset="100%" stop-color="#0a121c"/>
-                </linearGradient>
-              </defs>
-
               <!-- Logical Bit Boundary Container (Left) -->
-              <rect x="16" y="16" width="124" height="52" rx="7" fill="rgba(15, 23, 42, 0.5)" stroke="rgba(245, 158, 11, 0.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
-              <text x="24" y="30" fill="#94a3b8" font-size="7.5" font-weight="600" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (1-CELL)</tspan><tspan data-lang="zh">邏輯位元（單單元）</tspan></text>
+              <rect x="16" y="16" width="124" height="52" rx="7" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.3" stroke-dasharray="4 3"/>
+              <text x="24" y="30" fill="#92400e" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (1-CELL)</tspan><tspan data-lang="zh">邏輯位元（單單元）</tspan></text>
 
               <!-- 1T Physical Bitcell Node -->
-              <rect x="24" y="36" width="106" height="26" rx="5" fill="url(#se-cell-grad)" stroke="#fbbf24" stroke-width="1.3"/>
-              <circle cx="35" cy="49" r="2.5" fill="#fbbf24"/>
-              <text x="41" y="52.5" fill="#fbbf24" font-size="7.5" font-weight="700"><tspan data-lang="en">Physical Bit 1</tspan><tspan data-lang="zh">實體位元 1</tspan></text>
-              <text x="125" y="52.5" text-anchor="end" fill="#fde68a" font-size="7" font-weight="600">1T</text>
+              <rect x="24" y="36" width="106" height="26" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="1.4"/>
+              <circle cx="35" cy="49" r="2.5" fill="#d97706"/>
+              <text x="41" y="52.5" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">Physical Bit 1</tspan><tspan data-lang="zh">實體位元 1</tspan></text>
+              <text x="125" y="52.5" text-anchor="end" fill="#b45309" font-size="7" font-weight="700">1T</text>
 
               <!-- External Bandgap Voltage Ref Node -->
-              <rect x="24" y="86" width="106" height="34" rx="6" fill="rgba(15, 23, 42, 0.7)" stroke="#64748b" stroke-width="1.3"/>
-              <circle cx="35" cy="103" r="2.5" fill="#94a3b8"/>
-              <text x="43" y="99" fill="#cbd5e1" font-size="8.5" font-weight="700">Vref / Iref</text>
-              <text x="43" y="112" fill="#64748b" font-size="7.5"><tspan data-lang="en">Bandgap Ext</tspan><tspan data-lang="zh">外部能隙基準</tspan></text>
+              <rect x="24" y="86" width="106" height="34" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+              <circle cx="35" cy="103" r="2.5" fill="#64748b"/>
+              <text x="43" y="99" fill="#0f172a" font-size="8.5" font-weight="700">Vref / Iref</text>
+              <text x="43" y="112" fill="#475569" font-size="7.5" font-weight="600"><tspan data-lang="en">Bandgap Ext</tspan><tspan data-lang="zh">外部能隙基準</tspan></text>
 
               <!-- Signal Interconnect: Bitline BL -->
-              <path d="M 130 49 H 195" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
-              <circle cx="162" cy="49" r="3" fill="#fbbf24"/>
-              <text x="162" y="41" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700">BL (I_cell)</text>
+              <path d="M 130 49 H 195" fill="none" stroke="#d97706" stroke-width="1.8"/>
+              <circle cx="162" cy="49" r="3" fill="#d97706"/>
+              <text x="162" y="41" text-anchor="middle" fill="#b45309" font-size="8" font-weight="700">BL (I_cell)</text>
 
               <!-- Signal Interconnect: Reference Line -->
               <path d="M 130 103 H 195" fill="none" stroke="#64748b" stroke-width="1.8"/>
               <circle cx="162" cy="103" r="3" fill="#64748b"/>
-              <text x="162" y="116" text-anchor="middle" fill="#94a3b8" font-size="8" font-weight="600">Vref</text>
+              <text x="162" y="116" text-anchor="middle" fill="#475569" font-size="8" font-weight="700">Vref</text>
 
               <!-- Triangle Sense Amplifier Core (Center) -->
-              <polygon points="195,26 195,126 270,76" fill="url(#se-sa-grad)" stroke="#c084fc" stroke-width="1.8"/>
-              <text x="203" y="44" fill="#fbbf24" font-size="11" font-weight="700">+</text>
-              <text x="203" y="114" fill="#64748b" font-size="11" font-weight="700">-</text>
-              <text x="228" y="71" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">SENSE</tspan><tspan data-lang="zh">感測</tspan></text>
-              <text x="228" y="82" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
-              <text x="228" y="95" text-anchor="middle" fill="#c084fc" font-size="6.8" font-weight="600">ΔV = V_BL - V_ref</text>
+              <polygon points="195,26 195,126 270,76" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.8"/>
+              <text x="203" y="44" fill="#b45309" font-size="11" font-weight="700">+</text>
+              <text x="203" y="114" fill="#475569" font-size="11" font-weight="700">-</text>
+              <text x="228" y="71" text-anchor="middle" fill="#581c87" font-size="9" font-weight="700"><tspan data-lang="en">SENSE</tspan><tspan data-lang="zh">感測</tspan></text>
+              <text x="228" y="82" text-anchor="middle" fill="#581c87" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
+              <text x="228" y="95" text-anchor="middle" fill="#6d28d9" font-size="6.8" font-weight="700">ΔV = V_BL - V_ref</text>
 
               <!-- Output Interconnect -->
-              <path d="M 270 76 H 298" fill="none" stroke="#c084fc" stroke-width="1.8"/>
+              <path d="M 270 76 H 298" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
 
               <!-- Right: 1st DPA Leakage Trace & Data Output Window -->
-              <rect x="298" y="20" width="108" height="106" rx="7" fill="url(#se-leak-grad)" stroke="rgba(239, 68, 68, 0.45)" stroke-width="1.3"/>
-              <text x="352" y="34" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="700"><tspan data-lang="en">1ST DPA TRACE</tspan><tspan data-lang="zh">一階 DPA 波形</tspan></text>
+              <rect x="298" y="20" width="108" height="106" rx="7" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.3"/>
+              <text x="352" y="34" text-anchor="middle" fill="#b91c1c" font-size="8" font-weight="700"><tspan data-lang="en">1ST DPA TRACE</tspan><tspan data-lang="zh">一階 DPA 波形</tspan></text>
               
               <!-- Asymmetric Current Peak Waveform -->
-              <path d="M 306 62 H 318 L 332 42 L 344 72 L 358 58 L 368 62 H 398" fill="none" stroke="#ef4444" stroke-width="1.6"/>
-              <circle cx="332" cy="42" r="2.5" fill="#ef4444"/>
-              <text x="352" y="80" text-anchor="middle" fill="#94a3b8" font-size="7"><tspan data-lang="en">Asymmetric Peak</tspan><tspan data-lang="zh">非對稱峰值</tspan></text>
+              <path d="M 306 62 H 318 L 332 42 L 344 72 L 358 58 L 368 62 H 398" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+              <circle cx="332" cy="42" r="2.5" fill="#dc2626"/>
+              <text x="352" y="80" text-anchor="middle" fill="#991b1b" font-size="7" font-weight="600"><tspan data-lang="en">Asymmetric Peak</tspan><tspan data-lang="zh">非對稱峰值</tspan></text>
 
               <!-- Data Latch Box -->
-              <rect x="312" y="90" width="80" height="24" rx="4" fill="#092335" stroke="#fbbf24" stroke-width="1.2"/>
-              <text x="352" y="105.5" text-anchor="middle" fill="#fbbf24" font-size="8.5" font-weight="700"><tspan data-lang="en">DATA OUT (0/1)</tspan><tspan data-lang="zh">資料輸出（0／1）</tspan></text>
+              <rect x="312" y="90" width="80" height="24" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1.3"/>
+              <text x="352" y="105.5" text-anchor="middle" fill="#b45309" font-size="8.5" font-weight="700"><tspan data-lang="en">DATA OUT (0/1)</tspan><tspan data-lang="zh">資料輸出（0／1）</tspan></text>
             </svg>
           </div>
           <div class="rm-body">
@@ -5849,73 +5810,58 @@
           </div>
           <div class="rm-svg-wrap">
             <svg class="rm-svg" viewBox="0 0 420 145" role="img" aria-label="Redundant single-ended read silicon architecture infographic" data-aria-zh="單端冗餘讀取微架構視覺圖示" data-aria-en="Redundant single-ended read silicon architecture infographic">
-              <defs>
-                <linearGradient id="rd-cell-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0d2e24"/>
-                  <stop offset="100%" stop-color="#041824"/>
-                </linearGradient>
-                <linearGradient id="rd-sa-grad" x1="0%" y1="0%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#065f46"/>
-                  <stop offset="100%" stop-color="#022c22"/>
-                </linearGradient>
-                <linearGradient id="rd-shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0a2a1f"/>
-                  <stop offset="100%" stop-color="#051522"/>
-                </linearGradient>
-              </defs>
-
               <!-- Logical Bit Boundary Container (Left) -->
-              <rect x="16" y="12" width="130" height="74" rx="7" fill="rgba(15, 23, 42, 0.5)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
-              <text x="24" y="24" fill="#94a3b8" font-size="7.5" font-weight="600" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (PARALLEL)</tspan><tspan data-lang="zh">邏輯位元（並聯）</tspan></text>
+              <rect x="16" y="12" width="130" height="74" rx="7" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.3" stroke-dasharray="4 3"/>
+              <text x="24" y="24" fill="#047857" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (PARALLEL)</tspan><tspan data-lang="zh">邏輯位元（並聯）</tspan></text>
 
               <!-- Parallel Physical Bitcells -->
-              <rect x="24" y="28" width="112" height="24" rx="4" fill="url(#rd-cell-grad)" stroke="#34d399" stroke-width="1.3"/>
-              <circle cx="34" cy="40" r="2.5" fill="#34d399"/>
-              <text x="42" y="44.5" fill="#34d399" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 1 (Pri)</tspan><tspan data-lang="zh">實體位元 1（主要）</tspan></text>
+              <rect x="24" y="28" width="112" height="24" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.4"/>
+              <circle cx="34" cy="40" r="2.5" fill="#059669"/>
+              <text x="42" y="44.5" fill="#0f172a" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 1 (Pri)</tspan><tspan data-lang="zh">實體位元 1（主要）</tspan></text>
 
-              <rect x="24" y="56" width="112" height="24" rx="4" fill="url(#rd-cell-grad)" stroke="#34d399" stroke-width="1.3"/>
-              <circle cx="34" cy="68" r="2.5" fill="#34d399"/>
-              <text x="42" y="72.5" fill="#34d399" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 2 (Red)</tspan><tspan data-lang="zh">實體位元 2（冗餘）</tspan></text>
+              <rect x="24" y="56" width="112" height="24" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.4"/>
+              <circle cx="34" cy="68" r="2.5" fill="#059669"/>
+              <text x="42" y="72.5" fill="#0f172a" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 2 (Red)</tspan><tspan data-lang="zh">實體位元 2（冗餘）</tspan></text>
 
               <!-- Parallel Wiring Junction -->
-              <path d="M 136 40 H 152 V 68 H 136" fill="none" stroke="#34d399" stroke-width="1.6"/>
-              <circle cx="152" cy="54" r="2.5" fill="#34d399"/>
-              <path d="M 152 54 H 195" fill="none" stroke="#34d399" stroke-width="1.8"/>
-              <text x="174" y="45" text-anchor="middle" fill="#34d399" font-size="7.5" font-weight="700">BL (1||2)</text>
+              <path d="M 136 40 H 152 V 68 H 136" fill="none" stroke="#059669" stroke-width="1.6"/>
+              <circle cx="152" cy="54" r="2.5" fill="#059669"/>
+              <path d="M 152 54 H 195" fill="none" stroke="#059669" stroke-width="1.8"/>
+              <text x="174" y="45" text-anchor="middle" fill="#047857" font-size="7.5" font-weight="700">BL (1||2)</text>
 
               <!-- External Bandgap Voltage Ref Node -->
-              <rect x="24" y="96" width="112" height="32" rx="5" fill="rgba(15, 23, 42, 0.7)" stroke="#64748b" stroke-width="1.3"/>
-              <circle cx="34" cy="112" r="2.5" fill="#94a3b8"/>
-              <text x="42" y="108" fill="#cbd5e1" font-size="8.5" font-weight="700">Vref / Iref</text>
-              <text x="42" y="120" fill="#64748b" font-size="7"><tspan data-lang="en">Bandgap Ext</tspan><tspan data-lang="zh">外部能隙基準</tspan></text>
+              <rect x="24" y="96" width="112" height="32" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+              <circle cx="34" cy="112" r="2.5" fill="#64748b"/>
+              <text x="42" y="108" fill="#0f172a" font-size="8.5" font-weight="700">Vref / Iref</text>
+              <text x="42" y="120" fill="#475569" font-size="7" font-weight="600"><tspan data-lang="en">Bandgap Ext</tspan><tspan data-lang="zh">外部能隙基準</tspan></text>
 
               <path d="M 136 112 H 195" fill="none" stroke="#64748b" stroke-width="1.8"/>
               <circle cx="165" cy="112" r="2.5" fill="#64748b"/>
-              <text x="165" y="123" text-anchor="middle" fill="#94a3b8" font-size="7.5" font-weight="600">Vref</text>
+              <text x="165" y="123" text-anchor="middle" fill="#475569" font-size="7.5" font-weight="700">Vref</text>
 
               <!-- Triangle Sense Amplifier Core (Center) -->
-              <polygon points="195,26 195,126 270,76" fill="url(#rd-sa-grad)" stroke="#10b981" stroke-width="1.8"/>
-              <text x="203" y="44" fill="#34d399" font-size="11" font-weight="700">+</text>
-              <text x="203" y="114" fill="#64748b" font-size="11" font-weight="700">-</text>
-              <text x="228" y="70" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">SENSE</tspan><tspan data-lang="zh">感測</tspan></text>
-              <text x="228" y="81" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
-              <text x="228" y="94" text-anchor="middle" fill="#a7f3d0" font-size="6.5" font-weight="600"><tspan data-lang="en">Defect Tolerant</tspan><tspan data-lang="zh">缺陷容忍</tspan></text>
+              <polygon points="195,26 195,126 270,76" fill="#d1fae5" stroke="#059669" stroke-width="1.8"/>
+              <text x="203" y="44" fill="#047857" font-size="11" font-weight="700">+</text>
+              <text x="203" y="114" fill="#475569" font-size="11" font-weight="700">-</text>
+              <text x="228" y="70" text-anchor="middle" fill="#065f46" font-size="9" font-weight="700"><tspan data-lang="en">SENSE</tspan><tspan data-lang="zh">感測</tspan></text>
+              <text x="228" y="81" text-anchor="middle" fill="#065f46" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
+              <text x="228" y="94" text-anchor="middle" fill="#047857" font-size="6.5" font-weight="700"><tspan data-lang="en">Defect Tolerant</tspan><tspan data-lang="zh">缺陷容忍</tspan></text>
 
               <!-- Output Interconnect -->
-              <path d="M 270 76 H 298" fill="none" stroke="#10b981" stroke-width="1.8"/>
+              <path d="M 270 76 H 298" fill="none" stroke="#059669" stroke-width="1.8"/>
 
               <!-- Right: Yield Shield & Fault-Safe Output Window -->
-              <rect x="298" y="20" width="108" height="106" rx="7" fill="url(#rd-shield-grad)" stroke="rgba(16, 185, 129, 0.45)" stroke-width="1.3"/>
-              <text x="352" y="34" text-anchor="middle" fill="#10b981" font-size="8" font-weight="700"><tspan data-lang="en">YIELD SHIELD</tspan><tspan data-lang="zh">良率保護</tspan></text>
+              <rect x="298" y="20" width="108" height="106" rx="7" fill="#f0fdf4" stroke="#86efac" stroke-width="1.3"/>
+              <text x="352" y="34" text-anchor="middle" fill="#047857" font-size="8" font-weight="700"><tspan data-lang="en">YIELD SHIELD</tspan><tspan data-lang="zh">良率保護</tspan></text>
 
               <!-- Shield Icon Graphic -->
-              <path d="M 352 42 L 368 49 V 62 C 368 73 352 81 352 81 C 352 81 336 73 336 62 V 49 Z" fill="rgba(16, 185, 129, 0.18)" stroke="#10b981" stroke-width="1.4"/>
-              <circle cx="352" cy="59" r="3" fill="#34d399"/>
-              <text x="352" y="88" text-anchor="middle" fill="#94a3b8" font-size="7"><tspan data-lang="en">Filament Bypass</tspan><tspan data-lang="zh">細絲旁路</tspan></text>
+              <path d="M 352 42 L 368 49 V 62 C 368 73 352 81 352 81 C 352 81 336 73 336 62 V 49 Z" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+              <circle cx="352" cy="59" r="3" fill="#059669"/>
+              <text x="352" y="88" text-anchor="middle" fill="#047857" font-size="7" font-weight="600"><tspan data-lang="en">Filament Bypass</tspan><tspan data-lang="zh">細絲旁路</tspan></text>
 
               <!-- Fault-Safe Latch Box -->
-              <rect x="312" y="94" width="80" height="22" rx="4" fill="#092335" stroke="#10b981" stroke-width="1.2"/>
-              <text x="352" y="108.5" text-anchor="middle" fill="#34d399" font-size="8" font-weight="700"><tspan data-lang="en">FAULT-SAFE OUT</tspan><tspan data-lang="zh">故障安全輸出</tspan></text>
+              <rect x="312" y="94" width="80" height="22" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.3"/>
+              <text x="352" y="108.5" text-anchor="middle" fill="#047857" font-size="8" font-weight="700"><tspan data-lang="en">FAULT-SAFE OUT</tspan><tspan data-lang="zh">故障安全輸出</tspan></text>
             </svg>
           </div>
           <div class="rm-body">
@@ -5959,79 +5905,64 @@
           </div>
           <div class="rm-svg-wrap">
             <svg class="rm-svg" viewBox="0 0 420 145" role="img" aria-label="Complementary differential read silicon architecture infographic" data-aria-zh="互補差動讀取微架構視覺圖示" data-aria-en="Complementary differential read silicon architecture infographic">
-              <defs>
-                <linearGradient id="df-cell-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0c2d48"/>
-                  <stop offset="100%" stop-color="#031726"/>
-                </linearGradient>
-                <linearGradient id="df-sa-grad" x1="0%" y1="0%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#0284c7"/>
-                  <stop offset="100%" stop-color="#082f49"/>
-                </linearGradient>
-                <linearGradient id="df-wave-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#062235"/>
-                  <stop offset="100%" stop-color="#03121d"/>
-                </linearGradient>
-              </defs>
-
               <!-- Logical Bit Boundary Container (Left) -->
-              <rect x="16" y="14" width="128" height="114" rx="7" fill="rgba(15, 23, 42, 0.5)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
-              <text x="24" y="27" fill="#94a3b8" font-size="7.5" font-weight="600" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (COMP PAIR)</tspan><tspan data-lang="zh">邏輯位元（互補對）</tspan></text>
+              <rect x="16" y="14" width="128" height="114" rx="7" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.3" stroke-dasharray="4 3"/>
+              <text x="24" y="27" fill="#0369a1" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (COMP PAIR)</tspan><tspan data-lang="zh">邏輯位元（互補對）</tspan></text>
 
               <!-- Complementary Physical Bitcells (True vs Comp) -->
-              <rect x="24" y="32" width="112" height="28" rx="5" fill="url(#df-cell-grad)" stroke="#fbbf24" stroke-width="1.3"/>
-              <circle cx="34" cy="46" r="2.5" fill="#fbbf24"/>
-              <text x="42" y="47" fill="#fbbf24" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 1 (True)</tspan><tspan data-lang="zh">實體位元 1（正相）</tspan></text>
-              <text x="42" y="56" fill="#94a3b8" font-size="7"><tspan data-lang="en">State: D [0/1]</tspan><tspan data-lang="zh">狀態：D [0／1]</tspan></text>
+              <rect x="24" y="32" width="112" height="28" rx="5" fill="#ffffff" stroke="#0284c7" stroke-width="1.4"/>
+              <circle cx="34" cy="46" r="2.5" fill="#0284c7"/>
+              <text x="42" y="47" fill="#0f172a" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 1 (True)</tspan><tspan data-lang="zh">實體位元 1（正相）</tspan></text>
+              <text x="42" y="56" fill="#0284c7" font-size="7" font-weight="600"><tspan data-lang="en">State: D [0/1]</tspan><tspan data-lang="zh">狀態：D [0／1]</tspan></text>
 
               <!-- Central Zero Vref Balance Anchor -->
               <g transform="translate(38, 65)">
-                <rect x="0" y="0" width="84" height="14" rx="3" fill="#041824" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="2 2"/>
-                <text x="42" y="10" text-anchor="middle" fill="#38bdf8" font-size="6.8" font-weight="700"><tspan data-lang="en">ZERO VREF (Self-Ref)</tspan><tspan data-lang="zh">零 VREF（自我參考）</tspan></text>
+                <rect x="0" y="0" width="84" height="14" rx="3" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="2 2"/>
+                <text x="42" y="10" text-anchor="middle" fill="#0369a1" font-size="6.8" font-weight="700"><tspan data-lang="en">ZERO VREF (Self-Ref)</tspan><tspan data-lang="zh">零 VREF（自我參考）</tspan></text>
               </g>
 
-              <rect x="24" y="84" width="112" height="28" rx="5" fill="url(#df-cell-grad)" stroke="#38bdf8" stroke-width="1.3"/>
-              <circle cx="34" cy="98" r="2.5" fill="#38bdf8"/>
-              <text x="42" y="99" fill="#38bdf8" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 2 (Comp)</tspan><tspan data-lang="zh">實體位元 2（互補）</tspan></text>
-              <text x="42" y="108" fill="#94a3b8" font-size="7"><tspan data-lang="en">State: /D [1/0]</tspan><tspan data-lang="zh">狀態：/D [1／0]</tspan></text>
+              <rect x="24" y="84" width="112" height="28" rx="5" fill="#ffffff" stroke="#0284c7" stroke-width="1.4"/>
+              <circle cx="34" cy="98" r="2.5" fill="#0284c7"/>
+              <text x="42" y="99" fill="#0f172a" font-size="8.5" font-weight="700"><tspan data-lang="en">Physical Bit 2 (Comp)</tspan><tspan data-lang="zh">實體位元 2（互補）</tspan></text>
+              <text x="42" y="108" fill="#0284c7" font-size="7" font-weight="600"><tspan data-lang="en">State: /D [1/0]</tspan><tspan data-lang="zh">狀態：/D [1／0]</tspan></text>
 
               <!-- Differential Signal Interconnects -->
-              <path d="M 136 46 H 195" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
-              <circle cx="165" cy="46" r="2.5" fill="#fbbf24"/>
-              <text x="165" y="38" text-anchor="middle" fill="#fbbf24" font-size="7.5" font-weight="700"><tspan data-lang="en">BL (True)</tspan><tspan data-lang="zh">BL（正相）</tspan></text>
+              <path d="M 136 46 H 195" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+              <circle cx="165" cy="46" r="2.5" fill="#0284c7"/>
+              <text x="165" y="38" text-anchor="middle" fill="#0369a1" font-size="7.5" font-weight="700"><tspan data-lang="en">BL (True)</tspan><tspan data-lang="zh">BL（正相）</tspan></text>
 
-              <path d="M 136 98 H 195" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
-              <circle cx="165" cy="98" r="2.5" fill="#38bdf8"/>
-              <text x="165" y="112" text-anchor="middle" fill="#38bdf8" font-size="7.5" font-weight="700"><tspan data-lang="en">/BL (Comp)</tspan><tspan data-lang="zh">/BL（互補）</tspan></text>
+              <path d="M 136 98 H 195" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+              <circle cx="165" cy="98" r="2.5" fill="#0284c7"/>
+              <text x="165" y="112" text-anchor="middle" fill="#0369a1" font-size="7.5" font-weight="700"><tspan data-lang="en">/BL (Comp)</tspan><tspan data-lang="zh">/BL（互補）</tspan></text>
 
               <!-- Triangle Differential Sense Amplifier Core (Center) -->
-              <polygon points="195,26 195,126 270,76" fill="url(#df-sa-grad)" stroke="#38bdf8" stroke-width="1.8"/>
-              <text x="203" y="44" fill="#fbbf24" font-size="11" font-weight="700">+</text>
-              <text x="203" y="114" fill="#38bdf8" font-size="11" font-weight="700">-</text>
-              <text x="228" y="70" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">DIFF</tspan><tspan data-lang="zh">差動</tspan></text>
-              <text x="228" y="81" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
-              <text x="228" y="93" text-anchor="middle" fill="#bae6fd" font-size="6.5" font-weight="600">ΔV = V_BL - V_/BL</text>
+              <polygon points="195,26 195,126 270,76" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+              <text x="203" y="44" fill="#0369a1" font-size="11" font-weight="700">+</text>
+              <text x="203" y="114" fill="#0369a1" font-size="11" font-weight="700">-</text>
+              <text x="228" y="70" text-anchor="middle" fill="#0369a1" font-size="9" font-weight="700"><tspan data-lang="en">DIFF</tspan><tspan data-lang="zh">差動</tspan></text>
+              <text x="228" y="81" text-anchor="middle" fill="#0369a1" font-size="9" font-weight="700"><tspan data-lang="en">AMP</tspan><tspan data-lang="zh">放大器</tspan></text>
+              <text x="228" y="93" text-anchor="middle" fill="#0284c7" font-size="6.5" font-weight="700">ΔV = V_BL - V_/BL</text>
 
               <!-- Output Interconnect -->
-              <path d="M 270 76 H 298" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+              <path d="M 270 76 H 298" fill="none" stroke="#0284c7" stroke-width="1.8"/>
 
               <!-- Right: DPA Flat Current Wave & Secure Bit Output Window -->
-              <rect x="298" y="20" width="108" height="106" rx="7" fill="url(#df-wave-grad)" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.3"/>
-              <text x="352" y="34" text-anchor="middle" fill="#38bdf8" font-size="8" font-weight="700"><tspan data-lang="en">DPA FLAT WAVE</tspan><tspan data-lang="zh">DPA 平坦波形</tspan></text>
+              <rect x="298" y="20" width="108" height="106" rx="7" fill="#f0fdf4" stroke="#86efac" stroke-width="1.3"/>
+              <text x="352" y="34" text-anchor="middle" fill="#047857" font-size="8" font-weight="700"><tspan data-lang="en">DPA FLAT WAVE</tspan><tspan data-lang="zh">DPA 平坦波形</tspan></text>
 
               <!-- Complementary Balanced Current Waveform -->
-              <path d="M 306 48 Q 318 40 330 48 T 354 48 T 378 48 T 398 48" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2 1" opacity="0.6"/>
-              <path d="M 306 48 Q 318 56 330 48 T 354 48 T 378 48 T 398 48" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 1" opacity="0.6"/>
+              <path d="M 306 48 Q 318 40 330 48 T 354 48 T 378 48 T 398 48" fill="none" stroke="#d97706" stroke-width="1.2" stroke-dasharray="2 1" opacity="0.8"/>
+              <path d="M 306 48 Q 318 56 330 48 T 354 48 T 378 48 T 398 48" fill="none" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2 1" opacity="0.8"/>
               
               <!-- Total Current Constant Sum Line -->
-              <line x1="306" y1="62" x2="398" y2="62" stroke="#10b981" stroke-width="2"/>
-              <circle cx="352" cy="62" r="2.5" fill="#10b981"/>
-              <text x="352" y="74" text-anchor="middle" fill="#a7f3d0" font-size="7" font-weight="600">I_tot ≈ Const</text>
-              <text x="352" y="84" text-anchor="middle" fill="#38bdf8" font-size="6.8"><tspan data-lang="en">CMRR (qualitative)</tspan><tspan data-lang="zh">CMRR（定性）</tspan></text>
+              <line x1="306" y1="62" x2="398" y2="62" stroke="#059669" stroke-width="2"/>
+              <circle cx="352" cy="62" r="2.5" fill="#059669"/>
+              <text x="352" y="74" text-anchor="middle" fill="#065f46" font-size="7" font-weight="700">I_tot ≈ Const</text>
+              <text x="352" y="84" text-anchor="middle" fill="#047857" font-size="6.8" font-weight="600"><tspan data-lang="en">CMRR (qualitative)</tspan><tspan data-lang="zh">CMRR（定性）</tspan></text>
 
               <!-- Secure Bit Latch Box -->
-              <rect x="312" y="92" width="80" height="24" rx="4" fill="#092335" stroke="#38bdf8" stroke-width="1.2"/>
-              <text x="352" y="107" text-anchor="middle" fill="#38bdf8" font-size="8.5" font-weight="700"><tspan data-lang="en">SECURE BIT OUT</tspan><tspan data-lang="zh">安全位元輸出</tspan></text>
+              <rect x="312" y="92" width="80" height="24" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.3"/>
+              <text x="352" y="107" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="700"><tspan data-lang="en">SECURE BIT OUT</tspan><tspan data-lang="zh">安全位元輸出</tspan></text>
             </svg>
           </div>
           <div class="rm-body">
@@ -6075,72 +6006,57 @@
           </div>
           <div class="rm-svg-wrap">
             <svg class="rm-svg" viewBox="0 0 420 145" role="img" aria-label="Differential redundant read silicon architecture infographic" data-aria-zh="互補差動冗餘讀取微架構視覺圖示" data-aria-en="Differential redundant read silicon architecture infographic">
-              <defs>
-                <linearGradient id="dr-cell-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#221235"/>
-                  <stop offset="100%" stop-color="#05121d"/>
-                </linearGradient>
-                <linearGradient id="dr-sa-grad" x1="0%" y1="0%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#6b21a8"/>
-                  <stop offset="100%" stop-color="#3b0764"/>
-                </linearGradient>
-                <linearGradient id="dr-shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#1f0e30"/>
-                  <stop offset="100%" stop-color="#04121d"/>
-                </linearGradient>
-              </defs>
-
               <!-- Logical Bit Boundary Container (Left) -->
-              <rect x="14" y="12" width="138" height="118" rx="7" fill="rgba(15, 23, 42, 0.5)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.2" stroke-dasharray="4 3"/>
-              <text x="22" y="24" fill="#94a3b8" font-size="7.5" font-weight="600" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (4T QUAD-MATRIX)</tspan><tspan data-lang="zh">邏輯位元（4T 四單元矩陣）</tspan></text>
+              <rect x="14" y="12" width="138" height="118" rx="7" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.3" stroke-dasharray="4 3"/>
+              <text x="22" y="24" fill="#6d28d9" font-size="7.5" font-weight="700" letter-spacing="0.05em"><tspan data-lang="en">LOGICAL BIT (4T QUAD-MATRIX)</tspan><tspan data-lang="zh">邏輯位元（4T 四單元矩陣）</tspan></text>
 
               <!-- Upper Rail: True Pair (D1 || D2) -->
-              <rect x="22" y="28" width="56" height="20" rx="3.5" fill="url(#dr-cell-grad)" stroke="#fbbf24" stroke-width="1.1"/>
-              <text x="50" y="42" text-anchor="middle" fill="#fbbf24" font-size="7.5" font-weight="700"><tspan data-lang="en">D1 (Pri)</tspan><tspan data-lang="zh">D1（主要）</tspan></text>
+              <rect x="22" y="28" width="56" height="20" rx="3.5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.3"/>
+              <text x="50" y="42" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">D1 (Pri)</tspan><tspan data-lang="zh">D1（主要）</tspan></text>
 
-              <rect x="82" y="28" width="56" height="20" rx="3.5" fill="url(#dr-cell-grad)" stroke="#fbbf24" stroke-width="1.1"/>
-              <text x="110" y="42" text-anchor="middle" fill="#fbbf24" font-size="7.5" font-weight="700"><tspan data-lang="en">D2 (Red)</tspan><tspan data-lang="zh">D2（冗餘）</tspan></text>
+              <rect x="82" y="28" width="56" height="20" rx="3.5" fill="#ffffff" stroke="#7c3aed" stroke-width="1.3"/>
+              <text x="110" y="42" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">D2 (Red)</tspan><tspan data-lang="zh">D2（冗餘）</tspan></text>
 
-              <path d="M 50 48 V 56 H 110 V 48" fill="none" stroke="#fbbf24" stroke-width="1.4"/>
-              <circle cx="80" cy="56" r="2.5" fill="#fbbf24"/>
-              <path d="M 80 56 H 195" fill="none" stroke="#fbbf24" stroke-width="1.8"/>
-              <text x="168" y="48" text-anchor="middle" fill="#fbbf24" font-size="7.5" font-weight="700">BL (1||2)</text>
+              <path d="M 50 48 V 56 H 110 V 48" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+              <circle cx="80" cy="56" r="2.5" fill="#7c3aed"/>
+              <path d="M 80 56 H 195" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+              <text x="168" y="48" text-anchor="middle" fill="#6d28d9" font-size="7.5" font-weight="700">BL (1||2)</text>
 
               <!-- Lower Rail: Comp Pair (/D1 || /D2) -->
-              <rect x="22" y="78" width="56" height="20" rx="3.5" fill="url(#dr-cell-grad)" stroke="#38bdf8" stroke-width="1.1"/>
-              <text x="50" y="92" text-anchor="middle" fill="#38bdf8" font-size="7.5" font-weight="700"><tspan data-lang="en">/D1 (Pri)</tspan><tspan data-lang="zh">/D1（主要）</tspan></text>
+              <rect x="22" y="78" width="56" height="20" rx="3.5" fill="#ffffff" stroke="#0284c7" stroke-width="1.3"/>
+              <text x="50" y="92" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">/D1 (Pri)</tspan><tspan data-lang="zh">/D1（主要）</tspan></text>
 
-              <rect x="82" y="78" width="56" height="20" rx="3.5" fill="url(#dr-cell-grad)" stroke="#38bdf8" stroke-width="1.1"/>
-              <text x="110" y="92" text-anchor="middle" fill="#38bdf8" font-size="7.5" font-weight="700"><tspan data-lang="en">/D2 (Red)</tspan><tspan data-lang="zh">/D2（冗餘）</tspan></text>
+              <rect x="82" y="78" width="56" height="20" rx="3.5" fill="#ffffff" stroke="#0284c7" stroke-width="1.3"/>
+              <text x="110" y="92" text-anchor="middle" fill="#0f172a" font-size="7.5" font-weight="700"><tspan data-lang="en">/D2 (Red)</tspan><tspan data-lang="zh">/D2（冗餘）</tspan></text>
 
-              <path d="M 50 98 V 106 H 110 V 98" fill="none" stroke="#38bdf8" stroke-width="1.4"/>
-              <circle cx="80" cy="106" r="2.5" fill="#38bdf8"/>
-              <path d="M 80 106 H 195" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
-              <text x="168" y="118" text-anchor="middle" fill="#38bdf8" font-size="7.5" font-weight="700">/BL (1||2)</text>
+              <path d="M 50 98 V 106 H 110 V 98" fill="none" stroke="#0284c7" stroke-width="1.4"/>
+              <circle cx="80" cy="106" r="2.5" fill="#0284c7"/>
+              <path d="M 80 106 H 195" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+              <text x="168" y="118" text-anchor="middle" fill="#0369a1" font-size="7.5" font-weight="700">/BL (1||2)</text>
 
               <!-- Triangle Max-Rel Sense Amplifier Core (Center) -->
-              <polygon points="195,26 195,126 270,76" fill="url(#dr-sa-grad)" stroke="#c084fc" stroke-width="1.8"/>
-              <text x="203" y="44" fill="#fbbf24" font-size="11" font-weight="700">+</text>
-              <text x="203" y="114" fill="#38bdf8" font-size="11" font-weight="700">-</text>
-              <text x="228" y="68" text-anchor="middle" fill="#ffffff" font-size="8.5" font-weight="700"><tspan data-lang="en">MAX-REL</tspan><tspan data-lang="zh">最高可靠度</tspan></text>
-              <text x="228" y="79" text-anchor="middle" fill="#ffffff" font-size="8.5" font-weight="700"><tspan data-lang="en">DIFF AMP</tspan><tspan data-lang="zh">差動放大器</tspan></text>
-              <text x="228" y="91" text-anchor="middle" fill="#e9d5ff" font-size="6.5" font-weight="600"><tspan data-lang="en">Dual Bypass</tspan><tspan data-lang="zh">雙旁路</tspan></text>
+              <polygon points="195,26 195,126 270,76" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.8"/>
+              <text x="203" y="44" fill="#6d28d9" font-size="11" font-weight="700">+</text>
+              <text x="203" y="114" fill="#0369a1" font-size="11" font-weight="700">-</text>
+              <text x="228" y="68" text-anchor="middle" fill="#581c87" font-size="8.5" font-weight="700"><tspan data-lang="en">MAX-REL</tspan><tspan data-lang="zh">最高可靠度</tspan></text>
+              <text x="228" y="79" text-anchor="middle" fill="#581c87" font-size="8.5" font-weight="700"><tspan data-lang="en">DIFF AMP</tspan><tspan data-lang="zh">差動放大器</tspan></text>
+              <text x="228" y="91" text-anchor="middle" fill="#6d28d9" font-size="6.5" font-weight="700"><tspan data-lang="en">Dual Bypass</tspan><tspan data-lang="zh">雙旁路</tspan></text>
 
               <!-- Output Interconnect -->
-              <path d="M 270 76 H 298" fill="none" stroke="#c084fc" stroke-width="1.8"/>
+              <path d="M 270 76 H 298" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
 
               <!-- Right: ASIL-D / EAL6+ Sovereign Shield & 0-ppm Output Window -->
-              <rect x="298" y="16" width="108" height="114" rx="7" fill="url(#dr-shield-grad)" stroke="rgba(192, 132, 252, 0.45)" stroke-width="1.3"/>
-              <text x="352" y="30" text-anchor="middle" fill="#c084fc" font-size="8" font-weight="700"><tspan data-lang="en">NAMED-CASE ONLY</tspan><tspan data-lang="zh">僅限特定案例</tspan></text>
+              <rect x="298" y="16" width="108" height="114" rx="7" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.3"/>
+              <text x="352" y="30" text-anchor="middle" fill="#6d28d9" font-size="8" font-weight="700"><tspan data-lang="en">NAMED-CASE ONLY</tspan><tspan data-lang="zh">僅限特定案例</tspan></text>
 
               <!-- Sovereign Star/Shield Emblem -->
-              <polygon points="352,36 356,45 366,47 359,54 361,63 352,58 343,63 345,54 338,47 348,45" fill="rgba(192, 132, 252, 0.22)" stroke="#c084fc" stroke-width="1.2"/>
-              <text x="352" y="74" text-anchor="middle" fill="#cbd5e1" font-size="7" font-weight="600"><tspan data-lang="en">Mission-Critical</tspan><tspan data-lang="zh">關鍵任務</tspan></text>
-              <text x="352" y="84" text-anchor="middle" fill="#94a3b8" font-size="6.5"><tspan data-lang="en">XSC Special Recipe</tspan><tspan data-lang="zh">XSC 特定製程配方</tspan></text>
+              <polygon points="352,36 356,45 366,47 359,54 361,63 352,58 343,63 345,54 338,47 348,45" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="352" y="74" text-anchor="middle" fill="#475569" font-size="7" font-weight="700"><tspan data-lang="en">Mission-Critical</tspan><tspan data-lang="zh">關鍵任務</tspan></text>
+              <text x="352" y="84" text-anchor="middle" fill="#64748b" font-size="6.5" font-weight="600"><tspan data-lang="en">XSC Special Recipe</tspan><tspan data-lang="zh">XSC 特定製程配方</tspan></text>
 
               <!-- 0-ppm Data Latch Box -->
-              <rect x="310" y="92" width="84" height="24" rx="4" fill="#092335" stroke="#c084fc" stroke-width="1.2"/>
-              <text x="352" y="107" text-anchor="middle" fill="#c084fc" font-size="8.5" font-weight="700"><tspan data-lang="en">TEACHING OUTPUT</tspan><tspan data-lang="zh">教學輸出</tspan></text>
+              <rect x="310" y="92" width="84" height="24" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.3"/>
+              <text x="352" y="107" text-anchor="middle" fill="#6d28d9" font-size="8.5" font-weight="700"><tspan data-lang="en">TEACHING OUTPUT</tspan><tspan data-lang="zh">教學輸出</tspan></text>
             </svg>
           </div>
           <div class="rm-body">
@@ -6365,165 +6281,153 @@
       </div>
 
       <!-- SILICON ARCHITECTURAL DECISION PIPELINE INFOGRAPHIC -->
-      <div class="pipeline-flow-wrap">
+      <div class="pipeline-flow-wrap" style="background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 18px 20px; margin: 1.25rem 0 2rem; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);">
         <svg class="pipeline-flow-svg" viewBox="0 0 980 230" role="img" aria-label="Architectural NVM Selection Pipeline Flow Diagram" data-aria-en="Architectural NVM Selection Pipeline Flow Diagram" data-aria-zh="架構師 NVM 決策簽核流水線視覺流程圖">
           <defs>
-            <linearGradient id="pipe-g1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(14, 42, 60, 0.75)"/>
-              <stop offset="100%" stop-color="rgba(4, 18, 28, 0.95)"/>
-            </linearGradient>
-            <linearGradient id="pipe-g2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(42, 31, 10, 0.75)"/>
-              <stop offset="100%" stop-color="rgba(4, 18, 28, 0.95)"/>
-            </linearGradient>
-            <linearGradient id="pipe-g3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(10, 42, 30, 0.75)"/>
-              <stop offset="100%" stop-color="rgba(4, 18, 28, 0.95)"/>
-            </linearGradient>
             <pattern id="pipe-grid-pat" width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="0.75" fill="rgba(148, 163, 184, 0.12)"/>
+              <circle cx="2" cy="2" r="0.75" fill="#e2e8f0"/>
             </pattern>
           </defs>
 
           <!-- Sub-pixel Grid Background -->
-          <rect x="0" y="0" width="980" height="230" fill="url(#pipe-grid-pat)"/>
+          <rect x="0" y="0" width="980" height="230" fill="url(#pipe-grid-pat)" rx="6"/>
 
           <!-- ==================== GATE 1: AUDIT ==================== -->
-          <rect x="14" y="14" width="300" height="202" rx="7" fill="url(#pipe-g1-grad)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.2"/>
-          <rect x="24" y="24" width="95" height="18" rx="4" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
-          <text x="71.5" y="36.5" text-anchor="middle" fill="#38bdf8" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 1 · AUDIT</tspan><tspan data-lang="zh">關卡 1 · 稽核</tspan></text>
-          <text x="128" y="37" fill="#94a3b8" font-size="8" font-weight="600" letter-spacing="0.04em"><tspan data-lang="en">STATE CONTRACT &amp; LIFE-CYCLE</tspan><tspan data-lang="zh">狀態契約與生命週期</tspan></text>
+          <rect x="14" y="14" width="300" height="202" rx="7" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.4"/>
+          <rect x="24" y="24" width="95" height="18" rx="4" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"/>
+          <text x="71.5" y="36.5" text-anchor="middle" fill="#0369a1" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 1 · AUDIT</tspan><tspan data-lang="zh">關卡 1 · 稽核</tspan></text>
+          <text x="128" y="37" fill="#334155" font-size="8" font-weight="700" letter-spacing="0.04em"><tspan data-lang="en">STATE CONTRACT &amp; LIFE-CYCLE</tspan><tspan data-lang="zh">狀態契約與生命週期</tspan></text>
 
           <!-- System Requirements Input Node -->
-          <rect x="24" y="98" width="62" height="34" rx="4" fill="#061c28" stroke="#38bdf8" stroke-width="1.2"/>
-          <text x="55" y="112" text-anchor="middle" fill="#7dd3fc" font-size="7.5" font-weight="700"><tspan data-lang="en">SYS SPECS</tspan><tspan data-lang="zh">系統規格</tspan></text>
-          <text x="55" y="123" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="500"><tspan data-lang="en">Requirements</tspan><tspan data-lang="zh">需求</tspan></text>
+          <rect x="24" y="98" width="62" height="34" rx="4" fill="#ffffff" stroke="#0284c7" stroke-width="1.4"/>
+          <text x="55" y="112" text-anchor="middle" fill="#0284c7" font-size="7.5" font-weight="700"><tspan data-lang="en">SYS SPECS</tspan><tspan data-lang="zh">系統規格</tspan></text>
+          <text x="55" y="123" text-anchor="middle" fill="#475569" font-size="7" font-weight="600"><tspan data-lang="en">Requirements</tspan><tspan data-lang="zh">需求</tspan></text>
 
           <!-- Input branching wires -->
-          <path d="M 86 110 L 102 110 L 102 68 L 114 68" fill="none" stroke="#38bdf8" stroke-width="1.3"/>
-          <polygon points="112,65 117,68 112,71" fill="#38bdf8"/>
-          <path d="M 86 120 L 102 120 L 102 162 L 114 162" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
-          <polygon points="112,159 117,162 112,165" fill="#f59e0b"/>
+          <path d="M 86 110 L 102 110 L 102 68 L 114 68" fill="none" stroke="#0284c7" stroke-width="1.4"/>
+          <polygon points="112,65 117,68 112,71" fill="#0284c7"/>
+          <path d="M 86 120 L 102 120 L 102 162 L 114 162" fill="none" stroke="#d97706" stroke-width="1.4"/>
+          <polygon points="112,159 117,162 112,165" fill="#d97706"/>
 
           <!-- Branch A: Write-Once / Immutable -->
-          <rect x="116" y="52" width="98" height="32" rx="4" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.2"/>
-          <text x="122" y="65" fill="#e2e8f0" font-size="7.5" font-weight="700"><tspan data-lang="en">WRITE-ONCE</tspan><tspan data-lang="zh">一次寫入</tspan></text>
-          <text x="122" y="76" fill="#7dd3fc" font-size="7" font-weight="500"><tspan data-lang="en">Immutable ID / Trim</tspan><tspan data-lang="zh">不可變更識別碼／微調</tspan></text>
+          <rect x="116" y="52" width="98" height="32" rx="4" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2"/>
+          <text x="122" y="65" fill="#0369a1" font-size="7.5" font-weight="700"><tspan data-lang="en">WRITE-ONCE</tspan><tspan data-lang="zh">一次寫入</tspan></text>
+          <text x="122" y="76" fill="#0284c7" font-size="7" font-weight="600"><tspan data-lang="en">Immutable ID / Trim</tspan><tspan data-lang="zh">不可變更識別碼／微調</tspan></text>
 
-          <path d="M 214 68 L 226 68" fill="none" stroke="#38bdf8" stroke-width="1.3"/>
-          <polygon points="224,65 229,68 224,71" fill="#38bdf8"/>
+          <path d="M 214 68 L 226 68" fill="none" stroke="#0284c7" stroke-width="1.4"/>
+          <polygon points="224,65 229,68 224,71" fill="#0284c7"/>
 
           <!-- Chip Node A: 0-Mask OTP -->
-          <rect x="228" y="49" width="76" height="38" rx="4" fill="#0c2331" stroke="#38bdf8" stroke-width="1.3"/>
-          <text x="266" y="63" text-anchor="middle" fill="#38bdf8" font-size="8" font-weight="700"><tspan data-lang="en">0-MASK OTP</tspan><tspan data-lang="zh">零額外光罩 OTP</tspan></text>
-          <text x="266" y="74" text-anchor="middle" fill="#94a3b8" font-size="6.8" font-weight="500">AntiFuse · I-fuse</text>
+          <rect x="228" y="49" width="76" height="38" rx="4" fill="#ffffff" stroke="#0284c7" stroke-width="1.4"/>
+          <text x="266" y="63" text-anchor="middle" fill="#0284c7" font-size="8" font-weight="700"><tspan data-lang="en">0-MASK OTP</tspan><tspan data-lang="zh">零額外光罩 OTP</tspan></text>
+          <text x="266" y="74" text-anchor="middle" fill="#334155" font-size="6.8" font-weight="600">AntiFuse · I-fuse</text>
           <text x="266" y="82" text-anchor="middle" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">FG-OTP Split</tspan><tspan data-lang="zh">FG-OTP 分類</tspan></text>
 
           <!-- Branch B: Multi-Write / OTA -->
-          <rect x="116" y="146" width="98" height="32" rx="4" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1.2"/>
-          <text x="122" y="159" fill="#e2e8f0" font-size="7.5" font-weight="700"><tspan data-lang="en">MULTI-WRITE</tspan><tspan data-lang="zh">多次寫入</tspan></text>
-          <text x="122" y="170" fill="#fde68a" font-size="7" font-weight="500"><tspan data-lang="en">Firmware OTA / Patch</tspan><tspan data-lang="zh">韌體 OTA／修補</tspan></text>
+          <rect x="116" y="146" width="98" height="32" rx="4" fill="#ffffff" stroke="#fed7aa" stroke-width="1.2"/>
+          <text x="122" y="159" fill="#92400e" font-size="7.5" font-weight="700"><tspan data-lang="en">MULTI-WRITE</tspan><tspan data-lang="zh">多次寫入</tspan></text>
+          <text x="122" y="170" fill="#b45309" font-size="7" font-weight="600"><tspan data-lang="en">Firmware OTA / Patch</tspan><tspan data-lang="zh">韌體 OTA／修補</tspan></text>
 
-          <path d="M 214 162 L 226 162" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
-          <polygon points="224,159 229,162 224,165" fill="#f59e0b"/>
+          <path d="M 214 162 L 226 162" fill="none" stroke="#d97706" stroke-width="1.4"/>
+          <polygon points="224,159 229,162 224,165" fill="#d97706"/>
 
           <!-- Chip Node B: Logic MTP / eFlash -->
-          <rect x="228" y="143" width="76" height="38" rx="4" fill="#241a08" stroke="#f59e0b" stroke-width="1.3"/>
-          <text x="266" y="157" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="700"><tspan data-lang="en">LOGIC MTP</tspan><tspan data-lang="zh">邏輯 MTP</tspan></text>
-          <text x="266" y="168" text-anchor="middle" fill="#cbd5e1" font-size="6.8" font-weight="500">FN/FN · TwinBit</text>
-          <text x="266" y="176" text-anchor="middle" fill="#94a3b8" font-size="6" font-weight="500"><tspan data-lang="en">eFlash Option</tspan><tspan data-lang="zh">eFlash 選項</tspan></text>
+          <rect x="228" y="143" width="76" height="38" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1.4"/>
+          <text x="266" y="157" text-anchor="middle" fill="#b45309" font-size="8" font-weight="700"><tspan data-lang="en">LOGIC MTP</tspan><tspan data-lang="zh">邏輯 MTP</tspan></text>
+          <text x="266" y="168" text-anchor="middle" fill="#334155" font-size="6.8" font-weight="600">FN/FN · TwinBit</text>
+          <text x="266" y="176" text-anchor="middle" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">eFlash Option</tspan><tspan data-lang="zh">eFlash 選項</tspan></text>
 
           <!-- Gate 1 Bottom Footer -->
-          <rect x="24" y="194" width="280" height="16" rx="3" fill="#03131e" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1"/>
-          <text x="164" y="205" text-anchor="middle" fill="#7dd3fc" font-size="7" font-weight="600" letter-spacing="0.03em"><tspan data-lang="en">CRITERION: 0-Overhead Retention · Zero Bus Leak</tspan><tspan data-lang="zh">準則：零額外資料保存成本 · 零匯流排洩漏</tspan></text>
+          <rect x="24" y="194" width="280" height="16" rx="3" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1"/>
+          <text x="164" y="205" text-anchor="middle" fill="#0369a1" font-size="7" font-weight="700" letter-spacing="0.03em"><tspan data-lang="en">CRITERION: 0-Overhead Retention · Zero Bus Leak</tspan><tspan data-lang="zh">準則：零額外資料保存成本 · 零匯流排洩漏</tspan></text>
 
           <!-- Inter-Stage Wire: Gate 1 -> Gate 2 -->
-          <path d="M 314 115 L 340 115" fill="none" stroke="#006f70" stroke-width="1.8" stroke-dasharray="3 2"/>
-          <polygon points="337,111 343,115 337,119" fill="#006f70"/>
+          <path d="M 314 115 L 340 115" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="3 2"/>
+          <polygon points="337,111 343,115 337,119" fill="#0284c7"/>
 
           <!-- ==================== GATE 2: BUDGET ==================== -->
-          <rect x="340" y="14" width="300" height="202" rx="7" fill="url(#pipe-g2-grad)" stroke="rgba(245, 158, 11, 0.35)" stroke-width="1.2"/>
-          <rect x="350" y="24" width="98" height="18" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1"/>
-          <text x="399" y="36.5" text-anchor="middle" fill="#f59e0b" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 2 · BUDGET</tspan><tspan data-lang="zh">關卡 2 · 預算</tspan></text>
-          <text x="456" y="37" fill="#94a3b8" font-size="8" font-weight="600" letter-spacing="0.04em"><tspan data-lang="en">PROCESS NODE &amp; THERMAL</tspan><tspan data-lang="zh">製程節點與熱預算</tspan></text>
+          <rect x="340" y="14" width="300" height="202" rx="7" fill="#fffbeb" stroke="#fed7aa" stroke-width="1.4"/>
+          <rect x="350" y="24" width="98" height="18" rx="4" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
+          <text x="399" y="36.5" text-anchor="middle" fill="#92400e" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 2 · BUDGET</tspan><tspan data-lang="zh">關卡 2 · 預算</tspan></text>
+          <text x="456" y="37" fill="#334155" font-size="8" font-weight="700" letter-spacing="0.04em"><tspan data-lang="en">PROCESS NODE &amp; THERMAL</tspan><tspan data-lang="zh">製程節點與熱預算</tspan></text>
 
           <!-- Node Decision Core -->
-          <rect x="350" y="52" width="108" height="42" rx="4" fill="#1e1608" stroke="#f59e0b" stroke-width="1.2"/>
-          <text x="404" y="66" text-anchor="middle" fill="#fbbf24" font-size="7.8" font-weight="700"><tspan data-lang="en">FOUNDRY PDK</tspan><tspan data-lang="zh">晶圓代工 PDK</tspan></text>
-          <text x="404" y="77" text-anchor="middle" fill="#e2e8f0" font-size="7" font-weight="500"><tspan data-lang="en">Named node / device stack</tspan><tspan data-lang="zh">具名節點／元件堆疊</tspan></text>
-          <text x="404" y="87" text-anchor="middle" fill="#fde68a" font-size="6.5" font-weight="500">SST eFlash / Single-Poly</text>
+          <rect x="350" y="52" width="108" height="42" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1.4"/>
+          <text x="404" y="66" text-anchor="middle" fill="#b45309" font-size="7.8" font-weight="700"><tspan data-lang="en">FOUNDRY PDK</tspan><tspan data-lang="zh">晶圓代工 PDK</tspan></text>
+          <text x="404" y="77" text-anchor="middle" fill="#334155" font-size="7" font-weight="600"><tspan data-lang="en">Named node / device stack</tspan><tspan data-lang="zh">具名節點／元件堆疊</tspan></text>
+          <text x="404" y="87" text-anchor="middle" fill="#64748b" font-size="6.5" font-weight="500">SST eFlash / Single-Poly</text>
 
-          <path d="M 404 94 L 404 112" fill="none" stroke="#ef4444" stroke-width="1.3"/>
+          <path d="M 404 94 L 404 112" fill="none" stroke="#ef4444" stroke-width="1.4"/>
           <polygon points="401,110 404,115 407,110" fill="#ef4444"/>
 
           <!-- Process integration checkpoint -->
-          <rect x="350" y="115" width="108" height="34" rx="4" fill="rgba(38, 11, 14, 0.7)" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2"/>
-          <text x="404" y="128" text-anchor="middle" fill="#fca5a5" font-size="7.5" font-weight="700"><tspan data-lang="en">28 nm: CHECK PDK</tspan><tspan data-lang="zh">28 nm：核對 PDK</tspan></text>
-          <text x="404" y="139" text-anchor="middle" fill="#f87171" font-size="6.5" font-weight="600"><tspan data-lang="en">No universal cutoff</tspan><tspan data-lang="zh">非普遍截止線</tspan></text>
+          <rect x="350" y="115" width="108" height="34" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.3" stroke-dasharray="3 2"/>
+          <text x="404" y="128" text-anchor="middle" fill="#b91c1c" font-size="7.5" font-weight="700"><tspan data-lang="en">28 nm: CHECK PDK</tspan><tspan data-lang="zh">28 nm：核對 PDK</tspan></text>
+          <text x="404" y="139" text-anchor="middle" fill="#dc2626" font-size="6.5" font-weight="600"><tspan data-lang="en">No universal cutoff</tspan><tspan data-lang="zh">非普遍截止線</tspan></text>
 
           <!-- Scaling Breakthrough Options -->
-          <path d="M 458 126 L 478 126 L 478 72 L 488 72" fill="none" stroke="#10b981" stroke-width="1.3"/>
-          <polygon points="486,69 491,72 486,75" fill="#10b981"/>
+          <path d="M 458 126 L 478 126 L 478 72 L 488 72" fill="none" stroke="#059669" stroke-width="1.4"/>
+          <polygon points="486,69 491,72 486,75" fill="#059669"/>
 
-          <path d="M 458 138 L 478 138 L 478 160 L 488 160" fill="none" stroke="#c084fc" stroke-width="1.3"/>
-          <polygon points="486,157 491,160 486,163" fill="#c084fc"/>
+          <path d="M 458 138 L 478 138 L 478 160 L 488 160" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+          <polygon points="486,157 491,160 486,163" fill="#7c3aed"/>
 
           <!-- Option A: 0-Mask Advanced Logic NVM -->
-          <rect x="490" y="54" width="140" height="36" rx="4" fill="#042016" stroke="#10b981" stroke-width="1.2"/>
-          <text x="498" y="67" fill="#34d399" font-size="7.5" font-weight="700"><tspan data-lang="en">0-MASK ADVANCED</tspan><tspan data-lang="zh">零額外光罩先進製程</tspan></text>
-          <text x="498" y="77" fill="#a7f3d0" font-size="6.8" font-weight="500">TwinBit (22nm) · I-fuse (22FDX)</text>
-          <text x="498" y="85" fill="#6ee7b7" font-size="6" font-weight="500"><tspan data-lang="en">ZA (sub-10nm dielectric)</tspan><tspan data-lang="zh">ZA（小於 10nm 的介電層）</tspan></text>
+          <rect x="490" y="54" width="140" height="36" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.4"/>
+          <text x="498" y="67" fill="#047857" font-size="7.5" font-weight="700"><tspan data-lang="en">0-MASK ADVANCED</tspan><tspan data-lang="zh">零額外光罩先進製程</tspan></text>
+          <text x="498" y="77" fill="#334155" font-size="6.8" font-weight="600">TwinBit (22nm) · I-fuse (22FDX)</text>
+          <text x="498" y="85" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">ZA (sub-10nm dielectric)</tspan><tspan data-lang="zh">ZA（小於 10nm 的介電層）</tspan></text>
 
           <!-- Option B: BEOL / Novel NVM Adders -->
-          <rect x="490" y="142" width="140" height="36" rx="4" fill="#1e1035" stroke="#c084fc" stroke-width="1.2"/>
-          <text x="498" y="155" fill="#c084fc" font-size="7.5" font-weight="700"><tspan data-lang="en">BEOL / LOW-ADDER</tspan><tspan data-lang="zh">BEOL／少量額外光罩</tspan></text>
-          <text x="498" y="165" fill="#e9d5ff" font-size="6.8" font-weight="500"><tspan data-lang="en">STT-MRAM (3~5 Adders)</tspan><tspan data-lang="zh">STT-MRAM（額外 3～5 道光罩）</tspan></text>
-          <text x="498" y="173" fill="#d8b4fe" font-size="6" font-weight="500"><tspan data-lang="en">SONOS G1/G2 (+2~4 Adders)</tspan><tspan data-lang="zh">SONOS G1/G2（額外 2～4 道光罩）</tspan></text>
+          <rect x="490" y="142" width="140" height="36" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+          <text x="498" y="155" fill="#6d28d9" font-size="7.5" font-weight="700"><tspan data-lang="en">BEOL / LOW-ADDER</tspan><tspan data-lang="zh">BEOL／少量額外光罩</tspan></text>
+          <text x="498" y="165" fill="#334155" font-size="6.8" font-weight="600"><tspan data-lang="en">STT-MRAM (3~5 Adders)</tspan><tspan data-lang="zh">STT-MRAM（額外 3～5 道光罩）</tspan></text>
+          <text x="498" y="173" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">SONOS G1/G2 (+2~4 Adders)</tspan><tspan data-lang="zh">SONOS G1/G2（額外 2～4 道光罩）</tspan></text>
 
           <!-- Gate 2 Bottom Footer -->
-          <rect x="350" y="194" width="280" height="16" rx="3" fill="#03131e" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1"/>
-          <text x="490" y="205" text-anchor="middle" fill="#fcd34d" font-size="7" font-weight="600" letter-spacing="0.03em"><tspan data-lang="en">CRITERION: Named stack · supply · thermal budget</tspan><tspan data-lang="zh">準則：具名堆疊 · 供電 · 熱預算</tspan></text>
+          <rect x="350" y="194" width="280" height="16" rx="3" fill="#fef3c7" stroke="#fed7aa" stroke-width="1"/>
+          <text x="490" y="205" text-anchor="middle" fill="#92400e" font-size="7" font-weight="700" letter-spacing="0.03em"><tspan data-lang="en">CRITERION: Named stack · supply · thermal budget</tspan><tspan data-lang="zh">準則：具名堆疊 · 供電 · 熱預算</tspan></text>
 
           <!-- Inter-Stage Wire: Gate 2 -> Gate 3 -->
-          <path d="M 640 115 L 666 115" fill="none" stroke="#006f70" stroke-width="1.8" stroke-dasharray="3 2"/>
-          <polygon points="663,111 669,115 663,119" fill="#006f70"/>
+          <path d="M 640 115 L 666 115" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="3 2"/>
+          <polygon points="663,111 669,115 663,119" fill="#059669"/>
 
           <!-- ==================== GATE 3: SIGN-OFF ==================== -->
-          <rect x="666" y="14" width="300" height="202" rx="7" fill="url(#pipe-g3-grad)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1.2"/>
-          <rect x="676" y="24" width="105" height="18" rx="4" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1"/>
-          <text x="728.5" y="36.5" text-anchor="middle" fill="#10b981" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 3 · SIGN-OFF</tspan><tspan data-lang="zh">關卡 3 · 簽核</tspan></text>
-          <text x="789" y="37" fill="#94a3b8" font-size="8" font-weight="600" letter-spacing="0.04em"><tspan data-lang="en">PHYSICAL VERIFICATION</tspan><tspan data-lang="zh">實體驗證</tspan></text>
+          <rect x="666" y="14" width="300" height="202" rx="7" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.4"/>
+          <rect x="676" y="24" width="105" height="18" rx="4" fill="#d1fae5" stroke="#6ee7b7" stroke-width="1"/>
+          <text x="728.5" y="36.5" text-anchor="middle" fill="#047857" font-size="8.5" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">GATE 3 · SIGN-OFF</tspan><tspan data-lang="zh">關卡 3 · 簽核</tspan></text>
+          <text x="789" y="37" fill="#334155" font-size="8" font-weight="700" letter-spacing="0.04em"><tspan data-lang="en">PHYSICAL VERIFICATION</tspan><tspan data-lang="zh">實體驗證</tspan></text>
 
           <!-- Verification Check 1: Auto Grade 0 -->
-          <rect x="676" y="52" width="138" height="38" rx="4" fill="#031e16" stroke="#10b981" stroke-width="1.2"/>
-          <text x="684" y="66" fill="#34d399" font-size="7.5" font-weight="700">AEC-Q100 GRADE 0</text>
-          <text x="684" y="77" fill="#a7f3d0" font-size="6.8" font-weight="500">175&deg;C Tj &middot; HTOL 1000h</text>
-          <text x="684" y="85" fill="#6ee7b7" font-size="6" font-weight="500">ELFR 2,400 units c=0</text>
+          <rect x="676" y="52" width="138" height="38" rx="4" fill="#ffffff" stroke="#059669" stroke-width="1.4"/>
+          <text x="684" y="66" fill="#047857" font-size="7.5" font-weight="700">AEC-Q100 GRADE 0</text>
+          <text x="684" y="77" fill="#334155" font-size="6.8" font-weight="600">175&deg;C Tj &middot; HTOL 1000h</text>
+          <text x="684" y="85" fill="#64748b" font-size="6" font-weight="500">ELFR 2,400 units c=0</text>
 
           <!-- Verification Check 2: Physical Security -->
-          <rect x="676" y="100" width="138" height="38" rx="4" fill="#08222f" stroke="#38bdf8" stroke-width="1.2"/>
-          <text x="684" y="114" fill="#38bdf8" font-size="7.5" font-weight="700"><tspan data-lang="en">LAYERED ANTI-TAMPER</tspan><tspan data-lang="zh">分層防竄改</tspan></text>
-          <text x="684" y="125" fill="#7dd3fc" font-size="6.8" font-weight="500"><tspan data-lang="en">TEM Filament Attenuation</tspan><tspan data-lang="zh">降低 TEM 細絲訊號</tspan></text>
-          <text x="684" y="133" fill="#94a3b8" font-size="6" font-weight="500"><tspan data-lang="en">Active Top-Mesh Zeroize</tspan><tspan data-lang="zh">主動頂層網格清除</tspan></text>
+          <rect x="676" y="100" width="138" height="38" rx="4" fill="#ffffff" stroke="#0284c7" stroke-width="1.4"/>
+          <text x="684" y="114" fill="#0369a1" font-size="7.5" font-weight="700"><tspan data-lang="en">LAYERED ANTI-TAMPER</tspan><tspan data-lang="zh">分層防竄改</tspan></text>
+          <text x="684" y="125" fill="#334155" font-size="6.8" font-weight="600"><tspan data-lang="en">TEM Filament Attenuation</tspan><tspan data-lang="zh">降低 TEM 細絲訊號</tspan></text>
+          <text x="684" y="133" fill="#64748b" font-size="6" font-weight="500"><tspan data-lang="en">Active Top-Mesh Zeroize</tspan><tspan data-lang="zh">主動頂層網格清除</tspan></text>
 
           <!-- Convergence Wires to Tape-Out Release Badge -->
-          <path d="M 814 71 L 828 71 L 828 95 L 836 95" fill="none" stroke="#10b981" stroke-width="1.3"/>
-          <polygon points="834,92 839,95 834,98" fill="#10b981"/>
-          <path d="M 814 119 L 828 119 L 828 95 L 836 95" fill="none" stroke="#10b981" stroke-width="1.3"/>
+          <path d="M 814 71 L 828 71 L 828 95 L 836 95" fill="none" stroke="#059669" stroke-width="1.4"/>
+          <polygon points="834,92 839,95 834,98" fill="#059669"/>
+          <path d="M 814 119 L 828 119 L 828 95 L 836 95" fill="none" stroke="#059669" stroke-width="1.4"/>
 
           <!-- Master Tape-Out Release Badge -->
-          <rect x="840" y="52" width="116" height="86" rx="6" fill="#021d15" stroke="#34d399" stroke-width="1.5"/>
-          <circle cx="898" cy="74" r="14" fill="rgba(16, 185, 129, 0.2)" stroke="#34d399" stroke-width="1.2"/>
-          <polygon points="898,64 908,70 908,80 898,86 888,80 888,70" fill="none" stroke="#34d399" stroke-width="1.2"/>
-          <polyline points="894,74 897,77 903,71" fill="none" stroke="#34d399" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="840" y="52" width="116" height="86" rx="6" fill="#ffffff" stroke="#059669" stroke-width="1.8"/>
+          <circle cx="898" cy="74" r="14" fill="#d1fae5" stroke="#059669" stroke-width="1.4"/>
+          <polygon points="898,64 908,70 908,80 898,86 888,80 888,70" fill="none" stroke="#059669" stroke-width="1.2"/>
+          <polyline points="894,74 897,77 903,71" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           
-          <text x="898" y="98" text-anchor="middle" fill="#6ee7b7" font-size="7" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">TAPE-OUT RELEASE</tspan><tspan data-lang="zh">下線發布</tspan></text>
-          <text x="898" y="109" text-anchor="middle" fill="#ffffff" font-size="8.5" font-weight="800" letter-spacing="0.04em"><tspan data-lang="en">APPROVED</tspan><tspan data-lang="zh">已核准</tspan></text>
-          <text x="898" y="121" text-anchor="middle" fill="#fcd34d" font-size="6.8" font-weight="600"><tspan data-lang="en">Silicon Proven Closure</tspan><tspan data-lang="zh">晶片實測結案</tspan></text>
+          <text x="898" y="98" text-anchor="middle" fill="#047857" font-size="7" font-weight="700" letter-spacing="0.06em"><tspan data-lang="en">TAPE-OUT RELEASE</tspan><tspan data-lang="zh">下線發布</tspan></text>
+          <text x="898" y="109" text-anchor="middle" fill="#065f46" font-size="9" font-weight="800" letter-spacing="0.04em"><tspan data-lang="en">APPROVED</tspan><tspan data-lang="zh">已核准</tspan></text>
+          <text x="898" y="121" text-anchor="middle" fill="#b45309" font-size="6.8" font-weight="700"><tspan data-lang="en">Silicon Proven Closure</tspan><tspan data-lang="zh">晶片實測結案</tspan></text>
 
           <!-- Gate 3 Bottom Footer -->
-          <rect x="676" y="194" width="280" height="16" rx="3" fill="#03131e" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
-          <text x="816" y="205" text-anchor="middle" fill="#6ee7b7" font-size="7" font-weight="600" letter-spacing="0.03em">CRITERION: TEM Attenuation &middot; Grade 0 Validation</text>
+          <rect x="676" y="194" width="280" height="16" rx="3" fill="#d1fae5" stroke="#a7f3d0" stroke-width="1"/>
+          <text x="816" y="205" text-anchor="middle" fill="#047857" font-size="7" font-weight="700" letter-spacing="0.03em">CRITERION: TEM Attenuation &middot; Grade 0 Validation</text>
         </svg>
       </div>
 
