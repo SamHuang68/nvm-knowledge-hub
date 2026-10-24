@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "3c54aeb18e91e403aefbf9c220bb3dd11792ce90",
+  "baseCommit": "90ae946e38b14322ef14100beeaaa45679768694",
   "documentation": [
-    "docs/網站分階段優化紀錄-20261008.md"
+    "docs/科技比較架構矩陣改版日誌20261008.md"
   ],
   "cases": [
     {
-      "id": "全站模擬器與圖示視覺對比度與無障礙門禁",
+      "id": "全站樣式與閱讀系統現代化配色無障礙檢查",
       "kind": "command",
       "command": [
         "node",
@@ -18,26 +18,34 @@
         "scripts/quick-a11y-check.mjs"
       ],
       "changes": [
-        "advanced-packaging-pdks-simulator.js",
-        "specialty-nvm.html",
+        "global-reading-system.css",
+        "home-glass-renaissance.css",
+        "hub-apps-chrome.css",
+        "literature-editorial.css",
+        "literature-paper.js",
+        "site-shell.css",
         "technology-comparison.html"
       ],
       "inputs": [
-        "advanced-packaging-pdks-simulator.js",
-        "specialty-nvm.html",
+        "global-reading-system.css",
+        "home-glass-renaissance.css",
+        "hub-apps-chrome.css",
+        "literature-editorial.css",
+        "literature-paper.js",
+        "site-shell.css",
         "technology-comparison.html",
         "scripts/quick-a11y-check.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 2.5D/3D Advanced Packaging 模擬器、Three-Stage Pipeline 與 Specialty NVM 圖示全面重構為外科淡色高對比主題後通過靜態無障礙檢查。",
+      "reason": "驗證全站現代化科技色彩體系（Tech Midnight 頂欄、晶圓冷瓷灰階底與彩條對比）符合無障礙與靜態檢查規範。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 30
     },
     {
-      "id": "離線產物與發布血統同步",
+      "id": "離線清單與發布血統一致性",
       "kind": "command",
       "command": [
         "node",
@@ -58,7 +66,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "核對圖示與模擬器視覺更新後，離線快取 Manifest 與發布血統紀錄追蹤資源位元組一致性。",
+      "reason": "樣式與離線資源更新後，驗證離線清單與血統紀錄一致性。",
       "prepare": [
         "node"
       ],
