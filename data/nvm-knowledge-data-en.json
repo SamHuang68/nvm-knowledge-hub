@@ -3673,11 +3673,11 @@
             },
             "antifuse": {
               "val": "Core Ultra-Compact (1T Halved)",
-              "note": "10–25 F²; Core cell tracks node scaling; Synopsys (Sidense) 1T patent cuts 2T array area in half, smallest for 1Kb~64Kb"
+              "note": "10–25 F²; Core GOX native scaling; 1T array halved vs 2T*"
             },
             "fgotp": {
-              "val": "I/O Cell (No Shrink)",
-              "note": "12–30 F²; bound to 5V/3.3V thick oxide rules, cannot scale with core logic"
+              "val": "Large (I/O Class)",
+              "note": "100–250+ F²; 5V/3.3V thick oxide bound; 10×–25× area of 1T*"
             },
             "ldmtp": {
               "val": "Low-Medium Density",
@@ -4097,11 +4097,11 @@
             },
             "antifuse": {
               "val": "Scales to 2nm GAA / BSPDN",
-              "note": "Tracks core GOX breakdown; sole 0-mask NVM at 2nm/BSPDN"
+              "note": "Tracks core GOX breakdown; Core cell natively scales with logic; sole 0-mask NVM at 2nm/BSPDN*"
             },
             "fgotp": {
-              "val": "Stalls at Planar 28nm",
-              "note": "Floating gate topology conflicts with 3D FinFET geometry"
+              "val": "Stalls at Planar 28nm (No Scaling)",
+              "note": "I/O cell bound to 5V/3.3V thick oxide, cannot scale with core; conflicts with 3D FinFET geometry*"
             },
             "ldmtp": {
               "val": "Stalls at Planar 28nm",
