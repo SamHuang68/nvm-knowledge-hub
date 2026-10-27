@@ -3672,12 +3672,12 @@
               "note": "<8 F²; no pumps, minimal peripheral, lowest area"
             },
             "antifuse": {
-              "val": "Optimal for Small Capacity",
-              "note": "10–25 F²; small pump, industry smallest for 1Kb~64Kb"
+              "val": "Core Ultra-Compact (1T Halved)",
+              "note": "10–25 F²; Core cell tracks node scaling; Synopsys (Sidense) 1T patent cuts 2T array area in half, smallest for 1Kb~64Kb"
             },
             "fgotp": {
-              "val": "Medium Density",
-              "note": "12–30 F²; coupling capacitor limits aggressive scaling"
+              "val": "I/O Cell (No Shrink)",
+              "note": "12–30 F²; bound to 5V/3.3V thick oxide rules, cannot scale with core logic"
             },
             "ldmtp": {
               "val": "Low-Medium Density",

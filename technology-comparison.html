@@ -2351,8 +2351,8 @@
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="efuse"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note"><span data-lang="zh">吹斷級 60–120 F²；I-fuse 熔絲面積另核對</span><span data-lang="en">Blow-class 60–120 F²; I-fuse fuse area separately</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="maskrom"><b><span data-lang="zh">最小</span><span data-lang="en">Smallest</span></b><span class="cell-note">&lt; 8 F²</span></div>
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="eeprom"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">20–40 F²</span></div>
-<div class="matrix-cell" data-category="otp" data-row="2" data-tech="fgotp"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="2" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">極緊湊</span><span data-lang="en">Ultra-compact</span></b><span class="cell-note">10–25 F²</span></div>
+<div class="matrix-cell" data-category="otp" data-row="2" data-tech="fgotp"><b><span data-lang="zh">I/O 單元（難微縮）</span><span data-lang="en">I/O Cell (No Shrink)</span></b><span class="cell-note"><span data-lang="zh">12–30 F²；侷限於 5V/3.3V 厚氧，無法隨 core 微縮</span><span data-lang="en">12–30 F²; bound to 5V/3.3V thick oxide, cannot scale with core</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="2" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">Core 極緊湊（1T 專利）</span><span data-lang="en">Core Ultra-Compact (1T)</span></b><span class="cell-note"><span data-lang="zh">10–25 F²；Core 單元隨節點微縮；Synopsys (Sidense) 1T 專利免 select T，陣列較 2T 砍半</span><span data-lang="en">10–25 F²; Core cell scales; Synopsys (Sidense) 1T patent cuts 2T array area in half</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="2" data-tech="ldmtp"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120+ F²</span></div>
 <div class="matrix-cell" data-category="mtp" data-row="2" data-tech="hdmtp"><b><span data-lang="zh">中／緊湊</span><span data-lang="en">Medium/Compact</span></b><span class="cell-note">25–50 F²</span></div>
 <div class="matrix-cell" data-category="eflash" data-row="2" data-tech="sst"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
@@ -2447,8 +2447,8 @@
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="efuse"><b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b><span class="cell-note"><span data-lang="zh">吹斷級；I-fuse 另列</span><span data-lang="en">Blow class; I-fuse separate</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="maskrom"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="eeprom"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
-<div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">I/O 或 logic FG</span><span data-lang="en">I/O or logic FG</span></b><span class="cell-note"><span data-lang="zh">依整合路徑</span><span data-lang="en">Integration-path set</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA（vendor/gen；例：<a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>）</span><span data-lang="en">Down to 2nm GAA (vendor/gen; e.g. <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>)</span></b><span class="cell-note"><span data-lang="zh">GAA 類常被定位為 0-Mask OTP（依世代／供應商）</span><span data-lang="en">Often positioned as 0-mask OTP in GAA class (vendor/generation dependent)</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">I/O 規則受限（無法 scaling）</span><span data-lang="en">I/O Bound (No Scaling)</span></b><span class="cell-note"><span data-lang="zh">侷限 5V/3.3V 厚氧維持電荷；無法隨 core 微縮，FinFET 停滯</span><span data-lang="en">Bound to 5V/3.3V thick oxide for retention; cannot scale with core</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">隨 Core 閘氧微縮至 2nm GAA（vendor/gen；例：<a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>）</span><span data-lang="en">Tracks Core GOX Down to 2nm GAA (vendor/gen; e.g. <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>)</span></b><span class="cell-note"><span data-lang="zh">利用核心薄閘氧電崩潰，原生跟隨 Core 節點縮放</span><span data-lang="en">Tracks core thin oxide breakdown; natively scales with logic core</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sst" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
@@ -2523,6 +2523,11 @@
               <span data-lang="en">Cell Geometry &amp; 3D Scaling Limits</span>
             </h3>
             <ul class="note-card-list">
+              <li>
+                <b><span data-lang="zh">FG-OTP vs. AntiFuse 單元面積與微縮本質：</span><span data-lang="en">FG-OTP vs. AntiFuse Footprint &amp; Scaling Rigor: </span></b>
+                <span data-lang="zh"><strong>FG-OTP 屬 I/O Cell</strong>：浮閘電荷保持力（Retention）依賴 5V 或 3.3V 厚閘氧化層（t<sub>ox</sub> ≥ 50–70 Å），無法改用 core 薄閘氧；位元胞與周邊受限於 I/O 設計規則與間距，無法隨先進核心邏輯節點（core logic）等比微縮（無法 scaling）。<strong>AntiFuse 則屬 Core Cell</strong>：直接利用標準核心邏輯薄閘氧（core GOX）擊穿，電壓與幾何完全隨 core 閘長與 CPP 等比微縮（可原生進入 FinFET 與 2nm GAA）。在位元胞架構層次：傳統 AntiFuse 需採 2T（1 存取電晶體 + 1 反熔絲電容）架構以防讀寫擾動；而 <strong>Synopsys（原 Sidense 獨有專利，如 US7402855B2）之 1T-OTP 分裂通道（Split-Channel）技術</strong>，省去了獨立存取電晶體，相較傳統 2T 能將單元陣列面積<strong>進一步縮減對半（50% 陣列面積精簡）</strong>，確立極緊湊（Ultra-compact）矽佔用優勢。</span>
+                <span data-lang="en"><strong>FG-OTP is fundamentally an I/O Cell</strong>: Floating gate charge retention strictly requires 5V or 3.3V thick gate oxide (t<sub>ox</sub> ≥ 50–70 Å) to prevent direct tunneling loss, precluding thin core oxide; cell dimensions are bound to I/O pitch and cannot scale with core logic shrinks. Conversely, <strong>AntiFuse is a Core Cell</strong>: Built directly on standard thin core gate oxide (GOX), breakdown voltage and dimensions natively scale with core gate length and CPP down to FinFET and 2nm GAA. At the cell architecture level: Traditional AntiFuse requires a 2T topology (1 access transistor + 1 antifuse capacitor) to prevent disturb; whereas <strong>Synopsys (originally Sidense proprietary patent, e.g., US7402855B2) 1T-OTP split-channel bitcell</strong> eliminates the separate access device, cutting traditional 2T cell array area <strong>further in half (50% array area reduction)</strong>, achieving true ultra-compact silicon efficiency.</span>
+              </li>
               <li>
                 <b><span data-lang="zh">單元面積物理約束：</span><span data-lang="en">Cell Area Constraint: </span></b>
                 <span data-lang="zh">LD-MTP 因需 &gt;80% 電容耦合比，單元面積達 60–120+ F²；具名 CHI 路線的 HD-MTP 可藉熱載子注入縮小耦合電容至 25–50 F²（不含 AEON FN/FN 寫抹）。</span>
@@ -2931,12 +2936,12 @@
             <div class="cell-val-note"><span data-lang="zh">&lt;8 F²；無高壓幫浦，周邊極簡，矽面積極小</span><span data-lang="en">&lt;8 F²; no pumps, minimal peripheral, lowest area</span></div>
           </td>
           <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
-            <div class="cell-val-primary"><span data-lang="zh">小容量最優（極緊湊）</span><span data-lang="en">Optimal for Small Capacity</span></div>
-            <div class="cell-val-note"><span data-lang="zh">10–25 F²；高壓幫浦小，1Kb~64Kb 巨集面積業界最小</span><span data-lang="en">10–25 F²; small pump, industry smallest for 1Kb~64Kb</span></div>
+            <div class="cell-val-primary"><span data-lang="zh">Core 極緊湊（1T 專利對半縮減）</span><span data-lang="en">Core Ultra-Compact (1T Halved)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">10–25 F²；Core 單元隨節點微縮；Synopsys (Sidense) 1T 專利免 select T，陣列面積較 2T 砍半，小容量巨集業界最小</span><span data-lang="en">10–25 F²; Core cell tracks node scaling; Synopsys (Sidense) 1T patent cuts 2T array area in half, smallest for 1Kb~64Kb</span></div>
           </td>
           <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
-            <div class="cell-val-primary"><span data-lang="zh">中等密度</span><span data-lang="en">Medium Density</span></div>
-            <div class="cell-val-note"><span data-lang="zh">12–30 F²；浮閘電容耦合需求限制巨集進一步微縮</span><span data-lang="en">12–30 F²; coupling capacitor limits aggressive scaling</span></div>
+            <div class="cell-val-primary"><span data-lang="zh">I/O 單元（難微縮）</span><span data-lang="en">I/O Cell (No Shrink)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">12–30 F²；侷限於 5V/3.3V 厚氧規則，無法隨 core 微縮，先進節點矽佔用顯著擴大</span><span data-lang="en">12–30 F²; bound to 5V/3.3V thick oxide rules, cannot scale with core logic</span></div>
           </td>
           <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
             <div class="cell-val-primary"><span data-lang="zh">中低密度（電容開銷大）</span><span data-lang="en">Low-Medium Density</span></div>
@@ -3412,11 +3417,11 @@
           </td>
           <td class="td-tech-val td-highlight-ip" data-tech-id="antifuse" data-tech-cat="otp">
             <div class="cell-val-primary"><span data-lang="zh">一路微縮至 2nm GAA / BSPDN</span><span data-lang="en">Scales to 2nm GAA / BSPDN</span></div>
-            <div class="cell-val-note"><span data-lang="zh">利用核心薄閘氧電崩潰，完美跟隨微縮，先進節點唯一 0-Mask</span><span data-lang="en">Tracks core GOX breakdown; sole 0-mask NVM at 2nm/BSPDN</span></div>
+            <div class="cell-val-note"><span data-lang="zh">利用核心薄閘氧電崩潰，Core 單元原生跟隨核心邏輯微縮，先進節點唯一 0-Mask</span><span data-lang="en">Tracks core GOX breakdown; Core cell natively scales with logic; sole 0-mask NVM at 2nm/BSPDN</span></div>
           </td>
           <td class="td-tech-val" data-tech-id="fgotp" data-tech-cat="otp">
-            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步</span><span data-lang="en">Stalls at Planar 28nm</span></div>
-            <div class="cell-val-note"><span data-lang="zh">浮閘結構與 FinFET 3D 鰭片幾何衝突，無法經濟移植</span><span data-lang="en">Floating gate topology conflicts with 3D FinFET geometry</span></div>
+            <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步（無法 scaling）</span><span data-lang="en">Stalls at Planar 28nm (No Scaling)</span></div>
+            <div class="cell-val-note"><span data-lang="zh">I/O 單元侷限 5V/3.3V 厚氧，無法隨 core 微縮，且浮閘結構與 FinFET 鰭片幾何衝突</span><span data-lang="en">I/O cell bound to 5V/3.3V thick oxide, cannot scale with core; conflicts with 3D FinFET geometry</span></div>
           </td>
           <td class="td-tech-val" data-tech-id="ldmtp" data-tech-cat="mtp">
             <div class="cell-val-primary"><span data-lang="zh">平面 28nm 止步</span><span data-lang="en">Stalls at Planar 28nm</span></div>

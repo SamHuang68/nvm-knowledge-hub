@@ -1464,12 +1464,12 @@
             "note": "<8 F²；無高壓幫浦，周邊極簡，矽面積極小"
           },
           "antifuse": {
-            "val": "小容量最優（極緊湊）",
-            "note": "10–25 F²；高壓幫浦小，1Kb~64Kb 巨集面積業界最小"
+            "val": "Core 極緊湊（1T 專利對半縮減）",
+            "note": "10–25 F²；Core 單元隨節點微縮；Synopsys (Sidense) 1T 專利免 select T，陣列面積較 2T 砍半，小容量巨集業界最小"
           },
           "fgotp": {
-            "val": "中等密度",
-            "note": "12–30 F²；浮閘電容耦合需求限制巨集進一步微縮"
+            "val": "I/O 單元（難微縮）",
+            "note": "12–30 F²；侷限於 5V/3.3V 厚氧規則，無法隨 core 微縮，先進節點矽佔用顯著擴大"
           },
           "ldmtp": {
             "val": "中低密度（電容開銷大）",
@@ -2122,7 +2122,7 @@
       },
       "arrheniusAecQ100": {
         "description": "基於 Arrhenius 方程式與 J-STD-020 260°C 迴焊衝擊之高溫保持外插模型",
-        "boltzmannConstEv": 8.617333e-05,
+        "boltzmannConstEv": 0.00008617333,
         "grade0TempC": 150,
         "grade1TempC": 125,
         "antifuseTypicalEa": 2.1,
