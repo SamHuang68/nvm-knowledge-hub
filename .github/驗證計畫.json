@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "90ae946e38b14322ef14100beeaaa45679768694",
+  "baseCommit": "7f1e62d1c335513fa08476556620d565fa23f224",
   "documentation": [
     "docs/科技比較架構矩陣改版日誌20261008.md"
   ],
@@ -18,27 +18,47 @@
         "scripts/quick-a11y-check.mjs"
       ],
       "changes": [
-        "global-reading-system.css",
-        "home-glass-renaissance.css",
-        "hub-apps-chrome.css",
-        "literature-editorial.css",
-        "literature-paper.js",
-        "site-shell.css",
         "technology-comparison.html"
       ],
       "inputs": [
-        "global-reading-system.css",
-        "home-glass-renaissance.css",
-        "hub-apps-chrome.css",
-        "literature-editorial.css",
-        "literature-paper.js",
-        "site-shell.css",
         "technology-comparison.html",
         "scripts/quick-a11y-check.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證全站現代化科技色彩體系（Tech Midnight 頂欄、晶圓冷瓷灰階底與彩條對比）符合無障礙與靜態檢查規範。",
+      "reason": "驗證 FG-OTP 與 AntiFuse 單元面積等級與微縮性修訂後通過靜態無障礙檢查。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 30
+    },
+    {
+      "id": "專利地圖與知識圖譜建置一致性",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/build-nvm-atlas.mjs",
+        "--check"
+      ],
+      "targets": [
+        "scripts/build-nvm-atlas.mjs"
+      ],
+      "changes": [
+        "data/nvm-comparison-systems-en.json",
+        "data/nvm-comparison-systems.json",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json"
+      ],
+      "inputs": [
+        "data/nvm-comparison-systems-en.json",
+        "data/nvm-comparison-systems.json",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json",
+        "scripts/build-nvm-atlas.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "reason": "驗證全譜系 11 大 NVM IP 比較資料庫與衍生 JSON 內容雜湊一致。",
       "prepare": [
         "node"
       ],
