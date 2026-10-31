@@ -51,21 +51,24 @@
       "kind": "command",
       "command": [
         "node",
-        "scripts/build-release-lineage.mjs"
+        "scripts/build-offline-manifest.mjs",
+        "--check"
       ],
       "targets": [
-        "scripts/build-release-lineage.mjs"
+        "scripts/build-offline-manifest.mjs"
       ],
       "changes": [
+        "data/offline-manifest.js",
         "data/release-lineage.json"
       ],
       "inputs": [
+        "data/offline-manifest.js",
         "data/release-lineage.json",
-        "scripts/build-release-lineage.mjs",
+        "scripts/build-offline-manifest.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證發布血統紀錄綁定與治理雜湊一致性。",
+      "reason": "驗證離線清單與血統紀錄一致性。",
       "prepare": [
         "node"
       ],
