@@ -10168,6 +10168,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US9754641B1",
+                "title": "單端位元線可調參考感測放大器電路",
+                "grantDate": "2017-09-05",
+                "publicationDate": "2017-09-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-11-17",
+                "inventors": "Jimmy Lee Reaves",
+                "assignee": "Kilopass Technology Inc.",
+                "url": "https://patents.google.com/patent/US9754641B1/en",
+                "coreProblem": "在單端位元線（single-ended bit line）反熔絲 OTP 記憶體中，燒錄後單元電流與未燒錄漏電流差異會隨製程、電壓與溫度（PVT）大幅漂移，固定參考電壓源無法在全操作區間提供足夠的雜訊邊限，易引發誤讀。",
+                "mechanism": "利用雙載子電晶體之基極-射極電壓（Vbe）作為基準，結合由多重 MOSFET 開關控制之電阻分壓網路，形成精確可調之參考電壓產生電路，即時調整輸出給感測放大器之第二輸入端，達成單端位元線之高抗噪自適應感測。",
+                "claimFocus": "權利項 1 界定一種感測電路：包含第一輸入端連接至單端位元線之感測放大器、以及包含雙載子電晶體與電阻分壓網路之參考電壓產生電路，分壓網路包含可選阻抗之第一與第二電路分支並連接至雙載子電晶體基極與射極之間，輸出端耦接至感測放大器第二輸入端以提供可調參考電壓。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Kilopass XPM™ 單端位元線可調參考感測放大器巨集」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9754641B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/ff/a0/52/790da75d034be1/US9754641.pdf",
+                    "date": "2017-09-05",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Jimmy Lee Reaves 與受讓人 Kilopass Technology Inc.；PDF 第 7 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "73528d8a6e05b053d51eec94fed802d73f744d19fdfdad42b5afc51a1d0e1f05",
+                    "page": 7
+                  },
+                  {
+                    "title": "US9754641B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9754641B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9754641B1",
+                  "url": "https://patents.google.com/patent/US9754641B1/en",
+                  "note": "US9754641B1 為 Kilopass 核心單端位元線可調參考感測放大器專利，確實驗證受讓人為 Kilopass Technology Inc.。",
+                  "source": {
+                    "title": "US9754641B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/ff/a0/52/790da75d034be1/US9754641.pdf",
+                    "date": "2017-09-05",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9959934B2",
+                "title": "預編程 NVM 胞高速差動電流感測電路",
+                "grantDate": "2018-05-01",
+                "publicationDate": "2018-05-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-25",
+                "inventors": "Chinh Vo",
+                "assignee": "Kilopass Technology Inc.",
+                "url": "https://patents.google.com/patent/US9959934B2/en",
+                "coreProblem": "在反熔絲 OTP 記憶體中，未燒錄胞在出廠前需檢測是否存在微漏電或早期氧化層瑕疵（preprogrammed defects），傳統運算放大器差動架構需多個時脈週期且速度慢，難以滿足高產能晶圓自動測試（ATE）之嚴苛要求。",
+                "mechanism": "採用交叉耦合反相器對構成之高速差動電流感測放大器，搭配第一與第二可控電流源/匯（current source/sink），在未對陣列進行任何燒錄之前，透過差動電流注入直接讀出選定胞與互補胞之微小電流差，以單週期達成超高速缺陷篩選。",
+                "claimFocus": "權利項 1 界定一種在 NVM 區塊燒錄前讀取選定單元與互補單元邏輯狀態之感測架構：包含第一位元線、第二位元線、具備交叉耦合反相器之感測放大器、以及第一與第二可控電流源/匯，感測放大器依第一與第二位元線之差動電流操作，於任何燒錄前直接完成高速差動電流感測。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Kilopass XPM™ / SecretCode™ 出廠前快速缺陷差動電流篩檢感測電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9959934B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/8b/b8/29/d5dc1d8b8e69ef/US9959934.pdf",
+                    "date": "2018-05-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Chinh Vo 與受讓人 Kilopass Technology Inc.；PDF 第 6 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "8890e12a2ddb57d7bcaa7353017197b8a699ebd468d134d79d61efe5e6417b07",
+                    "page": 6
+                  },
+                  {
+                    "title": "US9959934B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9959934B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9959934B2",
+                  "url": "https://patents.google.com/patent/US9959934B2/en",
+                  "note": "US9959934B2 為 Kilopass 核心高速差動電流感測專利，確實驗證受讓人為 Kilopass Technology Inc.。",
+                  "source": {
+                    "title": "US9959934B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/8b/b8/29/d5dc1d8b8e69ef/US9959934.pdf",
+                    "date": "2018-05-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Kilopass Technology Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -11590,6 +11702,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8305808B2",
+                "title": "低電壓 EEPROM 陣列及其操作控制電路",
+                "grantDate": "2012-11-06",
+                "publicationDate": "2012-11-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-06-24",
+                "inventors": "Hsin Chang Lin; Chia-Hao Tai; Yang-Sen Yen; Ming-Tsang Yang; Ya-Ting Fan",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US8305808B2/en",
+                "coreProblem": "在低壓單晶片嵌入式系統中，EEPROM 陣列在抹除與寫入操作時需透過周邊驅動電路施加高壓，傳統架構易因字元線與位元線之寄生電容與漏電路徑導致操作電壓裕度不足、功耗過高以及高低壓開關電晶體應力超載。",
+                "mechanism": "提出一種低電壓 EEPROM 陣列架構與控制時序，在各列與各行配置具備共用源極與汲極偏壓開關之驅動電路，於抹除階段藉由自適應負電壓輔助偏壓與對稱式分壓機制，大幅降低晶片所需之最低工作電源電壓並消除寄生過應力。",
+                "claimFocus": "權利項 1 界定一種低電壓 EEPROM 陣列：包含多條平行位元線、垂直延伸之字元線、複數個記憶單元以及周邊控制開關電路，其於寫入與抹除操作中透過精確控制之位元線電壓與字元線電壓組合，在低電源電壓下達成對稱且可靠之穿隧充電與放電。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC MTP / EEPROM 低功耗陣列驅動與周邊偏壓切換電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8305808B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/eb/1d/3b/e8e4342e9768c7/US8305808.pdf",
+                    "date": "2012-11-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Hsin Chang Lin 等人與受讓人 Yield Microelectronics Corp.；PDF 第 10 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "1ecde7135e1bdb94c4b58b2a3d7e379a89c2b5dded2c9772e9f51b526ea655bb",
+                    "page": 10
+                  },
+                  {
+                    "title": "US8305808B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8305808B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8305808B2",
+                  "url": "https://patents.google.com/patent/US8305808B2/en",
+                  "note": "US8305808B2 為億而得核心低電壓 EEPROM 陣列驅動與偏壓切換專利，確實驗證受讓人為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US8305808B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/eb/1d/3b/e8e4342e9768c7/US8305808.pdf",
+                    "date": "2012-11-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12250810B2",
+                "title": "小面積高效能記憶體陣列及其操作電路",
+                "grantDate": "2025-03-11",
+                "publicationDate": "2025-03-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-02-01",
+                "inventors": "Yu Ting Huang; Chi Pei Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12250810B2/en",
+                "coreProblem": "傳統非揮發性記憶體陣列因位元線、字元線與源極線走線密集且驅動負載龐大，導致巨集晶片面積受限且讀寫操作時之 RC 延遲與動態功耗過高。",
+                "mechanism": "揭露一種共用字元共用源極線（word common-source line）與子記憶體陣列分組切換架構，四個記憶單元共用同一字元共源線並分別耦接不同位元線，結合周邊多工偏壓電路在讀寫時動態降低未選單元寄生負載，大幅微縮版圖面積並提升操作效率。",
+                "claimFocus": "權利項 1 界定一種小面積高效能記憶體陣列：包含複數條平行位元線、垂直之字元共用源極線以及複數個子記憶體陣列，各子記憶體陣列之記憶單元共用該字元共源線且其汲極分別耦接對應之位元線，顯著減低寄生電容與總體版圖面積。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 新一代微縮版圖高密度 MTP / 陣列周邊控制電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12250810B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/59/61/cb/f4b7bf8ef23261/US12250810.pdf",
+                    "date": "2025-03-11",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Yu Ting Huang 等人與受讓人 Yield Microelectronics Corp.；PDF 第 10 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "5df91d63b59925600191496915bcd50415ae38cd369ac5482053bc723b5fc1f3",
+                    "page": 10
+                  },
+                  {
+                    "title": "US12250810B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12250810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12250810B2",
+                  "url": "https://patents.google.com/patent/US12250810B2/en",
+                  "note": "US12250810B2 為億而得小面積共用源極線陣列與周邊操作電路專利，確實驗證受讓人為 Yield Microelectronics Corp.。",
+                  "source": {
+                    "title": "US12250810B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/59/61/cb/f4b7bf8ef23261/US12250810.pdf",
+                    "date": "2025-03-11",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -12195,6 +12419,118 @@
                     "title": "US7580311B2 · 官方公報核對",
                     "url": "https://patentimages.storage.googleapis.com/8e/51/70/5b63a0022eac1e/US7580311.pdf",
                     "date": "2009-08-25",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7355914B2",
+                "title": "非揮發性記憶體防護型感測放大器電路",
+                "grantDate": "2008-04-08",
+                "publicationDate": "2008-04-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-10-30",
+                "inventors": "Jaroslav Raszka",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7355914B2/en",
+                "coreProblem": "在雙極性（dual-polarity）嵌入式非揮發性記憶體中，寫入/抹除（STORE）操作涉及遠高於核心邏輯電壓的高壓脈衝（如 8V~10V），感測放大器之感測節點若未受保護，將承受極高跨壓導致感測開關與輸入電晶體永久性擊穿損壞。",
+                "mechanism": "在感測放大器電路中整合寫入保護電路（store protection circuitry）與閒置隔離電路，於高壓寫入脈衝即將施加時，動態將感測放大器關鍵節點之跨壓鉗位在寫入電壓與核心電源 Vdd 之間的容許差值內，並於閒置模式切斷電流源以杜絕待機漏電。",
+                "claimFocus": "權利項 1 界定一種感測放大器架構：包含電流源、感測放大器電路以及寫入保護電路，當寫入高壓即將施加於非揮發單元時，該保護電路將電源 Vdd 連接至感測放大電路之關鍵節點，將關鍵節點跨壓限制在寫入電壓與 Vdd 之差值以內避免擊穿。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® / Virage Logic 嵌入式邏輯 NVM 高壓感測放大器與抗擊穿保護電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7355914B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/89/90/60/1097cd8d6037d4/US7355914.pdf",
+                    "date": "2008-04-08",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Jaroslav Raszka 與受讓人 Virage Logic Corp.；PDF 第 26 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "255b37c29c8bea72c36a328a88b852c082f281e0a78a1f82dbfa2cf3453e85ce",
+                    "page": 26
+                  },
+                  {
+                    "title": "US7355914B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7355914B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7355914B2",
+                  "url": "https://patents.google.com/patent/US7355914B2/en",
+                  "note": "US7355914B2 為 Virage Logic / AEON 核心防護型感測放大器專利，確實驗證受讓人為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7355914B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/89/90/60/1097cd8d6037d4/US7355914.pdf",
+                    "date": "2008-04-08",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7263016B1",
+                "title": "閂鎖型感測放大器預充電與自偏壓電路系統",
+                "grantDate": "2007-08-28",
+                "publicationDate": "2007-08-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-03-23",
+                "inventors": "William Palumbo; Rahul Thukral; Xian Zhang",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7263016B1/en",
+                "coreProblem": "在標準邏輯製程 NVM 高速讀取時，閂鎖型感測放大器因內部元件失配與位元線寄生電容不對稱，若預充電電位未能精準追蹤感測方向，容易產生誤判或拉長感測延遲。",
+                "mechanism": "利用感測放大器啟動訊號直接驅動互補位元線之偏壓控制電晶體與接地隔離電晶體，使輸入節點依據位元線上呈現之電壓水準進行預充自偏壓，朝活化時即將達成之方向預先引導輸入電位，並在啟動瞬間隔離位元線以達成超高速穩定閂鎖。",
+                "claimFocus": "權利項 1 界定一種感測放大器：包含交叉耦合反相器形成之資料閂鎖、經由偏壓控制電晶體連接至閂鎖輸入節點之互補位元線對，其中感測啟動訊號直接連接至該偏壓控制電晶體閘極與接地隔離電晶體閘極，以位元線電位預先偏置輸入節點。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「AEON® / Virage Logic 高速自偏壓閂鎖型差動感測電路巨集」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7263016B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/24/3e/f9/3fe47fad6cb64d/US7263016B1.pdf",
+                    "date": "2007-08-28",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 William Palumbo 等人與受讓人 Virage Logic Corp.；PDF 第 8 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "4df20754e36da7cc6c901e27c20b0d1603cd2cc55fe7b3760f437c8a6dcb8a7e",
+                    "page": 8
+                  },
+                  {
+                    "title": "US7263016B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7263016B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7263016B1",
+                  "url": "https://patents.google.com/patent/US7263016B1/en",
+                  "note": "US7263016B1 為 Virage Logic / AEON 核心閂鎖預充自偏壓感測專利，確實驗證受讓人為 Virage Logic Corp.。",
+                  "source": {
+                    "title": "US7263016B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/24/3e/f9/3fe47fad6cb64d/US7263016B1.pdf",
+                    "date": "2007-08-28",
                     "dateKind": "published",
                     "note": "核對原公報首頁受讓人 Virage Logic Corp.；技術導讀依選錄公報重建。",
                     "page": 1
@@ -12807,6 +13143,118 @@
                     "title": "US7630247B2 · 官方公報核對",
                     "url": "https://patentimages.storage.googleapis.com/4d/d1/4c/a741b698be21cd/US7630247.pdf",
                     "date": "2009-12-08",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7791927B1",
+                "title": "基於 MIS 電晶體之非揮發性記憶體增強型穩定驅動電路",
+                "grantDate": "2010-09-07",
+                "publicationDate": "2010-09-07",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-11-15",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "NSCore Inc.",
+                "url": "https://patents.google.com/patent/US7791927B1/en",
+                "coreProblem": "在採用標準邏輯側壁間隙壁（spacer）捕捉熱載子之 MIS 非揮發性記憶體中，寫入時熱載子注入之空間分佈與汲極空乏區邊界緊密相關，若控制偏壓不穩定將導致臨界電壓偏移量不足、寫入速度變慢或資料保持特性劣化。",
+                "mechanism": "配置專用控制電路與閂鎖結構，於第一操作（寫入）中精確驅動 MIS 電晶體之閘極與第二源/汲極節點，使汲極側橫向空乏區邊界精確定位於多層側壁間隙壁下方誘發碰撞游離；於第二操作（讀取）中透過閂鎖電路將汲極電流與參考電流比較以快速讀出資料。",
+                "claimFocus": "權利項 1 界定一種記憶體電路：包含具有反相邏輯節點之閂鎖、耦接至該閂鎖第一節點之 MIS 電晶體、以及控制電路，MIS 電晶體具備基板擴散區、閘極與側壁，冶金接面位於閘極下方且空乏區側向邊界於寫入時位於側壁下方，控制電路依據閂鎖狀態對其造成持久性臨界電壓變化。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NSCore TwinBit® 側壁熱載子注入控制與差動感測驅動電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7791927B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/f0/4a/fa/31c6f8aadeb345/US7791927.pdf",
+                    "date": "2010-09-07",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Tadahiko Horiuchi 與受讓人 NSCore Inc.；PDF 第 15 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "5deca8dc2dde8cf2e6f04f42dbb7e794cc4ce8fa9b7e2554504c8bd3e24cf911",
+                    "page": 15
+                  },
+                  {
+                    "title": "US7791927B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7791927B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7791927B1",
+                  "url": "https://patents.google.com/patent/US7791927B1/en",
+                  "note": "US7791927B1 為 NSCore 核心 MIS 間隙壁注入偏壓驅動專利，確實驗證受讓人為 NSCore Inc.。",
+                  "source": {
+                    "title": "US7791927B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/f0/4a/fa/31c6f8aadeb345/US7791927.pdf",
+                    "date": "2010-09-07",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7639546B2",
+                "title": "具資料反轉校正功能之 MIS 非揮發性記憶體控制邏輯",
+                "grantDate": "2009-12-29",
+                "publicationDate": "2009-12-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-11-22",
+                "inventors": "Takashi Kikuchi; Kenji Noda",
+                "assignee": "NSCore Inc.",
+                "url": "https://patents.google.com/patent/US7639546B2/en",
+                "coreProblem": "MIS 非揮發性單元在經歷不可逆熱載子注入後，單元兩端電晶體特性改變；在讀取或再寫入時，若外部雜訊干擾或電晶體不對稱退化可能造成資料判斷反轉或邏輯極性錯誤。",
+                "mechanism": "在互補閂鎖電路與雙 MIS 電晶體記憶單元之間設置位元交換單元（bit swapping unit）與專用控制邏輯，在第一操作模式提供直通連線、第二操作模式提供交叉連線，透過反向電流流向與交叉比對動態校正並驗證資料反轉狀態，實現高可靠度無誤碼讀取。",
+                "claimFocus": "權利項 1 界定一種非揮發性半導體記憶裝置：包含具有互補雙節點之閂鎖、包含兩個 MIS 電晶體之非揮發單元、耦接其間之位元交換單元以及控制電路，位元交換單元於第一模式提供直通連接、於第二模式提供交叉連接，控制電路依模式控制資料儲存為不可逆特性改變並於另一模式由閂鎖檢測儲存資料。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NSCore TwinBit® 即時位元交換與防反轉容錯控制電路」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7639546B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/8b/7c/5b/31983a93d8346a/US7639546.pdf",
+                    "date": "2009-12-29",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Takashi Kikuchi 等人與受讓人 NSCore Inc.；PDF 第 15 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "a4e38b741723c686f9a7ddf369992c6a5c84abcc5d7f0db90a76f1d6ecfdbe89",
+                    "page": 15
+                  },
+                  {
+                    "title": "US7639546B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7639546B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7639546B2",
+                  "url": "https://patents.google.com/patent/US7639546B2/en",
+                  "note": "US7639546B2 為 NSCore 核心位元交換與防反轉校正電路專利，確實驗證受讓人為 NSCore Inc.。",
+                  "source": {
+                    "title": "US7639546B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/8b/7c/5b/31983a93d8346a/US7639546.pdf",
+                    "date": "2009-12-29",
                     "dateKind": "published",
                     "note": "核對原公報首頁受讓人 NSCore Inc.；技術導讀依選錄公報重建。",
                     "page": 1

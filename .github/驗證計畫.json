@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "07e24357207eda76d105b27d9897de9941f8ec0d",
+  "baseCommit": "67971b488dce68e4d18dfb8be42d2d46a34f334e",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -40,7 +40,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 1 OTP 旗艦廠商核心周邊電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
+      "reason": "驗證 Stage 2 邏輯 MTP 廠商與 Kilopass 核心電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
       "prepare": [
         "node"
       ],

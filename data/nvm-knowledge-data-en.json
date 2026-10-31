@@ -10168,6 +10168,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US9754641B1",
+                "title": "Tunable Sense Amplifier Reference for Single-Ended Bit Lines",
+                "grantDate": "2017-09-05",
+                "publicationDate": "2017-09-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-11-17",
+                "inventors": "Jimmy Lee Reaves",
+                "assignee": "Kilopass Technology Inc.",
+                "url": "https://patents.google.com/patent/US9754641B1/en",
+                "coreProblem": "In single-ended bit line antifuse OTP memories, cell programmed current and unprogrammed leakage drift widely across process, voltage, and temperature (PVT), where fixed reference voltages lack sufficient noise margin and cause read errors.",
+                "mechanism": "Employs the base-emitter voltage (Vbe) of a bipolar transistor combined with a multi-MOSFET-switched resistive divider network to generate a tunable reference voltage fed to the second input of a sense amplifier for adaptive, noise-immune single-ended bit line sensing.",
+                "claimFocus": "Claim 1 defines a sensing circuit: comprising a sense amplifier having a first input connected to a bit line, and a reference voltage generation circuit having a bipolar transistor and a voltage divider network connected between its base and emitter with selectable impedances to provide a tuned reference voltage to the second input of the sense amplifier.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against Kilopass XPM™ single-ended bit line tunable reference sense amplifier macros; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US9754641B1 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/ff/a0/52/790da75d034be1/US9754641.pdf",
+                    "date": "2017-09-05",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventor Jimmy Lee Reaves and assignee Kilopass Technology Inc.; PDF page 7 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "73528d8a6e05b053d51eec94fed802d73f744d19fdfdad42b5afc51a1d0e1f05",
+                    "page": 7
+                  },
+                  {
+                    "title": "US9754641B1 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US9754641B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9754641B1",
+                  "url": "https://patents.google.com/patent/US9754641B1/en",
+                  "note": "US9754641B1 represents Kilopass core tunable reference sense amplifier patent for single-ended bit lines, verified to be assigned to Kilopass Technology Inc.",
+                  "source": {
+                    "title": "US9754641B1 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/ff/a0/52/790da75d034be1/US9754641.pdf",
+                    "date": "2017-09-05",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Kilopass Technology Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9959934B2",
+                "title": "High-Speed Differential Current Sensing of Preprogrammed NVM Cells",
+                "grantDate": "2018-05-01",
+                "publicationDate": "2018-05-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-25",
+                "inventors": "Chinh Vo",
+                "assignee": "Kilopass Technology Inc.",
+                "url": "https://patents.google.com/patent/US9959934B2/en",
+                "coreProblem": "In antifuse OTP memory blocks, unprogrammed cells must be tested prior to shipment for micro-leakage or dielectric defects; conventional op-amp differential sensing requires multiple cycles and is too slow for high-throughput wafer ATE testing.",
+                "mechanism": "Utilizes cross-coupled inverter pairs for high-speed differential current sensing with controllable current sources/sinks, injecting differential currents to detect minute leakage between selected and complementary cells prior to programming within a single high-speed cycle.",
+                "claimFocus": "Claim 1 defines a sensing architecture to read logic states of selected and complementary cells prior to programming: comprising first and second bit lines, a cross-coupled inverter sense amplifier operating by differential currents, and controllable current sources/sinks to perform high-speed differential current sensing prior to any programming.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against Kilopass XPM™ / SecretCode™ high-speed pre-program defect differential current sensing circuitry; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US9959934B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/8b/b8/29/d5dc1d8b8e69ef/US9959934.pdf",
+                    "date": "2018-05-01",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventor Chinh Vo and assignee Kilopass Technology Inc.; PDF page 6 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "8890e12a2ddb57d7bcaa7353017197b8a699ebd468d134d79d61efe5e6417b07",
+                    "page": 6
+                  },
+                  {
+                    "title": "US9959934B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US9959934B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9959934B2",
+                  "url": "https://patents.google.com/patent/US9959934B2/en",
+                  "note": "US9959934B2 represents Kilopass core high-speed differential current sensing patent, verified to be assigned to Kilopass Technology Inc.",
+                  "source": {
+                    "title": "US9959934B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/8b/b8/29/d5dc1d8b8e69ef/US9959934.pdf",
+                    "date": "2018-05-01",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Kilopass Technology Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -11590,6 +11702,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8305808B2",
+                "title": "Low-Voltage EEPROM Array and Operation Control Circuitry",
+                "grantDate": "2012-11-06",
+                "publicationDate": "2012-11-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-06-24",
+                "inventors": "Hsin Chang Lin; Chia-Hao Tai; Yang-Sen Yen; Ming-Tsang Yang; Ya-Ting Fan",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US8305808B2/en",
+                "coreProblem": "In low-voltage SoC environments, EEPROM arrays require high voltages during erase and write operations, where conventional peripheral drivers suffer from insufficient voltage margin, high power consumption, and transistor dielectric overstress due to parasitic array capacitance and leakage paths.",
+                "mechanism": "Provides a low-voltage EEPROM array architecture and control scheme with shared source/drain bias switching drivers across rows and columns, employing adaptive negative-voltage-assisted biasing and symmetric voltage division during erase to lower minimum operating supply voltage and prevent overstress.",
+                "claimFocus": "Claim 1 defines a low-voltage EEPROM array: comprising parallel bit lines, perpendicular word lines, an array of memory cells, and peripheral control switches configured to apply coordinated bit-line and word-line voltage combinations to achieve symmetric Fowler-Nordheim tunneling charge transfer under reduced supply voltages.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against YMC MTP / EEPROM low-power array drivers and peripheral bias switching circuits; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US8305808B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/eb/1d/3b/e8e4342e9768c7/US8305808.pdf",
+                    "date": "2012-11-06",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Hsin Chang Lin et al. and assignee Yield Microelectronics Corp.; PDF page 10 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "1ecde7135e1bdb94c4b58b2a3d7e379a89c2b5dded2c9772e9f51b526ea655bb",
+                    "page": 10
+                  },
+                  {
+                    "title": "US8305808B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US8305808B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8305808B2",
+                  "url": "https://patents.google.com/patent/US8305808B2/en",
+                  "note": "US8305808B2 represents YMC's core low-voltage EEPROM array driver and bias switching patent, verified to be assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US8305808B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/eb/1d/3b/e8e4342e9768c7/US8305808.pdf",
+                    "date": "2012-11-06",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Yield Microelectronics Corp.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12250810B2",
+                "title": "Small-Area High-Efficiency Memory Array and Method for Operating the Same",
+                "grantDate": "2025-03-11",
+                "publicationDate": "2025-03-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-02-01",
+                "inventors": "Yu Ting Huang; Chi Pei Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12250810B2/en",
+                "coreProblem": "Conventional non-volatile memory arrays suffer from dense routing of bit lines, word lines, and source lines, resulting in large macro area penalties, severe RC delay, and excessive dynamic power dissipation during read and write operations.",
+                "mechanism": "Discloses a shared word common-source line and sub-memory array switching architecture where four memory cells share a single word common-source line connected to distinct bit lines, coupled with peripheral multiplexed biasing to minimize unselected cell loading and reduce layout footprint.",
+                "claimFocus": "Claim 1 defines a small-area high-efficiency memory array: comprising parallel bit lines, perpendicular word common-source lines, and sub-memory arrays whose cells share a common word-source line while respective drains connect to distinct bit lines, significantly reducing layout area and parasitic capacitance.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against YMC next-generation compact layout high-density MTP / array peripheral control circuitry; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12250810B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/59/61/cb/f4b7bf8ef23261/US12250810.pdf",
+                    "date": "2025-03-11",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Yu Ting Huang et al. and assignee Yield Microelectronics Corp.; PDF page 10 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "5df91d63b59925600191496915bcd50415ae38cd369ac5482053bc723b5fc1f3",
+                    "page": 10
+                  },
+                  {
+                    "title": "US12250810B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US12250810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12250810B2",
+                  "url": "https://patents.google.com/patent/US12250810B2/en",
+                  "note": "US12250810B2 represents YMC's small-area shared source line array and peripheral operation circuit patent, verified to be assigned to Yield Microelectronics Corp.",
+                  "source": {
+                    "title": "US12250810B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/59/61/cb/f4b7bf8ef23261/US12250810.pdf",
+                    "date": "2025-03-11",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Yield Microelectronics Corp.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -12197,6 +12421,118 @@
                     "date": "2009-08-25",
                     "dateKind": "published",
                     "note": "Original front page confirms assignee Virage Logic Corp.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7355914B2",
+                "title": "Methods and Apparatuses for a Sense Amplifier in Non-Volatile Memory",
+                "grantDate": "2008-04-08",
+                "publicationDate": "2008-04-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-10-30",
+                "inventors": "Jaroslav Raszka",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7355914B2/en",
+                "coreProblem": "In dual-polarity embedded non-volatile memories, high-voltage programming pulses (e.g. 8V-10V) applied during STORE operations can catastrophically breakdown unprotected sense amplifier input nodes and critical switching transistors.",
+                "mechanism": "Integrates store protection circuitry and idling isolation within the sense amplifier, dynamically clamping potential differences across critical sensing nodes to within a safe margin between high store voltage and Vdd, while isolating current sources during idle mode to prevent leakage.",
+                "claimFocus": "Claim 1 defines a sense amplifier architecture: comprising a current source, a sense amplifier circuit, and store protection circuitry that couples Vdd to critical nodes when a high store voltage is applied to memory cells, reducing the voltage potential across critical nodes to a safe difference between store voltage and Vdd.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against AEON® / Virage Logic embedded logic NVM high-voltage sense amplifiers and breakdown protection circuitry; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US7355914B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/89/90/60/1097cd8d6037d4/US7355914.pdf",
+                    "date": "2008-04-08",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventor Jaroslav Raszka and assignee Virage Logic Corp.; PDF page 26 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "255b37c29c8bea72c36a328a88b852c082f281e0a78a1f82dbfa2cf3453e85ce",
+                    "page": 26
+                  },
+                  {
+                    "title": "US7355914B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US7355914B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7355914B2",
+                  "url": "https://patents.google.com/patent/US7355914B2/en",
+                  "note": "US7355914B2 represents Virage Logic / AEON core protected sense amplifier patent, verified to be assigned to Virage Logic Corp.",
+                  "source": {
+                    "title": "US7355914B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/89/90/60/1097cd8d6037d4/US7355914.pdf",
+                    "date": "2008-04-08",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Virage Logic Corp.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7263016B1",
+                "title": "Method and System for Pre-Charging and Biasing a Latch-Type Sense Amplifier",
+                "grantDate": "2007-08-28",
+                "publicationDate": "2007-08-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-03-23",
+                "inventors": "William Palumbo; Rahul Thukral; Xian Zhang",
+                "assignee": "Virage Logic Corp.",
+                "url": "https://patents.google.com/patent/US7263016B1/en",
+                "coreProblem": "During high-speed read in standard CMOS NVM, latch-type sense amplifiers are prone to sensing errors and prolonged sensing latency caused by device mismatches and asymmetric bit-line parasitic capacitances when pre-charge levels fail to match activation dynamics.",
+                "mechanism": "Uses sense amplifier enable signals to directly drive bias control transistors and ground isolation, pre-charging and biasing input nodes toward their intended latching states based on bit-line levels, then isolating bit lines upon activation for rapid, stable differential latching.",
+                "claimFocus": "Claim 1 defines a sense amplifier: comprising cross-coupled inverters forming a data latch, and complementary bit lines connected to input nodes via bias control transistors, wherein a sense amplifier activation signal connects directly to gates of the bias control transistors and a ground isolation transistor to pre-bias input nodes.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against AEON® / Virage Logic high-speed self-biased latching differential sensing macros; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US7263016B1 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/24/3e/f9/3fe47fad6cb64d/US7263016B1.pdf",
+                    "date": "2007-08-28",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors William Palumbo et al. and assignee Virage Logic Corp.; PDF page 8 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "4df20754e36da7cc6c901e27c20b0d1603cd2cc55fe7b3760f437c8a6dcb8a7e",
+                    "page": 8
+                  },
+                  {
+                    "title": "US7263016B1 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US7263016B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7263016B1",
+                  "url": "https://patents.google.com/patent/US7263016B1/en",
+                  "note": "US7263016B1 represents Virage Logic / AEON core pre-charging and biasing latch sense amplifier patent, verified to be assigned to Virage Logic Corp.",
+                  "source": {
+                    "title": "US7263016B1 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/24/3e/f9/3fe47fad6cb64d/US7263016B1.pdf",
+                    "date": "2007-08-28",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Virage Logic Corp.; technical reading reconstructed from selected gazette.",
                     "page": 1
                   }
                 }
@@ -12809,6 +13145,118 @@
                     "date": "2009-12-08",
                     "dateKind": "published",
                     "note": "Original front page confirms assignee NSCore Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7791927B1",
+                "title": "MIS-Transistor-Based Nonvolatile Memory Circuit with Stable and Enhanced Performance",
+                "grantDate": "2010-09-07",
+                "publicationDate": "2010-09-07",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-11-15",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "NSCore Inc.",
+                "url": "https://patents.google.com/patent/US7791927B1/en",
+                "coreProblem": "In MIS nonvolatile memory cells utilizing standard logic sidewall spacers to trap hot carriers, carrier injection distribution is sensitive to drain depletion boundary control; unstable driving bias degrades threshold voltage shift, write speed, and data retention.",
+                "mechanism": "Employs a dedicated control circuit and latch structure to bias the MIS gate and second source/drain terminal during programming, placing drain lateral depletion boundaries directly beneath multilayer sidewalls to trigger impact ionization, while a latch compares drain current with reference current during read.",
+                "claimFocus": "Claim 1 defines a memory circuit: comprising a data latch, a MIS transistor coupled to the latch, and a control circuit; the MIS transistor includes diffusion regions, a gate electrode, and sidewalls, with metallurgical junctions under the gate and depletion lateral boundaries positioned under sidewalls during write to induce threshold voltage shifts.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against NSCore TwinBit® sidewall hot-carrier injection control and differential sensing drive circuits; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US7791927B1 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/f0/4a/fa/31c6f8aadeb345/US7791927.pdf",
+                    "date": "2010-09-07",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventor Tadahiko Horiuchi and assignee NSCore Inc.; PDF page 15 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "5deca8dc2dde8cf2e6f04f42dbb7e794cc4ce8fa9b7e2554504c8bd3e24cf911",
+                    "page": 15
+                  },
+                  {
+                    "title": "US7791927B1 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US7791927B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7791927B1",
+                  "url": "https://patents.google.com/patent/US7791927B1/en",
+                  "note": "US7791927B1 represents NSCore core MIS spacer injection bias driver patent, verified to be assigned to NSCore Inc.",
+                  "source": {
+                    "title": "US7791927B1 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/f0/4a/fa/31c6f8aadeb345/US7791927.pdf",
+                    "date": "2010-09-07",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee NSCore Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7639546B2",
+                "title": "Nonvolatile Memory Utilizing MIS Memory Transistors with Function to Correct Data Reversal",
+                "grantDate": "2009-12-29",
+                "publicationDate": "2009-12-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-11-22",
+                "inventors": "Takashi Kikuchi; Kenji Noda",
+                "assignee": "NSCore Inc.",
+                "url": "https://patents.google.com/patent/US7639546B2/en",
+                "coreProblem": "After irreversible hot-carrier injection in MIS memory cells, external noise or asymmetric degradation across transistor pairs can lead to false data reversal or inverted logical sensing states during read or write.",
+                "mechanism": "Integrates a bit swapping unit and control logic between a complementary latch and two-MIS-transistor cell, providing straight connections in a first mode and crossed connections in a second mode to reverse current direction and dynamically correct/verify data reversal.",
+                "claimFocus": "Claim 1 defines a nonvolatile memory device: comprising a dual-node complementary latch, a memory cell with two MIS transistors, a bit swapping unit coupled between them providing straight connections in a first mode and cross connections in a second mode, and a control circuit to store data as irreversible transistor characteristic changes and detect the data via the latch.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against NSCore TwinBit® real-time bit swapping and anti-reversal fault-tolerant control circuitry; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US7639546B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/8b/7c/5b/31983a93d8346a/US7639546.pdf",
+                    "date": "2009-12-29",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Takashi Kikuchi et al. and assignee NSCore Inc.; PDF page 15 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "a4e38b741723c686f9a7ddf369992c6a5c84abcc5d7f0db90a76f1d6ecfdbe89",
+                    "page": 15
+                  },
+                  {
+                    "title": "US7639546B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US7639546B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7639546B2",
+                  "url": "https://patents.google.com/patent/US7639546B2/en",
+                  "note": "US7639546B2 represents NSCore core bit swapping and anti-reversal correction circuit patent, verified to be assigned to NSCore Inc.",
+                  "source": {
+                    "title": "US7639546B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/8b/7c/5b/31983a93d8346a/US7639546.pdf",
+                    "date": "2009-12-29",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee NSCore Inc.; technical reading reconstructed from selected gazette.",
                     "page": 1
                   }
                 }
