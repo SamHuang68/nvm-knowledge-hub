@@ -2,59 +2,70 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "b3e41a361094685efb6a22d654122c7ecad2787c",
+  "baseCommit": "07e24357207eda76d105b27d9897de9941f8ec0d",
   "documentation": [
-    "docs/科技比較架構矩陣改版日誌20261008.md"
+    "data/nvm-technology-topics.md",
+    "data/nvm-technology-topics-en.md"
   ],
   "cases": [
     {
-      "id": "全站樣式與閱讀系統現代化配色無障礙檢查",
+      "id": "專利地圖與知識圖譜建置一致性",
       "kind": "command",
       "command": [
         "node",
-        "scripts/quick-a11y-check.mjs"
+        "scripts/build-nvm-atlas.mjs",
+        "--check"
       ],
       "targets": [
-        "scripts/quick-a11y-check.mjs"
+        "scripts/build-nvm-atlas.mjs"
       ],
       "changes": [
-        "technology-comparison.html"
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html"
       ],
       "inputs": [
-        "technology-comparison.html",
-        "scripts/quick-a11y-check.mjs",
+        "data/nvm-knowledge-data-en.json",
+        "data/nvm-knowledge-data.json",
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "scripts/build-nvm-atlas.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 FG-OTP 閘氧厚度與 Retention 物理模型修訂後通過靜態無障礙檢查。",
+      "reason": "驗證 Stage 1 OTP 旗艦廠商核心周邊電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
       "prepare": [
         "node"
       ],
-      "timeoutSeconds": 30
+      "timeoutSeconds": 60
     },
     {
       "id": "離線清單與發布血統一致性",
       "kind": "command",
       "command": [
         "node",
-        "scripts/build-offline-manifest.mjs",
-        "--check"
+        "scripts/build-release-lineage.mjs"
       ],
       "targets": [
-        "scripts/build-offline-manifest.mjs"
+        "scripts/build-release-lineage.mjs"
       ],
       "changes": [
-        "data/offline-manifest.js",
         "data/release-lineage.json"
       ],
       "inputs": [
-        "data/offline-manifest.js",
         "data/release-lineage.json",
-        "scripts/build-offline-manifest.mjs",
+        "scripts/build-release-lineage.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "離線資源更新後，驗證離線清單與血統紀錄一致性。",
+      "reason": "驗證發布血統紀錄綁定與治理雜湊一致性。",
       "prepare": [
         "node"
       ],
