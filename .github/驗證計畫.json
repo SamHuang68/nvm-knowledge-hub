@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "5f14c6dd30173afbd8084dd91dfa18b9147f33a1",
+  "baseCommit": "52e39390cb428f88b9fbd7c515b0cfe045f728f1",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
   ],
   "cases": [
     {
-      "id": "專利地圖與知識圖譜建置一致性",
+      "id": "專利地圖與知識圖譜建置檢核",
       "kind": "command",
       "command": [
         "node",
@@ -40,14 +40,14 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 3 新興記憶體 Everspin MRAM 與 SST SuperFlash 核心電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
+      "reason": "驗證 Stage 4 全收錄 eMemory、Attopsemi、Sidense、Floadia、SST 關鍵核心電路專利補齊後專利地圖與衍生檔案內容之一致性",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 60
     },
     {
-      "id": "離線清單與發布血統一致性",
+      "id": "離線清單與發布血統檢核",
       "kind": "command",
       "command": [
         "node",
@@ -68,7 +68,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證離線清單與血統紀錄一致性。",
+      "reason": "驗證離線清單與血統檔之一致性",
       "prepare": [
         "node"
       ],
