@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "67971b488dce68e4d18dfb8be42d2d46a34f334e",
+  "baseCommit": "5f14c6dd30173afbd8084dd91dfa18b9147f33a1",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -40,7 +40,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 2 邏輯 MTP 廠商與 Kilopass 核心電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
+      "reason": "驗證 Stage 3 新興記憶體 Everspin MRAM 與 SST SuperFlash 核心電路專利補齊後專利地圖與衍生檔案內容雜湊一致。",
       "prepare": [
         "node"
       ],

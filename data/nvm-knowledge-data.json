@@ -15446,6 +15446,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US5910914A",
+                "title": "多階儲存浮閘記憶體多準位感測電路",
+                "grantDate": "1999-06-08",
+                "publicationDate": "1999-06-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "1997-11-07",
+                "inventors": "Ping Wang",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US5910914A/en",
+                "coreProblem": "在分離閘快閃記憶體中實施多階儲存（Multi-Level Cell, MLC）時，相鄰狀態之間的傳導電流差異極度微弱且易受晶片電源雜訊擾動，傳統二元感測電路無法精確解析單一單元內之多個邏輯位準。",
+                "mechanism": "導入第一電壓放大器串聯複數個電流放大器、並聯虛擬參考單元（Dummy Cell）之二階放大結構，將選定分離閘胞之微小電流線性轉換為不同比例之輸出電流，並透過解碼邏輯同時輸出多位元數位訊號，達成高雜訊容限多準位感測。",
+                "claimFocus": "權利項 1 界定一種感測浮閘記憶體單元多重狀態之感測電路：包含耦接至記憶單元之第一電壓放大器以產生第一輸出電壓、耦接至該電壓放大器之複數個電流放大器、以及耦接至虛擬參考單元之參考電壓放大器，藉由多重電流放大解析單元儲存之多階狀態。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SST SuperFlash® 分離閘多階浮閘感測放大器巨集」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US5910914A · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/84/b0/2f/f728a891412836/US5910914.pdf",
+                    "date": "1999-06-08",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Ping Wang 與受讓人 Silicon Storage Technology, Inc.；PDF 第 8 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "cc04a95653af63ddbcc44fb870fff7c1bf44a42e9dc1f87f31d4e17c965963a5",
+                    "page": 8
+                  },
+                  {
+                    "title": "US5910914A · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US5910914A/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US5910914A",
+                  "url": "https://patents.google.com/patent/US5910914A/en",
+                  "note": "US5910914A 為 SST 核心 SuperFlash 多階感測電路專利，確實驗證受讓人為 Silicon Storage Technology, Inc.。",
+                  "source": {
+                    "title": "US5910914A · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/84/b0/2f/f728a891412836/US5910914.pdf",
+                    "date": "1999-06-08",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6724241B1",
+                "title": "具動態負載之可變電荷泵高壓電路",
+                "grantDate": "2004-04-20",
+                "publicationDate": "2004-04-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2002-07-03",
+                "inventors": "Angelo Bedarida; Carlo Maria Colle; Marco Sforzin",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US6724241B1/en",
+                "coreProblem": "快閃記憶體在抹除（Erase）與編程（Program）模式下需由單晶片電荷泵提供多種高電壓，在負載突波或模式快速切換時，傳統電荷泵輸出電壓紋波（ripple）過大且穩壓反應遲緩，易導致浮閘穿隧氧化層承受過壓應力損壞。",
+                "mechanism": "設計具備多級泵浦級與動態負載調節電路之可變電荷泵架構，藉由多相時脈驅動與反饋動態偏壓控制，依據抹除與編程之瞬態電流負載動態切換工作泵級與充電電容路徑，在最小化輸出紋波之同時維持超高能量轉換效率。",
+                "claimFocus": "權利項 1 界定一種具最小電壓紋波之電荷泵電路：包含操作以接收電源電壓並產生選定泵浦電壓之一或多級泵浦電路、以及耦接至該泵浦電路之動態調節電路，其藉由監測負載條件即時動態調節泵浦級以最小化輸出漣波。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「SST SuperFlash® 單晶片高壓可變電荷泵與穩壓控制巨集」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6724241B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/37/7c/f2/335adc6c93b179/US6724241.pdf",
+                    "date": "2004-04-20",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Angelo Bedarida 等人與受讓人 Silicon Storage Technology, Inc.；PDF 第 12 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "c7f63e4c691602d30141d39394802631e797dffc629fe5000b517447fd6467df",
+                    "page": 12
+                  },
+                  {
+                    "title": "US6724241B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6724241B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6724241B1",
+                  "url": "https://patents.google.com/patent/US6724241B1/en",
+                  "note": "US6724241B1 為 SST 核心 SuperFlash 可變動態負載電荷泵專利，確實驗證受讓人為 Silicon Storage Technology, Inc.。",
+                  "source": {
+                    "title": "US6724241B1 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/37/7c/f2/335adc6c93b179/US6724241.pdf",
+                    "date": "2004-04-20",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -15661,6 +15773,118 @@
                     "date": "2011-04-26",
                     "dateKind": "published",
                     "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6693824B2",
+                "title": "反轉式磁阻記憶體寫入電路與控制方法",
+                "grantDate": "2004-02-17",
+                "publicationDate": "2004-02-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2002-11-06",
+                "inventors": "Joseph J. Nahas; Thomas W. Andre; Chitra K. Subramanian; Brad J. Garni",
+                "assignee": "Freescale Semiconductor, Inc.",
+                "url": "https://patents.google.com/patent/US6693824B2/en",
+                "coreProblem": "在反轉式磁阻記憶體（Toggle MRAM）中，相同之雙向電流脈衝序列施加於單元將使其磁矩無條件旋轉 180 度反轉狀態；若欲寫入之資料與原先儲存之資料相同，盲目切換將導致非預期的資料覆寫損壞且浪費龐大動態寫入功耗。",
+                "mechanism": "揭露一種具備寫前讀取（Read-Before-Write）與脈衝提前終止機制之寫入驅動電路：在寫入週期啟動預定地址之讀取操作，於讀取過程中平行啟動部分寫入反轉序列，並依據讀出之資料狀態即時決定是否在序列完成前選擇性終止寫入，僅在資料相異時完成完整反轉脈衝。",
+                "claimFocus": "權利項 1 界定一種讀取與寫入反轉記憶體之方法：包含依序啟動預定地址單元之讀取操作、於該讀取過程中啟動部分寫入反轉操作、以及基於讀取階段所感測之資料狀態選擇性於完成前終止該寫入反轉操作。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Everspin 第一代商用 Toggle MRAM 寫入驅動器與寫前讀取動態終止控制邏輯」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6693824B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/66/c5/46/518544e18ffa51/US6693824B2.pdf",
+                    "date": "2004-02-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Joseph J. Nahas 等人與受讓人 Motorola / Freescale（Everspin 沿革）；PDF 第 18 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "4a4cdc40211e27dc952349df27ac4b3f92755c3a4aab917f21efffb8527efac4",
+                    "page": 18
+                  },
+                  {
+                    "title": "US6693824B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6693824B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6693824B2",
+                  "url": "https://patents.google.com/patent/US6693824B2/en",
+                  "note": "US6693824B2 為 Everspin 沿革（Motorola/Freescale）核心 Toggle MRAM 寫入控制電路專利，確實驗證受讓人身分。",
+                  "source": {
+                    "title": "US6693824B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/66/c5/46/518544e18ffa51/US6693824B2.pdf",
+                    "date": "2004-02-17",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Motorola, Inc.；技術導讀依選錄公報重建。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6760266B2",
+                "title": "磁阻記憶體取樣保持感測放大器電路",
+                "grantDate": "2004-07-06",
+                "publicationDate": "2004-07-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2003-05-22",
+                "inventors": "Bradley J. Garni; Mark F. Deherrera; Mark A. Durlam; Bradley N. Engel; Thomas W. Andre; Joseph J. Nahas; Chitra K. Subramanian",
+                "assignee": "Freescale Semiconductor, Inc.",
+                "url": "https://patents.google.com/patent/US6760266B2/en",
+                "coreProblem": "磁阻記憶體（MTJ）之穿隧磁阻比（TMR）有限，高低電阻狀態之讀取訊號窗口微小且極易受製程失配、溫度漂移與位元線寄生阻抗干擾，傳統靜態電壓比較器感測靈敏度不足且反應延遲過長。",
+                "mechanism": "結合電流-電壓轉換器（I-to-V Converter）、取樣保持電路（Sample and Hold）與動態差動閂鎖，於讀取前段將位元線胞電流轉換並穩定取樣暫存，消除位元線暫態震盪後與中點參考電平進行精密比對，大幅提升訊噪比並縮短感測週期。",
+                "claimFocus": "權利項 1 界定一種感測放大器：包含經由位元線耦接至記憶單元之電流-電壓轉換器、耦接至該電流-電壓轉換器之取樣保持電路、以及具備第一輸入端耦接至該取樣保持電路且第二輸入端耦接至參考源之資料閂鎖電路。",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Everspin MRAM 高靈敏度取樣保持差動感測放大器巨集」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6760266B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/19/c4/83/326369f09197ab/US6760266.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人 Bradley J. Garni 等人與受讓人 Freescale Semiconductor, Inc.；PDF 第 19 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                    "pdfSHA256": "27b73003183c6bd021de2a19023e28f9d41da538bbe2faf081e0d1e9bb6fb679",
+                    "page": 19
+                  },
+                  {
+                    "title": "US6760266B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6760266B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6760266B2",
+                  "url": "https://patents.google.com/patent/US6760266B2/en",
+                  "note": "US6760266B2 為 Everspin 沿革核心 MRAM 取樣保持感測放大器專利，確實驗證受讓人身分。",
+                  "source": {
+                    "title": "US6760266B2 · 官方公報核對",
+                    "url": "https://patentimages.storage.googleapis.com/19/c4/83/326369f09197ab/US6760266.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Freescale Semiconductor, Inc.；技術導讀依選錄公報重建。",
                     "page": 1
                   }
                 }

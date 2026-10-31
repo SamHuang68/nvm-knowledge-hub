@@ -15446,6 +15446,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US5910914A",
+                "title": "Multilevel Floating Gate Sensing Circuit",
+                "grantDate": "1999-06-08",
+                "publicationDate": "1999-06-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "1997-11-07",
+                "inventors": "Ping Wang",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US5910914A/en",
+                "coreProblem": "When implementing Multi-Level Cell (MLC) storage in split-gate flash memories, conduction current differences between adjacent programmed states are extremely minute, making conventional binary sense amplifiers incapable of reliably differentiating multiple stored levels in noisy environments.",
+                "mechanism": "Introduces a two-stage sensing architecture pairing a first voltage amplifier with multiple current amplifiers and dummy reference cells, linearly translating minute split-gate cell currents into proportional currents and decoding them simultaneously into multi-bit digital signals with high noise immunity.",
+                "claimFocus": "Claim 1 defines a sensing circuit for sensing multiple states of a floating gate memory cell: comprising a first voltage amplifier coupled to a memory cell producing a first output voltage, a plurality of current amplifiers coupled to the voltage amplifier, and a reference voltage amplifier coupled to dummy cells to decode multiple stored states.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against SST SuperFlash® split-gate multilevel floating-gate sense amplifier macros; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US5910914A · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/84/b0/2f/f728a891412836/US5910914.pdf",
+                    "date": "1999-06-08",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventor Ping Wang and assignee Silicon Storage Technology, Inc.; PDF page 8 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "cc04a95653af63ddbcc44fb870fff7c1bf44a42e9dc1f87f31d4e17c965963a5",
+                    "page": 8
+                  },
+                  {
+                    "title": "US5910914A · Index Status Review",
+                    "url": "https://patents.google.com/patent/US5910914A/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US5910914A",
+                  "url": "https://patents.google.com/patent/US5910914A/en",
+                  "note": "US5910914A represents SST core SuperFlash multilevel sensing circuit patent, verified to be assigned to Silicon Storage Technology, Inc.",
+                  "source": {
+                    "title": "US5910914A · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/84/b0/2f/f728a891412836/US5910914.pdf",
+                    "date": "1999-06-08",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Silicon Storage Technology, Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6724241B1",
+                "title": "Variable Charge Pump Circuit with Dynamic Load",
+                "grantDate": "2004-04-20",
+                "publicationDate": "2004-04-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2002-07-03",
+                "inventors": "Angelo Bedarida; Carlo Maria Colle; Marco Sforzin",
+                "assignee": "Silicon Storage Technology, Inc.",
+                "url": "https://patents.google.com/patent/US6724241B1/en",
+                "coreProblem": "During flash memory erase and program modes requiring diverse high voltage levels from on-chip charge pumps, rapid mode switching and load transients induce excessive voltage ripple and sluggish regulation that threaten dielectric integrity in tunnel oxides.",
+                "mechanism": "Architects a variable charge pump with multi-stage pumping and dynamic load regulation, utilizing multi-phase clocking and feedback dynamic biasing to switch active pump stages and capacitive paths according to transient loads, minimizing ripple while preserving high power-conversion efficiency.",
+                "claimFocus": "Claim 1 defines a charge pump circuit for generating a charge pump voltage with minimal voltage ripple: comprising a pumping circuit with one or more stages operable to receive a supply voltage and generate selected pump voltages, and a regulation circuit coupled to dynamically regulate pumping stages.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against SST SuperFlash® monolithic variable charge pump and regulation macros; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US6724241B1 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/37/7c/f2/335adc6c93b179/US6724241.pdf",
+                    "date": "2004-04-20",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Angelo Bedarida et al. and assignee Silicon Storage Technology, Inc.; PDF page 12 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "c7f63e4c691602d30141d39394802631e797dffc629fe5000b517447fd6467df",
+                    "page": 12
+                  },
+                  {
+                    "title": "US6724241B1 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US6724241B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6724241B1",
+                  "url": "https://patents.google.com/patent/US6724241B1/en",
+                  "note": "US6724241B1 represents SST core SuperFlash variable charge pump patent, verified to be assigned to Silicon Storage Technology, Inc.",
+                  "source": {
+                    "title": "US6724241B1 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/37/7c/f2/335adc6c93b179/US6724241.pdf",
+                    "date": "2004-04-20",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Silicon Storage Technology, Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -15661,6 +15773,118 @@
                     "date": "2011-04-26",
                     "dateKind": "published",
                     "note": "Original front page confirms assignee Everspin Technologies, Inc.; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6693824B2",
+                "title": "Circuit and Method of Writing a Toggle Memory",
+                "grantDate": "2004-02-17",
+                "publicationDate": "2004-02-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2002-11-06",
+                "inventors": "Joseph J. Nahas; Thomas W. Andre; Chitra K. Subramanian; Brad J. Garni",
+                "assignee": "Freescale Semiconductor, Inc.",
+                "url": "https://patents.google.com/patent/US6693824B2/en",
+                "coreProblem": "In Toggle MRAM, identical write pulse sequences unconditionally rotate free-layer magnetic moments by 180 degrees; applying a write toggle when the targeted cell already holds the desired data state causes destructive overwriting and wastes significant dynamic write power.",
+                "mechanism": "Provides a write driver circuit with read-before-write and early pulse termination: initiating a read operation at the targeted address, concurrently initiating a preliminary portion of the write toggling sequence, and selectively terminating the toggle sequence prior to completion based on the read data state.",
+                "claimFocus": "Claim 1 defines a method for reading and writing a toggle memory: comprising initiating a read operation of a predetermined address location, initiating a portion of a write toggling operation during the read operation, and selectively terminating the write toggling operation before completion based on the data state read during the read operation.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against Everspin first-generation commercial Toggle MRAM write drivers and early termination control logic; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US6693824B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/66/c5/46/518544e18ffa51/US6693824B2.pdf",
+                    "date": "2004-02-17",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Joseph J. Nahas et al. and assignee Motorola / Freescale (Everspin lineage); PDF page 18 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "4a4cdc40211e27dc952349df27ac4b3f92755c3a4aab917f21efffb8527efac4",
+                    "page": 18
+                  },
+                  {
+                    "title": "US6693824B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US6693824B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6693824B2",
+                  "url": "https://patents.google.com/patent/US6693824B2/en",
+                  "note": "US6693824B2 represents Everspin lineage (Motorola/Freescale) core Toggle MRAM write control circuitry, verified against gazette assignee.",
+                  "source": {
+                    "title": "US6693824B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/66/c5/46/518544e18ffa51/US6693824B2.pdf",
+                    "date": "2004-02-17",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Motorola, Inc.; technical reading reconstructed from selected gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6760266B2",
+                "title": "Sample-and-Hold Sense Amplifier for Magnetoresistive Memory",
+                "grantDate": "2004-07-06",
+                "publicationDate": "2004-07-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2003-05-22",
+                "inventors": "Bradley J. Garni; Mark F. Deherrera; Mark A. Durlam; Bradley N. Engel; Thomas W. Andre; Joseph J. Nahas; Chitra K. Subramanian",
+                "assignee": "Freescale Semiconductor, Inc.",
+                "url": "https://patents.google.com/patent/US6760266B2/en",
+                "coreProblem": "Due to limited Tunneling Magnetoresistance (TMR) ratios in MTJs, read signal windows between high and low resistance states are narrow and highly susceptible to device mismatch, thermal drift, and bit-line parasitic impedance, causing traditional voltage comparators to fail or incur long read latencies.",
+                "mechanism": "Combines an I-to-V converter, a sample-and-hold circuit, and a dynamic differential latch to convert bit-line cell current to voltage and hold it during early sensing, filtering transient line oscillations prior to precise comparison against midpoint reference levels to maximize SNR.",
+                "claimFocus": "Claim 1 defines a sense amplifier: comprising a current-to-voltage converter coupled by a bit line to a memory cell, a sample-and-hold circuit coupled to the current-to-voltage converter, and a latch having a first input coupled to the sample-and-hold circuit and a second input coupled to a reference.",
+                "patentCategory": "周邊電路項",
+                "patentCategoryEn": "Peripheral Circuitry",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "expired",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison against Everspin MRAM high-sensitivity sample-and-hold differential sense amplifier macros; not an adjudicated product-to-claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US6760266B2 · Gazette Primary Document",
+                    "url": "https://patentimages.storage.googleapis.com/19/c4/83/326369f09197ab/US6760266.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "Front page verifies inventors Bradley J. Garni et al. and assignee Freescale Semiconductor, Inc.; PDF page 19 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                    "pdfSHA256": "27b73003183c6bd021de2a19023e28f9d41da538bbe2faf081e0d1e9bb6fb679",
+                    "page": 19
+                  },
+                  {
+                    "title": "US6760266B2 · Index Status Review",
+                    "url": "https://patents.google.com/patent/US6760266B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6760266B2",
+                  "url": "https://patents.google.com/patent/US6760266B2/en",
+                  "note": "US6760266B2 represents Everspin lineage core MRAM sample-and-hold sense amplifier patent, verified against gazette assignee.",
+                  "source": {
+                    "title": "US6760266B2 · Official Gazette Verification",
+                    "url": "https://patentimages.storage.googleapis.com/19/c4/83/326369f09197ab/US6760266.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "Verified front page assignee Freescale Semiconductor, Inc.; technical reading reconstructed from selected gazette.",
                     "page": 1
                   }
                 }
