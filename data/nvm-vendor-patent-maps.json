@@ -342,6 +342,62 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US6483366B2",
+              "title": "無崩潰負電壓位準移位器",
+              "grantDate": "2002-11-19",
+              "publicationDate": "2002-11-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2002-05-15",
+              "inventors": "Chien-Hung Ho",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US6483366B2/en",
+              "coreProblem": "在非揮發性記憶體的高壓編程或抹除操作中，負電壓位準移位器需要在標準邏輯電平（如 0V~3.3V）與負高壓軌（如 -5V~-10V）之間切換，內部交叉耦合 MOS 容易承受超過閘氧化層耐壓極限的強電場而發生介電質擊穿崩潰。",
+              "mechanism": "在交叉耦合反相器對與輸入切換電晶體之間導入串聯鉗位與分壓保護結構，動態限制各節點相對於基板與井區之最大電位差在單一電源供應電壓容限之內，消除閘極氧化層承受之極端高電場應力，實現無崩潰負壓位準切換。",
+              "claimFocus": "權利項 1 界定一種負電壓位準移位電路：包含一對交叉耦合電晶體、第一與第二輸入電晶體以及耐壓保護電路，配置為將第一邏輯電平（正電源軌）轉換為第二邏輯電平（負高壓電源軌），且電路中各節點之最大跨壓實質不超過預定氧化層崩潰電壓。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuitry",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NeoBit® / NeoFuse® 周邊高壓驅動與負電壓切換電路」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US6483366B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/54/f8/4a/86940fb9da4d17/US6483366.pdf",
+                  "date": "2002-11-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Chien-Hung Ho 與受讓人 eMemory Technology Inc.；PDF 第 7 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "bf89785b4bc15f9923d6b7ae9afbe22160a0d0fe7f0cacb8a0598bd4defee0f3",
+                  "page": 7
+                },
+                {
+                  "title": "US6483366B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US6483366B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6483366B2",
+                "url": "https://patents.google.com/patent/US6483366B2/en",
+                "note": "US6483366B2 為力旺電子核心高低壓周邊位準移位器專利，確實驗證受讓人為 eMemory Technology Inc.。",
+                "source": {
+                  "title": "US6483366B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/54/f8/4a/86940fb9da4d17/US6483366.pdf",
+                  "date": "2002-11-19",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 eMemory Technology Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -2571,6 +2627,62 @@
                   "title": "US8933492B2 · 官方公報核對",
                   "url": "https://patentimages.storage.googleapis.com/6e/00/39/78a669baa2be67/US8933492.pdf",
                   "date": "2015-01-13",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7511982B2",
+              "title": "高速 OTP 感測架構",
+              "grantDate": "2009-03-31",
+              "publicationDate": "2009-03-31",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-05-06",
+              "inventors": "Wlodek Kurjanowicz; Steven Smith",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US7511982B2/en",
+              "coreProblem": "單端反熔絲記憶單元編程後導通電阻存在數 kΩ 至數十 kΩ 的離散度，且在未編程狀態下漏電流極微弱，傳統電壓感測速度慢且易在高讀取偏壓下引發未選單元的讀取干擾。",
+              "mechanism": "採用位元線鉗位之低阻抗單端電流感測電路，搭配受控電流鏡參考源與動態感測節點；讀取時將位元線箝位在數百毫伏特之極低電平以徹底隔絕讀取干擾，並利用差動電流比較放大器在短暫預充後迅速完成信號判定。",
+              "claimFocus": "權利項 1 界定一種記憶體讀取感測系統：包含耦接至反熔絲單元之位元線、提供預定參考電流之參考電路、以及耦接至位元線之電流感測放大器，其包含在讀取週期將位元線電壓箝位在預定低電平以防止反熔絲介電質讀取干擾的鉗位電晶體，並依據位元線電流相對於參考電流之差值輸出邏輯電平。",
+              "patentCategory": "陣列與電路項",
+              "patentCategoryEn": "Array and Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7511982B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/d1/24/81/255aa4cbfbf5a0/US7511982.pdf",
+                  "date": "2009-03-31",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Wlodek Kurjanowicz 等與受讓人 Sidense Corp.；PDF 第 22 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "87bf9b2e04e09065ee4e50531e79f8122fb354bae081c0c9ff6362110f19a075",
+                  "page": 22
+                },
+                {
+                  "title": "US7511982B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7511982B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7511982B2",
+                "url": "https://patents.google.com/patent/US7511982B2/en",
+                "note": "US7511982B2 為 Sidense 標誌性高速單端感測架構專利，確認受讓人為 Sidense Corp.。",
+                "source": {
+                  "title": "US7511982B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/d1/24/81/255aa4cbfbf5a0/US7511982.pdf",
+                  "date": "2009-03-31",
                   "dateKind": "published",
                   "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
                   "page": 1
@@ -5161,6 +5273,62 @@
                   "date": "2021-02-09",
                   "dateKind": "published",
                   "note": "原件公報首頁核對受讓人 Attopsemi Technology Co Ltd；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11615859B2",
+              "title": "具超低功耗讀取操作與新穎感測架構之一性可程式記憶體",
+              "grantDate": "2023-03-28",
+              "publicationDate": "2023-03-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-06-25",
+              "inventors": "Shine C. Chung",
+              "assignee": "Attopsemi Technology Co., Ltd.",
+              "url": "https://patents.google.com/patent/US11615859B2/en",
+              "coreProblem": "在物聯網與邊緣運算晶片中，OTP 傳統直流讀取感測消耗較大靜態電流，且對微熔絲施加之連續讀取偏壓可能隨時間引發低場電遷移或阻值漂移（讀取干擾）。",
+              "mechanism": "提出動態電荷轉移與微弱信號累積感測電路，利用微小寄生或整合電容進行瞬態預充放電，在感測放大器端依據 I-fuse 熔絲電阻差異產生斜率判定信號，將讀取偏壓壓低至亞微安培 (sub-μA) 級，達成近乎零靜態待機功耗與絕佳抗讀取干擾特性。",
+              "claimFocus": "權利項 1 界定一種一次性可程式記憶體裝置：包含由複數 OTP 單元組成的記憶陣列，各單元包含可程式電阻元件與選擇器；讀取控制電路配置為在讀取操作時將施加於可程式電阻元件兩端之讀取電壓限制在遠低於編程閾值之極低偏壓，並藉由動態電荷感測放大器比對位元線放電斜率以判定邏輯儲存態。",
+              "patentCategory": "陣列與電路項",
+              "patentCategoryEn": "Array and Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "2041-06-25",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「I-fuse® 可靠燒錄與 OTP 可測試性技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11615859B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/3b/12/d7/86a3e65395c8d1/US11615859.pdf",
+                  "date": "2023-03-28",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人 Shine C. Chung 與受讓人 Attopsemi Technology Co., Ltd.；PDF 第 15 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "b8807cc9ae3513a1c49d287398802d25c8dd9dadaadd46044b699cf739c2b0f0",
+                  "page": 15
+                },
+                {
+                  "title": "US11615859B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11615859B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11615859B2",
+                "url": "https://patents.google.com/patent/US11615859B2/en",
+                "note": "US11615859B2 為上峰科技最新超低功耗讀取與動態感測核心專利，確認受讓人為 Attopsemi Technology Co., Ltd.。",
+                "source": {
+                  "title": "US11615859B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/3b/12/d7/86a3e65395c8d1/US11615859.pdf",
+                  "date": "2023-03-28",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Attopsemi Technology Co., Ltd.；技術導讀依選錄公報重建。",
                   "page": 1
                 }
               }

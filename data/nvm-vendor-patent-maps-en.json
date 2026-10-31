@@ -342,6 +342,62 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US6483366B2",
+              "title": "Breakdown-Free Negative Level Shifter",
+              "grantDate": "2002-11-19",
+              "publicationDate": "2002-11-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2002-05-15",
+              "inventors": "Chien-Hung Ho",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US6483366B2/en",
+              "coreProblem": "During high-voltage programming or erasing in non-volatile memories, negative voltage level shifters must transition between standard logic levels (e.g., 0V to 3.3V) and negative high-voltage rails (e.g., -5V to -10V), exposing cross-coupled MOS devices to excessive electric field stress exceeding gate oxide dielectric breakdown limits.",
+              "mechanism": "Introduces series-connected clamping and voltage-dividing structures between cross-coupled inverter pairs and input switching transistors, dynamically restricting maximum potential differences relative to substrate and wells within a single power supply tolerance to eliminate gate oxide overstress.",
+              "claimFocus": "Claim 1 defines a negative voltage level shifting circuit: comprising a pair of cross-coupled transistors, first and second input transistors, and breakdown protection circuitry configured to convert a first logic level to a second negative high-voltage level, wherein maximum voltages across all internal nodes remain substantially below predetermined oxide breakdown limits.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuitry",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison against NeoBit® / NeoFuse® peripheral high-voltage drive and negative voltage switching circuitry; not an adjudicated product-to-claim mapping.",
+              "researchSources": [
+                {
+                  "title": "US6483366B2 · Gazette Primary Document",
+                  "url": "https://patentimages.storage.googleapis.com/54/f8/4a/86940fb9da4d17/US6483366.pdf",
+                  "date": "2002-11-19",
+                  "dateKind": "published",
+                  "note": "Front page verifies inventor Chien-Hung Ho and assignee eMemory Technology Inc.; PDF page 7 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                  "pdfSHA256": "bf89785b4bc15f9923d6b7ae9afbe22160a0d0fe7f0cacb8a0598bd4defee0f3",
+                  "page": 7
+                },
+                {
+                  "title": "US6483366B2 · Index Status Review",
+                  "url": "https://patents.google.com/patent/US6483366B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US6483366B2",
+                "url": "https://patents.google.com/patent/US6483366B2/en",
+                "note": "US6483366B2 serves as eMemory's core high-to-low voltage peripheral level shifter patent, verified to be assigned to eMemory Technology Inc.",
+                "source": {
+                  "title": "US6483366B2 · Official Gazette Verification",
+                  "url": "https://patentimages.storage.googleapis.com/54/f8/4a/86940fb9da4d17/US6483366.pdf",
+                  "date": "2002-11-19",
+                  "dateKind": "published",
+                  "note": "Verified front page assignee eMemory Technology Inc.; technical reading reconstructed from selected gazette.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -2573,6 +2629,62 @@
                   "date": "2015-01-13",
                   "dateKind": "published",
                   "note": "Original front page confirms assignee Sidense Corp.; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7511982B2",
+              "title": "High Speed OTP Sensing Scheme",
+              "grantDate": "2009-03-31",
+              "publicationDate": "2009-03-31",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-05-06",
+              "inventors": "Wlodek Kurjanowicz; Steven Smith",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US7511982B2/en",
+              "coreProblem": "Single-ended antifuse memory cells exhibit post-breakdown conductive resistances spanning several kΩ to tens of kΩ with significant process variation, while unprogrammed cells exhibit negligible leakage; conventional voltage sensing is slow and susceptible to read disturb at elevated bitline voltages.",
+              "mechanism": "Employs a bitline-clamped low-impedance single-ended current sensing scheme coupled with a controlled current mirror reference and dynamic sensing nodes; clamps the bitline to a sub-volt low level during read to eliminate read disturb while a differential current comparator rapidly resolves binary logic states.",
+              "claimFocus": "Claim 1 defines a memory read sensing architecture: comprising a bitline coupled to an antifuse cell, a reference circuit supplying a dynamic reference current, and a current sense amplifier coupled to the bitline with a clamping transistor restricting bitline voltage to a low level during read cycles to prevent antifuse dielectric disturb.",
+              "patentCategory": "陣列與電路項",
+              "patentCategoryEn": "Array and Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "expired",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison against 1T-Fuse™ split-channel, well bias, and sensing architectures; not an adjudicated product-to-claim mapping.",
+              "researchSources": [
+                {
+                  "title": "US7511982B2 · Gazette Primary Document",
+                  "url": "https://patentimages.storage.googleapis.com/d1/24/81/255aa4cbfbf5a0/US7511982.pdf",
+                  "date": "2009-03-31",
+                  "dateKind": "published",
+                  "note": "Front page verifies inventors Wlodek Kurjanowicz et al. and assignee Sidense Corp.; PDF page 22 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                  "pdfSHA256": "87bf9b2e04e09065ee4e50531e79f8122fb354bae081c0c9ff6362110f19a075",
+                  "page": 22
+                },
+                {
+                  "title": "US7511982B2 · Index Status Review",
+                  "url": "https://patents.google.com/patent/US7511982B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7511982B2",
+                "url": "https://patents.google.com/patent/US7511982B2/en",
+                "note": "US7511982B2 is Sidense's landmark high-speed single-ended sensing architecture patent, verified to be assigned to Sidense Corp.",
+                "source": {
+                  "title": "US7511982B2 · Official Gazette Verification",
+                  "url": "https://patentimages.storage.googleapis.com/d1/24/81/255aa4cbfbf5a0/US7511982.pdf",
+                  "date": "2009-03-31",
+                  "dateKind": "published",
+                  "note": "Verified front page assignee Sidense Corp.; technical reading reconstructed from selected gazette.",
                   "page": 1
                 }
               }
@@ -5161,6 +5273,62 @@
                   "date": "2021-02-09",
                   "dateKind": "published",
                   "note": "Front page verifies assignee Attopsemi Technology Co Ltd; technical guide reconstructed from this publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11615859B2",
+              "title": "One-Time Programmable Memories with Ultra-Low Power Read Operation and Novel Sensing Scheme",
+              "grantDate": "2023-03-28",
+              "publicationDate": "2023-03-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-06-25",
+              "inventors": "Shine C. Chung",
+              "assignee": "Attopsemi Technology Co., Ltd.",
+              "url": "https://patents.google.com/patent/US11615859B2/en",
+              "coreProblem": "In IoT and edge AI computing chips, conventional DC read sensing in OTP consumes excessive static current, and continuous read voltages applied to antifuse or fuse microfilaments can induce low-field electromigration or resistance drift over time (read disturb).",
+              "mechanism": "Proposes a dynamic charge transfer and transient charge accumulation sensing topology utilizing minute parasitic or integrated capacitors for charge and discharge slopes; limits read bias across the I-fuse resistor to sub-microampere regimes to achieve near-zero static standby power and superior read immunity.",
+              "claimFocus": "Claim 1 defines a one-time programmable memory device: comprising a memory array of OTP cells each with a programmable resistive element and a selector; read control circuitry configured to restrict read voltage across the resistive element well below a programming threshold, and a dynamic charge sense amplifier determining logic states by comparing bitline discharge slopes.",
+              "patentCategory": "陣列與電路項",
+              "patentCategoryEn": "Array and Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "2041-06-25",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison against I-fuse® reliable programming and OTP testability portfolio; not an adjudicated product-to-claim mapping.",
+              "researchSources": [
+                {
+                  "title": "US11615859B2 · Gazette Primary Document",
+                  "url": "https://patentimages.storage.googleapis.com/3b/12/d7/86a3e65395c8d1/US11615859.pdf",
+                  "date": "2023-03-28",
+                  "dateKind": "published",
+                  "note": "Front page verifies inventor Shine C. Chung and assignee Attopsemi Technology Co., Ltd.; PDF page 15 onwards provides representative claim 1 interpretation, not an exhaustive claims chart. Priority date reflects earliest claimed date in gazette/index without per-claim priority determination.",
+                  "pdfSHA256": "b8807cc9ae3513a1c49d287398802d25c8dd9dadaadd46044b699cf739c2b0f0",
+                  "page": 15
+                },
+                {
+                  "title": "US11615859B2 · Index Status Review",
+                  "url": "https://patents.google.com/patent/US11615859B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status represents an index snapshot, not a live legal determination or verified term expiry."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11615859B2",
+                "url": "https://patents.google.com/patent/US11615859B2/en",
+                "note": "US11615859B2 is Attopsemi's latest ultra-low power read and dynamic sensing core patent, verified to be assigned to Attopsemi Technology Co., Ltd.",
+                "source": {
+                  "title": "US11615859B2 · Official Gazette Verification",
+                  "url": "https://patentimages.storage.googleapis.com/3b/12/d7/86a3e65395c8d1/US11615859.pdf",
+                  "date": "2023-03-28",
+                  "dateKind": "published",
+                  "note": "Verified front page assignee Attopsemi Technology Co., Ltd.; technical reading reconstructed from selected gazette.",
                   "page": 1
                 }
               }
