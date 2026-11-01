@@ -48,9 +48,45 @@ function renderMapExplorer(data, en) {
       const count = families.reduce((sum,f)=>sum+f.patents.length,0);
       return `<td data-map-cell="${key}" data-label="${esc(value.label)}">${count ? `<a href="#family-${esc(families[0].id)}" aria-label="${esc(v.shortName)} · ${value.label} · ${count} ${en?'records':'筆紀錄'}">${count}</a>` : '<span aria-label="'+(en?'Not covered':'未收錄')+'">—</span>'}</td>`;
     }).join('')}<td data-map-row-total data-label="${en ? 'Total Records' : '總收錄'}">${v.families.reduce((sum,f)=>sum+f.patents.length,0)}</td></tr>`).join('')}</tbody></table></div>
+    
+    <div class="nvm-map-summary-matrix-wrap" id="vendor-patent-matrix" role="region" tabindex="0" aria-label="${en ? '14 Global NVM Pioneer Vendors Patent Coverage Matrix' : '全球 14 家 NVM 先鋒廠商專利收錄矩陣'}">
+      <table class="nvm-map-summary-table">
+        <caption>${en ? 'Global NVM Pioneer Vendors Coverage Matrix · 14 Vendors · 477 Curated Grants (100% Primary Sources)' : '全球 14 家非揮發性記憶體先鋒廠商專利全景矩陣 · 14 家先鋒 · 477 件獲准公報（100% 原件引證）'}</caption>
+        <thead>
+          <tr>
+            <th scope="col">${en ? 'Company / IP Lineage' : '廠商／IP 沿革'}</th>
+            <th scope="col">${en ? 'Headquarters' : '總部／區域'}</th>
+            <th scope="col">${en ? 'Core Technology Domain' : '核心技術領域'}</th>
+            <th scope="col">${en ? 'Curated Grants' : '最新收錄'}</th>
+            <th scope="col">${en ? 'Technology Families' : '涵蓋技術家族'}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.vendors.map(v => {
+            const total = v.families.reduce((sum, f) => sum + f.patents.length, 0);
+            return `<tr data-map-vendor-summary-row="${esc(v.id)}">
+              <th scope="row"><a href="#vendor-${esc(v.id)}"><strong>${esc(v.name)}</strong> <span class="nvm-vendor-alias">(${esc(v.shortName)})</span></a></th>
+              <td data-label="${en ? 'Headquarters' : '總部／區域'}">${esc(v.headquarters)}</td>
+              <td data-label="${en ? 'Core Technology' : '核心技術領域'}">${esc(v.businessModel || v.strategy)}</td>
+              <td data-label="${en ? 'Curated Grants' : '最新收錄'}" class="nvm-map-grant-cell"><span class="nvm-map-grant-badge" data-map-summary-count>${total} ${en ? 'Grants' : '件'}</span></td>
+              <td data-label="${en ? 'Families' : '涵蓋技術家族'}" class="nvm-map-families-cell"><ul class="nvm-map-fam-list">${v.families.map(f => `<li><a href="#family-${esc(f.id)}">${esc(f.name)}</a> <span class="nvm-fam-count">(${f.patents.length})</span></li>`).join('')}</ul></td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">${en ? 'Total: 14 Pioneers' : '全庫總計：14 家先鋒'}</th>
+            <td>${en ? 'Global Multi-Jurisdiction' : '全球半導體重鎮'}</td>
+            <td>${en ? 'Full-Spectrum OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF' : '全譜系 OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF'}</td>
+            <td class="nvm-map-grant-cell"><strong class="nvm-map-grant-total">${data.vendors.reduce((acc, v) => acc + v.families.reduce((s, f) => s + f.patents.length, 0), 0)} ${en ? 'Grants' : '件'}</strong></td>
+            <td>${data.vendors.reduce((acc, v) => acc + v.families.length, 0)} ${en ? 'Technology Families' : '個技術家族'}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
     <p class="nvm-map-empty" id="nvm-map-empty" hidden>${en ? 'No matching records. Try a shorter search or reset the filters.' : '沒有符合的紀錄。請縮短關鍵字或清除篩選。'} <button type="button" class="nvm-map-reset-btn" data-map-reset>${en ? 'Clear all filters' : '清除所有篩選'}</button></p>
     <div id="nvm-map-results" hidden><h4>${en ? 'Matching Publications' : '符合的公報紀錄'}</h4><ul>${data.vendors.flatMap(v=>v.families.flatMap(f=>f.patents.map(p=>`<li data-map-result="vendor-patent-${esc(f.id)}-${esc(p.id)}"><a href="#vendor-patent-${esc(f.id)}-${esc(p.id)}"><strong>${esc(p.id)}</strong> · ${esc(v.shortName)} · ${esc(f.name)}</a><span>${esc(p.title)}</span></li>`))).join('')}</ul></div>
-    <nav class="nvm-map-reading-links" aria-label="${en ? 'Map reading paths' : '專利地圖閱讀路徑'}"><a href="#nvm-map-dossiers">${en ? 'Read all company dossiers' : '閱讀廠商案卷'}</a><a href="#vendor-patent-landscape-overview">${en ? 'Business comparison appendix' : '商業比較附錄'}</a><a href="#nvm-map-evidence">${en ? 'Sources and reading boundaries' : '來源與判讀界線'}</a></nav>
+    <nav class="nvm-map-reading-links" aria-label="${en ? 'Map reading paths' : '專利地圖閱讀路徑'}"><a href="#nvm-map-dossiers">${en ? 'Read all company dossiers' : '閱讀廠商案卷'}</a><a href="#vendor-patent-matrix">${en ? '14 Vendors Coverage Matrix' : '14 家廠商收錄矩陣'}</a><a href="#vendor-patent-landscape-overview">${en ? 'Business comparison appendix' : '商業比較附錄'}</a><a href="#nvm-map-evidence">${en ? 'Sources and reading boundaries' : '來源與判讀界線'}</a></nav>
   </section>`;
 }
 
@@ -417,6 +453,18 @@ export function vendorPatentMapsMarkdown(data, sourceMarkdown, language) {
   const en = language === 'en';
   let md = `\n\n## ${en ? 'NVM Patent Maps · By Filing Company' : '具名機構核心專利地圖（By Filing Company 分析）'}\n\n`;
   md += `${en?'Dataset date':'資料日期'}: ${data.asOf}\n\n${evidenceNote(en)}\n\n[USPTO](https://www.uspto.gov/patents/basics/essentials) · [${en?'Patent term':'專利期間'}](https://www.uspto.gov/patents/laws/patent-term-calculator)\n\n`;
+
+  md += `### ${en ? '14 Global NVM Pioneer Vendors Patent Coverage Matrix (477 Grants)' : '全球 14 家非揮發性記憶體先鋒廠商專利全景矩陣 (477 件獲准專利)'}\n\n`;
+  md += `| ${en ? 'Vendor' : '廠商 (Vendor)'} | ${en ? 'Headquarters' : '總部／區域'} | ${en ? 'Core Technology Domain' : '核心技術領域'} | ${en ? 'Curated Grants' : '收錄件數'} | ${en ? 'Technology Families' : '涵蓋技術家族'} |\n`;
+  md += `|---|---|---|:---:|---|\n`;
+  for (const v of data.vendors) {
+    const total = v.families.reduce((sum, f) => sum + f.patents.length, 0);
+    const fams = v.families.map(f => `${f.name} (${f.patents.length})`).join('; ');
+    md += `| **${v.name}** (${v.shortName}) | ${v.headquarters} | ${v.businessModel || v.strategy} | **${total}** | ${fams} |\n`;
+  }
+  const allTotal = data.vendors.reduce((acc, v) => acc + v.families.reduce((s, f) => s + f.patents.length, 0), 0);
+  const allFams = data.vendors.reduce((acc, v) => acc + v.families.length, 0);
+  md += `| **${en ? 'Total: 14 Pioneers' : '全庫總計：14 家先鋒'}** | ${en ? 'Global Multi-Jurisdiction' : '全球半導體重鎮'} | ${en ? 'Full-Spectrum OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF' : '全譜系 OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF'} | **${allTotal}** | ${allFams} ${en ? 'Families' : '個家族'} |\n\n`;
 
   for (const v of data.vendors) {
     const vPatents = v.families.flatMap(f => f.patents);

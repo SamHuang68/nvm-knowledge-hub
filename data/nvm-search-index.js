@@ -18,10 +18,226 @@ window.NVMTopicIndex = [
     "tags": "Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON"
   },
   {
+    "title_zh": "全球 14 家 NVM 先鋒廠商專利全景矩陣（477 件全譜系分析）",
+    "title_en": "14 Global NVM Pioneer Vendors Patent Coverage Matrix (477 Patents)",
+    "url": "nvm-technology-atlas.html#vendor-patent-matrix",
+    "tags": "全球 14 家 NVM 先鋒廠商專利收錄矩陣 專利全景矩陣 專利矩陣 477件 14家廠商 力旺 eMemory Kilopass 上峰 Attopsemi Everspin SST NSCore YMC Sidense PUFsecurity Floadia Weebit CrossBar Nantero Impinj OTP MTP eFlash MRAM ReRAM NRAM PUF patent matrix landscape 75件 60件 52件 50件 29件 27件 26件 23件 21件 15件 11件"
+  },
+  {
     "title_zh": "具名機構核心專利地圖（By Filing Company 分析）",
     "title_en": "NVM Patent Maps · By Filing Company",
     "url": "nvm-technology-atlas.html#patent-maps",
-    "tags": "專利地圖 By Filing Company 專利申請機構 專利所有權人 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity patent map landscape"
+    "tags": "專利地圖 By Filing Company 專利申請機構 專利所有權人 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity CrossBar Nantero patent map landscape 477件 14家廠商"
+  },
+  {
+    "title_zh": "力旺電子 eMemory Technology Inc. (力旺 eMemory) · 75 件專利地圖",
+    "title_en": "eMemory Technology Inc. (eMemory) · 75 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-ememory",
+    "tags": "力旺電子 eMemory Technology Inc. 力旺 eMemory eMemory Technology Inc. eMemory 台灣新竹科學園區 (Hsinchu Science Park, Taiwan) Hsinchu Science Park, Taiwan 純邏輯製程嵌入式非揮發性記憶體 IP 授權與設計服務 (Pure-Play Logic NVM IP, 0-Mask) Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP) 本次選錄技術範圍：串聯 PMOS 選擇器與浮閘; 井區、選擇／跟隨元件與反熔絲; 井區耦合閘與局部薄氧抹除區; PMOS 浮閘與一體成形輔助閘; 反熔絲 PUF、金鑰產生與位址擾亂。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Series PMOS Selector and Floating Gate; Wells, Select/Following Devices and Antifuse; Well-Coupled Gates and Local Thin-Oxide Erase Region; PMOS Floating Gate with Integral Assistant Gate; Antifuse PUF, Key Generation and Address Scrambling. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 75件 75 patents NeoBit® 對照主題：單層浮閘 OTP NeoFuse® 對照主題：反熔絲 OTP NeoEE® 對照主題：可抹除單層多晶矽 NVM NeoMTP® 對照主題：輔助閘極單元與陣列 NeoPUF® 對照主題：反熔絲與安全系統 NeoBit® Comparison: Single-Poly Floating-Gate OTP NeoFuse® Comparison: Antifuse OTP NeoEE® Comparison: Erasable Single-Poly NVM NeoMTP® Comparison: Assistant-Gate Cells and Arrays NeoPUF® Comparison: Antifuse and Security Systems US6678190B2 US6914825B2 US6920067B2 US7405972B1 US7417897B2 US6483366B2 US9634015B2 US10090309B1 US11735266B2 US20250024668A1 US9324381B2 US9799410B2 US8199578B2 US8592886B2 US9508447B2 US9666279B2 US9424939B2 US11055235B2 US9368161B2 US9601501B2 US10797063B2 US11164880B2 US11521050B2 US11508720B2 US10122538B2 US10649735B2 US10915464B2 US11055065B2 US10177924B1 US10475491B2"
+  },
+  {
+    "title_zh": "Kilopass Technology Inc. (2018 年併入 Synopsys) (Kilopass (Synopsys)) · 60 件專利地圖",
+    "title_en": "Kilopass Technology Inc. (Acquired by Synopsys in 2018) (Kilopass (Synopsys)) · 60 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-kilopass",
+    "tags": "Kilopass Technology Inc. (2018 年併入 Synopsys) Kilopass (Synopsys) Kilopass Technology Inc. (Acquired by Synopsys in 2018) Kilopass (Synopsys) 美國加州聖塔克拉拉 (Santa Clara, California, USA) Santa Clara, California, USA 標準 CMOS 邏輯製程 2T 閘極氧化層擊穿反熔絲 IP (Standard CMOS 2T Antifuse OTP IP) Standard CMOS Logic 2T Gate-Oxide Breakdown Antifuse OTP IP (Standard Logic 2T Antifuse OTP IP) 本次選錄技術範圍：交叉點電晶體與擴散字元線; 深 N 井中的 P 井與串聯儲存元件。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Crosspoint Transistor and Diffusion Word Line; P Well in Deep N Well with Series Storage Element. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 60件 60 patents XPM™ 對照主題：單電晶體可燒錄單元 SecretCode™ 對照主題：井區控制反熔絲 XPM™ Comparison: Single-Transistor Programmable Cells SecretCode™ Comparison: Well-Controlled Antifuse US6992925B2 US6777757B2 US6667902B2 US6798693B2 US6856540B2 US6940751B2 US7471540B2 US9852805B2 US10623192B2"
+  },
+  {
+    "title_zh": "Sidense Corporation (2017 年併入 Synopsys) (Sidense (Synopsys)) · 26 件專利地圖",
+    "title_en": "Sidense Corporation (Acquired by Synopsys in 2017) (Sidense (Synopsys)) · 26 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-sidense",
+    "tags": "Sidense Corporation (2017 年併入 Synopsys) Sidense (Synopsys) Sidense Corporation (Acquired by Synopsys in 2017) Sidense (Synopsys) 加拿大安大略省渥太華 (Ottawa, Ontario, Canada) Ottawa, Ontario, Canada 標準 CMOS 單電晶體裂通道反熔絲 1T-Fuse 專利 IP 授權 (1T Split-Channel Antifuse OTP IP) Standard CMOS Single-Transistor Split-Channel 1T-Fuse Antifuse IP Licensing (1T Split-Channel Antifuse OTP IP) 本次選錄技術範圍：厚薄閘氧、相鄰異型井及差動感測。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Dual Oxide, Opposite-Type Wells and Differential Sensing. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 26件 26 patents 1T-Fuse™ 對照主題：裂通道、井區與感測 1T-Fuse™ Comparison: Split Channel, Wells and Sensing US7402855B2 US9129687B2 US8130532B2 US8283751B2 US7764532B2 US7944727B2"
+  },
+  {
+    "title_zh": "億而得微電子 Yield Microelectronics Corp. (YMC) (億而得 YMC) · 27 件專利地圖",
+    "title_en": "Yield Microelectronics Corp. (YMC) (YMC) · 27 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-ymc",
+    "tags": "億而得微電子 Yield Microelectronics Corp. (YMC) 億而得 YMC Yield Microelectronics Corp. (YMC) YMC 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) Zhubei City, Hsinchu County, Taiwan 標準邏輯製程多晶矽嵌入式多次燒寫 MTP IP 授權與設計服務 (Logic MTP IP Licensing) Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services 本次選錄技術範圍：電晶體／電容共接浮閘與對稱子陣列。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Transistor-Capacitor Floating Gate and Symmetric Subarrays. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 27件 27 patents YMC 單浮閘、共用端與 EEPROM 陣列 YMC Single Floating Gate, Shared Terminal and EEPROM Arrays US7099192B2 US9240242B1 US9281312B2 US9318208B1 US11742039B2 US7423903B2"
+  },
+  {
+    "title_zh": "Impinj / Virage Logic / Synopsys (AEON®) (AEON (Synopsys)) · 11 件專利地圖",
+    "title_en": "Impinj / Virage Logic / Synopsys (AEON®) (AEON (Synopsys)) · 11 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-impinj-aeon",
+    "tags": "Impinj / Virage Logic / Synopsys (AEON®) AEON (Synopsys) Impinj / Virage Logic / Synopsys (AEON®) AEON (Synopsys) 美國華盛頓州西雅圖 / 加州山景城 (Seattle, WA / Mountain View, CA, USA) Seattle, WA / Mountain View, CA, USA 標準 CMOS 超低功耗雙向全 FN 穿隧單層多晶矽 MTP IP (Ultra-Low-Power FN/FN MTP IP) Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP 本次選錄技術範圍：pFET 浮閘、差動讀取與耦合／穿隧電容。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: pFET Floating Gate, Differential Readout and Capacitors. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 11件 11 patents AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM US6853583B2 US6950342B2 US6788574B1 US8111558B2 US7221596B2 US7474568B2"
+  },
+  {
+    "title_zh": "NSCore, Inc. (株式会社エヌエスコア) (NSCore (TwinBit®)) · 29 件專利地圖",
+    "title_en": "NSCore, Inc. (NSCore (TwinBit®)) · 29 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-nscore",
+    "tags": "NSCore, Inc. (株式会社エヌエスコア) NSCore (TwinBit®) NSCore, Inc. NSCore (TwinBit®) 日本神奈川縣川崎市 (Kawasaki, Kanagawa, Japan) Kawasaki, Kanagawa, Japan 標準 CMOS 邏輯製程原生側壁間隔層 (Sidewall Spacer) 電荷捕捉 1.5T/2T MTP IP 授權 Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS) 本次選錄技術範圍：配對 MIS、金屬接面與差動周邊。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Paired MIS, Metal Junctions and Differential Periphery. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 29件 29 patents NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體 NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory US9159404B2 US9484072B1 US9893208B2 US9966141B2 US7821806B2 US7483290B2"
+  },
+  {
+    "title_zh": "上峰科技股份有限公司（Attopsemi） (上峰科技 Attopsemi) · 52 件專利地圖",
+    "title_en": "Attopsemi Technology Co., Ltd. (Attopsemi) · 52 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-attopsemi",
+    "tags": "上峰科技股份有限公司（Attopsemi） 上峰科技 Attopsemi Attopsemi Technology Co., Ltd. Attopsemi 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) Zhubei City, Hsinchu County, Taiwan 熱輔助受控電遷移熔絲 (I-fuse®) 邏輯 OTP IP 授權與設計服務 (Electromigration I-fuse OTP IP) Thermal-Assisted Controlled Electromigration Fuse (I-fuse®) Logic OTP IP Licensing & Design Services I-fuse 以受控燒錄視窗內的熱輔助電遷移改變熔絲電阻。本案卷選錄可靠燒錄與非破壞性 OTP 測試的核准權利項，並與官方白皮書作技術對照；不把這種對照當成特定商用 IP 的逐項權利項映射。實際燒錄會改變電阻；測試用的假燒錄讀出狀態則不消耗 OTP 儲存態。 I-fuse uses heat-assisted electromigration within a controlled programming window. This dossier selects issued claims on reliable programming and non-destructive OTP testing; the connection to I-fuse is an editorial comparison with the company white paper, not a claim chart for any specific commercial macro. Programming changes fuse resistance; a pseudo-programmed test readout does not consume the OTP state. 52件 52 patents I-fuse® 可靠燒錄與 OTP 可測試性技術組合 I-fuse® Reliable Programming and OTP Testability US9711237B2 US10923204B2 US9431127B2 US9460807B2 US9496265B2 US9824768B2"
+  },
+  {
+    "title_zh": "Floadia Corporation (株式会社フローディア) (Floadia (フローディア)) · 23 件專利地圖",
+    "title_en": "Floadia Corporation (Floadia) · 23 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-floadia",
+    "tags": "Floadia Corporation (株式会社フローディア) Floadia (フローディア) Floadia Corporation Floadia 日本東京都小平市 (Kodaira, Tokyo, Japan) Kodaira, Tokyo, Japan 嵌入式快閃記憶體與超低功耗電荷陷阱 MTP/SONOS IP 授權 (Embedded Charge-Trap eFlash & MTP IP) Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing 本次選錄技術範圍：串聯浮閘／開關與高電阻延伸區; 儲存閘兩側選擇器、複合側壁與金屬閘。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Series Floating-Gate/Switch Pair and Resistive Extension; Two-Sided Selectors, Composite Spacers and Metal Gates. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 23件 23 patents LEE Flash ZT 對照主題：單層閘極注入 LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合 LEE Flash ZT Comparison: Single-Layer-Gate Injection LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration US9646979B2 US9437736B2 US9502109B2 US10074660B2 US10263002B2 US8963229B2 US10074658B2 US10381446B2 US10431589B2 US10615168B2 US9318196B1 US9842650B2"
+  },
+  {
+    "title_zh": "Silicon Storage Technology, Inc. (SST / Microchip Technology) (SST (Microchip)) · 50 件專利地圖",
+    "title_en": "Silicon Storage Technology, Inc. (SST / Microchip Technology) (SST (Microchip)) · 50 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-sst",
+    "tags": "Silicon Storage Technology, Inc. (SST / Microchip Technology) SST (Microchip) Silicon Storage Technology, Inc. (SST / Microchip Technology) SST (Microchip) 美國加州聖荷西 (San Jose, California, USA) San Jose, California, USA 分離閘極 (Split-Gate) 嵌入式快閃記憶體 SuperFlash® IP 授權與技術轉讓 (Embedded SuperFlash eFlash IP) Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer 本次選錄技術範圍：浮閘、控制閘、尖緣與跨覆源極。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Floating/Control Gates, Sharp Edges and Overhanging Source. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 50件 50 patents SuperFlash® 對照：分離閘極與自對準結構 SuperFlash® Comparison: Split Gates and Self-Alignment US5029130A US5242848A US6627942B2 US6563167B2 US6727545B2 US7868375B2"
+  },
+  {
+    "title_zh": "Everspin Technologies, Inc. (Everspin) · 50 件專利地圖",
+    "title_en": "Everspin Technologies, Inc. (Everspin) · 50 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-everspin",
+    "tags": "Everspin Technologies, Inc. Everspin Everspin Technologies, Inc. Everspin 美國亞利桑那州錢德勒 (Chandler, Arizona, USA) Chandler, Arizona, USA 商用獨立式與嵌入式自旋磁性記憶體 (MRAM) 設計、製造與 IP 授權 (Discrete & Embedded MRAM) Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing 本次選錄技術範圍：反鐵磁耦合自由層與兩條場寫入導線; SAF 固定層、雙障壁自由層及脈衝電路。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Coupled Free Layers and Two Field-Writing Conductors; Fixed SAF, Dual-Barrier Free Layer and Pulse Circuitry. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 50件 50 patents Toggle MRAM 歷史技術來源 Everspin 固定磁層與 STT-MRAM 技術組合 Toggle MRAM Historical Technical Source Everspin Fixed Magnetic Layers and STT-MRAM US6545906B1 US7932571B2 US6693824B2 US6760266B2 US8497538B2 US9391264B2 US9159906B2 US9286963B2 US7605437B2 US8216703B2"
+  },
+  {
+    "title_zh": "Weebit Nano Limited (Weebit Nano) · 21 件專利地圖",
+    "title_en": "Weebit Nano Limited (Weebit Nano) · 21 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-weebit",
+    "tags": "Weebit Nano Limited Weebit Nano Weebit Nano Limited Weebit Nano 以色列霍德夏沙隆 / 澳洲墨爾本 (Hod HaSharon, Israel / Melbourne, Australia) Hod HaSharon, Israel / Melbourne, Australia 氧化物電阻式記憶體 (OxRAM / ReRAM) 嵌入式 IP 授權與神經擬態設計 (Embedded ReRAM IP) Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services 本次選錄技術範圍：SOI 2T2R／2T1R、1T2R 與逐欄控制。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: SOI 2T2R/2T1R, 1T2R and Column Control. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 21件 21 patents Weebit ReRAM 電路選錄與材料背景比較 Weebit ReRAM Circuit Selection and Materials Context US11538524B2 US6849891B1 US11659720B2 US12068028B2 US20220122660A1 US12170110B2"
+  },
+  {
+    "title_zh": "PUFsecurity Corp. (熵碼科技股份有限公司) (熵碼 PUFsecurity) · 23 件專利地圖",
+    "title_en": "PUFsecurity Corp. (PUFsecurity) · 23 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-pufsecurity",
+    "tags": "PUFsecurity Corp. (熵碼科技股份有限公司) 熵碼 PUFsecurity PUFsecurity Corp. PUFsecurity 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) Zhubei City, Hsinchu County, Taiwan 基於量子穿隧物理不可複製函數 (PUF) 之晶片安全信任根與密碼協同處理器 IP (Hardware Root-of-Trust IP) Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP 本次選錄技術範圍：認證電路、亂數池、PUF 與金鑰元件。以逐件權利項支持技術比較，不代表完整專利組合或排他性法律結論。 Selected technical scope: Authentication, Random Pools, PUF and Key Components. The evidence supports claim-level comparison, not an exhaustive portfolio or legal exclusivity finding. 23件 23 patents PUFrt／PUFcc 對照：認證、亂數與金鑰管理 PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management US11121884B2 US11502832B2 US11381394B2 US11876899B2 US12113895B2 US11961567B2"
+  },
+  {
+    "title_zh": "CrossBar, Inc. (CrossBar) · 15 件專利地圖",
+    "title_en": "CrossBar, Inc. (CrossBar) · 15 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-crossbar",
+    "tags": "CrossBar, Inc. CrossBar CrossBar, Inc. CrossBar 美國加州聖塔克拉拉 (Santa Clara, California, USA) Santa Clara, California, USA 銀奈米絲導電式阻變記憶體 (Filamentary ReRAM IP) 與 3D 交叉陣列授權 Filamentary ReRAM IP licensing and 3D crossbar architectures 以非晶矽為基底之受控銀金屬奈米絲生長與消除機制，提供極小晶胞與 3D 堆疊非揮發性儲存。 Controlled silver electrochemical filament switching in amorphous silicon providing ultra-dense 3D storage. 15件 15 patents CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM US8374018B2 US8404553B2 US8492195B2 US8558212B2 US8765566B2 US8947908B2"
+  },
+  {
+    "title_zh": "Nantero, Inc. (Nantero) · 15 件專利地圖",
+    "title_en": "Nantero, Inc. (Nantero) · 15 Patents Map",
+    "url": "nvm-technology-atlas.html#vendor-nantero",
+    "tags": "Nantero, Inc. Nantero Nantero, Inc. Nantero 美國麻薩諸塞州沃本 (Woburn, Massachusetts, USA) Woburn, Massachusetts, USA 碳奈米管非揮發性隨機存取記憶體 (NRAM® IP) 與奈米複合材料技術授權 Carbon nanotube non-volatile RAM (NRAM® IP) and nanomaterial licensing 利用碳奈米管網狀織物中凡得瓦力吸附與靜電斥力達成次奈秒高速切換與抗輻射非揮發性儲存。 Electrostatic deflection and van der Waals bistable bonding of carbon nanotubes for radiation-immune, high-speed NVM. 15件 15 patents Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM US6643165B2 US6706402B2 US6759693B2 US6774052B2 US6791871B2 US6798127B2"
+  },
+  {
+    "title_zh": "NeoBit® 對照主題：單層浮閘 OTP · 16 件代表專利",
+    "title_en": "NeoBit® Comparison: Single-Poly Floating-Gate OTP · 16 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-neobit-family",
+    "tags": "NeoBit® 對照主題：單層浮閘 OTP NeoBit® Comparison: Single-Poly Floating-Gate OTP 熱載子注入與浮閘電荷保持 Hot-Carrier Injection and Floating-Gate Retention OTP (One-Time Programmable) OTP (One-Time Programmable) 串聯 PMOS 選擇器與浮閘 Series PMOS Selector and Floating Gate 熱載子注入與浮閘電荷保持 Hot-Carrier Injection and Floating-Gate Retention 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. eMemory 16件 US6678190B2 US6914825B2 US6920067B2 US7405972B1 US7417897B2 US6483366B2 US10083757B2 US7551494B2"
+  },
+  {
+    "title_zh": "NeoFuse® 對照主題：反熔絲 OTP · 19 件代表專利",
+    "title_en": "NeoFuse® Comparison: Antifuse OTP · 19 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-neofuse-family",
+    "tags": "NeoFuse® 對照主題：反熔絲 OTP NeoFuse® Comparison: Antifuse OTP 介電層擊穿形成永久低阻態 Dielectric Breakdown Creates a Persistent Low-Resistance State Antifuse OTP (一次性抗物理竄改反熔絲) Antifuse OTP (Anti-Tamper One-Time Programmable) 井區、選擇／跟隨元件與反熔絲 Wells, Select/Following Devices and Antifuse 介電層擊穿形成永久低阻態 Dielectric Breakdown Creates a Persistent Low-Resistance State 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. eMemory 19件 US9634015B2 US10090309B1 US11735266B2 US20250024668A1 US9324381B2 US9799410B2 US9627088B2 US10290329B2"
+  },
+  {
+    "title_zh": "NeoEE® 對照主題：可抹除單層多晶矽 NVM · 13 件代表專利",
+    "title_en": "NeoEE® Comparison: Erasable Single-Poly NVM · 13 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-neoee-family",
+    "tags": "NeoEE® 對照主題：可抹除單層多晶矽 NVM NeoEE® Comparison: Erasable Single-Poly NVM 分離電荷進出區域與氧化層厚度設計 Separate Charge-Transfer Regions and Oxide Thicknesses MTP (Multi-Time Programmable, 多次可改寫) MTP (Multi-Time Programmable) 井區耦合閘與局部薄氧抹除區 Well-Coupled Gates and Local Thin-Oxide Erase Region 分離電荷進出區域與氧化層厚度設計 Separate Charge-Transfer Regions and Oxide Thicknesses 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. eMemory 13件 US8199578B2 US8592886B2 US9508447B2 US9666279B2 US9424939B2 US11055235B2 US9466392B2 US9941011B2"
+  },
+  {
+    "title_zh": "NeoMTP® 對照主題：輔助閘極單元與陣列 · 13 件代表專利",
+    "title_en": "NeoMTP® Comparison: Assistant-Gate Cells and Arrays · 13 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-neomtp-family",
+    "tags": "NeoMTP® 對照主題：輔助閘極單元與陣列 NeoMTP® Comparison: Assistant-Gate Cells and Arrays 以井區與主動區邊緣電容耦合控制浮閘 Well and Active-Edge Capacitive Coupling High-Density MTP (高密度多次可覆寫) High-Density MTP (Multi-Time Programmable) PMOS 浮閘與一體成形輔助閘 PMOS Floating Gate with Integral Assistant Gate 以井區與主動區邊緣電容耦合控制浮閘 Well and Active-Edge Capacitive Coupling 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. eMemory 13件 US9368161B2 US9601501B2 US10797063B2 US11164880B2 US11521050B2 US11508720B2 US10714155B2 US9305611B2"
+  },
+  {
+    "title_zh": "NeoPUF® 對照主題：反熔絲與安全系統 · 14 件代表專利",
+    "title_en": "NeoPUF® Comparison: Antifuse and Security Systems · 14 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-neopuf-family",
+    "tags": "NeoPUF® 對照主題：反熔絲與安全系統 NeoPUF® Comparison: Antifuse and Security Systems 物理隨機狀態與數位安全運算分層 Physical Random States and Digital Security Processing PUF (Physical Unclonable Function, 實體不可複製函數) PUF (Physical Unclonable Function) 反熔絲 PUF、金鑰產生與位址擾亂 Antifuse PUF, Key Generation and Address Scrambling 物理隨機狀態與數位安全運算分層 Physical Random States and Digital Security Processing 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. eMemory 14件 US10122538B2 US10649735B2 US10915464B2 US11055065B2 US10177924B1 US10475491B2 US11404958B2 US11057223B2"
+  },
+  {
+    "title_zh": "XPM™ 對照主題：單電晶體可燒錄單元 · 57 件代表專利",
+    "title_en": "XPM™ Comparison: Single-Transistor Programmable Cells · 57 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-kilopass-xpm-family",
+    "tags": "XPM™ 對照主題：單電晶體可燒錄單元 XPM™ Comparison: Single-Transistor Programmable Cells 燒錄形成局部導通與摻雜區 Programming-Induced Conduction and Doped Regions Antifuse OTP (一次性抗物理竄改反熔絲) Antifuse OTP (Tamper-Evident One-Time Programmable) 交叉點電晶體與擴散字元線 Crosspoint Transistor and Diffusion Word Line 燒錄形成局部導通與摻雜區 Programming-Induced Conduction and Doped Regions 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Kilopass (Synopsys) 57件 US6992925B2 US6777757B2 US6667902B2 US6798693B2 US6856540B2 US6940751B2 US9887201B2 US9754641B1"
+  },
+  {
+    "title_zh": "SecretCode™ 對照主題：井區控制反熔絲 · 3 件代表專利",
+    "title_en": "SecretCode™ Comparison: Well-Controlled Antifuse · 3 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-kilopass-secretcode-family",
+    "tags": "SecretCode™ 對照主題：井區控制反熔絲 SecretCode™ Comparison: Well-Controlled Antifuse 基體偏壓控制閘氧擊穿 Body-Bias Control of Gate-Oxide Breakdown Secure Antifuse OTP (硬體安全金鑰反熔絲) Secure Antifuse OTP (Hardware Security Root Key Antifuse) 深 N 井中的 P 井與串聯儲存元件 P Well in Deep N Well with Series Storage Element 基體偏壓控制閘氧擊穿 Body-Bias Control of Gate-Oxide Breakdown 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Kilopass (Synopsys) 3件 US7471540B2 US9852805B2 US10623192B2"
+  },
+  {
+    "title_zh": "1T-Fuse™ 對照主題：裂通道、井區與感測 · 26 件代表專利",
+    "title_en": "1T-Fuse™ Comparison: Split Channel, Wells and Sensing · 26 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-sidense-1tfuse-family",
+    "tags": "1T-Fuse™ 對照主題：裂通道、井區與感測 1T-Fuse™ Comparison: Split Channel, Wells and Sensing 局部擊穿、漏電控制與電壓差讀取 Localized Breakdown, Leakage Control and Differential Readout 1T Antifuse OTP (單電晶體一次性反熔絲) 1T Antifuse OTP (Single-Transistor One-Time Programmable) 厚薄閘氧、相鄰異型井及差動感測 Dual Oxide, Opposite-Type Wells and Differential Sensing 局部擊穿、漏電控制與電壓差讀取 Localized Breakdown, Leakage Control and Differential Readout 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Sidense (Synopsys) 26件 US7402855B2 US9129687B2 US8130532B2 US8283751B2 US7764532B2 US7944727B2 US7755162B2 US8933492B2"
+  },
+  {
+    "title_zh": "YMC 單浮閘、共用端與 EEPROM 陣列 · 27 件代表專利",
+    "title_en": "YMC Single Floating Gate, Shared Terminal and EEPROM Arrays · 27 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-ymc-mtp-family",
+    "tags": "YMC 單浮閘、共用端與 EEPROM 陣列 YMC Single Floating Gate, Shared Terminal and EEPROM Arrays 電容耦合、寫入／抹除偏壓與指狀電容 Capacitive Coupling, Program/Erase Bias and Finger Capacitors MTP (Multiple-Time Programmable) MTP (Multiple-Time Programmable) 電晶體／電容共接浮閘與對稱子陣列 Transistor-Capacitor Floating Gate and Symmetric Subarrays 電容耦合、寫入／抹除偏壓與指狀電容 Capacitive Coupling, Program/Erase Bias and Finger Capacitors 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. YMC 27件 US7099192B2 US9240242B1 US9281312B2 US9318208B1 US11742039B2 US7423903B2 US9601202B2 US10141057B1"
+  },
+  {
+    "title_zh": "AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM · 11 件代表專利",
+    "title_en": "AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM · 11 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-aeon-fnfn-family",
+    "tags": "AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM 穿隧移除、注入控制與電容耦合 Tunneling Removal, Injection Control and Coupling Ultra-Low Power MTP (超低功耗多次可程式化) Ultra-Low Power MTP (Multiple-Time Programmable) pFET 浮閘、差動讀取與耦合／穿隧電容 pFET Floating Gate, Differential Readout and Capacitors 穿隧移除、注入控制與電容耦合 Tunneling Removal, Injection Control and Coupling 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. AEON (Synopsys) 11件 US6853583B2 US6950342B2 US6788574B1 US8111558B2 US7221596B2 US7474568B2 US7679957B2 US7715236B2"
+  },
+  {
+    "title_zh": "NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體 · 29 件代表專利",
+    "title_en": "NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory · 29 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-nscore-spacer-family",
+    "tags": "NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體 NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory 熱載子寫入、回讀與受控抹除 Hot-Carrier Programming, Recall and Controlled Erase Charge-Trapping MTP (電荷捕捉多次可程式化) Charge-Trapping MTP (Multiple-Time Programmable) 配對 MIS、金屬接面與差動周邊 Paired MIS, Metal Junctions and Differential Periphery 熱載子寫入、回讀與受控抹除 Hot-Carrier Programming, Recall and Controlled Erase 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. NSCore (TwinBit®) 29件 US9159404B2 US9484072B1 US9893208B2 US9966141B2 US7821806B2 US7483290B2 US7518917B2 US8259505B2"
+  },
+  {
+    "title_zh": "I-fuse® 可靠燒錄與 OTP 可測試性技術組合 · 52 件代表專利",
+    "title_en": "I-fuse® Reliable Programming and OTP Testability · 52 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-attopsemi-ifuse-family",
+    "tags": "I-fuse® 可靠燒錄與 OTP 可測試性技術組合 I-fuse® Reliable Programming and OTP Testability 受控燒錄視窗 · 非破壞性測試讀出 Controlled programming window · Non-destructive test readout 電熔絲 OTP Electrical-fuse OTP 電熔絲、選擇元件與讀取電路；官方白皮書以 1R1D 陣列說明。 Electrical fuse, selector and read circuit; the white paper illustrates a 1R1D array. 以熱輔助電遷移提高熔絲電阻以儲存資料；測試時以低偏壓同步寫入／讀取改變感測輸出，不改變儲存態。 Heat-assisted electromigration raises fuse resistance for storage. Low-bias concurrent write/read changes the sensed output during testing without changing the stored state. 權利項未限定具名節點；引用的 2023 年產品公告確認 12 奈米 FinFET 矽驗證。 Claims are not tied to a named node; the cited 2023 product announcement reports 12 nm FinFET silicon. Attopsemi 52件 US9711237B2 US10923204B2 US9431127B2 US9460807B2 US9496265B2 US9824768B2 US10229746B2 US10249379B2"
+  },
+  {
+    "title_zh": "LEE Flash ZT 對照主題：單層閘極注入 · 7 件代表專利",
+    "title_en": "LEE Flash ZT Comparison: Single-Layer-Gate Injection · 7 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-floadia-zt-family",
+    "tags": "LEE Flash ZT 對照主題：單層閘極注入 LEE Flash ZT Comparison: Single-Layer-Gate Injection 局部壓降形成源極側注入電場 Local Voltage Drop Enables Source-Side Injection 0-Mask MTP (零額外光罩多晶矽 MTP) 0-Mask MTP (Zero Additional Mask Logic MTP) 串聯浮閘／開關與高電阻延伸區 Series Floating-Gate/Switch Pair and Resistive Extension 局部壓降形成源極側注入電場 Local Voltage Drop Enables Source-Side Injection 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Floadia 7件 US9646979B2 US9437736B2 US9502109B2 US10074660B2 US10263002B2 US8963229B2 US9424924B2"
+  },
+  {
+    "title_zh": "LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合 · 16 件代表專利",
+    "title_en": "LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration · 16 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-floadia-g1g2-family",
+    "tags": "LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合 LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration 電荷儲存、閘間隔離與共同製造 Charge Storage, Gate Isolation and Co-Fabrication Charge-Trap eFlash (電荷陷阱嵌入式快閃記憶體) Charge-Trap eFlash (Charge-Trap Embedded Flash Memory) 儲存閘兩側選擇器、複合側壁與金屬閘 Two-Sided Selectors, Composite Spacers and Metal Gates 電荷儲存、閘間隔離與共同製造 Charge Storage, Gate Isolation and Co-Fabrication 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Floadia 16件 US10074658B2 US10381446B2 US10431589B2 US10615168B2 US9318196B1 US9842650B2 US11011530B2 US11282878B2"
+  },
+  {
+    "title_zh": "SuperFlash® 對照：分離閘極與自對準結構 · 50 件代表專利",
+    "title_en": "SuperFlash® Comparison: Split Gates and Self-Alignment · 50 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-sst-superflash-family",
+    "tags": "SuperFlash® 對照：分離閘極與自對準結構 SuperFlash® Comparison: Split Gates and Self-Alignment 熱電子注入、FN 抹除與場強控制 Hot-Electron Injection, FN Erase and Field Control Split-Gate eFlash (分離閘極嵌入式快閃記憶體) Split-Gate eFlash (Split-Gate Embedded Flash Memory) 浮閘、控制閘、尖緣與跨覆源極 Floating/Control Gates, Sharp Edges and Overhanging Source 熱電子注入、FN 抹除與場強控制 Hot-Electron Injection, FN Erase and Field Control 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. SST (Microchip) 50件 US5029130A US5242848A US6627942B2 US6563167B2 US6727545B2 US7868375B2 US7668013B2 US8488388B2"
+  },
+  {
+    "title_zh": "Toggle MRAM 歷史技術來源 · 4 件代表專利",
+    "title_en": "Toggle MRAM Historical Technical Source · 4 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-everspin-toggle-family",
+    "tags": "Toggle MRAM 歷史技術來源 Toggle MRAM Historical Technical Source 依序重疊磁場脈衝切換磁矩 Sequenced Overlapping Field Pulses Switch Magnetization Field-Assisted MRAM (磁場輔助切換磁記憶體) Field-Assisted MRAM (Field-Assisted Switching Magnetic Memory) 反鐵磁耦合自由層與兩條場寫入導線 Coupled Free Layers and Two Field-Writing Conductors 依序重疊磁場脈衝切換磁矩 Sequenced Overlapping Field Pulses Switch Magnetization 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Everspin 4件 US6545906B1 US7932571B2 US6693824B2 US6760266B2"
+  },
+  {
+    "title_zh": "Everspin 固定磁層與 STT-MRAM 技術組合 · 46 件代表專利",
+    "title_en": "Everspin Fixed Magnetic Layers and STT-MRAM · 46 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-everspin-stt-family",
+    "tags": "Everspin 固定磁層與 STT-MRAM 技術組合 Everspin Fixed Magnetic Layers and STT-MRAM 磁層耦合、自旋轉矩與障壁應力控制 Magnetic Coupling, Spin Torque and Barrier-Stress Control STT-MRAM (自旋轉矩傳遞磁記憶體) STT-MRAM (Spin-Transfer Torque Magnetic Memory) SAF 固定層、雙障壁自由層及脈衝電路 Fixed SAF, Dual-Barrier Free Layer and Pulse Circuitry 磁層耦合、自旋轉矩與障壁應力控制 Magnetic Coupling, Spin Torque and Barrier-Stress Control 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Everspin 46件 US8497538B2 US9391264B2 US9159906B2 US9286963B2 US7605437B2 US8216703B2 US8923041B2 US11004899B2"
+  },
+  {
+    "title_zh": "Weebit ReRAM 電路選錄與材料背景比較 · 21 件代表專利",
+    "title_en": "Weebit ReRAM Circuit Selection and Materials Context · 21 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-weebit-oxram-family",
+    "tags": "Weebit ReRAM 電路選錄與材料背景比較 Weebit ReRAM Circuit Selection and Materials Context 電阻態、端點偏壓與平行設定／重設 Resistance States, Terminal Bias and Parallel Set/Reset OxRAM / ReRAM (氧化物電阻式非揮發性記憶體) OxRAM / ReRAM (Oxide-Based Resistive Non-Volatile Memory) SOI 2T2R／2T1R、1T2R 與逐欄控制 SOI 2T2R/2T1R, 1T2R and Column Control 電阻態、端點偏壓與平行設定／重設 Resistance States, Terminal Bias and Parallel Set/Reset 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. Weebit Nano 21件 US11538524B2 US6849891B1 US11659720B2 US12068028B2 US20220122660A1 US12170110B2 US12131777B2 US12040017B2"
+  },
+  {
+    "title_zh": "PUFrt／PUFcc 對照：認證、亂數與金鑰管理 · 23 件代表專利",
+    "title_en": "PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management · 23 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-pufsecurity-rot-family",
+    "tags": "PUFrt／PUFcc 對照：認證、亂數與金鑰管理 PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management 挑戰回應、重加密、熵混合與金鑰衍生 Challenge-Response, Re-Encryption, Entropy Mixing and Derivation Hardware Security Root-of-Trust (晶片硬體安全信任根) Hardware Security Root-of-Trust (Silicon Hardware Security Root of Trust) 認證電路、亂數池、PUF 與金鑰元件 Authentication, Random Pools, PUF and Key Components 挑戰回應、重加密、熵混合與金鑰衍生 Challenge-Response, Re-Encryption, Entropy Mixing and Derivation 本次不由權利項推定量產節點；須另查產品與製程資格證據。 Not established from these claims; consult product qualification evidence. PUFsecurity 23件 US11121884B2 US11502832B2 US11381394B2 US11876899B2 US12113895B2 US11961567B2 US11662978B2 US11893141B2"
+  },
+  {
+    "title_zh": "CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM · 15 件代表專利",
+    "title_en": "CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM · 15 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-crossbar-reram-family",
+    "tags": "CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM 銀奈米絲、非線性自整流與 3D 堆疊 ReRAM Silver filaments, non-linear self-rectification, and 3D stacked ReRAM ReRAM (電阻式非揮發性記憶體) ReRAM (Resistive Non-Volatile Memory) 二端子金屬/非晶介電/半導體交叉點單元 (Two-Terminal 1S1R / Crossbar) Two-Terminal Metal / Amorphous Dielectric / Semiconductor Crossbar Cell (1S1R / Crossbar) 銀奈米絲受控電化學析出、斷裂與自整流非線性導通 Controlled electrochemical silver filament formation, rupture, and non-linear conduction 40nm – 28nm CMOS 後段相容 (BEOL) 40nm – 28nm CMOS Back-End-of-Line Compatible (BEOL) CrossBar 15件 US8374018B2 US8404553B2 US8492195B2 US8558212B2 US8765566B2 US8947908B2 US8982647B2 US9012307B2"
+  },
+  {
+    "title_zh": "Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM · 15 件代表專利",
+    "title_en": "Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM · 15 Curated Patents",
+    "url": "nvm-technology-atlas.html#family-nantero-nram-family",
+    "tags": "Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM 單壁碳奈米管織物、凡得瓦力雙穩態與耐高溫 NRAM Single-walled CNT fabric, van der Waals bistability, and radiation-hard NRAM NRAM (碳奈米管非揮發性記憶體) NRAM (Carbon Nanotube Non-Volatile Memory) 碳奈米管網狀機電切換單元 (Carbon Nanotube Electromechanical Switch) Carbon Nanotube Fabric Electromechanical Switch Cell 奈米管接觸凡得瓦力引力吸附（ON）與靜電排斥分開（OFF） Nanotube van der Waals attractive contact (ON) and electrostatic repulsive separation (OFF) 55nm – 28nm CMOS 後段相容 (BEOL) 55nm – 28nm CMOS Back-End-of-Line Compatible (BEOL) Nantero 15件 US6643165B2 US6706402B2 US6759693B2 US6774052B2 US6791871B2 US6798127B2 US7321188B2 US7405605B2"
   },
   {
     "title_zh": "儲存物理專題",

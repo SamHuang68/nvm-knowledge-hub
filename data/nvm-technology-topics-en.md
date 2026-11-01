@@ -11462,6 +11462,26 @@ Status and term dates are recorded research data, not current legal determinatio
 
 [USPTO](https://www.uspto.gov/patents/basics/essentials) · [Patent term](https://www.uspto.gov/patents/laws/patent-term-calculator)
 
+### 14 Global NVM Pioneer Vendors Patent Coverage Matrix (477 Grants)
+
+| Vendor | Headquarters | Core Technology Domain | Curated Grants | Technology Families |
+|---|---|---|:---:|---|
+| **eMemory Technology Inc.** (eMemory) | Hsinchu Science Park, Taiwan | Pure-Play Logic-Based Embedded Non-Volatile Memory IP Licensing & Design Services (0-Mask Logic NVM IP) | **75** | NeoBit® Comparison: Single-Poly Floating-Gate OTP (16); NeoFuse® Comparison: Antifuse OTP (19); NeoEE® Comparison: Erasable Single-Poly NVM (13); NeoMTP® Comparison: Assistant-Gate Cells and Arrays (13); NeoPUF® Comparison: Antifuse and Security Systems (14) |
+| **Kilopass Technology Inc. (Acquired by Synopsys in 2018)** (Kilopass (Synopsys)) | Santa Clara, California, USA | Standard CMOS Logic 2T Gate-Oxide Breakdown Antifuse OTP IP (Standard Logic 2T Antifuse OTP IP) | **60** | XPM™ Comparison: Single-Transistor Programmable Cells (57); SecretCode™ Comparison: Well-Controlled Antifuse (3) |
+| **Sidense Corporation (Acquired by Synopsys in 2017)** (Sidense (Synopsys)) | Ottawa, Ontario, Canada | Standard CMOS Single-Transistor Split-Channel 1T-Fuse Antifuse IP Licensing (1T Split-Channel Antifuse OTP IP) | **26** | 1T-Fuse™ Comparison: Split Channel, Wells and Sensing (26) |
+| **Yield Microelectronics Corp. (YMC)** (YMC) | Zhubei City, Hsinchu County, Taiwan | Standard Logic Single-Poly Embedded Multi-Time Programmable (MTP) IP Licensing & Design Services | **27** | YMC Single Floating Gate, Shared Terminal and EEPROM Arrays (27) |
+| **Impinj / Virage Logic / Synopsys (AEON®)** (AEON (Synopsys)) | Seattle, WA / Mountain View, CA, USA | Standard CMOS Ultra-Low-Power Bidirectional FN/FN Tunneling Single-Poly MTP IP | **11** | AEON® Lineage Comparison: Impinj, Virage and Synopsys NVM (11) |
+| **NSCore, Inc.** (NSCore (TwinBit®)) | Kawasaki, Kanagawa, Japan | Native Sidewall Spacer Charge-Trapping 1.5T/2T Logic MTP IP Licensing (Zero-Mask Standard CMOS) | **29** | NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory (29) |
+| **Attopsemi Technology Co., Ltd.** (Attopsemi) | Zhubei City, Hsinchu County, Taiwan | Thermal-Assisted Controlled Electromigration Fuse (I-fuse®) Logic OTP IP Licensing & Design Services | **52** | I-fuse® Reliable Programming and OTP Testability (52) |
+| **Floadia Corporation** (Floadia) | Kodaira, Tokyo, Japan | Embedded Charge-Trap eFlash & Ultra-Low-Power MTP/SONOS IP Licensing | **23** | LEE Flash ZT Comparison: Single-Layer-Gate Injection (7); LEE Flash G1/G2 Comparison: Storage Gates, SRAM and Integration (16) |
+| **Silicon Storage Technology, Inc. (SST / Microchip Technology)** (SST (Microchip)) | San Jose, California, USA | Split-Gate Embedded Flash Memory SuperFlash® IP Licensing & Technology Transfer | **50** | SuperFlash® Comparison: Split Gates and Self-Alignment (50) |
+| **Everspin Technologies, Inc.** (Everspin) | Chandler, Arizona, USA | Commercial Discrete & Embedded Magnetoresistive RAM (MRAM) Design, Manufacturing, and IP Licensing | **50** | Toggle MRAM Historical Technical Source (4); Everspin Fixed Magnetic Layers and STT-MRAM (46) |
+| **Weebit Nano Limited** (Weebit Nano) | Hod HaSharon, Israel / Melbourne, Australia | Oxide Resistive RAM (OxRAM / ReRAM) Embedded IP Licensing & Neuromorphic Design Services | **21** | Weebit ReRAM Circuit Selection and Materials Context (21) |
+| **PUFsecurity Corp.** (PUFsecurity) | Zhubei City, Hsinchu County, Taiwan | Quantum Tunneling Physical Unclonable Function (PUF) Hardware Root-of-Trust and Security Co-Processor IP | **23** | PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management (23) |
+| **CrossBar, Inc.** (CrossBar) | Santa Clara, California, USA | Filamentary ReRAM IP licensing and 3D crossbar architectures | **15** | CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM (15) |
+| **Nantero, Inc.** (Nantero) | Woburn, Massachusetts, USA | Carbon nanotube non-volatile RAM (NRAM® IP) and nanomaterial licensing | **15** | Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM (15) |
+| **Total: 14 Pioneers** | Global Multi-Jurisdiction | Full-Spectrum OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF | **477** | 21 Families |
+
 ### eMemory Technology Inc. (eMemory)
 
 Company/lineage grouping is editorial. Each record separately identifies the publication-time assignee or applicant; later assignments are not established.

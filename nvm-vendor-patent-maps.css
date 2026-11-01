@@ -1289,3 +1289,108 @@
 /* 申請公開案與其他未核定狀態保留獨立呈現。 */
 .nvm-status-unverified, .nvm-patent-tag-unverified { color: #735318; background: #fff4d5; }
 .nvm-card-unverified { border-left-color: #a77c2b; }
+
+/* 全球 14 家廠商專利全景矩陣樣式 */
+.nvm-map-summary-matrix-wrap {
+  overflow-x: auto;
+  border: 1px solid #c8d8df;
+  border-radius: 4px;
+  margin-top: 20px;
+  background: #ffffff;
+}
+.nvm-map-summary-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 760px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.nvm-map-summary-table caption {
+  text-align: left;
+  padding: 14px 16px;
+  color: #0f4c5c;
+  background: #f0f7f8;
+  font-weight: 600;
+  border-bottom: 1px solid #c8d8df;
+}
+.nvm-map-summary-table th, .nvm-map-summary-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #dce6e9;
+  vertical-align: middle;
+}
+.nvm-map-summary-table thead th {
+  background: #f8fafb;
+  color: #456171;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid #b8ccd4;
+}
+.nvm-map-summary-table tbody th {
+  background: #fdfefe;
+  text-align: left;
+  width: 20%;
+}
+.nvm-map-summary-table tbody th a {
+  color: #00696d;
+  text-decoration: none;
+}
+.nvm-map-summary-table tbody th a:hover {
+  text-decoration: underline;
+}
+.nvm-vendor-alias {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #5c7684;
+}
+.nvm-map-grant-cell {
+  text-align: center;
+  white-space: nowrap;
+  width: 12%;
+}
+.nvm-map-grant-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #e0f2f1;
+  color: #004d40;
+  font-weight: 700;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  border: 1px solid #b2dfdb;
+}
+.nvm-map-grant-total {
+  color: #004d40;
+  font-size: 0.95rem;
+}
+.nvm-map-families-cell {
+  width: 32%;
+}
+.nvm-map-fam-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nvm-map-fam-list li {
+  margin-bottom: 4px;
+  font-size: 0.82rem;
+}
+.nvm-map-fam-list a {
+  color: #00696d;
+  text-decoration: none;
+}
+.nvm-map-fam-list a:hover {
+  text-decoration: underline;
+}
+.nvm-fam-count {
+  color: #64748b;
+  font-size: 0.78rem;
+}
+.nvm-map-summary-table tfoot th, .nvm-map-summary-table tfoot td {
+  background: #f2f7f8;
+  font-weight: 600;
+  color: #0f4c5c;
+  border-top: 2px solid #b8ccd4;
+}
+.nvm-map-summary-table tbody tr:hover {
+  background: #f4faf9;
+}

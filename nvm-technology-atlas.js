@@ -506,6 +506,12 @@ function initializePatentMap() {
       const row = root.querySelector(`[data-map-vendor-row="${vendor.dataset.mapVendor}"]`);
       row.hidden = vendor.hidden;
       row.querySelector('[data-map-row-total]').textContent = visible.length;
+      const summaryRow = root.querySelector(`[data-map-vendor-summary-row="${vendor.dataset.mapVendor}"]`);
+      if (summaryRow) {
+        summaryRow.hidden = vendor.hidden;
+        const countBadge = summaryRow.querySelector('[data-map-summary-count]');
+        if (countBadge) countBadge.textContent = `${visible.length} ${en ? 'Grants' : '件'}`;
+      }
       for (const cell of row.querySelectorAll('[data-map-cell]')) {
         const hits = visible.filter(record=>record.closest('[data-map-family]').dataset.mapTechnology === cell.dataset.mapCell);
         const link = cell.querySelector('a');
