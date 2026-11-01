@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "a1a24eeab086c29d73c6715a065d4386b6bfa7c7",
+  "baseCommit": "a9f9712ee3a75aba293f523846484bb3c8f6ee50",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -42,7 +42,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 9 力旺電子（eMemory）旗艦專利 26 件全面深度收錄（NeoBit、NeoFuse、NeoEE、NeoMTP、NeoPUF 核心專利），全庫總數躍升至 347 件",
+      "reason": "驗證 Stage 10 新興記憶體（Everspin STT/SOT-MRAM 13 件 + SST 分離閘極 SuperFlash/memBrain 12 件）共 25 件專利深度收錄，全庫專利總數達到 372 件",
       "prepare": [
         "node"
       ],

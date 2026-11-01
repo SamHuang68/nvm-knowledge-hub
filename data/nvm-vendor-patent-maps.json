@@ -17515,6 +17515,678 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8614924B2",
+              "title": "非揮發性記憶體系統與方法",
+              "grantDate": "2013-04-19",
+              "publicationDate": "2013-04-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-04-19",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US8614924B2/en",
+              "coreProblem": "車規分離閘極快閃記憶體在超長壽命與極端溫度下，擦除閘極與控制閘極高壓分配易引發介電質應力。",
+              "mechanism": "構建動態階梯式抹除與偏壓補償系統，根據單元閾值電壓演變調控擦除電壓脈衝寬度與振幅。",
+              "claimFocus": "權利項 1 要求非揮發性分離閘極陣列、階梯電壓產生電路、驗證感測比較器及回授計數控制器。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8614924B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/a9/86/5c/c454c5bf2cc53b/US8614924.pdf",
+                  "date": "2013-04-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 81 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-04-19）。",
+                  "pdfSHA256": "a9865cc454c5bf2cc53be74b35d5fbaaf5262770ddd312d1c862fffdc7b64727",
+                  "page": 81
+                },
+                {
+                  "title": "US8614924B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8614924B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8614924B2",
+                "url": "https://patents.google.com/patent/US8614924B2/en",
+                "note": "US8614924B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US8614924B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/a9/86/5c/c454c5bf2cc53b/US8614924.pdf",
+                  "date": "2013-04-19",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10325666B2",
+              "title": "採用負高壓位準移位器之快閃記憶體系統",
+              "grantDate": "2018-12-12",
+              "publicationDate": "2018-12-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-12-12",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10325666B2/en",
+              "coreProblem": "分離閘極單元在低壓微縮節點下進行電子擦除需施加負偏壓，傳統位準移位器漏電大且佔用過多矽面積。",
+              "mechanism": "設計交錯交叉耦合負高壓位準移位電路，以深 N 井隔離消除寄生效應，實現快速無漏電高壓轉換。",
+              "claimFocus": "權利項 1 要求負高壓切換電路、交叉耦合電晶體對、深 N 井隔離基底及防止反向偏壓崩潰之箝位結構。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10325666B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/6b/41/98/780c304051690c/US10325666.pdf",
+                  "date": "2018-12-12",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-12-12）。",
+                  "pdfSHA256": "6b4198780c304051690c7d4436acc4e8547c0bea7aa7d5ffe149e8da1269d175",
+                  "page": 33
+                },
+                {
+                  "title": "US10325666B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10325666B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10325666B2",
+                "url": "https://patents.google.com/patent/US10325666B2/en",
+                "note": "US10325666B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10325666B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/6b/41/98/780c304051690c/US10325666.pdf",
+                  "date": "2018-12-12",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10534554B2",
+              "title": "快閃記憶體裝置之防駭客安全保護機制",
+              "grantDate": "2017-10-13",
+              "publicationDate": "2017-10-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-10-13",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10534554B2/en",
+              "coreProblem": "嵌入式晶片面臨非侵入式旁路攻擊、電源毛刺故障注入以及微探針逆向工程威脅。",
+              "mechanism": "結合假讀取週期、亂序位址映射混淆矩陣以及分離閘極單元浮閘局部電荷隱藏技術阻止逆向讀出。",
+              "claimFocus": "權利項 1 要求防駭客硬體邏輯、動態混淆位址解碼器、異常電壓突波偵測器及自動擦除觸發電路。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10534554B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/11/58/c6/5a4577405ad608/US10534554.pdf",
+                  "date": "2017-10-13",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-10-13）。",
+                  "pdfSHA256": "1158c65a4577405ad6088251c6044f80ff366bd85887834c2ed23b19a7f865fb",
+                  "page": 33
+                },
+                {
+                  "title": "US10534554B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10534554B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10534554B2",
+                "url": "https://patents.google.com/patent/US10534554B2/en",
+                "note": "US10534554B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10534554B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/11/58/c6/5a4577405ad608/US10534554.pdf",
+                  "date": "2017-10-13",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11031050B2",
+              "title": "快閃記憶體讀出放大器之電源線補償電路",
+              "grantDate": "2019-07-30",
+              "publicationDate": "2019-07-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-07-30",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11031050B2/en",
+              "coreProblem": "密集陣列平行讀取時，長電源導線電阻引發嚴重 IR-drop 電壓降，使遠端單元讀出裕度顯著收縮。",
+              "mechanism": "在感測放大器陣列中配置分散式主動電源壓降回授追蹤器，根據陣列實體距離動態補償感測基準電流。",
+              "claimFocus": "權利項 1 要求記憶體感測陣列、電源電壓降偵測比較器及動態偏壓補償負載電晶體。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11031050B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b6/91/72/d9439981db3c39/US11031050.pdf",
+                  "date": "2019-07-30",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 23 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-07-30）。",
+                  "pdfSHA256": "b69172d9439981db3c39bfc43f450d8432af3f6ea69b3636603fdfd94be5f986",
+                  "page": 23
+                },
+                {
+                  "title": "US11031050B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11031050B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11031050B2",
+                "url": "https://patents.google.com/patent/US11031050B2/en",
+                "note": "US11031050B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US11031050B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b6/91/72/d9439981db3c39/US11031050.pdf",
+                  "date": "2019-07-30",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10755783B2",
+              "title": "類比神經記憶體系統單元之溫度與漏電補償",
+              "grantDate": "2018-11-07",
+              "publicationDate": "2018-11-07",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-11-07",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10755783B2/en",
+              "coreProblem": "類比存內計算（memBrain™）利用單元亞閾值電流進行權重乘加運算，易受溫度變化與漏電流漂移干擾。",
+              "mechanism": "採用啞元單元（Dummy Cell）構成溫度追蹤參考鏈，以差分相消消除共模環境漏電與溫漂誤差。",
+              "claimFocus": "權利項 1 要求類比神經形態矩陣、啞元溫度補償線、類比加法器與抵銷溫度漂移之差分放大級。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10755783B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/19/77/bc/1ef32ae0f1f553/US10755783.pdf",
+                  "date": "2018-11-07",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 51 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-11-07）。",
+                  "pdfSHA256": "1977bc1ef32ae0f1f55332167161d3c936769bf2fb0d2536a7baca7cb3172447",
+                  "page": 51
+                },
+                {
+                  "title": "US10755783B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10755783B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10755783B2",
+                "url": "https://patents.google.com/patent/US10755783B2/en",
+                "note": "US10755783B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10755783B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/19/77/bc/1ef32ae0f1f553/US10755783.pdf",
+                  "date": "2018-11-07",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10896368B2",
+              "title": "深層學習類神經網路用類比神經記憶體系統",
+              "grantDate": "2020-01-18",
+              "publicationDate": "2020-01-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-01-18",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10896368B2/en",
+              "coreProblem": "馮紐曼架構在執行矩陣向量乘法（MVM）時存在記憶體牆能耗瓶頸，急需高能效存內計算架構。",
+              "mechanism": "將 SuperFlash® 分離閘極陣列配置為類比權重突觸網絡，輸入向量經字元線轉為類比電壓直接在位元線上完成電流求和。",
+              "claimFocus": "權利項 1 要求非揮發性分離閘極突觸單元陣列、向量數位類比轉換器（DAC）及位元線電流積分累加器。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10896368B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/71/ed/40/89e6cb2eb570d9/US10896368.pdf",
+                  "date": "2020-01-18",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 50 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-01-18）。",
+                  "pdfSHA256": "71ed4089e6cb2eb570d9ff33bb5069c16634cea4b66f94263c939febefa08d1d",
+                  "page": 50
+                },
+                {
+                  "title": "US10896368B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10896368B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10896368B2",
+                "url": "https://patents.google.com/patent/US10896368B2/en",
+                "note": "US10896368B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10896368B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/71/ed/40/89e6cb2eb570d9/US10896368.pdf",
+                  "date": "2020-01-18",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11755899B2",
+              "title": "類比神經記憶體之精確程式化方法與裝置",
+              "grantDate": "2020-01-23",
+              "publicationDate": "2020-01-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-01-23",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11755899B2/en",
+              "coreProblem": "類比神經計算要求權重具備多位元（例如 8-bit）連續導電度，傳統單脈衝寫入無法精確調控微小電荷量。",
+              "mechanism": "採用演進式「微幅脈衝寫入－精確驗證」閉迴路適應演算法，以奈秒級脈衝增量微調浮閘儲存電子數。",
+              "claimFocus": "權利項 1 要求高精度寫入脈衝產生器、類比導電度量測電路與目標收斂判定控制器之方法項。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11755899B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b4/f0/f6/4688314a1eb433/US11755899.pdf",
+                  "date": "2020-01-23",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 72 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-01-23）。",
+                  "pdfSHA256": "b4f0f64688314a1eb433488af4ed54be5cb21b1b00de718abe06d1190f75de4a",
+                  "page": 72
+                },
+                {
+                  "title": "US11755899B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11755899B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11755899B2",
+                "url": "https://patents.google.com/patent/US11755899B2/en",
+                "note": "US11755899B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US11755899B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b4/f0/f6/4688314a1eb433/US11755899.pdf",
+                  "date": "2020-01-23",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10861568B2",
+              "title": "深層學習類比非揮發性記憶體之資料刷新方法與裝置",
+              "grantDate": "2019-10-02",
+              "publicationDate": "2019-10-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-10-02",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10861568B2/en",
+              "coreProblem": "浮閘電荷長年微小漏失會導致類比權重精度漂移，降低神經網路推理辨識準確率。",
+              "mechanism": "週期性背景讀出權重並與數位校準簽名比對，對偏離單元實施無損同相微電荷注入刷新。",
+              "claimFocus": "權利項 1 要求資料刷新電路、數位參考暫存器、類比漂移比較器及選擇性電荷微補充邏輯。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10861568B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/84/97/a5/c3afb32fe62abe/US10861568.pdf",
+                  "date": "2019-10-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 32 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-10-02）。",
+                  "pdfSHA256": "8497a5c3afb32fe62abe5f5b59d5d52b443d445061ba0618cd93daed4cf76c11",
+                  "page": 32
+                },
+                {
+                  "title": "US10861568B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10861568B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10861568B2",
+                "url": "https://patents.google.com/patent/US10861568B2/en",
+                "note": "US10861568B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10861568B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/84/97/a5/c3afb32fe62abe/US10861568.pdf",
+                  "date": "2019-10-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10748630B2",
+              "title": "類比記憶體高精度高效微調機制與演算法",
+              "grantDate": "2017-11-29",
+              "publicationDate": "2017-11-29",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-11-29",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10748630B2/en",
+              "coreProblem": "深度類神經網路權重空間龐大，若全單元採用慢速微步調校將導致生產測試或訓練加載時間過長。",
+              "mechanism": "結合粗調大電流注入與二分搜尋細調之多階段混合調諧機制，顯著縮短收斂時間同時保證低 DNL 誤差。",
+              "claimFocus": "權利項 1 要求雙模式可調偏壓源、收斂監控狀態機與動態調整步進寬度之調校邏輯。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10748630B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/eb/8c/c1/f11b4070bbba0c/US10748630.pdf",
+                  "date": "2017-11-29",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 61 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-11-29）。",
+                  "pdfSHA256": "eb8cc1f11b4070bbba0cd9b740732f02471a34af2a211abb08d4d68f588213e2",
+                  "page": 61
+                },
+                {
+                  "title": "US10748630B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10748630B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10748630B2",
+                "url": "https://patents.google.com/patent/US10748630B2/en",
+                "note": "US10748630B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10748630B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/eb/8c/c1/f11b4070bbba0c/US10748630.pdf",
+                  "date": "2017-11-29",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10580492B2",
+              "title": "採用類比記憶體實現可配置卷積類神經網路之系統與方法",
+              "grantDate": "2018-08-21",
+              "publicationDate": "2018-08-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-08-21",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10580492B2/en",
+              "coreProblem": "卷積層核心尺寸（如 3x3、5x5、1x1）多樣，固定硬體矩陣拓撲無法兼顧不同核尺寸之運算效率。",
+              "mechanism": "設計可重構位元線開關矩陣與核心映射控制單元，動態劃分分離閘極陣列之卷積窗口計算區域。",
+              "claimFocus": "權利項 1 要求可重構陣列開關網絡、卷積步幅解碼控制單元及滑動窗口電流累積暫存器。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10580492B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/2b/b8/09/383bf82a0db21c/US10580492.pdf",
+                  "date": "2018-08-21",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 49 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-08-21）。",
+                  "pdfSHA256": "2bb809383bf82a0db21cb383d6d922700954fd9dd902257dd6e9716864fb4392",
+                  "page": 49
+                },
+                {
+                  "title": "US10580492B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10580492B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10580492B2",
+                "url": "https://patents.google.com/patent/US10580492B2/en",
+                "note": "US10580492B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US10580492B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/2b/b8/09/383bf82a0db21c/US10580492.pdf",
+                  "date": "2018-08-21",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11393546B2",
+              "title": "人工類神經網路類比神經記憶體測試電路與方法",
+              "grantDate": "2019-09-12",
+              "publicationDate": "2019-09-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-09-12",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11393546B2/en",
+              "coreProblem": "類比陣列每個節點均具多階連續導電度，傳統數位測試機台（ATE）無法快速檢驗非線性度與動態範圍。",
+              "mechanism": "晶片內建平行 BIST 測試引擎，以多通道高速類比 Ramp 掃描與並行 ADC 瞬時採樣全陣列響應曲線。",
+              "claimFocus": "權利項 1 要求晶粒內建測試（BIST）電路、階梯波刺激源、平行感測取樣電路與良率統計單元。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11393546B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b4/54/26/77741104394ecd/US11393546.pdf",
+                  "date": "2019-09-12",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 56 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-09-12）。",
+                  "pdfSHA256": "b4542677741104394ecd5ebfd83baa556659c56588305972216db3c8c25798d4",
+                  "page": 56
+                },
+                {
+                  "title": "US11393546B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11393546B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11393546B2",
+                "url": "https://patents.google.com/patent/US11393546B2/en",
+                "note": "US11393546B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US11393546B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b4/54/26/77741104394ecd/US11393546.pdf",
+                  "date": "2019-09-12",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11354562B2",
+              "title": "深層學習類比非揮發性記憶體之可程式化神經元",
+              "grantDate": "2018-03-27",
+              "publicationDate": "2018-03-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-03-27",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11354562B2/en",
+              "coreProblem": "類神經網路激勵函數（ReLU、Sigmoid、Tanh）在數位實作佔用大量邏輯閘且需頻繁進行 ADC 轉換。",
+              "mechanism": "利用受控電晶體傳導特性與分離閘極電流整流特性，在類比域直接合成可配置非線性激勵輸出函數。",
+              "claimFocus": "權利項 1 要求類比神經元電路、具備非線性傳遞特性之激勵電晶體網絡與模式選擇控制輸入端。",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11354562B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/a4/fe/25/e24bdde9ac4eb6/US11354562.pdf",
+                  "date": "2018-03-27",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 41 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-03-27）。",
+                  "pdfSHA256": "a4fe25e24bdde9ac4eb6365d81d24d68a61e56124bb03ba1cc3e97906f1d39f1",
+                  "page": 41
+                },
+                {
+                  "title": "US11354562B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11354562B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11354562B2",
+                "url": "https://patents.google.com/patent/US11354562B2/en",
+                "note": "US11354562B2 依原始核准公報建檔收錄，核對首頁受讓人 Silicon Storage Technology, Inc. 與發明人。",
+                "source": {
+                  "title": "US11354562B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/a4/fe/25/e24bdde9ac4eb6/US11354562.pdf",
+                  "date": "2018-03-27",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc. 及發明人 Bing Yeh。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -18302,6 +18974,734 @@
                   "date": "2021-05-11",
                   "dateKind": "published",
                   "note": "原件公報首頁核對受讓人 Everspin Technologies, Inc.；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9218865B2",
+              "title": "自旋轉矩 MRAM 之自我參考感測放大器",
+              "grantDate": "2014-09-23",
+              "publicationDate": "2014-09-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-09-23",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9218865B2/en",
+              "coreProblem": "STT-MRAM 單元間電阻差異小且存在熱波動，傳統固定參考電阻難以提供足夠的讀取容限與信噪比。",
+              "mechanism": "採用破壞性自我參考兩階段讀出技術，先感測初始狀態，再寫入已知基準狀態進行二次差分比較並還原資料。",
+              "claimFocus": "權利項 1 要求自我參考感測電路、第一階段取樣電容器、第二階段位準比較器與自動寫回控制邏輯。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9218865B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/09/c2/f8/09bb9792a30076/US9218865.pdf",
+                  "date": "2014-09-23",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-09-23）。",
+                  "pdfSHA256": "09c2f809bb9792a300764514533cd750afc235704aa7b47c9332f8832e7c98e4",
+                  "page": 18
+                },
+                {
+                  "title": "US9218865B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9218865B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9218865B2",
+                "url": "https://patents.google.com/patent/US9218865B2/en",
+                "note": "US9218865B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9218865B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/09/c2/f8/09bb9792a30076/US9218865.pdf",
+                  "date": "2014-09-23",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11127896B2",
+              "title": "自旋軌道轉矩 MRAM 中之共用 SOT 寫入線架構",
+              "grantDate": "2019-01-18",
+              "publicationDate": "2019-01-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-01-18",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11127896B2/en",
+              "coreProblem": "傳統 SOT-MRAM 每個單元需獨立三端子線路，金屬繞線密集度過高且限制陣列位元密度。",
+              "mechanism": "在相鄰 MTJ 單元間共用底層重金屬 SOT 寫入傳導層，藉由雙向電流脈衝與選通閘極達成空間共用。",
+              "claimFocus": "權利項 1 要求共用自旋軌道轉矩通道層、多個配置於其上的磁穿隧接面（MTJ）以及獨立的讀取端子。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11127896B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/ae/cc/24/c38f0c3829faf4/US11127896.pdf",
+                  "date": "2019-01-18",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 30 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-01-18）。",
+                  "pdfSHA256": "aecc24c38f0c3829faf4c49851efd6fbb4bba35c1bb999c652ac292dda050f41",
+                  "page": 30
+                },
+                {
+                  "title": "US11127896B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11127896B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11127896B2",
+                "url": "https://patents.google.com/patent/US11127896B2/en",
+                "note": "US11127896B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US11127896B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/ae/cc/24/c38f0c3829faf4/US11127896.pdf",
+                  "date": "2019-01-18",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9847116B2",
+              "title": "MRAM 單元偏壓控制電路與方法",
+              "grantDate": "2016-12-05",
+              "publicationDate": "2016-12-05",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-12-05",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9847116B2/en",
+              "coreProblem": "寫入與讀取過程中位元線與字元線電壓過衝容易造成 MTJ 穿隧氧化層介電質疲勞擊穿。",
+              "mechanism": "導入具動態電壓箝位之主動位準調節器，限制寫入脈衝瞬態電壓峰值並提供平滑轉換斜率。",
+              "claimFocus": "權利項 1 要求偏壓控制電路、具備回授調節之箝位電晶體以及限制通過 MTJ 兩端最大電位差之偏壓產生器。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9847116B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/88/40/e0/52aadbb33f2424/US9847116.pdf",
+                  "date": "2016-12-05",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-12-05）。",
+                  "pdfSHA256": "8840e052aadbb33f2424d62017d414cf710e76b3b0247841397aad444fda8bfb",
+                  "page": 16
+                },
+                {
+                  "title": "US9847116B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9847116B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9847116B2",
+                "url": "https://patents.google.com/patent/US9847116B2/en",
+                "note": "US9847116B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9847116B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/88/40/e0/52aadbb33f2424/US9847116.pdf",
+                  "date": "2016-12-05",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9269894B2",
+              "title": "磁阻元件蝕刻過程中之磁層隔離製程",
+              "grantDate": "2014-06-04",
+              "publicationDate": "2014-06-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-06-04",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9269894B2/en",
+              "coreProblem": "離子束蝕刻或反應性電漿蝕刻 MTJ 堆疊時，導電金屬副產物易重新沉積於穿隧屏障側壁造成漏電短路。",
+              "mechanism": "在蝕刻步驟間導入原位介電質側壁鈍化保護層，並透過特定角度微斜向蝕刻清除重新沉積之導電殘渣。",
+              "claimFocus": "權利項 1 要求包含自對準硬遮罩蝕刻、側壁絕緣層保形沉積與二次微蝕刻去除邊緣金屬短路之製造方法項。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9269894B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/11/71/46/a2e795aa521398/US9269894.pdf",
+                  "date": "2014-06-04",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-06-04）。",
+                  "pdfSHA256": "117146a2e795aa5213987447ab1fe4a12692bbe4374ad4e974d8659d85da92f1",
+                  "page": 20
+                },
+                {
+                  "title": "US9269894B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9269894B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9269894B2",
+                "url": "https://patents.google.com/patent/US9269894B2/en",
+                "note": "US9269894B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9269894B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/11/71/46/a2e795aa521398/US9269894.pdf",
+                  "date": "2014-06-04",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9136464B1",
+              "title": "具金屬氧化物穿隧屏障之自旋轉矩 MRAM 製造裝置與製程",
+              "grantDate": "2013-09-25",
+              "publicationDate": "2013-09-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-09-25",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9136464B1/en",
+              "coreProblem": "MgO 穿隧屏障厚度僅數個原子層，原子級均勻度與晶體定向不佳將導致穿隧磁阻比（TMR）急劇退化。",
+              "mechanism": "採用精密多腔體真空原子層沉積與後段退火結晶控制技術，形成具備高度 (001) 晶向取向之緻密氧化鎂絕緣屏障。",
+              "claimFocus": "權利項 1 聚焦沉積反應腔體配置、靶材沉積速率精確控制與形成預定厚度與結晶度金屬氧化物屏障之製程步驟。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9136464B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/ac/c8/94/83386c59a29bc4/US9136464.pdf",
+                  "date": "2013-09-25",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 8 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-09-25）。",
+                  "pdfSHA256": "acc89483386c59a29bc4fcf318745230e3dc251b69105a38d016b0be0bd7b8ec",
+                  "page": 8
+                },
+                {
+                  "title": "US9136464B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9136464B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9136464B1",
+                "url": "https://patents.google.com/patent/US9136464B1/en",
+                "note": "US9136464B1 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9136464B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/ac/c8/94/83386c59a29bc4/US9136464.pdf",
+                  "date": "2013-09-25",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10897008B2",
+              "title": "具非釘扎固定合成反鐵磁結構之磁阻堆疊",
+              "grantDate": "2020-06-02",
+              "publicationDate": "2020-06-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-06-02",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10897008B2/en",
+              "coreProblem": "傳統反鐵磁釘扎層（如 PtMn/IrMn）高溫熱穩定性較差且增加總堆疊厚度與蝕刻難度。",
+              "mechanism": "利用強反平行交換耦合之非對稱合成反鐵磁層（SAF），無需反鐵磁釘扎層即可在工作溫度內維持剛性自對準固定磁化。",
+              "claimFocus": "權利項 1 要求具備非釘扎固定 SAF、具備第一厚度之第一鐵磁層、釕（Ru）耦合層以及厚度非對稱之第二鐵磁層。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10897008B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/76/93/98/ef44d87bc56b78/US10897008.pdf",
+                  "date": "2020-06-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 7 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-06-02）。",
+                  "pdfSHA256": "769398ef44d87bc56b78ab2890dc61e5d4a91dea59bc34776a932f80763eb2bb",
+                  "page": 7
+                },
+                {
+                  "title": "US10897008B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10897008B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10897008B2",
+                "url": "https://patents.google.com/patent/US10897008B2/en",
+                "note": "US10897008B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US10897008B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/76/93/98/ef44d87bc56b78/US10897008.pdf",
+                  "date": "2020-06-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9418001B2",
+              "title": "交錯存取 DRAM 與 MRAM 之記憶體控制器與方法",
+              "grantDate": "2015-08-17",
+              "publicationDate": "2015-08-17",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-08-17",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9418001B2/en",
+              "coreProblem": "異質記憶體系統中 MRAM 寫入延遲與 DRAM 存在非對稱性，直接串行排程會引發嚴重的匯流排管線停頓。",
+              "mechanism": "構建預測式排程緩衝區，動態分析存取位址與存取模式，將非同步 MRAM 寫入與高速 DRAM 讀取無縫交錯執行。",
+              "claimFocus": "權利項 1 要求記憶體介面控制器、位址解碼排程邏輯、寫入資料緩衝隊列以及跨介質存取調度狀態機。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9418001B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/93/35/59/790cee2254e099/US9418001.pdf",
+                  "date": "2015-08-17",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-08-17）。",
+                  "pdfSHA256": "933559790cee2254e09980d498e0adb5edda6bf93b1234fe2757dbdc09931c6d",
+                  "page": 15
+                },
+                {
+                  "title": "US9418001B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9418001B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9418001B2",
+                "url": "https://patents.google.com/patent/US9418001B2/en",
+                "note": "US9418001B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9418001B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/93/35/59/790cee2254e099/US9418001.pdf",
+                  "date": "2015-08-17",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12317753B2",
+              "title": "採用自旋軌道轉矩之磁性記憶體",
+              "grantDate": "2024-02-09",
+              "publicationDate": "2024-02-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2024-02-09",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US12317753B2/en",
+              "coreProblem": "在次微米節點下，傳統 SOT 需外加微小面內磁場輔助才能打破垂直磁化反轉對稱性，增加封裝整合負擔。",
+              "mechanism": "引入結構不對稱性或傾斜各向異性梯度層，無需外加磁場即可實現零外場全電性 SOT 垂直磁化確定性翻轉。",
+              "claimFocus": "權利項 1 要求具備內建幾何或成分梯度之自旋霍爾效應層、垂直各向異性自由磁層與零外部輔助偏壓寫入特徵。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12317753B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/30/97/cc/672ad7f9a8ed86/US12317753.pdf",
+                  "date": "2024-02-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2024-02-09）。",
+                  "pdfSHA256": "3097cc672ad7f9a8ed86b2b381565d2029a46447ebeb94f1fdd64c636770e8d5",
+                  "page": 13
+                },
+                {
+                  "title": "US12317753B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12317753B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12317753B2",
+                "url": "https://patents.google.com/patent/US12317753B2/en",
+                "note": "US12317753B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US12317753B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/30/97/cc/672ad7f9a8ed86/US12317753.pdf",
+                  "date": "2024-02-09",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11139429B2",
+              "title": "具雙介電層之磁阻結構及其製造方法",
+              "grantDate": "2020-02-19",
+              "publicationDate": "2020-02-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-02-19",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11139429B2/en",
+              "coreProblem": "高熱預算後段製程（BEOL 400°C 退火）易引發磁性原子向穿隧屏障擴散，造成穿隧電阻崩解。",
+              "mechanism": "在自由磁層與穿隧屏障上下界界面引入雙介電擴散阻擋層，兼具熱擴散阻絕與界面垂直各向異性（PMA）增強功能。",
+              "claimFocus": "權利項 1 要求底層第一介電層、磁穿隧接面與頂層第二介電保護層之多層整合結構。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11139429B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/0e/89/d4/91f38c571b8f5e/US11139429.pdf",
+                  "date": "2020-02-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-02-19）。",
+                  "pdfSHA256": "0e89d491f38c571b8f5e6aff42cd3236f9382d3b365845d5265146517dd7fc83",
+                  "page": 13
+                },
+                {
+                  "title": "US11139429B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11139429B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11139429B2",
+                "url": "https://patents.google.com/patent/US11139429B2/en",
+                "note": "US11139429B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US11139429B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/0e/89/d4/91f38c571b8f5e/US11139429.pdf",
+                  "date": "2020-02-19",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10062839B2",
+              "title": "磁阻元件及其製造方法",
+              "grantDate": "2017-12-27",
+              "publicationDate": "2017-12-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-12-27",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10062839B2/en",
+              "coreProblem": "先進節點中微型化 MTJ 柱體頂部電極在微影剝離與化學機械研磨（CMP）過程中易發生形變剝落。",
+              "mechanism": "採用金屬硬遮罩研磨停止層與低應力層間介電質平坦化封裝製程，維持次 40nm 接面之幾何柱狀完整度。",
+              "claimFocus": "權利項 1 要求金屬柱體頂蓋電極、平坦化研磨終點控制介電層以及周邊包覆結構之製造步驟。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10062839B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b8/f1/da/e57a0ad8f878e7/US10062839.pdf",
+                  "date": "2017-12-27",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-12-27）。",
+                  "pdfSHA256": "b8f1dae57a0ad8f878e716e09883b471e1743a2df191168a9996b752f981bddd",
+                  "page": 19
+                },
+                {
+                  "title": "US10062839B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10062839B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10062839B2",
+                "url": "https://patents.google.com/patent/US10062839B2/en",
+                "note": "US10062839B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US10062839B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b8/f1/da/e57a0ad8f878e7/US10062839.pdf",
+                  "date": "2017-12-27",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10600460B2",
+              "title": "採用自旋軌道轉矩之垂直磁化記憶體",
+              "grantDate": "2018-10-11",
+              "publicationDate": "2018-10-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-10-11",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10600460B2/en",
+              "coreProblem": "垂直各向異性自由層在低寫入電流下臨界反轉速度與熱穩定係數存在難以兼顧的折衝。",
+              "mechanism": "結合重金屬與拓撲絕緣體複合自旋產生層，提供巨大自旋霍爾角（Spin Hall Angle），以低電流實現次奈秒級垂直翻轉。",
+              "claimFocus": "權利項 1 要求具有高自旋軌道耦合系數之複合傳導條帶、緊鄰之垂直各向異性自由磁層及寫入控制開關。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10600460B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/f9/a3/2f/b537e9a85d2f88/US10600460.pdf",
+                  "date": "2018-10-11",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-10-11）。",
+                  "pdfSHA256": "f9a32fb537e9a85d2f882bb68f26b6ea0eb948a026faad019d0fa2fad148f47b",
+                  "page": 16
+                },
+                {
+                  "title": "US10600460B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10600460B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10600460B2",
+                "url": "https://patents.google.com/patent/US10600460B2/en",
+                "note": "US10600460B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US10600460B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/f9/a3/2f/b537e9a85d2f88/US10600460.pdf",
+                  "date": "2018-10-11",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11758823B2",
+              "title": "磁阻堆疊及其方法",
+              "grantDate": "2018-11-13",
+              "publicationDate": "2018-11-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-11-13",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11758823B2/en",
+              "coreProblem": "垂直 MTJ 在反覆脈衝電應力下自由層界面氧化態改變，導致耐久度與資料保存年限衰減。",
+              "mechanism": "在自由層中導入含硼富鐵界面調質層與鉬（Mo）吸雜吸收層，固定晶格硼原子並穩定氧空位分佈。",
+              "claimFocus": "權利項 1 聚焦自由磁性複合層、吸雜層材料配比及與氧化鎂介電質界面之化學鍵結組態。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11758823B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/a8/ad/6a/342e15a4489664/US11758823.pdf",
+                  "date": "2018-11-13",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-11-13）。",
+                  "pdfSHA256": "a8ad6a342e15a4489664d09e3847b96dffc863880a97ec3fbd8d167ea739a0ae",
+                  "page": 18
+                },
+                {
+                  "title": "US11758823B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11758823B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11758823B2",
+                "url": "https://patents.google.com/patent/US11758823B2/en",
+                "note": "US11758823B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US11758823B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/a8/ad/6a/342e15a4489664/US11758823.pdf",
+                  "date": "2018-11-13",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9793470B2",
+              "title": "磁阻堆疊結構與其製造方法",
+              "grantDate": "2016-02-02",
+              "publicationDate": "2016-02-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-02-02",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9793470B2/en",
+              "coreProblem": "超高密度 MRAM 陣列中鄰近單元寄生磁場交互干擾（Cross-talk），引發寫入干擾與臨界場漂移。",
+              "mechanism": "藉由雙重補償型合成反鐵磁結構優化空間磁通迴路，使單元邊界外漏磁通量降至近乎為零。",
+              "claimFocus": "權利項 1 要求具備封閉磁通對稱之磁阻堆疊單元、自由層與極化固定層磁矩補償之微縮幾何關係。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Everspin 固定磁層與 STT-MRAM 技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9793470B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/c7/e8/fe/728dcc3d0a2bd2/US9793470.pdf",
+                  "date": "2016-02-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 93 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-02-02）。",
+                  "pdfSHA256": "c7e8fe728dcc3d0a2bd25ef740023e813ba58f4033c89d1c64cbb04bcae5774e",
+                  "page": 93
+                },
+                {
+                  "title": "US9793470B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9793470B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9793470B2",
+                "url": "https://patents.google.com/patent/US9793470B2/en",
+                "note": "US9793470B2 依原始核准公報建檔收錄，核對首頁受讓人 Everspin Technologies, Inc. 與發明人。",
+                "source": {
+                  "title": "US9793470B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/c7/e8/fe/728dcc3d0a2bd2/US9793470.pdf",
+                  "date": "2016-02-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Everspin Technologies, Inc. 及發明人 Jon M. Slaughter。",
                   "page": 1
                 }
               }
@@ -21051,5 +22451,5 @@
       ]
     }
   ],
-  "totalPatents": 347
+  "totalPatents": 372
 }
