@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "3a30358ce91fea01b1a6407d402e379e4da797fc",
+  "baseCommit": "d4596b9c2e2850251bc408194ff6bea0f952abe5",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
   ],
   "cases": [
     {
-      "id": "專利地圖與知識圖譜建置檢核",
+      "id": "專利圖譜與知識地圖建置檢驗",
       "kind": "command",
       "command": [
         "node",
@@ -25,7 +25,9 @@
         "data/nvm-vendor-patent-maps-en.json",
         "data/nvm-vendor-patent-maps.json",
         "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html"
+        "nvm-technology-atlas.html",
+        "ip-architect-master-matrix.js",
+        "pqc-rot-budget-calculator.js"
       ],
       "inputs": [
         "data/nvm-knowledge-data-en.json",
@@ -38,16 +40,18 @@
         "nvm-technology-atlas.html",
         "scripts/build-nvm-atlas.mjs",
         "package.json",
-        "package-lock.json"
+        "package-lock.json",
+        "ip-architect-master-matrix.js",
+        "pqc-rot-budget-calculator.js"
       ],
-      "reason": "驗證 Stage 6 純 IP 廠商（PUFsecurity、Sidense、YMC）全數 22 件核心電路、元件物理與硬體安全專利深度收錄，完成純 IP 廠商 100% 普查收錄目標。",
+      "reason": "驗證 Stage 7 新興與特種 NVM 廠商（Floadia、NSCore、Weebit Nano、Sidense、PUFsecurity）共 43 件專利全面深度收錄，達成六大純 IP / 新興廠商 100% 普查收錄零遺漏",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 60
     },
     {
-      "id": "離線清單與發布血統檢核",
+      "id": "離線清單與發布血統檢驗",
       "kind": "command",
       "command": [
         "node",

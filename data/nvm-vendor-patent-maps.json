@@ -3584,6 +3584,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8313987B2",
+              "title": "具自對準高低壓雙氧化層之抗熔絲記憶單元（1T-Fuse™）",
+              "grantDate": "2012-11-20",
+              "publicationDate": "2012-11-20",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-05-06",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US8313987B2/en",
+              "coreProblem": "單電晶體抗熔絲單元在承受 6V 編程高壓時，單元邊界淺溝槽隔離（STI）邊角容易發生寄生漏電與提早局部熱擊穿，損害未選單元。",
+              "mechanism": "採用分離通道（Split-Channel）自對準薄厚雙氧化層架構，厚氧化層承受高壓選通應力，超薄氧化層限定於通道特定微區執行可控擊穿，大幅提升寫入耐受性。",
+              "claimFocus": "權利項 1（公報第 24 頁起）：界定一種抗熔絲記憶單元，包含具備薄閘極氧化物與厚閘極氧化物之分離通道電晶體結構，薄氧化物被構造為於高壓下擊穿以形成永久導電通道。",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8313987B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/be/41/dc/5ac2665f5530c6/US8313987.pdf",
+                  "date": "2012-11-20",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-05-06）。",
+                  "pdfSHA256": "78826f78a180719b0ae4936b88fb4be974dece7c0d9fd8727d875b718a878dbd",
+                  "page": 24
+                },
+                {
+                  "title": "US8313987B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8313987B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8313987B2",
+                "url": "https://patents.google.com/patent/US8313987B2/en",
+                "note": "US8313987B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                "source": {
+                  "title": "US8313987B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/be/41/dc/5ac2665f5530c6/US8313987.pdf",
+                  "date": "2012-11-20",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8471355B2",
+              "title": "AND 型超高密度一次性可程式化（OTP）記憶胞架構",
+              "grantDate": "2013-06-25",
+              "publicationDate": "2013-06-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-10-30",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US8471355B2/en",
+              "coreProblem": "傳統 NOR 型 OTP 每個單元都需要金屬位元線接觸窗（Contact），接觸孔設計規則嚴重限制了記憶體單元向 40nm 以下節點微縮。",
+              "mechanism": "開創 AND 型連續擴散井陣列佈局，多個相鄰抗熔絲單元共用一體化通道擴散區，大幅省除接觸孔數量，將單元面積壓縮至接近 4F² 極限。",
+              "claimFocus": "權利項 1（公報第 18 頁起）：界定一種 AND 型 OTP 記憶胞陣列，包含於連續擴散井中連續排布之複數抗熔絲單元，相鄰單元間共用擴散區以消除獨立金屬接觸孔。",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8471355B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/bd/58/27/8ec35448a841eb/US8471355.pdf",
+                  "date": "2013-06-25",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2009-10-30）。",
+                  "pdfSHA256": "62f9a85a471a26c42fc1ccef951a33ab64761d5f1e844680ec8028192f58381e",
+                  "page": 18
+                },
+                {
+                  "title": "US8471355B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8471355B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8471355B2",
+                "url": "https://patents.google.com/patent/US8471355B2/en",
+                "note": "US8471355B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                "source": {
+                  "title": "US8471355B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/bd/58/27/8ec35448a841eb/US8471355.pdf",
+                  "date": "2013-06-25",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9030860B2",
+              "title": "記憶裝置開機上電偵測系統與防誤動作重置電路",
+              "grantDate": "2015-05-12",
+              "publicationDate": "2015-05-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-05-16",
+              "inventors": "Steven Smith",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US9030860B2/en",
+              "coreProblem": "在電源慢速爬升（Slow Power Ramp）或瞬態電壓突波（Glitch）期間，OTP 內部讀出邏輯可能在供電未穩定前誤動作，讀出錯誤金鑰資料。",
+              "mechanism": "整合高精度帶隙（Bandgap）基準上電重置（POR）偵測器與雜訊濾波計數器，在電源電壓完全跨越穩定運作閾值前強制鎖定記憶體輸出，確保安全開機。",
+              "claimFocus": "權利項 1（公報第 15 頁起）：界定一種記憶裝置上電偵測系統，包含帶隙電平比較器與數位延遲計數器，於內部電壓穩定達標前強制禁能字元線驅動器以防誤操作。",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9030860B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/87/b1/d0/453c8ecd50e80d/US9030860.pdf",
+                  "date": "2015-05-12",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-05-16）。",
+                  "pdfSHA256": "d7917296a74a2f893b08b687906c58f13184a5db1b7d7f0e6aa00924689ff3c4",
+                  "page": 15
+                },
+                {
+                  "title": "US9030860B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9030860B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9030860B2",
+                "url": "https://patents.google.com/patent/US9030860B2/en",
+                "note": "US9030860B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                "source": {
+                  "title": "US9030860B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/87/b1/d0/453c8ecd50e80d/US9030860.pdf",
+                  "date": "2015-05-12",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Steven Smith。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9123572B2",
+              "title": "具高壓隔離井區與抗閉鎖能力之抗熔絲記憶胞",
+              "grantDate": "2015-09-01",
+              "publicationDate": "2015-09-01",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-05-06",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corporation",
+              "url": "https://patents.google.com/patent/US9123572B2/en",
+              "coreProblem": "在深次微米 CMOS 製程中，OTP 寫入高壓容易觸發寄生雙極電晶體（BJT）導通，引發破壞性閉鎖效應（Latch-up），燒毀相鄰邏輯元件。",
+              "mechanism": "在記憶陣列周圍設置三重井（Triple-Well）深 N 井與環形保護環隔離結構，徹底切斷高壓編程期間注入基板之少數載子傳導路徑，完全免疫閉鎖。",
+              "claimFocus": "權利項 1（公報第 31 頁起）：界定一種抗熔絲記憶胞結構，配置於深 N 井隔離之 P 井區內，並包含重摻雜保護環圍繞以收集高壓注入基板之少數載子以防閉鎖。",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9123572B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b8/b4/73/abb0d2e86b2832/US9123572.pdf",
+                  "date": "2015-09-01",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 31 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-05-06）。",
+                  "pdfSHA256": "3b6dd26ff4daee904224313ad300ec9c46ee37bdcf211863dd963261e0b8adbe",
+                  "page": 31
+                },
+                {
+                  "title": "US9123572B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9123572B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9123572B2",
+                "url": "https://patents.google.com/patent/US9123572B2/en",
+                "note": "US9123572B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corporation 與發明人。",
+                "source": {
+                  "title": "US9123572B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b8/b4/73/abb0d2e86b2832/US9123572.pdf",
+                  "date": "2015-09-01",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corporation 及發明人 Wlodek Kurjanowicz。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8735297B2",
+              "title": "適用於微型抗熔絲陣列之逆向光學鄰近效應修正方法（OPC）",
+              "grantDate": "2014-05-27",
+              "publicationDate": "2014-05-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-05-06",
+              "inventors": "Wlodek Kurjanowicz",
+              "assignee": "Sidense Corporation",
+              "url": "https://patents.google.com/patent/US8735297B2/en",
+              "coreProblem": "在 28nm 及以下先進微影工藝中，緊湊排布之抗熔絲分離閘極端頭容易因光學繞射效應產生線端縮減（Line-End Shortening），造成擊穿區域面積漂移。",
+              "mechanism": "開創基於逆向光學模型之專屬 OPC 光罩修正算法，在多晶矽線端預先添加光學錘頭（Hammerhead）補償圖形，精確固化氧化層擊穿微區之實體尺寸。",
+              "claimFocus": "權利項 1（公報第 26 頁起）：界定一種光學鄰近效應修正方法，解析抗熔絲閘極圖形之繞射畸變，於光罩圖案之線端添加幾何補償結構以確保晶圓微影形貌保真度。",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8735297B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/f5/db/c8/bd4412cd250684/US8735297.pdf",
+                  "date": "2014-05-27",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 26 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-05-06）。",
+                  "pdfSHA256": "5bdd7f13baf95178f256ff78e24fe1f6e1a026f45f772ca73eb4434d51419634",
+                  "page": 26
+                },
+                {
+                  "title": "US8735297B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8735297B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8735297B2",
+                "url": "https://patents.google.com/patent/US8735297B2/en",
+                "note": "US8735297B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corporation 與發明人。",
+                "source": {
+                  "title": "US8735297B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/f5/db/c8/bd4412cd250684/US8735297.pdf",
+                  "date": "2014-05-27",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Sidense Corporation 及發明人 Wlodek Kurjanowicz。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -6649,6 +6929,1014 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8213247B2",
+              "title": "具備內建測試機制之 MIS 電晶體非揮發性記憶裝置",
+              "grantDate": "2012-07-03",
+              "publicationDate": "2012-07-03",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-11-16",
+              "inventors": "Tomomi Naka",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US8213247B2/en",
+              "coreProblem": "基於標準邏輯 CMOS 製程之 MIS（金屬-絕緣體-半導體）熱載子記憶體，在大量生產時缺乏晶片內快速篩檢未成形單元缺陷的有效機構。",
+              "mechanism": "在記憶體周邊整合多模式測試邏輯，可切換於「邊限寫入應力測試」與「微弱熱載子捕捉預測」模式，於晶圓接受度測試（WAT）階段快速剔除微瑕疵晶片。",
+              "claimFocus": "權利項 1（公報第 47 頁起）：界定一種具測試機制之記憶裝置，包含 MIS 記憶電晶體陣列、模式控制電路與測試偏壓產生器，支援在晶圓測試中施加特定應力以篩檢單元耐受力。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8213247B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/bd/50/ae/9c45404cbe8629/US8213247.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 47 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2009-11-16）。",
+                  "pdfSHA256": "4ce6f08d2a32fae84fc0cfeede995e9e1eeb8ee5e21703ea47870040174f9998",
+                  "page": 47
+                },
+                {
+                  "title": "US8213247B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8213247B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8213247B2",
+                "url": "https://patents.google.com/patent/US8213247B2/en",
+                "note": "US8213247B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US8213247B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/bd/50/ae/9c45404cbe8629/US8213247.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Tomomi Naka。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7511999B1",
+              "title": "具高可靠度資料保留能力之 MIS 電晶體非揮發性記憶體",
+              "grantDate": "2009-03-31",
+              "publicationDate": "2009-03-31",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-11-06",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7511999B1/en",
+              "coreProblem": "利用電晶體側壁間隙壁（Spacer）捕捉熱載子之記憶體，在高溫（>150°C）車規環境下，間隙壁界面缺陷容易引發被捕獲電荷熱去捕獲（De-trapping）。",
+              "mechanism": "藉由微幅通道反偏工程與對稱熱電洞中和注入技術，將熱電子推入間隙壁深層能階，使資料在 150°C 高溫下保持超過 10 年之車規級數據保存力。",
+              "claimFocus": "權利項 1（公報第 20 頁起）：界定一種 MIS 非揮發記憶體，記憶電晶體利用側壁介電質深能階儲存熱載子，並透過特定反向電場抑制熱去捕獲以確保高溫數據保留。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7511999B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/43/aa/00/3af5e8a977dd39/US7511999.pdf",
+                  "date": "2009-03-31",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2007-11-06）。",
+                  "pdfSHA256": "797cc66444e5b60976d5b9f211aa1a28cb30f1bad77edfa7dc83a2045ffc2633",
+                  "page": 20
+                },
+                {
+                  "title": "US7511999B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7511999B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7511999B1",
+                "url": "https://patents.google.com/patent/US7511999B1/en",
+                "note": "US7511999B1 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7511999B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/43/aa/00/3af5e8a977dd39/US7511999.pdf",
+                  "date": "2009-03-31",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Takashi Kikuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7460400B1",
+              "title": "具位元遮罩功能之 MIS 記憶電晶體非揮發性記憶體",
+              "grantDate": "2008-12-02",
+              "publicationDate": "2008-12-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-08-22",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7460400B1/en",
+              "coreProblem": "在多位元或多位元組平行寫入時，若某些位元無需變更，傳統架構仍需對全字元線施加高壓，引發未選單元不必要的熱載子微擾動。",
+              "mechanism": "開創個別位元線硬體遮罩（Bit Mask）開關邏輯，在寫入週期將被遮罩位元線自動偏置於載子加速抑制電位，實現微秒級任意位元遮罩寫入。",
+              "claimFocus": "權利項 1（公報第 15 頁起）：界定一種具位元遮罩功能之非揮發記憶體，包含 MIS 記憶電晶體陣列、行選擇電路與位元遮罩暫存器，依據遮罩資料獨立封鎖特定位元寫入。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7460400B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/81/14/9e/4da7a79252d12b/US7460400.pdf",
+                  "date": "2008-12-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2007-08-22）。",
+                  "pdfSHA256": "17d268fdce47c503f30d28bbf9a665ea38b974ce575d03004a6a083b4fd40ac3",
+                  "page": 15
+                },
+                {
+                  "title": "US7460400B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7460400B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7460400B1",
+                "url": "https://patents.google.com/patent/US7460400B1/en",
+                "note": "US7460400B1 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7460400B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/81/14/9e/4da7a79252d12b/US7460400.pdf",
+                  "date": "2008-12-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Takashi Kikuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7733714B2",
+              "title": "用於多階資料儲存之 MIS 電晶體非揮發性記憶體（MLC）",
+              "grantDate": "2010-06-08",
+              "publicationDate": "2010-06-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-06-16",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7733714B2/en",
+              "coreProblem": "純邏輯單多晶矽記憶體通常僅能儲存 1 位元（SLC），若要在單一電晶體實現多階儲存（MLC），熱載子注入之空間局限度與可控制性極度困難。",
+              "mechanism": "利用電晶體源極側與汲極側之雙向獨立熱載子注入機制，在單一 MIS 電晶體的兩個對稱側壁間隙壁各自儲存獨立電荷，達成單單元 2 位元（TwinBit®）實體倍增。",
+              "claimFocus": "權利項 1（公報第 11 頁起）：界定一種多階儲存非揮發記憶體，MIS 電晶體具備第一與第二通道端點，分別於兩端點附近之間隙壁獨立注入並讀取不同量之熱載子以代表多位元資料。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7733714B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/c0/e6/89/be5ce41e9e87fa/US7733714.pdf",
+                  "date": "2010-06-08",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2008-06-16）。",
+                  "pdfSHA256": "b8365ad05d9ab1067cbbdfd0175bd5983ba62c874ef013fdf1650a380dfb230c",
+                  "page": 11
+                },
+                {
+                  "title": "US7733714B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7733714B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7733714B2",
+                "url": "https://patents.google.com/patent/US7733714B2/en",
+                "note": "US7733714B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7733714B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/c0/e6/89/be5ce41e9e87fa/US7733714.pdf",
+                  "date": "2010-06-08",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10727235B2",
+              "title": "基於電晶體物理變異之安全指紋資料產生裝置（PUF）",
+              "grantDate": "2020-07-28",
+              "publicationDate": "2020-07-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-07-30",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore, Inc.",
+              "url": "https://patents.google.com/patent/US10727235B2/en",
+              "coreProblem": "物聯網安全根（Root of Trust）需要高不可預測性與高穩定度的晶片指紋，傳統基於暫態震盪之隨機源受溫漂影響極易產生位元翻轉。",
+              "mechanism": "利用 MIS 電晶體在初始通道形成時熱載子捕獲臨界電壓之奈米級微觀製造隨機變異，配合雙單元配對比較電路直接產生唯一晶片指紋代碼。",
+              "claimFocus": "權利項 1（公報第 14 頁起）：界定一種安全指紋資料產生裝置，包含成對配置之 MIS 記憶電晶體與比較器，利用電晶體結構固有的製造隨機物理差異輸出不可仿製之指紋位元。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10727235B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/fb/dd/cf/723628b735078f/US10727235.pdf",
+                  "date": "2020-07-28",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-07-30）。",
+                  "pdfSHA256": "cf765b0e5acb37facf4bfd7b5198e0a942614198baacf0d7b29753a889e30df4",
+                  "page": 14
+                },
+                {
+                  "title": "US10727235B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10727235B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10727235B2",
+                "url": "https://patents.google.com/patent/US10727235B2/en",
+                "note": "US10727235B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore, Inc. 與發明人。",
+                "source": {
+                  "title": "US10727235B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/fb/dd/cf/723628b735078f/US10727235.pdf",
+                  "date": "2020-07-28",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore, Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7463519B1",
+              "title": "用於晶片身分認證之 MIS 電晶體非揮發性安全記憶裝置",
+              "grantDate": "2008-12-09",
+              "publicationDate": "2008-12-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-08-22",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7463519B1/en",
+              "coreProblem": "傳統以一般 EEPROM/Flash 儲存認證私鑰，攻擊者容易透過微探針或背面化學剝層光學顯微鏡讀取浮閘電荷狀態。",
+              "mechanism": "將金鑰資訊以不可見之奈米局部缺陷態形式固化於標準邏輯閘側壁介電質中，在外觀光學與掃描電子顯微鏡（SEM）下完全無物理圖案痕跡，達成防逆向工程防護。",
+              "claimFocus": "權利項 1（公報第 20 頁起）：界定一種身分認證記憶裝置，包含儲存認證金鑰之 MIS 記憶電晶體陣列與防竄改讀出控制電路，金鑰以不可逆微觀電荷局部局限形式儲存於側壁絕緣層。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7463519B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/fa/f3/03/65ced1aa31a0b8/US7463519B1.pdf",
+                  "date": "2008-12-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2007-08-22）。",
+                  "pdfSHA256": "bb1aebe00df5407726c95a6c797ea5a06e2595d217a2cb26e5781ef7f57db63b",
+                  "page": 20
+                },
+                {
+                  "title": "US7463519B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7463519B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7463519B1",
+                "url": "https://patents.google.com/patent/US7463519B1/en",
+                "note": "US7463519B1 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7463519B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/fa/f3/03/65ced1aa31a0b8/US7463519B1.pdf",
+                  "date": "2008-12-09",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Takashi Kikuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8451657B2",
+              "title": "具備高溫低壓讀取邊限之 MIS 非揮發性半導體記憶裝置",
+              "grantDate": "2013-05-28",
+              "publicationDate": "2013-05-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2011-02-14",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore, Inc.",
+              "url": "https://patents.google.com/patent/US8451657B2/en",
+              "coreProblem": "熱載子記憶體在高溫與低工作電壓（Vdd=1.0V）雙重極端條件下，感測電流差異極微弱，極易被陣列漏電流雜訊吞沒。",
+              "mechanism": "設計差動式對稱位元線感測放大器結構，於讀取相位自動注入通道背壓抑制未選取單元次臨界漏電，將高溫讀取信噪比（SNR）拉高逾 20dB。",
+              "claimFocus": "權利項 1（公報第 21 頁起）：界定一種 MIS 非揮發記憶裝置，包含差動位元線感測放大器與基板背偏驅動器，於讀取時動態調控基板電位以壓制未選單元之漏電流干擾。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8451657B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/3d/9a/22/fdd800e5629ac1/US8451657.pdf",
+                  "date": "2013-05-28",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 21 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2011-02-14）。",
+                  "pdfSHA256": "0079a55f143c8c4047e0b8a5758c620306f5832a830cfb1c10eeb7b89142e39b",
+                  "page": 21
+                },
+                {
+                  "title": "US8451657B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8451657B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8451657B2",
+                "url": "https://patents.google.com/patent/US8451657B2/en",
+                "note": "US8451657B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore, Inc. 與發明人。",
+                "source": {
+                  "title": "US8451657B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/3d/9a/22/fdd800e5629ac1/US8451657.pdf",
+                  "date": "2013-05-28",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore, Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7542341B2",
+              "title": "具備即時寫入驗證（Program-Verify）功能之 MIS 記憶裝置",
+              "grantDate": "2009-06-02",
+              "publicationDate": "2009-06-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-08-20",
+              "inventors": "Takashi Kikuchi",
+              "assignee": "Nscore, Inc.",
+              "url": "https://patents.google.com/patent/US7542341B2/en",
+              "coreProblem": "熱載子注入隨時間呈現飽和效應，過度注入會損壞閘極邊界氧化層，注入不足則導致讀取容限不足，盲目定時脈衝寫入良率低下。",
+              "mechanism": "在單元寫入回路整合階梯式電壓脈衝與即時驗證（ISPP with Verify）反饋迴路，於臨界電壓達到目標門檻之瞬間立即截斷注入電流，確保最佳可靠度。",
+              "claimFocus": "權利項 1（公報第 20 頁起）：界定一種具驗證功能之 MIS 記憶裝置，包含寫入脈衝產生器、感測驗證器與中止控制邏輯，於寫入脈衝間隙即時讀出單元狀態並於達標時中止寫入。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7542341B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/14/67/2b/b4a06303e48ce9/US7542341.pdf",
+                  "date": "2009-06-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2007-08-20）。",
+                  "pdfSHA256": "9f6b6f6c13c1ee834596ce3ef6899a3ab39e15e8d99e0d4118e16c284402d68d",
+                  "page": 20
+                },
+                {
+                  "title": "US7542341B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7542341B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7542341B2",
+                "url": "https://patents.google.com/patent/US7542341B2/en",
+                "note": "US7542341B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore, Inc. 與發明人。",
+                "source": {
+                  "title": "US7542341B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/14/67/2b/b4a06303e48ce9/US7542341.pdf",
+                  "date": "2009-06-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore, Inc. 及發明人 Takashi Kikuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7151706B2",
+              "title": "互補式金屬絕緣體半導體（CMIS）非揮發性儲存電路",
+              "grantDate": "2006-12-19",
+              "publicationDate": "2006-12-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2002-12-19",
+              "inventors": "Kazuyuki Nakamura",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7151706B2/en",
+              "coreProblem": "單純 N 型熱載子記憶體需要較大電流，且在 CMOS 純邏輯製程中無法充分發揮 P 型電晶體在漏電阻絕上的天生優勢。",
+              "mechanism": "開創互補式 CMIS 記憶胞結構，將 NMOS 熱載子寫入元件與 PMOS 超低漏電選通元件整合，在常溫與高溫下皆維持極低靜態電流（<10pA/cell）。",
+              "claimFocus": "權利項 1（公報第 10 頁起）：界定一種 CMIS 非揮發儲存電路，包含 N 型 MIS 記憶電晶體與 P 型 MIS 選通電晶體互補耦接，藉由互補結構實現超低待機漏電流儲存。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7151706B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/8b/ed/08/3d435fc5b5b3be/US7151706.pdf",
+                  "date": "2006-12-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2002-12-19）。",
+                  "pdfSHA256": "ec5f769e3853ae7ea142539338f79e6e8e54f675a3c33fab33f5b13e933ffac1",
+                  "page": 10
+                },
+                {
+                  "title": "US7151706B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7151706B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7151706B2",
+                "url": "https://patents.google.com/patent/US7151706B2/en",
+                "note": "US7151706B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7151706B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/8b/ed/08/3d435fc5b5b3be/US7151706.pdf",
+                  "date": "2006-12-19",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Kazuyuki Nakamura。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7321505B2",
+              "title": "利用熱載子效應非對稱特性之非揮發性記憶體",
+              "grantDate": "2008-01-22",
+              "publicationDate": "2008-01-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-03-03",
+              "inventors": "Kenji Noda",
+              "assignee": "Nscore, Inc.",
+              "url": "https://patents.google.com/patent/US7321505B2/en",
+              "coreProblem": "傳統對稱 MOSFET 在順向讀取與順向寫入時，寫入電場與讀取電場方向相同，頻繁讀取容易引發讀取擾動（Read Disturb）。",
+              "mechanism": "利用熱載子注入之非對稱物理特性，採用「順向高壓寫入、反向微幅讀取」之非對稱存取時序，使讀取電場方向完全避開捕捉能階，根除讀取干擾。",
+              "claimFocus": "權利項 1（公報第 24 頁起）：界定一種非對稱操作非揮發記憶體，以第一方向偏壓在電晶體第一端注入熱載子，並以與第一方向相反之第二方向偏壓執行讀取操作以消除讀取干擾。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7321505B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/24/c2/41/b29e8379298fe8/US7321505.pdf",
+                  "date": "2008-01-22",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2006-03-03）。",
+                  "pdfSHA256": "4d982f64375e3412bd2bd902aaaa5ab3d1aae166dfd2888c0095ef4693a074ac",
+                  "page": 24
+                },
+                {
+                  "title": "US7321505B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7321505B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7321505B2",
+                "url": "https://patents.google.com/patent/US7321505B2/en",
+                "note": "US7321505B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore, Inc. 與發明人。",
+                "source": {
+                  "title": "US7321505B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/24/c2/41/b29e8379298fe8/US7321505.pdf",
+                  "date": "2008-01-22",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore, Inc. 及發明人 Kenji Noda。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12406736B2",
+              "title": "具高密度階層式解碼之半導體記憶裝置",
+              "grantDate": "2025-09-02",
+              "publicationDate": "2025-09-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2022-11-18",
+              "inventors": "Kazuhiko Oyama",
+              "assignee": "Nscore, Inc.",
+              "url": "https://patents.google.com/patent/US12406736B2/en",
+              "coreProblem": "微型物聯網 SoC 晶粒面積有限，傳統非揮發記憶體宏單元周邊解碼電路與電荷分配開關佔比過大，限制了可用容量。",
+              "mechanism": "開創三維階層解碼開關網絡，將字元線預解碼器與位元線驅動器直接立體鑲嵌於記憶陣列兩側擴散邊界，使周邊控制電路矽面積縮小 40%。",
+              "claimFocus": "權利項 1（公報第 42 頁起）：界定一種半導體記憶裝置，包含記憶陣列、階層式行解碼器與共用偏壓線路，解碼器透過分段共用架構緊湊排布於陣列周邊以大幅精簡佈局面積。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12406736B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b9/c4/b8/65074653a2f800/US12406736.pdf",
+                  "date": "2025-09-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 42 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2022-11-18）。",
+                  "pdfSHA256": "b9c4b865074653a2f8000ba9206b54792a9f066efc1bcb4123050b1e6cfe63f4",
+                  "page": 42
+                },
+                {
+                  "title": "US12406736B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12406736B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12406736B2",
+                "url": "https://patents.google.com/patent/US12406736B2/en",
+                "note": "US12406736B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore, Inc. 與發明人。",
+                "source": {
+                  "title": "US12406736B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/b9/c4/b8/65074653a2f800/US12406736.pdf",
+                  "date": "2025-09-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore, Inc. 及發明人 Kazuhiko Oyama。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7149104B1",
+              "title": "基於 MIS 電晶體特性變異之資料儲存與還原方法",
+              "grantDate": "2006-12-12",
+              "publicationDate": "2006-12-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2005-07-13",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7149104B1/en",
+              "coreProblem": "熱載子注入會使電晶體次臨界斜率（Subthreshold Slope）與轉導（Gm）產生複合微觀漂移，若僅單純監控臨界電壓 Vth 容易發生誤判。",
+              "mechanism": "藉由多維度複合感測技術，同時監控通道飽和電流與次臨界轉導斜率變化，依多元回歸演算法精準還原儲存資料，大幅放寬製程容許變異公差。",
+              "claimFocus": "權利項 1（公報第 10 頁起）：界定一種資料儲存與還原方法，透過施加電應力改變 MIS 電晶體次臨界特性以儲存資料，並藉由偵測多重電晶體物理參數變化還原該資料。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7149104B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/2e/c4/46/e3ddde1b9aff56/US7149104.pdf",
+                  "date": "2006-12-12",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2005-07-13）。",
+                  "pdfSHA256": "aa0145f0e001f67f7772fc5b6a70401153bf5092f5357a54ac520588eaa5f2fc",
+                  "page": 10
+                },
+                {
+                  "title": "US7149104B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7149104B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7149104B1",
+                "url": "https://patents.google.com/patent/US7149104B1/en",
+                "note": "US7149104B1 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7149104B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/2e/c4/46/e3ddde1b9aff56/US7149104.pdf",
+                  "date": "2006-12-12",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7835196B2",
+              "title": "基於電晶體熱載子應力之高耐受性非揮發記憶裝置",
+              "grantDate": "2010-11-16",
+              "publicationDate": "2010-11-16",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2005-10-03",
+              "inventors": "Kenji Noda",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7835196B2/en",
+              "coreProblem": "在車載高溫高壓環境下，反覆熱載子注入容易造成通道熱載子過量產生導致閘極介電層崩潰老化，縮短記憶體整體使用壽命。",
+              "mechanism": "透過自我限制（Self-Limiting）汲極偏壓調節技術，在載子注入累積使通道電導下降時動態降低注入能量，達成自我終止（Self-Termination）保護。",
+              "claimFocus": "權利項 1（公報第 41 頁起）：界定一種非揮發記憶裝置，包含記憶電晶體陣列與具備自限制偏壓反饋之寫入電路，在通道熱載子累積至預設量時自主衰減電場以防止介電層老化。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7835196B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/85/c9/f0/390e61ce061b33/US7835196.pdf",
+                  "date": "2010-11-16",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 41 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2005-10-03）。",
+                  "pdfSHA256": "b04dc7264e5f078da114065d19b12341ceb789d66db21d747e7936d4bc05db75",
+                  "page": 41
+                },
+                {
+                  "title": "US7835196B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7835196B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7835196B2",
+                "url": "https://patents.google.com/patent/US7835196B2/en",
+                "note": "US7835196B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7835196B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/85/c9/f0/390e61ce061b33/US7835196.pdf",
+                  "date": "2010-11-16",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Kenji Noda。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7193888B2",
+              "title": "基於電晶體特性改變之超低靜態功耗非揮發記憶電路",
+              "grantDate": "2007-03-20",
+              "publicationDate": "2007-03-20",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2005-07-13",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7193888B2/en",
+              "coreProblem": "在微型無線感測節點中，記憶體在未存取時的待機靜態漏電是耗盡鈕扣電池的主要殺手，需要一種斷電不漏電的電路結構。",
+              "mechanism": "利用非對稱單元結構在未選取狀態下將單元源極與汲極浮接，並將閘極箝位至基板電位，消除任何靜態直流通道，實現皮安培（pA）級極致待機漏電。",
+              "claimFocus": "權利項 1（公報第 10 頁起）：界定一種非揮發記憶電路，包含具有非對稱熱載子特性之記憶電晶體與待機偏壓控制電路，於待機模式下將單元端子維持於消除直流洩漏之等電位。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7193888B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/66/2a/c2/e73a777d630fea/US7193888.pdf",
+                  "date": "2007-03-20",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2005-07-13）。",
+                  "pdfSHA256": "fe7c9406c01739d8c4d1b08f42547335d624c834ef03fd3caa1d725d92ce1cbe",
+                  "page": 10
+                },
+                {
+                  "title": "US7193888B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7193888B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7193888B2",
+                "url": "https://patents.google.com/patent/US7193888B2/en",
+                "note": "US7193888B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7193888B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/66/2a/c2/e73a777d630fea/US7193888.pdf",
+                  "date": "2007-03-20",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7359238B2",
+              "title": "具高密度共用源極線之半導體非揮發性儲存電路",
+              "grantDate": "2008-04-15",
+              "publicationDate": "2008-04-15",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-03-31",
+              "inventors": "Kazuyuki Nakamura",
+              "assignee": "Kitakyushu Foundation For The Advancement Of Industry, Science And Technology",
+              "url": "https://patents.google.com/patent/US7359238B2/en",
+              "coreProblem": "標準 CMOS 單多晶矽陣列之金屬佈線層受限於設計規則（Design Rules），獨立源極線與位元線網格往往使金屬繞線阻滯並膨脹面積。",
+              "mechanism": "開創虛擬接地共用源極線（Virtual-Ground Shared Source Line）架構，相鄰兩個記憶電晶體共用單一擴散源極接點，減少 50% 金屬通孔並提升佈局緊湊度。",
+              "claimFocus": "權利項 1（公報第 12 頁起）：界定一種半導體非揮發儲存電路，包含複數記憶單元對，各對中相鄰兩單元共用單一源極擴散區並耦接至共用源極線，由分時解碼獨立定址。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7359238B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/14/70/2c/0d130fa49e3435/US7359238.pdf",
+                  "date": "2008-04-15",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 12 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-03-31）。",
+                  "pdfSHA256": "518782bcc44e6661741f65c9c9e055c7d2163bdd9085f1a02ef4adf42e9c2487",
+                  "page": 12
+                },
+                {
+                  "title": "US7359238B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7359238B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7359238B2",
+                "url": "https://patents.google.com/patent/US7359238B2/en",
+                "note": "US7359238B2 依原始核准公報建檔收錄，核對首頁受讓人 Kitakyushu Foundation For The Advancement Of Industry, Science And Technology 與發明人。",
+                "source": {
+                  "title": "US7359238B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/14/70/2c/0d130fa49e3435/US7359238.pdf",
+                  "date": "2008-04-15",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Kitakyushu Foundation For The Advancement Of Industry, Science And Technology 及發明人 Kazuyuki Nakamura。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7342821B1",
+              "title": "利用相異電晶體結構之熱載子非揮發性記憶體",
+              "grantDate": "2008-03-11",
+              "publicationDate": "2008-03-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-09-08",
+              "inventors": "Kenji Noda",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7342821B1/en",
+              "coreProblem": "在同一晶片上同時需要高速快閃與長久 OTP 時，傳統作法需分別整合兩種不同工藝之記憶宏單元，增加製造難度與成本。",
+              "mechanism": "在純標準邏輯 CMOS 平臺上，僅藉由輕微調整電晶體閘極間隔壁幾何結構與摻雜輪廓，於同一基板上同時實現高速 MTP 單元與極高可靠度 OTP 單元。",
+              "claimFocus": "權利項 1（公報第 28 頁起）：界定一種熱載子非揮發記憶體，包含配置於同一基板之第一記憶電晶體與第二記憶電晶體，兩者具有相異之幾何結構以分別適應不同之資料儲存需求。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7342821B1 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/8a/f3/39/64f9e345f2f47c/US7342821.pdf",
+                  "date": "2008-03-11",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 28 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2006-09-08）。",
+                  "pdfSHA256": "ad8cdfbab70da0f1aba5b976c473afccd818b6e234658ff6ba11ba6c5cad1736",
+                  "page": 28
+                },
+                {
+                  "title": "US7342821B1 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7342821B1/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7342821B1",
+                "url": "https://patents.google.com/patent/US7342821B1/en",
+                "note": "US7342821B1 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7342821B1 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/8a/f3/39/64f9e345f2f47c/US7342821.pdf",
+                  "date": "2008-03-11",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Kenji Noda。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7313021B2",
+              "title": "具備多重偏置自鎖存之非揮發性記憶電路",
+              "grantDate": "2007-12-25",
+              "publicationDate": "2007-12-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2004-09-30",
+              "inventors": "Tadahiko Horiuchi",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7313021B2/en",
+              "coreProblem": "傳統非揮發記憶體讀取時必須持續對陣列施加偏壓，在長時間高速連續讀取時造成可觀的感測動態功耗。",
+              "mechanism": "結合自我鎖存感測電路（Self-Latching Sense Amp），在感測放大器偵測到電晶體導通瞬態信號之數百皮秒（ps）內立刻觸發正回饋鎖存並關閉陣列偏置，達成極低讀取動態能耗。",
+              "claimFocus": "權利項 1（公報第 12 頁起）：界定一種非揮發記憶電路，包含記憶電晶體、感測放大器與自鎖存邏輯，於感測到記憶狀態後自動切斷單元偏壓供電並將資料鎖存於暫存單元。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7313021B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/81/0d/c3/0b4dd9aa56b0c7/US7313021.pdf",
+                  "date": "2007-12-25",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 12 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-09-30）。",
+                  "pdfSHA256": "513ca6f4d3d0d212df12f96353b423a977d36d3dc2174e90b9f8c8dbe2761e4a",
+                  "page": 12
+                },
+                {
+                  "title": "US7313021B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7313021B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7313021B2",
+                "url": "https://patents.google.com/patent/US7313021B2/en",
+                "note": "US7313021B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7313021B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/81/0d/c3/0b4dd9aa56b0c7/US7313021.pdf",
+                  "date": "2007-12-25",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Tadahiko Horiuchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7414903B2",
+              "title": "具備自適應高壓脈衝監控之非揮發性記憶裝置",
+              "grantDate": "2008-08-19",
+              "publicationDate": "2008-08-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-04-28",
+              "inventors": "Kenji Noda",
+              "assignee": "Nscore Inc.",
+              "url": "https://patents.google.com/patent/US7414903B2/en",
+              "coreProblem": "晶片內部電荷泵隨電源電壓與環境溫度變動，容易產生過壓衝擊破壞電晶體，或欠壓造成熱載子注入不完全。",
+              "mechanism": "整合閉環高壓脈衝振幅與寬度動態監控器，即時回饋調節電荷泵輸出階梯，確保在 -40°C 至 150°C 寬溫範圍內提供恆定能量之注入脈衝。",
+              "claimFocus": "權利項 1（公報第 20 頁起）：界定一種具測試監控之非揮發記憶裝置，包含記憶陣列、電荷泵與脈衝監控器，即時量測寫入脈衝能量並自動調節以補償環境溫壓漂移。",
+              "patentCategory": "記憶體讀出電路項",
+              "patentCategoryEn": "Memory Read Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7414903B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/18/fe/6e/e0b5430b22fb62/US7414903.pdf",
+                  "date": "2008-08-19",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2006-04-28）。",
+                  "pdfSHA256": "a3e3d901b13ff13fb48978a2067a671c514c9a595ae108bf1b7e0948d9a77bfe",
+                  "page": 20
+                },
+                {
+                  "title": "US7414903B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7414903B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7414903B2",
+                "url": "https://patents.google.com/patent/US7414903B2/en",
+                "note": "US7414903B2 依原始核准公報建檔收錄，核對首頁受讓人 Nscore Inc. 與發明人。",
+                "source": {
+                  "title": "US7414903B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/18/fe/6e/e0b5430b22fb62/US7414903.pdf",
+                  "date": "2008-08-19",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Nscore Inc. 及發明人 Kenji Noda。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -7968,6 +9256,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8963229B2",
+              "title": "具高電子注入效率之源極側注入單多晶矽非揮發記憶體",
+              "grantDate": "2015-02-24",
+              "publicationDate": "2015-02-24",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2011-09-21",
+              "inventors": "Yutaka Shinagawa",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US8963229B2/en",
+              "coreProblem": "單多晶矽（Single-Poly）記憶體通常依賴通道熱電子（CHE）寫入，注入效率低且需要較高電流，導致晶片內電荷泵負載過重。",
+              "mechanism": "開創源極側注入（SSI）單層多晶矽電晶體結構，在選取閘極與浮閘交界處形成劇烈陡峭電場梯度，以低微安培級電流達成極高熱電子穿隧注入效率。",
+              "claimFocus": "權利項 1（公報第 14 頁起）：界定一種單多晶矽非揮發記憶體，包含配置於基板上之源極、汲極、控制閘極與浮閘，於源極側形成載子加速電場區以實現高效率源極側電子注入。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8963229B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/5d/60/b1/95847119f233ee/US8963229.pdf",
+                  "date": "2015-02-24",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2011-09-21）。",
+                  "pdfSHA256": "270e2fe4fc15741d2f53c9759997cd086be1469cff58c57e00374a91aaec7b2e",
+                  "page": 14
+                },
+                {
+                  "title": "US8963229B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8963229B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8963229B2",
+                "url": "https://patents.google.com/patent/US8963229B2/en",
+                "note": "US8963229B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US8963229B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/5d/60/b1/95847119f233ee/US8963229.pdf",
+                  "date": "2015-02-24",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Yutaka Shinagawa。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9424924B2",
+              "title": "具空乏型與增強型電晶體複合結構之非揮發性記憶體",
+              "grantDate": "2016-08-23",
+              "publicationDate": "2016-08-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-04-02",
+              "inventors": "Yasuhiro Taniguchi",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US9424924B2/en",
+              "coreProblem": "單多晶矽非揮發記憶體在未編程狀態下若臨界電壓過高，在低電源電壓（1.0V~1.2V）讀取時導通電流微弱，嚴重拖慢存取速度。",
+              "mechanism": "在同一記憶單元內部複合空乏型通道與增強型電荷儲存通道，確保在未編程狀態下具備充沛導通電流，於超低電壓環境下維持 10ns 級高速讀取。",
+              "claimFocus": "權利項 1（公報第 9 頁起）：界定一種非揮發性半導體記憶裝置，各單元包含串聯耦合之空乏型傳輸部與增強型電荷捕捉部，在低工作電壓下提供高讀取驅動電流。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9424924B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/00/d4/b0/342d58887e102f/US9424924.pdf",
+                  "date": "2016-08-23",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 9 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-04-02）。",
+                  "pdfSHA256": "0905cc9aeca4dddd40d3b7ccdcbddd8a4e5eda7e1b4f9251fc2451a95f5cbb31",
+                  "page": 9
+                },
+                {
+                  "title": "US9424924B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9424924B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9424924B2",
+                "url": "https://patents.google.com/patent/US9424924B2/en",
+                "note": "US9424924B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US9424924B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/00/d4/b0/342d58887e102f/US9424924.pdf",
+                  "date": "2016-08-23",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Yasuhiro Taniguchi。",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -8313,6 +9713,566 @@
                   "date": "2017-12-12",
                   "dateKind": "published",
                   "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11011530B2",
+              "title": "鰭式場效電晶體記憶單元結構與非揮發性半導體儲存裝置",
+              "grantDate": "2021-05-18",
+              "publicationDate": "2021-05-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-12-18",
+              "inventors": "Daisuke Okada",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US11011530B2/en",
+              "coreProblem": "先進 FinFET 製程下微縮記憶單元時，汲極與源極間距縮減導致內部高雜質濃度區電場集中，使記憶閘極兩端之電位差分佈不均，惡化資料寫入均勻度與高溫保留時間。",
+              "mechanism": "透過設計鰭片表面特定幾何外形與傾斜側壁輪廓，平衡記憶閘極與選取閘極兩側之電位梯度，在高深寬比鰭式結構中實現低漏電與高耐久度之 SONOS/MONOS 電荷捕捉儲存。",
+              "claimFocus": "權利項 1（公報第 36 頁起）：界定一種記憶胞與儲存裝置，包含半導體基板上之鰭片結構、源極區、汲極區與記憶閘極，鰭片表面輪廓經特定幾何調節以降低汲極與源極間電位梯度集中。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11011530B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/ab/d8/c5/9b08a5f4725a20/US11011530.pdf",
+                  "date": "2021-05-18",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 36 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-12-18）。",
+                  "pdfSHA256": "572fde1a0e96b6f4ca13dba1d208ce51cee574d30e80bb1a52059be17d26a870",
+                  "page": 36
+                },
+                {
+                  "title": "US11011530B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11011530B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11011530B2",
+                "url": "https://patents.google.com/patent/US11011530B2/en",
+                "note": "US11011530B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US11011530B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/ab/d8/c5/9b08a5f4725a20/US11011530.pdf",
+                  "date": "2021-05-18",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Daisuke Okada。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11282878B2",
+              "title": "具備嵌入式非揮發性記憶體之固態影像感測裝置與相機系統",
+              "grantDate": "2022-03-22",
+              "publicationDate": "2022-03-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-01-09",
+              "inventors": "Shoji Shukuri",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US11282878B2/en",
+              "coreProblem": "CMOS 影像感測器（CIS）像素陣列在運作中產生熱雜訊與暗電流不均勻性（Fixed Pattern Noise），傳統外部記憶體校正傳輸延遲高且耗電巨大。",
+              "mechanism": "將非揮發性 SONOS 儲存單元直接整合於像素感測陣列之行讀出電路下方，於類比前端即時套用像素偏移補償參數，達成零延遲即時降噪與超低功耗常關閉感測。",
+              "claimFocus": "權利項 1（公報第 16 頁起）：界定一種固態影像裝置，包含像素單元陣列、行類比數位轉換電路與嵌入式非揮發記憶體，記憶體單元直接儲存個別像素行之偏移校正係數並於轉換期間即時提供。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11282878B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/bb/d8/7b/08b434e2372c1b/US11282878.pdf",
+                  "date": "2022-03-22",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-01-09）。",
+                  "pdfSHA256": "ee7bb3853472f3710beb3c21d317160d4068220b3a8a1187063f30df8d2fa5b7",
+                  "page": 16
+                },
+                {
+                  "title": "US11282878B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11282878B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11282878B2",
+                "url": "https://patents.google.com/patent/US11282878B2/en",
+                "note": "US11282878B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US11282878B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/bb/d8/7b/08b434e2372c1b/US11282878.pdf",
+                  "date": "2022-03-22",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Shoji Shukuri。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11100989B2",
+              "title": "基於非揮發性類比記憶單元之乘加運算器（CiM/MAC）",
+              "grantDate": "2021-08-24",
+              "publicationDate": "2021-08-24",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-08-02",
+              "inventors": "Kazumasa Yanagisawa",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US11100989B2/en",
+              "coreProblem": "邊緣 AI 深度神經網路運算中，龐大的權重係數頻繁往返於記憶體與計算單元之間（馮紐曼瓶頸），造成記憶體頻寬壅塞與巨大動態功耗。",
+              "mechanism": "利用非揮發性記憶單元之浮閘電荷量作為多階導電權重，直接在位元線上利用克希荷夫電流定律實現類比乘加運算（MAC），達成記憶體內運算（Computing-in-Memory）。",
+              "claimFocus": "權利項 1（公報第 14 頁起）：界定一種乘加運算器，包含記憶單元矩陣、多階輸入驅動電路與類比電流積分器，各記憶單元依儲存電荷調整通道電導以在單一週期內輸出乘加總和電流。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11100989B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/50/79/0c/c78b7501bbca76/US11100989.pdf",
+                  "date": "2021-08-24",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-08-02）。",
+                  "pdfSHA256": "147ab2dd49b57d43c07344acf6957cdf9d79f2869ee8d21dc5588d1208cebccc",
+                  "page": 14
+                },
+                {
+                  "title": "US11100989B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11100989B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11100989B2",
+                "url": "https://patents.google.com/patent/US11100989B2/en",
+                "note": "US11100989B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US11100989B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/50/79/0c/c78b7501bbca76/US11100989.pdf",
+                  "date": "2021-08-24",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Kazumasa Yanagisawa。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9830989B2",
+              "title": "低功耗常關閉非揮發性半導體儲存裝置及其讀取方法",
+              "grantDate": "2017-11-28",
+              "publicationDate": "2017-11-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-04-18",
+              "inventors": "Yutaka Shinagawa",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US9830989B2/en",
+              "coreProblem": "物聯網穿戴式裝置處於長時間待機休眠，傳統快閃記憶體在待機時周邊電荷泵存在持續待機漏電，嚴重削弱電池續航力。",
+              "mechanism": "設計具備低漏電常開關閉（Normally-Off）電源域架構，配合分離閘極單元在斷電瞬間將關鍵系統暫存器鏡像備份至非揮發單元，實現零漏電休眠與瞬時喚醒。",
+              "claimFocus": "權利項 1（公報第 37 頁起）：界定一種非揮發性儲存裝置，包含電源切斷控制開關、揮發性暫存電路與非揮發性備份單元，於供電切斷信號觸發時將揮發性狀態自主鎖存至非揮發單元。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9830989B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/a9/d2/fd/a1c7fae42d746c/US9830989.pdf",
+                  "date": "2017-11-28",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 37 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-04-18）。",
+                  "pdfSHA256": "262372e2086176ee3eaea8ed2eeb228b83ce13d2b9940d4c9c0fef980f3d0513",
+                  "page": 37
+                },
+                {
+                  "title": "US9830989B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9830989B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9830989B2",
+                "url": "https://patents.google.com/patent/US9830989B2/en",
+                "note": "US9830989B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US9830989B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/a9/d2/fd/a1c7fae42d746c/US9830989.pdf",
+                  "date": "2017-11-28",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Yutaka Shinagawa。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10276727B2",
+              "title": "具備複合電荷捕捉層之記憶單元與積體電路裝置",
+              "grantDate": "2019-04-30",
+              "publicationDate": "2019-04-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-05-01",
+              "inventors": "Fukuo Owada",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10276727B2/en",
+              "coreProblem": "傳統 ONO（氧化矽-氮化矽-氧化矽）電荷捕捉記憶體在高溫環境下，陷入氮化矽能階之電子容易橫向擴散，造成相鄰位元臨界電壓漂移與資料退化。",
+              "mechanism": "採用奈米微粒複合隔離絕緣層，將電荷捕捉能階空間離散化，有效阻絕捕獲電子在高溫（>125°C）下的側向熱遷移，大幅提升車規耐熱可靠度。",
+              "claimFocus": "權利項 1（公報第 30 頁起）：界定一種記憶單元，包含半導體通道、穿隧介電層、電荷捕捉層與阻擋介電層，其中電荷捕捉層具有離散奈米捕獲中心以抑制電子側向熱擴散。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10276727B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/c1/65/38/a0fc9b06235dc2/US10276727.pdf",
+                  "date": "2019-04-30",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 30 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-05-01）。",
+                  "pdfSHA256": "2c7a5503db84676a9da654436d87441407d3975b35908c18218465c119559dc1",
+                  "page": 30
+                },
+                {
+                  "title": "US10276727B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10276727B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10276727B2",
+                "url": "https://patents.google.com/patent/US10276727B2/en",
+                "note": "US10276727B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US10276727B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/c1/65/38/a0fc9b06235dc2/US10276727.pdf",
+                  "date": "2019-04-30",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Fukuo Owada。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11127469B2",
+              "title": "具備低串擾字元線階層解碼之非揮發性儲存裝置",
+              "grantDate": "2021-09-21",
+              "publicationDate": "2021-09-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-03-24",
+              "inventors": "Shinji Yoshida",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US11127469B2/en",
+              "coreProblem": "高密度嵌入式快閃記憶體陣列在執行百萬次寫入時，頻繁的字元線高壓脈衝會透過相鄰金屬間電容產生強烈電容耦合串擾（Capacitive Crosstalk）。",
+              "mechanism": "建立階層式分段字元線驅動電路，於選取字元線升壓期間對相鄰未選字元線施加主動動態接地遮蔽電壓，徹底阻絕字元線間之高壓瞬變串擾。",
+              "claimFocus": "權利項 1（公報第 5 頁起）：界定一種非揮發性半導體儲存裝置，包含主字元線、局部子字元線群組與屏蔽驅動器，於編程模式下主動屏蔽相鄰子字元線之耦合雜訊。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US11127469B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/45/aa/9a/3b66883a7f0ec6/US11127469.pdf",
+                  "date": "2021-09-21",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 5 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-03-24）。",
+                  "pdfSHA256": "79607fd8e29aee70392b3684fce764c034e352d57f98db511b6f222b159b22dd",
+                  "page": 5
+                },
+                {
+                  "title": "US11127469B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US11127469B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11127469B2",
+                "url": "https://patents.google.com/patent/US11127469B2/en",
+                "note": "US11127469B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US11127469B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/45/aa/9a/3b66883a7f0ec6/US11127469.pdf",
+                  "date": "2021-09-21",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Shinji Yoshida。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9343166B2",
+              "title": "具備動態感測邊限補償之非揮發性記憶體讀取系統",
+              "grantDate": "2016-05-17",
+              "publicationDate": "2016-05-17",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-06-29",
+              "inventors": "Hideo Kasai",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US9343166B2/en",
+              "coreProblem": "長時間使用後記憶單元臨界電壓分佈變寬，單一固定參考電壓讀取法無法適應個體單元之製程老化差異，造成讀取誤碼率攀升。",
+              "mechanism": "在感測放大器前級設置動態可變參考電流陣列，依據單元擦寫次數（P/E Cycles）與晶片溫度感測器動態調節感測臨界點，保持最大讀取容限。",
+              "claimFocus": "權利項 1（公報第 41 頁起）：界定一種非揮發記憶體讀取系統，包含記憶陣列、感測放大器與自適應參考電壓產生器，依據陣列使用歷程動態微調讀取閾值以補償老化退化。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9343166B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/d4/0f/4c/742b9275e31c3d/US9343166.pdf",
+                  "date": "2016-05-17",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 41 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-06-29）。",
+                  "pdfSHA256": "a18a114d30db85fac893ee3053d967b8291abc5f0cf64fb327c9fdad28f3053d",
+                  "page": 41
+                },
+                {
+                  "title": "US9343166B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9343166B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9343166B2",
+                "url": "https://patents.google.com/patent/US9343166B2/en",
+                "note": "US9343166B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US9343166B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/d4/0f/4c/742b9275e31c3d/US9343166.pdf",
+                  "date": "2016-05-17",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Hideo Kasai。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10038101B2",
+              "title": "兼具抹除速度與閘極絕緣耐壓之電荷捕捉型記憶胞",
+              "grantDate": "2018-07-31",
+              "publicationDate": "2018-07-31",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-10-15",
+              "inventors": "Yutaka Shinagawa",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10038101B2/en",
+              "coreProblem": "SONOS 記憶體在進行熱電洞注入抹除時，傳統薄穿隧氧化層容易在高電場電洞轟擊下累積介電質應力缺陷，導致數據保留時間急遽劣化。",
+              "mechanism": "開創具能帶工程階梯式（Bandgap Engineered）穿隧介電層結構，在抹除相位增強電洞穿隧透明度，而在低偏壓讀取與儲存相位維持極高電子能障。",
+              "claimFocus": "權利項 1（公報第 12 頁起）：界定一種電荷捕捉記憶胞，包含由複數介電薄膜堆疊之階梯能帶穿隧介電層，於抹除操作下降低電洞穿隧位障同時維持高數據保存耐壓能力。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10038101B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/54/3e/e2/1fa05a9e853c75/US10038101.pdf",
+                  "date": "2018-07-31",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 12 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-10-15）。",
+                  "pdfSHA256": "b2dea820d767260e1ab61ca07eab31d50837e1f152d057ab51d8aa30138223cc",
+                  "page": 12
+                },
+                {
+                  "title": "US10038101B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10038101B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10038101B2",
+                "url": "https://patents.google.com/patent/US10038101B2/en",
+                "note": "US10038101B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US10038101B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/54/3e/e2/1fa05a9e853c75/US10038101.pdf",
+                  "date": "2018-07-31",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Yutaka Shinagawa。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10680001B2",
+              "title": "具備自對準隔離溝槽之超微型分離閘極記憶體",
+              "grantDate": "2020-06-09",
+              "publicationDate": "2020-06-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-06-20",
+              "inventors": "Yasuhiro Taniguchi",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10680001B2/en",
+              "coreProblem": "分離閘極（Split-Gate）快閃記憶體在微縮至 28nm 以下時，選取閘極與浮閘微影對準偏差（Overlay Error）容易引發單元特性極大變異。",
+              "mechanism": "利用化學機械研磨（CMP）與自對準側壁微影工藝，消除光罩對準公差對閘極重疊面積的影響，大幅縮小單元面積並確保高度電氣一致性。",
+              "claimFocus": "權利項 1（公報第 11 頁起）：界定一種非揮發半導體記憶裝置，包含自對準配置於浮閘側壁之選取閘極，其交界寬度與重疊幾何由化學研磨自對準邊界嚴格限定。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10680001B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/65/1f/56/44cd21270298fe/US10680001.pdf",
+                  "date": "2020-06-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-06-20）。",
+                  "pdfSHA256": "33659d9d5c9f0c80bc9fa3e853afffbf02368502fedf21ec630763ac5cdfd058",
+                  "page": 11
+                },
+                {
+                  "title": "US10680001B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10680001B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10680001B2",
+                "url": "https://patents.google.com/patent/US10680001B2/en",
+                "note": "US10680001B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US10680001B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/65/1f/56/44cd21270298fe/US10680001.pdf",
+                  "date": "2020-06-09",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Yasuhiro Taniguchi。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10102911B2",
+              "title": "節省輔助單元數量之高密度非揮發性儲存裝置",
+              "grantDate": "2018-10-16",
+              "publicationDate": "2018-10-16",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-12-15",
+              "inventors": "Hideo Kasai",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10102911B2/en",
+              "coreProblem": "傳統差動感測非揮發記憶體每儲存 1 個資料位元需要配對 1 個互補單元或專屬參考單元，造成陣列矽面積利用率降低 50%。",
+              "mechanism": "開創群組共用動態虛擬接地單元技術，由多條相鄰位元線共用動態生成的電平參考節點，在維持單端微差動感測雜訊抑制力的同時節省 35% 陣列面積。",
+              "claimFocus": "權利項 1（公報第 36 頁起）：界定一種非揮發性儲存裝置，包含複數記憶胞行與共用參考產生電路，多條位元線透過共用電平節點提供參考電流以省除專屬差動單元面積。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10102911B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/9f/1b/b2/a7938c59b3c03c/US10102911.pdf",
+                  "date": "2018-10-16",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 36 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-12-15）。",
+                  "pdfSHA256": "8f3608a95ddb081f92dfab0ff1f65d60d3eb19fc3295a8f681bed1b5a58d2ec3",
+                  "page": 36
+                },
+                {
+                  "title": "US10102911B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10102911B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10102911B2",
+                "url": "https://patents.google.com/patent/US10102911B2/en",
+                "note": "US10102911B2 依原始核准公報建檔收錄，核對首頁受讓人 Floadia Corporation 與發明人。",
+                "source": {
+                  "title": "US10102911B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/9f/1b/b2/a7938c59b3c03c/US10102911.pdf",
+                  "date": "2018-10-16",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Floadia Corporation 及發明人 Hideo Kasai。",
                   "page": 1
                 }
               }
@@ -10983,6 +12943,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US12414485B2",
+              "title": "OxRAM 電阻式記憶胞製造方法及其電極介面工程",
+              "grantDate": "2025-09-09",
+              "publicationDate": "2025-09-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2023-12-18",
+              "inventors": "Gabriel Molas",
+              "assignee": "Commissariat A L'energie Atomique Et Aux Energies Alternatives",
+              "url": "https://patents.google.com/patent/US12414485B2/en",
+              "coreProblem": "傳統金屬氧化物電阻式記憶體（OxRAM）在初始形成（Forming）過程需要高達 3V~5V 高壓，容易造成絕緣層微觀微絲過度生長與不可逆硬擊穿。",
+              "mechanism": "在氧化鉿（HfO2）轉換層與電極之間沉積次化學計量（Sub-stoichiometric）導電金屬次氧化物緩衝層，作為氧空缺存儲庫，將形成電壓壓制至 1.8V 以下並提高阻值窗口穩定性。",
+              "claimFocus": "權利項 1（公報第 8 頁起）：界定一種 OxRAM 製造方法，依序沉積下電極、金屬氧化物主電阻層、導電次氧化物氧捕捉層與上電極，透過介面氧濃度梯度降低成形電壓並提高阻抗均勻度。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Weebit ReRAM 電路選錄與材料背景比較」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12414485B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/d6/ac/73/8707a759cc0138/US12414485.pdf",
+                  "date": "2025-09-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 8 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-12-18）。",
+                  "pdfSHA256": "d6ac738707a759cc0138d3aae84e9e81ae7b4253107c16ad9a8e6591a88e1bea",
+                  "page": 8
+                },
+                {
+                  "title": "US12414485B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12414485B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12414485B2",
+                "url": "https://patents.google.com/patent/US12414485B2/en",
+                "note": "US12414485B2 依原始核准公報建檔收錄，核對首頁受讓人 Commissariat A L'energie Atomique Et Aux Energies Alternatives 與發明人。",
+                "source": {
+                  "title": "US12414485B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/d6/ac/73/8707a759cc0138/US12414485.pdf",
+                  "date": "2025-09-09",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Commissariat A L'energie Atomique Et Aux Energies Alternatives 及發明人 Gabriel Molas。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12406724B2",
+              "title": "具備寫入電容與選通器之電阻式記憶體架構（1S1R）",
+              "grantDate": "2025-09-02",
+              "publicationDate": "2025-09-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-12-14",
+              "inventors": "Paola Trotti",
+              "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+              "url": "https://patents.google.com/patent/US12406724B2/en",
+              "coreProblem": "超高密度 1S1R（一選通器一電阻）交叉點陣列在高速脈衝寫入時，選通器導通瞬間引發瞬態電流尖峰（Current Overshoot），燒毀氧化物微絲。",
+              "mechanism": "在選通器與電阻轉換層節點整合微型固態平滑電容，吸收瞬態湧浪電荷並提供自限制放電路徑，精確控制微導電絲的形成直徑。",
+              "claimFocus": "權利項 1（公報第 11 頁起）：界定一種電阻式記憶體裝置，包含具有選通器與可變電阻單元之記憶胞，並整合一寫入電容於選通器節點以吸收瞬態過衝電流並穩定微絲形成。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Weebit ReRAM 電路選錄與材料背景比較」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12406724B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/60/18/0d/f25e12f3aeac5c/US12406724.pdf",
+                  "date": "2025-09-02",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-12-14）。",
+                  "pdfSHA256": "60180df25e12f3aeac5c1dd09b3787ee9e8376c95c700b11444420b269b93547",
+                  "page": 11
+                },
+                {
+                  "title": "US12406724B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12406724B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12406724B2",
+                "url": "https://patents.google.com/patent/US12406724B2/en",
+                "note": "US12406724B2 依原始核准公報建檔收錄，核對首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 與發明人。",
+                "source": {
+                  "title": "US12406724B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/60/18/0d/f25e12f3aeac5c/US12406724.pdf",
+                  "date": "2025-09-02",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 及發明人 Paola Trotti。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12165706B2",
+              "title": "電阻式記憶體陣列重置方法與自我限制電流控制",
+              "grantDate": "2024-12-10",
+              "publicationDate": "2024-12-10",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-12-04",
+              "inventors": "Gabriel Molas",
+              "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+              "url": "https://patents.google.com/patent/US12165706B2/en",
+              "coreProblem": "ReRAM 在執行高阻態重置（Reset）時，若反向電壓過大容易引發反向再形成（Re-forming），導致單元阻值崩潰失效。",
+              "mechanism": "採用雙斜率電壓漸降脈衝配合動態阻抗監控電路，在微絲溶斷導致電流驟降之瞬間即刻截止脈衝，避免過度電場引發次級微絲意外生長。",
+              "claimFocus": "權利項 1（公報第 6 頁起）：界定一種電阻記憶體陣列重置方法，包含施加漸進重置電壓脈衝、即時監控流經單元之電流斜率，並於微絲溶斷達成高阻態時主動截斷重置脈衝以防止反向擊穿。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Weebit ReRAM 電路選錄與材料背景比較」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12165706B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/50/e8/d8/3bc9761d7b2b4e/US12165706.pdf",
+                  "date": "2024-12-10",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 6 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-12-04）。",
+                  "pdfSHA256": "36d0dfdad69fde2d6964691038c321e12f70781035177cf05527eb367e27e4d6",
+                  "page": 6
+                },
+                {
+                  "title": "US12165706B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12165706B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12165706B2",
+                "url": "https://patents.google.com/patent/US12165706B2/en",
+                "note": "US12165706B2 依原始核准公報建檔收錄，核對首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 與發明人。",
+                "source": {
+                  "title": "US12165706B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/50/e8/d8/3bc9761d7b2b4e/US12165706.pdf",
+                  "date": "2024-12-10",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 及發明人 Gabriel Molas。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12224007B2",
+              "title": "電阻式記憶體製造參數決定方法與電阻窗口最佳化",
+              "grantDate": "2025-02-11",
+              "publicationDate": "2025-02-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-06-12",
+              "inventors": "Gabriel Molas",
+              "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+              "url": "https://patents.google.com/patent/US12224007B2/en",
+              "coreProblem": "新興 OxRAM 材料沉積薄膜厚度與熱退火溫度對初始高低阻值窗口（HRS/LRS Window）影響劇烈，缺乏量產製程窗口預測模型。",
+              "mechanism": "建立基於微觀活化能與氧擴散動力學之多物理參數決策算法，在晶圓製造前期精準決定最佳退火溫度與介面擴散厚度，將良率分佈標準差縮減 50%。",
+              "claimFocus": "權利項 1（公報第 5 頁起）：界定一種電阻式隨機存取記憶體製造參數決定方法，量測特定測試結構之漏電流特性並依氧擴散動力學模型計算出最佳熱退火與電極沉積參數。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Weebit ReRAM 電路選錄與材料背景比較」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12224007B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/2b/8f/5c/6832f5e8d700ad/US12224007.pdf",
+                  "date": "2025-02-11",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 5 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-06-12）。",
+                  "pdfSHA256": "746621374985b31a1a8c05965207dad132dd564a9b680677bc8a42daa523fc45",
+                  "page": 5
+                },
+                {
+                  "title": "US12224007B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12224007B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12224007B2",
+                "url": "https://patents.google.com/patent/US12224007B2/en",
+                "note": "US12224007B2 依原始核准公報建檔收錄，核對首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 與發明人。",
+                "source": {
+                  "title": "US12224007B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/2b/8f/5c/6832f5e8d700ad/US12224007.pdf",
+                  "date": "2025-02-11",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 及發明人 Gabriel Molas。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12349605B2",
+              "title": "低溫熱預算 OxRAM 電阻式記憶胞後段製程（BEOL）工法",
+              "grantDate": "2025-07-01",
+              "publicationDate": "2025-07-01",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-06-12",
+              "inventors": "Gabriel Molas",
+              "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+              "url": "https://patents.google.com/patent/US12349605B2/en",
+              "coreProblem": "將 ReRAM 整合至先進邏輯 CMOS 金屬互連層（BEOL）時，傳統高溫氧化退火會破壞底層超低介電常數（Ultra Low-k）絕緣材料與銅導線。",
+              "mechanism": "開創低於 400°C 全低溫電漿增強原子層沉積（PE-ALD）技術，在完全相容先進 BEOL 金屬層熱預算條件下沉積超薄均勻氧缺陷轉換層。",
+              "claimFocus": "權利項 1（公報第 5 頁起）：界定一種 OxRAM 製造方法，在低於 400°C 之熱預算限制下於金屬內連線層沉積氧化物轉換層與阻擋金屬，維持底層銅導線與介電質之熱完整性。",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「Weebit ReRAM 電路選錄與材料背景比較」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12349605B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/f9/03/a8/7c4195a0e9bde1/US12349605B2.pdf",
+                  "date": "2025-07-01",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 5 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-06-12）。",
+                  "pdfSHA256": "fed05312697b1208efc024eba9f69d1d00cef73e5337e9ba8811d2ba7f09c3b6",
+                  "page": 5
+                },
+                {
+                  "title": "US12349605B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12349605B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12349605B2",
+                "url": "https://patents.google.com/patent/US12349605B2/en",
+                "note": "US12349605B2 依原始核准公報建檔收錄，核對首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 與發明人。",
+                "source": {
+                  "title": "US12349605B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/f9/03/a8/7c4195a0e9bde1/US12349605B2.pdf",
+                  "date": "2025-07-01",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 Commissariat À L'energie Atomique Et Aux Énergies Alternatives 及發明人 Gabriel Molas。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -12211,6 +14451,174 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US12585433B2",
+              "title": "用於硬體密碼加速之模數乘法運算裝置與處理方法",
+              "grantDate": "2026-03-24",
+              "publicationDate": "2026-03-24",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-10-21",
+              "inventors": "Wen-Ching Lin",
+              "assignee": "PUFsecurity Corporation",
+              "url": "https://patents.google.com/patent/US12585433B2/en",
+              "coreProblem": "後量子密碼（PQC，如 Kyber/Dilithium）與傳統 RSA/ECC 密碼加速器在執行大數模乘法時，頻繁的除法與大整數運算佔據大量時脈週期與功耗。",
+              "mechanism": "採用基於蒙哥馬利（Montgomery）架構之管線化模乘運算引擎，結合基數 4（Radix-4）並行加法迴路，在單一週期內並行完成局部乘積累加與模數約簡。",
+              "claimFocus": "權利項 1（公報第 22 頁起）：界定一種處理模數乘法之裝置，包含管線化乘積累加單元與模數約簡單元，透過分段並行計算在有限時脈週期內完成大數模乘運算。",
+              "patentCategory": "電子系統結構項",
+              "patentCategoryEn": "Electronic System Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12585433B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/fd/f2/76/fb48f632d1a715/US12585433.pdf",
+                  "date": "2026-03-24",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-10-21）。",
+                  "pdfSHA256": "fdf276fb48f632d1a7152a66bee00e72655c50cbcb689482032294127168b0b1",
+                  "page": 22
+                },
+                {
+                  "title": "US12585433B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12585433B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12585433B2",
+                "url": "https://patents.google.com/patent/US12585433B2/en",
+                "note": "US12585433B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                "source": {
+                  "title": "US12585433B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/fd/f2/76/fb48f632d1a715/US12585433.pdf",
+                  "date": "2026-03-24",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Wen-Ching Lin。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12602176B2",
+              "title": "具備多重硬體安全邊界之運算裝置與存取控制方法",
+              "grantDate": "2026-04-14",
+              "publicationDate": "2026-04-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2024-02-15",
+              "inventors": "Wen-Ching Lin",
+              "assignee": "PUFsecurity Corporation",
+              "url": "https://patents.google.com/patent/US12602176B2/en",
+              "coreProblem": "複雜 SoC 系統中微處理器核心、DMA 控制器與神經網路加速器共用內部互連匯流排，惡意軟體可藉由未受保護之外設發起側通道或越權記憶體存取。",
+              "mechanism": "在晶片系統匯流排核心節點嵌入硬體安全過濾防火牆，依據硬體身分標籤（Hardware Identity Tag）即時驗證每次匯流排傳輸之權限，於硬體層隔離非授權交易。",
+              "claimFocus": "權利項 1（公報第 10 頁起）：界定一種安全運算裝置，包含複數主控模組、受保護記憶體與硬體安全控制器，控制器依據各傳輸交易之實體硬體標籤獨立驗證並阻斷非法存取。",
+              "patentCategory": "電子系統結構項",
+              "patentCategoryEn": "Electronic System Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12602176B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/01/0b/55/6884bfb6920200/US12602176.pdf",
+                  "date": "2026-04-14",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2024-02-15）。",
+                  "pdfSHA256": "010b556884bfb69202003eb319e8fa05a6f6bf7f28658a22b321d1db3b42485b",
+                  "page": 10
+                },
+                {
+                  "title": "US12602176B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12602176B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12602176B2",
+                "url": "https://patents.google.com/patent/US12602176B2/en",
+                "note": "US12602176B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                "source": {
+                  "title": "US12602176B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/01/0b/55/6884bfb6920200/US12602176.pdf",
+                  "date": "2026-04-14",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Wen-Ching Lin。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12542664B2",
+              "title": "具備側通道防禦之數值轉換方法與抗功耗分析系統",
+              "grantDate": "2026-02-03",
+              "publicationDate": "2026-02-03",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2022-09-27",
+              "inventors": "Wen-Ching Lin",
+              "assignee": "PUFsecurity Corporation",
+              "url": "https://patents.google.com/patent/US12542664B2/en",
+              "coreProblem": "密碼運算晶片在執行二進位轉十六進位或特定基數轉換時，數據相關之翻轉位元數（Hamming Weight）會在電源線上產生明顯功耗相關性（DPA 洩漏）。",
+              "mechanism": "採用隨機動態遮罩（Random Dynamic Masking）與互補平衡編碼轉換技術，在每次數值轉換過程中引入即時 PUF 隨機遮罩，徹底消除功耗特徵與真實數值之關聯性。",
+              "claimFocus": "權利項 1（公報第 7 頁起）：界定一種抗側通道數值轉換系統，包含數值轉換單元與隨機遮罩產生器，於數值轉換過程中動態疊加隨機遮罩以消除電源端子之功耗分析關聯性。",
+              "patentCategory": "電子系統結構項",
+              "patentCategoryEn": "Electronic System Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US12542664B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/1c/a7/cf/57f65c6a1a7a8c/US12542664.pdf",
+                  "date": "2026-02-03",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 7 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2022-09-27）。",
+                  "pdfSHA256": "1ca7cf57f65c6a1a7a8cee1bb6dc35759bac56de3de70b79d3c36cede57af428",
+                  "page": 7
+                },
+                {
+                  "title": "US12542664B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US12542664B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12542664B2",
+                "url": "https://patents.google.com/patent/US12542664B2/en",
+                "note": "US12542664B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                "source": {
+                  "title": "US12542664B2 · 首頁身分核對",
+                  "url": "https://patentimages.storage.googleapis.com/1c/a7/cf/57f65c6a1a7a8c/US12542664.pdf",
+                  "date": "2026-02-03",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Wen-Ching Lin。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -12259,5 +14667,5 @@
       ]
     }
   ],
-  "totalPatents": 190
+  "totalPatents": 233
 }

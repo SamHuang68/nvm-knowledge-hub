@@ -11819,6 +11819,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8313987B2",
+                "title": "Anti-fuse memory cell",
+                "grantDate": "2012-11-20",
+                "publicationDate": "2012-11-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-05-06",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8313987B2/en",
+                "coreProblem": "Single-transistor antifuse cells under 6V programming suffer from parasitic corner leakage and premature thermal breakdown at STI edges.",
+                "mechanism": "Uses split-channel architecture with self-aligned dual gate oxides: thick oxide withstands select stress, while thin oxide confines breakdown to target filament regions.",
+                "claimFocus": "Claim 1 (Page 24+): An antifuse memory cell comprising split-channel transistor with thick and thin gate oxides, where thin oxide breaks down to form permanent conductive filaments.",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8313987B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/be/41/dc/5ac2665f5530c6/US8313987.pdf",
+                    "date": "2012-11-20",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2004-05-06.",
+                    "pdfSHA256": "78826f78a180719b0ae4936b88fb4be974dece7c0d9fd8727d875b718a878dbd",
+                    "page": 24
+                  },
+                  {
+                    "title": "US8313987B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8313987B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8313987B2",
+                  "url": "https://patents.google.com/patent/US8313987B2/en",
+                  "note": "US8313987B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US8313987B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/be/41/dc/5ac2665f5530c6/US8313987.pdf",
+                    "date": "2012-11-20",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8471355B2",
+                "title": "AND-type one time programmable memory cell",
+                "grantDate": "2013-06-25",
+                "publicationDate": "2013-06-25",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-10-30",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8471355B2/en",
+                "coreProblem": "Conventional NOR-type OTP requires dedicated metal contacts per cell, whose design rules choke scaling below 40nm nodes.",
+                "mechanism": "Innovates AND-type continuous diffusion layout where adjacent antifuse cells share continuous active areas, slashing contact counts towards 4F² cell limits.",
+                "claimFocus": "Claim 1 (Page 18+): An AND-type OTP array comprising continuous diffusion wells hosting adjacent antifuse cells sharing active areas without individual metal contacts.",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8471355B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/bd/58/27/8ec35448a841eb/US8471355.pdf",
+                    "date": "2013-06-25",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2009-10-30.",
+                    "pdfSHA256": "62f9a85a471a26c42fc1ccef951a33ab64761d5f1e844680ec8028192f58381e",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8471355B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8471355B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8471355B2",
+                  "url": "https://patents.google.com/patent/US8471355B2/en",
+                  "note": "US8471355B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US8471355B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/bd/58/27/8ec35448a841eb/US8471355.pdf",
+                    "date": "2013-06-25",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9030860B2",
+                "title": "Power up detection system for a memory device",
+                "grantDate": "2015-05-12",
+                "publicationDate": "2015-05-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-05-16",
+                "inventors": "Steven Smith",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9030860B2/en",
+                "coreProblem": "During slow power ramps or voltage glitches, internal OTP readout logic can trigger prematurely, emitting corrupted key data.",
+                "mechanism": "Integrates bandgap power-on-reset (POR) detectors with glitch-filtering counters, locking memory outputs until internal rails cross stable thresholds for secure boot.",
+                "claimFocus": "Claim 1 (Page 15+): A memory power-up detection system comprising level comparators and digital delay counters disabling wordline drivers until internal power rails stabilize.",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9030860B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/87/b1/d0/453c8ecd50e80d/US9030860.pdf",
+                    "date": "2015-05-12",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 15 provides representative Claim 1 reading. Earliest claimed priority date: 2012-05-16.",
+                    "pdfSHA256": "d7917296a74a2f893b08b687906c58f13184a5db1b7d7f0e6aa00924689ff3c4",
+                    "page": 15
+                  },
+                  {
+                    "title": "US9030860B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9030860B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9030860B2",
+                  "url": "https://patents.google.com/patent/US9030860B2/en",
+                  "note": "US9030860B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US9030860B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/87/b1/d0/453c8ecd50e80d/US9030860.pdf",
+                    "date": "2015-05-12",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Steven Smith.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9123572B2",
+                "title": "Anti-fuse memory cell",
+                "grantDate": "2015-09-01",
+                "publicationDate": "2015-09-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-05-06",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corporation",
+                "url": "https://patents.google.com/patent/US9123572B2/en",
+                "coreProblem": "In deep submicron CMOS, high antifuse write voltages trigger parasitic BJT turn-on, causing destructive latch-up across adjacent logic gates.",
+                "mechanism": "Encapsulates memory arrays within deep N-well triple-well isolation with guard rings, collecting substrate minority carriers to confer complete latch-up immunity.",
+                "claimFocus": "Claim 1 (Page 31+): An antifuse memory cell disposed within deep N-well isolated P-wells, enclosed by guard rings collecting high-voltage substrate injection to prevent latch-up.",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9123572B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/b8/b4/73/abb0d2e86b2832/US9123572.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 31 provides representative Claim 1 reading. Earliest claimed priority date: 2004-05-06.",
+                    "pdfSHA256": "3b6dd26ff4daee904224313ad300ec9c46ee37bdcf211863dd963261e0b8adbe",
+                    "page": 31
+                  },
+                  {
+                    "title": "US9123572B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9123572B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9123572B2",
+                  "url": "https://patents.google.com/patent/US9123572B2/en",
+                  "note": "US9123572B2 recorded per original grant publication, verifying assignee Sidense Corporation and inventors.",
+                  "source": {
+                    "title": "US9123572B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/b8/b4/73/abb0d2e86b2832/US9123572.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corporation and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8735297B2",
+                "title": "Reverse optical proximity correction method",
+                "grantDate": "2014-05-27",
+                "publicationDate": "2014-05-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-05-06",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corporation",
+                "url": "https://patents.google.com/patent/US8735297B2/en",
+                "coreProblem": "At 28nm nodes, dense antifuse split-gate line ends suffer optical diffraction line-end shortening, causing physical breakdown area variations.",
+                "mechanism": "Innovates inverse-lithography OPC algorithms adding hammerhead optical compensation serifs to poly line ends, anchoring physical breakdown dimensions on wafer.",
+                "claimFocus": "Claim 1 (Page 26+): A reverse OPC method analyzing diffraction distortion of antifuse gate patterns, appending optical compensation serifs to line ends to ensure lithographic fidelity.",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 1T-Fuse™ Comparison: Split Channel, Wells and Sensing; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8735297B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/f5/db/c8/bd4412cd250684/US8735297.pdf",
+                    "date": "2014-05-27",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 26 provides representative Claim 1 reading. Earliest claimed priority date: 2004-05-06.",
+                    "pdfSHA256": "5bdd7f13baf95178f256ff78e24fe1f6e1a026f45f772ca73eb4434d51419634",
+                    "page": 26
+                  },
+                  {
+                    "title": "US8735297B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8735297B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8735297B2",
+                  "url": "https://patents.google.com/patent/US8735297B2/en",
+                  "note": "US8735297B2 recorded per original grant publication, verifying assignee Sidense Corporation and inventors.",
+                  "source": {
+                    "title": "US8735297B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/f5/db/c8/bd4412cd250684/US8735297.pdf",
+                    "date": "2014-05-27",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corporation and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -14884,6 +15164,1014 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8213247B2",
+                "title": "Memory device with test mechanism",
+                "grantDate": "2012-07-03",
+                "publicationDate": "2012-07-03",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-11-16",
+                "inventors": "Tomomi Naka",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US8213247B2/en",
+                "coreProblem": "Standard CMOS logic MIS hot-carrier memories lack on-chip DFT mechanisms for rapid screening of infant mortality defects during mass production wafer tests.",
+                "mechanism": "Integrates multi-mode test logic switching between write stress and weak-injection prediction modes to weed out marginal dies at wafer acceptance testing (WAT).",
+                "claimFocus": "Claim 1 (Page 47+): A memory device comprising MIS memory transistors, mode controller, and test bias generators applying specific stress to screen cell endurance during wafer test.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8213247B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/bd/50/ae/9c45404cbe8629/US8213247.pdf",
+                    "date": "2012-07-03",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 47 provides representative Claim 1 reading. Earliest claimed priority date: 2009-11-16.",
+                    "pdfSHA256": "4ce6f08d2a32fae84fc0cfeede995e9e1eeb8ee5e21703ea47870040174f9998",
+                    "page": 47
+                  },
+                  {
+                    "title": "US8213247B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8213247B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8213247B2",
+                  "url": "https://patents.google.com/patent/US8213247B2/en",
+                  "note": "US8213247B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US8213247B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/bd/50/ae/9c45404cbe8629/US8213247.pdf",
+                    "date": "2012-07-03",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Tomomi Naka.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7511999B1",
+                "title": "MIS-transistor-based nonvolatile memory with reliable data retention capability",
+                "grantDate": "2009-03-31",
+                "publicationDate": "2009-03-31",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-11-06",
+                "inventors": "Takashi Kikuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7511999B1/en",
+                "coreProblem": "Spacer charge-trapping MIS memories suffer from thermal de-trapping at high temperatures (>150°C) through shallow interface traps.",
+                "mechanism": "Uses reverse-channel biasing and symmetric hole neutralization to push electrons into deep spacer states, securing >10 years data retention at 150°C for automotive use.",
+                "claimFocus": "Claim 1 (Page 20+): An MIS non-volatile memory storing hot carriers in deep dielectric spacer states with reverse-field suppression of thermal de-trapping for high-temperature retention.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7511999B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/43/aa/00/3af5e8a977dd39/US7511999.pdf",
+                    "date": "2009-03-31",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2007-11-06.",
+                    "pdfSHA256": "797cc66444e5b60976d5b9f211aa1a28cb30f1bad77edfa7dc83a2045ffc2633",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7511999B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7511999B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7511999B1",
+                  "url": "https://patents.google.com/patent/US7511999B1/en",
+                  "note": "US7511999B1 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7511999B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/43/aa/00/3af5e8a977dd39/US7511999.pdf",
+                    "date": "2009-03-31",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Takashi Kikuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7460400B1",
+                "title": "Nonvolatile memory utilizing MIS memory transistors with bit mask function",
+                "grantDate": "2008-12-02",
+                "publicationDate": "2008-12-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-08-22",
+                "inventors": "Takashi Kikuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7460400B1/en",
+                "coreProblem": "In parallel multi-bit writing, writing unmodified bits unnecessarily stresses unselected cells with high wordline voltages, inducing disturbance.",
+                "mechanism": "Innovates hardware bit-mask steering switches biasing masked bitlines to carrier-suppressing voltages, allowing microsecond-level arbitrary masked writing.",
+                "claimFocus": "Claim 1 (Page 15+): A non-volatile memory comprising MIS memory transistors and bit-mask registers selectively inhibiting hot-carrier injection on masked bits during wordline write pulses.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7460400B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/81/14/9e/4da7a79252d12b/US7460400.pdf",
+                    "date": "2008-12-02",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 15 provides representative Claim 1 reading. Earliest claimed priority date: 2007-08-22.",
+                    "pdfSHA256": "17d268fdce47c503f30d28bbf9a665ea38b974ce575d03004a6a083b4fd40ac3",
+                    "page": 15
+                  },
+                  {
+                    "title": "US7460400B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7460400B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7460400B1",
+                  "url": "https://patents.google.com/patent/US7460400B1/en",
+                  "note": "US7460400B1 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7460400B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/81/14/9e/4da7a79252d12b/US7460400.pdf",
+                    "date": "2008-12-02",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Takashi Kikuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7733714B2",
+                "title": "MIS-transistor-based nonvolatile memory for multilevel data storage",
+                "grantDate": "2010-06-08",
+                "publicationDate": "2010-06-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-06-16",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7733714B2/en",
+                "coreProblem": "Single-poly logic memories are typically restricted to SLC (1-bit), facing extreme challenges in controlling localized charge profiles for multi-level (MLC) density.",
+                "mechanism": "Harnesses bidirectional hot-carrier injection at both source and drain spacer dielectric regions of a single MIS transistor, doubling storage to 2 bits per cell (TwinBit®).",
+                "claimFocus": "Claim 1 (Page 11+): An MLC non-volatile memory comprising MIS transistors storing distinct hot-carrier charges in independent source and drain spacers for multi-bit storage.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7733714B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/c0/e6/89/be5ce41e9e87fa/US7733714.pdf",
+                    "date": "2010-06-08",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2008-06-16.",
+                    "pdfSHA256": "b8365ad05d9ab1067cbbdfd0175bd5983ba62c874ef013fdf1650a380dfb230c",
+                    "page": 11
+                  },
+                  {
+                    "title": "US7733714B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7733714B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7733714B2",
+                  "url": "https://patents.google.com/patent/US7733714B2/en",
+                  "note": "US7733714B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7733714B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/c0/e6/89/be5ce41e9e87fa/US7733714.pdf",
+                    "date": "2010-06-08",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10727235B2",
+                "title": "Secure fingerprint data generating device",
+                "grantDate": "2020-07-28",
+                "publicationDate": "2020-07-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-07-30",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore, Inc.",
+                "url": "https://patents.google.com/patent/US10727235B2/en",
+                "coreProblem": "Hardware root-of-trust requires unclonable and stable silicon fingerprints, which oscillator TRNGs struggle to maintain across temperature swings without bit flips.",
+                "mechanism": "Exploits microscopic intrinsic manufacturing variations in hot-carrier trapping thresholds of paired MIS transistors to generate deterministic, unclonable chip fingerprint keys.",
+                "claimFocus": "Claim 1 (Page 14+): A fingerprint generating device comprising paired MIS transistors and comparators outputting physically unclonable bits based on intrinsic fabrication differences.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10727235B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/fb/dd/cf/723628b735078f/US10727235.pdf",
+                    "date": "2020-07-28",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Earliest claimed priority date: 2018-07-30.",
+                    "pdfSHA256": "cf765b0e5acb37facf4bfd7b5198e0a942614198baacf0d7b29753a889e30df4",
+                    "page": 14
+                  },
+                  {
+                    "title": "US10727235B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10727235B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10727235B2",
+                  "url": "https://patents.google.com/patent/US10727235B2/en",
+                  "note": "US10727235B2 recorded per original grant publication, verifying assignee Nscore, Inc. and inventors.",
+                  "source": {
+                    "title": "US10727235B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/fb/dd/cf/723628b735078f/US10727235.pdf",
+                    "date": "2020-07-28",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore, Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7463519B1",
+                "title": "MIS-transistor-based nonvolatile memory device for authentication",
+                "grantDate": "2008-12-09",
+                "publicationDate": "2008-12-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-08-22",
+                "inventors": "Takashi Kikuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7463519B1/en",
+                "coreProblem": "Storing cryptographic authentication keys in conventional EEPROM/Flash allows adversaries to extract keys via micro-probing or optical deprocessing.",
+                "mechanism": "Traps authentication keys as localized, optically invisible charges within standard logic gate spacer dielectrics, presenting zero physical contrast under SEM to defeat reverse engineering.",
+                "claimFocus": "Claim 1 (Page 20+): An authentication memory device comprising MIS memory array storing authentication keys as localized charges in sidewall spacers with anti-tamper readout controls.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7463519B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/fa/f3/03/65ced1aa31a0b8/US7463519B1.pdf",
+                    "date": "2008-12-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2007-08-22.",
+                    "pdfSHA256": "bb1aebe00df5407726c95a6c797ea5a06e2595d217a2cb26e5781ef7f57db63b",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7463519B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7463519B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7463519B1",
+                  "url": "https://patents.google.com/patent/US7463519B1/en",
+                  "note": "US7463519B1 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7463519B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/fa/f3/03/65ced1aa31a0b8/US7463519B1.pdf",
+                    "date": "2008-12-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Takashi Kikuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8451657B2",
+                "title": "Nonvolatile semiconductor memory device using MIS transistor",
+                "grantDate": "2013-05-28",
+                "publicationDate": "2013-05-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-02-14",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore, Inc.",
+                "url": "https://patents.google.com/patent/US8451657B2/en",
+                "coreProblem": "Under dual extremes of high temperature and low voltage (Vdd=1.0V), hot-carrier readout signals are minuscule and easily swamped by array subthreshold leakage.",
+                "mechanism": "Designs differential bitline sense amplifiers with dynamic substrate back-biasing to choke unselected cell leakage, boosting high-temperature SNR by over 20dB.",
+                "claimFocus": "Claim 1 (Page 21+): An MIS memory device comprising differential bitline sense amplifiers and substrate bias drivers dynamically regulating substrate potential to suppress leakage.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8451657B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/3d/9a/22/fdd800e5629ac1/US8451657.pdf",
+                    "date": "2013-05-28",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2011-02-14.",
+                    "pdfSHA256": "0079a55f143c8c4047e0b8a5758c620306f5832a830cfb1c10eeb7b89142e39b",
+                    "page": 21
+                  },
+                  {
+                    "title": "US8451657B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8451657B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8451657B2",
+                  "url": "https://patents.google.com/patent/US8451657B2/en",
+                  "note": "US8451657B2 recorded per original grant publication, verifying assignee Nscore, Inc. and inventors.",
+                  "source": {
+                    "title": "US8451657B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/3d/9a/22/fdd800e5629ac1/US8451657.pdf",
+                    "date": "2013-05-28",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore, Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7542341B2",
+                "title": "MIS-transistor-based nonvolatile memory device with verify function",
+                "grantDate": "2009-06-02",
+                "publicationDate": "2009-06-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2007-08-20",
+                "inventors": "Takashi Kikuchi",
+                "assignee": "Nscore, Inc.",
+                "url": "https://patents.google.com/patent/US7542341B2/en",
+                "coreProblem": "Hot-carrier injection saturates over time; over-programming degrades oxide integrity while under-programming degrades read margin, impairing fixed-pulse write yield.",
+                "mechanism": "Integrates incremental step pulse programming with real-time verification (ISPP with Verify), truncating injection pulses instantly once target threshold shifts are verified.",
+                "claimFocus": "Claim 1 (Page 20+): An MIS memory device with verify capability comprising pulse generators, sense verifiers, and abort logic terminating programming pulses upon verified threshold target.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7542341B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/14/67/2b/b4a06303e48ce9/US7542341.pdf",
+                    "date": "2009-06-02",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2007-08-20.",
+                    "pdfSHA256": "9f6b6f6c13c1ee834596ce3ef6899a3ab39e15e8d99e0d4118e16c284402d68d",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7542341B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7542341B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7542341B2",
+                  "url": "https://patents.google.com/patent/US7542341B2/en",
+                  "note": "US7542341B2 recorded per original grant publication, verifying assignee Nscore, Inc. and inventors.",
+                  "source": {
+                    "title": "US7542341B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/14/67/2b/b4a06303e48ce9/US7542341.pdf",
+                    "date": "2009-06-02",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore, Inc. and inventors Takashi Kikuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7151706B2",
+                "title": "CMIS semiconductor nonvolatile storage circuit",
+                "grantDate": "2006-12-19",
+                "publicationDate": "2006-12-19",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2002-12-19",
+                "inventors": "Kazuyuki Nakamura",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7151706B2/en",
+                "coreProblem": "Pure NMOS hot-carrier memories consume higher current and fail to leverage PMOS low-leakage strengths in pure CMOS logic platforms.",
+                "mechanism": "Innovates complementary CMIS cell coupling NMOS hot-carrier injection with PMOS low-leakage gating to maintain <10pA/cell static standby leakage across temperatures.",
+                "claimFocus": "Claim 1 (Page 10+): A CMIS non-volatile storage circuit comprising complementary-coupled N-type and P-type MIS transistors achieving ultra-low standby leakage.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7151706B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/8b/ed/08/3d435fc5b5b3be/US7151706.pdf",
+                    "date": "2006-12-19",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2002-12-19.",
+                    "pdfSHA256": "ec5f769e3853ae7ea142539338f79e6e8e54f675a3c33fab33f5b13e933ffac1",
+                    "page": 10
+                  },
+                  {
+                    "title": "US7151706B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7151706B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7151706B2",
+                  "url": "https://patents.google.com/patent/US7151706B2/en",
+                  "note": "US7151706B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7151706B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/8b/ed/08/3d435fc5b5b3be/US7151706.pdf",
+                    "date": "2006-12-19",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Kazuyuki Nakamura.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7321505B2",
+                "title": "Nonvolatile memory utilizing asymmetric characteristics of hot-carrier effect",
+                "grantDate": "2008-01-22",
+                "publicationDate": "2008-01-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-03-03",
+                "inventors": "Kenji Noda",
+                "assignee": "Nscore, Inc.",
+                "url": "https://patents.google.com/patent/US7321505B2/en",
+                "coreProblem": "Symmetric MOSFETs using identical field polarities for read and write suffer from cumulative read disturb during continuous high-frequency reading.",
+                "mechanism": "Exploits asymmetric hot-carrier kinetics via forward write / reverse read sequencing, steering read electric fields away from trapped charge domains to eradicate read disturb.",
+                "claimFocus": "Claim 1 (Page 24+): An asymmetric NVM operating by applying a first-direction bias for hot-carrier injection and an opposite second-direction bias for reading to eliminate read disturb.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7321505B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/24/c2/41/b29e8379298fe8/US7321505.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2006-03-03.",
+                    "pdfSHA256": "4d982f64375e3412bd2bd902aaaa5ab3d1aae166dfd2888c0095ef4693a074ac",
+                    "page": 24
+                  },
+                  {
+                    "title": "US7321505B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7321505B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7321505B2",
+                  "url": "https://patents.google.com/patent/US7321505B2/en",
+                  "note": "US7321505B2 recorded per original grant publication, verifying assignee Nscore, Inc. and inventors.",
+                  "source": {
+                    "title": "US7321505B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/24/c2/41/b29e8379298fe8/US7321505.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore, Inc. and inventors Kenji Noda.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12406736B2",
+                "title": "Semiconductor memory device",
+                "grantDate": "2025-09-02",
+                "publicationDate": "2025-09-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-11-18",
+                "inventors": "Kazuhiko Oyama",
+                "assignee": "Nscore, Inc.",
+                "url": "https://patents.google.com/patent/US12406736B2/en",
+                "coreProblem": "In tiny IoT SoCs, bloated peripheral decoding and charge routing circuits consume excessive silicon area, limiting on-chip memory capacity.",
+                "mechanism": "Innovates a 3D hierarchical decoding network embedding pre-decoders and drivers directly along array diffusion perimeters, reducing peripheral area overhead by 40%.",
+                "claimFocus": "Claim 1 (Page 42+): A semiconductor memory device comprising memory array, hierarchical column decoders, and shared bias lines compactly nested to minimize layout footprint.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12406736B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/b9/c4/b8/65074653a2f800/US12406736.pdf",
+                    "date": "2025-09-02",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 42 provides representative Claim 1 reading. Earliest claimed priority date: 2022-11-18.",
+                    "pdfSHA256": "b9c4b865074653a2f8000ba9206b54792a9f066efc1bcb4123050b1e6cfe63f4",
+                    "page": 42
+                  },
+                  {
+                    "title": "US12406736B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12406736B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12406736B2",
+                  "url": "https://patents.google.com/patent/US12406736B2/en",
+                  "note": "US12406736B2 recorded per original grant publication, verifying assignee Nscore, Inc. and inventors.",
+                  "source": {
+                    "title": "US12406736B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/b9/c4/b8/65074653a2f800/US12406736.pdf",
+                    "date": "2025-09-02",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore, Inc. and inventors Kazuhiko Oyama.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7149104B1",
+                "title": "Storage and recovery of data based on change in MIS transistor characteristics",
+                "grantDate": "2006-12-12",
+                "publicationDate": "2006-12-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-07-13",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7149104B1/en",
+                "coreProblem": "Hot-carrier stress causes composite drifts in both subthreshold slope and transconductance (Gm); single-parameter Vth sensing risks misinterpretation.",
+                "mechanism": "Uses multi-dimensional composite sensing tracking both saturation current and subthreshold transconductance shifts, reliably recovering data across wide process tolerances.",
+                "claimFocus": "Claim 1 (Page 10+): A data storage and recovery method altering MIS transistor subthreshold characteristics to store data and sensing multiple physical parameters to recover data.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7149104B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/2e/c4/46/e3ddde1b9aff56/US7149104.pdf",
+                    "date": "2006-12-12",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2005-07-13.",
+                    "pdfSHA256": "aa0145f0e001f67f7772fc5b6a70401153bf5092f5357a54ac520588eaa5f2fc",
+                    "page": 10
+                  },
+                  {
+                    "title": "US7149104B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7149104B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7149104B1",
+                  "url": "https://patents.google.com/patent/US7149104B1/en",
+                  "note": "US7149104B1 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7149104B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/2e/c4/46/e3ddde1b9aff56/US7149104.pdf",
+                    "date": "2006-12-12",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7835196B2",
+                "title": "Nonvolatile memory device storing data based on change in transistor characteristics",
+                "grantDate": "2010-11-16",
+                "publicationDate": "2010-11-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-10-03",
+                "inventors": "Kenji Noda",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7835196B2/en",
+                "coreProblem": "Repetitive hot-carrier stress under automotive temperatures can induce excessive avalanche multiplication, degrading oxide life and shortening device lifespan.",
+                "mechanism": "Employs self-limiting drain bias regulation that dynamically quenches injection energy as channel conductance drops, providing self-terminating gate oxide protection.",
+                "claimFocus": "Claim 1 (Page 41+): A non-volatile memory device comprising memory array and write circuits with self-limiting bias feedback quenching electric fields to prevent dielectric degradation.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7835196B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/85/c9/f0/390e61ce061b33/US7835196.pdf",
+                    "date": "2010-11-16",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 41 provides representative Claim 1 reading. Earliest claimed priority date: 2005-10-03.",
+                    "pdfSHA256": "b04dc7264e5f078da114065d19b12341ceb789d66db21d747e7936d4bc05db75",
+                    "page": 41
+                  },
+                  {
+                    "title": "US7835196B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7835196B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7835196B2",
+                  "url": "https://patents.google.com/patent/US7835196B2/en",
+                  "note": "US7835196B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7835196B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/85/c9/f0/390e61ce061b33/US7835196.pdf",
+                    "date": "2010-11-16",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Kenji Noda.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7193888B2",
+                "title": "Nonvolatile memory circuit based on change in MIS transistor characteristics",
+                "grantDate": "2007-03-20",
+                "publicationDate": "2007-03-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2005-07-13",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7193888B2/en",
+                "coreProblem": "In wireless IoT sensor nodes, standby quiescent leakage from inactive memory macros exhausts coin-cell batteries.",
+                "mechanism": "Uses asymmetric cells with floating source/drain terminals and gate-to-substrate clamping during standby, eliminating static DC paths for picoampere quiescent leakage.",
+                "claimFocus": "Claim 1 (Page 10+): A non-volatile memory circuit comprising asymmetric MIS memory transistors and standby bias controls maintaining terminals at equipotential to eliminate DC leakage.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7193888B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/66/2a/c2/e73a777d630fea/US7193888.pdf",
+                    "date": "2007-03-20",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2005-07-13.",
+                    "pdfSHA256": "fe7c9406c01739d8c4d1b08f42547335d624c834ef03fd3caa1d725d92ce1cbe",
+                    "page": 10
+                  },
+                  {
+                    "title": "US7193888B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7193888B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7193888B2",
+                  "url": "https://patents.google.com/patent/US7193888B2/en",
+                  "note": "US7193888B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7193888B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/66/2a/c2/e73a777d630fea/US7193888.pdf",
+                    "date": "2007-03-20",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7359238B2",
+                "title": "Semiconductor nonvolatile storage circuit",
+                "grantDate": "2008-04-15",
+                "publicationDate": "2008-04-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-03-31",
+                "inventors": "Kazuyuki Nakamura",
+                "assignee": "Kitakyushu Foundation For The Advancement Of Industry, Science And Technology",
+                "url": "https://patents.google.com/patent/US7359238B2/en",
+                "coreProblem": "Standard CMOS single-poly layouts face metal routing congestion under design rules when dedicated source lines compete with bitline grids.",
+                "mechanism": "Innovates virtual-ground shared source diffusion architecture where adjacent memory transistors share single source contacts, slashing via count by 50%.",
+                "claimFocus": "Claim 1 (Page 12+): A semiconductor non-volatile circuit comprising memory cell pairs sharing a common source diffusion contact coupled to a shared source line addressed via time-multiplexing.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7359238B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/14/70/2c/0d130fa49e3435/US7359238.pdf",
+                    "date": "2008-04-15",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2004-03-31.",
+                    "pdfSHA256": "518782bcc44e6661741f65c9c9e055c7d2163bdd9085f1a02ef4adf42e9c2487",
+                    "page": 12
+                  },
+                  {
+                    "title": "US7359238B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7359238B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7359238B2",
+                  "url": "https://patents.google.com/patent/US7359238B2/en",
+                  "note": "US7359238B2 recorded per original grant publication, verifying assignee Kitakyushu Foundation For The Advancement Of Industry, Science And Technology and inventors.",
+                  "source": {
+                    "title": "US7359238B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/14/70/2c/0d130fa49e3435/US7359238.pdf",
+                    "date": "2008-04-15",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Kitakyushu Foundation For The Advancement Of Industry, Science And Technology and inventors Kazuyuki Nakamura.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7342821B1",
+                "title": "Hot-carrier-based nonvolatile memory utilizing differing transistor structures",
+                "grantDate": "2008-03-11",
+                "publicationDate": "2008-03-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-09-08",
+                "inventors": "Kenji Noda",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7342821B1/en",
+                "coreProblem": "Integrating both high-speed MTP and ultra-durable OTP on the same SoC traditionally demands two disparate embedded processes, driving up cost.",
+                "mechanism": "Modulates standard logic spacer geometry and implant profiles to co-integrate high-speed MTP and high-reliability OTP macros seamlessly on a single logic substrate.",
+                "claimFocus": "Claim 1 (Page 28+): A hot-carrier NVM comprising first and second memory transistors on a common substrate having differing geometries tailored for distinct storage requirements.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7342821B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/8a/f3/39/64f9e345f2f47c/US7342821.pdf",
+                    "date": "2008-03-11",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 28 provides representative Claim 1 reading. Earliest claimed priority date: 2006-09-08.",
+                    "pdfSHA256": "ad8cdfbab70da0f1aba5b976c473afccd818b6e234658ff6ba11ba6c5cad1736",
+                    "page": 28
+                  },
+                  {
+                    "title": "US7342821B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7342821B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7342821B1",
+                  "url": "https://patents.google.com/patent/US7342821B1/en",
+                  "note": "US7342821B1 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7342821B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/8a/f3/39/64f9e345f2f47c/US7342821.pdf",
+                    "date": "2008-03-11",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Kenji Noda.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7313021B2",
+                "title": "Nonvolatile memory circuit",
+                "grantDate": "2007-12-25",
+                "publicationDate": "2007-12-25",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-09-30",
+                "inventors": "Tadahiko Horiuchi",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7313021B2/en",
+                "coreProblem": "Continuous bias application during high-speed sequential reading in traditional NVMs generates significant dynamic sensing power dissipation.",
+                "mechanism": "Couples a self-latching sense amplifier that latches within picoseconds of transient sensing and abruptly shuts down array bias, slashing active read energy.",
+                "claimFocus": "Claim 1 (Page 12+): A non-volatile memory circuit comprising memory transistor, sense amplifier, and self-latching logic cutting cell bias power immediately upon sensing.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7313021B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/81/0d/c3/0b4dd9aa56b0c7/US7313021.pdf",
+                    "date": "2007-12-25",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2004-09-30.",
+                    "pdfSHA256": "513ca6f4d3d0d212df12f96353b423a977d36d3dc2174e90b9f8c8dbe2761e4a",
+                    "page": 12
+                  },
+                  {
+                    "title": "US7313021B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7313021B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7313021B2",
+                  "url": "https://patents.google.com/patent/US7313021B2/en",
+                  "note": "US7313021B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7313021B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/81/0d/c3/0b4dd9aa56b0c7/US7313021.pdf",
+                    "date": "2007-12-25",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Tadahiko Horiuchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7414903B2",
+                "title": "Nonvolatile memory device with test mechanism",
+                "grantDate": "2008-08-19",
+                "publicationDate": "2008-08-19",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-04-28",
+                "inventors": "Kenji Noda",
+                "assignee": "Nscore Inc.",
+                "url": "https://patents.google.com/patent/US7414903B2/en",
+                "coreProblem": "Internal charge pumps fluctuate across Vdd and temperature, risking destructive over-voltage spikes or under-voltage write failures.",
+                "mechanism": "Integrates closed-loop pulse energy monitors regulating charge pump output steps in real time, delivering uniform injection energy from -40°C to 150°C.",
+                "claimFocus": "Claim 1 (Page 20+): A non-volatile memory device comprising memory array, charge pump, and pulse monitor measuring pulse energy to compensate for temperature/voltage drifts.",
+                "patentCategory": "記憶體讀出電路項",
+                "patentCategoryEn": "Memory Read Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with NSCore / TwinBit® Comparison: Paired MIS and Hot-Carrier Memory; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7414903B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/18/fe/6e/e0b5430b22fb62/US7414903.pdf",
+                    "date": "2008-08-19",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2006-04-28.",
+                    "pdfSHA256": "a3e3d901b13ff13fb48978a2067a671c514c9a595ae108bf1b7e0948d9a77bfe",
+                    "page": 20
+                  },
+                  {
+                    "title": "US7414903B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7414903B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7414903B2",
+                  "url": "https://patents.google.com/patent/US7414903B2/en",
+                  "note": "US7414903B2 recorded per original grant publication, verifying assignee Nscore Inc. and inventors.",
+                  "source": {
+                    "title": "US7414903B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/18/fe/6e/e0b5430b22fb62/US7414903.pdf",
+                    "date": "2008-08-19",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nscore Inc. and inventors Kenji Noda.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -16203,6 +17491,118 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8963229B2",
+                "title": "Non-volatile semiconductor memory device",
+                "grantDate": "2015-02-24",
+                "publicationDate": "2015-02-24",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-09-21",
+                "inventors": "Yutaka Shinagawa",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US8963229B2/en",
+                "coreProblem": "Single-poly non-volatile memories using CHE programming suffer from low injection efficiency and high current draw, overburdening charge pumps.",
+                "mechanism": "Innovates single-poly source-side injection (SSI) structure generating steep lateral fields between select and floating gates for ultra-high injection efficiency at microamp currents.",
+                "claimFocus": "Claim 1 (Page 14+): A single-poly NVM comprising source, drain, control gate, and floating gate, configured to form carrier acceleration fields for source-side electron injection.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8963229B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/5d/60/b1/95847119f233ee/US8963229.pdf",
+                    "date": "2015-02-24",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Earliest claimed priority date: 2011-09-21.",
+                    "pdfSHA256": "270e2fe4fc15741d2f53c9759997cd086be1469cff58c57e00374a91aaec7b2e",
+                    "page": 14
+                  },
+                  {
+                    "title": "US8963229B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8963229B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8963229B2",
+                  "url": "https://patents.google.com/patent/US8963229B2/en",
+                  "note": "US8963229B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US8963229B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/5d/60/b1/95847119f233ee/US8963229.pdf",
+                    "date": "2015-02-24",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Yutaka Shinagawa.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9424924B2",
+                "title": "Non-volatile semiconductor memory device having depletion-type and enhancement-type channel regions",
+                "grantDate": "2016-08-23",
+                "publicationDate": "2016-08-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-04-02",
+                "inventors": "Yasuhiro Taniguchi",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US9424924B2/en",
+                "coreProblem": "In single-poly NVMs, high unprogrammed threshold voltages severely attenuate read currents under low supply voltages (1.0V-1.2V), throttling access speeds.",
+                "mechanism": "Combines depletion-mode transport and enhancement-mode charge storage within a unified cell, delivering robust read currents for 10ns high-speed reads at ultra-low voltages.",
+                "claimFocus": "Claim 1 (Page 9+): A non-volatile memory device comprising series-coupled depletion and enhancement sections providing high drive current under low operating voltages.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9424924B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/00/d4/b0/342d58887e102f/US9424924.pdf",
+                    "date": "2016-08-23",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 9 provides representative Claim 1 reading. Earliest claimed priority date: 2013-04-02.",
+                    "pdfSHA256": "0905cc9aeca4dddd40d3b7ccdcbddd8a4e5eda7e1b4f9251fc2451a95f5cbb31",
+                    "page": 9
+                  },
+                  {
+                    "title": "US9424924B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9424924B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9424924B2",
+                  "url": "https://patents.google.com/patent/US9424924B2/en",
+                  "note": "US9424924B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US9424924B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/00/d4/b0/342d58887e102f/US9424924.pdf",
+                    "date": "2016-08-23",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Yasuhiro Taniguchi.",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -16548,6 +17948,566 @@
                     "date": "2017-12-12",
                     "dateKind": "published",
                     "note": "Original front page confirms assignee Floadia Corp; technical interpretation reconstructed from publication.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11011530B2",
+                "title": "Memory cell, nonvolatile semiconductor storage device, and method for manufacturing nonvolatile semiconductor storage device",
+                "grantDate": "2021-05-18",
+                "publicationDate": "2021-05-18",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-12-18",
+                "inventors": "Daisuke Okada",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US11011530B2/en",
+                "coreProblem": "In advanced FinFET scaling, reduced spacing between drain and source concentrates electric fields, causing uneven potential gradients across memory gates and degrading retention.",
+                "mechanism": "Tailors fin geometry and sidewall slope to balance potential gradients across memory and select gates, achieving low-leakage charge-trap storage in high-aspect-ratio 3D fins.",
+                "claimFocus": "Claim 1 (Page 36+): Defines a memory cell comprising a fin structure, source/drain regions, and a memory gate, wherein fin profile geometry is configured to alleviate source-drain electric field concentration.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11011530B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/ab/d8/c5/9b08a5f4725a20/US11011530.pdf",
+                    "date": "2021-05-18",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 36 provides representative Claim 1 reading. Earliest claimed priority date: 2015-12-18.",
+                    "pdfSHA256": "572fde1a0e96b6f4ca13dba1d208ce51cee574d30e80bb1a52059be17d26a870",
+                    "page": 36
+                  },
+                  {
+                    "title": "US11011530B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11011530B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11011530B2",
+                  "url": "https://patents.google.com/patent/US11011530B2/en",
+                  "note": "US11011530B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US11011530B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/ab/d8/c5/9b08a5f4725a20/US11011530.pdf",
+                    "date": "2021-05-18",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Daisuke Okada.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11282878B2",
+                "title": "Solid-state imaging device and camera system",
+                "grantDate": "2022-03-22",
+                "publicationDate": "2022-03-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-01-09",
+                "inventors": "Shoji Shukuri",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US11282878B2/en",
+                "coreProblem": "CMOS image sensors suffer from fixed pattern noise and pixel offset drift, while external memory calibration incurs substantial latency and power penalties.",
+                "mechanism": "Embeds non-volatile SONOS cells beneath column readout circuitry to apply real-time analog offset corrections, achieving instant de-noising and ultra-low power sensing.",
+                "claimFocus": "Claim 1 (Page 16+): A solid-state imaging device comprising pixel array, column ADC circuits, and embedded non-volatile memory storing column calibration offsets applied during readout.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11282878B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/bb/d8/7b/08b434e2372c1b/US11282878.pdf",
+                    "date": "2022-03-22",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 16 provides representative Claim 1 reading. Earliest claimed priority date: 2018-01-09.",
+                    "pdfSHA256": "ee7bb3853472f3710beb3c21d317160d4068220b3a8a1187063f30df8d2fa5b7",
+                    "page": 16
+                  },
+                  {
+                    "title": "US11282878B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11282878B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11282878B2",
+                  "url": "https://patents.google.com/patent/US11282878B2/en",
+                  "note": "US11282878B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US11282878B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/bb/d8/7b/08b434e2372c1b/US11282878.pdf",
+                    "date": "2022-03-22",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Shoji Shukuri.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11100989B2",
+                "title": "Multiplier-accumulator",
+                "grantDate": "2021-08-24",
+                "publicationDate": "2021-08-24",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-08-02",
+                "inventors": "Kazumasa Yanagisawa",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US11100989B2/en",
+                "coreProblem": "In edge AI neural networks, frequent weight shuffling between memory and ALUs creates the von Neumann bottleneck and excessive energy consumption.",
+                "mechanism": "Uses non-volatile floating-gate charge levels as multi-level conductances to execute analog multiply-accumulate (MAC) operations directly on bitlines via Kirchhoff's laws.",
+                "claimFocus": "Claim 1 (Page 14+): A multiplier-accumulator comprising memory array, input drivers, and current integrators, where cell conductances represent weights for single-cycle analog MAC.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11100989B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/50/79/0c/c78b7501bbca76/US11100989.pdf",
+                    "date": "2021-08-24",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Earliest claimed priority date: 2018-08-02.",
+                    "pdfSHA256": "147ab2dd49b57d43c07344acf6957cdf9d79f2869ee8d21dc5588d1208cebccc",
+                    "page": 14
+                  },
+                  {
+                    "title": "US11100989B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11100989B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11100989B2",
+                  "url": "https://patents.google.com/patent/US11100989B2/en",
+                  "note": "US11100989B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US11100989B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/50/79/0c/c78b7501bbca76/US11100989.pdf",
+                    "date": "2021-08-24",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Kazumasa Yanagisawa.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9830989B2",
+                "title": "Non-volatile semiconductor storage device",
+                "grantDate": "2017-11-28",
+                "publicationDate": "2017-11-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-04-18",
+                "inventors": "Yutaka Shinagawa",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US9830989B2/en",
+                "coreProblem": "IoT wearables in prolonged standby suffer from continuous peripheral charge pump leakage that degrades battery life.",
+                "mechanism": "Implements a normally-off power-gating domain mirroring critical volatile registers into non-volatile split-gate cells upon power-down for zero-leakage sleep and instant boot.",
+                "claimFocus": "Claim 1 (Page 37+): A non-volatile storage device comprising power gating switch, volatile registers, and backup cells autonomously transferring state to non-volatile cells upon power-down.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9830989B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a9/d2/fd/a1c7fae42d746c/US9830989.pdf",
+                    "date": "2017-11-28",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 37 provides representative Claim 1 reading. Earliest claimed priority date: 2014-04-18.",
+                    "pdfSHA256": "262372e2086176ee3eaea8ed2eeb228b83ce13d2b9940d4c9c0fef980f3d0513",
+                    "page": 37
+                  },
+                  {
+                    "title": "US9830989B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9830989B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9830989B2",
+                  "url": "https://patents.google.com/patent/US9830989B2/en",
+                  "note": "US9830989B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US9830989B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a9/d2/fd/a1c7fae42d746c/US9830989.pdf",
+                    "date": "2017-11-28",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Yutaka Shinagawa.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10276727B2",
+                "title": "Memory cell, semiconductor integrated circuit device, and method for manufacturing semiconductor integrated circuit device",
+                "grantDate": "2019-04-30",
+                "publicationDate": "2019-04-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-05-01",
+                "inventors": "Fukuo Owada",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US10276727B2/en",
+                "coreProblem": "In ONO charge-trap memories, electrons trapped in silicon nitride spread laterally under high temperatures, causing threshold drift and retention failure.",
+                "mechanism": "Uses a discrete nanoparticle trap composite to spatially confine captured charges, blocking lateral thermal diffusion at high temperatures (>125°C) for automotive grade reliability.",
+                "claimFocus": "Claim 1 (Page 30+): A memory cell comprising channel, tunnel oxide, charge-trapping layer with spatially discrete trapping centers, and blocking oxide to suppress lateral charge migration.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10276727B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/c1/65/38/a0fc9b06235dc2/US10276727.pdf",
+                    "date": "2019-04-30",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 30 provides representative Claim 1 reading. Earliest claimed priority date: 2015-05-01.",
+                    "pdfSHA256": "2c7a5503db84676a9da654436d87441407d3975b35908c18218465c119559dc1",
+                    "page": 30
+                  },
+                  {
+                    "title": "US10276727B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10276727B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10276727B2",
+                  "url": "https://patents.google.com/patent/US10276727B2/en",
+                  "note": "US10276727B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US10276727B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/c1/65/38/a0fc9b06235dc2/US10276727.pdf",
+                    "date": "2019-04-30",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Fukuo Owada.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11127469B2",
+                "title": "Nonvolatile semiconductor storage device",
+                "grantDate": "2021-09-21",
+                "publicationDate": "2021-09-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-03-24",
+                "inventors": "Shinji Yoshida",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US11127469B2/en",
+                "coreProblem": "In dense flash arrays, repetitive high-voltage wordline pulses induce severe capacitive coupling crosstalk across adjacent metal lines during cycling.",
+                "mechanism": "Establishes hierarchical segmented wordline drivers applying active shielding potentials to adjacent unselected wordlines, suppressing capacitive coupling transients.",
+                "claimFocus": "Claim 1 (Page 5+): A non-volatile storage device comprising main wordlines, local sub-wordlines, and shielding drivers actively clamping adjacent unselected lines during programming.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US11127469B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/45/aa/9a/3b66883a7f0ec6/US11127469.pdf",
+                    "date": "2021-09-21",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 5 provides representative Claim 1 reading. Earliest claimed priority date: 2017-03-24.",
+                    "pdfSHA256": "79607fd8e29aee70392b3684fce764c034e352d57f98db511b6f222b159b22dd",
+                    "page": 5
+                  },
+                  {
+                    "title": "US11127469B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11127469B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11127469B2",
+                  "url": "https://patents.google.com/patent/US11127469B2/en",
+                  "note": "US11127469B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US11127469B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/45/aa/9a/3b66883a7f0ec6/US11127469.pdf",
+                    "date": "2021-09-21",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Shinji Yoshida.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9343166B2",
+                "title": "Non-volatile semiconductor storage device",
+                "grantDate": "2016-05-17",
+                "publicationDate": "2016-05-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-06-29",
+                "inventors": "Hideo Kasai",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US9343166B2/en",
+                "coreProblem": "Aging and P/E cycling widen threshold voltage distributions, rendering fixed-reference sensing prone to read errors across temperature and endurance variations.",
+                "mechanism": "Deploys adaptive reference generators adjusting sensing thresholds based on cycle counts and temperature telemetry to sustain optimal read margins throughout lifespan.",
+                "claimFocus": "Claim 1 (Page 41+): A memory readout system comprising array, sense amplifier, and adaptive reference generator dynamically adjusting thresholds to compensate for cycling-induced shifts.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9343166B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/d4/0f/4c/742b9275e31c3d/US9343166.pdf",
+                    "date": "2016-05-17",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 41 provides representative Claim 1 reading. Earliest claimed priority date: 2012-06-29.",
+                    "pdfSHA256": "a18a114d30db85fac893ee3053d967b8291abc5f0cf64fb327c9fdad28f3053d",
+                    "page": 41
+                  },
+                  {
+                    "title": "US9343166B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9343166B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9343166B2",
+                  "url": "https://patents.google.com/patent/US9343166B2/en",
+                  "note": "US9343166B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US9343166B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/d4/0f/4c/742b9275e31c3d/US9343166.pdf",
+                    "date": "2016-05-17",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Hideo Kasai.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10038101B2",
+                "title": "Memory cell and non-volatile semiconductor storage device",
+                "grantDate": "2018-07-31",
+                "publicationDate": "2018-07-31",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-10-15",
+                "inventors": "Yutaka Shinagawa",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US10038101B2/en",
+                "coreProblem": "In SONOS memories, hot hole injection during erase damages thin tunnel oxides, causing stress-induced leakage current (SILC) and data loss.",
+                "mechanism": "Employs bandgap-engineered graded tunnel dielectric stacks enhancing hole tunneling during erase while presenting formidable electron barriers during retention.",
+                "claimFocus": "Claim 1 (Page 12+): A charge-trap memory cell comprising a bandgap-engineered graded tunnel stack facilitating hole injection during erase while preserving retention barriers.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10038101B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/54/3e/e2/1fa05a9e853c75/US10038101.pdf",
+                    "date": "2018-07-31",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2014-10-15.",
+                    "pdfSHA256": "b2dea820d767260e1ab61ca07eab31d50837e1f152d057ab51d8aa30138223cc",
+                    "page": 12
+                  },
+                  {
+                    "title": "US10038101B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10038101B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10038101B2",
+                  "url": "https://patents.google.com/patent/US10038101B2/en",
+                  "note": "US10038101B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US10038101B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/54/3e/e2/1fa05a9e853c75/US10038101.pdf",
+                    "date": "2018-07-31",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Yutaka Shinagawa.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10680001B2",
+                "title": "Non-volatile semiconductor memory device",
+                "grantDate": "2020-06-09",
+                "publicationDate": "2020-06-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-06-20",
+                "inventors": "Yasuhiro Taniguchi",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US10680001B2/en",
+                "coreProblem": "Scaling split-gate cells below 28nm suffers from lithographic overlay misalignments between select gate and floating gate, causing wide cell-to-cell performance spreads.",
+                "mechanism": "Uses CMP and self-aligned sidewall processing to eliminate overlay errors on gate overlap regions, shrinking cell footprint while enforcing uniform electrical characteristics.",
+                "claimFocus": "Claim 1 (Page 11+): A non-volatile memory device comprising a select gate self-aligned to a floating gate sidewall, with overlap geometry defined by self-aligned boundaries.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10680001B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/65/1f/56/44cd21270298fe/US10680001.pdf",
+                    "date": "2020-06-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2014-06-20.",
+                    "pdfSHA256": "33659d9d5c9f0c80bc9fa3e853afffbf02368502fedf21ec630763ac5cdfd058",
+                    "page": 11
+                  },
+                  {
+                    "title": "US10680001B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10680001B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10680001B2",
+                  "url": "https://patents.google.com/patent/US10680001B2/en",
+                  "note": "US10680001B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US10680001B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/65/1f/56/44cd21270298fe/US10680001.pdf",
+                    "date": "2020-06-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Yasuhiro Taniguchi.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10102911B2",
+                "title": "Non-volatile semiconductor storage device for reducing the number of memory cells arranged along a control to which a memory gate voltage is applied",
+                "grantDate": "2018-10-16",
+                "publicationDate": "2018-10-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-12-15",
+                "inventors": "Hideo Kasai",
+                "assignee": "Floadia Corporation",
+                "url": "https://patents.google.com/patent/US10102911B2/en",
+                "coreProblem": "Differential sensing NVM schemes require complementary cells per bit, halving effective array density.",
+                "mechanism": "Innovates group-shared dynamic virtual ground nodes across adjacent bitlines, maintaining differential noise immunity while eliminating 35% of array area overhead.",
+                "claimFocus": "Claim 1 (Page 36+): A non-volatile storage device comprising memory columns and shared reference circuits providing reference levels across multiple bitlines without paired cells.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with LEE Flash ZT Comparison: Single-Layer-Gate Injection; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10102911B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/9f/1b/b2/a7938c59b3c03c/US10102911.pdf",
+                    "date": "2018-10-16",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 36 provides representative Claim 1 reading. Earliest claimed priority date: 2014-12-15.",
+                    "pdfSHA256": "8f3608a95ddb081f92dfab0ff1f65d60d3eb19fc3295a8f681bed1b5a58d2ec3",
+                    "page": 36
+                  },
+                  {
+                    "title": "US10102911B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10102911B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10102911B2",
+                  "url": "https://patents.google.com/patent/US10102911B2/en",
+                  "note": "US10102911B2 recorded per original grant publication, verifying assignee Floadia Corporation and inventors.",
+                  "source": {
+                    "title": "US10102911B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/9f/1b/b2/a7938c59b3c03c/US10102911.pdf",
+                    "date": "2018-10-16",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Floadia Corporation and inventors Hideo Kasai.",
                     "page": 1
                   }
                 }
@@ -19218,6 +21178,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US12414485B2",
+                "title": "Method for manufacturing an OxRAM-type resistive memory cell and associated OxRAM-type memory cell",
+                "grantDate": "2025-09-09",
+                "publicationDate": "2025-09-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-12-18",
+                "inventors": "Gabriel Molas",
+                "assignee": "Commissariat A L'energie Atomique Et Aux Energies Alternatives",
+                "url": "https://patents.google.com/patent/US12414485B2/en",
+                "coreProblem": "Traditional OxRAM requires 3V-5V high forming voltages, causing uncontrolled filament overgrowth and irreversible dielectric breakdown.",
+                "mechanism": "Deposits a sub-stoichiometric metal sub-oxide buffer between HfO2 switching layer and electrode as an oxygen vacancy reservoir, lowering forming voltage below 1.8V.",
+                "claimFocus": "Claim 1 (Page 8+): A method for manufacturing OxRAM depositing bottom electrode, metal oxide switching layer, sub-oxide oxygen scavenging layer, and top electrode to lower forming voltage.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12414485B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/d6/ac/73/8707a759cc0138/US12414485.pdf",
+                    "date": "2025-09-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 8 provides representative Claim 1 reading. Earliest claimed priority date: 2023-12-18.",
+                    "pdfSHA256": "d6ac738707a759cc0138d3aae84e9e81ae7b4253107c16ad9a8e6591a88e1bea",
+                    "page": 8
+                  },
+                  {
+                    "title": "US12414485B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12414485B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12414485B2",
+                  "url": "https://patents.google.com/patent/US12414485B2/en",
+                  "note": "US12414485B2 recorded per original grant publication, verifying assignee Commissariat A L'energie Atomique Et Aux Energies Alternatives and inventors.",
+                  "source": {
+                    "title": "US12414485B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/d6/ac/73/8707a759cc0138/US12414485.pdf",
+                    "date": "2025-09-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Commissariat A L'energie Atomique Et Aux Energies Alternatives and inventors Gabriel Molas.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12406724B2",
+                "title": "Resistive memory with selector, equipped with a write capacitor, and associated operating method",
+                "grantDate": "2025-09-02",
+                "publicationDate": "2025-09-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-12-14",
+                "inventors": "Paola Trotti",
+                "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+                "url": "https://patents.google.com/patent/US12406724B2/en",
+                "coreProblem": "In dense 1S1R cross-point arrays, selector snapback causes transient current overshoots that rupture nano-filaments and degrade endurance.",
+                "mechanism": "Integrates a micro-capacitor at the selector-resistor node to absorb surge charges, providing self-limiting discharge that constrains filament diameter.",
+                "claimFocus": "Claim 1 (Page 11+): A resistive memory device comprising a memory cell with selector and variable resistor, equipped with a write capacitor absorbing transient overshoot currents.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12406724B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/60/18/0d/f25e12f3aeac5c/US12406724.pdf",
+                    "date": "2025-09-02",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2021-12-14.",
+                    "pdfSHA256": "60180df25e12f3aeac5c1dd09b3787ee9e8376c95c700b11444420b269b93547",
+                    "page": 11
+                  },
+                  {
+                    "title": "US12406724B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12406724B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12406724B2",
+                  "url": "https://patents.google.com/patent/US12406724B2/en",
+                  "note": "US12406724B2 recorded per original grant publication, verifying assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors.",
+                  "source": {
+                    "title": "US12406724B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/60/18/0d/f25e12f3aeac5c/US12406724.pdf",
+                    "date": "2025-09-02",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors Paola Trotti.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12165706B2",
+                "title": "Method for resetting an array of resistive memory cells",
+                "grantDate": "2024-12-10",
+                "publicationDate": "2024-12-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-12-04",
+                "inventors": "Gabriel Molas",
+                "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+                "url": "https://patents.google.com/patent/US12165706B2/en",
+                "coreProblem": "During ReRAM reset to high-resistance states (HRS), excessive reverse voltages can trigger unintentional re-forming and filament instability.",
+                "mechanism": "Employs dual-slope falling pulses with real-time impedance monitoring, terminating pulses immediately upon filament rupture to prevent secondary breakdown.",
+                "claimFocus": "Claim 1 (Page 6+): A ReRAM array reset method applying progressive reset pulses, monitoring current slope, and terminating pulses upon filament rupture to prevent re-forming.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12165706B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/50/e8/d8/3bc9761d7b2b4e/US12165706.pdf",
+                    "date": "2024-12-10",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 6 provides representative Claim 1 reading. Earliest claimed priority date: 2019-12-04.",
+                    "pdfSHA256": "36d0dfdad69fde2d6964691038c321e12f70781035177cf05527eb367e27e4d6",
+                    "page": 6
+                  },
+                  {
+                    "title": "US12165706B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12165706B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12165706B2",
+                  "url": "https://patents.google.com/patent/US12165706B2/en",
+                  "note": "US12165706B2 recorded per original grant publication, verifying assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors.",
+                  "source": {
+                    "title": "US12165706B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/50/e8/d8/3bc9761d7b2b4e/US12165706.pdf",
+                    "date": "2024-12-10",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors Gabriel Molas.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12224007B2",
+                "title": "Method for determining a manufacturing parameter of a resistive random access memory cell",
+                "grantDate": "2025-02-11",
+                "publicationDate": "2025-02-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-06-12",
+                "inventors": "Gabriel Molas",
+                "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+                "url": "https://patents.google.com/patent/US12224007B2/en",
+                "coreProblem": "OxRAM switching layers are hypersensitive to thickness and annealing conditions, challenging the determination of robust manufacturing process windows.",
+                "mechanism": "Establishes a multiphysics decision model linking activation energy to oxygen vacancy kinetics, predicting optimal annealing temperatures and layer thicknesses to halve variability.",
+                "claimFocus": "Claim 1 (Page 5+): A method for determining ReRAM manufacturing parameters measuring test structures and computing optimal anneal conditions via vacancy kinetics models.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12224007B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/2b/8f/5c/6832f5e8d700ad/US12224007.pdf",
+                    "date": "2025-02-11",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 5 provides representative Claim 1 reading. Earliest claimed priority date: 2019-06-12.",
+                    "pdfSHA256": "746621374985b31a1a8c05965207dad132dd564a9b680677bc8a42daa523fc45",
+                    "page": 5
+                  },
+                  {
+                    "title": "US12224007B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12224007B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12224007B2",
+                  "url": "https://patents.google.com/patent/US12224007B2/en",
+                  "note": "US12224007B2 recorded per original grant publication, verifying assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors.",
+                  "source": {
+                    "title": "US12224007B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/2b/8f/5c/6832f5e8d700ad/US12224007.pdf",
+                    "date": "2025-02-11",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors Gabriel Molas.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12349605B2",
+                "title": "Method for manufacturing an OxRAM type resistive memory cell",
+                "grantDate": "2025-07-01",
+                "publicationDate": "2025-07-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-06-12",
+                "inventors": "Gabriel Molas",
+                "assignee": "Commissariat À L'energie Atomique Et Aux Énergies Alternatives",
+                "url": "https://patents.google.com/patent/US12349605B2/en",
+                "coreProblem": "Integrating ReRAM into advanced CMOS BEOL layers risks damaging underlying ultra low-k dielectrics and copper interconnects via high thermal budgets.",
+                "mechanism": "Innovates sub-400°C plasma-enhanced atomic layer deposition (PE-ALD) to form uniform switching oxides within strict BEOL thermal limits.",
+                "claimFocus": "Claim 1 (Page 5+): An OxRAM manufacturing method depositing switching oxide and barrier metals at <400°C within BEOL interconnects, preserving copper and low-k integrity.",
+                "patentCategory": "裝置結構項",
+                "patentCategoryEn": "Device Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Weebit ReRAM Circuit Selection and Materials Context; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12349605B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/f9/03/a8/7c4195a0e9bde1/US12349605B2.pdf",
+                    "date": "2025-07-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 5 provides representative Claim 1 reading. Earliest claimed priority date: 2019-06-12.",
+                    "pdfSHA256": "fed05312697b1208efc024eba9f69d1d00cef73e5337e9ba8811d2ba7f09c3b6",
+                    "page": 5
+                  },
+                  {
+                    "title": "US12349605B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12349605B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12349605B2",
+                  "url": "https://patents.google.com/patent/US12349605B2/en",
+                  "note": "US12349605B2 recorded per original grant publication, verifying assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors.",
+                  "source": {
+                    "title": "US12349605B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/f9/03/a8/7c4195a0e9bde1/US12349605B2.pdf",
+                    "date": "2025-07-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Commissariat À L'energie Atomique Et Aux Énergies Alternatives and inventors Gabriel Molas.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -20446,6 +22686,174 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US12585433B2",
+                "title": "Device and method of handling a modular multiplication",
+                "grantDate": "2026-03-24",
+                "publicationDate": "2026-03-24",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2020-10-21",
+                "inventors": "Wen-Ching Lin",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12585433B2/en",
+                "coreProblem": "In Post-Quantum Cryptography (PQC) and RSA/ECC hardware engines, large-integer modular multiplication and division consume excessive cycles and power.",
+                "mechanism": "Deploys a pipelined Montgomery modular multiplication engine with Radix-4 parallel addition, interleaving partial-product accumulation and reduction in single cycles.",
+                "claimFocus": "Claim 1 (Page 22+): A device handling modular multiplication comprising pipelined multiply-accumulate and modular reduction units executing big-integer modular operations.",
+                "patentCategory": "電子系統結構項",
+                "patentCategoryEn": "Electronic System Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12585433B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f2/76/fb48f632d1a715/US12585433.pdf",
+                    "date": "2026-03-24",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 22 provides representative Claim 1 reading. Earliest claimed priority date: 2020-10-21.",
+                    "pdfSHA256": "fdf276fb48f632d1a7152a66bee00e72655c50cbcb689482032294127168b0b1",
+                    "page": 22
+                  },
+                  {
+                    "title": "US12585433B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12585433B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12585433B2",
+                  "url": "https://patents.google.com/patent/US12585433B2/en",
+                  "note": "US12585433B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12585433B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f2/76/fb48f632d1a715/US12585433.pdf",
+                    "date": "2026-03-24",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Wen-Ching Lin.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12602176B2",
+                "title": "Computing device and method thereof",
+                "grantDate": "2026-04-14",
+                "publicationDate": "2026-04-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2024-02-15",
+                "inventors": "Wen-Ching Lin",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12602176B2/en",
+                "coreProblem": "In complex SoCs sharing interconnect fabrics, untrusted peripherals or compromised DMAs can launch side-channel or unauthorized memory access attacks.",
+                "mechanism": "Embeds hardware security firewall filters at interconnect crossbars, validating physical hardware identity tags per bus transaction to physically isolate illicit access.",
+                "claimFocus": "Claim 1 (Page 10+): A secure computing device comprising master modules, protected memory, and hardware security controllers validating bus transaction identity tags.",
+                "patentCategory": "電子系統結構項",
+                "patentCategoryEn": "Electronic System Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12602176B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/01/0b/55/6884bfb6920200/US12602176.pdf",
+                    "date": "2026-04-14",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2024-02-15.",
+                    "pdfSHA256": "010b556884bfb69202003eb319e8fa05a6f6bf7f28658a22b321d1db3b42485b",
+                    "page": 10
+                  },
+                  {
+                    "title": "US12602176B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12602176B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12602176B2",
+                  "url": "https://patents.google.com/patent/US12602176B2/en",
+                  "note": "US12602176B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12602176B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/01/0b/55/6884bfb6920200/US12602176.pdf",
+                    "date": "2026-04-14",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Wen-Ching Lin.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12542664B2",
+                "title": "Numerical value conversion method and numerical value conversion system with low hardware complexity and high operation efficiency",
+                "grantDate": "2026-02-03",
+                "publicationDate": "2026-02-03",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-09-27",
+                "inventors": "Wen-Ching Lin",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12542664B2/en",
+                "coreProblem": "During radix and numeric conversions in crypto chips, data-dependent Hamming weight shifts generate power signatures vulnerable to Differential Power Analysis (DPA).",
+                "mechanism": "Applies random dynamic masking derived from PUF entropy and complementary balanced encoding during numeric conversion, decorrelating power traces from sensitive data.",
+                "claimFocus": "Claim 1 (Page 7+): A side-channel resistant numerical conversion system comprising conversion units and random masking generators dynamically masking numeric data.",
+                "patentCategory": "電子系統結構項",
+                "patentCategoryEn": "Electronic System Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with PUFrt / PUFcc Comparison: Authentication, Randomness and Key Management; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US12542664B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/1c/a7/cf/57f65c6a1a7a8c/US12542664.pdf",
+                    "date": "2026-02-03",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 7 provides representative Claim 1 reading. Earliest claimed priority date: 2022-09-27.",
+                    "pdfSHA256": "1ca7cf57f65c6a1a7a8cee1bb6dc35759bac56de3de70b79d3c36cede57af428",
+                    "page": 7
+                  },
+                  {
+                    "title": "US12542664B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12542664B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12542664B2",
+                  "url": "https://patents.google.com/patent/US12542664B2/en",
+                  "note": "US12542664B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12542664B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/1c/a7/cf/57f65c6a1a7a8c/US12542664.pdf",
+                    "date": "2026-02-03",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Wen-Ching Lin.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -20494,7 +22902,7 @@
         ]
       }
     ],
-    "totalPatents": 190
+    "totalPatents": 233
   },
   "sources": [
     {
