@@ -8913,6 +8913,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US10991430B2",
+                "title": "相容於近記憶體計算系統之非揮發性記憶體單元",
+                "grantDate": "2019-10-30",
+                "publicationDate": "2019-10-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-10-30",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10991430B2/en",
+                "coreProblem": "傳統記憶體架構將權重傳輸至運算核心引發龐大匯流排能耗，需直接在記憶體陣列鄰近端執行矩陣運算。",
+                "mechanism": "整合單層浮閘單元與乘法導電開關電路，將輸入激勵電壓轉化為浮閘通道類比電流並於位元線上完成平行累加。",
+                "claimFocus": "權利項 1 要求單層浮閘儲存電晶體、與運算控制線相連之乘法開關電晶體及陣列電流求和輸出節點。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoBit® 對照主題：單層浮閘 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10991430B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/d0/21/c8/e178cdca65db4b/US10991430.pdf",
+                    "date": "2019-10-30",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-10-30）。",
+                    "pdfSHA256": "d021c8e178cdca65db4ba1d9a1a57c0c229ed903b1ecdc0e8e8a931be82446a7",
+                    "page": 10
+                  },
+                  {
+                    "title": "US10991430B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10991430B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10991430B2",
+                  "url": "https://patents.google.com/patent/US10991430B2/en",
+                  "note": "US10991430B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10991430B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/d0/21/c8/e178cdca65db4b/US10991430.pdf",
+                    "date": "2019-10-30",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10276239B2",
+                "title": "高密度單層浮閘記憶體單元與相關陣列結構",
+                "grantDate": "2017-07-07",
+                "publicationDate": "2017-07-07",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-07-07",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10276239B2/en",
+                "coreProblem": "先進邏輯節點微縮下單層浮閘電容耦合率急劇下降，限制寫入速度並增加程式化干擾風險。",
+                "mechanism": "藉由叉指狀多晶矽延伸極板與擴散層電容立體分佈，在維持極小晶胞面積下顯著拉高浮閘電容耦合係數。",
+                "claimFocus": "權利項 1 聚焦多晶矽浮閘幾何拓撲、控制閘極擴散區重疊面積以及第一/第二導電型井區之耦合偏壓配置。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoBit® 對照主題：單層浮閘 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10276239B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/db/d7/9f/8240db79ffb1dc/US10276239.pdf",
+                    "date": "2017-07-07",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-07-07）。",
+                    "pdfSHA256": "dbd79f8240db79ffb1dc8c88aaa891818984c6e126037adada9cec46465b651f",
+                    "page": 18
+                  },
+                  {
+                    "title": "US10276239B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10276239B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10276239B2",
+                  "url": "https://patents.google.com/patent/US10276239B2/en",
+                  "note": "US10276239B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10276239B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/db/d7/9f/8240db79ffb1dc/US10276239.pdf",
+                    "date": "2017-07-07",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11508425B2",
+                "title": "先進微縮節點可程式化非揮發性記憶體陣列",
+                "grantDate": "2021-02-09",
+                "publicationDate": "2021-02-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-02-09",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11508425B2/en",
+                "coreProblem": "微縮節點單元間距離過短，相鄰浮閘寄生電容耦合誘發嚴重的寫入電位牽引干擾。",
+                "mechanism": "在相鄰列單元間設置自對準虛置屏蔽走線與非對稱字元線偏壓抑制，完全阻絕雜散電場串音。",
+                "claimFocus": "權利項 1 要求浮閘陣列行架構、隔離虛置導線網絡以及防止未選取單元穿隧漂移之抑制電路。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoBit® 對照主題：單層浮閘 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11508425B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/83/9d/2a/77998afd5f91fe/US11508425.pdf",
+                    "date": "2021-02-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-02-09）。",
+                    "pdfSHA256": "839d2a77998afd5f91fefb6c0ea1fd80089aa7e2541dd62fe2fc1518a21433b9",
+                    "page": 11
+                  },
+                  {
+                    "title": "US11508425B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11508425B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11508425B2",
+                  "url": "https://patents.google.com/patent/US11508425B2/en",
+                  "note": "US11508425B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11508425B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/83/9d/2a/77998afd5f91fe/US11508425.pdf",
+                    "date": "2021-02-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11877456B2",
+                "title": "超低漏電微型非揮發性記憶體單元",
+                "grantDate": "2021-07-21",
+                "publicationDate": "2021-07-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-07-21",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11877456B2/en",
+                "coreProblem": "超低功耗常開 IoT 晶片待機漏電嚴苛，未選通儲存節點接面漏電容易吞噬系統待機電量。",
+                "mechanism": "採用動態基底反偏與雙厚度通道氧化層設計，在待機模式下截斷寄生漏電路徑，待機電流降低逾 90%。",
+                "claimFocus": "權利項 1 要求儲存電晶體、具備可切換基底電位之隔離井結構及待機偏壓控制切換單元。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoBit® 對照主題：單層浮閘 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11877456B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/8a/51/2c/30590e452070f5/US11877456.pdf",
+                    "date": "2021-07-21",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-07-21）。",
+                    "pdfSHA256": "8a512c30590e452070f520fc099c6f057d87e4e27838b353a9e81003b6aa3353",
+                    "page": 18
+                  },
+                  {
+                    "title": "US11877456B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11877456B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11877456B2",
+                  "url": "https://patents.google.com/patent/US11877456B2/en",
+                  "note": "US11877456B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11877456B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/8a/51/2c/30590e452070f5/US11877456.pdf",
+                    "date": "2021-07-21",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12482526B2",
+                "title": "具自我校準參考電流產生器之非揮發性記憶體",
+                "grantDate": "2023-11-09",
+                "publicationDate": "2023-11-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-11-09",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US12482526B2/en",
+                "coreProblem": "先進製程晶圓邊緣製程變異（PVT）引發感測裕度漂移，固定參考電流電路易誤判單元狀態。",
+                "mechanism": "利用追蹤陣列實體特性的啞元單元組動態合成自我調諧基準電流，即時抵銷溫度與供電噪聲。",
+                "claimFocus": "權利項 1 要求動態參考電流源、PVT 追蹤補償電晶體陣列與差分讀出放大器之閉迴路架構。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoBit® 對照主題：單層浮閘 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12482526B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/f0/59/6a/54853dda2286e1/US12482526.pdf",
+                    "date": "2023-11-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 25 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-11-09）。",
+                    "pdfSHA256": "f0596a54853dda2286e100e7f65f46840e6845eeaccf2a174dfdda43327ef05e",
+                    "page": 25
+                  },
+                  {
+                    "title": "US12482526B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12482526B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12482526B2",
+                  "url": "https://patents.google.com/patent/US12482526B2/en",
+                  "note": "US12482526B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US12482526B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/f0/59/6a/54853dda2286e1/US12482526.pdf",
+                    "date": "2023-11-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -9709,6 +9989,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US9013910B2",
+                "title": "具防降解性能之反熔絲 OTP 記憶體單元及其操作方法",
+                "grantDate": "2013-12-10",
+                "publicationDate": "2013-12-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-12-10",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US9013910B2/en",
+                "coreProblem": "抗熔絲擊穿後微金屬絲在高溫操作或長年電應力下可能發生自退火修復，導致導通阻值回彈上升。",
+                "mechanism": "導入雙階段高能量塑形脈衝，使擊穿通道邊緣矽原子與閘極多晶矽完全金屬化共晶，形成永久不可逆低阻路徑。",
+                "claimFocus": "權利項 1 要求抗熔絲擊穿單元、第一階段擊穿電路與第二階段合金化重塑電流源之操作方法項。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9013910B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e5/65/3f/5c20ab3f80c8f3/US9013910.pdf",
+                    "date": "2013-12-10",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-12-10）。",
+                    "pdfSHA256": "e5653f5c20ab3f80c8f33c775192e2b4069c3ab5f80ed837a9416302341a7922",
+                    "page": 20
+                  },
+                  {
+                    "title": "US9013910B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9013910B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9013910B2",
+                  "url": "https://patents.google.com/patent/US9013910B2/en",
+                  "note": "US9013910B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US9013910B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e5/65/3f/5c20ab3f80c8f3/US9013910.pdf",
+                    "date": "2013-12-10",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8724363B2",
+                "title": "利用耦合通道之反熔絲記憶體及其操作方法",
+                "grantDate": "2012-03-06",
+                "publicationDate": "2012-03-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-03-06",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8724363B2/en",
+                "coreProblem": "傳統薄氧化層擊穿需高電壓，但在先進薄閘極節點下高壓容易擊毀周邊選通電晶體。",
+                "mechanism": "透過浮動井區與電容耦合通道在反熔絲端累積局部極高電場，選通電晶體兩端僅承受低操作電壓。",
+                "claimFocus": "權利項 1 要求耦合通道結構、抗熔絲電容器、與選通線連接之低壓保護電晶體及偏壓步進控制。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8724363B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/4c/fa/74/4fd993760ab2b9/US8724363.pdf",
+                    "date": "2012-03-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 12 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-03-06）。",
+                    "pdfSHA256": "4cfa744fd993760ab2b9c2a13a27124ed073b5af03e18216274f10eebf31d586",
+                    "page": 12
+                  },
+                  {
+                    "title": "US8724363B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8724363B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8724363B2",
+                  "url": "https://patents.google.com/patent/US8724363B2/en",
+                  "note": "US8724363B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US8724363B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/4c/fa/74/4fd993760ab2b9/US8724363.pdf",
+                    "date": "2012-03-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9799662B2",
+                "title": "反熔絲型單次可程式化記憶體單元與陣列結構",
+                "grantDate": "2016-01-13",
+                "publicationDate": "2016-01-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-01-13",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US9799662B2/en",
+                "coreProblem": "反熔絲陣列在寫入高壓施加瞬間位元線大電流湧浪引發地彈噪聲（Ground Bounce），破壞周邊邏輯。",
+                "mechanism": "在位元線選通支路內嵌微型限流二極體與動態壓降阻尼器，平滑釋放寫入瞬態峰值電荷。",
+                "claimFocus": "權利項 1 要求反熔絲記憶體單元陣列、整合型限流被動元件以及浪湧電流吸收箝位電路。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9799662B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/66/e7/3d/d8c1d7f8473d5c/US9799662.pdf",
+                    "date": "2016-01-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-01-13）。",
+                    "pdfSHA256": "66e73dd8c1d7f8473d5c04592ef9f44f5fb3790ce9f9f56c08256145413be2d7",
+                    "page": 22
+                  },
+                  {
+                    "title": "US9799662B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9799662B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9799662B2",
+                  "url": "https://patents.google.com/patent/US9799662B2/en",
+                  "note": "US9799662B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US9799662B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/66/e7/3d/d8c1d7f8473d5c/US9799662.pdf",
+                    "date": "2016-01-13",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9601499B2",
+                "title": "可降低漏電流之單次可程式化記憶體單元與陣列結構",
+                "grantDate": "2016-01-25",
+                "publicationDate": "2016-01-25",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-01-25",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US9601499B2/en",
+                "coreProblem": "未燒錄抗熔絲單元在陣列讀取高偏壓下累積的穿隧微漏電流限制了單元行陣列的掛載長度。",
+                "mechanism": "設計微型非對稱裂通道架構，將常態電場集中於非敏感區，讀取偏壓下通道漏電降低三個數量級。",
+                "claimFocus": "權利項 1 要求具備高電阻氧化層之抗熔絲結構、非對稱通道摻雜分佈與陣列讀出選擇開關。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9601499B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/d1/28/0c/0e065efb558fb2/US9601499.pdf",
+                    "date": "2016-01-25",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-01-25）。",
+                    "pdfSHA256": "d1280c0e065efb558fb27800f3d9c38aab6c830fdc2ef8c1a35d2cb401a918fb",
+                    "page": 33
+                  },
+                  {
+                    "title": "US9601499B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9601499B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9601499B2",
+                  "url": "https://patents.google.com/patent/US9601499B2/en",
+                  "note": "US9601499B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US9601499B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/d1/28/0c/0e065efb558fb2/US9601499.pdf",
+                    "date": "2016-01-25",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11881274B2",
+                "title": "反熔絲型單次可程式化記憶體陣列之程式化控制電路",
+                "grantDate": "2022-06-17",
+                "publicationDate": "2022-06-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-06-17",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11881274B2/en",
+                "coreProblem": "晶粒量產測試時若缺乏即時擊穿偵測，過度施加高壓會導致金屬走線熔斷與鄰近單元熱損壞。",
+                "mechanism": "具備奈秒級瞬態電流突波觸發之自動切斷開關，擊穿導通瞬間即時阻斷高壓供應並記錄熔合完整度。",
+                "claimFocus": "權利項 1 要求自動截止程式化電路、高速突波偵測比較器、寫入脈衝計時器與熔斷驗證暫存器。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11881274B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/8e/02/69/d07210c574b5f6/US11881274.pdf",
+                    "date": "2022-06-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 23 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2022-06-17）。",
+                    "pdfSHA256": "8e0269d07210c574b5f6a49134dc17687edf1f13b82da6eb02fb53284a264349",
+                    "page": 23
+                  },
+                  {
+                    "title": "US11881274B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11881274B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11881274B2",
+                  "url": "https://patents.google.com/patent/US11881274B2/en",
+                  "note": "US11881274B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11881274B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/8e/02/69/d07210c574b5f6/US11881274.pdf",
+                    "date": "2022-06-17",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -10169,6 +10729,286 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8941167B2",
+                "title": "可抹除單層多晶矽非揮發性記憶體",
+                "grantDate": "2012-03-08",
+                "publicationDate": "2012-03-08",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-03-08",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8941167B2/en",
+                "coreProblem": "單層多晶矽製程缺乏控制閘極垂直重疊，傳統 FN 穿隧抹除需極高負電壓導致外圍絕緣失效。",
+                "mechanism": "利用對角井區電容交叉耦合差分抹除技術，分散抹除應力至兩個共用擴散區，降低峰值電壓需求。",
+                "claimFocus": "權利項 1 要求單層多晶矽浮閘、第一抹除耦合擴散區、第二寫入耦合擴散區及差分操作偏壓電路。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoEE® 對照主題：可抹除單層多晶矽 NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8941167B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/72/f3/02/6b498f452e2e09/US8941167.pdf",
+                    "date": "2012-03-08",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-03-08）。",
+                    "pdfSHA256": "72f3026b498f452e2e09aec05644b70516c2b92add7c3c284219ce12470963ca",
+                    "page": 19
+                  },
+                  {
+                    "title": "US8941167B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8941167B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8941167B2",
+                  "url": "https://patents.google.com/patent/US8941167B2/en",
+                  "note": "US8941167B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US8941167B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/72/f3/02/6b498f452e2e09/US8941167.pdf",
+                    "date": "2012-03-08",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10181520B2",
+                "title": "電性可抹除單層多晶矽非揮發性記憶體製造方法",
+                "grantDate": "2017-10-25",
+                "publicationDate": "2017-10-25",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-10-25",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10181520B2/en",
+                "coreProblem": "標準邏輯 CMOS 製程不允許增加額外光罩，傳統 EEPROM 穿隧氧化層薄化製程難以直接整合。",
+                "mechanism": "完全沿用標準 I/O 高壓 MOS 與核心低壓 MOS 之現成閘極氧化層與注入遮罩，達成零額外光罩整合。",
+                "claimFocus": "權利項 1 聚焦利用標準邏輯雙氧化層製程、單一多晶矽沉積光罩與高壓隔離井注入之製造步驟項。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoEE® 對照主題：可抹除單層多晶矽 NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10181520B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/0d/8d/aa/97f2fc36917863/US10181520.pdf",
+                    "date": "2017-10-25",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 23 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-10-25）。",
+                    "pdfSHA256": "0d8daa97f2fc36917863a4f9206af1ba741204673b97d954d74acb833112a8a7",
+                    "page": 23
+                  },
+                  {
+                    "title": "US10181520B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10181520B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10181520B2",
+                  "url": "https://patents.google.com/patent/US10181520B2/en",
+                  "note": "US10181520B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10181520B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/0d/8d/aa/97f2fc36917863/US10181520.pdf",
+                    "date": "2017-10-25",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10103157B2",
+                "title": "具淺接面擴散區之非揮發性記憶體",
+                "grantDate": "2017-07-13",
+                "publicationDate": "2017-07-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-07-13",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10103157B2/en",
+                "coreProblem": "深接面擴散區容易在高溫長年工作下引發橫向摻雜熱擴散，破壞有效通道長度並誘發穿隧漏電。",
+                "mechanism": "在浮閘注入端採用自對準超淺接面（USJ）搭配碳擴散阻擋層，維持次微米有效通道幾何剛性。",
+                "claimFocus": "權利項 1 要求浮閘電晶體、淺接面源極/汲極擴散區、重摻雜接觸區及界面熱應力阻絕層。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoEE® 對照主題：可抹除單層多晶矽 NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10103157B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/39/ee/a0/3cab043e7a3bcb/US10103157.pdf",
+                    "date": "2017-07-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 23 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-07-13）。",
+                    "pdfSHA256": "39eea03cab043e7a3bcbea55028570fd96f3cfdd8fb02b189cfdcb985a365c09",
+                    "page": 23
+                  },
+                  {
+                    "title": "US10103157B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10103157B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10103157B2",
+                  "url": "https://patents.google.com/patent/US10103157B2/en",
+                  "note": "US10103157B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10103157B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/39/ee/a0/3cab043e7a3bcb/US10103157.pdf",
+                    "date": "2017-07-13",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11245004B2",
+                "title": "具隔離井區之非揮發性記憶體單元",
+                "grantDate": "2020-09-30",
+                "publicationDate": "2020-09-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2020-09-30",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11245004B2/en",
+                "coreProblem": "車規高壓電路注入噪聲透過共用基底耦合至弱浮閘電荷儲存點，造成資料誤翻轉。",
+                "mechanism": "將儲存單元陣列完全置入深重摻雜三重隔離井（Triple-Well），形成全包覆法拉第屏蔽籠阻絕基底噪聲。",
+                "claimFocus": "權利項 1 要求深 N 井隔離區、P 型內部井區、浮閘儲存單元陣列及基底噪聲消解偏壓網絡。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoEE® 對照主題：可抹除單層多晶矽 NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11245004B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/2e/cb/f2/69245216382f5e/US11245004.pdf",
+                    "date": "2020-09-30",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 21 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-09-30）。",
+                    "pdfSHA256": "2ecbf269245216382f5ee7b13b20041c644196c719648e1ea5505c65490a16cd",
+                    "page": 21
+                  },
+                  {
+                    "title": "US11245004B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11245004B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11245004B2",
+                  "url": "https://patents.google.com/patent/US11245004B2/en",
+                  "note": "US11245004B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11245004B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/2e/cb/f2/69245216382f5e/US11245004.pdf",
+                    "date": "2020-09-30",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9041089B2",
+                "title": "高耦合比單層多晶矽非揮發性記憶體結構",
+                "grantDate": "2013-12-27",
+                "publicationDate": "2013-12-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-12-27",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US9041089B2/en",
+                "coreProblem": "平面浮閘與控制閘極耦合電容佔用過大晶圓面積，限制單晶片 EEPROM 容量突破 512Kb。",
+                "mechanism": "利用淺溝槽隔離（STI）側壁與邊界多晶矽下折幾何延伸，在三維維度倍增耦合表面積。",
+                "claimFocus": "權利項 1 要求形成於 STI 溝槽側壁上方之多晶矽浮閘延伸翼、共用控制擴散區與抹除耦合節點。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoEE® 對照主題：可抹除單層多晶矽 NVM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9041089B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/57/97/6e/4a792f2dddc249/US9041089.pdf",
+                    "date": "2013-12-27",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-12-27）。",
+                    "pdfSHA256": "57976e4a792f2dddc249df78b739301854c7fbd7b299f9d30c1fa413bd30873e",
+                    "page": 19
+                  },
+                  {
+                    "title": "US9041089B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9041089B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9041089B2",
+                  "url": "https://patents.google.com/patent/US9041089B2/en",
+                  "note": "US9041089B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US9041089B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/57/97/6e/4a792f2dddc249/US9041089.pdf",
+                    "date": "2013-12-27",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
               }
             ]
           },
@@ -10624,6 +11464,286 @@
                     "title": "US9305611B2 · 首頁身分核對",
                     "url": "https://patentimages.storage.googleapis.com/9a/46/e1/cd915be7273d81/US9305611.pdf",
                     "date": "2015-06-11",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8625350B2",
+                "title": "基於邏輯製程之多次可程式化記憶體單元",
+                "grantDate": "2012-06-01",
+                "publicationDate": "2012-06-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-06-01",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8625350B2/en",
+                "coreProblem": "多次抹寫（>10,000 次）造成穿隧氧化層電荷陷阱累積，引發抹除閾值電壓漂移與關閉漏電增加。",
+                "mechanism": "採用動態自適應雙極脈衝技術，在程式化與抹除循環中定期釋放捕捉電荷，將單元耐久度提升至 10 萬次。",
+                "claimFocus": "權利項 1 要求多次可程式化單層浮閘單元、電荷陷阱脫陷偏壓電路與循環計數調諧控制器。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoMTP® 對照主題：輔助閘極單元與陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8625350B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e4/74/31/05c6000d6be0b4/US8625350.pdf",
+                    "date": "2012-06-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-06-01）。",
+                    "pdfSHA256": "e4743105c6000d6be0b43727cca71f26b198abfc6a08076fa7c522162337286d",
+                    "page": 13
+                  },
+                  {
+                    "title": "US8625350B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8625350B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8625350B2",
+                  "url": "https://patents.google.com/patent/US8625350B2/en",
+                  "note": "US8625350B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US8625350B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e4/74/31/05c6000d6be0b4/US8625350.pdf",
+                    "date": "2012-06-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8958245B2",
+                "title": "標準 CMOS 邏輯製程相容之多次可程式化記憶體單元",
+                "grantDate": "2012-05-29",
+                "publicationDate": "2012-05-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-05-29",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US8958245B2/en",
+                "coreProblem": "高溫車規環境（150°C）下多次抹寫單元浮閘電子極易沿薄氧化層缺陷逃逸，資料保存期驟降。",
+                "mechanism": "在儲存節點串聯微型阻擋電晶體與電位自鎖電路，形成階梯式電位阻障封鎖熱激發電子逃逸。",
+                "claimFocus": "權利項 1 要求浮閘儲存管、串聯阻擋管、防高溫 SILC 逃逸電路與對稱抹寫端子。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoMTP® 對照主題：輔助閘極單元與陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8958245B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/81/78/de/44ab3a3ef84237/US8958245.pdf",
+                    "date": "2012-05-29",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 26 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-05-29）。",
+                    "pdfSHA256": "8178de44ab3a3ef84237ac93406bf63f978e9db549daf455b33a2219c8058033",
+                    "page": 26
+                  },
+                  {
+                    "title": "US8958245B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8958245B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8958245B2",
+                  "url": "https://patents.google.com/patent/US8958245B2/en",
+                  "note": "US8958245B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US8958245B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/81/78/de/44ab3a3ef84237/US8958245.pdf",
+                    "date": "2012-05-29",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11398259B2",
+                "title": "多次可程式化非揮發性記憶體單元陣列",
+                "grantDate": "2021-02-24",
+                "publicationDate": "2021-02-24",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-02-24",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11398259B2/en",
+                "coreProblem": "大容量 MTP 陣列在頁抹除（Page Erase）操作時位元線寄生電容充放電產生劇烈峰值功耗。",
+                "mechanism": "採用分段電荷共享預充架構，將相鄰位元線電壓逐級回收傳遞，頁抹除瞬態功耗降低逾 60%。",
+                "claimFocus": "權利項 1 要求分段 MTP 陣列、電荷回收匯流排開關矩陣與多相時脈能量平滑控制器。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoMTP® 對照主題：輔助閘極單元與陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11398259B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/7e/f5/83/be6079255e3d7a/US11398259.pdf",
+                    "date": "2021-02-24",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 21 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-02-24）。",
+                    "pdfSHA256": "7ef583be6079255e3d7a61351b7771bf3465d3db2ee8043081af81139cfc6818",
+                    "page": 21
+                  },
+                  {
+                    "title": "US11398259B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11398259B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11398259B2",
+                  "url": "https://patents.google.com/patent/US11398259B2/en",
+                  "note": "US11398259B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11398259B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/7e/f5/83/be6079255e3d7a/US11398259.pdf",
+                    "date": "2021-02-24",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11017862B2",
+                "title": "具抹除抑制能力之多次可程式化記憶體單元與陣列",
+                "grantDate": "2019-10-23",
+                "publicationDate": "2019-10-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-10-23",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11017862B2/en",
+                "coreProblem": "位元級選通抹除（Bit-by-Bit Erase）時，共用控制線上之未選取單元容易遭受過度抹除誤操作。",
+                "mechanism": "為每個單元配置自偏置抹除抑制旁路電晶體，在共用線升壓時主動將未選單元浮閘電位箝位至安全區間。",
+                "claimFocus": "權利項 1 要求具獨立抹除抑制開關之 MTP 單元、共用控制線與抹除狀態防護控制邏輯。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoMTP® 對照主題：輔助閘極單元與陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11017862B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/6b/43/30/8b301284590565/US11017862.pdf",
+                    "date": "2019-10-23",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 16 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-10-23）。",
+                    "pdfSHA256": "6b43308b301284590565d50d7c12e6c06f75428310328ff7993d777f96f6af65",
+                    "page": 16
+                  },
+                  {
+                    "title": "US11017862B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11017862B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11017862B2",
+                  "url": "https://patents.google.com/patent/US11017862B2/en",
+                  "note": "US11017862B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11017862B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/6b/43/30/8b301284590565/US11017862.pdf",
+                    "date": "2019-10-23",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11557338B2",
+                "title": "具多階單元（MLC）陣列之非揮發性記憶體與程式化控制方法",
+                "grantDate": "2021-05-13",
+                "publicationDate": "2021-05-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-05-13",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11557338B2/en",
+                "coreProblem": "邏輯製程浮閘單元電荷容量有限，多階儲存（如 2-bit/cell）閾值電壓分佈窗口極窄易重疊。",
+                "mechanism": "採用階梯式遞增脈衝（ISPP）微步注電搭配多級動態參考電流感知，將各儲存態分佈寬度壓縮至 100mV 以內。",
+                "claimFocus": "權利項 1 要求多階儲存單元、可配置 ISPP 電壓脈衝產生器、多級比較感測放大器及狀態校準狀態機。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoMTP® 對照主題：輔助閘極單元與陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11557338B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e2/cb/50/223516a8d18e64/US11557338.pdf",
+                    "date": "2021-05-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 25 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-05-13）。",
+                    "pdfSHA256": "e2cb50223516a8d18e64adf4bada74034f6f245b1b4f235e87c4b283940d69a9",
+                    "page": 25
+                  },
+                  {
+                    "title": "US11557338B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11557338B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11557338B2",
+                  "url": "https://patents.google.com/patent/US11557338B2/en",
+                  "note": "US11557338B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11557338B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e2/cb/50/223516a8d18e64/US11557338.pdf",
+                    "date": "2021-05-13",
                     "dateKind": "published",
                     "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
                     "page": 1
@@ -11140,6 +12260,286 @@
                     "title": "US10685728B2 · 首頁身分核對",
                     "url": "https://patentimages.storage.googleapis.com/58/e9/80/e37291d048ddba/US10685728.pdf",
                     "date": "2018-11-23",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10020268B2",
+                "title": "隨機數產生器裝置及其控制方法",
+                "grantDate": "2017-04-13",
+                "publicationDate": "2017-04-13",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-13",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10020268B2/en",
+                "coreProblem": "傳統偽隨機數產生器（PRNG）易受演算法逆向破解，亟需依賴半導體物理特徵之真隨機數源（TRNG）。",
+                "mechanism": "利用晶圓製造過程中氧化層厚度原子級隨機缺陷產生的自然穿隧電流比對，產生絕對不可預測之真隨機金鑰。",
+                "claimFocus": "權利項 1 要求配對微型絕緣單元、差分穿隧感測放大器、抗偏置數位濾波器及控制邏輯之裝置項。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoPUF® 對照主題：反熔絲與安全系統」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10020268B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/cf/13/08/6fa0433d6bd647/US10020268.pdf",
+                    "date": "2017-04-13",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-04-13）。",
+                    "pdfSHA256": "cf13086fa0433d6bd6477ceb8939f7c06cd7c9629b6f275485ad95acab6d3f60",
+                    "page": 19
+                  },
+                  {
+                    "title": "US10020268B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10020268B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10020268B2",
+                  "url": "https://patents.google.com/patent/US10020268B2/en",
+                  "note": "US10020268B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10020268B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/cf/13/08/6fa0433d6bd647/US10020268.pdf",
+                    "date": "2017-04-13",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10748591B2",
+                "title": "晶片硬體指紋隨機碼產生器",
+                "grantDate": "2019-08-16",
+                "publicationDate": "2019-08-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-08-16",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10748591B2/en",
+                "coreProblem": "高溫操作與電源雜訊干擾容易造成 PUF 初始位元翻轉，若無糾錯碼（ECC）輔助將導致金鑰不穩定。",
+                "mechanism": "在單元配對結構中引入自強化交叉鎖存正回授，將微弱初始物理失配迅速放大為零誤碼率剛性數位 0/1。",
+                "claimFocus": "權利項 1 要求實體隨機失配單元對、正回授自強化開關網絡與無誤碼隨機碼輸出鎖存器。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoPUF® 對照主題：反熔絲與安全系統」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10748591B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/81/09/cd/f36e06b27d20b7/US10748591.pdf",
+                    "date": "2019-08-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-08-16）。",
+                    "pdfSHA256": "8109cdf36e06b27d20b7925458470c82a475ce32f1040260eca8cfd804ae1578",
+                    "page": 13
+                  },
+                  {
+                    "title": "US10748591B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10748591B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10748591B2",
+                  "url": "https://patents.google.com/patent/US10748591B2/en",
+                  "note": "US10748591B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10748591B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/81/09/cd/f36e06b27d20b7/US10748591.pdf",
+                    "date": "2019-08-16",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11294640B2",
+                "title": "高熵值量子安全物理隨機數產生器",
+                "grantDate": "2020-02-07",
+                "publicationDate": "2020-02-07",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2020-02-07",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11294640B2/en",
+                "coreProblem": "先進旁路攻擊（SCA）與雷射注入（LFI）可藉由局部加熱或光束照射強制將 PUF 單元固定為特定偏向狀態。",
+                "mechanism": "採用動態隨機極性翻轉激勵與互補差分單元即時對消技術，使外部雷射注入光電流完全被共模差分抑制。",
+                "claimFocus": "權利項 1 要求互補熵源單元陣列、動態極性攪拌驅動器與抗注入共模抑制感測電路。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoPUF® 對照主題：反熔絲與安全系統」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11294640B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/b2/45/ce/e19b3202f6ecb8/US11294640.pdf",
+                    "date": "2020-02-07",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 17 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2020-02-07）。",
+                    "pdfSHA256": "b245cee19b3202f6ecb830ee11f780722206cc8eb846439df15ff03b9fb9ae74",
+                    "page": 17
+                  },
+                  {
+                    "title": "US11294640B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11294640B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11294640B2",
+                  "url": "https://patents.google.com/patent/US11294640B2/en",
+                  "note": "US11294640B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11294640B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/b2/45/ce/e19b3202f6ecb8/US11294640.pdf",
+                    "date": "2020-02-07",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10459693B2",
+                "title": "具差分單元之隨機碼產生器與相關控制方法",
+                "grantDate": "2018-07-27",
+                "publicationDate": "2018-07-27",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-07-27",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US10459693B2/en",
+                "coreProblem": "隨機碼單元隨製程微縮老化時，界面態俘獲電子可能改變兩單元阻抗比，導致開機指紋漂移。",
+                "mechanism": "在每次讀出前實施微量預平衡等電位放電，消除歷史電荷記憶效應，完全依賴晶格微結構幾何固有失配。",
+                "claimFocus": "權利項 1 要求差分單元對、前置等電位短路開關、動態靈敏度比較器及指紋生成時序控制器。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoPUF® 對照主題：反熔絲與安全系統」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10459693B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/d2/38/88/d7619eb73c2b2e/US10459693.pdf",
+                    "date": "2018-07-27",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-07-27）。",
+                    "pdfSHA256": "d23888d7619eb73c2b2e95ff206d47d37174cf33dcae2c510905e719abbfc561",
+                    "page": 18
+                  },
+                  {
+                    "title": "US10459693B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10459693B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10459693B2",
+                  "url": "https://patents.google.com/patent/US10459693B2/en",
+                  "note": "US10459693B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US10459693B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/d2/38/88/d7619eb73c2b2e/US10459693.pdf",
+                    "date": "2018-07-27",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11989533B2",
+                "title": "基於短通道效應之物理不可複製隨機位元產生器",
+                "grantDate": "2023-06-05",
+                "publicationDate": "2023-06-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-06-05",
+                "inventors": "Charles Ching-Hsiang Hsu",
+                "assignee": "eMemory Technology Inc.",
+                "url": "https://patents.google.com/patent/US11989533B2/en",
+                "coreProblem": "次 10nm 先進節點中閘極氧化層變異趨於平緩，傳統依賴氧化層擊穿的熵源難以進一步微縮。",
+                "mechanism": "利用奈米級短通道效應中微觀線邊緣粗糙度（LER）與隨機摻雜波動（RDF）誘發的臨界電壓天然微分散。",
+                "claimFocus": "權利項 1 要求次微米短通道配對電晶體、汲極引發能障降低（DIBL）差分感知電路與短通道物理隨機位元輸出級。",
+                "patentCategory": "記憶體陣列結構項",
+                "patentCategoryEn": "Memory Array Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「NeoPUF® 對照主題：反熔絲與安全系統」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11989533B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/f8/cd/61/5f821f2c49b742/US11989533.pdf",
+                    "date": "2023-06-05",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-06-05）。",
+                    "pdfSHA256": "f8cd615f821f2c49b742c589f028e96dba236626dffe2247f368b233469c342b",
+                    "page": 10
+                  },
+                  {
+                    "title": "US11989533B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11989533B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11989533B2",
+                  "url": "https://patents.google.com/patent/US11989533B2/en",
+                  "note": "US11989533B2 依原始核准公報建檔收錄，核對首頁受讓人 eMemory Technology Inc. 與發明人。",
+                  "source": {
+                    "title": "US11989533B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/f8/cd/61/5f821f2c49b742/US11989533.pdf",
+                    "date": "2023-06-05",
                     "dateKind": "published",
                     "note": "核對原公報首頁受讓人 eMemory Technology Inc. 及發明人 Charles Ching-Hsiang Hsu。",
                     "page": 1
@@ -30686,7 +32086,7 @@
         ]
       }
     ],
-    "totalPatents": 372
+    "totalPatents": 397
   },
   "sources": [
     {
