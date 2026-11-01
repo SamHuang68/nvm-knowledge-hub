@@ -320,9 +320,9 @@ export function initPqcRotCalculator(rootSelector = '#pqc-budget-simulator-root'
       includeStatefulHash: chkStateful?.checked || false,
     };
 
-    if (certDepthVal) certDepthVal.textContent = safeOptions.certDepth;
-    if (keySlotsVal) keySlotsVal.textContent = `${safeOptions.keySlots}×`;
-    if (rollbackVal) rollbackVal.textContent = `${safeOptions.rollbackBits} b`;
+    if (certDepthVal) certDepthVal.textContent = options.certDepth;
+    if (keySlotsVal) keySlotsVal.textContent = `${options.keySlots}×`;
+    if (rollbackVal) rollbackVal.textContent = `${options.rollbackBits} b`;
 
     const res = calculatePqcRotBudget(options);
 

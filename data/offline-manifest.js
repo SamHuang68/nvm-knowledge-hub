@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "bf66e8d0055ebe928f4d",
+  "version": "e20df7a6741e285c531d",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -263,7 +263,7 @@ self.NVMOfflineManifest = {
     "ip-architect-arrhenius-auto-extrapolator.js": "ceb3e0a4726a8555f5d761f7421871a861172b34e3e218589fbe08052f4cea81",
     "ip-architect-ate-test-cost-calculator.js": "63b8c19984d37f0dc788fc4cf6b24f141c8dbb81d635d992d88170d60bfe0c2c",
     "ip-architect-macro-overhead-calculator.js": "3a8d380e1c12ac66619417158fb4babed0bb66e48ddae28306ab18fc8ed72100",
-    "ip-architect-master-matrix.js": "ca90a51ed799d4233d9c775696e85d313abf06648ac5afb3ef7913279d161bf8",
+    "ip-architect-master-matrix.js": "69c3f44cf6fa0523f345de1a58c150575d9b410f73b3aa5b1491c903e0ba0718",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
     "literature-editorial.css": "029e1285cbbdbe3224a4240d66e098ca76a63f25d9fcb765d69cc48c5f87cfa1",
     "literature-paper.js": "0d2a94fdfff224a1ce1249879be82ae144fd04344c20a3522f8304b2ad16fb80",
@@ -283,9 +283,9 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "77f210c2d6b0d68552ab3c74e8095939d956d2b3a3d739220383d443dd2cb457",
+    "nvm-technology-atlas-zh.html": "2be5e19f787bdc8f1a94e8f34c4140e400b11c85f48cbe779a9ba0f9374e917f",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "efc8eb393f69309ba87e2ab6a2495f781f15fceb5aa42d30832141b18473e422",
+    "nvm-technology-atlas.html": "8559564895bee14ae02a4d8bfa3fe8bc730461ca9407ff578ca7411e8c18d86e",
     "nvm-technology-atlas.js": "2511dec36aa3ecd1c5ca22af56a4d93cf2945785fff635b3fbab9c88e5ce81c9",
     "nvm-vendor-patent-maps.css": "b672c5c4cc2b329795cf96df3d69ce627ae85652072ddf8caa619be4dedbd34f",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
@@ -293,7 +293,7 @@ self.NVMOfflineManifest = {
     "pqc-hardware-rot-ledger-simulator.js": "de5f3ff129fcb401bddcb9185d453399944435cb0d1b13799cd28f215ac01b19",
     "pqc-key-storage-simulator.js": "5a0b587b38ba54ec826f6c0cd2e9ae1b31fc3c53538e8ac91b607235a7e90715",
     "pqc-lfi-laser-fault-injection-simulator.js": "592dd415f21d30a1f2bcbe87074ba7d82bbb44c81fe6d37dd152873e87577e0f",
-    "pqc-rot-budget-calculator.js": "1e04b1beef1cc981bce00b979e63966e97ccb5b78f8608053efafd1532e2b6af",
+    "pqc-rot-budget-calculator.js": "20e583675aa111072cb10e3a7c7455345f811f2005ae405c22529e50d1703f5b",
     "pqc-rot-dpa-simulator.js": "98953b7a04e3e5698df75832f48aa422818905ed513a67288bf7a303401e0dbe",
     "puf-nist-randomness-evaluator.js": "c9eab2f6c2d1b15d478b4679b86abe2009192df74d54fefc84fecb4cb8d12481",
     "puf-reconstruction-simulator.js": "1b4a5fe152a469748b9358612eee56d255391b872b083a5c95cd03cf250e4d70",
@@ -344,5 +344,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 18728218
+  "totalBytes": 19364229
 };

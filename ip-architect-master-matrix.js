@@ -143,7 +143,8 @@ export class IpMasterMatrixController {
     const techHeaders = this.table.querySelectorAll('th[data-tech-id]');
     techHeaders.forEach((th) => {
       th.style.cursor = 'pointer';
-      th.title = '點擊在下方工作台試算此技術 (Click to load in Workbench)';
+      const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      th.title = isZh ? '點擊在下方工作台試算此技術' : 'Click to load in Workbench';
       th.addEventListener('click', () => {
         const techId = th.getAttribute('data-tech-id');
         if (techId) {
