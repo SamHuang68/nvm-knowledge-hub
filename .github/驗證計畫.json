@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "d4596b9c2e2850251bc408194ff6bea0f952abe5",
+  "baseCommit": "8f96d3f3f4f22971ee24835378787143bc9d2b1e",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -25,9 +25,7 @@
         "data/nvm-vendor-patent-maps-en.json",
         "data/nvm-vendor-patent-maps.json",
         "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "ip-architect-master-matrix.js",
-        "pqc-rot-budget-calculator.js"
+        "nvm-technology-atlas.html"
       ],
       "inputs": [
         "data/nvm-knowledge-data-en.json",
@@ -40,11 +38,9 @@
         "nvm-technology-atlas.html",
         "scripts/build-nvm-atlas.mjs",
         "package.json",
-        "package-lock.json",
-        "ip-architect-master-matrix.js",
-        "pqc-rot-budget-calculator.js"
+        "package-lock.json"
       ],
-      "reason": "驗證 Stage 7 新興與特種 NVM 廠商（Floadia、NSCore、Weebit Nano、Sidense、PUFsecurity）共 43 件專利全面深度收錄，達成六大純 IP / 新興廠商 100% 普查收錄零遺漏",
+      "reason": "驗證 Stage 8 純 OTP 廠商（Attopsemi、Kilopass）共 88 件專利全面深度收錄，達成兩大純 OTP 廠商 100% 普查收錄零遺漏",
       "prepare": [
         "node"
       ],
