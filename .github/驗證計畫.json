@@ -17,8 +17,7 @@
         "--check"
       ],
       "targets": [
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs"
+        "scripts/build-nvm-atlas.mjs"
       ],
       "changes": [
         "data/nvm-knowledge-data-en.json",
