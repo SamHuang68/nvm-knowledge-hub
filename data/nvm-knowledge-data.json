@@ -34884,9 +34884,1901 @@
             "page": 11
           }
         ]
+      },
+      {
+        "id": "crossbar",
+        "name": "CrossBar, Inc.",
+        "shortName": "CrossBar",
+        "headquarters": "美國加州聖塔克拉拉 (Santa Clara, California, USA)",
+        "founded": "2010 年",
+        "founders": "George Minassian; Wei D. Lu (盧偉); Hagop Nazarian; Sung Hyun Jo",
+        "businessModel": "銀奈米絲導電式阻變記憶體 (Filamentary ReRAM IP) 與 3D 交叉陣列授權",
+        "patentStats": {
+          "totalGrantedWorldwide": "全球累積逾 200 件核准與公開專利",
+          "keyJurisdictions": "美國、中國、歐洲、台灣、日本",
+          "foundryCoverage": "中芯國際 (SMIC) 40nm、台積電 (TSMC) 28nm 評估平台",
+          "waferShipment": "商業評估晶片出貨；未核實大規模累計晶圓出貨",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "全球專利組合公告",
+              "title": "CrossBar 官方智慧財產權簡介",
+              "url": "https://www.crossbar-inc.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "官方公告全球累計超過 200 件專利與申請案；本次收錄美國核准案作代表性導讀。"
+            },
+            "keyJurisdictions": {
+              "label": "主要專利管轄地",
+              "title": "CrossBar 專利佈局公開資料",
+              "url": "https://www.crossbar-inc.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "涵蓋美、中、歐、台、日主要半導體製造與設計中心。"
+            },
+            "foundryCoverage": {
+              "label": "代工平台與合作進展",
+              "title": "CrossBar 晶圓代工合作公告",
+              "url": "https://www.crossbar-inc.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "公開之 40nm/28nm 代工平台評估與試產；非所有節點均已全產能鋪開。"
+            },
+            "waferShipment": {
+              "label": "出貨與授權進度",
+              "title": "CrossBar 商業化發布",
+              "url": "https://www.crossbar-inc.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "提供商用 IP 授權與展示驗證晶片；未揭露累計晶圓出貨量統計。"
+            }
+          }
+        },
+        "strategy": "以非晶矽為基底之受控銀金屬奈米絲生長與消除機制，提供極小晶胞與 3D 堆疊非揮發性儲存。",
+        "families": [
+          {
+            "id": "crossbar-reram-family",
+            "name": "CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM",
+            "tagline": "銀奈米絲、非線性自整流與 3D 堆疊 ReRAM",
+            "technologyType": "ReRAM (電阻式非揮發性記憶體)",
+            "cellTopology": "二端子金屬/非晶介電/半導體交叉點單元 (Two-Terminal 1S1R / Crossbar)",
+            "physicalMechanism": "銀奈米絲受控電化學析出、斷裂與自整流非線性導通",
+            "processNode": "40nm – 28nm CMOS 後段相容 (BEOL)",
+            "summary": "精選 15 件美國核准專利，聚焦於銀導電絲局限結構、非線性自整流防潛漏、以及三維交叉陣列覆寫優化。",
+            "patents": [
+              {
+                "id": "US8374018B2",
+                "title": "採用 SiGe 材料之阻變記憶體",
+                "grantDate": "2013-02-12",
+                "publicationDate": "2013-02-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-02-12",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8374018B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8374018B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/09/f9/2a/2348db2122a259/US8374018.pdf",
+                    "date": "2013-02-12",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-02-12）。",
+                    "pdfSHA256": "09f92a2348db2122a2593e514b983d11db5e96ebcf7f38f8d2d65fb474151ed7",
+                    "page": 15
+                  },
+                  {
+                    "title": "US8374018B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8374018B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8374018B2",
+                  "url": "https://patents.google.com/patent/US8374018B2/en",
+                  "note": "US8374018B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8374018B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/09/f9/2a/2348db2122a259/US8374018.pdf",
+                    "date": "2013-02-12",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8404553B2",
+                "title": "抗干擾非揮發性記憶體元件與方法",
+                "grantDate": "2013-03-26",
+                "publicationDate": "2013-03-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-03-26",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8404553B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8404553B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/b6/b5/fc/3565d88d5eb9bf/US8404553.pdf",
+                    "date": "2013-03-26",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-03-26）。",
+                    "pdfSHA256": "b6b5fc3565d88d5eb9bf495b7be495c976293ef53c92a3f6aafa41e459f0f803",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8404553B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8404553B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8404553B2",
+                  "url": "https://patents.google.com/patent/US8404553B2/en",
+                  "note": "US8404553B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8404553B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/b6/b5/fc/3565d88d5eb9bf/US8404553.pdf",
+                    "date": "2013-03-26",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8492195B2",
+                "title": "可堆疊非揮發性阻變記憶體元件製造方法",
+                "grantDate": "2013-07-23",
+                "publicationDate": "2013-07-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-07-23",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8492195B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8492195B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/5c/35/b9/3e4130dcc3149c/US8492195.pdf",
+                    "date": "2013-07-23",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 21 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-07-23）。",
+                    "pdfSHA256": "5c35b93e4130dcc3149c8b9f5dba54f43ab14a6b54302334d173798b1339860e",
+                    "page": 21
+                  },
+                  {
+                    "title": "US8492195B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8492195B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8492195B2",
+                  "url": "https://patents.google.com/patent/US8492195B2/en",
+                  "note": "US8492195B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8492195B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/5c/35/b9/3e4130dcc3149c/US8492195.pdf",
+                    "date": "2013-07-23",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8558212B2",
+                "title": "阻變隨機存取記憶體中之導電路徑控制",
+                "grantDate": "2013-10-15",
+                "publicationDate": "2013-10-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-10-15",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8558212B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8558212B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/87/c6/11/70ef7920a4a4ee/US8558212.pdf",
+                    "date": "2013-10-15",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-10-15）。",
+                    "pdfSHA256": "87c61170ef7920a4a4eec35f0cbe9d8ce35bc1913cc426b119f0c8811ca74574",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8558212B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8558212B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8558212B2",
+                  "url": "https://patents.google.com/patent/US8558212B2/en",
+                  "note": "US8558212B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8558212B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/87/c6/11/70ef7920a4a4ee/US8558212.pdf",
+                    "date": "2013-10-15",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8765566B2",
+                "title": "非揮發性記憶體元件之線路與空間微縮架構",
+                "grantDate": "2014-07-01",
+                "publicationDate": "2014-07-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-07-01",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8765566B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8765566B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/61/5e/ff/2b4ac159fcff01/US8765566.pdf",
+                    "date": "2014-07-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 17 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-07-01）。",
+                    "pdfSHA256": "615eff2b4ac159fcff01c9adb36ac3373caca46a4afaf31ceb78f191167ab98f",
+                    "page": 17
+                  },
+                  {
+                    "title": "US8765566B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8765566B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8765566B2",
+                  "url": "https://patents.google.com/patent/US8765566B2/en",
+                  "note": "US8765566B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8765566B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/61/5e/ff/2b4ac159fcff01/US8765566.pdf",
+                    "date": "2014-07-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8947908B2",
+                "title": "具異質阻變層之 RRAM 元件與方法",
+                "grantDate": "2015-02-03",
+                "publicationDate": "2015-02-03",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-02-03",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8947908B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8947908B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a2/04/bf/59c1377a5aad7c/US8947908.pdf",
+                    "date": "2015-02-03",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 25 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-02-03）。",
+                    "pdfSHA256": "a204bf59c1377a5aad7c093dc04804fe651ec98e6a166dbef29967a62043d34b",
+                    "page": 25
+                  },
+                  {
+                    "title": "US8947908B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8947908B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8947908B2",
+                  "url": "https://patents.google.com/patent/US8947908B2/en",
+                  "note": "US8947908B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8947908B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/a2/04/bf/59c1377a5aad7c/US8947908.pdf",
+                    "date": "2015-02-03",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8982647B2",
+                "title": "阻變記憶體陣列等化與感測電路",
+                "grantDate": "2015-03-17",
+                "publicationDate": "2015-03-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-03-17",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8982647B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8982647B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/07/c3/4b/1d19b03bc2c17f/US8982647.pdf",
+                    "date": "2015-03-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 26 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-03-17）。",
+                    "pdfSHA256": "07c34b1d19b03bc2c17f18527ae648e496a6dbfed6effbf1438e44adc63106a1",
+                    "page": 26
+                  },
+                  {
+                    "title": "US8982647B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8982647B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8982647B2",
+                  "url": "https://patents.google.com/patent/US8982647B2/en",
+                  "note": "US8982647B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8982647B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/07/c3/4b/1d19b03bc2c17f/US8982647.pdf",
+                    "date": "2015-03-17",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9012307B2",
+                "title": "二端子阻變切換元件結構與製造方法",
+                "grantDate": "2015-04-21",
+                "publicationDate": "2015-04-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-04-21",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9012307B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9012307B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/68/05/14/1dc5f2f05d56d4/US9012307.pdf",
+                    "date": "2015-04-21",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 26 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-04-21）。",
+                    "pdfSHA256": "6805141dc5f2f05d56d45b1d87dfd7eb959c947bd7768071c93ec29ee583fe10",
+                    "page": 26
+                  },
+                  {
+                    "title": "US9012307B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9012307B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9012307B2",
+                  "url": "https://patents.google.com/patent/US9012307B2/en",
+                  "note": "US9012307B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9012307B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/68/05/14/1dc5f2f05d56d4/US9012307.pdf",
+                    "date": "2015-04-21",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9312483B2",
+                "title": "非揮發性記憶體元件之電極結構與方法",
+                "grantDate": "2016-04-12",
+                "publicationDate": "2016-04-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-04-12",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9312483B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9312483B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/86/0c/9f/38cc081370d6f1/US9312483.pdf",
+                    "date": "2016-04-12",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-04-12）。",
+                    "pdfSHA256": "860c9f38cc081370d6f16c2add539e27af5579e8655d8db613c2a9431880eca6",
+                    "page": 18
+                  },
+                  {
+                    "title": "US9312483B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9312483B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9312483B2",
+                  "url": "https://patents.google.com/patent/US9312483B2/en",
+                  "note": "US9312483B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9312483B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/86/0c/9f/38cc081370d6f1/US9312483.pdf",
+                    "date": "2016-04-12",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9406379B2",
+                "title": "具非線性電流電壓特性之阻變記憶體",
+                "grantDate": "2016-08-02",
+                "publicationDate": "2016-08-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-08-02",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9406379B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9406379B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/b7/7f/44/85adfbc2adac58/US9406379.pdf",
+                    "date": "2016-08-02",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 25 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-08-02）。",
+                    "pdfSHA256": "b77f4485adfbc2adac580fdfbb44d7aff830e89b910cd2a6d33d6338255b6aee",
+                    "page": 25
+                  },
+                  {
+                    "title": "US9406379B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9406379B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9406379B2",
+                  "url": "https://patents.google.com/patent/US9406379B2/en",
+                  "note": "US9406379B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9406379B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/b7/7f/44/85adfbc2adac58/US9406379.pdf",
+                    "date": "2016-08-02",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9576616B2",
+                "title": "具直接覆寫能力與低寫入放大之非揮發記憶體",
+                "grantDate": "2017-02-21",
+                "publicationDate": "2017-02-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-02-21",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9576616B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9576616B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/98/a8/d1/d9705e6e44c336/US9576616.pdf",
+                    "date": "2017-02-21",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-02-21）。",
+                    "pdfSHA256": "98a8d1d9705e6e44c336802a280575909e8b4367b6a998e092f20923bdcd3395",
+                    "page": 33
+                  },
+                  {
+                    "title": "US9576616B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9576616B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9576616B2",
+                  "url": "https://patents.google.com/patent/US9576616B2/en",
+                  "note": "US9576616B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9576616B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/98/a8/d1/d9705e6e44c336/US9576616.pdf",
+                    "date": "2017-02-21",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9620206B2",
+                "title": "採用二端子單元之記憶體陣列架構",
+                "grantDate": "2017-04-11",
+                "publicationDate": "2017-04-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-11",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9620206B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9620206B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e8/4e/21/13e0022c00d21a/US9620206.pdf",
+                    "date": "2017-04-11",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 39 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-04-11）。",
+                    "pdfSHA256": "e84e2113e0022c00d21af8ddf072007a07cb8baa88a3b9586d2b40504c8e9032",
+                    "page": 39
+                  },
+                  {
+                    "title": "US9620206B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9620206B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9620206B2",
+                  "url": "https://patents.google.com/patent/US9620206B2/en",
+                  "note": "US9620206B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9620206B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e8/4e/21/13e0022c00d21a/US9620206.pdf",
+                    "date": "2017-04-11",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9627443B2",
+                "title": "具電場增強之三維傾斜二端子記憶體",
+                "grantDate": "2017-04-18",
+                "publicationDate": "2017-04-18",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-18",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9627443B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9627443B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/57/7e/ba/0d331bbf658bf4/US9627443.pdf",
+                    "date": "2017-04-18",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 39 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-04-18）。",
+                    "pdfSHA256": "577eba0d331bbf658bf459c95a15fa5c0afb570b6372e6b3858de2e6328acce5",
+                    "page": 39
+                  },
+                  {
+                    "title": "US9627443B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9627443B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9627443B2",
+                  "url": "https://patents.google.com/patent/US9627443B2/en",
+                  "note": "US9627443B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9627443B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/57/7e/ba/0d331bbf658bf4/US9627443.pdf",
+                    "date": "2017-04-18",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9685608B2",
+                "title": "減少二端子記憶體金屬電極擴散之結構",
+                "grantDate": "2017-06-20",
+                "publicationDate": "2017-06-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-06-20",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9685608B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9685608B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/41/e4/7b/b84db467fe3e35/US9685608.pdf",
+                    "date": "2017-06-20",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 28 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-06-20）。",
+                    "pdfSHA256": "41e47bb84db467fe3e35512946bc9e5ae9f05adfee041f726ab1debf6450b2ff",
+                    "page": 28
+                  },
+                  {
+                    "title": "US9685608B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9685608B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9685608B2",
+                  "url": "https://patents.google.com/patent/US9685608B2/en",
+                  "note": "US9685608B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9685608B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/41/e4/7b/b84db467fe3e35/US9685608.pdf",
+                    "date": "2017-06-20",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10096653B2",
+                "title": "單晶整合晶圓廠相容阻變記憶體",
+                "grantDate": "2018-10-09",
+                "publicationDate": "2018-10-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-10-09",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US10096653B2/en",
+                "coreProblem": "阻變記憶體金屬導電絲生長隨機性導致阻值分佈離散，且無選通器 3D 交叉陣列存在嚴重潛紅漏電（Sneak Path）。",
+                "mechanism": "利用非晶矽中奈米銀絲受控電化學析出與破壞機制，搭配內建自整流非線性 I-V 特性阻斷寄生漏電。",
+                "claimFocus": "權利項 1 要求主動金屬電極、非晶切換介質層、接觸界面阻擋層與雙極性電阻切換操作特徵。",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10096653B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a6/2a/ee/854ed6a3ca41c1/US10096653.pdf",
+                    "date": "2018-10-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 37 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-10-09）。",
+                    "pdfSHA256": "a62aee854ed6a3ca41c182dde5052df8b363b55fdac01b2d7b4663963301b75b",
+                    "page": 37
+                  },
+                  {
+                    "title": "US10096653B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10096653B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10096653B2",
+                  "url": "https://patents.google.com/patent/US10096653B2/en",
+                  "note": "US10096653B2 依原始核准公報建檔收錄，核對首頁受讓人 Crossbar, Inc. 與發明人。",
+                  "source": {
+                    "title": "US10096653B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/a6/2a/ee/854ed6a3ca41c1/US10096653.pdf",
+                    "date": "2018-10-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Crossbar, Inc. 及發明人 Hagop Nazarian; Sung Hyun Jo。",
+                    "page": 1
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2013-02-12 – 2018-10-09",
+            "theme": "CrossBar 銀導電絲與 3D 交叉陣列 ReRAM 核心佈局",
+            "era": "專利核准序列",
+            "summary": "涵蓋自 SiGe 材料導入、抗干擾二端子單元、三維傾斜電極到晶圓代工相容單晶整合之核心專利組合。",
+            "nodes": "40nm / 28nm BEOL",
+            "keyPatents": "US8374018B2, US9406379B2, US9627443B2, US10096653B2"
+          }
+        ],
+        "litigationDefense": {
+          "title": "權利項邊界與實施問題",
+          "overview": "導讀聚焦於銀奈米絲微觀結構與非線性電導切換之物理限制，不判定排他性專利侵權或自由實施。",
+          "keyBattles": [
+            {
+              "heading": "銀奈米絲局限與非線性自整流特徵",
+              "detail": "權利項要求主動金屬電極、非晶切換層與具備非線性 I-V 導通特性之界面層，限制條件嚴密。"
+            }
+          ],
+          "ftoVerdict": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。"
+        },
+        "dossierReview": "original-publication-2026-10-15",
+        "personnelSource": {
+          "title": "CrossBar 公報人員來源",
+          "url": "https://patentimages.storage.googleapis.com/f9/4d/91/d564adbbd82622/US8374018.pdf",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "發明人與受讓人依原始核准公報首頁核對。",
+          "page": 1
+        },
+        "attributionNote": "廠商／沿革為編輯分組；每筆另列公報當時受讓人，不以組合標題推定後續權利移轉。",
+        "researchSources": [
+          {
+            "title": "US8374018B2 · 公報原件",
+            "url": "https://patentimages.storage.googleapis.com/f9/4d/91/d564adbbd82622/US8374018.pdf",
+            "date": "2013-02-12",
+            "dateKind": "published",
+            "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀。",
+            "pdfSHA256": "b0ad339b6574fefdcf78749eb4eb5b1b4274c4a6bfe3800fc48e1a8fa0a944ae",
+            "page": 15
+          }
+        ]
+      },
+      {
+        "id": "nantero",
+        "name": "Nantero, Inc.",
+        "shortName": "Nantero",
+        "headquarters": "美國麻薩諸塞州沃本 (Woburn, Massachusetts, USA)",
+        "founded": "2001 年",
+        "founders": "Thomas Rueckes; Brent M. Segal; Greg Schmergel",
+        "businessModel": "碳奈米管非揮發性隨機存取記憶體 (NRAM® IP) 與奈米複合材料技術授權",
+        "patentStats": {
+          "totalGrantedWorldwide": "全球累積逾 180 件美國核准專利與數百件專利申請",
+          "keyJurisdictions": "美國、歐洲、日本、台灣、韓國",
+          "foundryCoverage": "富士通半導體 (Fujitsu) 55nm、中芯國際、聯電評估驗證",
+          "waferShipment": "車規與客製化晶片小量量產；未核實累計出貨量",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "全球專利獲准統計",
+              "title": "Nantero 官方技術與專利聲明",
+              "url": "https://www.nantero.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "官方公告擁有超過 180 件美國核准專利；本次收錄代表性核准公報。"
+            },
+            "keyJurisdictions": {
+              "label": "專利涵蓋地區",
+              "title": "Nantero 專利覆蓋公開資料",
+              "url": "https://www.nantero.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "涵蓋全球主要半導體 IDM 與代工廠所在地。"
+            },
+            "foundryCoverage": {
+              "label": "代工與 IDM 授權夥伴",
+              "title": "Nantero 富士通半導體合作聲明",
+              "url": "https://www.nantero.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "與 Fujitsu Semiconductor 合作開發 55nm/40nm 車規嵌入式 NRAM 晶片。"
+            },
+            "waferShipment": {
+              "label": "商業出貨狀況",
+              "title": "Nantero 商業進展發布",
+              "url": "https://www.nantero.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "提供航太、防衛與車規晶片；未揭露累計晶圓出貨總量。"
+            }
+          }
+        },
+        "strategy": "利用碳奈米管網狀織物中凡得瓦力吸附與靜電斥力達成次奈秒高速切換與抗輻射非揮發性儲存。",
+        "families": [
+          {
+            "id": "nantero-nram-family",
+            "name": "Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM",
+            "tagline": "單壁碳奈米管織物、凡得瓦力雙穩態與耐高溫 NRAM",
+            "technologyType": "NRAM (碳奈米管非揮發性記憶體)",
+            "cellTopology": "碳奈米管網狀機電切換單元 (Carbon Nanotube Electromechanical Switch)",
+            "physicalMechanism": "奈米管接觸凡得瓦力引力吸附（ON）與靜電排斥分開（OFF）",
+            "processNode": "55nm – 28nm CMOS 後段相容 (BEOL)",
+            "summary": "精選 15 件美國核准專利，涵蓋碳奈米管織物沉積、三維單晶整合、凡得瓦力雙穩態與抗輻射記憶體陣列。",
+            "patents": [
+              {
+                "id": "US6643165B2",
+                "title": "採用奈米管技術之機電記憶體單元選通電路",
+                "grantDate": "2003-11-04",
+                "publicationDate": "2003-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2003-11-04",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6643165B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6643165B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e3/63/dd/3394efda076078/US6643165.pdf",
+                    "date": "2003-11-04",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 30 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2003-11-04）。",
+                    "pdfSHA256": "e363dd3394efda076078ea34155b5816ed4f4ba478517a4e578a9c189a7720ad",
+                    "page": 30
+                  },
+                  {
+                    "title": "US6643165B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6643165B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6643165B2",
+                  "url": "https://patents.google.com/patent/US6643165B2/en",
+                  "note": "US6643165B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6643165B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e3/63/dd/3394efda076078/US6643165.pdf",
+                    "date": "2003-11-04",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6706402B2",
+                "title": "碳奈米管薄膜及其半導體應用結構",
+                "grantDate": "2004-03-16",
+                "publicationDate": "2004-03-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-03-16",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6706402B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6706402B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/0d/78/09/76e118523660e9/US6706402.pdf",
+                    "date": "2004-03-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 40 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-03-16）。",
+                    "pdfSHA256": "0d780976e118523660e9264898c27b8d79c93369db605d37d67a01aba3b1b7ae",
+                    "page": 40
+                  },
+                  {
+                    "title": "US6706402B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6706402B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6706402B2",
+                  "url": "https://patents.google.com/patent/US6706402B2/en",
+                  "note": "US6706402B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6706402B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/0d/78/09/76e118523660e9/US6706402.pdf",
+                    "date": "2004-03-16",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6759693B2",
+                "title": "採用奈米管帶之機電記憶體陣列及其製造方法",
+                "grantDate": "2004-07-06",
+                "publicationDate": "2004-07-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-07-06",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6759693B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6759693B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/17/33/08/595b5b07aaab45/US6759693.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 8 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-07-06）。",
+                    "pdfSHA256": "173308595b5b07aaab45cde9b244fd60b807d4d6c43f9ca615338307dd4953e7",
+                    "page": 8
+                  },
+                  {
+                    "title": "US6759693B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6759693B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6759693B2",
+                  "url": "https://patents.google.com/patent/US6759693B2/en",
+                  "note": "US6759693B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6759693B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/17/33/08/595b5b07aaab45/US6759693.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6774052B2",
+                "title": "奈米管帶機電記憶體陣列之製造方法",
+                "grantDate": "2004-08-10",
+                "publicationDate": "2004-08-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-08-10",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6774052B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6774052B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/26/a4/e9/8f8f9e194806f0/US6774052.pdf",
+                    "date": "2004-08-10",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 8 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-08-10）。",
+                    "pdfSHA256": "26a4e98f8f9e194806f048dc7e88a98a40ca65982f570e8e72e78b69bf87bf28",
+                    "page": 8
+                  },
+                  {
+                    "title": "US6774052B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6774052B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6774052B2",
+                  "url": "https://patents.google.com/patent/US6774052B2/en",
+                  "note": "US6774052B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6774052B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/26/a4/e9/8f8f9e194806f0/US6774052.pdf",
+                    "date": "2004-08-10",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6791871B2",
+                "title": "採用柔性導電奈米管帶之機電記憶元件",
+                "grantDate": "2004-09-14",
+                "publicationDate": "2004-09-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-09-14",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6791871B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6791871B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/16/c3/a0/6ccf4042bcaf91/US6791871.pdf",
+                    "date": "2004-09-14",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 7 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-09-14）。",
+                    "pdfSHA256": "16c3a06ccf4042bcaf91390ff9eb724cbc2809d07bedab28cbc0a3992e21262c",
+                    "page": 7
+                  },
+                  {
+                    "title": "US6791871B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6791871B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6791871B2",
+                  "url": "https://patents.google.com/patent/US6791871B2/en",
+                  "note": "US6791871B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6791871B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/16/c3/a0/6ccf4042bcaf91/US6791871.pdf",
+                    "date": "2004-09-14",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6798127B2",
+                "title": "奈米級織物與薄膜製造方法",
+                "grantDate": "2004-09-28",
+                "publicationDate": "2004-09-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-09-28",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6798127B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US6798127B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/3c/f7/a7/50a7eee6041708/US6798127.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2004-09-28）。",
+                    "pdfSHA256": "3cf7a750a7eee60417080206c049f7e24d855146751675f1bda88d3b6d5c7c4b",
+                    "page": 24
+                  },
+                  {
+                    "title": "US6798127B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US6798127B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6798127B2",
+                  "url": "https://patents.google.com/patent/US6798127B2/en",
+                  "note": "US6798127B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US6798127B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/3c/f7/a7/50a7eee6041708/US6798127.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7321188B2",
+                "title": "採用碳奈米管之電阻型切換元件",
+                "grantDate": "2008-01-22",
+                "publicationDate": "2008-01-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-01-22",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7321188B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7321188B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/09/d6/34/14609fba1cbe91/US7321188.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 5 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2008-01-22）。",
+                    "pdfSHA256": "09d63414609fba1cbe919024f97687305058251bcdb676c88f55f91191c15a44",
+                    "page": 5
+                  },
+                  {
+                    "title": "US7321188B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7321188B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7321188B2",
+                  "url": "https://patents.google.com/patent/US7321188B2/en",
+                  "note": "US7321188B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US7321188B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/09/d6/34/14609fba1cbe91/US7321188.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7405605B2",
+                "title": "基於碳奈米管之非揮發開關元件",
+                "grantDate": "2008-07-29",
+                "publicationDate": "2008-07-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-07-29",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7405605B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7405605B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/b5/58/c7/72316cbaf92a19/US7405605.pdf",
+                    "date": "2008-07-29",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2008-07-29）。",
+                    "pdfSHA256": "b558c772316cbaf92a1987f895a2efb2ab1e17b10a1f9ae2da190f1310685818",
+                    "page": 33
+                  },
+                  {
+                    "title": "US7405605B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7405605B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7405605B2",
+                  "url": "https://patents.google.com/patent/US7405605B2/en",
+                  "note": "US7405605B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US7405605B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/b5/58/c7/72316cbaf92a19/US7405605.pdf",
+                    "date": "2008-07-29",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7745810B2",
+                "title": "先進半導體相容碳奈米管薄膜結構",
+                "grantDate": "2010-06-29",
+                "publicationDate": "2010-06-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-06-29",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7745810B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US7745810B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/d9/f3/57/544c6b64fb1d28/US7745810.pdf",
+                    "date": "2010-06-29",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 39 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2010-06-29）。",
+                    "pdfSHA256": "d9f357544c6b64fb1d283e724c5b490eff3b03281cf01660ba982ee22c9b9eb7",
+                    "page": 39
+                  },
+                  {
+                    "title": "US7745810B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US7745810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7745810B2",
+                  "url": "https://patents.google.com/patent/US7745810B2/en",
+                  "note": "US7745810B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US7745810B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/d9/f3/57/544c6b64fb1d28/US7745810.pdf",
+                    "date": "2010-06-29",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8072005B2",
+                "title": "非揮發性奈米管二極體與記憶體電路",
+                "grantDate": "2011-12-06",
+                "publicationDate": "2011-12-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-12-06",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8072005B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8072005B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/ea/f2/8f/a05339763ef604/US8072005.pdf",
+                    "date": "2011-12-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 28 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2011-12-06）。",
+                    "pdfSHA256": "eaf28fa05339763ef6044632d37e7419b8f304d137941b72925771b5a711c6e3",
+                    "page": 28
+                  },
+                  {
+                    "title": "US8072005B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8072005B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8072005B2",
+                  "url": "https://patents.google.com/patent/US8072005B2/en",
+                  "note": "US8072005B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8072005B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/ea/f2/8f/a05339763ef604/US8072005.pdf",
+                    "date": "2011-12-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8125824B1",
+                "title": "單晶三維立體堆疊奈米管記憶體",
+                "grantDate": "2012-02-28",
+                "publicationDate": "2012-02-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-02-28",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8125824B1/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8125824B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a5/82/57/917379f10933ed/US8125824.pdf",
+                    "date": "2012-02-28",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-02-28）。",
+                    "pdfSHA256": "a58257917379f10933edbf96c6d5d8ee4da6bdbdd14c29129f731f6341f8eb88",
+                    "page": 24
+                  },
+                  {
+                    "title": "US8125824B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8125824B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8125824B1",
+                  "url": "https://patents.google.com/patent/US8125824B1/en",
+                  "note": "US8125824B1 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8125824B1 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/a5/82/57/917379f10933ed/US8125824.pdf",
+                    "date": "2012-02-28",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8389333B2",
+                "title": "非揮發性阻變碳奈米管記憶體",
+                "grantDate": "2013-03-05",
+                "publicationDate": "2013-03-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-03-05",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8389333B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8389333B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a8/bd/da/c951f306cfb69f/US8389333.pdf",
+                    "date": "2013-03-05",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 20 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2013-03-05）。",
+                    "pdfSHA256": "a8bddac951f306cfb69f638b0579632d136fd6717dbeaa8a763932e780a45154",
+                    "page": 20
+                  },
+                  {
+                    "title": "US8389333B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8389333B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8389333B2",
+                  "url": "https://patents.google.com/patent/US8389333B2/en",
+                  "note": "US8389333B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8389333B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/a8/bd/da/c951f306cfb69f/US8389333.pdf",
+                    "date": "2013-03-05",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8829584B2",
+                "title": "多階儲存碳奈米管非揮發性記憶體",
+                "grantDate": "2014-09-09",
+                "publicationDate": "2014-09-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-09-09",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8829584B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8829584B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/dc/97/fe/29b43e047610db/US8829584.pdf",
+                    "date": "2014-09-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2014-09-09）。",
+                    "pdfSHA256": "dc97fe29b43e047610dbef236085f49442a92b539a81e2e9ae85e2d67a3dc8b3",
+                    "page": 22
+                  },
+                  {
+                    "title": "US8829584B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8829584B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8829584B2",
+                  "url": "https://patents.google.com/patent/US8829584B2/en",
+                  "note": "US8829584B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US8829584B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/dc/97/fe/29b43e047610db/US8829584.pdf",
+                    "date": "2014-09-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9142767B2",
+                "title": "碳奈米管織物非揮發交叉點陣列記憶體",
+                "grantDate": "2015-09-22",
+                "publicationDate": "2015-09-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-09-22",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US9142767B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9142767B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/65/f1/6c/c702c238c9f85b/US9142767.pdf",
+                    "date": "2015-09-22",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 9 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2015-09-22）。",
+                    "pdfSHA256": "65f16cc702c238c9f85b2f7da2116a00315ab37e1115af15fe4b406cd96293f1",
+                    "page": 9
+                  },
+                  {
+                    "title": "US9142767B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9142767B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9142767B2",
+                  "url": "https://patents.google.com/patent/US9142767B2/en",
+                  "note": "US9142767B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9142767B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/65/f1/6c/c702c238c9f85b/US9142767.pdf",
+                    "date": "2015-09-22",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9768388B2",
+                "title": "具多端子單元之碳奈米管隨機存取記憶體",
+                "grantDate": "2017-09-19",
+                "publicationDate": "2017-09-19",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-09-19",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US9768388B2/en",
+                "coreProblem": "極端輻射與超高溫環境下傳統半導體電荷儲存失效，且現有記憶體難以兼具 DRAM 級高速與非揮發性。",
+                "mechanism": "利用單壁碳奈米管（CNT）網狀織物在微米腔體中的凡得瓦力物理接觸（導通）與靜電排斥分開（斷開）儲存資訊。",
+                "claimFocus": "權利項 1 要求交織碳奈米管織物層、第一/第二導電控制端子與凡得瓦力雙穩態機電切換特徵。",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9768388B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e3/05/a4/4ef353f80f7f39/US9768388.pdf",
+                    "date": "2017-09-19",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 46 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-09-19）。",
+                    "pdfSHA256": "e305a44ef353f80f7f393e1479e044e1a4d793e416f4a0254d85e22500043c6d",
+                    "page": 46
+                  },
+                  {
+                    "title": "US9768388B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9768388B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9768388B2",
+                  "url": "https://patents.google.com/patent/US9768388B2/en",
+                  "note": "US9768388B2 依原始核准公報建檔收錄，核對首頁受讓人 Nantero, Inc. 與發明人。",
+                  "source": {
+                    "title": "US9768388B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e3/05/a4/4ef353f80f7f39/US9768388.pdf",
+                    "date": "2017-09-19",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Nantero, Inc. 及發明人 Thomas Rueckes; Brent M. Segal。",
+                    "page": 1
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2003-11-04 – 2017-09-19",
+            "theme": "Nantero 碳奈米管 NRAM 核心專利演進",
+            "era": "專利核准序列",
+            "summary": "奠定碳奈米管機電記憶體陣列、薄膜沉積、單晶 3D 堆疊到車規耐溫多端子交叉陣列之關鍵里程碑。",
+            "nodes": "55nm / 40nm / 28nm BEOL",
+            "keyPatents": "US6643165B2, US6706402B2, US8125824B1, US9768388B2"
+          }
+        ],
+        "litigationDefense": {
+          "title": "權利項邊界與實施問題",
+          "overview": "導讀聚焦於碳奈米管凡得瓦力機電雙穩態之物理限制，不判定排他性專利侵權或自由實施。",
+          "keyBattles": [
+            {
+              "heading": "碳奈米管織物機電雙穩態特徵",
+              "detail": "權利項要求懸空或交織之碳奈米管網絡、電極接觸界面與凡得瓦力接觸切換條件。"
+            }
+          ],
+          "ftoVerdict": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。"
+        },
+        "dossierReview": "original-publication-2026-10-15",
+        "personnelSource": {
+          "title": "Nantero 公報人員來源",
+          "url": "https://patentimages.storage.googleapis.com/62/70/4c/8c935ee573fa08/US6643165.pdf",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "發明人與受讓人依原始核准公報首頁核對。",
+          "page": 1
+        },
+        "attributionNote": "廠商／沿革為編輯分組；每筆另列公報當時受讓人，不以組合標題推定後續權利移轉。",
+        "researchSources": [
+          {
+            "title": "US6643165B2 · 公報原件",
+            "url": "https://patentimages.storage.googleapis.com/62/70/4c/8c935ee573fa08/US6643165.pdf",
+            "date": "2003-11-04",
+            "dateKind": "published",
+            "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 30 頁為代表權利項 1 導讀。",
+            "pdfSHA256": "367f082e6ef92beee934f54d19335ef0d27ec29d5336bfcfb7fa1f67f2b17d3b",
+            "page": 30
+          }
+        ]
       }
     ],
-    "totalPatents": 447
+    "totalPatents": 477
   },
   "sources": [
     {
