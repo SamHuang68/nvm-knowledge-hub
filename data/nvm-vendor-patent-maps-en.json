@@ -678,6 +678,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US10991430B2",
+              "title": "Non-Volatile Memory Cell Compliant to a Near Memory Computation System",
+              "grantDate": "2019-10-30",
+              "publicationDate": "2019-10-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-10-30",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10991430B2/en",
+              "coreProblem": "Von Neumann bus bottlenecks induce excessive data transfer energy, necessitating near-memory matrix computing.",
+              "mechanism": "Integrates single-poly floating gate cells with multiplicative switches, translating input voltages into analog currents summed on bitlines.",
+              "claimFocus": "Claim 1 requires a single-poly floating-gate storage transistor, a multiply-switch transistor coupled to an operand line, and summing nodes.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10991430B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/d0/21/c8/e178cdca65db4b/US10991430.pdf",
+                  "date": "2019-10-30",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2019-10-30.",
+                  "pdfSHA256": "d021c8e178cdca65db4ba1d9a1a57c0c229ed903b1ecdc0e8e8a931be82446a7",
+                  "page": 10
+                },
+                {
+                  "title": "US10991430B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10991430B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10991430B2",
+                "url": "https://patents.google.com/patent/US10991430B2/en",
+                "note": "US10991430B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10991430B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/d0/21/c8/e178cdca65db4b/US10991430.pdf",
+                  "date": "2019-10-30",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10276239B2",
+              "title": "Memory Cell and Associated Array Structure",
+              "grantDate": "2017-07-07",
+              "publicationDate": "2017-07-07",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-07-07",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10276239B2/en",
+              "coreProblem": "Capacitive coupling ratio severely degrades in scaled planar logic nodes, compromising write speed and disturb margins.",
+              "mechanism": "Utilizes interdigitated polysilicon extensions and multi-well diffusion plates to boost capacitive coupling in compact footprints.",
+              "claimFocus": "Claim 1 focuses on the poly floating gate geometry, control diffusion overlap area, and well-coupling bias configurations.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10276239B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/db/d7/9f/8240db79ffb1dc/US10276239.pdf",
+                  "date": "2017-07-07",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2017-07-07.",
+                  "pdfSHA256": "dbd79f8240db79ffb1dc8c88aaa891818984c6e126037adada9cec46465b651f",
+                  "page": 18
+                },
+                {
+                  "title": "US10276239B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10276239B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10276239B2",
+                "url": "https://patents.google.com/patent/US10276239B2/en",
+                "note": "US10276239B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10276239B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/db/d7/9f/8240db79ffb1dc/US10276239.pdf",
+                  "date": "2017-07-07",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11508425B2",
+              "title": "Memory Cell Array of Programmable Non-Volatile Memory",
+              "grantDate": "2021-02-09",
+              "publicationDate": "2021-02-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-02-09",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11508425B2/en",
+              "coreProblem": "Adjacent floating-gate parasitic capacitive coupling in dense arrays causes severe cross-cell program disturb.",
+              "mechanism": "Employs self-aligned dummy shield rails and asymmetric wordline biasing across adjacent rows to decouple fringing electric fields.",
+              "claimFocus": "Claim 1 requires floating-gate row/column architectures, isolation dummy shield networks, and unselected-cell disturb inhibition logic.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11508425B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/83/9d/2a/77998afd5f91fe/US11508425.pdf",
+                  "date": "2021-02-09",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2021-02-09.",
+                  "pdfSHA256": "839d2a77998afd5f91fefb6c0ea1fd80089aa7e2541dd62fe2fc1518a21433b9",
+                  "page": 11
+                },
+                {
+                  "title": "US11508425B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11508425B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11508425B2",
+                "url": "https://patents.google.com/patent/US11508425B2/en",
+                "note": "US11508425B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11508425B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/83/9d/2a/77998afd5f91fe/US11508425.pdf",
+                  "date": "2021-02-09",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11877456B2",
+              "title": "Memory Cell of Non-Volatile Memory",
+              "grantDate": "2021-07-21",
+              "publicationDate": "2021-07-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-07-21",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11877456B2/en",
+              "coreProblem": "Standby sub-threshold junction leakage in unselected memory nodes drains batteries in ultra-low power always-on IoT systems.",
+              "mechanism": "Implements dynamic substrate back-biasing and dual-oxide channels to cut off parasitic leakage paths during standby.",
+              "claimFocus": "Claim 1 requires a storage transistor, an isolated well with switchable body bias, and standby bias gating units.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11877456B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/8a/51/2c/30590e452070f5/US11877456.pdf",
+                  "date": "2021-07-21",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2021-07-21.",
+                  "pdfSHA256": "8a512c30590e452070f520fc099c6f057d87e4e27838b353a9e81003b6aa3353",
+                  "page": 18
+                },
+                {
+                  "title": "US11877456B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11877456B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11877456B2",
+                "url": "https://patents.google.com/patent/US11877456B2/en",
+                "note": "US11877456B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11877456B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/8a/51/2c/30590e452070f5/US11877456.pdf",
+                  "date": "2021-07-21",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12482526B2",
+              "title": "Non-Volatile Memory and Reference Current Generator Thereof",
+              "grantDate": "2023-11-09",
+              "publicationDate": "2023-11-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2023-11-09",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US12482526B2/en",
+              "coreProblem": "Process, voltage, and temperature (PVT) variations cause read margin drift, leading to false readouts with fixed reference currents.",
+              "mechanism": "Synthesizes a self-tuning reference current via tracking dummy cells reflecting real-time PVT array behavior.",
+              "claimFocus": "Claim 1 requires a dynamic reference current source, PVT tracking compensation transistor arrays, and closed-loop differential sense amps.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoBit® Comparison: Single-Poly Floating-Gate OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US12482526B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f0/59/6a/54853dda2286e1/US12482526.pdf",
+                  "date": "2023-11-09",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2023-11-09.",
+                  "pdfSHA256": "f0596a54853dda2286e100e7f65f46840e6845eeaccf2a174dfdda43327ef05e",
+                  "page": 25
+                },
+                {
+                  "title": "US12482526B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US12482526B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12482526B2",
+                "url": "https://patents.google.com/patent/US12482526B2/en",
+                "note": "US12482526B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US12482526B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f0/59/6a/54853dda2286e1/US12482526.pdf",
+                  "date": "2023-11-09",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -1474,6 +1754,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9013910B2",
+              "title": "Antifuse OTP Memory Cell with Performance Improvement Prevention and Operating Method",
+              "grantDate": "2013-12-10",
+              "publicationDate": "2013-12-10",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-12-10",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9013910B2/en",
+              "coreProblem": "Ruptured dielectric antifuse filaments can undergo self-annealing recovery under thermal stress, causing read resistance rebound.",
+              "mechanism": "Applies dual-stage high-energy shaping pulses to fully eutectic-alloy the silicon and poly-Si across the ruptured channel.",
+              "claimFocus": "Claim 1 specifies a method comprising dielectric rupture breakdown followed by an alloying filament restructuring current pulse.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9013910B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e5/65/3f/5c20ab3f80c8f3/US9013910.pdf",
+                  "date": "2013-12-10",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2013-12-10.",
+                  "pdfSHA256": "e5653f5c20ab3f80c8f33c775192e2b4069c3ab5f80ed837a9416302341a7922",
+                  "page": 20
+                },
+                {
+                  "title": "US9013910B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9013910B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9013910B2",
+                "url": "https://patents.google.com/patent/US9013910B2/en",
+                "note": "US9013910B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US9013910B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e5/65/3f/5c20ab3f80c8f3/US9013910.pdf",
+                  "date": "2013-12-10",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8724363B2",
+              "title": "Anti-Fuse Memory Utilizing a Coupling Channel and Operating Method Thereof",
+              "grantDate": "2012-03-06",
+              "publicationDate": "2012-03-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-03-06",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US8724363B2/en",
+              "coreProblem": "High breakdown voltages required for antifuse programming risk gate rupture in adjacent thin-oxide select transistors.",
+              "mechanism": "Accumulates localized breakdown fields via coupled channel wells while keeping terminal stresses low on select transistors.",
+              "claimFocus": "Claim 1 requires a coupled channel structure, antifuse capacitor, low-voltage protect transistor, and stepped bias control.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8724363B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/4c/fa/74/4fd993760ab2b9/US8724363.pdf",
+                  "date": "2012-03-06",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2012-03-06.",
+                  "pdfSHA256": "4cfa744fd993760ab2b9c2a13a27124ed073b5af03e18216274f10eebf31d586",
+                  "page": 12
+                },
+                {
+                  "title": "US8724363B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8724363B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8724363B2",
+                "url": "https://patents.google.com/patent/US8724363B2/en",
+                "note": "US8724363B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US8724363B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/4c/fa/74/4fd993760ab2b9/US8724363.pdf",
+                  "date": "2012-03-06",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9799662B2",
+              "title": "Antifuse-Type One Time Programming Memory Cell and Array Structure",
+              "grantDate": "2016-01-13",
+              "publicationDate": "2016-01-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-01-13",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9799662B2/en",
+              "coreProblem": "Massive surge currents during antifuse breakdown trigger severe ground bounce and supply noise, disrupting peripheral circuits.",
+              "mechanism": "Integrates active current-limiting diodes and transient damping resistors into bitline legs to cushion surge discharge.",
+              "claimFocus": "Claim 1 requires an antifuse array, integrated current-limiting elements, and surge-damping clamp networks.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9799662B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/66/e7/3d/d8c1d7f8473d5c/US9799662.pdf",
+                  "date": "2016-01-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 22 provides representative Claim 1 reading. Earliest claimed priority date: 2016-01-13.",
+                  "pdfSHA256": "66e73dd8c1d7f8473d5c04592ef9f44f5fb3790ce9f9f56c08256145413be2d7",
+                  "page": 22
+                },
+                {
+                  "title": "US9799662B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9799662B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9799662B2",
+                "url": "https://patents.google.com/patent/US9799662B2/en",
+                "note": "US9799662B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US9799662B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/66/e7/3d/d8c1d7f8473d5c/US9799662.pdf",
+                  "date": "2016-01-13",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9601499B2",
+              "title": "One-Time Programmable Memory Cell Capable of Reducing Leakage Current and Array Structure",
+              "grantDate": "2016-01-25",
+              "publicationDate": "2016-01-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-01-25",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9601499B2/en",
+              "coreProblem": "Accumulated sub-breakdown tunneling leakage across unprogrammed antifuses restricts maximum bitline array multiplexing.",
+              "mechanism": "Employs asymmetric split-channel geometries to divert read electric fields away from thin dielectric regions, slashing leakage by 1000x.",
+              "claimFocus": "Claim 1 requires an antifuse structure with thick/thin regions, asymmetric channel doping, and multiplexed read gates.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9601499B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/d1/28/0c/0e065efb558fb2/US9601499.pdf",
+                  "date": "2016-01-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 33 provides representative Claim 1 reading. Earliest claimed priority date: 2016-01-25.",
+                  "pdfSHA256": "d1280c0e065efb558fb27800f3d9c38aab6c830fdc2ef8c1a35d2cb401a918fb",
+                  "page": 33
+                },
+                {
+                  "title": "US9601499B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9601499B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9601499B2",
+                "url": "https://patents.google.com/patent/US9601499B2/en",
+                "note": "US9601499B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US9601499B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/d1/28/0c/0e065efb558fb2/US9601499.pdf",
+                  "date": "2016-01-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11881274B2",
+              "title": "Program Control Circuit for Antifuse-Type One Time Programming Memory Cell Array",
+              "grantDate": "2022-06-17",
+              "publicationDate": "2022-06-17",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2022-06-17",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11881274B2/en",
+              "coreProblem": "Over-programming antifuse cells during wafer sort causes metal electromigration and adjacent-cell thermal damage without real-time cutoff.",
+              "mechanism": "Features nanosecond-fast current-spike triggered cutoffs, immediately quenching programming voltages upon dielectric rupture.",
+              "claimFocus": "Claim 1 requires automatic cutoff logic, high-speed spike detection comparators, pulse timers, and rupture-verify registers.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoFuse® Comparison: Antifuse OTP; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11881274B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/8e/02/69/d07210c574b5f6/US11881274.pdf",
+                  "date": "2022-06-17",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 23 provides representative Claim 1 reading. Earliest claimed priority date: 2022-06-17.",
+                  "pdfSHA256": "8e0269d07210c574b5f6a49134dc17687edf1f13b82da6eb02fb53284a264349",
+                  "page": 23
+                },
+                {
+                  "title": "US11881274B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11881274B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11881274B2",
+                "url": "https://patents.google.com/patent/US11881274B2/en",
+                "note": "US11881274B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11881274B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/8e/02/69/d07210c574b5f6/US11881274.pdf",
+                  "date": "2022-06-17",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -1934,6 +2494,286 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8941167B2",
+              "title": "Erasable Programmable Single-Poly Nonvolatile Memory",
+              "grantDate": "2012-03-08",
+              "publicationDate": "2012-03-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-03-08",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US8941167B2/en",
+              "coreProblem": "Single-poly architectures lack vertical control gates, requiring extreme erase voltages that compromise oxide reliability.",
+              "mechanism": "Distributes erase stress across dual cross-coupled diffusion wells, substantially lowering peak required erase voltages.",
+              "claimFocus": "Claim 1 requires a single-poly floating gate, first erase-coupling diffusion, second program-coupling diffusion, and differential bias drivers.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8941167B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/72/f3/02/6b498f452e2e09/US8941167.pdf",
+                  "date": "2012-03-08",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 19 provides representative Claim 1 reading. Earliest claimed priority date: 2012-03-08.",
+                  "pdfSHA256": "72f3026b498f452e2e09aec05644b70516c2b92add7c3c284219ce12470963ca",
+                  "page": 19
+                },
+                {
+                  "title": "US8941167B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8941167B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8941167B2",
+                "url": "https://patents.google.com/patent/US8941167B2/en",
+                "note": "US8941167B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US8941167B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/72/f3/02/6b498f452e2e09/US8941167.pdf",
+                  "date": "2012-03-08",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10181520B2",
+              "title": "Method of Fabricating Electrically Erasable Programmable Non-Volatile Memory Cell",
+              "grantDate": "2017-10-25",
+              "publicationDate": "2017-10-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-10-25",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10181520B2/en",
+              "coreProblem": "Standard foundry logic CMOS prohibits extra mask layers, complicating thin tunneling oxide integration for EEPROM.",
+              "mechanism": "Exclusively leverages dual-gate oxide logic masks (I/O thick oxide and core thin oxide) for zero-mask-adder EEPROM.",
+              "claimFocus": "Claim 1 specifies manufacturing method steps leveraging standard dual-gate oxides, single-poly deposition, and well implant masks.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10181520B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/0d/8d/aa/97f2fc36917863/US10181520.pdf",
+                  "date": "2017-10-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 23 provides representative Claim 1 reading. Earliest claimed priority date: 2017-10-25.",
+                  "pdfSHA256": "0d8daa97f2fc36917863a4f9206af1ba741204673b97d954d74acb833112a8a7",
+                  "page": 23
+                },
+                {
+                  "title": "US10181520B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10181520B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10181520B2",
+                "url": "https://patents.google.com/patent/US10181520B2/en",
+                "note": "US10181520B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10181520B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/0d/8d/aa/97f2fc36917863/US10181520.pdf",
+                  "date": "2017-10-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10103157B2",
+              "title": "Nonvolatile Memory Having a Shallow Junction Diffusion Region",
+              "grantDate": "2017-07-13",
+              "publicationDate": "2017-07-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-07-13",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10103157B2/en",
+              "coreProblem": "Deep junction diffusions suffer lateral thermal dopant migration under high temperatures, degrading effective channel length.",
+              "mechanism": "Integrates self-aligned ultra-shallow junctions (USJ) with carbon-co-implants at injection nodes to stabilize effective channel length.",
+              "claimFocus": "Claim 1 requires a floating-gate transistor, shallow junction diffusions, heavily-doped contacts, and interface stress buffers.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10103157B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/39/ee/a0/3cab043e7a3bcb/US10103157.pdf",
+                  "date": "2017-07-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 23 provides representative Claim 1 reading. Earliest claimed priority date: 2017-07-13.",
+                  "pdfSHA256": "39eea03cab043e7a3bcbea55028570fd96f3cfdd8fb02b189cfdcb985a365c09",
+                  "page": 23
+                },
+                {
+                  "title": "US10103157B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10103157B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10103157B2",
+                "url": "https://patents.google.com/patent/US10103157B2/en",
+                "note": "US10103157B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10103157B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/39/ee/a0/3cab043e7a3bcb/US10103157.pdf",
+                  "date": "2017-07-13",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11245004B2",
+              "title": "Memory Cell with Isolated Well Region and Associated Non-Volatile Memory",
+              "grantDate": "2020-09-30",
+              "publicationDate": "2020-09-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-09-30",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11245004B2/en",
+              "coreProblem": "Automotive inductive substrate noise injects into sensitive floating-gate nodes via shared bulk, causing soft errors.",
+              "mechanism": "Encloses the cell array in deep triple-well isolation tanks, forming an electrostatic Faraday cage against substrate transients.",
+              "claimFocus": "Claim 1 requires a deep N-well isolation tank, internal P-well, floating-gate arrays, and noise-damping bias networks.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11245004B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/2e/cb/f2/69245216382f5e/US11245004.pdf",
+                  "date": "2020-09-30",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2020-09-30.",
+                  "pdfSHA256": "2ecbf269245216382f5ee7b13b20041c644196c719648e1ea5505c65490a16cd",
+                  "page": 21
+                },
+                {
+                  "title": "US11245004B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11245004B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11245004B2",
+                "url": "https://patents.google.com/patent/US11245004B2/en",
+                "note": "US11245004B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11245004B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/2e/cb/f2/69245216382f5e/US11245004.pdf",
+                  "date": "2020-09-30",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9041089B2",
+              "title": "Nonvolatile Memory Structure",
+              "grantDate": "2013-12-27",
+              "publicationDate": "2013-12-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-12-27",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9041089B2/en",
+              "coreProblem": "Planar control coupling capacitors consume excessive silicon area, bottlenecking single-poly EEPROM density beyond 512Kb.",
+              "mechanism": "Utilizes shallow trench isolation (STI) sidewall facets to wrap poly gates three-dimensionally, doubling coupling area without area penalty.",
+              "claimFocus": "Claim 1 requires poly floating-gate extension wings disposed on STI sidewalls, shared control diffusions, and erase nodes.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoEE® Comparison: Erasable Single-Poly NVM; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9041089B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/57/97/6e/4a792f2dddc249/US9041089.pdf",
+                  "date": "2013-12-27",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 19 provides representative Claim 1 reading. Earliest claimed priority date: 2013-12-27.",
+                  "pdfSHA256": "57976e4a792f2dddc249df78b739301854c7fbd7b299f9d30c1fa413bd30873e",
+                  "page": 19
+                },
+                {
+                  "title": "US9041089B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9041089B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9041089B2",
+                "url": "https://patents.google.com/patent/US9041089B2/en",
+                "note": "US9041089B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US9041089B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/57/97/6e/4a792f2dddc249/US9041089.pdf",
+                  "date": "2013-12-27",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -2389,6 +3229,286 @@
                   "title": "US9305611B2 · Front Page Verification",
                   "url": "https://patentimages.storage.googleapis.com/9a/46/e1/cd915be7273d81/US9305611.pdf",
                   "date": "2015-06-11",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8625350B2",
+              "title": "Logic-Based Multiple Time Programming Memory Cell",
+              "grantDate": "2012-06-01",
+              "publicationDate": "2012-06-01",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-06-01",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US8625350B2/en",
+              "coreProblem": "Endurance cycling (>10k cycles) traps oxide charges, causing erase threshold drift and window closure.",
+              "mechanism": "Applies dynamic adaptive bipolar de-trapping pulses during cycling to evacuate trapped oxide charges, boosting endurance to 100k cycles.",
+              "claimFocus": "Claim 1 requires an MTP single-poly cell, charge-detrapping bias circuitry, and cycling-counter adaptive controls.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8625350B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e4/74/31/05c6000d6be0b4/US8625350.pdf",
+                  "date": "2012-06-01",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 13 provides representative Claim 1 reading. Earliest claimed priority date: 2012-06-01.",
+                  "pdfSHA256": "e4743105c6000d6be0b43727cca71f26b198abfc6a08076fa7c522162337286d",
+                  "page": 13
+                },
+                {
+                  "title": "US8625350B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8625350B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8625350B2",
+                "url": "https://patents.google.com/patent/US8625350B2/en",
+                "note": "US8625350B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US8625350B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e4/74/31/05c6000d6be0b4/US8625350.pdf",
+                  "date": "2012-06-01",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8958245B2",
+              "title": "Logic-Based Multiple Time Programming Memory Cell Compatible with Generic CMOS Process",
+              "grantDate": "2012-05-29",
+              "publicationDate": "2012-05-29",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-05-29",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US8958245B2/en",
+              "coreProblem": "Repeatedly cycled thin-oxide MTP cells suffer accelerated stress-induced leakage current (SILC) at 150°C.",
+              "mechanism": "Cascodes a micro-blocking transistor with potential self-locking nodes to erect multi-step barriers against thermal electron escape.",
+              "claimFocus": "Claim 1 requires a floating-gate cell, cascode blocking transistor, high-temperature SILC suppression circuitry, and symmetric erase nodes.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8958245B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/81/78/de/44ab3a3ef84237/US8958245.pdf",
+                  "date": "2012-05-29",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 26 provides representative Claim 1 reading. Earliest claimed priority date: 2012-05-29.",
+                  "pdfSHA256": "8178de44ab3a3ef84237ac93406bf63f978e9db549daf455b33a2219c8058033",
+                  "page": 26
+                },
+                {
+                  "title": "US8958245B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8958245B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8958245B2",
+                "url": "https://patents.google.com/patent/US8958245B2/en",
+                "note": "US8958245B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US8958245B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/81/78/de/44ab3a3ef84237/US8958245.pdf",
+                  "date": "2012-05-29",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11398259B2",
+              "title": "Memory Cell Array of Multi-Time Programmable Non-Volatile Memory",
+              "grantDate": "2021-02-24",
+              "publicationDate": "2021-02-24",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-02-24",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11398259B2/en",
+              "coreProblem": "High-density MTP page erasing causes extreme capacitive charging peak power across parallel unselected bitlines.",
+              "mechanism": "Implements segmented charge-sharing precharging, recycling transient energy across adjacent bitlines during page erase.",
+              "claimFocus": "Claim 1 requires a segmented MTP array, charge-recycling switch matrix, and multiphase clock smoothing logic.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11398259B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/7e/f5/83/be6079255e3d7a/US11398259.pdf",
+                  "date": "2021-02-24",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2021-02-24.",
+                  "pdfSHA256": "7ef583be6079255e3d7a61351b7771bf3465d3db2ee8043081af81139cfc6818",
+                  "page": 21
+                },
+                {
+                  "title": "US11398259B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11398259B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11398259B2",
+                "url": "https://patents.google.com/patent/US11398259B2/en",
+                "note": "US11398259B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11398259B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/7e/f5/83/be6079255e3d7a/US11398259.pdf",
+                  "date": "2021-02-24",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11017862B2",
+              "title": "Multi-Time Programming Memory Cell and Memory Cell Array with Erase Inhibit Capability",
+              "grantDate": "2019-10-23",
+              "publicationDate": "2019-10-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-10-23",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11017862B2/en",
+              "coreProblem": "Selective bit-level erasing induces over-erase soft errors in unselected cells sharing common control lines.",
+              "mechanism": "Equips each cell with a self-biased erase-inhibit clamp transistor, pinning unselected floating gates within safe margins.",
+              "claimFocus": "Claim 1 requires an MTP cell with an integrated erase-inhibit switch, shared control lines, and state-protection logic.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11017862B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/6b/43/30/8b301284590565/US11017862.pdf",
+                  "date": "2019-10-23",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 16 provides representative Claim 1 reading. Earliest claimed priority date: 2019-10-23.",
+                  "pdfSHA256": "6b43308b301284590565d50d7c12e6c06f75428310328ff7993d777f96f6af65",
+                  "page": 16
+                },
+                {
+                  "title": "US11017862B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11017862B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11017862B2",
+                "url": "https://patents.google.com/patent/US11017862B2/en",
+                "note": "US11017862B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11017862B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/6b/43/30/8b301284590565/US11017862.pdf",
+                  "date": "2019-10-23",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11557338B2",
+              "title": "Non-Volatile Memory with Multi-Level Cell Array and Associated Program Control Method",
+              "grantDate": "2021-05-13",
+              "publicationDate": "2021-05-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-05-13",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11557338B2/en",
+              "coreProblem": "Limited floating-gate charge capacity in planar logic nodes narrows multi-level (2-bit/cell) threshold distribution margins.",
+              "mechanism": "Utilizes incremental step pulse programming (ISPP) combined with dynamic multi-tier reference sensing to tighten state distributions (<100mV).",
+              "claimFocus": "Claim 1 requires MLC storage cells, configurable ISPP pulse generators, multi-tier sense comparators, and calibration state machines.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoMTP® Comparison: Assistant-Gate Cells and Arrays; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11557338B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e2/cb/50/223516a8d18e64/US11557338.pdf",
+                  "date": "2021-05-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2021-05-13.",
+                  "pdfSHA256": "e2cb50223516a8d18e64adf4bada74034f6f245b1b4f235e87c4b283940d69a9",
+                  "page": 25
+                },
+                {
+                  "title": "US11557338B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11557338B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11557338B2",
+                "url": "https://patents.google.com/patent/US11557338B2/en",
+                "note": "US11557338B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11557338B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e2/cb/50/223516a8d18e64/US11557338.pdf",
+                  "date": "2021-05-13",
                   "dateKind": "published",
                   "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
                   "page": 1
@@ -2905,6 +4025,286 @@
                   "title": "US10685728B2 · Front Page Verification",
                   "url": "https://patentimages.storage.googleapis.com/58/e9/80/e37291d048ddba/US10685728.pdf",
                   "date": "2018-11-23",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10020268B2",
+              "title": "Random Number Generator Device and Control Method Thereof",
+              "grantDate": "2017-04-13",
+              "publicationDate": "2017-04-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-04-13",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10020268B2/en",
+              "coreProblem": "Pseudo-random generators are vulnerable to mathematical reverse-engineering, demanding physical silicon entropy sources.",
+              "mechanism": "Exploits atomic-scale oxide thickness variations across twin dielectric cells to generate unpredictable physical true random bits.",
+              "claimFocus": "Claim 1 specifies a device comprising paired dielectric cells, differential tunneling sense amps, and de-biasing digital filters.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10020268B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cf/13/08/6fa0433d6bd647/US10020268.pdf",
+                  "date": "2017-04-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 19 provides representative Claim 1 reading. Earliest claimed priority date: 2017-04-13.",
+                  "pdfSHA256": "cf13086fa0433d6bd6477ceb8939f7c06cd7c9629b6f275485ad95acab6d3f60",
+                  "page": 19
+                },
+                {
+                  "title": "US10020268B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10020268B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10020268B2",
+                "url": "https://patents.google.com/patent/US10020268B2/en",
+                "note": "US10020268B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10020268B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cf/13/08/6fa0433d6bd647/US10020268.pdf",
+                  "date": "2017-04-13",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10748591B2",
+              "title": "Random Code Generator",
+              "grantDate": "2019-08-16",
+              "publicationDate": "2019-08-16",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-08-16",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10748591B2/en",
+              "coreProblem": "Thermal noise and voltage fluctuations cause PUF bit-flips, risking key instability without heavy helper-data ECC engines.",
+              "mechanism": "Introduces regenerative cross-coupled latch positive feedback to amplify minute physical mismatches into rock-solid 0/1 states with zero BER.",
+              "claimFocus": "Claim 1 requires physical mismatch cell pairs, regenerative self-reinforcing switch networks, and zero-BER output latches.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10748591B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/81/09/cd/f36e06b27d20b7/US10748591.pdf",
+                  "date": "2019-08-16",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 13 provides representative Claim 1 reading. Earliest claimed priority date: 2019-08-16.",
+                  "pdfSHA256": "8109cdf36e06b27d20b7925458470c82a475ce32f1040260eca8cfd804ae1578",
+                  "page": 13
+                },
+                {
+                  "title": "US10748591B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10748591B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10748591B2",
+                "url": "https://patents.google.com/patent/US10748591B2/en",
+                "note": "US10748591B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10748591B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/81/09/cd/f36e06b27d20b7/US10748591.pdf",
+                  "date": "2019-08-16",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11294640B2",
+              "title": "Random Number Generator",
+              "grantDate": "2020-02-07",
+              "publicationDate": "2020-02-07",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-02-07",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11294640B2/en",
+              "coreProblem": "Laser fault injection (LFI) and side-channel tampering can force PUF cells into deterministic biased states.",
+              "mechanism": "Applies dynamic random-polarity excitation and complementary differential cancellation to neutralize laser-injected photo-currents.",
+              "claimFocus": "Claim 1 requires complementary entropy arrays, dynamic polarity-scrambling drivers, and common-mode fault rejection sense logic.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11294640B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/b2/45/ce/e19b3202f6ecb8/US11294640.pdf",
+                  "date": "2020-02-07",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 17 provides representative Claim 1 reading. Earliest claimed priority date: 2020-02-07.",
+                  "pdfSHA256": "b245cee19b3202f6ecb830ee11f780722206cc8eb846439df15ff03b9fb9ae74",
+                  "page": 17
+                },
+                {
+                  "title": "US11294640B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11294640B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11294640B2",
+                "url": "https://patents.google.com/patent/US11294640B2/en",
+                "note": "US11294640B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11294640B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/b2/45/ce/e19b3202f6ecb8/US11294640.pdf",
+                  "date": "2020-02-07",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10459693B2",
+              "title": "Random Code Generator with Differential Cells and Associated Control Method",
+              "grantDate": "2018-07-27",
+              "publicationDate": "2018-07-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-07-27",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10459693B2/en",
+              "coreProblem": "Transistor aging and interface trap generation over time shift relative cell impedance, causing startup fingerprint drift.",
+              "mechanism": "Performs micro-pre-balancing equipotential discharges prior to each readout, eliminating charge memory and isolating intrinsic lattice mismatch.",
+              "claimFocus": "Claim 1 requires differential cell pairs, pre-charge equipotential shunts, dynamic comparators, and fingerprint timing sequencers.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10459693B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/d2/38/88/d7619eb73c2b2e/US10459693.pdf",
+                  "date": "2018-07-27",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2018-07-27.",
+                  "pdfSHA256": "d23888d7619eb73c2b2e95ff206d47d37174cf33dcae2c510905e719abbfc561",
+                  "page": 18
+                },
+                {
+                  "title": "US10459693B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10459693B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10459693B2",
+                "url": "https://patents.google.com/patent/US10459693B2/en",
+                "note": "US10459693B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US10459693B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/d2/38/88/d7619eb73c2b2e/US10459693.pdf",
+                  "date": "2018-07-27",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11989533B2",
+              "title": "Short Channel Effect Based Random Bit Generator",
+              "grantDate": "2023-06-05",
+              "publicationDate": "2023-06-05",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2023-06-05",
+              "inventors": "Charles Ching-Hsiang Hsu",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US11989533B2/en",
+              "coreProblem": "Dielectric variations plateau in sub-10nm FinFET/GAA nodes, limiting classical oxide-breakdown entropy scaling.",
+              "mechanism": "Exploits line-edge roughness (LER) and random dopant fluctuation (RDF) in nanoscale short channels as natural entropy sources.",
+              "claimFocus": "Claim 1 requires paired sub-micron short-channel transistors, DIBL differential sensing circuits, and short-channel PUF bit output stages.",
+              "patentCategory": "記憶體陣列結構項",
+              "patentCategoryEn": "Memory Array Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with NeoPUF® Comparison: Antifuse and Security Systems; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11989533B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f8/cd/61/5f821f2c49b742/US11989533.pdf",
+                  "date": "2023-06-05",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2023-06-05.",
+                  "pdfSHA256": "f8cd615f821f2c49b742c589f028e96dba236626dffe2247f368b233469c342b",
+                  "page": 10
+                },
+                {
+                  "title": "US11989533B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11989533B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11989533B2",
+                "url": "https://patents.google.com/patent/US11989533B2/en",
+                "note": "US11989533B2 recorded per original grant publication, verifying assignee eMemory Technology Inc. and inventors.",
+                "source": {
+                  "title": "US11989533B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f8/cd/61/5f821f2c49b742/US11989533.pdf",
+                  "date": "2023-06-05",
                   "dateKind": "published",
                   "note": "Front page verification of assignee eMemory Technology Inc. and inventors Charles Ching-Hsiang Hsu.",
                   "page": 1
@@ -22451,5 +23851,5 @@
       ]
     }
   ],
-  "totalPatents": 372
+  "totalPatents": 397
 }
