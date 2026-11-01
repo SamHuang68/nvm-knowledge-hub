@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "d910528af54718ba9503036cd17ec44dbb29a41a",
+  "baseCommit": "5452df843777585dd322bfbe44ff5cca2ac34de0",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -27,7 +27,8 @@
         "data/nvm-vendor-patent-maps-en.json",
         "data/nvm-vendor-patent-maps.json",
         "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html"
+        "nvm-technology-atlas.html",
+        "scripts/nvm-vendor-patent-maps-ui.mjs"
       ],
       "inputs": [
         "data/nvm-knowledge-data-en.json",
@@ -39,10 +40,11 @@
         "nvm-technology-atlas-zh.html",
         "nvm-technology-atlas.html",
         "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 12 新興記憶體雙雄（Everspin MRAM 25 件 + SST SuperFlash/memBrain 25 件）共 50 件專利擴充，兩家各達 50 件，全庫專利總數躍升至 447 件",
+      "reason": "驗證 Stage 13 版圖擴張至 14 家全球先鋒（CrossBar ReRAM 15 件 + Nantero NRAM 15 件）共 30 件專利擴充，全庫專利總數躍升至 477 件",
       "prepare": [
         "node"
       ],

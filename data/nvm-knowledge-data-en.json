@@ -34884,9 +34884,1901 @@
             "page": 11
           }
         ]
+      },
+      {
+        "id": "crossbar",
+        "name": "CrossBar, Inc.",
+        "shortName": "CrossBar",
+        "headquarters": "Santa Clara, California, USA",
+        "founded": "2010",
+        "founders": "George Minassian; Wei D. Lu; Hagop Nazarian; Sung Hyun Jo",
+        "businessModel": "Filamentary ReRAM IP licensing and 3D crossbar architectures",
+        "patentStats": {
+          "totalGrantedWorldwide": "Over 200 issued and published patents worldwide",
+          "keyJurisdictions": "United States, China, Europe, Taiwan, Japan",
+          "foundryCoverage": "SMIC 40nm, TSMC 28nm evaluation platforms",
+          "waferShipment": "Commercial evaluation chip deployments; cumulative volume not disclosed",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Worldwide Portfolio Announcement",
+              "title": "CrossBar Official IP Overview",
+              "url": "https://www.crossbar-inc.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Official announcement cites over 200 patents and applications globally; representative US grants selected for technical review."
+            },
+            "keyJurisdictions": {
+              "label": "Primary Patent Jurisdictions",
+              "title": "CrossBar Patent Coverage Documentation",
+              "url": "https://www.crossbar-inc.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Covers primary semiconductor manufacturing and design centers across the US, China, Europe, Taiwan, and Japan."
+            },
+            "foundryCoverage": {
+              "label": "Foundry Collaboration Progress",
+              "title": "CrossBar Foundry Partnership Announcements",
+              "url": "https://www.crossbar-inc.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Public 40nm/28nm evaluation and pilot runs; full commercial deployment across all nodes is not asserted."
+            },
+            "waferShipment": {
+              "label": "Deployment and Licensing Status",
+              "title": "CrossBar Commercial Releases",
+              "url": "https://www.crossbar-inc.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Provides commercial IP licensing and demonstration silicon; cumulative wafer production figures are not disclosed."
+            }
+          }
+        },
+        "strategy": "Controlled silver electrochemical filament switching in amorphous silicon providing ultra-dense 3D storage.",
+        "families": [
+          {
+            "id": "crossbar-reram-family",
+            "name": "CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM",
+            "tagline": "Silver filaments, non-linear self-rectification, and 3D stacked ReRAM",
+            "technologyType": "ReRAM (Resistive Non-Volatile Memory)",
+            "cellTopology": "Two-Terminal Metal / Amorphous Dielectric / Semiconductor Crossbar Cell (1S1R / Crossbar)",
+            "physicalMechanism": "Controlled electrochemical silver filament formation, rupture, and non-linear conduction",
+            "processNode": "40nm – 28nm CMOS Back-End-of-Line Compatible (BEOL)",
+            "summary": "15 curated US grants focusing on filament confinement, non-linear rectification, and 3D crossbar architectures.",
+            "patents": [
+              {
+                "id": "US8374018B2",
+                "title": "Resistive memory using SiGe material",
+                "grantDate": "2013-02-12",
+                "publicationDate": "2013-02-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-02-12",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8374018B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8374018B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/09/f9/2a/2348db2122a259/US8374018.pdf",
+                    "date": "2013-02-12",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 15 provides representative Claim 1 reading. Earliest claimed priority date: 2013-02-12.",
+                    "pdfSHA256": "09f92a2348db2122a2593e514b983d11db5e96ebcf7f38f8d2d65fb474151ed7",
+                    "page": 15
+                  },
+                  {
+                    "title": "US8374018B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8374018B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8374018B2",
+                  "url": "https://patents.google.com/patent/US8374018B2/en",
+                  "note": "US8374018B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8374018B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/09/f9/2a/2348db2122a259/US8374018.pdf",
+                    "date": "2013-02-12",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8404553B2",
+                "title": "Disturb-resistant non-volatile memory device and method",
+                "grantDate": "2013-03-26",
+                "publicationDate": "2013-03-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-03-26",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8404553B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8404553B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/b6/b5/fc/3565d88d5eb9bf/US8404553.pdf",
+                    "date": "2013-03-26",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2013-03-26.",
+                    "pdfSHA256": "b6b5fc3565d88d5eb9bf495b7be495c976293ef53c92a3f6aafa41e459f0f803",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8404553B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8404553B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8404553B2",
+                  "url": "https://patents.google.com/patent/US8404553B2/en",
+                  "note": "US8404553B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8404553B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/b6/b5/fc/3565d88d5eb9bf/US8404553.pdf",
+                    "date": "2013-03-26",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8492195B2",
+                "title": "Method for forming stackable non-volatile resistive switching memory devices",
+                "grantDate": "2013-07-23",
+                "publicationDate": "2013-07-23",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-07-23",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8492195B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8492195B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/5c/35/b9/3e4130dcc3149c/US8492195.pdf",
+                    "date": "2013-07-23",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2013-07-23.",
+                    "pdfSHA256": "5c35b93e4130dcc3149c8b9f5dba54f43ab14a6b54302334d173798b1339860e",
+                    "page": 21
+                  },
+                  {
+                    "title": "US8492195B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8492195B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8492195B2",
+                  "url": "https://patents.google.com/patent/US8492195B2/en",
+                  "note": "US8492195B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8492195B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/5c/35/b9/3e4130dcc3149c/US8492195.pdf",
+                    "date": "2013-07-23",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8558212B2",
+                "title": "Conductive path in switching material in a resistive random access memory device and control",
+                "grantDate": "2013-10-15",
+                "publicationDate": "2013-10-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-10-15",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8558212B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8558212B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/87/c6/11/70ef7920a4a4ee/US8558212.pdf",
+                    "date": "2013-10-15",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2013-10-15.",
+                    "pdfSHA256": "87c61170ef7920a4a4eec35f0cbe9d8ce35bc1913cc426b119f0c8811ca74574",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8558212B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8558212B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8558212B2",
+                  "url": "https://patents.google.com/patent/US8558212B2/en",
+                  "note": "US8558212B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8558212B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/87/c6/11/70ef7920a4a4ee/US8558212.pdf",
+                    "date": "2013-10-15",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8765566B2",
+                "title": "Line and space architecture for a non-volatile memory device",
+                "grantDate": "2014-07-01",
+                "publicationDate": "2014-07-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-07-01",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8765566B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8765566B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/61/5e/ff/2b4ac159fcff01/US8765566.pdf",
+                    "date": "2014-07-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 17 provides representative Claim 1 reading. Earliest claimed priority date: 2014-07-01.",
+                    "pdfSHA256": "615eff2b4ac159fcff01c9adb36ac3373caca46a4afaf31ceb78f191167ab98f",
+                    "page": 17
+                  },
+                  {
+                    "title": "US8765566B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8765566B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8765566B2",
+                  "url": "https://patents.google.com/patent/US8765566B2/en",
+                  "note": "US8765566B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8765566B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/61/5e/ff/2b4ac159fcff01/US8765566.pdf",
+                    "date": "2014-07-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8947908B2",
+                "title": "Hetero-switching layer in a RRAM device and method",
+                "grantDate": "2015-02-03",
+                "publicationDate": "2015-02-03",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-02-03",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8947908B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8947908B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a2/04/bf/59c1377a5aad7c/US8947908.pdf",
+                    "date": "2015-02-03",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2015-02-03.",
+                    "pdfSHA256": "a204bf59c1377a5aad7c093dc04804fe651ec98e6a166dbef29967a62043d34b",
+                    "page": 25
+                  },
+                  {
+                    "title": "US8947908B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8947908B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8947908B2",
+                  "url": "https://patents.google.com/patent/US8947908B2/en",
+                  "note": "US8947908B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8947908B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a2/04/bf/59c1377a5aad7c/US8947908.pdf",
+                    "date": "2015-02-03",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8982647B2",
+                "title": "Resistive random access memory equalization and sensing",
+                "grantDate": "2015-03-17",
+                "publicationDate": "2015-03-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-03-17",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US8982647B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8982647B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/07/c3/4b/1d19b03bc2c17f/US8982647.pdf",
+                    "date": "2015-03-17",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 26 provides representative Claim 1 reading. Earliest claimed priority date: 2015-03-17.",
+                    "pdfSHA256": "07c34b1d19b03bc2c17f18527ae648e496a6dbfed6effbf1438e44adc63106a1",
+                    "page": 26
+                  },
+                  {
+                    "title": "US8982647B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8982647B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8982647B2",
+                  "url": "https://patents.google.com/patent/US8982647B2/en",
+                  "note": "US8982647B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US8982647B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/07/c3/4b/1d19b03bc2c17f/US8982647.pdf",
+                    "date": "2015-03-17",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9012307B2",
+                "title": "Two terminal resistive switching device structure and method of fabricating",
+                "grantDate": "2015-04-21",
+                "publicationDate": "2015-04-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-04-21",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9012307B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9012307B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/68/05/14/1dc5f2f05d56d4/US9012307.pdf",
+                    "date": "2015-04-21",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 26 provides representative Claim 1 reading. Earliest claimed priority date: 2015-04-21.",
+                    "pdfSHA256": "6805141dc5f2f05d56d45b1d87dfd7eb959c947bd7768071c93ec29ee583fe10",
+                    "page": 26
+                  },
+                  {
+                    "title": "US9012307B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9012307B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9012307B2",
+                  "url": "https://patents.google.com/patent/US9012307B2/en",
+                  "note": "US9012307B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9012307B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/68/05/14/1dc5f2f05d56d4/US9012307.pdf",
+                    "date": "2015-04-21",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9312483B2",
+                "title": "Electrode structure for a non-volatile memory device and method",
+                "grantDate": "2016-04-12",
+                "publicationDate": "2016-04-12",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-04-12",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9312483B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9312483B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/86/0c/9f/38cc081370d6f1/US9312483.pdf",
+                    "date": "2016-04-12",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2016-04-12.",
+                    "pdfSHA256": "860c9f38cc081370d6f16c2add539e27af5579e8655d8db613c2a9431880eca6",
+                    "page": 18
+                  },
+                  {
+                    "title": "US9312483B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9312483B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9312483B2",
+                  "url": "https://patents.google.com/patent/US9312483B2/en",
+                  "note": "US9312483B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9312483B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/86/0c/9f/38cc081370d6f1/US9312483.pdf",
+                    "date": "2016-04-12",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9406379B2",
+                "title": "Resistive random access memory with non-linear current-voltage relationship",
+                "grantDate": "2016-08-02",
+                "publicationDate": "2016-08-02",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-08-02",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9406379B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9406379B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/b7/7f/44/85adfbc2adac58/US9406379.pdf",
+                    "date": "2016-08-02",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2016-08-02.",
+                    "pdfSHA256": "b77f4485adfbc2adac580fdfbb44d7aff830e89b910cd2a6d33d6338255b6aee",
+                    "page": 25
+                  },
+                  {
+                    "title": "US9406379B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9406379B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9406379B2",
+                  "url": "https://patents.google.com/patent/US9406379B2/en",
+                  "note": "US9406379B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9406379B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/b7/7f/44/85adfbc2adac58/US9406379.pdf",
+                    "date": "2016-08-02",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9576616B2",
+                "title": "Non-volatile memory with overwrite capability and low write amplification",
+                "grantDate": "2017-02-21",
+                "publicationDate": "2017-02-21",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-02-21",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9576616B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9576616B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/98/a8/d1/d9705e6e44c336/US9576616.pdf",
+                    "date": "2017-02-21",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 33 provides representative Claim 1 reading. Earliest claimed priority date: 2017-02-21.",
+                    "pdfSHA256": "98a8d1d9705e6e44c336802a280575909e8b4367b6a998e092f20923bdcd3395",
+                    "page": 33
+                  },
+                  {
+                    "title": "US9576616B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9576616B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9576616B2",
+                  "url": "https://patents.google.com/patent/US9576616B2/en",
+                  "note": "US9576616B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9576616B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/98/a8/d1/d9705e6e44c336/US9576616.pdf",
+                    "date": "2017-02-21",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9620206B2",
+                "title": "Memory array architecture with two-terminal memory cells",
+                "grantDate": "2017-04-11",
+                "publicationDate": "2017-04-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-11",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9620206B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9620206B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/e8/4e/21/13e0022c00d21a/US9620206.pdf",
+                    "date": "2017-04-11",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 39 provides representative Claim 1 reading. Earliest claimed priority date: 2017-04-11.",
+                    "pdfSHA256": "e84e2113e0022c00d21af8ddf072007a07cb8baa88a3b9586d2b40504c8e9032",
+                    "page": 39
+                  },
+                  {
+                    "title": "US9620206B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9620206B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9620206B2",
+                  "url": "https://patents.google.com/patent/US9620206B2/en",
+                  "note": "US9620206B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9620206B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/e8/4e/21/13e0022c00d21a/US9620206.pdf",
+                    "date": "2017-04-11",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9627443B2",
+                "title": "Three-dimensional oblique two-terminal memory with enhanced electric field",
+                "grantDate": "2017-04-18",
+                "publicationDate": "2017-04-18",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-04-18",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9627443B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9627443B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/57/7e/ba/0d331bbf658bf4/US9627443.pdf",
+                    "date": "2017-04-18",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 39 provides representative Claim 1 reading. Earliest claimed priority date: 2017-04-18.",
+                    "pdfSHA256": "577eba0d331bbf658bf459c95a15fa5c0afb570b6372e6b3858de2e6328acce5",
+                    "page": 39
+                  },
+                  {
+                    "title": "US9627443B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9627443B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9627443B2",
+                  "url": "https://patents.google.com/patent/US9627443B2/en",
+                  "note": "US9627443B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9627443B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/57/7e/ba/0d331bbf658bf4/US9627443.pdf",
+                    "date": "2017-04-18",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9685608B2",
+                "title": "Reduced diffusion in metal electrode for two-terminal memory",
+                "grantDate": "2017-06-20",
+                "publicationDate": "2017-06-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-06-20",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US9685608B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9685608B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/41/e4/7b/b84db467fe3e35/US9685608.pdf",
+                    "date": "2017-06-20",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 28 provides representative Claim 1 reading. Earliest claimed priority date: 2017-06-20.",
+                    "pdfSHA256": "41e47bb84db467fe3e35512946bc9e5ae9f05adfee041f726ab1debf6450b2ff",
+                    "page": 28
+                  },
+                  {
+                    "title": "US9685608B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9685608B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9685608B2",
+                  "url": "https://patents.google.com/patent/US9685608B2/en",
+                  "note": "US9685608B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US9685608B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/41/e4/7b/b84db467fe3e35/US9685608.pdf",
+                    "date": "2017-06-20",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10096653B2",
+                "title": "Monolithically integrated resistive memory using integrated-circuit foundry compatible processes",
+                "grantDate": "2018-10-09",
+                "publicationDate": "2018-10-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-10-09",
+                "inventors": "Hagop Nazarian; Sung Hyun Jo",
+                "assignee": "Crossbar, Inc.",
+                "url": "https://patents.google.com/patent/US10096653B2/en",
+                "coreProblem": "Random filament growth in ReRAM causes broad resistance dispersion, while sneak-path leakage plagues selector-less 3D arrays.",
+                "mechanism": "Controls silver electrochemical filament formation/dissolution in a-Si, leveraging built-in non-linear I-V rectifying to stifle sneak currents.",
+                "claimFocus": "Claim 1 requires an active metal electrode, amorphous switching dielectric, interfacial barrier layer, and bipolar switching characteristics.",
+                "patentCategory": "電阻切換結構項",
+                "patentCategoryEn": "Resistive Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with CrossBar® Comparison: Silver Filament & 3D Crossbar ReRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US10096653B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a6/2a/ee/854ed6a3ca41c1/US10096653.pdf",
+                    "date": "2018-10-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 37 provides representative Claim 1 reading. Earliest claimed priority date: 2018-10-09.",
+                    "pdfSHA256": "a62aee854ed6a3ca41c182dde5052df8b363b55fdac01b2d7b4663963301b75b",
+                    "page": 37
+                  },
+                  {
+                    "title": "US10096653B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10096653B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10096653B2",
+                  "url": "https://patents.google.com/patent/US10096653B2/en",
+                  "note": "US10096653B2 recorded per original grant publication, verifying assignee Crossbar, Inc. and inventors.",
+                  "source": {
+                    "title": "US10096653B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a6/2a/ee/854ed6a3ca41c1/US10096653.pdf",
+                    "date": "2018-10-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Crossbar, Inc. and inventors Hagop Nazarian; Sung Hyun Jo.",
+                    "page": 1
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2013-02-12 – 2018-10-09",
+            "theme": "CrossBar Silver Filament and 3D Crossbar ReRAM Core Architecture",
+            "era": "Publication chronology",
+            "summary": "Spans SiGe material integration, cross-point sneak-path mitigation, 3D tilted electrodes, and monolithic CMOS BEOL integration.",
+            "nodes": "40nm / 28nm BEOL",
+            "keyPatents": "US8374018B2, US9406379B2, US9627443B2, US10096653B2"
+          }
+        ],
+        "litigationDefense": {
+          "title": "Claim Boundaries and Comparison Questions",
+          "overview": "Technical review focuses on silver filament nanostructure and non-linear conduction limits; does not determine patent infringement or freedom to operate.",
+          "keyBattles": [
+            {
+              "heading": "Silver Filament Confinement and Non-linear Rectification Characteristics",
+              "detail": "Claims specify active metal electrodes, amorphous switching layers, and interfacial materials with non-linear I-V characteristics."
+            }
+          ],
+          "ftoVerdict": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review."
+        },
+        "dossierReview": "original-publication-2026-10-15",
+        "personnelSource": {
+          "title": "CrossBar Official Publication Personnel",
+          "url": "https://patentimages.storage.googleapis.com/f9/4d/91/d564adbbd82622/US8374018.pdf",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "Inventors and assignees verified against original publication front pages.",
+          "page": 1
+        },
+        "attributionNote": "Company and lineage groupings are editorial. Each record separately identifies the publication-time assignee; later transfers are not established.",
+        "researchSources": [
+          {
+            "title": "US8374018B2 · Original Publication",
+            "url": "https://patentimages.storage.googleapis.com/f9/4d/91/d564adbbd82622/US8374018.pdf",
+            "date": "2013-02-12",
+            "dateKind": "published",
+            "note": "Page 1: inventor and assignee verification; PDF page 15: representative claim 1 reading.",
+            "pdfSHA256": "b0ad339b6574fefdcf78749eb4eb5b1b4274c4a6bfe3800fc48e1a8fa0a944ae",
+            "page": 15
+          }
+        ]
+      },
+      {
+        "id": "nantero",
+        "name": "Nantero, Inc.",
+        "shortName": "Nantero",
+        "headquarters": "Woburn, Massachusetts, USA",
+        "founded": "2001",
+        "founders": "Thomas Rueckes; Brent M. Segal; Greg Schmergel",
+        "businessModel": "Carbon nanotube non-volatile RAM (NRAM® IP) and nanomaterial licensing",
+        "patentStats": {
+          "totalGrantedWorldwide": "Over 180 granted US patents and hundreds of patent applications worldwide",
+          "keyJurisdictions": "United States, Europe, Japan, Taiwan, South Korea",
+          "foundryCoverage": "Fujitsu Semiconductor 55nm, SMIC, UMC evaluation and qualification",
+          "waferShipment": "Automotive and custom radiation-hardened low-volume production; cumulative volume not verified",
+          "metricSources": {
+            "totalGrantedWorldwide": {
+              "label": "Global Patent Statistics",
+              "title": "Nantero Official Technology and Patent Statement",
+              "url": "https://www.nantero.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Official notices claim over 180 granted US patents; representative granted publications selected for technical reading."
+            },
+            "keyJurisdictions": {
+              "label": "Patent Coverage Regions",
+              "title": "Nantero Patent Coverage Disclosure",
+              "url": "https://www.nantero.com/technology/patents/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Covers major global semiconductor IDM and foundry jurisdictions."
+            },
+            "foundryCoverage": {
+              "label": "Foundry and IDM Licensing Partners",
+              "title": "Nantero / Fujitsu Semiconductor Collaboration Statement",
+              "url": "https://www.nantero.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Joint development with Fujitsu Semiconductor for 55nm/40nm automotive embedded NRAM."
+            },
+            "waferShipment": {
+              "label": "Commercial Deployment Status",
+              "title": "Nantero Commercial Milestones",
+              "url": "https://www.nantero.com/news/press-releases/",
+              "date": "2026-10-15",
+              "dateKind": "checked",
+              "note": "Supplies aerospace, defense, and automotive test chips; cumulative wafer production figures not disclosed."
+            }
+          }
+        },
+        "strategy": "Electrostatic deflection and van der Waals bistable bonding of carbon nanotubes for radiation-immune, high-speed NVM.",
+        "families": [
+          {
+            "id": "nantero-nram-family",
+            "name": "Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM",
+            "tagline": "Single-walled CNT fabric, van der Waals bistability, and radiation-hard NRAM",
+            "technologyType": "NRAM (Carbon Nanotube Non-Volatile Memory)",
+            "cellTopology": "Carbon Nanotube Fabric Electromechanical Switch Cell",
+            "physicalMechanism": "Nanotube van der Waals attractive contact (ON) and electrostatic repulsive separation (OFF)",
+            "processNode": "55nm – 28nm CMOS Back-End-of-Line Compatible (BEOL)",
+            "summary": "15 curated US grants covering CNT fabric synthesis, 3D monolithic integration, van der Waals bistability, and rad-hard arrays.",
+            "patents": [
+              {
+                "id": "US6643165B2",
+                "title": "Electromechanical memory having cell selection circuitry constructed with nanotube technology",
+                "grantDate": "2003-11-04",
+                "publicationDate": "2003-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2003-11-04",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6643165B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6643165B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/e3/63/dd/3394efda076078/US6643165.pdf",
+                    "date": "2003-11-04",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 30 provides representative Claim 1 reading. Earliest claimed priority date: 2003-11-04.",
+                    "pdfSHA256": "e363dd3394efda076078ea34155b5816ed4f4ba478517a4e578a9c189a7720ad",
+                    "page": 30
+                  },
+                  {
+                    "title": "US6643165B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6643165B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6643165B2",
+                  "url": "https://patents.google.com/patent/US6643165B2/en",
+                  "note": "US6643165B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6643165B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/e3/63/dd/3394efda076078/US6643165.pdf",
+                    "date": "2003-11-04",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6706402B2",
+                "title": "Nanotube films and articles",
+                "grantDate": "2004-03-16",
+                "publicationDate": "2004-03-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-03-16",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6706402B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6706402B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/0d/78/09/76e118523660e9/US6706402.pdf",
+                    "date": "2004-03-16",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 40 provides representative Claim 1 reading. Earliest claimed priority date: 2004-03-16.",
+                    "pdfSHA256": "0d780976e118523660e9264898c27b8d79c93369db605d37d67a01aba3b1b7ae",
+                    "page": 40
+                  },
+                  {
+                    "title": "US6706402B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6706402B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6706402B2",
+                  "url": "https://patents.google.com/patent/US6706402B2/en",
+                  "note": "US6706402B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6706402B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/0d/78/09/76e118523660e9/US6706402.pdf",
+                    "date": "2004-03-16",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6759693B2",
+                "title": "Electromechanical memory array using nanotube ribbons and its method of manufacture",
+                "grantDate": "2004-07-06",
+                "publicationDate": "2004-07-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-07-06",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6759693B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6759693B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/17/33/08/595b5b07aaab45/US6759693.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 8 provides representative Claim 1 reading. Earliest claimed priority date: 2004-07-06.",
+                    "pdfSHA256": "173308595b5b07aaab45cde9b244fd60b807d4d6c43f9ca615338307dd4953e7",
+                    "page": 8
+                  },
+                  {
+                    "title": "US6759693B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6759693B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6759693B2",
+                  "url": "https://patents.google.com/patent/US6759693B2/en",
+                  "note": "US6759693B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6759693B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/17/33/08/595b5b07aaab45/US6759693.pdf",
+                    "date": "2004-07-06",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6774052B2",
+                "title": "Methods of making electromechanical memory array using nanotube ribbons",
+                "grantDate": "2004-08-10",
+                "publicationDate": "2004-08-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-08-10",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6774052B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6774052B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/26/a4/e9/8f8f9e194806f0/US6774052.pdf",
+                    "date": "2004-08-10",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 8 provides representative Claim 1 reading. Earliest claimed priority date: 2004-08-10.",
+                    "pdfSHA256": "26a4e98f8f9e194806f048dc7e88a98a40ca65982f570e8e72e78b69bf87bf28",
+                    "page": 8
+                  },
+                  {
+                    "title": "US6774052B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6774052B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6774052B2",
+                  "url": "https://patents.google.com/patent/US6774052B2/en",
+                  "note": "US6774052B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6774052B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/26/a4/e9/8f8f9e194806f0/US6774052.pdf",
+                    "date": "2004-08-10",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6791871B2",
+                "title": "Electromechanical memory element using flexible, conductive nanotube ribbons",
+                "grantDate": "2004-09-14",
+                "publicationDate": "2004-09-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-09-14",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6791871B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6791871B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/16/c3/a0/6ccf4042bcaf91/US6791871.pdf",
+                    "date": "2004-09-14",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 7 provides representative Claim 1 reading. Earliest claimed priority date: 2004-09-14.",
+                    "pdfSHA256": "16c3a06ccf4042bcaf91390ff9eb724cbc2809d07bedab28cbc0a3992e21262c",
+                    "page": 7
+                  },
+                  {
+                    "title": "US6791871B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6791871B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6791871B2",
+                  "url": "https://patents.google.com/patent/US6791871B2/en",
+                  "note": "US6791871B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6791871B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/16/c3/a0/6ccf4042bcaf91/US6791871.pdf",
+                    "date": "2004-09-14",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US6798127B2",
+                "title": "Methods of having nanoscopic articles and nanotube fabrics",
+                "grantDate": "2004-09-28",
+                "publicationDate": "2004-09-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2004-09-28",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US6798127B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US6798127B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/3c/f7/a7/50a7eee6041708/US6798127.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2004-09-28.",
+                    "pdfSHA256": "3cf7a750a7eee60417080206c049f7e24d855146751675f1bda88d3b6d5c7c4b",
+                    "page": 24
+                  },
+                  {
+                    "title": "US6798127B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US6798127B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US6798127B2",
+                  "url": "https://patents.google.com/patent/US6798127B2/en",
+                  "note": "US6798127B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US6798127B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/3c/f7/a7/50a7eee6041708/US6798127.pdf",
+                    "date": "2004-09-28",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7321188B2",
+                "title": "Resistive elements using carbon nanotubes",
+                "grantDate": "2008-01-22",
+                "publicationDate": "2008-01-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-01-22",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7321188B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7321188B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/09/d6/34/14609fba1cbe91/US7321188.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 5 provides representative Claim 1 reading. Earliest claimed priority date: 2008-01-22.",
+                    "pdfSHA256": "09d63414609fba1cbe919024f97687305058251bcdb676c88f55f91191c15a44",
+                    "page": 5
+                  },
+                  {
+                    "title": "US7321188B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7321188B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7321188B2",
+                  "url": "https://patents.google.com/patent/US7321188B2/en",
+                  "note": "US7321188B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US7321188B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/09/d6/34/14609fba1cbe91/US7321188.pdf",
+                    "date": "2008-01-22",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7405605B2",
+                "title": "Nanotube-based switching elements",
+                "grantDate": "2008-07-29",
+                "publicationDate": "2008-07-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-07-29",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7405605B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7405605B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/b5/58/c7/72316cbaf92a19/US7405605.pdf",
+                    "date": "2008-07-29",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 33 provides representative Claim 1 reading. Earliest claimed priority date: 2008-07-29.",
+                    "pdfSHA256": "b558c772316cbaf92a1987f895a2efb2ab1e17b10a1f9ae2da190f1310685818",
+                    "page": 33
+                  },
+                  {
+                    "title": "US7405605B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7405605B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7405605B2",
+                  "url": "https://patents.google.com/patent/US7405605B2/en",
+                  "note": "US7405605B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US7405605B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/b5/58/c7/72316cbaf92a19/US7405605.pdf",
+                    "date": "2008-07-29",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US7745810B2",
+                "title": "Nanotube films and articles",
+                "grantDate": "2010-06-29",
+                "publicationDate": "2010-06-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-06-29",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US7745810B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US7745810B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/d9/f3/57/544c6b64fb1d28/US7745810.pdf",
+                    "date": "2010-06-29",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 39 provides representative Claim 1 reading. Earliest claimed priority date: 2010-06-29.",
+                    "pdfSHA256": "d9f357544c6b64fb1d283e724c5b490eff3b03281cf01660ba982ee22c9b9eb7",
+                    "page": 39
+                  },
+                  {
+                    "title": "US7745810B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US7745810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US7745810B2",
+                  "url": "https://patents.google.com/patent/US7745810B2/en",
+                  "note": "US7745810B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US7745810B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/d9/f3/57/544c6b64fb1d28/US7745810.pdf",
+                    "date": "2010-06-29",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8072005B2",
+                "title": "Nonvolatile nanotube diode and memory circuits",
+                "grantDate": "2011-12-06",
+                "publicationDate": "2011-12-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2011-12-06",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8072005B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8072005B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/ea/f2/8f/a05339763ef604/US8072005.pdf",
+                    "date": "2011-12-06",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 28 provides representative Claim 1 reading. Earliest claimed priority date: 2011-12-06.",
+                    "pdfSHA256": "eaf28fa05339763ef6044632d37e7419b8f304d137941b72925771b5a711c6e3",
+                    "page": 28
+                  },
+                  {
+                    "title": "US8072005B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8072005B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8072005B2",
+                  "url": "https://patents.google.com/patent/US8072005B2/en",
+                  "note": "US8072005B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US8072005B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/ea/f2/8f/a05339763ef604/US8072005.pdf",
+                    "date": "2011-12-06",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8125824B1",
+                "title": "Monolithic three-dimensional nanotube memory",
+                "grantDate": "2012-02-28",
+                "publicationDate": "2012-02-28",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-02-28",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8125824B1/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8125824B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a5/82/57/917379f10933ed/US8125824.pdf",
+                    "date": "2012-02-28",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2012-02-28.",
+                    "pdfSHA256": "a58257917379f10933edbf96c6d5d8ee4da6bdbdd14c29129f731f6341f8eb88",
+                    "page": 24
+                  },
+                  {
+                    "title": "US8125824B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8125824B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8125824B1",
+                  "url": "https://patents.google.com/patent/US8125824B1/en",
+                  "note": "US8125824B1 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US8125824B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a5/82/57/917379f10933ed/US8125824.pdf",
+                    "date": "2012-02-28",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8389333B2",
+                "title": "Non-volatile resistive carbon nanotube memory",
+                "grantDate": "2013-03-05",
+                "publicationDate": "2013-03-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2013-03-05",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8389333B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8389333B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a8/bd/da/c951f306cfb69f/US8389333.pdf",
+                    "date": "2013-03-05",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2013-03-05.",
+                    "pdfSHA256": "a8bddac951f306cfb69f638b0579632d136fd6717dbeaa8a763932e780a45154",
+                    "page": 20
+                  },
+                  {
+                    "title": "US8389333B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8389333B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8389333B2",
+                  "url": "https://patents.google.com/patent/US8389333B2/en",
+                  "note": "US8389333B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US8389333B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a8/bd/da/c951f306cfb69f/US8389333.pdf",
+                    "date": "2013-03-05",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8829584B2",
+                "title": "Multi-level carbon nanotube non-volatile memory",
+                "grantDate": "2014-09-09",
+                "publicationDate": "2014-09-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2014-09-09",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US8829584B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US8829584B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/dc/97/fe/29b43e047610db/US8829584.pdf",
+                    "date": "2014-09-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 22 provides representative Claim 1 reading. Earliest claimed priority date: 2014-09-09.",
+                    "pdfSHA256": "dc97fe29b43e047610dbef236085f49442a92b539a81e2e9ae85e2d67a3dc8b3",
+                    "page": 22
+                  },
+                  {
+                    "title": "US8829584B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8829584B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8829584B2",
+                  "url": "https://patents.google.com/patent/US8829584B2/en",
+                  "note": "US8829584B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US8829584B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/dc/97/fe/29b43e047610db/US8829584.pdf",
+                    "date": "2014-09-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9142767B2",
+                "title": "Carbon nanotube fabric non-volatile cross-point memory",
+                "grantDate": "2015-09-22",
+                "publicationDate": "2015-09-22",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2015-09-22",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US9142767B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9142767B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/65/f1/6c/c702c238c9f85b/US9142767.pdf",
+                    "date": "2015-09-22",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 9 provides representative Claim 1 reading. Earliest claimed priority date: 2015-09-22.",
+                    "pdfSHA256": "65f16cc702c238c9f85b2f7da2116a00315ab37e1115af15fe4b406cd96293f1",
+                    "page": 9
+                  },
+                  {
+                    "title": "US9142767B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9142767B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9142767B2",
+                  "url": "https://patents.google.com/patent/US9142767B2/en",
+                  "note": "US9142767B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US9142767B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/65/f1/6c/c702c238c9f85b/US9142767.pdf",
+                    "date": "2015-09-22",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9768388B2",
+                "title": "Carbon nanotube random access memory with multi-terminal cell",
+                "grantDate": "2017-09-19",
+                "publicationDate": "2017-09-19",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-09-19",
+                "inventors": "Thomas Rueckes; Brent M. Segal",
+                "assignee": "Nantero, Inc.",
+                "url": "https://patents.google.com/patent/US9768388B2/en",
+                "coreProblem": "Extreme radiation and high temperatures corrupt charge-based NVM, while existing memories fail to match DRAM speeds non-volatily.",
+                "mechanism": "Exploits electrostatic deflection and van der Waals bonding between carbon nanotubes within suspended fabrics to store non-volatile states.",
+                "claimFocus": "Claim 1 requires an entangled carbon nanotube fabric layer, first/second conductive terminals, and van der Waals bistable electromechanical switching.",
+                "patentCategory": "機電切換結構項",
+                "patentCategoryEn": "Electromechanical Switching Structure",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined in this review",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with Nantero® Comparison: Carbon Nanotube (CNT) van der Waals NRAM; not a verified product claim chart.",
+                "researchSources": [
+                  {
+                    "title": "US9768388B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/e3/05/a4/4ef353f80f7f39/US9768388.pdf",
+                    "date": "2017-09-19",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 46 provides representative Claim 1 reading. Earliest claimed priority date: 2017-09-19.",
+                    "pdfSHA256": "e305a44ef353f80f7f393e1479e044e1a4d793e416f4a0254d85e22500043c6d",
+                    "page": 46
+                  },
+                  {
+                    "title": "US9768388B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9768388B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9768388B2",
+                  "url": "https://patents.google.com/patent/US9768388B2/en",
+                  "note": "US9768388B2 recorded per original grant publication, verifying assignee Nantero, Inc. and inventors.",
+                  "source": {
+                    "title": "US9768388B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/e3/05/a4/4ef353f80f7f39/US9768388.pdf",
+                    "date": "2017-09-19",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Nantero, Inc. and inventors Thomas Rueckes; Brent M. Segal.",
+                    "page": 1
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "milestones": [
+          {
+            "period": "2003-11-04 – 2017-09-19",
+            "theme": "Nantero Carbon Nanotube NRAM Core Patent Evolution",
+            "era": "Publication chronology",
+            "summary": "Established foundational CNT electromechanical switches, thin-film deposition, monolithic 3D integration, and automotive high-temperature cross-point arrays.",
+            "nodes": "55nm / 40nm / 28nm BEOL",
+            "keyPatents": "US6643165B2, US6706402B2, US8125824B1, US9768388B2"
+          }
+        ],
+        "litigationDefense": {
+          "title": "Claim Boundaries and Comparison Questions",
+          "overview": "Technical review focuses on physical limits of CNT van der Waals electromechanical bistability; does not determine patent infringement or freedom to operate.",
+          "keyBattles": [
+            {
+              "heading": "Carbon Nanotube Fabric Electromechanical Bistability Characteristics",
+              "detail": "Claims specify suspended or interwoven carbon nanotube fabrics, electrode contact interfaces, and van der Waals contact switching conditions."
+            }
+          ],
+          "ftoVerdict": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review."
+        },
+        "dossierReview": "original-publication-2026-10-15",
+        "personnelSource": {
+          "title": "Nantero Official Publication Personnel",
+          "url": "https://patentimages.storage.googleapis.com/62/70/4c/8c935ee573fa08/US6643165.pdf",
+          "date": "2026-10-15",
+          "dateKind": "checked",
+          "note": "Inventors and assignees verified against original publication front pages.",
+          "page": 1
+        },
+        "attributionNote": "Company and lineage groupings are editorial. Each record separately identifies the publication-time assignee; later transfers are not established.",
+        "researchSources": [
+          {
+            "title": "US6643165B2 · Original Publication",
+            "url": "https://patentimages.storage.googleapis.com/62/70/4c/8c935ee573fa08/US6643165.pdf",
+            "date": "2003-11-04",
+            "dateKind": "published",
+            "note": "Page 1: inventor and assignee verification; PDF page 30: representative claim 1 reading.",
+            "pdfSHA256": "367f082e6ef92beee934f54d19335ef0d27ec29d5336bfcfb7fa1f67f2b17d3b",
+            "page": 30
+          }
+        ]
       }
     ],
-    "totalPatents": 447
+    "totalPatents": 477
   },
   "sources": [
     {

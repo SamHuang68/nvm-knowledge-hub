@@ -14,7 +14,8 @@ export const patentMapTechnologies = {
   mtp: {label: 'MTP', families: ['neoee-family', 'neomtp-family', 'ymc-mtp-family', 'aeon-fnfn-family', 'nscore-spacer-family', 'floadia-zt-family']},
   eflash: {label: 'eFlash', families: ['floadia-g1g2-family', 'sst-superflash-family']},
   mram: {label: 'MRAM', families: ['everspin-toggle-family', 'everspin-stt-family']},
-  reram: {label: 'ReRAM', families: ['weebit-oxram-family']},
+  reram: {label: 'ReRAM', families: ['weebit-oxram-family', 'crossbar-reram-family']},
+  nram: {label: 'NRAM', families: ['nantero-nram-family']},
   security: {label: 'PUF / RoT', families: ['neopuf-family', 'pufsecurity-rot-family']}
 };
 export function patentMapTechnology(family) {
