@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "5452df843777585dd322bfbe44ff5cca2ac34de0",
+  "baseCommit": "66b5aba804d47a66fcca9c10f8828db7a8468bfa",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
   ],
   "cases": [
     {
-      "id": "專利圖譜與知識地圖建置檢驗",
+      "id": "專利圖譜與搜尋索引建置檢驗",
       "kind": "command",
       "command": [
         "node",
@@ -20,31 +20,32 @@
         "scripts/build-nvm-atlas.mjs"
       ],
       "changes": [
-        "data/nvm-knowledge-data-en.json",
-        "data/nvm-knowledge-data.json",
+        "data/nvm-search-index.js",
         "data/nvm-technology-topics-en.md",
         "data/nvm-technology-topics.md",
-        "data/nvm-vendor-patent-maps-en.json",
-        "data/nvm-vendor-patent-maps.json",
         "nvm-technology-atlas-zh.html",
         "nvm-technology-atlas.html",
-        "scripts/nvm-vendor-patent-maps-ui.mjs"
-      ],
-      "inputs": [
-        "data/nvm-knowledge-data-en.json",
-        "data/nvm-knowledge-data.json",
-        "data/nvm-technology-topics-en.md",
-        "data/nvm-technology-topics.md",
-        "data/nvm-vendor-patent-maps-en.json",
-        "data/nvm-vendor-patent-maps.json",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
         "scripts/build-nvm-atlas.mjs",
         "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "search-controller.js"
+      ],
+      "inputs": [
+        "data/nvm-search-index.js",
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "search-controller.js",
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 13 版圖擴張至 14 家全球先鋒（CrossBar ReRAM 15 件 + Nantero NRAM 15 件）共 30 件專利擴充，全庫專利總數躍升至 477 件",
+      "reason": "驗證將全球 14 家非揮發性記憶體先鋒廠商收錄總覽矩陣加入專利圖譜網頁，並完整建置全站搜尋索引（包含 14 家廠商獨立條目、17 個技術家族獨立條目與全景矩陣條目，共 186 項搜尋索引）",
       "prepare": [
         "node"
       ],

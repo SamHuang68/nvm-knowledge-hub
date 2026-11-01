@@ -11462,6 +11462,26 @@ CBRAM 研究與歷史 IoT 商品敘述。支持 CBRAM 技術與歷史商品；�
 
 [USPTO](https://www.uspto.gov/patents/basics/essentials) · [專利期間](https://www.uspto.gov/patents/laws/patent-term-calculator)
 
+### 全球 14 家非揮發性記憶體先鋒廠商專利全景矩陣 (477 件獲准專利)
+
+| 廠商 (Vendor) | 總部／區域 | 核心技術領域 | 收錄件數 | 涵蓋技術家族 |
+|---|---|---|:---:|---|
+| **力旺電子 eMemory Technology Inc.** (力旺 eMemory) | 台灣新竹科學園區 (Hsinchu Science Park, Taiwan) | 純邏輯製程嵌入式非揮發性記憶體 IP 授權與設計服務 (Pure-Play Logic NVM IP, 0-Mask) | **75** | NeoBit® 對照主題：單層浮閘 OTP (16); NeoFuse® 對照主題：反熔絲 OTP (19); NeoEE® 對照主題：可抹除單層多晶矽 NVM (13); NeoMTP® 對照主題：輔助閘極單元與陣列 (13); NeoPUF® 對照主題：反熔絲與安全系統 (14) |
+| **Kilopass Technology Inc. (2018 年併入 Synopsys)** (Kilopass (Synopsys)) | 美國加州聖塔克拉拉 (Santa Clara, California, USA) | 標準 CMOS 邏輯製程 2T 閘極氧化層擊穿反熔絲 IP (Standard CMOS 2T Antifuse OTP IP) | **60** | XPM™ 對照主題：單電晶體可燒錄單元 (57); SecretCode™ 對照主題：井區控制反熔絲 (3) |
+| **Sidense Corporation (2017 年併入 Synopsys)** (Sidense (Synopsys)) | 加拿大安大略省渥太華 (Ottawa, Ontario, Canada) | 標準 CMOS 單電晶體裂通道反熔絲 1T-Fuse 專利 IP 授權 (1T Split-Channel Antifuse OTP IP) | **26** | 1T-Fuse™ 對照主題：裂通道、井區與感測 (26) |
+| **億而得微電子 Yield Microelectronics Corp. (YMC)** (億而得 YMC) | 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) | 標準邏輯製程多晶矽嵌入式多次燒寫 MTP IP 授權與設計服務 (Logic MTP IP Licensing) | **27** | YMC 單浮閘、共用端與 EEPROM 陣列 (27) |
+| **Impinj / Virage Logic / Synopsys (AEON®)** (AEON (Synopsys)) | 美國華盛頓州西雅圖 / 加州山景城 (Seattle, WA / Mountain View, CA, USA) | 標準 CMOS 超低功耗雙向全 FN 穿隧單層多晶矽 MTP IP (Ultra-Low-Power FN/FN MTP IP) | **11** | AEON® 沿革對照：Impinj、Virage 與 Synopsys NVM (11) |
+| **NSCore, Inc. (株式会社エヌエスコア)** (NSCore (TwinBit®)) | 日本神奈川縣川崎市 (Kawasaki, Kanagawa, Japan) | 標準 CMOS 邏輯製程原生側壁間隔層 (Sidewall Spacer) 電荷捕捉 1.5T/2T MTP IP 授權 | **29** | NSCore／TwinBit® 對照：MIS 配對與熱載子記憶體 (29) |
+| **上峰科技股份有限公司（Attopsemi）** (上峰科技 Attopsemi) | 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) | 熱輔助受控電遷移熔絲 (I-fuse®) 邏輯 OTP IP 授權與設計服務 (Electromigration I-fuse OTP IP) | **52** | I-fuse® 可靠燒錄與 OTP 可測試性技術組合 (52) |
+| **Floadia Corporation (株式会社フローディア)** (Floadia (フローディア)) | 日本東京都小平市 (Kodaira, Tokyo, Japan) | 嵌入式快閃記憶體與超低功耗電荷陷阱 MTP/SONOS IP 授權 (Embedded Charge-Trap eFlash & MTP IP) | **23** | LEE Flash ZT 對照主題：單層閘極注入 (7); LEE Flash G1/G2 對照：儲存閘、SRAM 與製程整合 (16) |
+| **Silicon Storage Technology, Inc. (SST / Microchip Technology)** (SST (Microchip)) | 美國加州聖荷西 (San Jose, California, USA) | 分離閘極 (Split-Gate) 嵌入式快閃記憶體 SuperFlash® IP 授權與技術轉讓 (Embedded SuperFlash eFlash IP) | **50** | SuperFlash® 對照：分離閘極與自對準結構 (50) |
+| **Everspin Technologies, Inc.** (Everspin) | 美國亞利桑那州錢德勒 (Chandler, Arizona, USA) | 商用獨立式與嵌入式自旋磁性記憶體 (MRAM) 設計、製造與 IP 授權 (Discrete & Embedded MRAM) | **50** | Toggle MRAM 歷史技術來源 (4); Everspin 固定磁層與 STT-MRAM 技術組合 (46) |
+| **Weebit Nano Limited** (Weebit Nano) | 以色列霍德夏沙隆 / 澳洲墨爾本 (Hod HaSharon, Israel / Melbourne, Australia) | 氧化物電阻式記憶體 (OxRAM / ReRAM) 嵌入式 IP 授權與神經擬態設計 (Embedded ReRAM IP) | **21** | Weebit ReRAM 電路選錄與材料背景比較 (21) |
+| **PUFsecurity Corp. (熵碼科技股份有限公司)** (熵碼 PUFsecurity) | 台灣新竹縣竹北市 (Zhubei City, Hsinchu County, Taiwan) | 基於量子穿隧物理不可複製函數 (PUF) 之晶片安全信任根與密碼協同處理器 IP (Hardware Root-of-Trust IP) | **23** | PUFrt／PUFcc 對照：認證、亂數與金鑰管理 (23) |
+| **CrossBar, Inc.** (CrossBar) | 美國加州聖塔克拉拉 (Santa Clara, California, USA) | 銀奈米絲導電式阻變記憶體 (Filamentary ReRAM IP) 與 3D 交叉陣列授權 | **15** | CrossBar® 對照：銀導電絲與 3D 交叉陣列 ReRAM (15) |
+| **Nantero, Inc.** (Nantero) | 美國麻薩諸塞州沃本 (Woburn, Massachusetts, USA) | 碳奈米管非揮發性隨機存取記憶體 (NRAM® IP) 與奈米複合材料技術授權 | **15** | Nantero® 對照：碳奈米管 (CNT) 凡得瓦力 NRAM (15) |
+| **全庫總計：14 家先鋒** | 全球半導體重鎮 | 全譜系 OTP / MTP / Flash / MRAM / ReRAM / NRAM / PUF | **477** | 21 個家族 |
+
 ### 力旺電子 eMemory Technology Inc. (力旺 eMemory)
 
 廠商／沿革為編輯分組；每筆另列公報當時受讓人或申請人，不以組合標題推定後續權利移轉。

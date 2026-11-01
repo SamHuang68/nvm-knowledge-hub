@@ -344,11 +344,42 @@ const chineseTopics = isEnglish ? ['nvm-charge-topics.json','nvm-emerging-topics
 const chineseComparison = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-comparison-systems.json'),'utf8')) : comparison;
 const chineseSystems = chineseComparison.systems;
 const chineseIPIndex = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-ip-cells-intro.json'),'utf8')) : ipIndex;
+const chineseVendorPatentMaps = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-vendor-patent-maps.json'),'utf8')) : vendorPatentMaps;
 const searchEntries = [
  {title_zh:chineseIntro.title,title_en:intro.title,url:'nvm-technology-atlas.html',tags:'NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC'},
  {title_zh:'IP 單元與操作原理',title_en:'IP Cells and Operating Principles',url:'nvm-technology-atlas.html#ip-directory',tags:'IP 單元 目錄 operating principles directory'},
  {title_zh:'IP 技術沿革與產品承接',title_en:'IP Technology Lineage and Product Succession',url:'nvm-technology-atlas.html#ip-lineage',tags:'Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON'},
- {title_zh:'具名機構核心專利地圖（By Filing Company 分析）',title_en:'NVM Patent Maps · By Filing Company',url:'nvm-technology-atlas.html#patent-maps',tags:'專利地圖 By Filing Company 專利申請機構 專利所有權人 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity patent map landscape'},
+ {title_zh:'全球 14 家 NVM 先鋒廠商專利全景矩陣（477 件全譜系分析）',title_en:'14 Global NVM Pioneer Vendors Patent Coverage Matrix (477 Patents)',url:'nvm-technology-atlas.html#vendor-patent-matrix',tags:'全球 14 家 NVM 先鋒廠商專利收錄矩陣 專利全景矩陣 專利矩陣 477件 14家廠商 力旺 eMemory Kilopass 上峰 Attopsemi Everspin SST NSCore YMC Sidense PUFsecurity Floadia Weebit CrossBar Nantero Impinj OTP MTP eFlash MRAM ReRAM NRAM PUF patent matrix landscape 75件 60件 52件 50件 29件 27件 26件 23件 21件 15件 11件'},
+ {title_zh:'具名機構核心專利地圖（By Filing Company 分析）',title_en:'NVM Patent Maps · By Filing Company',url:'nvm-technology-atlas.html#patent-maps',tags:'專利地圖 By Filing Company 專利申請機構 專利所有權人 力旺 eMemory Kilopass Sidense YMC Impinj AEON Attopsemi Floadia SST Everspin Weebit PUFsecurity CrossBar Nantero patent map landscape 477件 14家廠商'},
+ ...vendorPatentMaps.vendors.map(v=>{
+   const zhV=chineseVendorPatentMaps.vendors.find(item=>item.id===v.id)||v;
+   const enV=v;
+   const totalCount=v.families.reduce((sum,f)=>sum+f.patents.length,0);
+   const familiesZh=zhV.families.map(f=>f.name).join(' ');
+   const familiesEn=enV.families.map(f=>f.name).join(' ');
+   const patentsStr=v.families.flatMap(f=>f.patents.slice(0,6).map(p=>p.id)).join(' ');
+   return {
+     title_zh:`${zhV.name} (${zhV.shortName}) · ${totalCount} 件專利地圖`,
+     title_en:`${enV.name} (${enV.shortName}) · ${totalCount} Patents Map`,
+     url:`nvm-technology-atlas.html#vendor-${v.id}`,
+     tags:[zhV.name,zhV.shortName,enV.name,enV.shortName,zhV.headquarters,enV.headquarters,zhV.businessModel,enV.businessModel,zhV.strategy,enV.strategy,`${totalCount}件`,`${totalCount} patents`,familiesZh,familiesEn,patentsStr].join(' ')
+   };
+ }),
+ ...vendorPatentMaps.vendors.flatMap(v=>{
+   const zhV=chineseVendorPatentMaps.vendors.find(item=>item.id===v.id)||v;
+   const enV=v;
+   return v.families.map(f=>{
+     const zhF=zhV.families.find(item=>item.id===f.id)||f;
+     const enF=f;
+     const pCount=f.patents.length;
+     return {
+       title_zh:`${zhF.name} · ${pCount} 件代表專利`,
+       title_en:`${enF.name} · ${pCount} Curated Patents`,
+       url:`nvm-technology-atlas.html#family-${f.id}`,
+       tags:[zhF.name,enF.name,zhF.tagline,enF.tagline,zhF.technologyType,enF.technologyType,zhF.cellTopology,enF.cellTopology,zhF.physicalMechanism,enF.physicalMechanism,zhF.processNode,enF.processNode,v.shortName,`${pCount}件`,f.patents.slice(0,8).map(p=>p.id).join(' ')].join(' ')
+     };
+   });
+ }),
  {title_zh:'儲存物理專題',title_en:'Device Physics Topics',url:'nvm-technology-atlas.html#nvm-physics-overview',tags:'物理 基礎 儲存 standalone physics background'},
  ...ipCurriculum.units.map(unit=>({title_zh:chineseIPIndex.units.find(item=>item.id===unit.id).title,title_en:unit.title,url:`nvm-technology-atlas.html#ip-${unit.id}`,tags:[unit.vendor,unit.shortTitle,unit.summary,unit.program,unit.reverse,unit.readout,chineseIPIndex.units.find(item=>item.id===unit.id).summary].join(' ')})),
  ...topics.map(topic=>({title_zh:chineseTopics.find(t=>t.id===topic.id).title,title_en:topic.title,url:`nvm-technology-atlas.html#topic-${topic.id}`,tags:[topic.storage,topic.summary,topic.maturity.claim,chineseTopics.find(t=>t.id===topic.id).storage,chineseTopics.find(t=>t.id===topic.id).summary,...(topic.integrationRoutes||[]).flatMap(route=>[route.title,route.provider,route.polyLayers,route.controlTopology]),...topic.sourceIds.map(id=>sourceMap.get(id)?.label||''),...topic.patents.map(p=>p.id)].join(' ')})),
