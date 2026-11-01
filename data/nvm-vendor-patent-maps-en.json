@@ -746,6 +746,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9627088B2",
+              "title": "One time programmable non-volatile memory and read sensing method thereof",
+              "grantDate": "2017-04-18",
+              "publicationDate": "2017-04-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-02-25",
+              "inventors": "Shih-Chen Wang; Ching-Sung Yang; Hsin-Ming Chen",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9627088B2/en",
+              "coreProblem": "Providing sufficient read noise margin under low operational voltage and eliminating interference between bitline precharge and dataline reset in ultra-thin gate oxide high-density OTP arrays.",
+              "mechanism": "Employs two-stage precharge and dataline reset mechanisms; after wordline selection, the bitline remains continuously connected to the dataline for cell-current integration, while the sense amplifier compares dataline voltage against a reference.",
+              "claimFocus": "Claim 1 is an apparatus claim comprising an M×N memory array, voltage generator, wordline driver, column driver, timing controller, bitline precharge circuit, column selector, dataline reset circuit, and a sense amplifier.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'NeoFuse® Comparative Subject: Antifuse OTP'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9627088B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/b7/d9/d8/b884fc6bbcd6d4/US9627088.pdf",
+                  "date": "2017-04-18",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 15 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "4a79b84bb96aa6b4e552da4fc837b23fcb128bc6fbafe23b2f11570185356194",
+                  "page": 15
+                },
+                {
+                  "title": "US9627088B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US9627088B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9627088B2",
+                "url": "https://patents.google.com/patent/US9627088B2/en",
+                "note": "US9627088B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US9627088B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/b7/d9/d8/b884fc6bbcd6d4/US9627088.pdf",
+                  "date": "2017-04-18",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10290329B2",
+              "title": "Charge pump apparatus",
+              "grantDate": "2019-05-14",
+              "publicationDate": "2019-05-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-07-14",
+              "inventors": "Chi-Yi Shao",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10290329B2/en",
+              "coreProblem": "Mitigating switching transistor body effects and substantially shrinking multi-phase clock generation layout area and power in logic NVM on-chip high-voltage charge pumps.",
+              "mechanism": "Couples a two-phase charge pump circuit in series with a four-phase charge pump circuit, directly synthesizing non-overlapping multi-phase driving clocks from ring oscillator delay-chain tapping nodes without extra delay stages.",
+              "claimFocus": "Claim 1 is an apparatus claim reciting a first two-phase charge pump circuit and a first four-phase charge pump circuit coupled in series, and a driving circuit generating multi-phase clocks from ring-oscillator delay-chain nodes.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'NeoFuse® Comparative Subject: Antifuse OTP'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10290329B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cd/0f/d7/3e622ef8a34837/US10290329B2.pdf",
+                  "date": "2019-05-14",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventor and assignee; PDF page 17 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "abbb9ea1611480c95f289bf0eb21b1d667da24a44a3fe42a19c4abf984b7b1b1",
+                  "page": 17
+                },
+                {
+                  "title": "US10290329B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US10290329B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10290329B2",
+                "url": "https://patents.google.com/patent/US10290329B2/en",
+                "note": "US10290329B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US10290329B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cd/0f/d7/3e622ef8a34837/US10290329B2.pdf",
+                  "date": "2019-05-14",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -2797,6 +2909,62 @@
                   "date": "2009-03-31",
                   "dateKind": "published",
                   "note": "Verified front page assignee Sidense Corp.; technical reading reconstructed from selected gazette.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8213211B2",
+              "title": "High reliability OTP memory",
+              "grantDate": "2012-07-03",
+              "publicationDate": "2012-07-03",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-02-06",
+              "inventors": "Wlodek Kurjanowicz; Stefan Cyrille Nguyen",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US8213211B2/en",
+              "coreProblem": "Automotive and high-security applications require near-zero failure rates for antifuse OTP, where single cells might experience slight leakage or resistance drift across extreme temperatures.",
+              "mechanism": "Stores each logical data bit differentially across at least two physical antifuse cells, executing single-ended read verify during programming to ensure complete breakdown, and switching to differential sensing during runtime.",
+              "claimFocus": "Claim 1 is a method claim operating an OTP memory with multiple wordlines and bitlines by programming and verifying cells in a single-ended mode and reading at least two cells concurrently in a differential mode to output one data bit.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with '1T-Fuse™ Comparative Subject: Split-Channel Antifuse'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8213211B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/33/95/57/f1e40e4d277b59/US8213211.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 24 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "9ea19f6ce577929ac954089bf52f1a7bf74dca90a5fc22161f5e72d758db0d86",
+                  "page": 24
+                },
+                {
+                  "title": "US8213211B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US8213211B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8213211B2",
+                "url": "https://patents.google.com/patent/US8213211B2/en",
+                "note": "US8213211B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US8213211B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/33/95/57/f1e40e4d277b59/US8213211.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
                   "page": 1
                 }
               }
@@ -5780,6 +5948,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8917533B2",
+              "title": "Circuit and system for testing a one-time programmable (OTP) memory",
+              "grantDate": "2014-12-23",
+              "publicationDate": "2014-12-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-02-06",
+              "inventors": "Shine C. Chung",
+              "assignee": "Shine C. Chung",
+              "url": "https://patents.google.com/patent/US8917533B2/en",
+              "coreProblem": "Addressing the limitation that conventional OTP arrays cannot be non-destructively pre-tested across wordlines, bitlines, and sense paths prior to delivery, leading to escape defects in packaging.",
+              "mechanism": "Embeds at least one pre-programmed test sample cell in the array, using control logic to interleave test cell reads with virgin cell reads to synthesize predetermined checkerboard patterns without blowing core data bits.",
+              "claimFocus": "Claim 1 is a system claim reciting an OTP memory array, at least one pre-programmed test cell, address decoders, and control circuitry configured to output virtual test patterns in a non-destructive test mode.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'I-fuse® Reliable Programming & OTP Testability'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8917533B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/d9/cc/e3/5f8d4f7d711ead/US8917533.pdf",
+                  "date": "2014-12-23",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventor and assignee; PDF page 23 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "2009ee2c5b5ddab0b7d6132bd098d7b7e97ade4bce20743151023d8c063307b4",
+                  "page": 23
+                },
+                {
+                  "title": "US8917533B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US8917533B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8917533B2",
+                "url": "https://patents.google.com/patent/US8917533B2/en",
+                "note": "US8917533B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US8917533B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/d9/cc/e3/5f8d4f7d711ead/US8917533.pdf",
+                  "date": "2014-12-23",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9412473B2",
+              "title": "System and method of a novel redundancy scheme for OTP",
+              "grantDate": "2016-08-09",
+              "publicationDate": "2016-08-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-06-16",
+              "inventors": "Shine C. Chung",
+              "assignee": "Shine C. Chung",
+              "url": "https://patents.google.com/patent/US9412473B2/en",
+              "coreProblem": "Conventional redundancy architectures require excessive spare lines and complex matching logic, imposing intolerable area overhead for small-capacity embedded OTP macros.",
+              "mechanism": "Combines block-level address match circuits, defect polarity inversion flags, and XOR logic gates to dynamically invert read data polarity or redirect defective addresses with minimal silicon area penalty.",
+              "claimFocus": "Claim 1 is an apparatus claim comprising a main OTP array, a redundancy cell block, address matching circuitry, and dynamic data inversion/repair logic circuitry.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'I-fuse® Reliable Programming & OTP Testability'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9412473B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/1a/bc/33/74c1170711d803/US9412473.pdf",
+                  "date": "2016-08-09",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventor and assignee; PDF page 45 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "4cc668eefe0f1ce84856a67933b14cb35b93bd5615ae740b9dfad967f7f2f07c",
+                  "page": 45
+                },
+                {
+                  "title": "US9412473B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US9412473B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9412473B2",
+                "url": "https://patents.google.com/patent/US9412473B2/en",
+                "note": "US9412473B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US9412473B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/1a/bc/33/74c1170711d803/US9412473.pdf",
+                  "date": "2016-08-09",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -6173,6 +6453,62 @@
                   "date": "2018-09-11",
                   "dateKind": "published",
                   "note": "Original front page confirms assignee Floadia Corp; technical interpretation reconstructed from publication.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10263002B2",
+              "title": "Anti-fuse memory and semiconductor storage device",
+              "grantDate": "2019-04-16",
+              "publicationDate": "2019-04-16",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-04-12",
+              "inventors": "Kosuke Okuyama; Yasuhiro Taniguchi; Shinichi Minami",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10263002B2/en",
+              "coreProblem": "Mitigating sneak-path leakage currents in cross-point antifuse arrays after breakdown, which otherwise degrade unselected cell read margins and write disturb immunity.",
+              "mechanism": "Integrates a PN-junction rectifier diode selector with an antifuse memory gate electrode in the same semiconductor layer, coordinated with peripheral drivers to block sneak currents during reads.",
+              "claimFocus": "Claim 1 is an antifuse memory apparatus claim reciting a rectifier element and a memory gate electrode formed within the same layer to eliminate cross-point parasitic leakage.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'LEE Flash ZT Comparative Subject: Single-Gate Injection'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10263002B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cd/ce/30/723f9cd4a4f4f1/US10263002.pdf",
+                  "date": "2019-04-16",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 29 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "65cc7749d870ccd72307832a4e160b5b8e6aa2763b9e19ecd90c7ff856aa7e49",
+                  "page": 29
+                },
+                {
+                  "title": "US10263002B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US10263002B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10263002B2",
+                "url": "https://patents.google.com/patent/US10263002B2/en",
+                "note": "US10263002B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US10263002B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cd/ce/30/723f9cd4a4f4f1/US10263002.pdf",
+                  "date": "2019-04-16",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
                   "page": 1
                 }
               }
@@ -7320,6 +7656,62 @@
                   "date": "2004-04-20",
                   "dateKind": "published",
                   "note": "Verified front page assignee Silicon Storage Technology, Inc.; technical reading reconstructed from selected gazette.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7697365B2",
+              "title": "Sub volt flash memory system",
+              "grantDate": "2010-04-13",
+              "publicationDate": "2010-04-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-07-14",
+              "inventors": "Hieu Van Tran; Hung Quoc Nguyen; Loc Ho",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US7697365B2/en",
+              "coreProblem": "In sub-volt and battery-operated memory systems, conventional decoders and pass transistors suffer steep speed degradation and excessive sub-threshold leakage under tight voltage headroom.",
+              "mechanism": "Applies tracking body bias to decoding and driver MOS transistors, reverse-biasing non-selected PMOS bulk wells during program/erase to curb leakage, and dynamically modulating threshold voltage for sub-1V reads.",
+              "claimFocus": "Claim 1 is a flash memory decoder apparatus claim comprising a plurality of MOS decoding transistors, each having its substrate/bulk dynamically controlled by tracking bias generators to adapt threshold voltages across modes.",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical mapping with 'SuperFlash® Comparative Subject: Split-Gate and Self-Aligned Structures'; not an official claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7697365B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/36/a0/a2/42cf779df820ca/US7697365.pdf",
+                  "date": "2010-04-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 22 begins claim 1 overview. Earliest priority date per publication/index, without individual priority validity analysis.",
+                  "pdfSHA256": "ea146dde9725bbcbcd85dd16e68683d46970a7255297131b4b161e1e3b6bef7d",
+                  "page": 22
+                },
+                {
+                  "title": "US7697365B2 · Status Check",
+                  "url": "https://patents.google.com/patent/US7697365B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot and not a legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7697365B2",
+                "url": "https://patents.google.com/patent/US7697365B2/en",
+                "note": "US7697365B2 preserves publication number; inventors and claim context rebuilt from original disclosure.",
+                "source": {
+                  "title": "US7697365B2 · Official Verification",
+                  "url": "https://patentimages.storage.googleapis.com/36/a0/a2/42cf779df820ca/US7697365.pdf",
+                  "date": "2010-04-13",
+                  "dateKind": "published",
+                  "note": "Identity verified against original publication front page.",
                   "page": 1
                 }
               }
@@ -9514,5 +9906,6 @@
         }
       ]
     }
-  ]
+  ],
+  "totalPatents": 148
 }

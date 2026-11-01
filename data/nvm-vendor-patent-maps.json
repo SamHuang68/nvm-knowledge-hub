@@ -746,6 +746,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US9627088B2",
+              "title": "一次性可編程非揮發性記憶體及其讀取感測方法",
+              "grantDate": "2017-04-18",
+              "publicationDate": "2017-04-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-02-25",
+              "inventors": "Shih-Chen Wang; Ching-Sung Yang; Hsin-Ming Chen",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US9627088B2/en",
+              "coreProblem": "在超薄閘氧與高密度 OTP 記憶體陣列中，如何在低工作電壓下提供足夠的讀取雜訊餘裕並消除位元線預充電與資料線重設之間的干擾。",
+              "mechanism": "採用兩階段預充電與資料線重設機制，字元線選通後位元線持續連接至資料線由胞電流連續充電，感測放大器對比資料線電壓與比較參考電壓判定儲存狀態。",
+              "claimFocus": "權利項 1 是裝置項：包含 M×N 記憶陣列、電壓產生器、字元線驅動器、行驅動器、時序控制器、預充電電路（提供位元線預充電電壓）、行選擇器、重設電路（提供較預充電電壓低的重設電壓至資料線）及感測放大器。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9627088B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/b7/d9/d8/b884fc6bbcd6d4/US9627088.pdf",
+                  "date": "2017-04-18",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "4a79b84bb96aa6b4e552da4fc837b23fcb128bc6fbafe23b2f11570185356194",
+                  "page": 15
+                },
+                {
+                  "title": "US9627088B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9627088B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9627088B2",
+                "url": "https://patents.google.com/patent/US9627088B2/en",
+                "note": "US9627088B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US9627088B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/b7/d9/d8/b884fc6bbcd6d4/US9627088.pdf",
+                  "date": "2017-04-18",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10290329B2",
+              "title": "電荷泵裝置",
+              "grantDate": "2019-05-14",
+              "publicationDate": "2019-05-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-07-14",
+              "inventors": "Chi-Yi Shao",
+              "assignee": "eMemory Technology Inc.",
+              "url": "https://patents.google.com/patent/US10290329B2/en",
+              "coreProblem": "在邏輯製程 NVM 晶片內高壓產生電路中，消除切換電晶體的基底效應（Body Effect）並大幅縮減多相時鐘驅動電路之晶片面積與功耗。",
+              "mechanism": "將兩相電荷泵電路與四相電荷泵電路串聯連接，利用環形振盪器各級延遲電路節點的延遲訊號直接合成驅動兩相與四相電荷泵之非重疊多相時脈，免除額外複雜延遲電路。",
+              "claimFocus": "權利項 1 是裝置項：明確界定串聯耦合之第一兩相電荷泵電路與第一四相電荷泵電路，以及由環形振盪器延遲鏈節點延遲訊號直接產生兩相與四相時脈之驅動邏輯電路。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「NeoFuse® 對照主題：反熔絲 OTP」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10290329B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/cd/0f/d7/3e622ef8a34837/US10290329B2.pdf",
+                  "date": "2019-05-14",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 17 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "abbb9ea1611480c95f289bf0eb21b1d667da24a44a3fe42a19c4abf984b7b1b1",
+                  "page": 17
+                },
+                {
+                  "title": "US10290329B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10290329B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10290329B2",
+                "url": "https://patents.google.com/patent/US10290329B2/en",
+                "note": "US10290329B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US10290329B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/cd/0f/d7/3e622ef8a34837/US10290329B2.pdf",
+                  "date": "2019-05-14",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         },
@@ -2797,6 +2909,62 @@
                   "date": "2009-03-31",
                   "dateKind": "published",
                   "note": "核對原公報首頁受讓人 Sidense Corp.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8213211B2",
+              "title": "高可靠度一次性可編程記憶體與操作方法",
+              "grantDate": "2012-07-03",
+              "publicationDate": "2012-07-03",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-02-06",
+              "inventors": "Wlodek Kurjanowicz; Stefan Cyrille Nguyen",
+              "assignee": "Sidense Corp.",
+              "url": "https://patents.google.com/patent/US8213211B2/en",
+              "coreProblem": "車規與高安全性應用對反熔絲 OTP 要求超低失效率（零缺陷），但單一單元可能因製程微缺陷在極端高低溫下產生微弱漏電或阻值漂移。",
+              "mechanism": "每一個邏輯資料位元由至少兩個實體反熔絲單元以差動方式互補儲存；在編程時對個別單元執行單端讀取驗證以確保兩端介電質擊穿充分，在執行期則切換為雙端差動感測放大模式。",
+              "claimFocus": "權利項 1 是操作方法項：界定對包含複數個字元線與位元線之 OTP 記憶體，以單端模式執行編程讀取驗證，並在正常讀取時以差動模式併合存取至少兩個單元以讀出單一位元資料。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「1T-Fuse™ 對照主題：裂通道反熔絲」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8213211B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/33/95/57/f1e40e4d277b59/US8213211.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "9ea19f6ce577929ac954089bf52f1a7bf74dca90a5fc22161f5e72d758db0d86",
+                  "page": 24
+                },
+                {
+                  "title": "US8213211B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8213211B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8213211B2",
+                "url": "https://patents.google.com/patent/US8213211B2/en",
+                "note": "US8213211B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US8213211B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/33/95/57/f1e40e4d277b59/US8213211.pdf",
+                  "date": "2012-07-03",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
                   "page": 1
                 }
               }
@@ -5780,6 +5948,118 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US8917533B2",
+              "title": "一次性可編程記憶體之測試電路與系統",
+              "grantDate": "2014-12-23",
+              "publicationDate": "2014-12-23",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-02-06",
+              "inventors": "Shine C. Chung",
+              "assignee": "Shine C. Chung",
+              "url": "https://patents.google.com/patent/US8917533B2/en",
+              "coreProblem": "傳統 OTP 記憶體在晶圓出廠前因無法重複燒錄而無法全面檢驗陣列字元線、位元線與感測路徑的完整性，導致封裝或終端客戶端發生漏檢。",
+              "mechanism": "在陣列中配置至少一個已燒錄之測試樣本單元，利用控制電路將測試單元與未燒錄單元交替讀出，於不破壞主要儲存單元的前提下產生虛擬棋盤格等預設測試圖案，100% 驗證所有存取路徑。",
+              "claimFocus": "權利項 1 是系統項：包含複數個 OTP 單元組成的記憶體陣列、至少一個預先燒錄之測試 OTP 單元、行/列解碼器與控制電路，支援在無破壞測試模式下讀出虛擬測試圖案以檢驗讀取路徑。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「I-fuse® 可靠燒錄與 OTP 可測試性技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US8917533B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/d9/cc/e3/5f8d4f7d711ead/US8917533.pdf",
+                  "date": "2014-12-23",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 23 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "2009ee2c5b5ddab0b7d6132bd098d7b7e97ade4bce20743151023d8c063307b4",
+                  "page": 23
+                },
+                {
+                  "title": "US8917533B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US8917533B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8917533B2",
+                "url": "https://patents.google.com/patent/US8917533B2/en",
+                "note": "US8917533B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US8917533B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/d9/cc/e3/5f8d4f7d711ead/US8917533.pdf",
+                  "date": "2014-12-23",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9412473B2",
+              "title": "一次性可編程記憶體之備援電路架構與方法",
+              "grantDate": "2016-08-09",
+              "publicationDate": "2016-08-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-06-16",
+              "inventors": "Shine C. Chung",
+              "assignee": "Shine C. Chung",
+              "url": "https://patents.google.com/patent/US9412473B2/en",
+              "coreProblem": "傳統記憶體備援方案需要龐大的備援字元線/位元線與複雜的位址比對邏輯，在嵌入式小容量 OTP IP 中面積開銷過大且無法彈性修復非連續單一位元缺陷。",
+              "mechanism": "結合區塊層級位址比對電路、缺陷位元反轉旗標與 XOR 邏輯電路，在命中缺陷位址時自動反轉讀出資料極性或重定向至緊湊備援單元，以極小面積開銷達成零缺陷容錯。",
+              "claimFocus": "權利項 1 是裝置項：包含主 OTP 陣列、備援單元區塊、位址匹配電路與極性動態反轉/修復邏輯電路。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「I-fuse® 可靠燒錄與 OTP 可測試性技術組合」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US9412473B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/1a/bc/33/74c1170711d803/US9412473.pdf",
+                  "date": "2016-08-09",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 45 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "4cc668eefe0f1ce84856a67933b14cb35b93bd5615ae740b9dfad967f7f2f07c",
+                  "page": 45
+                },
+                {
+                  "title": "US9412473B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US9412473B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9412473B2",
+                "url": "https://patents.google.com/patent/US9412473B2/en",
+                "note": "US9412473B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US9412473B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/1a/bc/33/74c1170711d803/US9412473.pdf",
+                  "date": "2016-08-09",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -6173,6 +6453,62 @@
                   "date": "2018-09-11",
                   "dateKind": "published",
                   "note": "原件公報首頁核對受讓人 Floadia Corp；技術導讀依本次選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10263002B2",
+              "title": "反熔絲記憶體及半導體儲存裝置",
+              "grantDate": "2019-04-16",
+              "publicationDate": "2019-04-16",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-04-12",
+              "inventors": "Kosuke Okuyama; Yasuhiro Taniguchi; Shinichi Minami",
+              "assignee": "Floadia Corporation",
+              "url": "https://patents.google.com/patent/US10263002B2/en",
+              "coreProblem": "在字元線與位元線交叉點陣列中，反熔絲擊穿後容易因漏電路徑（Sneak Path）干擾相鄰未選單元的讀取正確性與編程干擾容限。",
+              "mechanism": "將整流二極體元件與反熔絲閘極電極整合於同一半導體層結構中，形成緊湊之整流選擇器，並由列/行周邊驅動電路在讀取時提供單向阻斷偏置，徹底消除交叉點陣列之寄生漏電。",
+              "claimFocus": "權利項 1 是裝置項：包含整流元件與記憶閘極電極形成於同層之防漏電交叉點反熔絲結構及其偏置驅動連接。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「LEE Flash ZT 對照主題：單層閘極注入」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US10263002B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/cd/ce/30/723f9cd4a4f4f1/US10263002.pdf",
+                  "date": "2019-04-16",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 29 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "65cc7749d870ccd72307832a4e160b5b8e6aa2763b9e19ecd90c7ff856aa7e49",
+                  "page": 29
+                },
+                {
+                  "title": "US10263002B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US10263002B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10263002B2",
+                "url": "https://patents.google.com/patent/US10263002B2/en",
+                "note": "US10263002B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US10263002B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/cd/ce/30/723f9cd4a4f4f1/US10263002.pdf",
+                  "date": "2019-04-16",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
                   "page": 1
                 }
               }
@@ -7320,6 +7656,62 @@
                   "date": "2004-04-20",
                   "dateKind": "published",
                   "note": "核對原公報首頁受讓人 Silicon Storage Technology, Inc.；技術導讀依選錄公報重建。",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7697365B2",
+              "title": "亞伏特快閃記憶體系統與解碼控制電路",
+              "grantDate": "2010-04-13",
+              "publicationDate": "2010-04-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2006-07-14",
+              "inventors": "Hieu Van Tran; Hung Quoc Nguyen; Loc Ho",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US7697365B2/en",
+              "coreProblem": "在電池供電與亞伏特（Sub-1V）低電壓系統中，嵌入式快閃記憶體之周邊解碼器與驅動晶體管因臨界電壓限制容易速度急劇下降且漏電流增大。",
+              "mechanism": "解碼器電路具備基極追蹤偏壓調節功能（Tracking Body Bias），在燒錄與抹除時提高 N 井電壓反向偏置非工作之 PMOS 晶體管以抑制漏電，在讀取時動態調變共模範圍以支援超低電壓高速存取。",
+              "claimFocus": "權利項 1 是裝置項：包含複數個 MOS 電晶體構成之解碼電路，每顆電晶體之基極受動態基極電壓控制以在不同操作模式下調整臨界電壓以支援亞伏特運作。",
+              "patentCategory": "周邊電路項",
+              "patentCategoryEn": "Peripheral Circuit",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "本次未核定",
+              "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "與「SuperFlash® 對照：分離閘極與自對準結構」作技術對照；非已核定的逐產品權利項映射。",
+              "researchSources": [
+                {
+                  "title": "US7697365B2 · 公報原件",
+                  "url": "https://patentimages.storage.googleapis.com/36/a0/a2/42cf779df820ca/US7697365.pdf",
+                  "date": "2010-04-13",
+                  "dateKind": "published",
+                  "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 22 頁起為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報／索引收錄最早主張日，未逐項判定優先權效力。",
+                  "pdfSHA256": "ea146dde9725bbcbcd85dd16e68683d46970a7255297131b4b161e1e3b6bef7d",
+                  "page": 22
+                },
+                {
+                  "title": "US7697365B2 · 索引狀態查閱",
+                  "url": "https://patents.google.com/patent/US7697365B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7697365B2",
+                "url": "https://patents.google.com/patent/US7697365B2/en",
+                "note": "US7697365B2 保留公報編號，依原件更正發明人、權利項導讀與技術脈絡。",
+                "source": {
+                  "title": "US7697365B2 · 官方公報核對",
+                  "url": "https://patentimages.storage.googleapis.com/36/a0/a2/42cf779df820ca/US7697365.pdf",
+                  "date": "2010-04-13",
+                  "dateKind": "published",
+                  "note": "核對原公報首頁身分；技術導讀另依本次選錄公報重建。",
                   "page": 1
                 }
               }
@@ -9514,5 +9906,6 @@
         }
       ]
     }
-  ]
+  ],
+  "totalPatents": 148
 }
