@@ -11483,6 +11483,342 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8059479B2",
+                "title": "Test circuit for an unprogrammed OTP memory array",
+                "grantDate": "2011-11-15",
+                "publicationDate": "2011-11-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-04-03",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8059479B2/en",
+                "coreProblem": "In unprogrammed ultra-dense OTP antifuse arrays, pinhole oxide defects cause subtle leakage currents that aggregate across bitlines and degrade sense amplifier read margins.",
+                "mechanism": "Integrates on-chip test current sources and switching networks between column decoders and bitlines to apply stepped bias voltages, screening out leaky antifuse oxides during unprogrammed factory tests non-destructively.",
+                "claimFocus": "Claim 1 (Col 15, Lines 25-45): An OTP memory comprising an unprogrammed cell array, column decoder connected to bitlines, and a test circuit with a current source and switching network selectively coupling the current source to at least one bitline to verify leakage current before programming.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US8059479B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/88/52/44/55e1f7b05de32b/US8059479.pdf",
+                    "date": "2011-11-15",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Priority date records earliest claimed priority (2008-04-03).",
+                    "pdfSHA256": "88524455e1f7b05de32b62afb1ef3e7b4982ad972fa05dc689171a61bd52fe19",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8059479B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8059479B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8059479B2",
+                  "url": "https://patents.google.com/patent/US8059479B2/en",
+                  "note": "US8059479B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US8059479B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/88/52/44/55e1f7b05de32b/US8059479.pdf",
+                    "date": "2011-11-15",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8223526B2",
+                "title": "Low power antifuse sensing scheme with improved reliability",
+                "grantDate": "2012-07-17",
+                "publicationDate": "2012-07-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-02-27",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8223526B2/en",
+                "coreProblem": "Traditional antifuse read schemes charge and discharge full bitline capacitances, causing excessive dynamic power at high frequencies and stressing ruptured conductive filaments.",
+                "mechanism": "Employs a single-ended current sense amplifier with active bitline clamping to restrict bitline voltage swing within tens of millivolts, using dynamic reference current tracking to mitigate thermal drift and prolong filament life.",
+                "claimFocus": "Claim 1 (Col 21, Lines 18-38): A method for reading antifuse cells comprising driving a selected wordline to a read voltage, actively clamping bitline voltage to a restricted level, sensing cell current through the bitline, and comparing with a dynamic reference current to determine logic state.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US8223526B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/46/55/bc/871efc71a7aa70/US8223526.pdf",
+                    "date": "2012-07-17",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Priority date records earliest claimed priority (2009-02-27).",
+                    "pdfSHA256": "4655bc871efc71a7aa701b63d043c4bfbccfe21d79841eaa9e05605c0008a1e9",
+                    "page": 24
+                  },
+                  {
+                    "title": "US8223526B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8223526B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8223526B2",
+                  "url": "https://patents.google.com/patent/US8223526B2/en",
+                  "note": "US8223526B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US8223526B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/46/55/bc/871efc71a7aa70/US8223526.pdf",
+                    "date": "2012-07-17",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8023338B2",
+                "title": "Dual function data register",
+                "grantDate": "2011-09-20",
+                "publicationDate": "2011-09-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-12-22",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8023338B2/en",
+                "coreProblem": "Embedded OTP macros require bulky scan chain registers for DFT testing that consume die area and suffer from complex switching timing between serial test shift and parallel array writing.",
+                "mechanism": "Configures first and second latches into a phase-adjustable master-slave flip-flop serving dual functions of serial boundary scan testing and parallel memory programming data latching, reducing peripheral area by over 30%.",
+                "claimFocus": "Claim 1 (Col 30, Lines 12-32): A data register stage comprising a master-slave flip-flop storage circuit controlled by phase adjustable clocks for serial shift in and shift out, and a bypass circuit enabling parallel data buffering during memory array programming.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US8023338B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/54/6a/3e/4c616dcb8591a0/US8023338.pdf",
+                    "date": "2011-09-20",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 33 provides representative Claim 1 reading. Priority date records earliest claimed priority (2006-12-22).",
+                    "pdfSHA256": "546a3e4c616dcb8591a05f0827fc26d3b7e19131d8f0f150c274db5988927b38",
+                    "page": 33
+                  },
+                  {
+                    "title": "US8023338B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8023338B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8023338B2",
+                  "url": "https://patents.google.com/patent/US8023338B2/en",
+                  "note": "US8023338B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US8023338B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/54/6a/3e/4c616dcb8591a0/US8023338.pdf",
+                    "date": "2011-09-20",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9275753B2",
+                "title": "Circuit and method for reducing write disturb in a non-volatile memory device",
+                "grantDate": "2016-03-01",
+                "publicationDate": "2016-03-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-05-18",
+                "inventors": "Steven Smith",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9275753B2/en",
+                "coreProblem": "During 5V-7V high voltage programming pulses on target cells, unselected cells sharing wordlines or bitlines suffer high electric field stress, causing unintentional soft breakdown write disturb.",
+                "mechanism": "Actively maintains non-selected bitlines at a regulated precharge voltage before and during high voltage write pulses, neutralizing voltage gradients across unselected cells to eliminate write disturb.",
+                "claimFocus": "Claim 1 (Col 14, Lines 40-58): A method for accessing OTP memory cells comprising actively maintaining non-selected bitlines at a precharge voltage before executing bitline access, and dynamically regulating the voltage during high-voltage write pulses to inhibit write disturb.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US9275753B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/c1/13/3a/eef6b7797dc469/US9275753.pdf",
+                    "date": "2016-03-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 17 provides representative Claim 1 reading. Priority date records earliest claimed priority (2012-05-18).",
+                    "pdfSHA256": "c1133aeef6b7797dc469fb7679138cea0903efd30c9536410ec6d91a1fa391d7",
+                    "page": 17
+                  },
+                  {
+                    "title": "US9275753B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9275753B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9275753B2",
+                  "url": "https://patents.google.com/patent/US9275753B2/en",
+                  "note": "US9275753B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US9275753B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/c1/13/3a/eef6b7797dc469/US9275753.pdf",
+                    "date": "2016-03-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Steven Smith.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9123429B2",
+                "title": "Redundancy system for non-volatile memory",
+                "grantDate": "2015-09-01",
+                "publicationDate": "2015-09-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-07-27",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9123429B2/en",
+                "coreProblem": "Conventional redundancy architectures rely on bulky CAM comparison circuits consuming static current and risking data loss in volatile repair registers under high temperatures.",
+                "mechanism": "Permanently sets defective data cells into a fixed physical logic state combined with a streamlined non-volatile address mapping antifuse block, enabling single-cycle address redirection without static CAM power draw.",
+                "claimFocus": "Claim 1 (Col 28, Lines 30-52): A non-volatile memory redundancy system comprising n data cells storing an n-bit entry (where defective cells are settable to a permanent logic state), redundant cells, and decoders redirecting accesses based on the permanent state.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US9123429B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/a2/fd/87/061630331ab888/US9123429.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 31 provides representative Claim 1 reading. Priority date records earliest claimed priority (2009-07-27).",
+                    "pdfSHA256": "a2fd87061630331ab88882e8546a0214b9fa5b103b419727fe4aa23a42c08de7",
+                    "page": 31
+                  },
+                  {
+                    "title": "US9123429B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9123429B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9123429B2",
+                  "url": "https://patents.google.com/patent/US9123429B2/en",
+                  "note": "US9123429B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US9123429B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/a2/fd/87/061630331ab888/US9123429.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9870810B2",
+                "title": "Method and system for power signature suppression in memory devices",
+                "grantDate": "2018-01-16",
+                "publicationDate": "2018-01-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-05-18",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9870810B2/en",
+                "coreProblem": "When reading programmed versus unprogrammed OTP cells, prominent supply current transient differences allow attackers to reconstruct stored cryptographic keys via Differential Power Analysis (DPA).",
+                "mechanism": "Deploys active dynamic compensation current injection between sense amplifiers and internal power rails, injecting complementary currents to render external power supply current signatures flat regardless of reading '0' or '1'.",
+                "claimFocus": "Claim 1 (Col 24, Lines 42-65): A semiconductor device with power signature suppression comprising memory array and a current compensation circuit that dynamically draws complementary current during sensing to smooth supply current signatures against power analysis.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with '1T-Fuse™ Topics: Split-Channel, Well & Sensing'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US9870810B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/03/4e/10/143ec5143ec957/US9870810.pdf",
+                    "date": "2018-01-16",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 27 provides representative Claim 1 reading. Priority date records earliest claimed priority (2016-05-18).",
+                    "pdfSHA256": "034e10143ec5143ec95730fbbcfaf963f11ac5cd3b2edceeb411a07bc723f48b",
+                    "page": 27
+                  },
+                  {
+                    "title": "US9870810B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US9870810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9870810B2",
+                  "url": "https://patents.google.com/patent/US9870810B2/en",
+                  "note": "US9870810B2 recorded per original grant publication, verifying assignee Sidense Corp. and inventors.",
+                  "source": {
+                    "title": "US9870810B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/03/4e/10/143ec5143ec957/US9870810.pdf",
+                    "date": "2018-01-16",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Sidense Corp. and inventors Wlodek Kurjanowicz.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -12539,6 +12875,566 @@
                     "date": "2022-11-15",
                     "dateKind": "published",
                     "note": "Front-page assignee Yield Microelectronics Corp. and inventors Wen-Chien Huang et al. verified from original gazette.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10854297B1",
+                "title": "Operating method of a low current electrically erasable programmable read only memory array",
+                "grantDate": "2020-12-01",
+                "publicationDate": "2020-12-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-11-13",
+                "inventors": "Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10854297B1/en",
+                "coreProblem": "Conventional embedded EEPROMs consume milliamp-level currents during FN tunneling or CHE programming, causing heavy supply voltage droop and excessive battery drain in IoT MCUs.",
+                "mechanism": "Arranges sub-memory arrays symmetrically across a common source line with grouped bitline steering to restrict cell programming current to sub-microamp levels, minimizing charge pump silicon area.",
+                "claimFocus": "Claim 1 (Col 8, Line 35 to Col 9, Line 15): An operating method of a low current EEPROM array with grouped bitlines, perpendicular wordlines, and common source lines; memory cells are symmetrically arranged across common source lines and operated under tailored voltages to achieve ultra-low current.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US10854297B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/79/4c/28/91c1dec16ac170/US10854297.pdf",
+                    "date": "2020-12-01",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Priority date records earliest claimed priority (2019-11-13).",
+                    "pdfSHA256": "794c2891c1dec16ac170db89561cbb2b3de1a36faad7841d9b0d49ff04d4f569",
+                    "page": 11
+                  },
+                  {
+                    "title": "US10854297B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10854297B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10854297B1",
+                  "url": "https://patents.google.com/patent/US10854297B1/en",
+                  "note": "US10854297B1 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US10854297B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/79/4c/28/91c1dec16ac170/US10854297.pdf",
+                    "date": "2020-12-01",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Cheng-Ying Wu.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10643708B1",
+                "title": "Method for operating low-current EEPROM array",
+                "grantDate": "2020-05-05",
+                "publicationDate": "2020-05-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-10-12",
+                "inventors": "Hsin-Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10643708B1/en",
+                "coreProblem": "In MTP/EEPROM endurance cycling, repetitive high-voltage program/erase stresses induce parasitic charge leakage in floating gates of unselected neighbor cells.",
+                "mechanism": "Uses time-multiplexed common source line pulses with stepped gate biasing to maintain equipotential shielding on neighbor cells during programming, eliminating parasitic stress while preserving throughput.",
+                "claimFocus": "Claim 1 (Col 8, Line 25 to Col 9, Line 5): A method for operating low-current EEPROM array with grouped bitlines, wordlines, and common source lines, symmetrically hosting pairs of memory cells operated sequentially to eliminate disturbance on neighboring cells.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US10643708B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f9/11/6110e5a33476f7/US10643708.pdf",
+                    "date": "2020-05-05",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Priority date records earliest claimed priority (2018-10-12).",
+                    "pdfSHA256": "fdf9116110e5a33476f75d8c9c71a051da87fa72ae8043c2c56e522b448e3c14",
+                    "page": 11
+                  },
+                  {
+                    "title": "US10643708B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10643708B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10643708B1",
+                  "url": "https://patents.google.com/patent/US10643708B1/en",
+                  "note": "US10643708B1 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US10643708B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f9/11/6110e5a33476f7/US10643708.pdf",
+                    "date": "2020-05-05",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Hsin-Chang Lin.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10242741B1",
+                "title": "Low voltage difference operated EEPROM and operating method thereof",
+                "grantDate": "2019-03-26",
+                "publicationDate": "2019-03-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-09-19",
+                "inventors": "Hsin-Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10242741B1/en",
+                "coreProblem": "Standard logic CMOS transistors tolerate only 1.2V-1.8V, whereas EEPROM programming requires >8V drops, forcing costly addition of dedicated high-voltage thick-oxide masks.",
+                "mechanism": "Uses symmetrical substrate reverse-biasing and triple-terminal low voltage difference division to limit peak node-to-ground voltages within standard I/O ratings, achieving EEPROM without extra masks.",
+                "claimFocus": "Claim 1 (Col 7, Line 30 to Col 8, Line 10): A low voltage difference operated EEPROM comprising substrate, control gate, floating gate, drain, and source, wherein all inter-terminal voltage differences are restricted below standard logic breakdown thresholds.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US10242741B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/46/c9/fa/e7993a5fa2e0fc/US10242741.pdf",
+                    "date": "2019-03-26",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Priority date records earliest claimed priority (2017-09-19).",
+                    "pdfSHA256": "46c9fae7993a5fa2e0fc3bf58ee885aee29627a35b68a1da43b280b495d8514c",
+                    "page": 10
+                  },
+                  {
+                    "title": "US10242741B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US10242741B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10242741B1",
+                  "url": "https://patents.google.com/patent/US10242741B1/en",
+                  "note": "US10242741B1 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US10242741B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/46/c9/fa/e7993a5fa2e0fc/US10242741.pdf",
+                    "date": "2019-03-26",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Hsin-Chang Lin.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8300469B2",
+                "title": "Cost saving electrically-erasable-programmable read-only memory (EEPROM) array",
+                "grantDate": "2012-10-30",
+                "publicationDate": "2012-10-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-08-11",
+                "inventors": "Hsin Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US8300469B2/en",
+                "coreProblem": "Traditional double-poly EEPROM cells demand 3-5 additional masks costing hundreds of thousands of dollars and hindering rapid migration across foundry process nodes.",
+                "mechanism": "Exploits single-poly standard CMOS logic compatibility by merging erase gates and shared control terminals of adjacent cells into common diffusion regions, trimming wiring complexity and cell size.",
+                "claimFocus": "Claim 1 (Col 12, Line 45 to Col 13, Line 18): A cost-saving EEPROM array comprising grouped parallel bitlines, perpendicular wordlines, common source lines, and single-poly memory cells sharing common control nodes.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US8300469B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/45/ad/28/4bd640b3b55408/US8300469.pdf",
+                    "date": "2012-10-30",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 15 provides representative Claim 1 reading. Priority date records earliest claimed priority (2010-08-11).",
+                    "pdfSHA256": "45ad284bd640b3b554086c0e3367794534b8243eedefb65c760a9d53fefcfb33",
+                    "page": 15
+                  },
+                  {
+                    "title": "US8300469B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US8300469B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8300469B2",
+                  "url": "https://patents.google.com/patent/US8300469B2/en",
+                  "note": "US8300469B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US8300469B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/45/ad/28/4bd640b3b55408/US8300469.pdf",
+                    "date": "2012-10-30",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Hsin Chang Lin.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12328871B2",
+                "title": "High writing rate antifuse array",
+                "grantDate": "2025-06-10",
+                "publicationDate": "2025-06-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-10-08",
+                "inventors": "Yu Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12328871B2/en",
+                "coreProblem": "In mass antifuse programming (e.g. automotive firmware provisioning), bit-by-bit high-voltage breakdown takes hundreds of microseconds per cell, bottlenecking factory throughput.",
+                "mechanism": "Uses interleaved dual-pulse excitation across adjacent bitlines, pre-stressing neighboring antifuse oxides with residual electric fields upon cell breakdown to triple programming speed.",
+                "claimFocus": "Claim 1 (Col 7, Line 18 to Col 8, Line 5): A high writing rate antifuse array comprising adjacent first and second bitlines, intersecting wordlines, and bias circuits pre-charging neighboring cells before current breakdown ends to accelerate overall writing.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12328871B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/e9/16/fb/1cfa52df271f27/US12328871.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Priority date records earliest claimed priority (2021-10-08).",
+                    "pdfSHA256": "e916fb1cfa52df271f2710dae6e3f8fd3080fc47bb5dfa59dc948d668e8022d6",
+                    "page": 10
+                  },
+                  {
+                    "title": "US12328871B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12328871B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12328871B2",
+                  "url": "https://patents.google.com/patent/US12328871B2/en",
+                  "note": "US12328871B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US12328871B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/e9/16/fb/1cfa52df271f27/US12328871.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Yu Ting Huang.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12575094B2",
+                "title": "High-speed multi-write read only memory array",
+                "grantDate": "2026-03-10",
+                "publicationDate": "2026-03-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-09-05",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12575094B2/en",
+                "coreProblem": "Conventional MTP ROMs suffer from large RC parasitic delays on single-ended bitlines during frequent reads, throttling zero-wait-state high-speed CPU execution.",
+                "mechanism": "Establishes differential bitline sensing with hierarchical segmented wordlines and localized fast-discharge paths, slashing read access times to under 5ns.",
+                "claimFocus": "Claim 1 (Col 16, Line 20 to Col 17, Line 12): A high-speed multi-write ROM array comprising segmented wordline blocks, differential bitline pairs, and local fast-discharge switches eliminating residual bitline charges for high-frequency continuous read.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12575094B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/0d/39/99/5a3b9c267ab3e0/US12575094.pdf",
+                    "date": "2026-03-10",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 19 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-09-05).",
+                    "pdfSHA256": "0d39995a3b9c267ab3e0c739818698bf58822974292a1773bc482ea83d35f372",
+                    "page": 19
+                  },
+                  {
+                    "title": "US12575094B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12575094B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12575094B2",
+                  "url": "https://patents.google.com/patent/US12575094B2/en",
+                  "note": "US12575094B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US12575094B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/0d/39/99/5a3b9c267ab3e0/US12575094.pdf",
+                    "date": "2026-03-10",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Yu-Ting Huang.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11004857B1",
+                "title": "Operating method of an electrically erasable programmable read only memory (EEPROM) cell",
+                "grantDate": "2021-05-11",
+                "publicationDate": "2021-05-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-11-29",
+                "inventors": "Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US11004857B1/en",
+                "coreProblem": "After 10k+ P/E cycles, interface state traps accumulate in floating gate oxides, inducing stress-induced leakage current (SILC) and threshold drift that degrades retention.",
+                "mechanism": "Performs localized same-type dopant concentration enhancement at source/drain gate interfaces to re-engineer electric field profiles, suppressing trap generation and extending high-temperature retention.",
+                "claimFocus": "Claim 1 (Col 8, Line 40 to Col 9, Line 25): An EEPROM operating method wherein same-type ions are implanted into interface regions between source/drain and gate to increase dopant concentration, operated under tailored terminal voltages satisfying retention-extending formulas.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US11004857B1 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/31/86/d6/e4429469968cd4/US11004857.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Priority date records earliest claimed priority (2019-11-29).",
+                    "pdfSHA256": "3186d6e4429469968cd49cbb820421a9927a823ae9d4a2570c3647e0590579b0",
+                    "page": 11
+                  },
+                  {
+                    "title": "US11004857B1 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US11004857B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11004857B1",
+                  "url": "https://patents.google.com/patent/US11004857B1/en",
+                  "note": "US11004857B1 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US11004857B1 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/31/86/d6/e4429469968cd4/US11004857.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Cheng-Ying Wu.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12444444B2",
+                "title": "Multi-write read-only memory array",
+                "grantDate": "2025-10-14",
+                "publicationDate": "2025-10-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-10-03",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12444444B2/en",
+                "coreProblem": "Conventional EEPROM source lines follow global mesh grids consuming top metal routing channels, causing severe routing congestion and bloating chip size.",
+                "mechanism": "Innovates word common-source lines running parallel to wordlines and shared across adjacent rows, cutting via counts and shrinking array peripheral silicon area by 25%.",
+                "claimFocus": "Claim 1 (Col 11, Line 15 to Col 12, Line 10): A multi-write ROM array comprising parallel word common-source lines (including first and second word common-source lines), parallel wordlines, and perpendicular bitlines addressed symmetrically via shared source potentials.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12444444B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/9f/cd/56/cc623fd7a9c68b/US12444444.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-10-03).",
+                    "pdfSHA256": "9fcd56cc623fd7a9c68b19a06c50f44b2d8d7da69e2e9a20c8e2369e03f92b79",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12444444B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12444444B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12444444B2",
+                  "url": "https://patents.google.com/patent/US12444444B2/en",
+                  "note": "US12444444B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US12444444B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/9f/cd/56/cc623fd7a9c68b/US12444444.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Yu-Ting Huang.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12446219B2",
+                "title": "Small-area common-voltage multi-write non-volatile memory array",
+                "grantDate": "2025-10-14",
+                "publicationDate": "2025-10-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-07-06",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12446219B2/en",
+                "coreProblem": "Multi-write memories traditionally require multiple positive and negative voltage rails for program/erase, demanding bloated analog MUX switches and charge pumps.",
+                "mechanism": "Uses a single common-voltage scheme applying identical polarity voltages to wordlines and source lines within the same phase, switching modes simply via floating/grounding to halve high-voltage switch count.",
+                "claimFocus": "Claim 1 (Col 10, Line 22 to Col 11, Line 18): A small-area common-voltage multi-write NVM array comprising parallel wordlines, bitlines, and common-voltage drivers applying a single reference voltage to selected lines across different operating modes.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12446219B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/9e/9f/52/7d55ba8c5baf0c/US12446219.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 13 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-07-06).",
+                    "pdfSHA256": "9e9f527d55ba8c5baf0c3557b4624d6125b4acbd9d8609f336ccc2ff4c52ff59",
+                    "page": 13
+                  },
+                  {
+                    "title": "US12446219B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12446219B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12446219B2",
+                  "url": "https://patents.google.com/patent/US12446219B2/en",
+                  "note": "US12446219B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US12446219B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/9e/9f/52/7d55ba8c5baf0c/US12446219.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Yu-Ting Huang.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12327597B2",
+                "title": "Small-area common-voltage anti-fuse array",
+                "grantDate": "2025-06-10",
+                "publicationDate": "2025-06-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-07-06",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12327597B2/en",
+                "coreProblem": "In ultra-miniaturized IoT sensors, high-voltage antifuse programming switches consume excessive silicon area, hindering ultra-compact die packaging.",
+                "mechanism": "Ports common-voltage architecture to antifuse cells using shared diffusion wells for bias delivery, cutting select transistors to reduce total macro footprint by 35%.",
+                "claimFocus": "Claim 1 (Col 10, Line 35 to Col 11, Line 20): A small-area common-voltage anti-fuse array comprising wordlines, bitlines, and antifuse cells connected to common-voltage lines to execute dielectric breakdown programming under a single high-voltage rail.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'YMC Single-Poly Floating Gate, Shared Terminals & EEPROM'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12327597B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/fa/b1/a6/009e0695f88265/US12327597.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 13 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-07-06).",
+                    "pdfSHA256": "fab1a6009e0695f88265b1bb27d293161d6524726396716ea01436150307cb4f",
+                    "page": 13
+                  },
+                  {
+                    "title": "US12327597B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12327597B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12327597B2",
+                  "url": "https://patents.google.com/patent/US12327597B2/en",
+                  "note": "US12327597B2 recorded per original grant publication, verifying assignee Yield Microelectronics Corp. and inventors.",
+                  "source": {
+                    "title": "US12327597B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/fa/b1/a6/009e0695f88265/US12327597.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee Yield Microelectronics Corp. and inventors Yu-Ting Huang.",
                     "page": 1
                   }
                 }
@@ -19214,6 +20110,342 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US12493449B2",
+                "title": "Random number generator and operating method thereof",
+                "grantDate": "2025-12-09",
+                "publicationDate": "2025-12-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-02-18",
+                "inventors": "Chun-Heng You",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12493449B2/en",
+                "coreProblem": "Conventional TRNGs relying on analog noise sampling suffer from long start-up latency and vulnerability to temperature drifts and electromagnetic injection locking, whereas static memory readouts lack dynamic entropy changes.",
+                "mechanism": "Combines a first-stage static entropy array with refresh logic to generate preliminary random numbers, and a second-stage engine driven by a reseed signal to inject entropy seamlessly without interrupting target random number output stream.",
+                "claimFocus": "Claim 1 (Col 16, Line 5 to Col 17, Line 8): An RNG comprising a first-stage RNG outputting preliminary random numbers at different time points (with a static entropy array and a refresh circuit updating array or addresses) and a second-stage RNG coupled thereto receiving preliminary numbers and a reseed signal to generate target numbers continuously.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12493449B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/49/19/7f/b0771b28a33f72/US12493449.pdf",
+                    "date": "2025-12-09",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 22 provides representative Claim 1 reading. Priority date records earliest claimed priority (2021-02-18).",
+                    "pdfSHA256": "49197fb0771b28a33f7246b5b21c012dab57db6525309abd7adcf9aa0d7c61d4",
+                    "page": 22
+                  },
+                  {
+                    "title": "US12493449B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12493449B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12493449B2",
+                  "url": "https://patents.google.com/patent/US12493449B2/en",
+                  "note": "US12493449B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12493449B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/49/19/7f/b0771b28a33f72/US12493449.pdf",
+                    "date": "2025-12-09",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Chun-Heng You.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12519632B2",
+                "title": "Key storage device and method for writing key value into one-time-programmable device",
+                "grantDate": "2026-01-06",
+                "publicationDate": "2026-01-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-10-31",
+                "inventors": "Kai-Hsin Chuang",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12519632B2/en",
+                "coreProblem": "Traditional semiconductor key provisioning requires physical probe injection on expensive ATE test equipment during backend OSAT packaging, posing severe risks of probe eavesdropping and supply-chain tampering.",
+                "mechanism": "Integrates an energy harvester collecting plasma ion energy during wafer fabrication to generate a programming voltage, driving an in-fab controller to autonomously write keys into OTP and permanently blow the transmission path, achieving zero-trust key provisioning with zero external touch.",
+                "claimFocus": "Claim 1 (Col 6, Lines 8-30): A key storage device comprising an energy harvester harvesting energy during wafer fabrication to produce supply voltage, temporary key circuit providing initial key, OTP memory, and a controller writing the initial key into OTP using the voltage during fabrication and permanently disabling the transfer path.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12519632B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/4e/38/86/5f05444d4789db/US12519632.pdf",
+                    "date": "2026-01-06",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 8 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-10-31).",
+                    "pdfSHA256": "4e38865f05444d4789dbf48195f9c27859d3c652eaea5e4512de616c7ea78348",
+                    "page": 8
+                  },
+                  {
+                    "title": "US12519632B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12519632B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12519632B2",
+                  "url": "https://patents.google.com/patent/US12519632B2/en",
+                  "note": "US12519632B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12519632B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/4e/38/86/5f05444d4789db/US12519632.pdf",
+                    "date": "2026-01-06",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Kai-Hsin Chuang.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12462890B2",
+                "title": "Method for operating a memory device and memory device thereof",
+                "grantDate": "2025-11-04",
+                "publicationDate": "2025-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-11-18",
+                "inventors": "Chi-Yi Shao",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12462890B2/en",
+                "coreProblem": "Advanced scaled OTP antifuse oxide breakdown involves microscopic stochasticity leading to defective cells; traditional external tester repair is time-consuming and cannot prevent secondary failures from defective repair rows.",
+                "mechanism": "Establishes a repair-row-first autonomous verification sequence validating repair row integrity prior to main row programming, and executes on-chip hardware remapping to valid repair rows without using external testers.",
+                "claimFocus": "Claim 1 (Col 8, Lines 48-64): An OTP memory operating method with main rows and repair rows, comprising performing test operation on repair rows before normal programming of main rows, determining repair row validity, identifying a defective main row, and remapping its address to a valid repair row without using an external tester.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12462890B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/40/ed/03/41312793fb11f6/US12462890.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Priority date records earliest claimed priority (2022-11-18).",
+                    "pdfSHA256": "40ed0341312793fb11f627e10e1ff8a65fa0322218a5d34fc5b62aa15509c656",
+                    "page": 11
+                  },
+                  {
+                    "title": "US12462890B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12462890B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12462890B2",
+                  "url": "https://patents.google.com/patent/US12462890B2/en",
+                  "note": "US12462890B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12462890B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/40/ed/03/41312793fb11f6/US12462890.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Chi-Yi Shao.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12513000B2",
+                "title": "Apparatus and method for performing authenticated encryption with associated data",
+                "grantDate": "2025-12-30",
+                "publicationDate": "2025-12-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-11-29",
+                "inventors": "Tsung-Wei Hung",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12513000B2/en",
+                "coreProblem": "When a CPU cache miss occurs, fetching encrypted instruction blocks from external memory suffers from severe AEAD latency penalty, while speculative execution before verification leaves CPU pipelines vulnerable to bus tampering.",
+                "mechanism": "Synchronously fetches ciphertext blocks and golden tags on cache misses, computes AEAD verification in hardware pipeline, and injects safe NOP instructions directly into processor cores upon verification mismatch to prevent transient execution of tampered code.",
+                "claimFocus": "Claim 1 (Col 12, Lines 7-54): An AEAD apparatus responsive to cache misses, comprising an interface circuit fetching encrypted block and golden tag, crypto circuit generating computed tag and decrypted instruction, comparator, and instruction injection circuit providing decrypted code on match and injecting safe instructions (NOP) on mismatch.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12513000B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/76/8c/c5/c49e32f7b73731/US12513000.pdf",
+                    "date": "2025-12-30",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 17 provides representative Claim 1 reading. Priority date records earliest claimed priority (2022-11-29).",
+                    "pdfSHA256": "768cc5c49e32f7b73731b16a8dfe59f7b27889a4fb097a320a592456c57ad1fa",
+                    "page": 17
+                  },
+                  {
+                    "title": "US12513000B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12513000B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12513000B2",
+                  "url": "https://patents.google.com/patent/US12513000B2/en",
+                  "note": "US12513000B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12513000B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/76/8c/c5/c49e32f7b73731/US12513000.pdf",
+                    "date": "2025-12-30",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Tsung-Wei Hung.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12462046B2",
+                "title": "Electronic device and method for performing permission management of storage device",
+                "grantDate": "2025-11-04",
+                "publicationDate": "2025-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-12-05",
+                "inventors": "Meng-Yi Wu",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12462046B2/en",
+                "coreProblem": "When multiple subsystems share secure storage, relying on operating system software ACL tables risks complete breach of root keys (HUK) if the OS kernel suffers privilege escalation exploits.",
+                "mechanism": "Physically partitions non-volatile storage into discrete blocks with dedicated hardware interfaces mapped 1:1 to external ports, enforcing hardware-level access control and isolated HUK key derivation without relying on OS access tables.",
+                "claimFocus": "Claim 1 (Col 7, Line 45 to Col 8, Line 2): An electronic device comprising storage divided into storage blocks, dedicated interfaces coupled to ports, and a controller; each dedicated interface exclusively corresponds to a specific storage block, with access enforced by hardware permissions without relying on an OS access table.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12462046B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/55/df/bb/9eaa5772d3f219/US12462046.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Priority date records earliest claimed priority (2021-12-05).",
+                    "pdfSHA256": "55dfbb9eaa5772d3f21910728a5b4c3186832097cb6c811429b26b90a0c73303",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12462046B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12462046B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12462046B2",
+                  "url": "https://patents.google.com/patent/US12462046B2/en",
+                  "note": "US12462046B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12462046B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/55/df/bb/9eaa5772d3f219/US12462046.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Meng-Yi Wu.",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12288000B2",
+                "title": "Electronic device capable of visualizing randomness of random numbers",
+                "grantDate": "2025-04-29",
+                "publicationDate": "2025-04-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-09-08",
+                "inventors": "Tsung-Han Hsieh",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12288000B2/en",
+                "coreProblem": "Traditional randomness evaluation suites (NIST SP 800-22) require millions of bits and heavy processing, precluding millisecond-level runtime diagnosis and masking directional harmonic injection attack signatures.",
+                "mechanism": "Maps random numbers to angles on a circle circumference and generates geometric chords connecting pairs of mapped points; visual distribution patterns instantly expose entropy defects, bias, and injection locking without heavy statistical processing.",
+                "claimFocus": "Claim 1 (Col 9, Line 44 to Col 10, Line 15): An electronic device visualizing randomness, comprising a processor receiving random numbers, an angle module mapping values to angles on a circle, a chord module connecting points with chords, and a rendering unit displaying chords whose visual pattern indicates entropy quality and identifies correlation defects.",
+                "patentCategory": "Array and Circuit",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "Publication-Based Selection",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "Not determined",
+                "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "Technical comparison with 'PUFrt / PUFcc Cross-Reference: Auth, RNG & Key Mgmt'; not certified per-product claim mapping.",
+                "researchSources": [
+                  {
+                    "title": "US12288000B2 · Official Publication",
+                    "url": "https://patentimages.storage.googleapis.com/ef/ef/c6/822e07472bd254/US12288000.pdf",
+                    "date": "2025-04-29",
+                    "dateKind": "published",
+                    "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Priority date records earliest claimed priority (2023-09-08).",
+                    "pdfSHA256": "efefc6822e07472bd25437900fe23165ca825964dc3621fbbebcd0262aec8087",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12288000B2 · Index Status Check",
+                    "url": "https://patents.google.com/patent/US12288000B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "Status is an index snapshot, not a real-time legal determination."
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12288000B2",
+                  "url": "https://patents.google.com/patent/US12288000B2/en",
+                  "note": "US12288000B2 recorded per original grant publication, verifying assignee PUFsecurity Corporation and inventors.",
+                  "source": {
+                    "title": "US12288000B2 · Front Page Verification",
+                    "url": "https://patentimages.storage.googleapis.com/ef/ef/c6/822e07472bd254/US12288000.pdf",
+                    "date": "2025-04-29",
+                    "dateKind": "published",
+                    "note": "Front page verification of assignee PUFsecurity Corporation and inventors Tsung-Han Hsieh.",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -19262,7 +20494,7 @@
         ]
       }
     ],
-    "totalPatents": 168
+    "totalPatents": 190
   },
   "sources": [
     {

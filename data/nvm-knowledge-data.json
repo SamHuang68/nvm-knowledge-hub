@@ -11483,6 +11483,342 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US8059479B2",
+                "title": "未編程 OTP 記憶體陣列之測試電路與漏電流檢測方法",
+                "grantDate": "2011-11-15",
+                "publicationDate": "2011-11-15",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2008-04-03",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8059479B2/en",
+                "coreProblem": "超高密度 OTP 抗熔絲單元在未編程初始狀態下，若微觀閘極氧化層存在針孔或缺陷，會引發微微安培（pA）級別的潛洩漏電流，累積多條位元線後將嚴重破壞感測放大器之讀取裕度。",
+                "mechanism": "在行解碼器與位元線之間整合晶片內建專屬測試電流源與開關網路，於未編程出廠測試階段精準施加階梯偏壓，並在單元無損條件下篩檢出氧化層邊界漏電超標之邊緣瑕疵晶圓。",
+                "claimFocus": "權利項 1（第 15 欄第 25 行至第 45 行）：限定一種 OTP 記憶體，包含具備未編程單元之記憶體陣列、連接位元線之行解碼器，以及測試電路；測試電路包含測試電流源與開關網路，可選擇性將測試電流源耦接至至少一條位元線，以在編程前精確偵測位元線未編程單元之微漏電流。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8059479B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/88/52/44/55e1f7b05de32b/US8059479.pdf",
+                    "date": "2011-11-15",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 18 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2008-04-03）。",
+                    "pdfSHA256": "88524455e1f7b05de32b62afb1ef3e7b4982ad972fa05dc689171a61bd52fe19",
+                    "page": 18
+                  },
+                  {
+                    "title": "US8059479B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8059479B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8059479B2",
+                  "url": "https://patents.google.com/patent/US8059479B2/en",
+                  "note": "US8059479B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US8059479B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/88/52/44/55e1f7b05de32b/US8059479.pdf",
+                    "date": "2011-11-15",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8223526B2",
+                "title": "具高可靠度之低功耗抗熔絲感測架構與讀取方法",
+                "grantDate": "2012-07-17",
+                "publicationDate": "2012-07-17",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-02-27",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8223526B2/en",
+                "coreProblem": "抗熔絲單元讀取時傳統作法需將整個位元線電容充放電，在兆赫茲（MHz）連續讀取時造成巨大動態功耗，且已擊穿單元之微導電絲在高電流衝擊下存在阻值漂移與可靠度劣化疑慮。",
+                "mechanism": "採用單端電流感測放大器結合主動位元線箝位電路，將位元線擺幅限制在數十毫伏（mV）極小範圍內，並透過動態參考電流產生器抵銷製程溫漂，大幅降低動態能耗並延長微絲壽命。",
+                "claimFocus": "權利項 1（第 21 欄第 18 行至第 38 行）：限定一種抗熔絲單元讀取方法，包含驅動選取字元線至讀取電壓、將位元線電壓主動箝位至預設受限電位、感測由選取抗熔絲單元流經位元線之電流，並與動態參考電流比對以判定邏輯狀態。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8223526B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/46/55/bc/871efc71a7aa70/US8223526.pdf",
+                    "date": "2012-07-17",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 24 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2009-02-27）。",
+                    "pdfSHA256": "4655bc871efc71a7aa701b63d043c4bfbccfe21d79841eaa9e05605c0008a1e9",
+                    "page": 24
+                  },
+                  {
+                    "title": "US8223526B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8223526B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8223526B2",
+                  "url": "https://patents.google.com/patent/US8223526B2/en",
+                  "note": "US8223526B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US8223526B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/46/55/bc/871efc71a7aa70/US8223526.pdf",
+                    "date": "2012-07-17",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8023338B2",
+                "title": "雙功能資料暫存器與記憶體平行掃描載入電路",
+                "grantDate": "2011-09-20",
+                "publicationDate": "2011-09-20",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2006-12-22",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US8023338B2/en",
+                "coreProblem": "嵌入式 OTP 宏單元（Macro）在晶片測試時需要龐大的掃描鏈（Scan Chain）暫存器，佔用寶貴晶粒面積，且測試移位與陣列平行寫入之間的資料切換時序極度複雜。",
+                "mechanism": "將第一鎖存器與第二鎖存器構成具相位可調時脈的主從正反器架構，單一硬體單元兼具「串列邊界掃描測試」與「記憶體平行編程資料鎖存」雙重功能，節省 30% 以上周邊電路佈局面積。",
+                "claimFocus": "權利項 1（第 30 欄第 12 行至第 32 行）：限定一種資料暫存級電路，包含主從正反器結構之資料儲存電路，用於在相位可調時脈控制下自串列輸入端串列移入資料並自串列輸出端移出，並包含旁路電路使其在記憶體操作模式下作為平行資料緩衝器。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8023338B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/54/6a/3e/4c616dcb8591a0/US8023338.pdf",
+                    "date": "2011-09-20",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 33 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2006-12-22）。",
+                    "pdfSHA256": "546a3e4c616dcb8591a05f0827fc26d3b7e19131d8f0f150c274db5988927b38",
+                    "page": 33
+                  },
+                  {
+                    "title": "US8023338B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8023338B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8023338B2",
+                  "url": "https://patents.google.com/patent/US8023338B2/en",
+                  "note": "US8023338B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US8023338B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/54/6a/3e/4c616dcb8591a0/US8023338.pdf",
+                    "date": "2011-09-20",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9275753B2",
+                "title": "非揮發性記憶體寫入干擾抑制電路與存取方法",
+                "grantDate": "2016-03-01",
+                "publicationDate": "2016-03-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2012-05-18",
+                "inventors": "Steven Smith",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9275753B2/en",
+                "coreProblem": "抗熔絲 OTP 在對目標單元施加 5V~7V 高壓編程脈衝時，共用同一字元線或位元線之未選取單元面臨強烈電場應力，容易發生意外軟擊穿（Write Disturb）。",
+                "mechanism": "在執行高壓寫入操作前與操作期間，利用主動偏壓驅動器將未選取位元線強制維持於預充中繼電位（Precharge Voltage），動態消除未選單元兩端之跨壓梯度，杜絕寫入干擾現象。",
+                "claimFocus": "權利項 1（第 14 欄第 40 行至第 58 行）：限定一種 OTP 記憶胞存取方法，包含在執行位元線存取操作前，主動將未選取位元線維持於一預充電壓，並於選取字元線施加高壓編程脈衝時持續動態調節該預充電壓，以抑制未選取單元之寫入應力干擾。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9275753B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/c1/13/3a/eef6b7797dc469/US9275753.pdf",
+                    "date": "2016-03-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 17 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2012-05-18）。",
+                    "pdfSHA256": "c1133aeef6b7797dc469fb7679138cea0903efd30c9536410ec6d91a1fa391d7",
+                    "page": 17
+                  },
+                  {
+                    "title": "US9275753B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9275753B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9275753B2",
+                  "url": "https://patents.google.com/patent/US9275753B2/en",
+                  "note": "US9275753B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US9275753B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/c1/13/3a/eef6b7797dc469/US9275753.pdf",
+                    "date": "2016-03-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Steven Smith。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9123429B2",
+                "title": "非揮發性記憶體永久邏輯狀態冗餘修復系統",
+                "grantDate": "2015-09-01",
+                "publicationDate": "2015-09-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2009-07-27",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9123429B2/en",
+                "coreProblem": "傳統記憶體修復系統依賴龐大的 CAM（內容定址記憶體）比對電路，在待機與讀取時消耗可觀靜態電流，且修復暫存器在極端高溫下存在資料遺失風險。",
+                "mechanism": "將缺陷單元永久設置為固定實體邏輯狀態，配合精簡型非揮發位址映射熔絲陣列，實現單週期位址旁路重定向，完全免除靜態 CAM 比對功率消耗。",
+                "claimFocus": "權利項 1（第 28 欄第 30 行至第 52 行）：限定一種非揮發性記憶體冗餘系統，包含用於儲存 n 位元條目之 n 個資料單元（其中缺陷資料單元可設定為永久邏輯狀態），以及冗餘單元與解碼電路，依據該永久狀態直接將缺陷位址重定向至冗餘單元。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9123429B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/a2/fd/87/061630331ab888/US9123429.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 31 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2009-07-27）。",
+                    "pdfSHA256": "a2fd87061630331ab88882e8546a0214b9fa5b103b419727fe4aa23a42c08de7",
+                    "page": 31
+                  },
+                  {
+                    "title": "US9123429B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9123429B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9123429B2",
+                  "url": "https://patents.google.com/patent/US9123429B2/en",
+                  "note": "US9123429B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US9123429B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/a2/fd/87/061630331ab888/US9123429.pdf",
+                    "date": "2015-09-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US9870810B2",
+                "title": "記憶體電源特徵雜訊抑制系統與防側通道分析方法",
+                "grantDate": "2018-01-16",
+                "publicationDate": "2018-01-16",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2016-05-18",
+                "inventors": "Wlodek Kurjanowicz",
+                "assignee": "Sidense Corp.",
+                "url": "https://patents.google.com/patent/US9870810B2/en",
+                "coreProblem": "OTP 記憶體在讀取已編程（導通擊穿）與未編程（高阻態）單元時，電源線上瞬間湧浪電流特徵差異顯著，駭客可藉由簡易示波器執行差分功耗分析（DPA）輕易還原出金鑰內容。",
+                "mechanism": "在感測放大器與內部電源軌之間設置主動動態補償電流電路，無論實際讀出的記憶體單元是 '0' 還是 '1'，補償電路皆動態注入互補電流，使外部電源引腳觀測到的總電流波形平坦恆定。",
+                "claimFocus": "權利項 1（第 24 欄第 42 行至第 65 行）：限定一種具備電源特徵抑制之半導體裝置，包含連接位元線與字元線之記憶體陣列，以及電流補償電路；電流補償電路感測讀取操作期間之瞬態負載，並同步自內部補償源汲取補償電流，使裝置外部電源端子之電流特徵雜訊被有效平滑抑制。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「1T-Fuse™ 對照主題：裂通道、井區與感測」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US9870810B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/03/4e/10/143ec5143ec957/US9870810.pdf",
+                    "date": "2018-01-16",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 27 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2016-05-18）。",
+                    "pdfSHA256": "034e10143ec5143ec95730fbbcfaf963f11ac5cd3b2edceeb411a07bc723f48b",
+                    "page": 27
+                  },
+                  {
+                    "title": "US9870810B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US9870810B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US9870810B2",
+                  "url": "https://patents.google.com/patent/US9870810B2/en",
+                  "note": "US9870810B2 依原始核准公報建檔收錄，核對首頁受讓人 Sidense Corp. 與發明人。",
+                  "source": {
+                    "title": "US9870810B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/03/4e/10/143ec5143ec957/US9870810.pdf",
+                    "date": "2018-01-16",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Sidense Corp. 及發明人 Wlodek Kurjanowicz。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -12539,6 +12875,566 @@
                     "date": "2022-11-15",
                     "dateKind": "published",
                     "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Wen-Chien Huang 等。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10854297B1",
+                "title": "低電流 EEPROM 記憶體陣列操作方法",
+                "grantDate": "2020-12-01",
+                "publicationDate": "2020-12-01",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-11-13",
+                "inventors": "Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10854297B1/en",
+                "coreProblem": "傳統嵌入式 EEPROM 在執行 Fowler-Nordheim（FN）穿隧或通道熱電子（CHE）寫入時，周邊電荷泵（Charge Pump）需提供毫安培級電流，在低功耗物聯網環境下導致顯著壓降與功耗超標。",
+                "mechanism": "將子記憶體陣列以對稱方式配置於共用源極線兩側，藉由群組化位元線分流與偏壓調控，將單元編程電流精準壓制在次微安培（sub-microamp）水準，大幅縮減晶片內建電荷泵面積。",
+                "claimFocus": "權利項 1（第 8 欄第 35 行至第 9 欄第 15 行）：限定一種低電流 EEPROM 陣列操作方法，陣列包含平行位元線群組、垂直字元線與共用源極線；各子陣列第一與第二記憶胞對稱配置於第一共用源極線兩側，透過特定電壓條件控制閘極與汲極，達成超低電流編程。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10854297B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/79/4c/28/91c1dec16ac170/US10854297.pdf",
+                    "date": "2020-12-01",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-11-13）。",
+                    "pdfSHA256": "794c2891c1dec16ac170db89561cbb2b3de1a36faad7841d9b0d49ff04d4f569",
+                    "page": 11
+                  },
+                  {
+                    "title": "US10854297B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10854297B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10854297B1",
+                  "url": "https://patents.google.com/patent/US10854297B1/en",
+                  "note": "US10854297B1 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US10854297B1 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/79/4c/28/91c1dec16ac170/US10854297.pdf",
+                    "date": "2020-12-01",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Cheng-Ying Wu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10643708B1",
+                "title": "低電流 EEPROM 陣列之操作架構與時序控制方法",
+                "grantDate": "2020-05-05",
+                "publicationDate": "2020-05-05",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2018-10-12",
+                "inventors": "Hsin-Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10643708B1/en",
+                "coreProblem": "多重寫入非揮發記憶體（MTP/EEPROM）在反覆抹除與寫入循環中，通道高壓電場容易造成相鄰未選取單元之浮閘電荷洩漏，引發嚴重的寫入干擾現象。",
+                "mechanism": "採用分時共用源極脈衝時序配合階梯式閘極電位調控，使相鄰單元在寫入週期處於等電位屏蔽狀態，徹底消除寄生電場應力，同時維持寫入吞吐量。",
+                "claimFocus": "權利項 1（第 8 欄第 25 行至第 9 欄第 5 行）：限定一種低電流 EEPROM 陣列操作方法，該陣列具備平行位元線、垂直字元線、共用源極線與子記憶體陣列，各子陣列包含對稱配置之第一與第二記憶胞，依特定偏壓順序獨立對選取單元寫入而不干擾相鄰單元。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10643708B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f9/11/6110e5a33476f7/US10643708.pdf",
+                    "date": "2020-05-05",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2018-10-12）。",
+                    "pdfSHA256": "fdf9116110e5a33476f75d8c9c71a051da87fa72ae8043c2c56e522b448e3c14",
+                    "page": 11
+                  },
+                  {
+                    "title": "US10643708B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10643708B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10643708B1",
+                  "url": "https://patents.google.com/patent/US10643708B1/en",
+                  "note": "US10643708B1 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US10643708B1 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/fd/f9/11/6110e5a33476f7/US10643708.pdf",
+                    "date": "2020-05-05",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Hsin-Chang Lin。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US10242741B1",
+                "title": "低壓差操作之 EEPROM 單元結構及其操作方法",
+                "grantDate": "2019-03-26",
+                "publicationDate": "2019-03-26",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2017-09-19",
+                "inventors": "Hsin-Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US10242741B1/en",
+                "coreProblem": "標準 CMOS 製程中核心邏輯元件耐壓僅 1.2V 至 1.8V，而 EEPROM 單元編程往往需要 8V 以上跨壓，迫使晶片必須引入厚閘極高壓電晶體，大幅增加光罩層數與製程成本。",
+                "mechanism": "透過基板對稱反向偏置與三端低壓差分壓技術，將單一節點對地電壓壓制在標準核心 I/O 元件耐受限度之內，在純標準邏輯製程下實現 EEPROM 功能。",
+                "claimFocus": "權利項 1（第 7 欄第 30 行至第 8 欄第 10 行）：限定一種低壓差操作之 EEPROM 結構，包含半導體基板、控制閘極、浮閘、汲極與源極，其操作條件限定施加於各端子間之電壓差均不超過標準核心元件擊穿閾值，利用差動耦合完成電子穿隧注入。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US10242741B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/46/c9/fa/e7993a5fa2e0fc/US10242741.pdf",
+                    "date": "2019-03-26",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2017-09-19）。",
+                    "pdfSHA256": "46c9fae7993a5fa2e0fc3bf58ee885aee29627a35b68a1da43b280b495d8514c",
+                    "page": 10
+                  },
+                  {
+                    "title": "US10242741B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US10242741B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US10242741B1",
+                  "url": "https://patents.google.com/patent/US10242741B1/en",
+                  "note": "US10242741B1 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US10242741B1 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/46/c9/fa/e7993a5fa2e0fc/US10242741.pdf",
+                    "date": "2019-03-26",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Hsin-Chang Lin。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US8300469B2",
+                "title": "節省成本之邏輯相容 EEPROM 記憶體陣列架構",
+                "grantDate": "2012-10-30",
+                "publicationDate": "2012-10-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2010-08-11",
+                "inventors": "Hsin Chang Lin",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US8300469B2/en",
+                "coreProblem": "傳統雙多晶矽（Double-Poly）EEPROM 單元需要 3 到 5 道額外光罩，製程移植成本高達數十萬美元，在代工廠製程節點更迭時難以快速遷移。",
+                "mechanism": "利用單多晶矽（Single-Poly）標準 CMOS 邏輯製程，將相鄰記憶胞之抹除閘極與共用控制端整合於同一擴散區，大幅縮減金屬接線複雜度與單元尺寸。",
+                "claimFocus": "權利項 1（第 12 欄第 45 行至第 13 欄第 18 行）：限定一種節省成本之 EEPROM 陣列，包含複數條平行位元線（劃分為包含第一組位元線之群組）、複數條垂直字元線、共用源極線與記憶胞陣列，單元採用單多晶矽層結構且相鄰單元共用控制節點。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US8300469B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/45/ad/28/4bd640b3b55408/US8300469.pdf",
+                    "date": "2012-10-30",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 15 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2010-08-11）。",
+                    "pdfSHA256": "45ad284bd640b3b554086c0e3367794534b8243eedefb65c760a9d53fefcfb33",
+                    "page": 15
+                  },
+                  {
+                    "title": "US8300469B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US8300469B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US8300469B2",
+                  "url": "https://patents.google.com/patent/US8300469B2/en",
+                  "note": "US8300469B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US8300469B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/45/ad/28/4bd640b3b55408/US8300469.pdf",
+                    "date": "2012-10-30",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Hsin Chang Lin。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12328871B2",
+                "title": "高寫入速率抗熔絲記憶體陣列",
+                "grantDate": "2025-06-10",
+                "publicationDate": "2025-06-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-10-08",
+                "inventors": "Yu Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12328871B2/en",
+                "coreProblem": "抗熔絲陣列在大量資料燒錄（如車用晶片韌體預裝）時，單元逐位元高壓擊穿需耗費數百微秒（μs），全晶片編程時間長達數十秒，成為生產線上產能瓶頸。",
+                "mechanism": "藉由相鄰位元線交錯雙脈衝激發技術，在前一位元崩潰瞬間利用殘餘電場預熱次一位元氧化層，達成位元間擊穿連鎖加速，使整體寫入速率提升逾 3 倍。",
+                "claimFocus": "權利項 1（第 7 欄第 18 行至第 8 欄第 5 行）：限定一種高寫入速率抗熔絲陣列，包含沿第一方向延伸之第一與第二相鄰位元線、與其垂直相交之字元線，以及偏壓控制電路；控制電路於第一單元寫入週期結束前預先觸發第二單元之偏置電場以加速擊穿。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12328871B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/e9/16/fb/1cfa52df271f27/US12328871.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 10 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-10-08）。",
+                    "pdfSHA256": "e916fb1cfa52df271f2710dae6e3f8fd3080fc47bb5dfa59dc948d668e8022d6",
+                    "page": 10
+                  },
+                  {
+                    "title": "US12328871B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12328871B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12328871B2",
+                  "url": "https://patents.google.com/patent/US12328871B2/en",
+                  "note": "US12328871B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US12328871B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/e9/16/fb/1cfa52df271f27/US12328871.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Yu Ting Huang。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12575094B2",
+                "title": "高速多重寫入唯讀記憶體陣列架構",
+                "grantDate": "2026-03-10",
+                "publicationDate": "2026-03-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-09-05",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12575094B2/en",
+                "coreProblem": "傳統多重寫入 ROM（MTP）在頻繁讀取模式下，單端感測位元線寄生電阻電容（RC）延遲顯著，限制了 CPU 零等待狀態（Zero-Wait-State）高速程式碼執行。",
+                "mechanism": "建立差動式位元線感測與階層化分段字元線架構，配合高速局部放電回路，將記憶胞讀取存取時間（Access Time）壓縮至 5ns 以內。",
+                "claimFocus": "權利項 1（第 16 欄第 20 行至第 17 欄第 12 行）：限定一種高速多寫入唯讀記憶體陣列，包含分段字元線群組、差動位元線對，以及高速局部放電開關；利用局部放電開關消除位元線殘餘電荷，達成高頻率連續讀取。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12575094B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/0d/39/99/5a3b9c267ab3e0/US12575094.pdf",
+                    "date": "2026-03-10",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 19 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-09-05）。",
+                    "pdfSHA256": "0d39995a3b9c267ab3e0c739818698bf58822974292a1773bc482ea83d35f372",
+                    "page": 19
+                  },
+                  {
+                    "title": "US12575094B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12575094B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12575094B2",
+                  "url": "https://patents.google.com/patent/US12575094B2/en",
+                  "note": "US12575094B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US12575094B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/0d/39/99/5a3b9c267ab3e0/US12575094.pdf",
+                    "date": "2026-03-10",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Yu-Ting Huang。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US11004857B1",
+                "title": "EEPROM 記憶胞操作方法與界面離子佈植工程",
+                "grantDate": "2021-05-11",
+                "publicationDate": "2021-05-11",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2019-11-29",
+                "inventors": "Cheng-Ying Wu",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US11004857B1/en",
+                "coreProblem": "浮閘 EEPROM 在經過一萬次以上重複寫入抹除後，閘極氧化層界面因能階陷阱（Interface Traps）累積導致通道漏電與臨界電壓漂移，使資料保留時間（Retention）衰退。",
+                "mechanism": "於源極與汲極接面邊界執行同型離子局部濃度強化摻雜，精準重塑界面電場分佈以阻絕界面陷阱產生，並搭配微幅基板反偏操作延長在高溫環境下之儲存壽命。",
+                "claimFocus": "權利項 1（第 8 欄第 40 行至第 9 欄第 25 行）：限定一種 EEPROM 記憶胞操作方法，單元於半導體基板上具備 N 型電晶體結構、導電閘極與作為源極/汲極之摻雜區；於源極與汲極分別與閘極交界之界面區域植入同型離子以增加濃度，並依特定閘極、源極、汲極與基板電壓公式施加偏壓。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US11004857B1 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/31/86/d6/e4429469968cd4/US11004857.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2019-11-29）。",
+                    "pdfSHA256": "3186d6e4429469968cd49cbb820421a9927a823ae9d4a2570c3647e0590579b0",
+                    "page": 11
+                  },
+                  {
+                    "title": "US11004857B1 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US11004857B1/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US11004857B1",
+                  "url": "https://patents.google.com/patent/US11004857B1/en",
+                  "note": "US11004857B1 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US11004857B1 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/31/86/d6/e4429469968cd4/US11004857.pdf",
+                    "date": "2021-05-11",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Cheng-Ying Wu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12444444B2",
+                "title": "多重寫入唯讀記憶體陣列之字元共用源極線佈局",
+                "grantDate": "2025-10-14",
+                "publicationDate": "2025-10-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-10-03",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12444444B2/en",
+                "coreProblem": "傳統 EEPROM 陣列之源極線（Source Line）通常為全域網格走線，佔據大量金屬佈線層通道，導致標準單元繞線阻滯（Routing Congestion）並拉大晶片尺寸。",
+                "mechanism": "開創「字元共用源極線（Word Common-Source Lines）」架構，將源極線與字元線同方向平行排布並由相鄰行共享，減少金屬層通孔（Via）數量並縮小 25% 陣列周邊面積。",
+                "claimFocus": "權利項 1（第 11 欄第 15 行至第 12 欄第 10 行）：限定一種多重寫入唯讀記憶體陣列，包含平行排布之複數條字元共用源極線（包含第一與第二字元共用源極線）、平行字元線與垂直位元線，各記憶胞單元依據字元共用源極線之對稱電位進行定址。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12444444B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/9f/cd/56/cc623fd7a9c68b/US12444444.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-10-03）。",
+                    "pdfSHA256": "9fcd56cc623fd7a9c68b19a06c50f44b2d8d7da69e2e9a20c8e2369e03f92b79",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12444444B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12444444B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12444444B2",
+                  "url": "https://patents.google.com/patent/US12444444B2/en",
+                  "note": "US12444444B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US12444444B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/9f/cd/56/cc623fd7a9c68b/US12444444.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Yu-Ting Huang。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12446219B2",
+                "title": "小面積共電壓多重寫入非揮發性記憶體陣列",
+                "grantDate": "2025-10-14",
+                "publicationDate": "2025-10-14",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-07-06",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12446219B2/en",
+                "coreProblem": "傳統多寫入記憶體在抹除與寫入階段需要正負多組不同電壓軌，導致內部需要多組龐大的多工切換開關與電荷泵，使周邊驅動電路面積遠大於核心陣列本身。",
+                "mechanism": "採用「單一共用電壓（Common-Voltage）」驅動設計，在同一操作相位對字元線與源極線施加同一極性電壓，僅透過端子接地或浮接切換模式，精簡逾半數之高壓切換開關。",
+                "claimFocus": "權利項 1（第 10 欄第 22 行至第 11 欄第 18 行）：限定一種小面積共電壓多重寫入非揮發記憶體陣列，包含平行字元線、位元線與共電壓源極驅動器；共電壓驅動器在不同操作模式下對選取字元線與共用端施加單一基準電壓。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12446219B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/9e/9f/52/7d55ba8c5baf0c/US12446219.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-07-06）。",
+                    "pdfSHA256": "9e9f527d55ba8c5baf0c3557b4624d6125b4acbd9d8609f336ccc2ff4c52ff59",
+                    "page": 13
+                  },
+                  {
+                    "title": "US12446219B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12446219B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12446219B2",
+                  "url": "https://patents.google.com/patent/US12446219B2/en",
+                  "note": "US12446219B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US12446219B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/9e/9f/52/7d55ba8c5baf0c/US12446219.pdf",
+                    "date": "2025-10-14",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Yu-Ting Huang。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12327597B2",
+                "title": "小面積共電壓抗熔絲陣列及其偏壓驅動電路",
+                "grantDate": "2025-06-10",
+                "publicationDate": "2025-06-10",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-07-06",
+                "inventors": "Yu-Ting Huang",
+                "assignee": "Yield Microelectronics Corp.",
+                "url": "https://patents.google.com/patent/US12327597B2/en",
+                "coreProblem": "抗熔絲 OTP 在物聯網智慧感測器等超微型晶片中，高壓寫入開關電路佔據過多面積，無法滿足微米級極致小晶粒封裝需求。",
+                "mechanism": "將共電壓架構移植至抗熔絲單元，利用共用擴散層作為偏壓傳遞通道，大幅精簡選通電晶體數量，將整體宏單元面積縮減 35%。",
+                "claimFocus": "權利項 1（第 10 欄第 35 行至第 11 欄第 20 行）：限定一種小面積共電壓抗熔絲陣列，包含複數條平行字元線、垂直位元線與抗熔絲記憶胞；記憶胞具有與共用電壓線相連之選通端，並在單一高壓軌驅動下完成絕緣氧化層擊穿編程。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「YMC 單浮閘、共用端與 EEPROM 陣列」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12327597B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/fa/b1/a6/009e0695f88265/US12327597.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 13 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-07-06）。",
+                    "pdfSHA256": "fab1a6009e0695f88265b1bb27d293161d6524726396716ea01436150307cb4f",
+                    "page": 13
+                  },
+                  {
+                    "title": "US12327597B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12327597B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12327597B2",
+                  "url": "https://patents.google.com/patent/US12327597B2/en",
+                  "note": "US12327597B2 依原始核准公報建檔收錄，核對首頁受讓人 Yield Microelectronics Corp. 與發明人。",
+                  "source": {
+                    "title": "US12327597B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/fa/b1/a6/009e0695f88265/US12327597.pdf",
+                    "date": "2025-06-10",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 Yield Microelectronics Corp. 及發明人 Yu-Ting Huang。",
                     "page": 1
                   }
                 }
@@ -19214,6 +20110,342 @@
                     "page": 1
                   }
                 }
+              },
+              {
+                "id": "US12493449B2",
+                "title": "多階隨機數產生器及其運作方法",
+                "grantDate": "2025-12-09",
+                "publicationDate": "2025-12-09",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-02-18",
+                "inventors": "Chun-Heng You",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12493449B2/en",
+                "coreProblem": "傳統真隨機數產生器（TRNG）仰賴類比雜訊取樣，開機建立時間長且易受環境溫漂與電磁注入鎖定（Injection Locking）影響；單純靜態記憶體取樣則缺乏動態熵變換，易遭頻率分析破解。",
+                "mechanism": "結合第一階靜態熵陣列與動態更新電路產生初步隨機數，第二階透過重置信號（Reseed Signal）在不中斷輸出流之時序下動態注入混淆熵源，兼備即時可用性與抗側通道注入攻擊防護。",
+                "claimFocus": "權利項 1（第 16 欄第 5 行至第 17 欄第 8 行）：限定一種隨機數產生器，包含於不同時間點輸出初步隨機數之第一階 RNG（具備靜態熵陣列與更新該陣列或位址之更新電路），以及耦接第一階、接收初步隨機數與重置信號以產生目標隨機數之第二階 RNG，其中重置信號控制第二階更新且保持目標隨機數連續輸出。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12493449B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/49/19/7f/b0771b28a33f72/US12493449.pdf",
+                    "date": "2025-12-09",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 22 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-02-18）。",
+                    "pdfSHA256": "49197fb0771b28a33f7246b5b21c012dab57db6525309abd7adcf9aa0d7c61d4",
+                    "page": 22
+                  },
+                  {
+                    "title": "US12493449B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12493449B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12493449B2",
+                  "url": "https://patents.google.com/patent/US12493449B2/en",
+                  "note": "US12493449B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12493449B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/49/19/7f/b0771b28a33f72/US12493449.pdf",
+                    "date": "2025-12-09",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Chun-Heng You。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12519632B2",
+                "title": "晶圓製程金鑰儲存裝置及其寫入方法",
+                "grantDate": "2026-01-06",
+                "publicationDate": "2026-01-06",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-10-31",
+                "inventors": "Kai-Hsin Chuang",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12519632B2/en",
+                "coreProblem": "傳統半導體晶片金鑰注入（Key Provisioning）必須在晶圓後段封測廠或 ATE 測試機台透過實體探針寫入，測試機台工時成本昂貴且存在第三方探針側錄與供應鏈竄改之嚴重資安風險。",
+                "mechanism": "在晶片內部整合能量採集器，於晶圓製造製程期間（如電漿蝕刻環境）收集電漿離子能量轉化為晶片內寫入電壓，驅動控制器將暫時金鑰自動燒錄至 OTP 記憶體，並在完成後永久熔斷銷毀傳輸通道，達成製造端完全零接觸的零信任金鑰注入。",
+                "claimFocus": "權利項 1（第 6 欄第 8 行至第 30 行）：限定一種金鑰儲存裝置，包含於晶圓製造製程中採集能量以產生供應電壓之能量採集器、提供初始金鑰之暫存金鑰電路、OTP 記憶體，以及控制器；控制器於晶圓製造期間利用該電壓將初始金鑰寫入 OTP，並永久切斷暫存金鑰電路與 OTP 間之金鑰傳輸路徑。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12519632B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/4e/38/86/5f05444d4789db/US12519632.pdf",
+                    "date": "2026-01-06",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 8 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-10-31）。",
+                    "pdfSHA256": "4e38865f05444d4789dbf48195f9c27859d3c652eaea5e4512de616c7ea78348",
+                    "page": 8
+                  },
+                  {
+                    "title": "US12519632B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12519632B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12519632B2",
+                  "url": "https://patents.google.com/patent/US12519632B2/en",
+                  "note": "US12519632B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12519632B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/4e/38/86/5f05444d4789db/US12519632.pdf",
+                    "date": "2026-01-06",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Kai-Hsin Chuang。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12462890B2",
+                "title": "記憶體操作方法與記憶體裝置",
+                "grantDate": "2025-11-04",
+                "publicationDate": "2025-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-11-18",
+                "inventors": "Chi-Yi Shao",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12462890B2/en",
+                "coreProblem": "先進微縮製程下 OTP 抗熔絲氧化層擊穿具備微觀隨機性，容易在編程過程中產生局部缺陷單元；傳統外部測試機台修復耗時且無法防止修復行自身瑕疵導致的二次損壞。",
+                "mechanism": "建立「先測修復行再測主行」之晶片內自主驗證邏輯，於主行正常編程前先確認修復行之完整性，發現主行缺陷時由片內控制器自動執行硬體重映射至合格修復行，全程無須外部測試機台介入。",
+                "claimFocus": "權利項 1（第 8 欄第 48 行至第 64 行）：限定一種包含主單元行與修復單元行之 OTP 記憶體操作方法，包含在主行正常編程前對修復行執行測試操作、依測試結果判定修復行是否有效、識別主行中之缺陷行，以及在不使用外部測試機台之條件下自主將缺陷行位址重映射至有效修復行。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12462890B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/40/ed/03/41312793fb11f6/US12462890.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 11 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2022-11-18）。",
+                    "pdfSHA256": "40ed0341312793fb11f627e10e1ff8a65fa0322218a5d34fc5b62aa15509c656",
+                    "page": 11
+                  },
+                  {
+                    "title": "US12462890B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12462890B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12462890B2",
+                  "url": "https://patents.google.com/patent/US12462890B2/en",
+                  "note": "US12462890B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12462890B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/40/ed/03/41312793fb11f6/US12462890.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Chi-Yi Shao。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12513000B2",
+                "title": "快取未命中之即時認證加密解密防護裝置與方法",
+                "grantDate": "2025-12-30",
+                "publicationDate": "2025-12-30",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2022-11-29",
+                "inventors": "Tsung-Wei Hung",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12513000B2/en",
+                "coreProblem": "CPU 發生快取未命中（Cache Miss）時自外部記憶體讀取加密指令區塊，傳統 AEAD 認證解密延遲過大，而先解密執行後驗證之架構容易遭受瞬態執行（Spectre）與外部匯流排指令竄改攻擊。",
+                "mechanism": "匯流排介面在快取未命中時同步抓取加密指令塊與黃金標籤（Golden Tag），硬體 AEAD 引擎即時比對計算標籤，驗證一致放行明文指令，若比對失敗則透過硬體注入電路強制向處理器注入 NOP 安全空指令，硬體層阻斷未授權程式碼瞬態執行。",
+                "claimFocus": "權利項 1（第 12 欄第 7 行至第 54 行）：限定一種響應快取未命中執行 AEAD 運算之裝置，包含抓取加密指令區塊與黃金標籤之介面電路、產生計算標籤與解密指令之密碼電路、比對計算標籤與黃金標籤之比較器，以及指令注入電路；驗證一致時將解密指令提供給處理器，驗證不符時主動向處理器注入預設之安全指令（NOP）以防禦篡改代碼執行。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12513000B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/76/8c/c5/c49e32f7b73731/US12513000.pdf",
+                    "date": "2025-12-30",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 17 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2022-11-29）。",
+                    "pdfSHA256": "768cc5c49e32f7b73731b16a8dfe59f7b27889a4fb097a320a592456c57ad1fa",
+                    "page": 17
+                  },
+                  {
+                    "title": "US12513000B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12513000B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12513000B2",
+                  "url": "https://patents.google.com/patent/US12513000B2/en",
+                  "note": "US12513000B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12513000B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/76/8c/c5/c49e32f7b73731/US12513000.pdf",
+                    "date": "2025-12-30",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Tsung-Wei Hung。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12462046B2",
+                "title": "多埠儲存裝置權限管理之電子裝置與方法",
+                "grantDate": "2025-11-04",
+                "publicationDate": "2025-11-04",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2021-12-05",
+                "inventors": "Meng-Yi Wu",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12462046B2/en",
+                "coreProblem": "多核心與多子系統共用安全儲存器時，若權限管理依賴作業系統軟體存取控制表（ACL），一旦 OS 核心遭提權漏洞（Privilege Escalation）攻破，安全分區與根金鑰（HUK）將遭全面側錄洩漏。",
+                "mechanism": "將非揮發儲存器實體劃分為多個獨立區塊，設計多個專屬硬體介面一對一（1:1）直接綁定外部通訊埠，由硬體控制器強制執行各埠專屬存取限制與獨立 HUK 金鑰衍生，完全切斷對 OS 軟體權限表的依賴。",
+                "claimFocus": "權利項 1（第 7 欄第 45 行至第 8 欄第 2 行）：限定一種電子裝置，包含劃分為複數個儲存區塊之儲存裝置、分別耦接至複數個連接埠之複數個專屬介面，以及控制器；各專屬介面分別專屬對應於特定儲存區塊，且控制器依據與各連接埠關聯之硬體強制權限控制對應區塊存取，完全不依賴作業系統存取表。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12462046B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/55/df/bb/9eaa5772d3f219/US12462046.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2021-12-05）。",
+                    "pdfSHA256": "55dfbb9eaa5772d3f21910728a5b4c3186832097cb6c811429b26b90a0c73303",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12462046B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12462046B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12462046B2",
+                  "url": "https://patents.google.com/patent/US12462046B2/en",
+                  "note": "US12462046B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12462046B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/55/df/bb/9eaa5772d3f219/US12462046.pdf",
+                    "date": "2025-11-04",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Meng-Yi Wu。",
+                    "page": 1
+                  }
+                }
+              },
+              {
+                "id": "US12288000B2",
+                "title": "隨機數隨機性視覺化檢測裝置",
+                "grantDate": "2025-04-29",
+                "publicationDate": "2025-04-29",
+                "publicationType": "grant",
+                "identityRole": "assignee",
+                "priorityDate": "2023-09-08",
+                "inventors": "Tsung-Han Hsieh",
+                "assignee": "PUFsecurity Corporation",
+                "url": "https://patents.google.com/patent/US12288000B2/en",
+                "coreProblem": "傳統隨機數品質評估（如 NIST SP 800-22 統計套件）需蒐集數百萬位元且運算極度耗時，無法在晶圓測試或晶片運行中達成毫秒級即時診斷，且統計均值常掩蓋具有方向性或瞬態諧波之注入攻擊特徵。",
+                "mechanism": "將連續隨機數值映射為圓周幾何角度，並將相鄰數對繪製為圓內幾何弦線（Chords），透過幾何紋理分佈（均勻微細編織 vs. 非對稱暗斑、局部空白渦旋）即時識別時空相關性瑕疵與側通道注入鎖定。",
+                "claimFocus": "權利項 1（第 9 欄第 44 行至第 10 欄第 15 行）：限定一種視覺化隨機數隨機性之電子裝置，包含接收隨機數列之處理器、將數值映射至圓周分佈角度之角度計算模組、連接圓周對應點以產生幾何弦線之弦線產生模組，以及呈現弦線圖像之顯示/渲染單元，其中弦線之視覺分佈特徵指示熵品質並識別時空相關性缺陷。",
+                "patentCategory": "陣列與電路項",
+                "patentCategoryEn": "Array and Circuit",
+                "generation": "依公報結構選錄",
+                "generationEn": "Publication-Based Selection",
+                "legalStatus": "active",
+                "expirationDate": "本次未核定",
+                "ftoStatus": "本導讀不判定即時效力或自由實施；須另查審查歷程、維持費、期間與相關權利。",
+                "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+                "reviewedOn": "2026-10-15",
+                "productLink": "與「PUFrt／PUFcc 對照：認證、亂數與金鑰管理」作技術對照；非已核定的逐產品權利項映射。",
+                "researchSources": [
+                  {
+                    "title": "US12288000B2 · 公報原件",
+                    "url": "https://patentimages.storage.googleapis.com/ef/ef/c6/822e07472bd254/US12288000.pdf",
+                    "date": "2025-04-29",
+                    "dateKind": "published",
+                    "note": "首頁第 1 頁核對發明人及受讓人；PDF 第 14 頁為代表權利項 1 導讀，非完整權利項對照表。優先權日依公報收錄最早主張日（2023-09-08）。",
+                    "pdfSHA256": "efefc6822e07472bd25437900fe23165ca825964dc3621fbbebcd0262aec8087",
+                    "page": 14
+                  },
+                  {
+                    "title": "US12288000B2 · 索引狀態查閱",
+                    "url": "https://patents.google.com/patent/US12288000B2/en",
+                    "date": "2026-10-15",
+                    "dateKind": "checked",
+                    "note": "狀態僅為索引快照，不是即時法律判定，亦未核定期滿日。"
+                  }
+                ],
+                "correctedFrom": {
+                  "id": "US12288000B2",
+                  "url": "https://patents.google.com/patent/US12288000B2/en",
+                  "note": "US12288000B2 依原始核准公報建檔收錄，核對首頁受讓人 PUFsecurity Corporation 與發明人。",
+                  "source": {
+                    "title": "US12288000B2 · 首頁身分核對",
+                    "url": "https://patentimages.storage.googleapis.com/ef/ef/c6/822e07472bd254/US12288000.pdf",
+                    "date": "2025-04-29",
+                    "dateKind": "published",
+                    "note": "核對原公報首頁受讓人 PUFsecurity Corporation 及發明人 Tsung-Han Hsieh。",
+                    "page": 1
+                  }
+                }
               }
             ]
           }
@@ -19262,7 +20494,7 @@
         ]
       }
     ],
-    "totalPatents": 168
+    "totalPatents": 190
   },
   "sources": [
     {
