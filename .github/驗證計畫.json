@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "8f96d3f3f4f22971ee24835378787143bc9d2b1e",
+  "baseCommit": "a1a24eeab086c29d73c6715a065d4386b6bfa7c7",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -22,6 +22,8 @@
       "changes": [
         "data/nvm-knowledge-data-en.json",
         "data/nvm-knowledge-data.json",
+        "data/nvm-technology-topics-en.md",
+        "data/nvm-technology-topics.md",
         "data/nvm-vendor-patent-maps-en.json",
         "data/nvm-vendor-patent-maps.json",
         "nvm-technology-atlas-zh.html",
@@ -40,7 +42,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 8 純 OTP 廠商（Attopsemi、Kilopass）共 88 件專利全面深度收錄，達成兩大純 OTP 廠商 100% 普查收錄零遺漏",
+      "reason": "驗證 Stage 9 力旺電子（eMemory）旗艦專利 26 件全面深度收錄（NeoBit、NeoFuse、NeoEE、NeoMTP、NeoPUF 核心專利），全庫總數躍升至 347 件",
       "prepare": [
         "node"
       ],
