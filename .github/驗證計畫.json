@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "52e39390cb428f88b9fbd7c515b0cfe045f728f1",
+  "baseCommit": "f32b38f418e58389d63e3d31a4b6d77949d8f63c",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -40,7 +40,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 4 全收錄 eMemory、Attopsemi、Sidense、Floadia、SST 關鍵核心電路專利補齊後專利地圖與衍生檔案內容之一致性",
+      "reason": "驗證 Stage 5 純 IP 廠商 PUFsecurity、Weebit Nano、Sidense、YMC 關鍵核心電路與元件物理專利補齊後專利地圖與衍生檔案內容之一致性",
       "prepare": [
         "node"
       ],
