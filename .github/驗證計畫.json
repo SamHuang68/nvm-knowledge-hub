@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "bfbb4478400ea476352926fec092ec945382bb4d",
+  "baseCommit": "d910528af54718ba9503036cd17ec44dbb29a41a",
   "documentation": [
     "data/nvm-technology-topics.md",
     "data/nvm-technology-topics-en.md"
@@ -42,7 +42,7 @@
         "package.json",
         "package-lock.json"
       ],
-      "reason": "驗證 Stage 11 力旺電子（eMemory）先進節點、存內計算（CiM）與車規/PUF 專利 25 件擴充，力旺達到 75 件，全庫專利總數躍升至 397 件",
+      "reason": "驗證 Stage 12 新興記憶體雙雄（Everspin MRAM 25 件 + SST SuperFlash/memBrain 25 件）共 50 件專利擴充，兩家各達 50 件，全庫專利總數躍升至 447 件",
       "prepare": [
         "node"
       ],

@@ -19587,6 +19587,1406 @@
                   "page": 1
                 }
               }
+            },
+            {
+              "id": "US11087207B2",
+              "title": "Decoders for analog neural memory in deep learning artificial neural network",
+              "grantDate": "2018-05-29",
+              "publicationDate": "2018-05-29",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-05-29",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11087207B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11087207B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/fa/75/8d/59998d97728cdb/US11087207.pdf",
+                  "date": "2018-05-29",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 56 provides representative Claim 1 reading. Earliest claimed priority date: 2018-05-29.",
+                  "pdfSHA256": "fa758d59998d97728cdb00cc60df22b3a2a82a288752486002aaa03efd75fe48",
+                  "page": 56
+                },
+                {
+                  "title": "US11087207B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11087207B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11087207B2",
+                "url": "https://patents.google.com/patent/US11087207B2/en",
+                "note": "US11087207B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11087207B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/fa/75/8d/59998d97728cdb/US11087207.pdf",
+                  "date": "2018-05-29",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10741568B2",
+              "title": "Precision tuning for the programming of analog neural memory in a deep learning &hellip;",
+              "grantDate": "2018-12-21",
+              "publicationDate": "2018-12-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-12-21",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10741568B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10741568B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/ef/5a/22/f2610fd7ecaa79/US10741568.pdf",
+                  "date": "2018-12-21",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 57 provides representative Claim 1 reading. Earliest claimed priority date: 2018-12-21.",
+                  "pdfSHA256": "ef5a22f2610fd7ecaa79f00325b9c094654ec788e35e4342a6fc548e23989204",
+                  "page": 57
+                },
+                {
+                  "title": "US10741568B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10741568B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10741568B2",
+                "url": "https://patents.google.com/patent/US10741568B2/en",
+                "note": "US10741568B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10741568B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/ef/5a/22/f2610fd7ecaa79/US10741568.pdf",
+                  "date": "2018-12-21",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11423979B2",
+              "title": "Decoding system and physical layout for analog neural memory in deep learning &hellip;",
+              "grantDate": "2019-07-03",
+              "publicationDate": "2019-07-03",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-07-03",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11423979B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11423979B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cb/91/b7/99d3cb6298e044/US11423979.pdf",
+                  "date": "2019-07-03",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 61 provides representative Claim 1 reading. Earliest claimed priority date: 2019-07-03.",
+                  "pdfSHA256": "cb91b799d3cb6298e0446c91bd8f665829e55ee63a3d98c0762b27b5e13c7e6a",
+                  "page": 61
+                },
+                {
+                  "title": "US11423979B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11423979B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11423979B2",
+                "url": "https://patents.google.com/patent/US11423979B2/en",
+                "note": "US11423979B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11423979B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cb/91/b7/99d3cb6298e044/US11423979.pdf",
+                  "date": "2019-07-03",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10650893B2",
+              "title": "Adjustable current sink to draw compensation current from high voltage &hellip;",
+              "grantDate": "2019-08-25",
+              "publicationDate": "2019-08-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-08-25",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10650893B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10650893B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/04/ec/16/b621a70f89ae17/US10650893.pdf",
+                  "date": "2019-08-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 50 provides representative Claim 1 reading. Earliest claimed priority date: 2019-08-25.",
+                  "pdfSHA256": "04ec16b621a70f89ae17b6e2287dab7d652befb9106ce9851f00d1fa7c98763a",
+                  "page": 50
+                },
+                {
+                  "title": "US10650893B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10650893B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10650893B2",
+                "url": "https://patents.google.com/patent/US10650893B2/en",
+                "note": "US10650893B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10650893B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/04/ec/16/b621a70f89ae17/US10650893.pdf",
+                  "date": "2019-08-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11500442B2",
+              "title": "System for converting neuron current into neuron current-based time pulses in &hellip;",
+              "grantDate": "2019-03-14",
+              "publicationDate": "2019-03-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-03-14",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11500442B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11500442B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/5e/d8/00/90d6594a9c6f3d/US11500442.pdf",
+                  "date": "2019-03-14",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 79 provides representative Claim 1 reading. Earliest claimed priority date: 2019-03-14.",
+                  "pdfSHA256": "5ed80090d6594a9c6f3de5492efe6140126abc35e3b3fba12182e57e9598b914",
+                  "page": 79
+                },
+                {
+                  "title": "US11500442B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11500442B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11500442B2",
+                "url": "https://patents.google.com/patent/US11500442B2/en",
+                "note": "US11500442B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11500442B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/5e/d8/00/90d6594a9c6f3d/US11500442.pdf",
+                  "date": "2019-03-14",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12353503B2",
+              "title": "Output array neuron conversion and calibration for analog neural memory in deep &hellip;",
+              "grantDate": "2019-06-21",
+              "publicationDate": "2019-06-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-06-21",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US12353503B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US12353503B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/ae/5a/8f/9c8b5b5305cf89/US12353503.pdf",
+                  "date": "2019-06-21",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 62 provides representative Claim 1 reading. Earliest claimed priority date: 2019-06-21.",
+                  "pdfSHA256": "ae5a8f9c8b5b5305cf895ff66c86f5482ac8df4bd4e90efabecfe9ef74ba1ba6",
+                  "page": 62
+                },
+                {
+                  "title": "US12353503B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US12353503B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12353503B2",
+                "url": "https://patents.google.com/patent/US12353503B2/en",
+                "note": "US12353503B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US12353503B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/ae/5a/8f/9c8b5b5305cf89/US12353503.pdf",
+                  "date": "2019-06-21",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10297327B2",
+              "title": "Sensing amplifier comprising fully depleted silicon-on-insulator transistors &hellip;",
+              "grantDate": "2018-04-12",
+              "publicationDate": "2018-04-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-04-12",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10297327B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10297327B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/86/55/ec/ec5c3411fe711d/US10297327.pdf",
+                  "date": "2018-04-12",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 30 provides representative Claim 1 reading. Earliest claimed priority date: 2018-04-12.",
+                  "pdfSHA256": "8655ecec5c3411fe711d3a4965b7a28085d92b0a592f33458a3a85fb6ab55d7e",
+                  "page": 30
+                },
+                {
+                  "title": "US10297327B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10297327B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10297327B2",
+                "url": "https://patents.google.com/patent/US10297327B2/en",
+                "note": "US10297327B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10297327B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/86/55/ec/ec5c3411fe711d/US10297327.pdf",
+                  "date": "2018-04-12",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11449741B2",
+              "title": "Testing circuitry and methods for analog neural memory in artificial neural &hellip;",
+              "grantDate": "2019-09-12",
+              "publicationDate": "2019-09-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-09-12",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11449741B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11449741B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f8/8f/50/c639a8acd1ab16/US11449741.pdf",
+                  "date": "2019-09-12",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 57 provides representative Claim 1 reading. Earliest claimed priority date: 2019-09-12.",
+                  "pdfSHA256": "f88f50c639a8acd1ab1698af7f14381c83bfcb394bfd59bf61760c6a8abeb60b",
+                  "page": 57
+                },
+                {
+                  "title": "US11449741B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11449741B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11449741B2",
+                "url": "https://patents.google.com/patent/US11449741B2/en",
+                "note": "US11449741B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11449741B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f8/8f/50/c639a8acd1ab16/US11449741.pdf",
+                  "date": "2019-09-12",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11507816B2",
+              "title": "Precision tuning for the programming of analog neural memory in a deep learning &hellip;",
+              "grantDate": "2019-09-19",
+              "publicationDate": "2019-09-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-09-19",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11507816B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11507816B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/fd/62/80/fe25c5496e680c/US11507816.pdf",
+                  "date": "2019-09-19",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 66 provides representative Claim 1 reading. Earliest claimed priority date: 2019-09-19.",
+                  "pdfSHA256": "fd6280fe25c5496e680c967ad7587d83889a5e6e58d9181984bd61c3082a4722",
+                  "page": 66
+                },
+                {
+                  "title": "US11507816B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11507816B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11507816B2",
+                "url": "https://patents.google.com/patent/US11507816B2/en",
+                "note": "US11507816B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11507816B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/fd/62/80/fe25c5496e680c/US11507816.pdf",
+                  "date": "2019-09-19",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10755779B2",
+              "title": "Architectures and layouts for an array of resistive random access memory cells &hellip;",
+              "grantDate": "2017-09-11",
+              "publicationDate": "2017-09-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-09-11",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10755779B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10755779B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/dd/1c/55/27cf6c23fb22a9/US10755779.pdf",
+                  "date": "2017-09-11",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 56 provides representative Claim 1 reading. Earliest claimed priority date: 2017-09-11.",
+                  "pdfSHA256": "dd1c5527cf6c23fb22a93d16e4041f06c34751f92e1b83b4e9692f2fba95097e",
+                  "page": 56
+                },
+                {
+                  "title": "US10755779B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10755779B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10755779B2",
+                "url": "https://patents.google.com/patent/US10755779B2/en",
+                "note": "US10755779B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10755779B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/dd/1c/55/27cf6c23fb22a9/US10755779.pdf",
+                  "date": "2017-09-11",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10460811B2",
+              "title": "Array of three-gate flash memory cells with individual memory cell read, &hellip;",
+              "grantDate": "2019-04-17",
+              "publicationDate": "2019-04-17",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-04-17",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10460811B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10460811B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cc/e7/51/ce44391c6cea8f/US10460811.pdf",
+                  "date": "2019-04-17",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 10 provides representative Claim 1 reading. Earliest claimed priority date: 2019-04-17.",
+                  "pdfSHA256": "cce751ce44391c6cea8f8d3aee83b3d742fba5c7c0424f357f511820f60fe102",
+                  "page": 10
+                },
+                {
+                  "title": "US10460811B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10460811B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10460811B2",
+                "url": "https://patents.google.com/patent/US10460811B2/en",
+                "note": "US10460811B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10460811B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cc/e7/51/ce44391c6cea8f/US10460811.pdf",
+                  "date": "2019-04-17",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9887206B2",
+              "title": "Method of making split gate non-volatile memory cell with 3D FinFET structure",
+              "grantDate": "2017-03-08",
+              "publicationDate": "2017-03-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-03-08",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US9887206B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9887206B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/73/9c/5e/b1e3d06b54c54c/US9887206.pdf",
+                  "date": "2017-03-08",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 38 provides representative Claim 1 reading. Earliest claimed priority date: 2017-03-08.",
+                  "pdfSHA256": "739c5eb1e3d06b54c54c538590fbdad7e0c7e8903007e2421238f560fb4bd9c4",
+                  "page": 38
+                },
+                {
+                  "title": "US9887206B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9887206B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9887206B2",
+                "url": "https://patents.google.com/patent/US9887206B2/en",
+                "note": "US9887206B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US9887206B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/73/9c/5e/b1e3d06b54c54c/US9887206.pdf",
+                  "date": "2017-03-08",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9548087B2",
+              "title": "Systems and methods of non-volatile memory sensing including selective/ &hellip;",
+              "grantDate": "2014-03-28",
+              "publicationDate": "2014-03-28",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-03-28",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US9548087B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9548087B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f0/69/87/9fd44f0ac76e75/US9548087.pdf",
+                  "date": "2014-03-28",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 20 provides representative Claim 1 reading. Earliest claimed priority date: 2014-03-28.",
+                  "pdfSHA256": "f069879fd44f0ac76e75f7b616b2ffe6377cfedb580f0ef0918e0b9417b69bf4",
+                  "page": 20
+                },
+                {
+                  "title": "US9548087B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9548087B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9548087B2",
+                "url": "https://patents.google.com/patent/US9548087B2/en",
+                "note": "US9548087B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US9548087B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f0/69/87/9fd44f0ac76e75/US9548087.pdf",
+                  "date": "2014-03-28",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10910061B2",
+              "title": "Method and apparatus for programming analog neural memory in a deep learning &hellip;",
+              "grantDate": "2018-05-25",
+              "publicationDate": "2018-05-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-05-25",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10910061B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10910061B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/8b/95/a5/980eb4df6f6022/US10910061.pdf",
+                  "date": "2018-05-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 45 provides representative Claim 1 reading. Earliest claimed priority date: 2018-05-25.",
+                  "pdfSHA256": "8b95a5980eb4df6f6022afd4b0ddec87a75197fbc96686c966bd183566322501",
+                  "page": 45
+                },
+                {
+                  "title": "US10910061B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10910061B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10910061B2",
+                "url": "https://patents.google.com/patent/US10910061B2/en",
+                "note": "US10910061B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10910061B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/8b/95/a5/980eb4df6f6022/US10910061.pdf",
+                  "date": "2018-05-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9985042B2",
+              "title": "Method of integrating FinFET CMOS devices with embedded nonvolatile memory &hellip;",
+              "grantDate": "2017-04-17",
+              "publicationDate": "2017-04-17",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-04-17",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US9985042B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9985042B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/5c/bf/5c/6c54e1ccbe4d4a/US9985042.pdf",
+                  "date": "2017-04-17",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 52 provides representative Claim 1 reading. Earliest claimed priority date: 2017-04-17.",
+                  "pdfSHA256": "5cbf5c6c54e1ccbe4d4af8d25086a1105f1083266e130a718fc8191700a2cc01",
+                  "page": 52
+                },
+                {
+                  "title": "US9985042B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9985042B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9985042B2",
+                "url": "https://patents.google.com/patent/US9985042B2/en",
+                "note": "US9985042B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US9985042B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/5c/bf/5c/6c54e1ccbe4d4a/US9985042.pdf",
+                  "date": "2017-04-17",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10312248B2",
+              "title": "Virtual ground non-volatile memory array",
+              "grantDate": "2015-11-06",
+              "publicationDate": "2015-11-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-11-06",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10312248B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10312248B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/9d/d7/21/ebad465a424f62/US10312248.pdf",
+                  "date": "2015-11-06",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 39 provides representative Claim 1 reading. Earliest claimed priority date: 2015-11-06.",
+                  "pdfSHA256": "9dd721ebad465a424f62f86760a7b39a386be871b086723b3734067fda75d626",
+                  "page": 39
+                },
+                {
+                  "title": "US10312248B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10312248B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10312248B2",
+                "url": "https://patents.google.com/patent/US10312248B2/en",
+                "note": "US10312248B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10312248B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/9d/d7/21/ebad465a424f62/US10312248.pdf",
+                  "date": "2015-11-06",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10714634B2",
+              "title": "Non-volatile split gate memory cells with integrated high K metal control gates &hellip;",
+              "grantDate": "2018-10-22",
+              "publicationDate": "2018-10-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-10-22",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10714634B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10714634B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/2a/5e/b6/8c05dcbaeca7bd/US10714634.pdf",
+                  "date": "2018-10-22",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2018-10-22.",
+                  "pdfSHA256": "2a5eb68c05dcbaeca7bd9d081d6461f449dba49bba695c7a0707e9c124c8a553",
+                  "page": 21
+                },
+                {
+                  "title": "US10714634B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10714634B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10714634B2",
+                "url": "https://patents.google.com/patent/US10714634B2/en",
+                "note": "US10714634B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10714634B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/2a/5e/b6/8c05dcbaeca7bd/US10714634.pdf",
+                  "date": "2018-10-22",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11270771B2",
+              "title": "Neural network classifier using array of stacked gate non-volatile memory cells",
+              "grantDate": "2019-04-11",
+              "publicationDate": "2019-04-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-04-11",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11270771B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11270771B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f6/77/a6/c7ecd0d5ac7069/US11270771.pdf",
+                  "date": "2019-04-11",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 32 provides representative Claim 1 reading. Earliest claimed priority date: 2019-04-11.",
+                  "pdfSHA256": "f677a6c7ecd0d5ac70690e8fd61ee991f068f578a3689006a689e528facdf86b",
+                  "page": 32
+                },
+                {
+                  "title": "US11270771B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11270771B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11270771B2",
+                "url": "https://patents.google.com/patent/US11270771B2/en",
+                "note": "US11270771B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11270771B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f6/77/a6/c7ecd0d5ac7069/US11270771.pdf",
+                  "date": "2019-04-11",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10956814B2",
+              "title": "Configurable analog neural memory system for deep learning neural network",
+              "grantDate": "2018-11-06",
+              "publicationDate": "2018-11-06",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-11-06",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10956814B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10956814B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/6f/a1/9b/bd5d6c2ffcc0a9/US10956814.pdf",
+                  "date": "2018-11-06",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 51 provides representative Claim 1 reading. Earliest claimed priority date: 2018-11-06.",
+                  "pdfSHA256": "6fa19bbd5d6c2ffcc0a95fef81b72e372e0ad6fe5b9ad829da36ec810dc34266",
+                  "page": 51
+                },
+                {
+                  "title": "US10956814B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10956814B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10956814B2",
+                "url": "https://patents.google.com/patent/US10956814B2/en",
+                "note": "US10956814B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10956814B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/6f/a1/9b/bd5d6c2ffcc0a9/US10956814.pdf",
+                  "date": "2018-11-06",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10373686B2",
+              "title": "Three-dimensional flash NOR memory system with configurable pins",
+              "grantDate": "2017-07-26",
+              "publicationDate": "2017-07-26",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-07-26",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10373686B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10373686B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/76/e4/49/c0fd9ae246afe3/US10373686.pdf",
+                  "date": "2017-07-26",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 34 provides representative Claim 1 reading. Earliest claimed priority date: 2017-07-26.",
+                  "pdfSHA256": "76e449c0fd9ae246afe3c67fae314c4ea5e4865ba0a70e8b4f96881b1ef35537",
+                  "page": 34
+                },
+                {
+                  "title": "US10373686B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10373686B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10373686B2",
+                "url": "https://patents.google.com/patent/US10373686B2/en",
+                "note": "US10373686B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10373686B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/76/e4/49/c0fd9ae246afe3/US10373686.pdf",
+                  "date": "2017-07-26",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10249631B2",
+              "title": "Split gate non-volatile flash memory cell having metal gates",
+              "grantDate": "2018-04-04",
+              "publicationDate": "2018-04-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-04-04",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10249631B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10249631B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/46/ed/f2/362f51d18143e6/US10249631.pdf",
+                  "date": "2018-04-04",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 36 provides representative Claim 1 reading. Earliest claimed priority date: 2018-04-04.",
+                  "pdfSHA256": "46edf2362f51d18143e647e6b1b2ab3950db833fbf0505546d591a2dc11d4bc8",
+                  "page": 36
+                },
+                {
+                  "title": "US10249631B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10249631B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10249631B2",
+                "url": "https://patents.google.com/patent/US10249631B2/en",
+                "note": "US10249631B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10249631B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/46/ed/f2/362f51d18143e6/US10249631.pdf",
+                  "date": "2018-04-04",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9767923B2",
+              "title": "Three-dimensional flash memory system",
+              "grantDate": "2016-09-21",
+              "publicationDate": "2016-09-21",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-09-21",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US9767923B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9767923B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/de/4c/2f/814b7078e2ea4c/US9767923.pdf",
+                  "date": "2016-09-21",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 28 provides representative Claim 1 reading. Earliest claimed priority date: 2016-09-21.",
+                  "pdfSHA256": "de4c2f814b7078e2ea4c8cd93586673d95f707b3f50037d1e895d73c6c97e2a8",
+                  "page": 28
+                },
+                {
+                  "title": "US9767923B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9767923B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9767923B2",
+                "url": "https://patents.google.com/patent/US9767923B2/en",
+                "note": "US9767923B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US9767923B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/de/4c/2f/814b7078e2ea4c/US9767923.pdf",
+                  "date": "2016-09-21",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11853856B2",
+              "title": "Programming methods for neural network using non-volatile memory array",
+              "grantDate": "2020-01-18",
+              "publicationDate": "2020-01-18",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-01-18",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11853856B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11853856B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/1e/e3/4b/796ec029a3d79f/US11853856.pdf",
+                  "date": "2020-01-18",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 42 provides representative Claim 1 reading. Earliest claimed priority date: 2020-01-18.",
+                  "pdfSHA256": "1ee34b796ec029a3d79ff5c4733269aa2e194da9cfe855e99339c21f738fbf0d",
+                  "page": 42
+                },
+                {
+                  "title": "US11853856B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11853856B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11853856B2",
+                "url": "https://patents.google.com/patent/US11853856B2/en",
+                "note": "US11853856B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11853856B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/1e/e3/4b/796ec029a3d79f/US11853856.pdf",
+                  "date": "2020-01-18",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11393535B2",
+              "title": "Ultra-precise tuning of analog neural memory cells in a deep learning &hellip;",
+              "grantDate": "2020-08-04",
+              "publicationDate": "2020-08-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2020-08-04",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US11393535B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11393535B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/0d/49/89/05f06c8ef408da/US11393535.pdf",
+                  "date": "2020-08-04",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 39 provides representative Claim 1 reading. Earliest claimed priority date: 2020-08-04.",
+                  "pdfSHA256": "0d498905f06c8ef408da548f45ae9559668cae8ef0886be42697dbc50fcbfc09",
+                  "page": 39
+                },
+                {
+                  "title": "US11393535B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11393535B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11393535B2",
+                "url": "https://patents.google.com/patent/US11393535B2/en",
+                "note": "US11393535B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US11393535B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/0d/49/89/05f06c8ef408da/US11393535.pdf",
+                  "date": "2020-08-04",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10388389B2",
+              "title": "Flash memory array with individual memory cell read, program and erase",
+              "grantDate": "2019-02-08",
+              "publicationDate": "2019-02-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-02-08",
+              "inventors": "Bing Yeh",
+              "assignee": "Silicon Storage Technology, Inc.",
+              "url": "https://patents.google.com/patent/US10388389B2/en",
+              "coreProblem": "High-voltage erase control, automotive leakage at high temperatures, and analog in-memory weight precision challenges.",
+              "mechanism": "Employs tip-enhanced tunneling, negative level shifting, and closed-loop pulse tuning for ultra-high energy efficiency.",
+              "claimFocus": "Claim 1 requires a split-gate memory cell, high-voltage switching circuits, sense comparators, and verify controllers.",
+              "patentCategory": "電路與架構項",
+              "patentCategoryEn": "Circuit and Architecture",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with SuperFlash® Comparison: Split-Gate and Self-Aligned Structure; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10388389B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/cd/a8/32/6da2482abb46f3/US10388389.pdf",
+                  "date": "2019-02-08",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2019-02-08.",
+                  "pdfSHA256": "cda8326da2482abb46f333db44d0fd4c4db63d976db645003d21913f23176752",
+                  "page": 12
+                },
+                {
+                  "title": "US10388389B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10388389B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10388389B2",
+                "url": "https://patents.google.com/patent/US10388389B2/en",
+                "note": "US10388389B2 recorded per original grant publication, verifying assignee Silicon Storage Technology, Inc. and inventors.",
+                "source": {
+                  "title": "US10388389B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/cd/a8/32/6da2482abb46f3/US10388389.pdf",
+                  "date": "2019-02-08",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Silicon Storage Technology, Inc. and inventors Bing Yeh.",
+                  "page": 1
+                }
+              }
             }
           ]
         }
@@ -21100,6 +22500,1406 @@
                   "title": "US9793470B2 · Front Page Verification",
                   "url": "https://patentimages.storage.googleapis.com/c7/e8/fe/728dcc3d0a2bd2/US9793470.pdf",
                   "date": "2016-02-02",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9529672B2",
+              "title": "ECC word configuration for system-level ECC compatibility",
+              "grantDate": "2014-09-25",
+              "publicationDate": "2014-09-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2014-09-25",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9529672B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9529672B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/55/c8/33/08ced2a03f4b6d/US9529672.pdf",
+                  "date": "2014-09-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2014-09-25.",
+                  "pdfSHA256": "55c83308ced2a03f4b6d1a600e7bdb90cdb3f3521b1d8edce65af4d7308a31ff",
+                  "page": 25
+                },
+                {
+                  "title": "US9529672B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9529672B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9529672B2",
+                "url": "https://patents.google.com/patent/US9529672B2/en",
+                "note": "US9529672B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9529672B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/55/c8/33/08ced2a03f4b6d/US9529672.pdf",
+                  "date": "2014-09-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12167702B2",
+              "title": "Magnetoresistive stack/structure and methods therefor",
+              "grantDate": "2023-03-20",
+              "publicationDate": "2023-03-20",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2023-03-20",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US12167702B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US12167702B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/0e/e9/10/4d7c288b9fee0d/US12167702.pdf",
+                  "date": "2023-03-20",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 62 provides representative Claim 1 reading. Earliest claimed priority date: 2023-03-20.",
+                  "pdfSHA256": "0ee9104d7c288b9fee0d51d7fdf49d254d7747c92394b0c5c97b610e6800e41f",
+                  "page": 62
+                },
+                {
+                  "title": "US12167702B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US12167702B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12167702B2",
+                "url": "https://patents.google.com/patent/US12167702B2/en",
+                "note": "US12167702B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US12167702B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/0e/e9/10/4d7c288b9fee0d/US12167702.pdf",
+                  "date": "2023-03-20",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11631806B2",
+              "title": "Method of integration of a magnetoresistive structure",
+              "grantDate": "2021-05-11",
+              "publicationDate": "2021-05-11",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-05-11",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11631806B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11631806B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/3c/df/92/e51a5af40a062c/US11631806.pdf",
+                  "date": "2021-05-11",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2021-05-11.",
+                  "pdfSHA256": "3cdf92e51a5af40a062c05a82708acfb0207bf8b71535a999279ca24dfa29207",
+                  "page": 12
+                },
+                {
+                  "title": "US11631806B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11631806B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11631806B2",
+                "url": "https://patents.google.com/patent/US11631806B2/en",
+                "note": "US11631806B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US11631806B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/3c/df/92/e51a5af40a062c/US11631806.pdf",
+                  "date": "2021-05-11",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US11150275B2",
+              "title": "Sensing apparatus for sensing current through a conductor and methods therefor",
+              "grantDate": "2019-11-13",
+              "publicationDate": "2019-11-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-11-13",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US11150275B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US11150275B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/1a/93/fe/856deb988cb2be/US11150275.pdf",
+                  "date": "2019-11-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2019-11-13.",
+                  "pdfSHA256": "1a93fe856deb988cb2be77e77417f46992cce69015230aa512c6a8bbd625eb08",
+                  "page": 21
+                },
+                {
+                  "title": "US11150275B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US11150275B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US11150275B2",
+                "url": "https://patents.google.com/patent/US11150275B2/en",
+                "note": "US11150275B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US11150275B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/1a/93/fe/856deb988cb2be/US11150275.pdf",
+                  "date": "2019-11-13",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9502093B2",
+              "title": "Method of writing to a spin torque magnetic random access memory",
+              "grantDate": "2016-05-27",
+              "publicationDate": "2016-05-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-05-27",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9502093B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9502093B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/ee/cf/54/224d9916921385/US9502093.pdf",
+                  "date": "2016-05-27",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 13 provides representative Claim 1 reading. Earliest claimed priority date: 2016-05-27.",
+                  "pdfSHA256": "eecf54224d9916921385ffcc9ffcd9a32b5c44b3497d74e1303780b8f137811e",
+                  "page": 13
+                },
+                {
+                  "title": "US9502093B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9502093B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9502093B2",
+                "url": "https://patents.google.com/patent/US9502093B2/en",
+                "note": "US9502093B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9502093B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/ee/cf/54/224d9916921385/US9502093.pdf",
+                  "date": "2016-05-27",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12290001B2",
+              "title": "Method of manufacturing integrated circuit using encapsulation during an etch &hellip;",
+              "grantDate": "2023-12-01",
+              "publicationDate": "2023-12-01",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2023-12-01",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US12290001B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US12290001B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/bf/5d/8e/d5ffb054520846/US12290001.pdf",
+                  "date": "2023-12-01",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2023-12-01.",
+                  "pdfSHA256": "bf5d8ed5ffb0545208461667634445e622eebc8c4d97f4190faf8146ab324cc8",
+                  "page": 24
+                },
+                {
+                  "title": "US12290001B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US12290001B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12290001B2",
+                "url": "https://patents.google.com/patent/US12290001B2/en",
+                "note": "US12290001B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US12290001B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/bf/5d/8e/d5ffb054520846/US12290001.pdf",
+                  "date": "2023-12-01",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US12029137B2",
+              "title": "Magnetoresistive stack/structure with one or more transition metals in an &hellip;",
+              "grantDate": "2021-11-08",
+              "publicationDate": "2021-11-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2021-11-08",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US12029137B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US12029137B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e5/c6/07/606c5fb944b7d9/US12029137.pdf",
+                  "date": "2021-11-08",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 22 provides representative Claim 1 reading. Earliest claimed priority date: 2021-11-08.",
+                  "pdfSHA256": "e5c607606c5fb944b7d94fe47d1f1f0c6a2135f9b758d449c171afd652f44cd4",
+                  "page": 22
+                },
+                {
+                  "title": "US12029137B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US12029137B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US12029137B2",
+                "url": "https://patents.google.com/patent/US12029137B2/en",
+                "note": "US12029137B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US12029137B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e5/c6/07/606c5fb944b7d9/US12029137.pdf",
+                  "date": "2021-11-08",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10923170B2",
+              "title": "Determining bias configuration for write operations in memory to improve device &hellip;",
+              "grantDate": "2019-03-19",
+              "publicationDate": "2019-03-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2019-03-19",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10923170B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10923170B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/b0/03/fc/c86152c1fdbdb7/US10923170.pdf",
+                  "date": "2019-03-19",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2019-03-19.",
+                  "pdfSHA256": "b003fcc86152c1fdbdb782944deb10b1650f058fe66a470c5354144705e893a3",
+                  "page": 21
+                },
+                {
+                  "title": "US10923170B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10923170B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10923170B2",
+                "url": "https://patents.google.com/patent/US10923170B2/en",
+                "note": "US10923170B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10923170B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/b0/03/fc/c86152c1fdbdb7/US10923170.pdf",
+                  "date": "2019-03-19",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9721637B2",
+              "title": "Method of writing to a spin torque magnetic random access memory",
+              "grantDate": "2016-05-27",
+              "publicationDate": "2016-05-27",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2016-05-27",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9721637B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9721637B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/fe/6f/88/5aa271ad489639/US9721637.pdf",
+                  "date": "2016-05-27",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2016-05-27.",
+                  "pdfSHA256": "fe6f885aa271ad489639b698a142be67fd0122477112e2b34572a7b99ef5e816",
+                  "page": 11
+                },
+                {
+                  "title": "US9721637B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9721637B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9721637B2",
+                "url": "https://patents.google.com/patent/US9721637B2/en",
+                "note": "US9721637B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9721637B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/fe/6f/88/5aa271ad489639/US9721637.pdf",
+                  "date": "2016-05-27",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9279865B2",
+              "title": "Method and structure for testing and calibrating three axis magnetic field &hellip;",
+              "grantDate": "2012-05-09",
+              "publicationDate": "2012-05-09",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-05-09",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9279865B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9279865B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/5e/81/17/03540bf429155f/US9279865.pdf",
+                  "date": "2012-05-09",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 11 provides representative Claim 1 reading. Earliest claimed priority date: 2012-05-09.",
+                  "pdfSHA256": "5e811703540bf429155f50bbd96da2d9b3729c43237687512fd70fb1b609452c",
+                  "page": 11
+                },
+                {
+                  "title": "US9279865B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9279865B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9279865B2",
+                "url": "https://patents.google.com/patent/US9279865B2/en",
+                "note": "US9279865B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9279865B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/5e/81/17/03540bf429155f/US9279865.pdf",
+                  "date": "2012-05-09",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7791925B2",
+              "title": "Structures for resistive random access memory cells",
+              "grantDate": "2008-10-31",
+              "publicationDate": "2008-10-31",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2008-10-31",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7791925B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7791925B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/a9/a8/41/3ee175c48c442f/US7791925.pdf",
+                  "date": "2008-10-31",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 15 provides representative Claim 1 reading. Earliest claimed priority date: 2008-10-31.",
+                  "pdfSHA256": "a9a8413ee175c48c442f045559d4f264cf7353b1c396b4d8ea28a2691137ef4a",
+                  "page": 15
+                },
+                {
+                  "title": "US7791925B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7791925B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7791925B2",
+                "url": "https://patents.google.com/patent/US7791925B2/en",
+                "note": "US7791925B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US7791925B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/a9/a8/41/3ee175c48c442f/US7791925.pdf",
+                  "date": "2008-10-31",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7596018B2",
+              "title": "Spin memory with write pulse",
+              "grantDate": "2007-10-30",
+              "publicationDate": "2007-10-30",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2007-10-30",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7596018B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7596018B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/82/fb/03/e0f19893bfc803/US7596018.pdf",
+                  "date": "2007-10-30",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2007-10-30.",
+                  "pdfSHA256": "82fb03e0f19893bfc80354e488cb76dd2d1bb4c102592a7baf3f98c2b4bf8998",
+                  "page": 24
+                },
+                {
+                  "title": "US7596018B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7596018B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7596018B2",
+                "url": "https://patents.google.com/patent/US7596018B2/en",
+                "note": "US7596018B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US7596018B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/82/fb/03/e0f19893bfc803/US7596018.pdf",
+                  "date": "2007-10-30",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8227783B2",
+              "title": "Non-volatile resistive sense memory with praseodymium calcium manganese oxide",
+              "grantDate": "2009-07-13",
+              "publicationDate": "2009-07-13",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-07-13",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8227783B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8227783B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/e1/4b/ac/a1a99bdb1e37ad/US8227783.pdf",
+                  "date": "2009-07-13",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 8 provides representative Claim 1 reading. Earliest claimed priority date: 2009-07-13.",
+                  "pdfSHA256": "e14baca1a99bdb1e37addb55d1d61d665f3b74f89e4146fe7f5d7e0312073a85",
+                  "page": 8
+                },
+                {
+                  "title": "US8227783B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8227783B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8227783B2",
+                "url": "https://patents.google.com/patent/US8227783B2/en",
+                "note": "US8227783B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US8227783B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/e1/4b/ac/a1a99bdb1e37ad/US8227783.pdf",
+                  "date": "2009-07-13",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8236578B2",
+              "title": "Electronic device including a magneto-resistive memory device and a process for &hellip;",
+              "grantDate": "2012-01-25",
+              "publicationDate": "2012-01-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2012-01-25",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8236578B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8236578B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/2a/46/ec/a19b62fad87fe9/US8236578.pdf",
+                  "date": "2012-01-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 14 provides representative Claim 1 reading. Earliest claimed priority date: 2012-01-25.",
+                  "pdfSHA256": "2a46eca19b62fad87fe9b3a715925760f55a96febdeba1fb6c43576bafd18574",
+                  "page": 14
+                },
+                {
+                  "title": "US8236578B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8236578B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8236578B2",
+                "url": "https://patents.google.com/patent/US8236578B2/en",
+                "note": "US8236578B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US8236578B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/2a/46/ec/a19b62fad87fe9/US8236578.pdf",
+                  "date": "2012-01-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7952917B2",
+              "title": "Variable write and read methods for resistive random access memory",
+              "grantDate": "2010-06-04",
+              "publicationDate": "2010-06-04",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2010-06-04",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7952917B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7952917B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/1b/dd/b7/538404e7769917/US7952917.pdf",
+                  "date": "2010-06-04",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 12 provides representative Claim 1 reading. Earliest claimed priority date: 2010-06-04.",
+                  "pdfSHA256": "1bddb7538404e77699178eab9bcc9b41aeac1abc72e7089bb765c4823cb4ae90",
+                  "page": 12
+                },
+                {
+                  "title": "US7952917B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7952917B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7952917B2",
+                "url": "https://patents.google.com/patent/US7952917B2/en",
+                "note": "US7952917B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US7952917B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/1b/dd/b7/538404e7769917/US7952917.pdf",
+                  "date": "2010-06-04",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9454432B2",
+              "title": "Method of reading and writing to a spin torque magnetic random access memory &hellip;",
+              "grantDate": "2015-06-12",
+              "publicationDate": "2015-06-12",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2015-06-12",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9454432B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9454432B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/a4/34/7a/1ec6eb742cac4f/US9454432.pdf",
+                  "date": "2015-06-12",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2015-06-12.",
+                  "pdfSHA256": "a4347a1ec6eb742cac4f963c9c13d47a48fe0b6ca66834d9d30ff6ab17dcd383",
+                  "page": 18
+                },
+                {
+                  "title": "US9454432B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9454432B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9454432B2",
+                "url": "https://patents.google.com/patent/US9454432B2/en",
+                "note": "US9454432B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9454432B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/a4/34/7a/1ec6eb742cac4f/US9454432.pdf",
+                  "date": "2015-06-12",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US9721632B2",
+              "title": "Redundant magnetic tunnel junctions in magnetoresistive memory",
+              "grantDate": "2017-01-14",
+              "publicationDate": "2017-01-14",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-01-14",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US9721632B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US9721632B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/f3/9b/be/05fd7191a0f300/US9721632.pdf",
+                  "date": "2017-01-14",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 17 provides representative Claim 1 reading. Earliest claimed priority date: 2017-01-14.",
+                  "pdfSHA256": "f39bbe05fd7191a0f3004aeaeb4df7e68a0b2dc961b5be183eb530fe83c19a18",
+                  "page": 17
+                },
+                {
+                  "title": "US9721632B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US9721632B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US9721632B2",
+                "url": "https://patents.google.com/patent/US9721632B2/en",
+                "note": "US9721632B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US9721632B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/f3/9b/be/05fd7191a0f300/US9721632.pdf",
+                  "date": "2017-01-14",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US7977941B2",
+              "title": "Magnetic field sensing device",
+              "grantDate": "2009-02-25",
+              "publicationDate": "2009-02-25",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2009-02-25",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US7977941B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US7977941B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/3f/5e/18/9bee5a2c385e3c/US7977941.pdf",
+                  "date": "2009-02-25",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 6 provides representative Claim 1 reading. Earliest claimed priority date: 2009-02-25.",
+                  "pdfSHA256": "3f5e189bee5a2c385e3c1b2cf9b1545f1af080cd0d38241750800055d4c08aac",
+                  "page": 6
+                },
+                {
+                  "title": "US7977941B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US7977941B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US7977941B2",
+                "url": "https://patents.google.com/patent/US7977941B2/en",
+                "note": "US7977941B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US7977941B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/3f/5e/18/9bee5a2c385e3c/US7977941.pdf",
+                  "date": "2009-02-25",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US8711608B2",
+              "title": "Memory with separate read and write paths",
+              "grantDate": "2013-03-05",
+              "publicationDate": "2013-03-05",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2013-03-05",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US8711608B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US8711608B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/3f/6a/64/dfecab3c2eb456/US8711608.pdf",
+                  "date": "2013-03-05",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 24 provides representative Claim 1 reading. Earliest claimed priority date: 2013-03-05.",
+                  "pdfSHA256": "3f6a64dfecab3c2eb4566896a854d8847f7692ce24fd2241ff3d3b21d175a106",
+                  "page": 24
+                },
+                {
+                  "title": "US8711608B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US8711608B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US8711608B2",
+                "url": "https://patents.google.com/patent/US8711608B2/en",
+                "note": "US8711608B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US8711608B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/3f/6a/64/dfecab3c2eb456/US8711608.pdf",
+                  "date": "2013-03-05",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10268591B2",
+              "title": "Delayed write-back in memory",
+              "grantDate": "2018-05-22",
+              "publicationDate": "2018-05-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-05-22",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10268591B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10268591B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/74/fd/90/c1918495c106d0/US10268591.pdf",
+                  "date": "2018-05-22",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 18 provides representative Claim 1 reading. Earliest claimed priority date: 2018-05-22.",
+                  "pdfSHA256": "74fd90c1918495c106d03322341146339a62d436f5d4f4f1324ec4d5866218ed",
+                  "page": 18
+                },
+                {
+                  "title": "US10268591B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10268591B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10268591B2",
+                "url": "https://patents.google.com/patent/US10268591B2/en",
+                "note": "US10268591B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10268591B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/74/fd/90/c1918495c106d0/US10268591.pdf",
+                  "date": "2018-05-22",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10950657B2",
+              "title": "Apparatus and methods for integrating magnetoresistive devices",
+              "grantDate": "2018-11-08",
+              "publicationDate": "2018-11-08",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-11-08",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10950657B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10950657B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/48/d6/51/fb482cc441d11a/US10950657.pdf",
+                  "date": "2018-11-08",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 23 provides representative Claim 1 reading. Earliest claimed priority date: 2018-11-08.",
+                  "pdfSHA256": "48d651fb482cc441d11a1e534705c7a86e47c0903a944da13c53fa8db1cf26b4",
+                  "page": 23
+                },
+                {
+                  "title": "US10950657B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10950657B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10950657B2",
+                "url": "https://patents.google.com/patent/US10950657B2/en",
+                "note": "US10950657B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10950657B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/48/d6/51/fb482cc441d11a/US10950657.pdf",
+                  "date": "2018-11-08",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10622552B2",
+              "title": "Magnetoresistive stacks and methods therefor",
+              "grantDate": "2018-11-02",
+              "publicationDate": "2018-11-02",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-11-02",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10622552B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10622552B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/c5/26/5b/49b1e3c9ec6839/US10622552.pdf",
+                  "date": "2018-11-02",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 25 provides representative Claim 1 reading. Earliest claimed priority date: 2018-11-02.",
+                  "pdfSHA256": "c5265b49b1e3c9ec683930ed1760bf37244dc695f07e9033a40a1510647c0e4d",
+                  "page": 25
+                },
+                {
+                  "title": "US10622552B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10622552B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10622552B2",
+                "url": "https://patents.google.com/patent/US10622552B2/en",
+                "note": "US10622552B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10622552B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/c5/26/5b/49b1e3c9ec6839/US10622552.pdf",
+                  "date": "2018-11-02",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10199122B2",
+              "title": "Short detection and inversion",
+              "grantDate": "2017-12-22",
+              "publicationDate": "2017-12-22",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-12-22",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10199122B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10199122B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/31/b6/83/40b79338ca98b6/US10199122.pdf",
+                  "date": "2017-12-22",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 21 provides representative Claim 1 reading. Earliest claimed priority date: 2017-12-22.",
+                  "pdfSHA256": "31b68340b79338ca98b62a966f1fd0f46fc4b56c7d05fc8ebf321716e7e7dd05",
+                  "page": 21
+                },
+                {
+                  "title": "US10199122B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10199122B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10199122B2",
+                "url": "https://patents.google.com/patent/US10199122B2/en",
+                "note": "US10199122B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10199122B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/31/b6/83/40b79338ca98b6/US10199122.pdf",
+                  "date": "2017-12-22",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10659081B2",
+              "title": "Preprogrammed data recovery",
+              "grantDate": "2017-12-19",
+              "publicationDate": "2017-12-19",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2017-12-19",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10659081B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10659081B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/8c/64/68/6720443a3e9f84/US10659081.pdf",
+                  "date": "2017-12-19",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 16 provides representative Claim 1 reading. Earliest claimed priority date: 2017-12-19.",
+                  "pdfSHA256": "8c64686720443a3e9f84e669b4c90df5496709b9b3c52657a9e28a8237d8b586",
+                  "page": 16
+                },
+                {
+                  "title": "US10659081B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10659081B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10659081B2",
+                "url": "https://patents.google.com/patent/US10659081B2/en",
+                "note": "US10659081B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10659081B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/8c/64/68/6720443a3e9f84/US10659081.pdf",
+                  "date": "2017-12-19",
+                  "dateKind": "published",
+                  "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
+                  "page": 1
+                }
+              }
+            },
+            {
+              "id": "US10297747B2",
+              "title": "Apparatus and methods for integrating magnetoresistive devices",
+              "grantDate": "2018-04-20",
+              "publicationDate": "2018-04-20",
+              "publicationType": "grant",
+              "identityRole": "assignee",
+              "priorityDate": "2018-04-20",
+              "inventors": "Jon M. Slaughter",
+              "assignee": "Everspin Technologies, Inc.",
+              "url": "https://patents.google.com/patent/US10297747B2/en",
+              "coreProblem": "Trade-offs between thermal stability, write disturb, and read margin in scaled STT/SOT-MRAM under extreme conditions.",
+              "mechanism": "Optimizes stack anisotropy, introducing bidirectional differential biasing and adaptive sensing to eliminate thermal drift.",
+              "claimFocus": "Claim 1 requires a magnetic tunnel junction, bias driver circuitry, reference comparison networks, and timing logic.",
+              "patentCategory": "裝置結構項",
+              "patentCategoryEn": "Device Structure",
+              "generation": "依公報結構選錄",
+              "generationEn": "Publication-Based Selection",
+              "legalStatus": "active",
+              "expirationDate": "Not determined in this review",
+              "ftoStatus": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "ftoStatusEn": "This reading does not determine current enforceability or freedom to operate; prosecution, fees, term and related rights require separate review.",
+              "reviewedOn": "2026-10-15",
+              "productLink": "Technical comparison with Everspin Fixed Magnetic Layer and STT-MRAM Technology Portfolio; not a verified product claim chart.",
+              "researchSources": [
+                {
+                  "title": "US10297747B2 · Official Publication",
+                  "url": "https://patentimages.storage.googleapis.com/59/92/51/ed55761502857a/US10297747.pdf",
+                  "date": "2018-04-20",
+                  "dateKind": "published",
+                  "note": "Page 1 verifies inventors and assignee; PDF page 31 provides representative Claim 1 reading. Earliest claimed priority date: 2018-04-20.",
+                  "pdfSHA256": "599251ed55761502857a5c0769b9f2876ec9eeec1f45073fa7cbaf01f237f91b",
+                  "page": 31
+                },
+                {
+                  "title": "US10297747B2 · Index Status Check",
+                  "url": "https://patents.google.com/patent/US10297747B2/en",
+                  "date": "2026-10-15",
+                  "dateKind": "checked",
+                  "note": "Status is an index snapshot, not a real-time legal determination."
+                }
+              ],
+              "correctedFrom": {
+                "id": "US10297747B2",
+                "url": "https://patents.google.com/patent/US10297747B2/en",
+                "note": "US10297747B2 recorded per original grant publication, verifying assignee Everspin Technologies, Inc. and inventors.",
+                "source": {
+                  "title": "US10297747B2 · Front Page Verification",
+                  "url": "https://patentimages.storage.googleapis.com/59/92/51/ed55761502857a/US10297747.pdf",
+                  "date": "2018-04-20",
                   "dateKind": "published",
                   "note": "Front page verification of assignee Everspin Technologies, Inc. and inventors Jon M. Slaughter.",
                   "page": 1
@@ -23851,5 +26651,5 @@
       ]
     }
   ],
-  "totalPatents": 397
+  "totalPatents": 447
 }
