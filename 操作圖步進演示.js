@@ -1,10 +1,61 @@
 // 原始比較圖是完整教材；演示只投影同一組 SVG，不推算物理中間態或時間。
+// 示意動態只作用在演示框內已畫出的元素，見下方 MOTION 說明。
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 const say = (zh, en) => isEnglish() ? en : zh;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const staticView = new URLSearchParams(location.search).get('motion') === 'static';
 const demos = new Map();
 const hold = 1200;
+
+// 示意動態層：只動產生器以 data-motion 標記、且已畫在原圖中的元素，只改 transform 與 opacity。
+// along＝載子沿同一張圖已畫出的路徑（data-motion-track）移動；pulse＝電場或電流脈動；appear＝本格新出現的狀態淡入。
+// 原始比較圖、減少動態效果、motion=static 與列印都不套用；動畫結束後回到原圖的樣子。
+const MOTION = {along: {duration: 1600, iterations: 2}, pulse: {duration: 1400, iterations: 2}, appear: {duration: 700, iterations: 1}};
+const TRAVEL = 48;
+
+function alongKeyframes(node, track) {
+  const length = track.getTotalLength();
+  const box = node.getBBox();
+  const center = {x: box.x + box.width / 2, y: box.y + box.height / 2};
+  // 以載子在路徑上的投影為停駐點，前後各走半段，結束時回到原圖位置。
+  let anchor = 0;
+  let best = Infinity;
+  for (let i = 0; i <= 40; i++) {
+    const point = track.getPointAtLength(length * i / 40);
+    const distance = Math.hypot(point.x - center.x, point.y - center.y);
+    if (distance < best) { best = distance; anchor = length * i / 40; }
+  }
+  const origin = track.getPointAtLength(anchor);
+  const start = Math.max(0, anchor - TRAVEL / 2);
+  const end = Math.min(length, anchor + TRAVEL / 2);
+  return Array.from({length: 9}, (_, i) => {
+    const point = track.getPointAtLength(start + (end - start) * i / 8);
+    return {offset: i / 8, transform: `translate(${(point.x - origin.x).toFixed(2)}px, ${(point.y - origin.y).toFixed(2)}px)`, opacity: i === 0 || i === 8 ? 0 : 1};
+  });
+}
+
+function startMotion(svg) {
+  const animations = [];
+  for (const node of svg.querySelectorAll('[data-motion]')) {
+    const kind = node.dataset.motion;
+    const timing = MOTION[kind];
+    if (!timing) continue;
+    let keyframes = null;
+    if (kind === 'along') {
+      const track = svg.querySelector(`[data-motion-track="${node.dataset.motionAlong}"]`);
+      if (track) keyframes = alongKeyframes(node, track);
+    }
+    if (kind === 'pulse') keyframes = [{opacity: 1}, {opacity: 0.35}, {opacity: 1}];
+    if (kind === 'appear') keyframes = [{opacity: 0}, {opacity: 1}];
+    if (keyframes) animations.push(node.animate(keyframes, {...timing, easing: kind === 'along' ? 'linear' : 'ease-in-out'}));
+  }
+  return animations;
+}
+
+const motionLength = animations => Math.max(0, ...animations.map(animation => {
+  const timing = animation.effect.getTiming();
+  return timing.duration * timing.iterations;
+}));
 
 export function cloneDiagram(original, suffix = 'engineering-zoom') {
   const svg = original.cloneNode(true);
@@ -101,13 +152,19 @@ function enhanceVariant(variant) {
   status.setAttribute('role', 'status');
   status.setAttribute('aria-live', 'polite');
   status.setAttribute('aria-atomic', 'true');
-  root.append(header, layout, timeline, controls, guidance, status);
+  const motionNote = element('p', 'nvm-step-motion-note');
+  const motionSources = [...new Set(svgs.flatMap(svg => [...svg.querySelectorAll('[data-motion]')].map(node => node.dataset.motionSource)))];
+  root.dataset.motion = motionSources.length ? 'illustrative' : 'none';
+  root.append(header, layout, timeline, controls, guidance, motionNote, status);
   let current = 0;
   let timer = null;
   let playing = false;
   let inViewport = true;
+  let motions = [];
   const visible = () => inViewport && variant.checkVisibility() && document.visibilityState !== 'hidden';
   const clearClock = () => { clearTimeout(timer); timer = null; };
+  const stopMotion = () => { motions.forEach(animation => animation.cancel()); motions = []; };
+  const frameHold = () => Math.max(hold, motionLength(motions) + 300);
   const stageName = () => frames[current].querySelector('h6').textContent;
   const announcement = () => say(`第 ${current + 1}／${frames.length} 步：${stageName()}`, `Step ${current + 1} of ${frames.length}: ${stageName()}`);
   const updateButtons = () => {
@@ -120,16 +177,21 @@ function enhanceVariant(variant) {
   };
   function pause(announce = false) {
     clearClock();
+    stopMotion();
     playing = false;
     updateButtons();
     if (announce) status.textContent = say(`已暫停於第 ${current + 1}／${frames.length} 步`, `Paused at step ${current + 1} of ${frames.length}`);
   }
-  function render(next, announce = false) {
+  function render(next, announce = false, animate = false) {
     current = Math.max(0, Math.min(frames.length - 1, next));
     root.dataset.stepCurrent = String(current + 1);
     root.dataset.frame = current === frames.length - 1 ? 'end' : current === 0 ? 'start' : 'step';
     count.textContent = `${String(current + 1).padStart(2, '0')} / ${String(frames.length).padStart(2, '0')}`;
-    stage.replaceChildren(cloneDiagram(svgs[current], `step-${sequenceId}`));
+    stopMotion();
+    const drawing = cloneDiagram(svgs[current], `step-${sequenceId}`);
+    stage.replaceChildren(drawing);
+    // 只在使用者切換步次或播放時啟動，載入頁面時不自行動。
+    if (animate && !reducedMotion.matches && !staticView && visible()) motions = startMotion(drawing);
     frameTitle.textContent = stageName();
     frameNotes.replaceChildren(...[...frames[current].querySelector('[data-figure-notes]').childNodes].map(node => node.cloneNode(true)));
     [...timeline.children].forEach((item, index) => {
@@ -143,24 +205,27 @@ function enhanceVariant(variant) {
   function tick() {
     if (!playing) return;
     if (!visible()) { pause(); return; }
-    render(current + 1);
+    render(current + 1, false, true);
     if (current === frames.length - 1) {
-      pause();
+      // 最後一步的示意動態照常播完；停止的是自動換步。
+      clearClock();
+      playing = false;
+      updateButtons();
       status.textContent = say(`演示完成：第 ${frames.length}／${frames.length} 步`, `Demonstration complete: step ${frames.length} of ${frames.length}`);
       return;
     }
-    timer = setTimeout(tick, hold);
+    timer = setTimeout(tick, frameHold());
   }
   function play() {
     if (reducedMotion.matches || staticView || !visible()) return;
     clearClock();
-    if (current === frames.length - 1) render(0);
+    render(current === frames.length - 1 ? 0 : current, false, true);
     playing = true;
     updateButtons();
     status.textContent = say(`播放中：第 ${current + 1}／${frames.length} 步`, `Playing: step ${current + 1} of ${frames.length}`);
-    timer = setTimeout(tick, hold);
+    timer = setTimeout(tick, frameHold());
   }
-  function move(next) { pause(); render(next, true); }
+  function move(next) { pause(); render(next, true, true); }
   controls.addEventListener('click', event => {
     const action = event.target.closest('[data-nvm-step-action]')?.dataset.nvmStepAction;
     if (action === 'play') playing ? pause(true) : play();
@@ -192,6 +257,15 @@ function enhanceVariant(variant) {
     layout.hidden = unavailable;
     timeline.hidden = unavailable;
     controls.hidden = unavailable;
+    motionNote.hidden = unavailable || !motionSources.length;
+    if (motionSources.length) {
+      // 依據直接連到這組圖既有的來源條目；找不到條目時顯示來源編號。
+      const basis = motionSources.flatMap((id, index) => {
+        const link = variant.querySelector(`.nvm-op-sources a[href="#source-${CSS.escape(id)}"]`);
+        return [...(index ? [say('、', ', ')] : []), link ? link.cloneNode(true) : id];
+      });
+      motionNote.replaceChildren(say('示意動態：只讓圖中已畫出的載子、電場與狀態變化動起來；速度、時間與路徑比例不代表實際物理。依據：', 'Illustrative motion: only carriers, fields and state changes already drawn in the figure move; speed, timing and path proportions are not physical. Basis: '), ...basis);
+    }
     if (unavailable) {
       root.dataset.frame = 'static';
       root.dataset.stepCurrent = String(frames.length);
@@ -211,7 +285,7 @@ function enhanceVariant(variant) {
   // 只在可視交集改變時更新；捲回畫面不自動恢復播放。
   const viewportObserver = new IntersectionObserver(entries => {
     inViewport = entries.some(entry => entry.isIntersecting && entry.intersectionRatio > 0);
-    if (!inViewport && playing) pause();
+    if (!inViewport) pause();
   });
   viewportObserver.observe(root);
 }
@@ -233,7 +307,8 @@ export function enhanceEngineeringViews() {
       ? record.target.matches('[data-nvm-panel],[data-operation-detail],details')
       : !record.target.closest('[data-nvm-step-root]') && [...record.addedNodes].some(node => node.nodeType === 1 && (node.matches('svg,[data-nvm-panel]') || node.querySelector('.nvm-op-variant'))))) schedule();
   }).observe(document.body, {subtree: true, childList: true, attributes: true, attributeFilter: ['hidden', 'open']});
-  const pauseAll = () => { for (const demo of demos.values()) if (demo.playing()) demo.pause(); };
+  // 暫停同時停止示意動態；不在播放中的演示也可能還有動態在跑。
+  const pauseAll = () => { for (const demo of demos.values()) demo.pause(); };
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') pauseAll(); });
   window.addEventListener('blur', pauseAll);
   window.addEventListener('pagehide', pauseAll);

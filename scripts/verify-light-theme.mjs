@@ -13,6 +13,9 @@ const pages = args[0] ? [args[0]] : [...loadPublicRoutes(root).pages];
 const widths = args[1] ? [Number(args[1])] : [1440, 390];
 const DARK_LUMINANCE = 0.2;
 const MIN_AREA = 10000;
+// 單頁上限：瀏覽器停止回應時，直接報出卡住的頁面與寬度，不默默等到外層案例逾時。
+// 正常每頁只需數秒；atlas 等大頁也遠低於此值。
+const PAGE_LIMIT_MS = 120000;
 const failures = [];
 const server = process.env.NVM_QA_BASE ? null : await startTestServer(root);
 const base = process.env.NVM_QA_BASE || server.base;
@@ -20,6 +23,11 @@ const browser = await chromium.launch({ headless: true });
 
 for (const pageName of pages) {
   for (const width of widths) {
+    console.log(`checking ${pageName}@${width}`);
+    const watchdog = setTimeout(() => {
+      console.error(`${pageName}@${width}: no result within ${PAGE_LIMIT_MS / 1000} s; the page or browser stopped responding`);
+      process.exit(1);
+    }, PAGE_LIMIT_MS);
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1, colorScheme: "light" });
     await page.emulateMedia({ reducedMotion: "reduce", colorScheme: "light" });
     if (sourceOnly) await page.route("**/literature-paper.js*", route => route.abort());
@@ -129,6 +137,7 @@ for (const pageName of pages) {
     if (audit.dark.length) failures.push(`${pageName}@${width}: dark background ${audit.dark.slice(0, 12).join(" | ")}${audit.dark.length > 12 ? ` (+${audit.dark.length - 12})` : ""}`);
     if (audit.toggles.length) failures.push(`${pageName}@${width}: language toggle contrast ${audit.toggles.join(" | ")}`);
     await page.close();
+    clearTimeout(watchdog);
   }
 }
 

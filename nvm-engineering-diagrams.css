@@ -111,8 +111,9 @@ body .nvm-figure-actions>button,body .nvm-figure-actions>a{min-height:44px}
 .nvm-step-controls button:hover:not(:disabled){background:#e5f1ef;border-color:#14777a}
 .nvm-step-controls button[aria-pressed="true"]{background:#155959;color:#fff;border-color:#155959}
 .nvm-step-controls button:disabled{color:#657984;background:#edf2f4;border-color:#c2cfd3;cursor:default}
-.nvm-step-guidance,.nvm-step-status{font-size:13px!important;line-height:1.75!important;color:#425f6c!important;margin:12px 0 0!important;overflow-wrap:anywhere}
-.nvm-step-status:empty,.nvm-step-guidance:empty{display:none}
+.nvm-step-guidance,.nvm-step-motion-note,.nvm-step-status{font-size:13px!important;line-height:1.75!important;color:#425f6c!important;margin:12px 0 0!important;overflow-wrap:anywhere}
+.nvm-step-status:empty,.nvm-step-guidance:empty,.nvm-step-motion-note:empty{display:none}
+.nvm-step-motion-note a{color:#155959;text-decoration:underline;text-underline-offset:2px}
 .nvm-step-demo [hidden]{display:none!important}
 .nvm-step-demo[data-step-mode="static"]{padding-block:14px}
 .nvm-step-demo[data-step-mode="static"] .nvm-step-head{margin-bottom:0}

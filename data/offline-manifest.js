@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "d60930611d12bedd36d9",
+  "version": "2f3f608611e1b00cc9f1",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -279,14 +279,14 @@ self.NVMOfflineManifest = {
     "nanosheet-bspdn-nvm-simulator.js": "09727ad356056f9fbc17cb808fbb20d05cedb2936ad2bab2e08c6c7b81b6538a",
     "normally-off-energy-harvesting-simulator.js": "09b05d46df6d8c75e574ef4e0ef08c7159dd96692799427a7c2807b584e3e861",
     "nvm-bitcell-figures.css": "ac12451c77cd8117a60d7efb222a809c6a8575d538eda1843c3c195bb39ff60a",
-    "nvm-engineering-diagrams.css": "34bfd2ef34cdba6c61514a2166dbce664c59256a044fdc89673c0f506fec75c4",
-    "nvm-engineering-diagrams.js": "68e904c9d3f7ec865d8c8821443d706c6580d0e3fbd88cf14eead93691f7a503",
+    "nvm-engineering-diagrams.css": "e3e08951f0fcbf4c6a3fc9a7d9abd9854a8c07f29628db570fee50339df20322",
+    "nvm-engineering-diagrams.js": "30fae3cea4921350eda6892bc7afcc11908f2f53cdfae3d408521ee69d710616",
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "07640c3ef2e1c81d3977a39c88df9beb16ed71e4b9421e4098a1a7dd7e2974e7",
+    "nvm-technology-atlas-zh.html": "c83f4843ad3149cf672ac1ab480e8a4eb41dfb24f821479ceec7229752cbde91",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "429f4747d9825bb3829eb03b40553add56cfd83e4b6b58d0033981feefb5e016",
+    "nvm-technology-atlas.html": "cf97d6f2741c161761fe326bbb6cddea62be030e4c1e5c6492f3ab1fc81e2be0",
     "nvm-technology-atlas.js": "02b067919d686be33b06d9898badba1d9c3570ca6bb0dcb8c12537d086053a85",
     "nvm-vendor-patent-maps.css": "83572d204eb9c362ba3f57bb423f647b415f3fe62d3189a8d2a9ae83862b040c",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
@@ -341,10 +341,10 @@ self.NVMOfflineManifest = {
     "whitepaper/index.html": "e5dabd38dc34949a6d5dbd61652183e293362256e7027a342e775c7ab65af1c4",
     "儲存狀態導讀.css": "dadb4255d41dcee23577603908c8941be0a3f6cb86aece7eb06887806e99b07d",
     "儲存狀態導讀.js": "52339aadab8c56218823ef01a8858e51be6e6b0663ee07cd3f31b6446aa11f32",
-    "操作圖步進演示.js": "212b96eb093e0dbcf3448567cf366f76838ae8bcbaa40a84765d3f2e61e2e847",
+    "操作圖步進演示.js": "853b4a60cb29587595e056237fa2adde54ae19d2298e486e65a1f804b3b13abb",
     "模型數值複製.js": "2d5d80105d1c4a565e8efa975a761d7ffda10ca8e90d7addca887c9602459777",
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 23033974
+  "totalBytes": 23047317
 };
