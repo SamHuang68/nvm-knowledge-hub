@@ -1,7 +1,7 @@
 {
   "name": "nvm-knowledge-hub",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
@@ -11,6 +11,7 @@
     "format:headings": "node scripts/normalize-heading-punctuation.mjs",
     "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",
     "qa:render": "node scripts/render-site-ia.mjs",
+    "qa:light": "node scripts/verify-light-theme.mjs",
     "build:nvm": "node scripts/build-nvm-atlas.mjs && node scripts/build-knowledge-hub-home.mjs",
     "check:nvm": "node scripts/check-js-syntax.mjs && node --test tests/test-physics-robustness.test.mjs && node scripts/build-nvm-atlas.mjs --check && node scripts/build-knowledge-hub-home.mjs --check",
     "qa:physics": "node --test tests/test-physics-robustness.test.mjs",

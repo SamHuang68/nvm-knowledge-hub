@@ -250,17 +250,17 @@ export function calculateHybridBondingMetrics(params = {}) {
 
   // Probe card compatibility verdict
   let probeStatus = 'QUALIFIED';
-  let statusColor = '#10b981'; // green
+  let statusColor = '#047857'; // green
 
   if (actualMarkDepthNm > 8.0 || effectivePitchUm < probe.pitchLimitUm) {
     probeStatus = 'FATAL INTERACTION';
-    statusColor = '#ef4444'; // red
+    statusColor = '#b91c1c'; // red
   } else if (actualMarkDepthNm > dishingThresholdNm) {
     probeStatus = 'HIGH VOID RISK';
-    statusColor = '#f59e0b'; // amber
+    statusColor = '#b45309'; // amber
   } else if (effectivePitchUm <= 1.0 && actualMarkDepthNm <= 2.2) {
     probeStatus = 'ULTRA-CLEAN ZERO-VOID';
-    statusColor = '#06b6d4'; // cyan
+    statusColor = '#0e7490'; // cyan
   }
 
   // Bilingual verdicts
@@ -327,8 +327,8 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
 
   // Background
   const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-  bgGrad.addColorStop(0, '#09131e');
-  bgGrad.addColorStop(1, '#020617');
+  bgGrad.addColorStop(0, '#ffffff');
+  bgGrad.addColorStop(1, '#f8fafc');
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -340,7 +340,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(51, 65, 85, 0.35)';
+  ctx.strokeStyle = '#e2e8f0';
   ctx.lineWidth = 1;
   for (let i = 0; i <= 4; i++) {
     const y = padTop + (plotH / 4) * i;
@@ -353,7 +353,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
   if (mode === 'tsv_rc_frequency_response') {
     // Mode 1: Frequency (0.5 to 10 GHz) vs Eye Opening (%)
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('100%', padLeft - 8, padTop + 4);
     ctx.fillText('75%', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -367,7 +367,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
 
     // Draw curve for current configuration
     ctx.beginPath();
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#0891b2';
     ctx.lineWidth = 2.6;
 
     for (let i = 0; i <= pts; i++) {
@@ -385,7 +385,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.lineTo(padLeft + plotW, padTop + plotH);
     ctx.lineTo(padLeft, padTop + plotH);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(6, 182, 212, 0.12)';
+    ctx.fillStyle = 'rgba(8, 145, 178, 0.12)';
     ctx.fill();
 
     // Mark current operating point
@@ -393,7 +393,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     const currX = padLeft + plotW * ((currF - fMin) / (fMax - fMin));
     const currY = padTop + plotH * (1.0 - metrics.eyeOpeningPercent / 100.0);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#d97706';
     ctx.beginPath();
     ctx.arc(currX, currY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -404,19 +404,19 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     // Labels
     ctx.textAlign = 'center';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('1 GHz', padLeft + plotW * ((1.0 - fMin) / (fMax - fMin)), height - padBottom + 16);
     ctx.fillText('3.2 GHz (HBM4 PHY)', currX, height - padBottom + 16);
     ctx.fillText('8 GHz', padLeft + plotW, height - padBottom + 16);
 
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0369a1';
     ctx.fillText(`— 2048-bit PHY 高頻眼高開展率 (Eye Height: ${metrics.eyeOpeningPercent.toFixed(1)}% @ 3.2GHz, τ = ${metrics.tauRcPicoSec.toFixed(1)} ps)`, padLeft + 10, padTop - 12);
 
   } else {
     // Mode 2: Probe Contact Force (0.1g to 3.0g) vs Scrub Mark Depth (nm) & Void Budget
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('20nm', padLeft - 8, padTop + 4);
     ctx.fillText('15nm', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -430,7 +430,7 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     // CMP Dishing safe limit line at 3.0nm
     const yThreshold = getY(metrics.dishingThresholdNm);
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 1.8;
     ctx.beginPath();
     ctx.moveTo(padLeft, yThreshold);
@@ -439,21 +439,21 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.setLineDash([]);
 
     ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#dc2626';
     ctx.textAlign = 'right';
     ctx.fillText('3.0nm CMP 容許上限 (Bonding Void Threshold)', padLeft + plotW - 10, yThreshold - 6);
 
     // Green safe zone below 3.0nm
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
+    ctx.fillStyle = 'rgba(5, 150, 105, 0.08)';
     ctx.fillRect(padLeft, yThreshold, plotW, padTop + plotH - yThreshold);
 
     // Plot probe architecture baseline marks
     const probePoints = [
-      { name: 'Low-Force MEMS', force: 0.35, depth: 1.8, color: '#38bdf8' },
-      { name: 'Thin-Film MEMS', force: 0.45, depth: 2.2, color: '#818cf8' },
-      { name: 'Vertical MEMS', force: 0.40, depth: 2.0, color: '#f59e0b' },
-      { name: 'Mixed-Signal', force: 0.55, depth: 2.8, color: '#c084fc' },
-      { name: 'Legacy VPC', force: 2.80, depth: 18.5, color: '#ef4444' }
+      { name: 'Low-Force MEMS', force: 0.35, depth: 1.8, color: '#0369a1' },
+      { name: 'Thin-Film MEMS', force: 0.45, depth: 2.2, color: '#4f46e5' },
+      { name: 'Vertical MEMS', force: 0.40, depth: 2.0, color: '#b45309' },
+      { name: 'Mixed-Signal', force: 0.55, depth: 2.8, color: '#9333ea' },
+      { name: 'Legacy VPC', force: 2.80, depth: 18.5, color: '#dc2626' }
     ];
 
     const getX = force => padLeft + plotW * (force / 3.0);
@@ -484,13 +484,13 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     const curY = getY(userDepth);
 
     // Glowing halo
-    ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+    ctx.strokeStyle = 'rgba(217, 119, 6, 0.4)';
     ctx.lineWidth = 6;
     ctx.beginPath();
     ctx.arc(curX, curY, 9, 0, Math.PI * 2);
     ctx.stroke();
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#d97706';
     ctx.beginPath();
     ctx.arc(curX, curY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -499,13 +499,13 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.stroke();
 
     ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.textAlign = 'center';
     ctx.fillText(`當前條件 (${userForce.toFixed(2)}g, ${userDepth.toFixed(1)}nm)`, curX, curY - 14);
 
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.fillText('■ 探針接觸力 vs 銅表面刮痕深度 (CMP Dishing Boundary Model)', padLeft + 10, padTop - 12);
   }
 
@@ -628,9 +628,9 @@ export function initHybridBondingSimulator(rootSelector = '#hybrid-bonding-tsv-s
       modeTsvBtn.style.background = '#0284c7';
       modeTsvBtn.style.borderColor = '#38bdf8';
       modeTsvBtn.style.color = '#ffffff';
-      modeScrubBtn.style.background = '#1e293b';
-      modeScrubBtn.style.borderColor = '#475569';
-      modeScrubBtn.style.color = '#94a3b8';
+      modeScrubBtn.style.background = '#ffffff';
+      modeScrubBtn.style.borderColor = '#cbd5e1';
+      modeScrubBtn.style.color = '#475569';
       update();
     });
 
@@ -643,9 +643,9 @@ export function initHybridBondingSimulator(rootSelector = '#hybrid-bonding-tsv-s
       modeScrubBtn.style.background = '#0284c7';
       modeScrubBtn.style.borderColor = '#38bdf8';
       modeScrubBtn.style.color = '#ffffff';
-      modeTsvBtn.style.background = '#1e293b';
-      modeTsvBtn.style.borderColor = '#475569';
-      modeTsvBtn.style.color = '#94a3b8';
+      modeTsvBtn.style.background = '#ffffff';
+      modeTsvBtn.style.borderColor = '#cbd5e1';
+      modeTsvBtn.style.color = '#475569';
       update();
     });
   }

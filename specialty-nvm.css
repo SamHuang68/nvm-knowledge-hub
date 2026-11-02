@@ -207,6 +207,22 @@
   text-align: center;
 }
 
+/* 站內示意配置圖的編號圖例：中英各一份，圖內只放編號 */
+.floorplan-legend {
+  margin: 8px auto 2px;
+  padding: 0 0 0 1.6em;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 2px 20px;
+  font-family: Inter, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: 12.5px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: #334155;
+  text-align: left;
+}
+
 /* =========================================================
    Topic Sections (Editorial Enterprise Framing)
    ========================================================= */
@@ -1556,7 +1572,7 @@ html[data-language="zh"] .data-table thead th {
   overflow-y: hidden;
   overscroll-behavior-x: contain;
   touch-action: pan-x pan-y;
-  scrollbar-color: var(--spec-text-dim) #081018;
+  scrollbar-color: var(--spec-text-dim) #f1f5f9;
 }
 
 .chiplet-chart-scroll-region:focus-visible {

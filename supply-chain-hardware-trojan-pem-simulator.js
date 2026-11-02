@@ -352,32 +352,32 @@ export class SupplyChainTrojanPemSimulator {
         <!-- Dual Canvas Visualizations -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; margin-bottom: 20px;">
           <!-- Canvas 1: TRE Photon Count vs Clock Phase -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 1：時間分辨光子發射 (TRE) 時域波形與時鐘鎖相分佈</span>
                 <span data-lang="en">Fig 1: Time-Resolved Emission (TRE) Waveform &amp; Clock Profile</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Picosecond TRE</span>
+              <span style="font-size: 10px; color: #475569;">Picosecond TRE</span>
             </div>
-            <canvas id="trojan-canvas-tre" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <canvas id="trojan-canvas-tre" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; margin-top: 6px;">
               <span><span data-lang="zh">紅峰值：電晶體開關發光</span><span data-lang="en">Red Peak: Switching Emission</span></span>
               <span><span data-lang="zh">紫線：遮蔽後探測噪訊底</span><span data-lang="en">Purple: Shielded Noise Floor</span></span>
             </div>
           </div>
 
           <!-- Canvas 2: PUF Hamming Distance Gaussian Distribution -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 2：PUF 指紋漢明距離分佈 (Inter vs Intra HD)</span>
                 <span data-lang="en">Fig 2: PUF Fingerprint Hamming Distribution (Inter vs Intra)</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Gaussian PDF</span>
+              <span style="font-size: 10px; color: #475569;">Gaussian PDF</span>
             </div>
-            <canvas id="trojan-canvas-puf" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <canvas id="trojan-canvas-puf" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; margin-top: 6px;">
               <span><span data-lang="zh">綠峰：晶片間隨機性 (50%)</span><span data-lang="en">Green: Inter-Chip (50%)</span></span>
               <span><span data-lang="zh">藍峰：晶片內穩定度 (&lt;1%)</span><span data-lang="en">Blue: Intra-Chip (&lt;1%)</span></span>
             </div>
@@ -602,7 +602,7 @@ export class SupplyChainTrojanPemSimulator {
     const plotH = h - padTop - padBottom;
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padLeft, padTop);
@@ -610,7 +610,7 @@ export class SupplyChainTrojanPemSimulator {
     ctx.lineTo(padLeft + plotW, padTop + plotH);
     ctx.stroke();
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px system-ui';
     ctx.fillText('Photon Count (CPS)', 5, padTop - 10);
     ctx.fillText('Clock Period (0 to 10 ns)', padLeft + plotW / 2 - 50, padTop + plotH + 28);
@@ -620,27 +620,27 @@ export class SupplyChainTrojanPemSimulator {
     for (let c = 50; c <= maxCps; c += Math.round(maxCps / 3)) {
       const y = padTop + plotH - (c / maxCps) * plotH;
       ctx.beginPath(); ctx.moveTo(padLeft - 3, y); ctx.lineTo(padLeft, y); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${c}`, padLeft - 26, y + 3);
 
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#e2e8f0';
       ctx.beginPath(); ctx.moveTo(padLeft, y); ctx.lineTo(padLeft + plotW, y); ctx.stroke();
-      ctx.strokeStyle = '#475569';
+      ctx.strokeStyle = '#94a3b8';
     }
 
     // X ticks: 0 to 10 ns
     for (let t = 2; t <= 10; t += 2) {
       const x = padLeft + (t / 10) * plotW;
       ctx.beginPath(); ctx.moveTo(x, padTop + plotH); ctx.lineTo(x, padTop + plotH + 3); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${t}ns`, x - 8, padTop + plotH + 14);
     }
 
     // Baseline Noise Floor Line (Purple Dash @ 10 CPS)
     const noiseY = padTop + plotH - (10.0 / maxCps) * plotH;
-    ctx.strokeStyle = '#a855f7';
+    ctx.strokeStyle = '#9333ea';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padLeft, noiseY);
@@ -648,13 +648,13 @@ export class SupplyChainTrojanPemSimulator {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#a855f7';
+    ctx.fillStyle = '#9333ea';
     ctx.font = '9px monospace';
     ctx.fillText('SNSPD Dark Noise Floor (10 cps)', padLeft + plotW - 160, noiseY - 4);
 
     // TRE Waveform Curve
     // Peak at clock transitions (t = 2.5ns and t = 7.5ns)
-    ctx.strokeStyle = p.measuredFlux > 20 ? '#ef4444' : '#10b981';
+    ctx.strokeStyle = p.measuredFlux > 20 ? '#dc2626' : '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -674,7 +674,7 @@ export class SupplyChainTrojanPemSimulator {
     ctx.stroke();
 
     // Annotation
-    ctx.fillStyle = p.measuredFlux > 20 ? '#ef4444' : '#10b981';
+    ctx.fillStyle = p.measuredFlux > 20 ? '#dc2626' : '#047857';
     ctx.font = 'bold 9.5px monospace';
     ctx.fillText(`Peak: ${p.measuredFlux.toFixed(2)} ph/s (${p.snrDb < -5 ? 'Hidden' : 'Detectable'})`, padLeft + 15, padTop + 20);
   }
@@ -705,7 +705,7 @@ export class SupplyChainTrojanPemSimulator {
     const plotH = h - padTop - padBottom;
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padLeft, padTop);
@@ -713,7 +713,7 @@ export class SupplyChainTrojanPemSimulator {
     ctx.lineTo(padLeft + plotW, padTop + plotH);
     ctx.stroke();
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px system-ui';
     ctx.fillText('Probability Density', 5, padTop - 10);
     ctx.fillText('Hamming Distance (%)', padLeft + plotW / 2 - 50, padTop + plotH + 28);
@@ -722,14 +722,14 @@ export class SupplyChainTrojanPemSimulator {
     for (let xPct = 0; xPct <= 100; xPct += 20) {
       const x = padLeft + (xPct / 100) * plotW;
       ctx.beginPath(); ctx.moveTo(x, padTop + plotH); ctx.lineTo(x, padTop + plotH + 3); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${xPct}%`, x - 8, padTop + plotH + 14);
     }
 
     if (p.tech.interHammingMean <= 0) {
       // Non-PUF display
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = '#dc2626';
       ctx.font = 'bold 12px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('NON-PUF ARCHITECTURE: ZERO PHYSICAL ENTROPY', padLeft + plotW / 2, padTop + plotH / 2);
@@ -738,7 +738,7 @@ export class SupplyChainTrojanPemSimulator {
     }
 
     // 1. Plot Inter-Chip Gaussian Peak (Center ~ 50%, sigma ~ 2.5%)
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -755,7 +755,7 @@ export class SupplyChainTrojanPemSimulator {
     ctx.stroke();
 
     // 2. Plot Intra-Chip Bit Flip Peak (Center ~ 0.5-5%, sigma ~ 0.5%)
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -773,7 +773,7 @@ export class SupplyChainTrojanPemSimulator {
 
     // Vertical 50% Ideal Reference Line
     const idealX = padLeft + 0.5 * plotW;
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.setLineDash([3, 3]);
     ctx.beginPath();
     ctx.moveTo(idealX, padTop);
@@ -781,11 +781,11 @@ export class SupplyChainTrojanPemSimulator {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.font = '9px monospace';
     ctx.fillText('Ideal Inter 50%', idealX + 4, padTop + 15);
 
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0369a1';
     ctx.fillText(`Intra: ${meanIntra.toFixed(1)}%`, padLeft + 15, padTop + 35);
   }
 

@@ -269,8 +269,8 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
 
   // Background gradient
   const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, '#020617');
-  bgGrad.addColorStop(1, '#0f172a');
+  bgGrad.addColorStop(0, '#ffffff');
+  bgGrad.addColorStop(1, '#f8fafc');
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -281,7 +281,7 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
   if (mode === 'spectrum_shift') {
     // Mode 1: Optical Resonance Spectrum & Drift Shift
     // Grid lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
       const y = padding.top + (chartH / 4) * i;
@@ -321,18 +321,18 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
     }
 
     // 1. Nominal Cold Peak (Ideal center 0.5)
-    drawPeak(0.5, '#38bdf8', lang === 'zh' ? '理想諧振' : 'Nominal', true);
+    drawPeak(0.5, '#0369a1', lang === 'zh' ? '理想諧振' : 'Nominal', true);
 
     // 2. Uncompensated Thermal Drift Peak (Drifted)
     const driftCenter = 0.5 + driftNorm;
-    drawPeak(driftCenter, '#ef4444', lang === 'zh' ? '熱漂移未校' : 'Drifted');
+    drawPeak(driftCenter, '#dc2626', lang === 'zh' ? '熱漂移未校' : 'Drifted');
 
     // 3. NVM DAC Compensated Peak (Restored near nominal)
     const compCenter = driftCenter - compNorm;
-    drawPeak(compCenter, '#10b981', lang === 'zh' ? 'NVM 校準後' : 'Trimmed');
+    drawPeak(compCenter, '#047857', lang === 'zh' ? 'NVM 校準後' : 'Trimmed');
 
     // Axes
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.font = "500 9px 'IBM Plex Mono', monospace";
     ctx.fillText('0.0 (T)', padding.left - 45, padding.top + chartH);
     ctx.fillText('1.0 (T)', padding.left - 45, padding.top + 8);
@@ -344,7 +344,7 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
   } else {
     // Mode 2: DAC Resolution vs Extinction Ratio & Power Tradeoff
     // Grid lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
       const y = padding.top + (chartH / 4) * i;
@@ -356,7 +356,7 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
 
     // Draw ER Curve (dB, Y: 0 to 30 dB)
     ctx.beginPath();
-    ctx.strokeStyle = '#22d3ee';
+    ctx.strokeStyle = '#0891b2';
     ctx.lineWidth = 2.5;
 
     const points = [];
@@ -375,7 +375,7 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
     ctx.lineTo(padding.left + chartW, padding.top + chartH);
     ctx.lineTo(padding.left, padding.top + chartH);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(34, 211, 238, 0.08)';
+    ctx.fillStyle = 'rgba(8, 145, 178, 0.08)';
     ctx.fill();
 
     // Plot current operating point
@@ -383,7 +383,7 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
     const currYRatio = Math.max(0, Math.min(1, metrics.extinctionRatioDb / 30.0));
     const currY = padding.top + chartH - (currYRatio * chartH);
 
-    ctx.fillStyle = '#fbbf24';
+    ctx.fillStyle = '#d97706';
     ctx.beginPath();
     ctx.arc(currX, currY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -391,12 +391,12 @@ export function drawCpoTrimCanvas(canvas, metrics, mode = 'spectrum_shift', lang
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = "700 10px 'IBM Plex Mono', monospace";
     ctx.fillText(`${metrics.extinctionRatioDb.toFixed(1)} dB`, currX + 8, currY - 6);
 
     // Y Axis Labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = "500 9px 'IBM Plex Mono', monospace";
     ctx.fillText('30 dB', padding.left - 38, padding.top + 8);
     ctx.fillText('15 dB', padding.left - 38, padding.top + chartH * 0.5);
@@ -461,22 +461,22 @@ export function initCpoTrimSimulator(rootId = 'cpo-optical-trim-simulator-root')
 
     if (outDrift) {
       outDrift.textContent = `+${metrics.wavelengthDriftNm.toFixed(2)} nm`;
-      outDrift.style.color = metrics.wavelengthDriftNm <= 1.5 ? '#22d3ee' : '#f87171';
+      outDrift.style.color = metrics.wavelengthDriftNm <= 1.5 ? '#0e7490' : '#b91c1c';
     }
     if (outPhase) {
       outPhase.textContent = `${metrics.rawPhaseDriftRad.toFixed(2)} rad`;
     }
     if (outEr) {
       outEr.textContent = `${metrics.extinctionRatioDb.toFixed(1)} dB`;
-      outEr.style.color = metrics.extinctionRatioDb >= 12.0 ? '#34d399' : (metrics.extinctionRatioDb >= 8.0 ? '#fbbf24' : '#f87171');
+      outEr.style.color = metrics.extinctionRatioDb >= 12.0 ? '#047857' : (metrics.extinctionRatioDb >= 8.0 ? '#b45309' : '#b91c1c');
     }
     if (outPower) {
       outPower.textContent = `${metrics.savedTuningPowerW.toFixed(2)} W (${metrics.powerSavingsPct.toFixed(0)}%)`;
-      outPower.style.color = '#38bdf8';
+      outPower.style.color = '#0369a1';
     }
     if (outRating) {
       outRating.textContent = metrics.rating;
-      outRating.style.color = metrics.rating === 'OPTIMAL' ? '#34d399' : (metrics.rating === 'VIABLE' ? '#fbbf24' : '#f87171');
+      outRating.style.color = metrics.rating === 'OPTIMAL' ? '#047857' : (metrics.rating === 'VIABLE' ? '#b45309' : '#b91c1c');
     }
     if (outVerdict) {
       const lang = getLanguage();
@@ -516,9 +516,9 @@ export function initCpoTrimSimulator(rootId = 'cpo-optical-trim-simulator-root')
 
       modeDacBtn.classList.remove('active');
       modeDacBtn.setAttribute('aria-pressed', 'false');
-      modeDacBtn.style.background = '#1e293b';
-      modeDacBtn.style.color = '#94a3b8';
-      modeDacBtn.style.borderColor = '#475569';
+      modeDacBtn.style.background = '#ffffff';
+      modeDacBtn.style.color = '#475569';
+      modeDacBtn.style.borderColor = '#cbd5e1';
       update();
     });
 
@@ -532,9 +532,9 @@ export function initCpoTrimSimulator(rootId = 'cpo-optical-trim-simulator-root')
 
       modeSpectrumBtn.classList.remove('active');
       modeSpectrumBtn.setAttribute('aria-pressed', 'false');
-      modeSpectrumBtn.style.background = '#1e293b';
-      modeSpectrumBtn.style.color = '#94a3b8';
-      modeSpectrumBtn.style.borderColor = '#475569';
+      modeSpectrumBtn.style.background = '#ffffff';
+      modeSpectrumBtn.style.color = '#475569';
+      modeSpectrumBtn.style.borderColor = '#cbd5e1';
       update();
     });
   }

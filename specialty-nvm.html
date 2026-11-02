@@ -716,11 +716,19 @@
 
     <!-- 右側高密度內容工作台 (Main Stage) -->
     <div class="lens-stage-container">
-<!-- Silicon Micrograph Hero Panorama: Plan A BCD PMIC + eNVM -->
-<div class="specialty-hero-image-wrap" data-reticle="MICROSCOPY 100X · 1mm CALIBRATED">
-<img src="assets/specialty-bcd-pmic-die-v2.webp" width="1200" height="675" alt="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" data-alt-en="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" data-alt-zh="單晶粒 BCD 電源管理晶片 (PMIC) 晶圓顯微佈局，展示 40V-85V LDMOS 功率開關、類比能隙基準微調電路、AntiFuse OTP FuseBox 記憶體陣列與 CMOS 邏輯核心" loading="eager" fetchpriority="high" decoding="async"/>
+<!-- BCD PMIC + eNVM floorplan: site-drawn teaching figure, not a die photograph -->
+<div class="specialty-hero-image-wrap">
+<img src="assets/specialty-bcd-pmic-floorplan.svg" width="1200" height="675" alt="Illustrative floorplan of a monolithic BCD power-management IC: high-voltage LDMOS power stage, gate drive and level shift, bandgap reference and trimming, antifuse OTP trim array, digital control and registers, and peripheral pads; site-drawn teaching figure, not a die photograph and not to scale" data-alt-en="Illustrative floorplan of a monolithic BCD power-management IC: high-voltage LDMOS power stage, gate drive and level shift, bandgap reference and trimming, antifuse OTP trim array, digital control and registers, and peripheral pads; site-drawn teaching figure, not a die photograph and not to scale" data-alt-zh="單晶粒 BCD 電源管理晶片的示意配置：高壓 LDMOS 功率級、閘極驅動與位準轉換、能隙基準與修調、反熔絲 OTP 修調陣列、數位控制與暫存器，以及周邊焊墊；站內繪製教學示意，非晶粒照片，未依比例" loading="eager" fetchpriority="high" decoding="async"/>
 <div class="hero-image-caption">
-<span><span data-lang="zh">圖 0.1 · 單晶粒 BCD PMIC 架構 • 40V-85V LDMOS 功率級 • 類比帶隙微調 • 反熔絲 OTP 熔絲陣列 • 1mm 比例</span><span data-lang="en">FIG 0.1 · MONOLITHIC BCD PMIC SILICON DIE ARCHITECTURE • 40V-85V LDMOS POWER STAGE • ANALOG BANDGAP TRIMMING • ANTIFUSE OTP FUSEBOX • 1mm SCALE</span></span>
+<span><span data-lang="zh">圖 0.1 · 單晶粒 BCD PMIC 示意配置 • 40V-85V LDMOS 功率級 • 類比帶隙微調 • 反熔絲 OTP 熔絲陣列 • 站內繪製教學示意：區塊位置與面積不是實際晶粒，未依比例</span><span data-lang="en">FIG 0.1 · MONOLITHIC BCD PMIC ILLUSTRATIVE FLOORPLAN • 40V-85V LDMOS POWER STAGE • ANALOG BANDGAP TRIMMING • ANTIFUSE OTP FUSEBOX • SITE-DRAWN TEACHING FIGURE: BLOCK POSITIONS AND AREAS ARE NOT A REAL DIE, NOT TO SCALE</span></span>
+<ol class="floorplan-legend">
+<li><span data-lang="zh">高壓 LDMOS 功率級（交指狀源汲極）</span><span data-lang="en">High-voltage LDMOS power stage (interdigitated source/drain)</span></li>
+<li><span data-lang="zh">閘極驅動與位準轉換</span><span data-lang="en">Gate drive and level shift</span></li>
+<li><span data-lang="zh">能隙基準與修調電路</span><span data-lang="en">Bandgap reference and trimming</span></li>
+<li><span data-lang="zh">反熔絲 OTP 修調陣列；虛線表示修調碼送往類比區塊（示意）</span><span data-lang="en">Antifuse OTP trim array; dashed lines show trim codes routed to analog blocks (illustrative)</span></li>
+<li><span data-lang="zh">數位控制與暫存器</span><span data-lang="en">Digital control and registers</span></li>
+<li><span data-lang="zh">周邊焊墊（電源、功率輸出與控制介面）</span><span data-lang="en">Peripheral pads (supply, power output and control interface)</span></li>
+</ol>
 </div>
 </div>
 <!-- =========================================================
@@ -2425,13 +2433,13 @@
       </div>
 
       <!-- Visualization Canvas & Mode Buttons -->
-      <div style="background: #09131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
           <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
             <button id="hb-mode-tsv" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
               <span data-lang="zh">TSV 頻率響應與眼高衰減曲線</span><span data-lang="en">TSV Frequency Response &amp; Eye</span>
             </button>
-            <button id="hb-mode-scrub" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+            <button id="hb-mode-scrub" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
               <span data-lang="zh">探針接觸力 vs 銅表面刮痕與鍵合空隙</span><span data-lang="en">Contact Force vs Scrub &amp; Void</span>
             </button>
           </div>
@@ -2588,13 +2596,13 @@
     </div>
 
     <!-- Canvas Visualization -->
-    <div style="background: #081018; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
         <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Packaging Visualization Mode" data-aria-en="Packaging Visualization Mode" data-aria-zh="封裝視覺化模式">
           <button id="chiplet-mode-pkg" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
             <span data-lang="zh">封裝剖面拓撲 (Package Layout)</span><span data-lang="en">Package Layout</span>
           </button>
-          <button id="chiplet-mode-lat" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+          <button id="chiplet-mode-lat" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
             <span data-lang="zh">存取延遲分解 (Latency Breakdown)</span><span data-lang="en">Latency Breakdown</span>
           </button>
         </div>
@@ -3572,11 +3580,18 @@
 </div>
 </div>
 </div>
-<!-- E-Ink DDIC Die Architecture Panorama: Plan B Ultra-HV DDIC + NVM -->
-<div class="specialty-hero-image-wrap" data-reticle="ULTRA-HV DDIC · &lt;250μm SLIM PROFILE" style="margin: 24px auto; max-width: 780px;">
-<img src="assets/specialty-eink-ddic-die-v2.webp" width="1200" height="675" alt="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" data-alt-en="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" data-alt-zh="超高壓電子紙顯示驅動晶片 (DDIC) 晶圓佈局，展示 40V-50V 高壓電位移位器、動態波形查找表 (Waveform LUT) MTP/OTP 記憶體與週邊金凸塊 (Gold Bumping) 銲墊" loading="lazy" decoding="async"/>
+<!-- E-Ink DDIC floorplan: site-drawn teaching figure, not a die photograph -->
+<div class="specialty-hero-image-wrap" style="margin: 24px auto; max-width: 780px;">
+<img src="assets/specialty-eink-ddic-floorplan.svg" width="1200" height="675" alt="Illustrative floorplan of a long, slim ultra-high-voltage e-paper display driver IC: high-voltage source driver and level-shifter channels, waveform look-up table in MTP/OTP, timing-control logic and interface, power and bias circuits, and gold bump pads for COG/COF bonding; site-drawn teaching figure, not a die photograph and not to scale" data-alt-en="Illustrative floorplan of a long, slim ultra-high-voltage e-paper display driver IC: high-voltage source driver and level-shifter channels, waveform look-up table in MTP/OTP, timing-control logic and interface, power and bias circuits, and gold bump pads for COG/COF bonding; site-drawn teaching figure, not a die photograph and not to scale" data-alt-zh="細長型超高壓電子紙顯示驅動晶片的示意配置：高壓源極驅動與位準轉換通道、MTP/OTP 波形查找表、時序控制邏輯與介面、電源與偏壓電路，以及供 COG/COF 接合的金凸塊接墊；站內繪製教學示意，非晶粒照片，未依比例" loading="lazy" decoding="async"/>
 <div class="hero-image-caption">
-<span><span data-lang="zh">圖 4.1 · 超高壓電子紙顯示驅動晶片 (DDIC) • 40V-50V 源極驅動器 • 波形查找表 (MTP/OTP) • &lt;250μm 厚度 • COG/COF 金凸塊接墊</span><span data-lang="en">FIG 4.1 · ULTRA-HV E-INK DISPLAY DRIVER IC (DDIC) SILICON DIE • 40V-50V SOURCE DRIVERS • WAVEFORM LUT (MTP/OTP) • &lt;250μm PROFILE • COG/COF Au-BUMP PADS</span></span>
+<span><span data-lang="zh">圖 4.1 · 超高壓電子紙顯示驅動晶片 (DDIC) 示意配置 • 40V-50V 源極驅動器 • 波形查找表 (MTP/OTP) • &lt;250μm 厚度 • COG/COF 金凸塊接墊 • 站內繪製教學示意：長寬比與區塊面積不是實際晶粒，未依比例</span><span data-lang="en">FIG 4.1 · ULTRA-HV E-INK DISPLAY DRIVER IC (DDIC) ILLUSTRATIVE FLOORPLAN • 40V-50V SOURCE DRIVERS • WAVEFORM LUT (MTP/OTP) • &lt;250μm PROFILE • COG/COF Au-BUMP PADS • SITE-DRAWN TEACHING FIGURE: ASPECT RATIO AND BLOCK AREAS ARE NOT A REAL DIE, NOT TO SCALE</span></span>
+<ol class="floorplan-legend">
+<li><span data-lang="zh">高壓源極驅動與位準轉換通道（重複排列）</span><span data-lang="en">High-voltage source driver and level-shifter channels (repeated)</span></li>
+<li><span data-lang="zh">波形查找表（MTP/OTP）</span><span data-lang="en">Waveform look-up table (MTP/OTP)</span></li>
+<li><span data-lang="zh">時序控制（TCON）邏輯與介面</span><span data-lang="en">Timing-control (TCON) logic and interface</span></li>
+<li><span data-lang="zh">電源與偏壓電路（含電荷泵）</span><span data-lang="en">Power and bias circuits (including charge pumps)</span></li>
+<li><span data-lang="zh">金凸塊接墊：輸出側整排、輸入側一段，供 COG/COF 接合</span><span data-lang="en">Gold bump pads: full output row and an input segment for COG/COF bonding</span></li>
+</ol>
 </div>
 </div>
 <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 04 -->
@@ -4396,13 +4411,13 @@
       </div>
 
       <!-- Canvas Visualization -->
-      <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
           <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CPO Visualization Mode" data-aria-en="CPO Visualization Mode" data-aria-zh="CPO 視覺化模式">
             <button id="cpo-trim-mode-spectrum" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
               <span data-lang="zh">光波導諧振譜溫漂與 NVM 補償峰 (Resonance Spectrum)</span><span data-lang="en">Resonance Spectrum Shift</span>
             </button>
-            <button id="cpo-trim-mode-dac" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+            <button id="cpo-trim-mode-dac" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
               <span data-lang="zh">DAC 解析度 vs 消光比曲線 (DAC Bits vs ER)</span><span data-lang="en">DAC Bits vs ER Curve</span>
             </button>
           </div>

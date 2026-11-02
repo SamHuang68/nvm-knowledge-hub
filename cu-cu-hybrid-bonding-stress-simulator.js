@@ -466,34 +466,34 @@ export class CuCuHybridBondingSimulator {
         <!-- Dual Canvas Visualizations -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; margin-bottom: 20px;">
           <!-- Canvas 1: Cross-Section Voiding & Closure Heatmap -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 1：Cu 焊盤退火微觀界面形變與微空洞閉合剖面</span>
                 <span data-lang="en">Fig 1: Cu Pad Interface Deformation &amp; Void Closure Profile</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Cross-Sectional FEA</span>
+              <span style="font-size: 10px; color: #475569;">Cross-Sectional FEA</span>
             </div>
             <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="${window.HubLanguage?.get() === 'zh' ? '銅焊盤剖面圖，可橫向捲動' : 'Copper pad cross-section, horizontally scrollable'}" data-aria-zh="銅焊盤剖面圖，可橫向捲動" data-aria-en="Copper pad cross-section, horizontally scrollable">
-              <canvas id="cu-canvas-cross" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
+              <canvas id="cu-canvas-cross" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
             </div>
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #475569; margin-top: 6px;">
               <span><span data-lang="zh">藍色：未閉合奈米間隙</span><span data-lang="en">Blue: Unclosed Nanogap</span></span>
               <span><span data-lang="zh">金黃/綠：金屬原子擴散接合面</span><span data-lang="en">Gold/Green: Atomic Diffusion Joint</span></span>
             </div>
           </div>
 
           <!-- Canvas 2: Radial Stress Decay vs KOZ Distance -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 2：徑向應力衰減曲線 σ(r) 與 eNVM 耐受邊界</span>
                 <span data-lang="en">Fig 2: Radial Stress Decay σ(r) vs eNVM Tolerance Threshold</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Decay ~ (r0/r)^2.2</span>
+              <span style="font-size: 10px; color: #475569;">Decay ~ (r0/r)^2.2</span>
             </div>
             <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="${window.HubLanguage?.get() === 'zh' ? '徑向應力圖，可橫向捲動' : 'Radial stress chart, horizontally scrollable'}" data-aria-zh="徑向應力圖，可橫向捲動" data-aria-en="Radial stress chart, horizontally scrollable">
-              <canvas id="cu-canvas-stress" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
+              <canvas id="cu-canvas-stress" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #64748b; margin-top: 6px;">
               <span><span data-lang="zh">紅線：機械應力衰減</span><span data-lang="en">Red: Mechanical Stress Decay</span></span>
@@ -719,7 +719,7 @@ export class CuCuHybridBondingSimulator {
     ctx.clearRect(0, 0, w, h);
 
     // Background Grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
     for (let x = 0; x < w; x += 40) {
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
@@ -735,14 +735,14 @@ export class CuCuHybridBondingSimulator {
     const padHalfH = 65;
 
     // 1. Top & Bottom Dielectric Layers
-    ctx.fillStyle = '#1e293b';
+    ctx.fillStyle = '#cbd5e1';
     ctx.fillRect(20, midY - padHalfH - 20, padX - 20, padHalfH + 20);
     ctx.fillRect(padX + padW, midY - padHalfH - 20, w - padX - padW - 20, padHalfH + 20);
     ctx.fillRect(20, midY, padX - 20, padHalfH + 20);
     ctx.fillRect(padX + padW, midY, w - padX - padW - 20, padHalfH + 20);
 
     // Labels for Dielectrics
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px monospace';
     ctx.fillText(`${p.diel.name}`, 30, midY - 10);
     ctx.fillText('Top Wafer', 30, midY - 60);
@@ -754,9 +754,9 @@ export class CuCuHybridBondingSimulator {
     const residualGapPx = Math.max(0, dishingVisualPx - expansionVisualPx);
 
     const gradTop = ctx.createLinearGradient(padX, midY - padHalfH, padX + padW, midY);
-    gradTop.addColorStop(0, '#b45309');
-    gradTop.addColorStop(0.5, '#f59e0b');
-    gradTop.addColorStop(1, '#d97706');
+    gradTop.addColorStop(0, '#fbbf24');
+    gradTop.addColorStop(0.5, '#fde68a');
+    gradTop.addColorStop(1, '#fcd34d');
     ctx.fillStyle = gradTop;
 
     ctx.beginPath();
@@ -766,14 +766,14 @@ export class CuCuHybridBondingSimulator {
     ctx.quadraticCurveTo(padX + padW / 2, midY - residualGapPx / 2 - (residualGapPx > 0 ? dishingVisualPx / 2 : 0), padX, midY - residualGapPx / 2);
     ctx.closePath();
     ctx.fill();
-    ctx.strokeStyle = '#fbbf24';
+    ctx.strokeStyle = '#b45309';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     const gradBot = ctx.createLinearGradient(padX, midY, padX + padW, midY + padHalfH);
-    gradBot.addColorStop(0, '#d97706');
-    gradBot.addColorStop(0.5, '#f59e0b');
-    gradBot.addColorStop(1, '#b45309');
+    gradBot.addColorStop(0, '#fcd34d');
+    gradBot.addColorStop(0.5, '#fde68a');
+    gradBot.addColorStop(1, '#fbbf24');
     ctx.fillStyle = gradBot;
 
     ctx.beginPath();
@@ -783,32 +783,32 @@ export class CuCuHybridBondingSimulator {
     ctx.quadraticCurveTo(padX + padW / 2, midY + residualGapPx / 2 + (residualGapPx > 0 ? dishingVisualPx / 2 : 0), padX, midY + residualGapPx / 2);
     ctx.closePath();
     ctx.fill();
-    ctx.strokeStyle = '#fbbf24';
+    ctx.strokeStyle = '#b45309';
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
     // 3. Interface Bonding / Void Annotation
     if (residualGapPx > 1.5) {
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+      ctx.fillStyle = 'rgba(2, 132, 199, 0.25)';
       ctx.fillRect(padX + 10, midY - residualGapPx / 2, padW - 20, residualGapPx);
-      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeStyle = '#0284c7';
       ctx.lineWidth = 1;
       ctx.strokeRect(padX + 10, midY - residualGapPx / 2, padW - 20, residualGapPx);
 
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = '#991b1b';
       ctx.font = 'bold 11px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(`UNCLOSED NANOVOID (${Math.abs(p.closureMarginNm).toFixed(1)} nm GAP)`, padX + padW / 2, midY + 4);
       ctx.textAlign = 'start';
     } else {
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = '#047857';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(padX, midY);
       ctx.lineTo(padX + padW, midY);
       ctx.stroke();
 
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = '#064e3b';
       ctx.font = 'bold 11px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(`ATOMIC DIFFUSION JOINT (STRESS = ${Math.round(p.sigmaPeakMPa)} MPa)`, padX + padW / 2, midY - 6);
@@ -816,7 +816,7 @@ export class CuCuHybridBondingSimulator {
     }
 
     // Stress Concentration Wings at Corners
-    ctx.fillStyle = 'rgba(239, 68, 68, 0.6)';
+    ctx.fillStyle = 'rgba(220, 38, 38, 0.6)';
     ctx.beginPath();
     ctx.arc(padX, midY, 8, 0, Math.PI * 2);
     ctx.fill();
@@ -824,7 +824,7 @@ export class CuCuHybridBondingSimulator {
     ctx.arc(padX + padW, midY, 8, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = '#f87171';
+    ctx.fillStyle = '#991b1b';
     ctx.font = '9px monospace';
     ctx.fillText('Peak σ', padX - 35, midY + 3);
     ctx.fillText('Peak σ', padX + padW + 10, midY + 3);
@@ -856,7 +856,7 @@ export class CuCuHybridBondingSimulator {
     const plotH = h - padTop - padBottom;
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padLeft, padTop);
@@ -865,7 +865,7 @@ export class CuCuHybridBondingSimulator {
     ctx.stroke();
 
     // Axis Labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px system-ui';
     ctx.fillText('Stress (MPa)', 5, padTop - 10);
     ctx.fillText('Distance from Pad Edge r (μm)', padLeft + plotW / 2 - 60, padTop + plotH + 28);
@@ -874,16 +874,16 @@ export class CuCuHybridBondingSimulator {
     const maxR = 4.0;
 
     // Y ticks
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.font = '9px monospace';
     for (let s = 100; s <= maxStress; s += 150) {
       const y = padTop + plotH - (s / maxStress) * plotH;
       ctx.beginPath(); ctx.moveTo(padLeft - 3, y); ctx.lineTo(padLeft, y); ctx.stroke();
       ctx.fillText(`${s}`, padLeft - 28, y + 3);
 
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#e2e8f0';
       ctx.beginPath(); ctx.moveTo(padLeft, y); ctx.lineTo(padLeft + plotW, y); ctx.stroke();
-      ctx.strokeStyle = '#475569';
+      ctx.strokeStyle = '#94a3b8';
     }
 
     // X ticks
@@ -895,7 +895,7 @@ export class CuCuHybridBondingSimulator {
 
     // Tech Tolerance Limit Horizontal Line
     const limitY = padTop + plotH - (p.tech.sigmaLimit / maxStress) * plotH;
-    ctx.strokeStyle = '#f97316';
+    ctx.strokeStyle = '#ea580c';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padLeft, limitY);
@@ -903,12 +903,12 @@ export class CuCuHybridBondingSimulator {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#f97316';
+    ctx.fillStyle = '#c2410c';
     ctx.font = '10px monospace';
     ctx.fillText(`Limit: ${p.tech.sigmaLimit} MPa (${p.tech.nameZh.split(' ')[0]})`, padLeft + plotW - 170, limitY - 4);
 
     // Curve: Radial Stress Decay
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -927,7 +927,7 @@ export class CuCuHybridBondingSimulator {
 
     // Mark Recommended KOZ
     const kozX = padLeft + (Math.min(maxR, p.finalKozUm) / maxR) * plotW;
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -937,7 +937,7 @@ export class CuCuHybridBondingSimulator {
     ctx.setLineDash([]);
 
     // KOZ Label Flag
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#059669';
     ctx.fillRect(kozX - 35, padTop + 10, 70, 20);
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 10px monospace';
