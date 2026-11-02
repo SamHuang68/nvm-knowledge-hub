@@ -23,3 +23,6 @@ data/offline-manifest.js text eol=lf
 
 # 媒體出處清單以檔案位元組計算 SHA-256；文字型資產在各平台都須是 LF，雜湊才一致。
 assets/*.svg text eol=lf
+
+# 影片字幕也以位元組計算雜湊，固定 LF。
+assets/video/*.vtt text eol=lf

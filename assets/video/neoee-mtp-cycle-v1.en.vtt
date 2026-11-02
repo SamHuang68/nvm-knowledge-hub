@@ -1,0 +1,81 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Program · 01/04 Initial State
+FG is shown with fewer electrons.
+
+2
+00:00:02.500 --> 00:00:05.000
+Program · 02/04 Apply Conditions
+coupling and tunneling terminals establish oxide field.
+
+3
+00:00:05.000 --> 00:00:09.008
+Program · 03/04 Carrier Motion
+electrons enter FG from a MOS tunneling region by FN tunneling.
+
+4
+00:00:09.008 --> 00:00:11.508
+Program · 04/04 Retained Result
+field removal leaves increased FG charge.
+
+5
+00:00:11.508 --> 00:00:14.008
+Read · 01/04 Retained State
+two FG charge states create different thresholds.
+
+6
+00:00:14.008 --> 00:00:16.508
+Read · 02/04 Select the Cell
+selectors enable the read channel.
+
+7
+00:00:16.508 --> 00:00:20.142
+Read · 03/04 Sense the Path
+Path: sense channel conductance without FN charge transfer.
+
+8
+00:00:20.142 --> 00:00:22.642
+Read · 04/04 Compare the Result
+Result: compare against a reference while preserving FG charge.
+
+9
+00:00:22.642 --> 00:00:25.142
+Erase · 01/04 Programmed State
+FG retains programmed charge.
+
+10
+00:00:25.142 --> 00:00:27.642
+Erase · 02/04 Switch Terminal Conditions
+switch terminal conditions to establish charge-removal field.
+
+11
+00:00:27.642 --> 00:00:31.650
+Erase · 03/04 Remove Electrons
+electrons leave FG by FN tunneling into a MOS receiving region.
+
+12
+00:00:31.650 --> 00:00:34.150
+Erase · 04/04 Ready to Reprogram
+Result: reduced FG charge permits another program cycle.
+
+13
+00:00:34.150 --> 00:00:36.650
+Read · 01/04 Retained State
+two FG charge states create different thresholds.
+
+14
+00:00:36.650 --> 00:00:39.150
+Read · 02/04 Select the Cell
+selectors enable the read channel.
+
+15
+00:00:39.150 --> 00:00:42.783
+Read · 03/04 Sense the Path
+Path: sense channel conductance without FN charge transfer.
+
+16
+00:00:42.783 --> 00:00:45.283
+Read · 04/04 Compare the Result
+Result: compare against a reference while preserving FG charge.

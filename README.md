@@ -87,6 +87,8 @@ npm run qa:ip
 
 記憶體物理頁的穿隧模擬器有三個連動視圖：J–V 曲線、能帶圖與剖面，全部讀同一組 `tox`／`Vox` 與 `tunneling-breakdown-simulator.js` 的模型（能障幾何由 `tunnelingBarrierGeometry` 提供）。專利地圖的優先權日時間軸由 `data/nvm-vendor-patent-maps*.json` 的 `priorityDate` 與 `legalStatus` 在建置時產生，不使用期滿日；專利附圖的權利說明取自 `data/nvm-patent-figures.json` 的 `rights`。改動後執行 `node scripts/驗證穿隧與高溫模型契約.mjs` 與 `npm run qa:timeline`。
 
+操作影片（`assets/video/`）由 `node scripts/build-operation-videos.mjs <repo 外母帶資料夾>` 從 atlas 步進演示逐格錄製：同一組原始影格加示意動態，中英各一版，AV1 WebM 為主、H.264 MP4 備援，附 WebP 海報與中英 WebVTT。腳本會更新 `data/media-manifest.json`，播放器標記由 `scripts/nvm-engineering-diagrams-ui.mjs` 依清單產生（`preload="none"`、不自動播放）。逐格 PNG 留在母帶資料夾，不進 repo。改動步進演示、示意動態或影片後，重新產製並執行 `npm run qa:video`；單支影片上限 2 MB，由 `check-release-gates.mjs` 檢查。
+
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 
 ## 應用資料與 SharePoint 匯出

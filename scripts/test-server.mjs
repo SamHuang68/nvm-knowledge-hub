@@ -3,7 +3,7 @@ import path from 'node:path';
 import { createServer } from 'node:http';
 
 export async function startTestServer(root) {
-  const types = {'.html':'text/html','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webmanifest':'application/manifest+json'};
+  const types = {'.html':'text/html','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webm':'video/webm','.mp4':'video/mp4','.vtt':'text/vtt','.webmanifest':'application/manifest+json'};
   const server = createServer((request, response) => {
     try {
       const pathname = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);

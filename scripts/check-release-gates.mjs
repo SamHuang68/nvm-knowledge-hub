@@ -238,7 +238,7 @@ for (const file of files.filter(file => /^scripts\/nvm-[a-z-]+-diagrams\.mjs$/u.
 // 以 <img>／<source> 當內容呈現的 AI 生成圖，旁邊要有中英可見揭露。
 const media = JSON.parse(fs.readFileSync(path.join(dataDir, "media-manifest.json"), "utf8"));
 const mediaKinds = new Set(Object.keys(media.kinds ?? {}));
-const assetFiles = files.map(file => path.relative(root, file).replaceAll("\\", "/")).filter(relative => /^assets\/[^/]+$/u.test(relative));
+const assetFiles = files.map(file => path.relative(root, file).replaceAll("\\", "/")).filter(relative => /^assets\/(?:video\/)?[^/]+$/u.test(relative));
 const entries = new Map();
 for (const entry of media.assets ?? []) {
   if (entries.has(entry.path)) failures.push(`media manifest lists ${entry.path} twice`);
@@ -250,9 +250,17 @@ for (const relative of assetFiles) {
   const entry = entries.get(relative);
   if (!entry) { failures.push(`media manifest missing ${relative}`); continue; }
   const bytes = fs.readFileSync(path.join(root, relative));
-  const vector = relative.endsWith(".svg");
+  const vector = /\.(?:svg|vtt)$/u.test(relative);
+  const budget = /\.(?:webm|mp4)$/u.test(relative) ? media.budgetBytes.video : vector ? media.budgetBytes.vector : media.budgetBytes.raster;
   if (crypto.createHash("sha256").update(bytes).digest("hex") !== entry.sha256 || bytes.length !== entry.bytes) failures.push(`${relative}: bytes differ from media manifest`);
-  if (bytes.length > (vector ? media.budgetBytes.vector : media.budgetBytes.raster)) failures.push(`${relative}: ${bytes.length} bytes exceeds the media budget`);
+  if (!budget || bytes.length > budget) failures.push(`${relative}: ${bytes.length} bytes exceeds the media budget`);
+  // 影片：每支 WebM 都要有 MP4 備援、海報與中英字幕，且都登記在清單；字幕須是 WebVTT。
+  if (relative.endsWith(".webm")) {
+    const video = entry.video;
+    const parts = video ? [video.fallback, video.poster, video.captions?.zh, video.captions?.en] : [];
+    if (!video || parts.some(part => !part || !entries.has(part) || !fs.existsSync(path.join(root, part)))) failures.push(`${relative}: video needs a registered MP4 fallback, poster and zh/en captions`);
+    for (const caption of [video?.captions?.zh, video?.captions?.en].filter(Boolean)) if (fs.existsSync(path.join(root, caption)) && !fs.readFileSync(path.join(root, caption), "utf8").startsWith("WEBVTT")) failures.push(`${caption}: captions must be WebVTT`);
+  }
   if (!mediaKinds.has(entry.kind) || !entry.rights || !entry.evidence) failures.push(`${relative}: media manifest needs a known kind, rights and evidence`);
   const name = path.basename(relative);
   const users = [...referenceText].filter(([, text]) => text.includes(name));

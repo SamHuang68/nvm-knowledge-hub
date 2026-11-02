@@ -1,0 +1,31 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Write P → AP · 01/03 Initial: Access Transistor Off
+Initial stable magnetization
+
+2
+00:00:02.500 --> 00:00:06.508
+Write P → AP · 02/03 Pulse: Spin Torque Deflects the Free Layer
+Free layer precessing/reversing
+
+3
+00:00:06.508 --> 00:00:09.008
+Write P → AP · 03/03 Pulse Removed: Opposite Magnetization Retained
+Opposite stable magnetization
+
+4
+00:00:09.008 --> 00:00:11.508
+Reverse write AP → P · 01/03 Initial: Access Transistor Off
+Initial stable magnetization
+
+5
+00:00:11.508 --> 00:00:15.517
+Reverse write AP → P · 02/03 Pulse: Spin Torque Deflects the Free Layer
+Free layer precessing/reversing
+
+6
+00:00:15.517 --> 00:00:18.017
+Reverse write AP → P · 03/03 Pulse Removed: Opposite Magnetization Retained
+Opposite stable magnetization
