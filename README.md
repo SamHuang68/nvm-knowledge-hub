@@ -83,6 +83,8 @@ npm run qa:ip
 
 圖解與模擬器的材料、載子與圖表色取自 `visual-tokens.js`，不要在產生器裡另寫色表。新增或替換 `assets/` 的檔案時，同步更新 `data/media-manifest.json`（種類、雜湊、權利與證據）；AI 生成圖以 `<img>` 呈現時，旁邊要有中英「AI 生成」可見標示。`check-release-gates.mjs` 會檢查這兩項。
 
+步進演示的示意動態由產生器在 SVG 內標記：`data-motion` 為 `along`（載子沿同圖 `data-motion-track` 路徑移動）、`pulse`（電場或電流脈動）或 `appear`（本格新狀態淡入），並附 `data-motion-source`（這組圖既有的來源條目）與 `data-motion-claim`。只標記圖中已畫出的元素；原始比較圖、減少動態效果、`?motion=static` 與列印都不動。目前只涵蓋 6 組試點，改動後執行 `npm run qa:motion`。
+
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 
 ## 應用資料與 SharePoint 匯出

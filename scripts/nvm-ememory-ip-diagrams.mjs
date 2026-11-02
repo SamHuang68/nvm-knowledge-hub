@@ -15,7 +15,12 @@ const t=(x,y,value,anchor='middle',color=C.ink)=>'<text x="'+x+'" y="'+y+'" text
 const particle=(x,y,hole=false,stored=false)=>'<circle data-charge="'+(stored?'stored':'mobile')+'" cx="'+x+'" cy="'+y+'" r="11" fill="'+(hole?C.h:C.e)+'"/>'+t(x,y+8,hole?'+':'−','middle','#fff');
 const stop=(x,y)=>'<circle cx="'+x+'" cy="'+y+'" r="18" fill="#fff" stroke="'+C.h+'" stroke-width="3"/>'+p('M'+(x-12)+' '+(y+12)+'l24 -24',C.h,3);
 const port=(x,y,end,label)=>p('M'+x+' '+y+'V'+end)+t(x,y-13,label);
-function context(prefix,language){return{l:(zh,en)=>local(language,zh,en),arrow:(d,kind='e')=>p(d,C[kind],3,'marker-end="url(#'+prefix+'-'+kind+')"')};}
+// 示意動態試點：只標記圖中已畫出的載子、路徑與狀態，播放器在演示框內依此動態化，原圖不變。
+// data-motion-source 是支持該方向或狀態的來源條目；claim 為 direction（方向）或 state-change（本格新狀態）。
+const motion=(kind,source,extra='')=>' data-motion="'+kind+'" data-motion-source="'+source+'" data-motion-claim="'+(kind==='appear'?'state-change':'direction')+'"'+extra;
+const carrier=(on,track,source,body)=>on?'<g'+motion('along',source,' data-motion-along="'+track+'"')+'>'+body+'</g>':body;
+const track=(on,key)=>on?' data-motion-track="'+key+'"':'';
+function context(prefix,language){return{l:(zh,en)=>local(language,zh,en),arrow:(d,kind='e',extra='')=>p(d,C[kind],3,'marker-end="url(#'+prefix+'-'+kind+')"'+extra)};}
 function svg(prefix,label,body){
  const markers=['e','h','i','field'].map(k=>'<marker id="'+prefix+'-'+k+'" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1L9 5.5L1 10" fill="none" stroke="'+C[k]+'" stroke-width="2"/></marker>').join('');
  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" role="img" aria-labelledby="'+prefix+'-title" style="font-family:Arial,Microsoft JhengHei,sans-serif;background:#f8fafc"><title id="'+prefix+'-title">'+esc(label)+'</title><defs>'+markers+'</defs>'+body+'</svg>';
@@ -45,9 +50,11 @@ function pmos(ctx,kind,operation,phase){
   if(kind==='neobit')s+=t(326,202,'Q−','middle',C.e);
   else s+=[288,313,339,364].map(x=>particle(x,192,false,true)).join('');
  }
- if(write&&phase===1)s+=arrow('M276 283H372','h')+particle(293,246,true)+t(340,307,l('橫向高場','Lateral field'));
+ // 試點只涵蓋 NeoBit；NeoMTP 共用此圖但暫不加動態。
+ const pilot=kind==='neobit',src='ip-neobit-pgm-pat';
+ if(write&&phase===1)s+=arrow('M276 283H372','h',track(pilot,'h'))+carrier(pilot,'h',src,particle(293,246,true))+t(340,307,l('橫向高場','Lateral field'));
  if(write&&phase===2){
-  s+=arrow('M276 283H369','h')+particle(298,246,true)+particle(350,245,true)+arrow('M369 246Q397 230 372 208','e')+particle(383,224);
+  s+=arrow('M276 283H369','h',track(pilot,'h'))+carrier(pilot,'h',src,particle(298,246,true)+particle(350,245,true))+arrow('M369 246Q397 230 372 208','e',track(pilot,'e'))+carrier(pilot,'e',src,particle(383,224));
  }
  if(read&&phase>=1){
   s+=p('M106 237H401',C.i,4)+arrow('M143 286H398','i')+t(268,309,'I_R');
@@ -72,9 +79,11 @@ function neoee(ctx,operation,phase){
  s+=r(41,236,80,48,C.metal)+r(153,223,285,70,C.si)+p('M121 260H153M438 260H518')+t(81,267,'S')+t(296,267,'READ MOS')+t(505,244,'R');
  s+=t(280,329,l('C / T：功能角色，非固定元件數','C / T: roles, not a fixed device count'));
  if(loaded)s+=[217,250,283,316].map(x=>particle(x,172,false,true)).join('');
- if(operation==='write'&&phase>=1&&phase<=2){s+=arrow('M433 117V175','e');if(phase===2)s+=particle(433,140);s+=t(495,174,'FN','middle',C.e);}
- if(erase&&phase>=1&&phase<=2){s+=arrow('M433 177V115','e');if(phase===2)s+=particle(433,140);s+=t(495,174,'FN','middle',C.e);}
- if(read&&phase>=1){s+=arrow('M130 307H448','i');if(phase>=2)s+=t(485,288,'I_R');}
+ // 寫入、抹除、讀取都加動態，讀者可依序看完一次 MTP 循環。
+ const src='ip-neoee';
+ if(operation==='write'&&phase>=1&&phase<=2){s+=arrow('M433 117V175','e',track(phase===2,'e'));if(phase===2)s+=carrier(true,'e',src,particle(433,140));s+=t(495,174,'FN','middle',C.e);}
+ if(erase&&phase>=1&&phase<=2){s+=arrow('M433 177V115','e',track(phase===2,'e'));if(phase===2)s+=carrier(true,'e',src,particle(433,140));s+=t(495,174,'FN','middle',C.e);}
+ if(read&&phase>=1){const sense=arrow('M130 307H448','i');s+=phase===2?'<g'+motion('pulse',src)+'>'+sense+'</g>':sense;if(phase>=2)s+=t(485,288,'I_R');}
  return s;
 }
 function neofuse(ctx,operation,phase){
@@ -86,10 +95,12 @@ function neofuse(ctx,operation,phase){
  s+=port(91,220,233,'S_CTL')+port(217,220,233,'R_CTL');
  s+=r(334,158,132,65,C.oxide)+r(334,117,132,41,C.metal)+port(399,87,117,'AF');
  s+=t(283,151,l('儲存層','Storage'),'end')+t(283,178,l('閘極氧化層','Gate oxide'),'end')+p('M291 171H328');
- const sites=loaded?[[349,173],[365,173],[432,173],[450,173],[346,185],[451,188],[351,208],[372,209],[431,209],[451,209],[367,189],[434,194]]:[[346,173],[451,209]];
- s+=sites.map(([x,y])=>'<circle data-defect="oxide" cx="'+x+'" cy="'+y+'" r="3.6" fill="'+C.field+'"/>').join('');
+ const initial=[[346,173],[451,209]],sites=loaded?[[349,173],[365,173],[432,173],[450,173],[346,185],[451,188],[351,208],[372,209],[431,209],[451,209],[367,189],[434,194]]:initial;
+ // 寫入第 2 格新增的缺陷點淡入；寫入前已有的 2 點不動。
+ const generated=([x,y])=>operation==='write'&&phase===1&&!initial.some(([a,b])=>Math.hypot(x-a,y-b)<5);
+ s+=sites.map(site=>'<circle data-defect="oxide"'+(generated(site)?motion('appear','ip-neofuse-dt'):'')+' cx="'+site[0]+'" cy="'+site[1]+'" r="3.6" fill="'+C.field+'"/>').join('');
  if(operation==='write'&&(phase===1||phase===2)){
-  s+=arrow('M399 254V143','e');if(phase===2)s+=particle(399,190);
+  s+=arrow('M399 254V143','e',track(phase===2,'e'));if(phase===2)s+=carrier(true,'e','ip-neofuse-dt',particle(399,190));
   s+=t(495,204,'DT','middle',C.e);
  }
  if(operation==='read'&&phase>=1){

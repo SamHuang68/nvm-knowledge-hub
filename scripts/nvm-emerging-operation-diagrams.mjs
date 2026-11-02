@@ -35,7 +35,10 @@ function canvas(topic, operation, language, frame) {
     ? line(x,y,x,y+7)+dot(x,y+7,2.5)+dot(x,y+29,2.5)+line(x,y+29,x,y+36)+line(x,y+7,on?x:x-11,y+29,on?C.read:C.line,2.5)
     : line(x,y,x+7,y)+dot(x+7,y,2.5)+dot(x+29,y,2.5)+line(x+29,y,x+36,y)+line(x+7,y,on?x+29:x+25,on?y:y-12,on?C.read:C.line,2.5);
   const pulse = (x,y,w,h,active,reset=false) => line(x,y,x+w,y,C.line,1)+path(reset?`M${x} ${y}h${w*.28}v-${h}h${w*.2}v${h}h${w*.52}`:`M${x} ${y}h${w*.22}v-${h}h${w*.55}v${h}h${w*.23}`,'none',active?C.stim:C.muted,2.5);
-  return {prefix,choose,path,line,box,dot,text,head,arrow,moment,ring,charge,ground,switchLine,pulse};
+  // 示意動態試點：只把圖中已畫出的載子、電場或狀態包成可動的群組，播放器在演示框內依此動態化，原圖不變。
+  // source 是支持該方向或狀態的來源條目；claim 為 direction（方向）或 state-change（本格新狀態）。
+  const motion = (kind,source,body,extra='') => `<g data-motion="${kind}" data-motion-source="${source}" data-motion-claim="${kind==='appear'?'state-change':'direction'}"${extra}>${body}</g>`;
+  return {prefix,choose,path,line,box,dot,text,head,arrow,moment,ring,charge,ground,switchLine,pulse,motion};
 }
 
 function frame(topic,operation,language,index,title,caption,draw,state,stimulus) {
@@ -142,9 +145,10 @@ function sttStack(c,angle,stage,reverse) {
   out+=c.line(180,198,180,210)+c.switchLine(180,210,stage===1)+c.text(213,237,stage===1?'WL=1':'WL=0');
   if(stage===1) {
     out+=c.text(58,51,'Ic','middle',C.stim)+c.text(302,51,'e−','middle',C.read);
-    out+=c.arrow(58,reverse?80:194,58,reverse?194:80,C.stim,3.5)+c.arrow(310,reverse?194:80,310,reverse?80:194,C.read,2.5,'stroke-dasharray="5 4"');
+    // 電子沿圖中 e− 箭頭方向移動、Ic 脈動；方向依 Katine 等的電子流與 P／AP 對應。
+    out+=c.motion('pulse','op-stt-katine-2000',c.arrow(58,reverse?80:194,58,reverse?194:80,C.stim,3.5))+c.arrow(310,reverse?194:80,310,reverse?80:194,C.read,2.5,'stroke-dasharray="5 4" data-motion-track="e"');
     out+=c.path('M156 89C147 72 174 61 188 77','none',C.stim,2)+c.head(188,77,50,C.stim,2);
-    [97,132,168].forEach(y=>{out+=c.charge(91,y);});
+    out+=c.motion('along','op-stt-katine-2000',[97,132,168].map(y=>c.charge(91,y)).join(''),' data-motion-along="e"');
   } else out+=c.text(44,120,'Ic=0','middle',C.muted);
   return out+c.text(180,265,stage===1?c.choose('自旋力矩','Spin torque'):((angle%360+360)%360===90?'P · R↓':'AP · R↑'),'middle');
 }
@@ -211,13 +215,14 @@ function oxideStack(c,connected,stage,reset) {
   [113,135,157,179,195].forEach((y,k)=>{out+=c.dot(117+(k%2)*15,y,5,C.oxygen)+c.dot(229-(k%2)*12,y,5,C.oxygen);});
   const gap=reset?(stage>=2):(stage<2);
   out+=c.path(gap?'M180 201V160M180 131V92':'M180 201V92','none','#e1c29f',15);
-  [101,118,135,152,169,186,199].forEach(y=>{if(gap&&(y===135||y===152))out+=c.dot(180,y,6,C.oxygen);else out+=c.ring(180,y,6);});
+  // 第 3 格是間隙接通（SET）或打開（RESET）的那一格：頸部兩點的新狀態淡入。
+  [101,118,135,152,169,186,199].forEach(y=>{const site=gap&&(y===135||y===152)?c.dot(180,y,6,C.oxygen):c.ring(180,y,6);out+=stage===2&&(y===135||y===152)?c.motion('appear','op-vcm-reservoir-2026',site):site;});
   const reservoirCount=reset?(stage===0?5:stage===1?4:3):(stage===0?3:stage===1?4:5);
   for(let k=0;k<reservoirCount;k++)out+=c.dot(131+k*23,74,5,C.oxygen);
   if(active) {
     const ionY=reset?(stage===1?111:143):(stage===1?140:105);
-    out+=c.dot(208,ionY,7,C.oxygen)+c.arrow(208,reset?95:174,208,reset?169:94,C.oxygen,2.5);
-    out+=c.arrow(67,reset?177:91,67,reset?91:177,C.stim,2.5)+c.text(54,157,'E','end',C.stim);
+    out+=c.motion('along','op-vcm-reservoir-2026',c.dot(208,ionY,7,C.oxygen),' data-motion-along="o"')+c.arrow(208,reset?95:174,208,reset?169:94,C.oxygen,2.5,'data-motion-track="o"');
+    out+=c.motion('pulse','op-vcm-reservoir-2026',c.arrow(67,reset?177:91,67,reset?91:177,C.stim,2.5))+c.text(54,157,'E','end',C.stim);
     if(!reset)out+=c.text(299,173,'Ilim','middle',C.stim);
     else out+=c.path('M162 128H197V158H162Z','none',C.vacancy,1.5,'stroke-dasharray="4 3"');
   }
@@ -309,11 +314,12 @@ BUILDERS.pcm=(operation,language)=>{
   return titles.map((title,i)=>frame('pcm',operation,language,i+1,title,captions[i],c=>c.text(180,26,phases[i]==='N'?'A → C':phases[i],'middle')+pcmCell(c,phases[i],i===1||(!reset&&i===2))+pcmThermal(c,i,reset),pair(reset?['晶態低阻','局部液態','快速淬冷形成非晶','非晶高阻'][i]:['非晶高阻','結晶溫度區域','晶核形成與成長','晶態低阻'][i],reset?['Crystalline low R','Local liquid','Rapid quench forming amorphous material','Amorphous high R'][i]:['Amorphous high R','Crystallization-temperature region','Nucleation and growth','Crystalline low R'][i]),pair(i===0||i===3?'無加熱脈衝':reset?(i===1?'短強 RESET 脈衝；T > Tm':'脈衝快速下降；快速淬冷'):'SET 保溫；Tx < T < Tm',i===0||i===3?'No heating pulse':reset?(i===1?'Short strong RESET pulse; T > Tm':'Steep pulse fall; rapid quench'):'SET dwell; Tx < T < Tm')));
 };
 
-function ferroCap(c,x,polarization,{wl=false,bl='0',pl='0',field=0,chargeLabel='',mixed=false}={}) {
+// motionSource 有值時：電場箭頭脈動，flipped 列出本格剛翻轉、要淡入的電域（k = −1、0、1）。
+function ferroCap(c,x,polarization,{wl=false,bl='0',pl='0',field=0,chargeLabel='',mixed=false,flipped=[],motionSource=''}={}) {
   let out=c.text(x,56,`BL ${bl}`,'middle')+c.line(x,64,x,70)+c.switchLine(x,70,wl)+c.line(x,106,x,121);
   out+=c.line(x-32,122,x+32,122,C.metal,4)+c.box(x-32,127,64,44,'#eee7f3')+c.line(x-32,176,x+32,176,C.metal,4)+c.line(x,177,x,193)+c.text(x,219,`PL ${pl}`,'middle');
-  for(let k=-1;k<=1;k++)out+=c.moment(x+k*20,149,mixed&&k===0?-polarization:polarization,26,C.ferro);
-  if(field)out+=c.arrow(x+46,field>0?170:128,x+46,field>0?128:170,C.stim,2.5)+c.text(x+53,156,'E','start',C.stim);
+  for(let k=-1;k<=1;k++){const domain=c.moment(x+k*20,149,mixed&&k===0?-polarization:polarization,26,C.ferro);out+=motionSource&&flipped.includes(k)?c.motion('appear',motionSource,domain):domain;}
+  if(field){const drive=c.arrow(x+46,field>0?170:128,x+46,field>0?128:170,C.stim,2.5);out+=(motionSource?c.motion('pulse',motionSource,drive):drive)+c.text(x+53,156,'E','start',C.stim);}
   if(chargeLabel)out+=c.text(x,247,chargeLabel,'middle',C.read);
   return out;
 }
@@ -335,7 +341,7 @@ BUILDERS.feram=(operation,language)=>{
   const reverse=operation==='erase', direction=reverse?270:90;
   const titles=[pair('初態：相反方向的剩餘極化','Initial: Opposite Remanent Polarization'),pair('施加跨電容脈衝：電域切換','Apply a Capacitor Pulse: Domains Switch'),pair('撤去電場：目標極化保留','Remove the Field: Target Polarization Retained')];
   const captions=[pair('圖從相反資料的剩餘極化開始；沒有施加跨電容電壓。','The starting remanent polarization represents opposite data, with no voltage across the capacitor.'),pair(`開啟選擇管並使${reverse?'BL 高於 PL':'PL 高於 BL'}；超過有效切換條件的脈衝使電域朝${reverse?'下':'上'}切換。`,`Enable access and set ${reverse?'BL above PL':'PL above BL'}. A pulse meeting the effective switching condition drives domains ${reverse?'downward':'upward'}.`),pair('撤去跨電容電壓並隔離單元，剩餘極化保留；反向資料可直接重寫，沒有區塊抹除。','Remove capacitor voltage and isolate the cell. Remanent polarization is retained; opposite data is directly rewritten without a block erase.')];
-  return titles.map((title,i)=>frame('feram',operation,language,i+1,title,captions[i],c=>c.text(180,27,`WL ${i===1?'1':'0'}`,'middle')+ferroCap(c,170,i===0?(direction+180)%360:direction,{wl:i===1,bl:i===1&&reverse?'V':'0',pl:i===1&&!reverse?'V':'0',field:i===1?(reverse?-1:1):0,mixed:i===1,chargeLabel:i===1?c.choose('電域切換中','Domains switching'):(i===0?reverse?'P↑':'P↓':reverse?'P↓':'P↑')}),pair(i===1?'電域正在切換':'剩餘極化保留',i===1?'Domains switching':'Remanent polarization retained'),pair(i===1?(reverse?'BL=V；PL=0；WL=1':'BL=0；PL=V；WL=1'):'電容兩端等電位；WL=0',i===1?(reverse?'BL=V; PL=0; WL=1':'BL=0; PL=V; WL=1'):'Capacitor terminals equipotential; WL=0')));
+  return titles.map((title,i)=>frame('feram',operation,language,i+1,title,captions[i],c=>c.text(180,27,`WL ${i===1?'1':'0'}`,'middle')+ferroCap(c,170,i===0?(direction+180)%360:direction,{wl:i===1,bl:i===1&&reverse?'V':'0',pl:i===1&&!reverse?'V':'0',field:i===1?(reverse?-1:1):0,mixed:i===1,flipped:i===1?[-1,1]:i===2?[0]:[],motionSource:i>0?'EMG-P-FERAM':'',chargeLabel:i===1?c.choose('電域切換中','Domains switching'):(i===0?reverse?'P↑':'P↓':reverse?'P↓':'P↑')}),pair(i===1?'電域正在切換':'剩餘極化保留',i===1?'Domains switching':'Remanent polarization retained'),pair(i===1?(reverse?'BL=V；PL=0；WL=1':'BL=0；PL=V；WL=1'):'電容兩端等電位；WL=0',i===1?(reverse?'BL=V; PL=0; WL=1':'BL=0; PL=V; WL=1'):'Capacitor terminals equipotential; WL=0')));
 };
 
 function fefetCell(c,down,active=false,read=false,mixed=false) {
