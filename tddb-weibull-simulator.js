@@ -903,7 +903,7 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'tddb-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #3b82f6; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.4); background: #f8fafc; color: #1d4ed8; cursor: pointer;';
     const lang = getLang();
     exportBtn.textContent = lang === 'zh' ? '📥 匯出 Weibull 曲線 (CSV)' : '📥 Export Weibull Curve (CSV)';
     exportBtn.addEventListener('click', () => {

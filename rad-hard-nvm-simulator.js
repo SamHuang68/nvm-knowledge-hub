@@ -576,14 +576,14 @@ export function initRadSimulator() {
     if (outDeltavth) outDeltavth.textContent = metrics.deltaVthMv.toFixed(1) + ' mV';
     if (outMargin) {
       outMargin.textContent = metrics.remainingMarginMv.toFixed(1) + ' mV';
-      outMargin.style.color = metrics.remainingMarginMv >= 100 ? '#059669' : (metrics.remainingMarginMv >= 50 ? '#d97706' : '#dc2626');
+      outMargin.style.color = metrics.remainingMarginMv >= 100 ? '#047857' : (metrics.remainingMarginMv >= 50 ? '#b45309' : '#dc2626');
     }
     if (outRetention) outRetention.textContent = metrics.marginRetentionPct.toFixed(1) + '%';
     if (outCross) outCross.textContent = metrics.seuCrossSection === 0 ? '0.0 (IMMUNE)' : metrics.seuCrossSection.toExponential(2);
     if (outFit) outFit.textContent = metrics.orbitFitPerMbit.toFixed(1) + ' FIT';
     if (outRating) {
       outRating.textContent = metrics.assuranceRating;
-      outRating.style.color = metrics.assuranceRating.includes('IMMUNE') || metrics.assuranceRating.includes('SPACE') ? '#059669' : '#dc2626';
+      outRating.style.color = metrics.assuranceRating.includes('IMMUNE') || metrics.assuranceRating.includes('SPACE') ? '#047857' : '#dc2626';
     }
 
     if (outVerdict) {

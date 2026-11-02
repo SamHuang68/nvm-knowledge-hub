@@ -20,3 +20,6 @@ whitepaper/assets/whitepaper.js text eol=lf
 whitepaper/assets/whitepaper.css text eol=lf
 whitepaper/build-manifest.json text eol=lf
 data/offline-manifest.js text eol=lf
+
+# 媒體出處清單以檔案位元組計算 SHA-256；文字型資產在各平台都須是 LF，雜湊才一致。
+assets/*.svg text eol=lf

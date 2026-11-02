@@ -208,23 +208,23 @@ export function calculateDeepSpaceMetrics(params = {}) {
 
   // 4. 僅依既有教學條件分類，不產生任務資格或認證。
   let rating = 'Within Model Conditions';
-  let ratingColor = '#10b981';
+  let ratingColor = '#047857';
   let verdictZh = '';
   let verdictEn = '';
 
   if (isSelLatching || isThermalExceeded || estimatedRetentionYears < (missionYears * 0.5)) {
     rating = 'Outside Model Conditions';
-    ratingColor = '#ef4444';
+    ratingColor = '#b91c1c';
     verdictZh = `超出模型條件：${targetTempC}°C、LET ${peakLetMev} MeV·cm²/mg 下，${isSelLatching ? '計算得到非零 SEL 截面積；' : ''}${isThermalExceeded ? `超出假設溫度界線 ${tech.maxSafeTempC}°C；` : ''}保持時間估計為 ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} 年。這是教學參數的結果，不代表已發生閂鎖、晶片毀壞或任務失敗。`;
     verdictEn = `Outside model conditions at ${targetTempC}°C and LET ${peakLetMev} MeV·cm²/mg: ${isSelLatching ? 'nonzero modeled SEL cross-section; ' : ''}${isThermalExceeded ? `above the assumed ${tech.maxSafeTempC}°C boundary; ` : ''}estimated retention ${estimatedRetentionYears < 0.01 ? '<0.01' : estimatedRetentionYears.toFixed(2)} yrs. Teaching assumptions do not establish an actual latchup, device destruction, or mission failure.`;
   } else if (selMarginMev < 15.0 || estimatedRetentionYears < (missionYears * 2.0)) {
     rating = 'Near Model Boundary';
-    ratingColor = '#f59e0b';
+    ratingColor = '#b45309';
     verdictZh = `接近模型邊界：假設 SEL 門檻餘裕 ${selMarginMev.toFixed(1)} MeV·cm²/mg，保持時間估計 ${estimatedRetentionYears.toFixed(1)} 年，輸入任務期 ${missionYears} 年。此分類不代表保持時間必定涵蓋任務期，也不構成認證。`;
     verdictEn = `Near model boundary: assumed SEL threshold margin ${selMarginMev.toFixed(1)} MeV·cm²/mg, estimated retention ${estimatedRetentionYears.toFixed(1)} yrs, requested mission ${missionYears} yrs. This category does not guarantee retention through the mission or establish qualification.`;
   } else {
     rating = 'Within Model Conditions';
-    ratingColor = '#10b981';
+    ratingColor = '#047857';
     verdictZh = `模型內符合條件：以假設活化能 ${tech.activationEnergyEv} eV 計算，在 ${targetTempC}°C 的保持時間估計為 ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} 年，輸入任務期 ${missionYears} 年。零 SEL 計算值受預設或門檻模型控制，不代表物理免疫、任務保證或 NASA 認證。`;
     verdictEn = `Within model conditions: assumed activation energy ${tech.activationEnergyEv} eV gives estimated retention ${estimatedRetentionYears >= 100 ? '>100' : estimatedRetentionYears.toFixed(1)} yrs at ${targetTempC}°C for a requested ${missionYears}-yr mission. Zero modeled SEL follows a preset or threshold; it does not establish physical immunity, mission assurance, or NASA certification.`;
   }
@@ -503,13 +503,13 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
     if (outSelStatus) {
       if (metrics.tech.isImmuneToSel) {
         outSelStatus.textContent = isZh ? '零 SEL（模型假設）' : 'Zero SEL (Model Assumption)';
-        outSelStatus.style.color = '#10b981';
+        outSelStatus.style.color = '#047857';
       } else if (metrics.isSelLatching) {
         outSelStatus.textContent = isZh ? '非零 SEL 截面積（模型）' : 'Nonzero SEL Cross Section (Model)';
-        outSelStatus.style.color = '#ef4444';
+        outSelStatus.style.color = '#b91c1c';
       } else {
         outSelStatus.textContent = `${metrics.selMarginMev.toFixed(0)} MeV margin`;
-        outSelStatus.style.color = '#f59e0b';
+        outSelStatus.style.color = '#b45309';
       }
     }
 
@@ -519,7 +519,7 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
 
     if (outSurvival) {
       outSurvival.textContent = `${metrics.retentionSurvPct.toFixed(1)} %`;
-      outSurvival.style.color = metrics.retentionSurvPct > 90 ? '#10b981' : (metrics.retentionSurvPct > 50 ? '#f59e0b' : '#ef4444');
+      outSurvival.style.color = metrics.retentionSurvPct > 90 ? '#047857' : (metrics.retentionSurvPct > 50 ? '#b45309' : '#b91c1c');
     }
 
     if (outEa) {
@@ -572,7 +572,7 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
     const exportBtn = document.createElement('button');
     exportBtn.id = 'deep-space-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出深空輻照與存活率 CSV' : '📥 Export Deep Space CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出深空單一事件閂鎖 (SEL) 門檻與數據留存率資料集為 CSV 檔案' : 'Export deep space SEL threshold and retention dataset as CSV file');

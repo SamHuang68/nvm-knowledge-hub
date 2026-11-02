@@ -256,10 +256,10 @@
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');
       paper.rel = 'stylesheet';
-      paper.href = new URL('literature-editorial.css?v=20260929-v5', rootURL).href;
+      paper.href = new URL('literature-editorial.css?v=20261102-p2', rootURL).href;
       document.head.append(paper);
       const lift = document.createElement('script');
-      lift.src = new URL('literature-paper.js?v=20260929-v5', rootURL).href;
+      lift.src = new URL('literature-paper.js?v=20261102-p2', rootURL).href;
       lift.defer = true;
       document.head.append(lift);
     }

@@ -385,7 +385,7 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
     const exportBtn = document.createElement('button');
     exportBtn.id = 'puf-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     exportBtn.addEventListener('click', () => {
       const config = readConfig();
       if (!calculatePufReconstruction(config).valid) {

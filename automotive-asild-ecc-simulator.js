@@ -256,23 +256,23 @@ export function calculateAutomotiveAsilMetrics(params = {}) {
   const isFitCompliant = residualFit <= mission.targetFitBudget;
 
   let achievedAsil = 'QM (Unmet)';
-  let asilColor = '#ef4444';
+  let asilColor = '#b91c1c';
   let verdictZh = '';
   let verdictEn = '';
 
   if (isSpfmCompliant && isLfmCompliant && isFitCompliant) {
     achievedAsil = 'ISO 26262 ASIL-D Verified';
-    asilColor = '#10b981';
+    asilColor = '#047857';
     verdictZh = `合規：殘餘 FIT 僅 ${residualFit.toFixed(2)} (< ${mission.targetFitBudget})，單點故障度量 SPFM 達 ${spfmMetric.toFixed(2)}% (≥ 99%)，潛伏故障度量 LFM 達 ${lfmMetric.toFixed(1)}% (≥ 90%)。完全符合 ISO 26262 ASIL-D 汽車最高安全完整性。`;
     verdictEn = `Compliant: Residual FIT is ${residualFit.toFixed(2)} (< ${mission.targetFitBudget}), SPFM reaches ${spfmMetric.toFixed(2)}% (≥ 99%), and LFM reaches ${lfmMetric.toFixed(1)}% (≥ 90%). Fully satisfies ISO 26262 ASIL-D safety requirements.`;
   } else if (spfmMetric >= 90.0 && residualFit <= 100.0) {
     achievedAsil = 'ISO 26262 ASIL-B Qualified';
-    asilColor = '#f59e0b';
+    asilColor = '#b45309';
     verdictZh = `降級合規：殘餘 FIT 為 ${residualFit.toFixed(1)}，SPFM 為 ${spfmMetric.toFixed(1)}%，未達 ASIL-D 嚴苛門檻 (SPFM ≥ 99%, FIT < 10)，但符合 ASIL-B 要求。建議縮短巡檢週期或採用更高等級 ECC。`;
     verdictEn = `Marginal: Residual FIT is ${residualFit.toFixed(1)}, SPFM is ${spfmMetric.toFixed(1)}%, failing ASIL-D threshold (SPFM ≥ 99%, FIT < 10) but passing ASIL-B. Recommend faster scrubbing or advanced ECC.`;
   } else {
     achievedAsil = 'Safety Violation Unmet';
-    asilColor = '#ef4444';
+    asilColor = '#b91c1c';
     verdictZh = `違規：殘餘 FIT 高達 ${residualFit.toFixed(1)} (預算 < ${mission.targetFitBudget})！SPFM 僅 ${spfmMetric.toFixed(1)}%，大氣中子翻轉引發嚴重單點故障 (SPF)，無法部署於車載動力或自駕系統。`;
     verdictEn = `Violation: Residual FIT is ${residualFit.toFixed(1)} (budget < ${mission.targetFitBudget})! SPFM is only ${spfmMetric.toFixed(1)}%, causing unacceptable Single Point Faults (SPF). Unsuitable for automotive safety.`;
   }
@@ -547,15 +547,15 @@ export function initAutomotiveAsilSimulator(rootSelector = '#auto-asild-simulato
     if (outRawFit) outRawFit.textContent = `${metrics.rawTotalFit.toFixed(1)} FIT`;
     if (outResidualFit) {
       outResidualFit.textContent = `${metrics.residualFit.toFixed(2)} FIT`;
-      outResidualFit.style.color = metrics.residualFit <= 10 ? '#10b981' : '#ef4444';
+      outResidualFit.style.color = metrics.residualFit <= 10 ? '#047857' : '#b91c1c';
     }
     if (outSpfm) {
       outSpfm.textContent = `${metrics.spfmMetric.toFixed(2)} %`;
-      outSpfm.style.color = metrics.spfmMetric >= 99.0 ? '#10b981' : '#f59e0b';
+      outSpfm.style.color = metrics.spfmMetric >= 99.0 ? '#047857' : '#b45309';
     }
     if (outLfm) {
       outLfm.textContent = `${metrics.lfmMetric.toFixed(1)} %`;
-      outLfm.style.color = metrics.lfmMetric >= 90.0 ? '#10b981' : '#f59e0b';
+      outLfm.style.color = metrics.lfmMetric >= 90.0 ? '#047857' : '#b45309';
     }
 
     if (outAsilRating) {

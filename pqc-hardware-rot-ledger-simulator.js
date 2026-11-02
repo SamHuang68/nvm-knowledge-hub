@@ -505,7 +505,7 @@ export function initPqcStorageSimulator() {
     if (outMtd) outMtd.textContent = metrics.mtdTraces.toExponential(2);
     if (outRating) {
       outRating.textContent = metrics.securityRating;
-      outRating.style.color = metrics.securityRating.includes('TOP') || metrics.securityRating.includes('COMPLIANT') ? '#059669' : '#dc2626';
+      outRating.style.color = metrics.securityRating.includes('TOP') || metrics.securityRating.includes('COMPLIANT') ? '#047857' : '#dc2626';
     }
 
     if (outVerdict) {

@@ -188,7 +188,7 @@ export function initIotEnergyCalculator(rootSelector = '#iot-energy-calculator-r
 
     if (lifeDisplay) {
       lifeDisplay.textContent = res.batteryLifeYears >= 20 ? '> 20 Yrs' : `${res.batteryLifeYears} Yrs`;
-      lifeDisplay.style.color = res.batteryLifeYears >= 10 ? '#059669' : res.batteryLifeYears >= 3 ? '#0284c7' : '#d97706';
+      lifeDisplay.style.color = res.batteryLifeYears >= 10 ? '#047857' : res.batteryLifeYears >= 3 ? '#0369a1' : '#b45309';
     }
 
     if (currentDisplay) currentDisplay.textContent = `${res.iAvgUA} µA`;

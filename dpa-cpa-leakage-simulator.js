@@ -510,13 +510,13 @@ export function initDpaCpaSimulator() {
 
     if (outSnr) {
       outSnr.textContent = `${res.effectiveSnrDb} dB`;
-      outSnr.style.color = res.effectiveSnrDb < -15.0 ? "#059669" : res.effectiveSnrDb < -5.0 ? "#0284c7" : "#dc2626";
+      outSnr.style.color = res.effectiveSnrDb < -15.0 ? "#047857" : res.effectiveSnrDb < -5.0 ? "#0369a1" : "#dc2626";
     }
     if (outMtd) {
       outMtd.textContent = res.estimatedMtdTraces >= 1000000
         ? `${(res.estimatedMtdTraces / 1000000).toFixed(1)}M`
         : res.estimatedMtdTraces.toLocaleString();
-      outMtd.style.color = "#0284c7";
+      outMtd.style.color = "#0369a1";
     }
     if (outRho) {
       outRho.textContent = `${res.pearsonCorrelation.toFixed(4)}`;

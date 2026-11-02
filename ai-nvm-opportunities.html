@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="AI Systems &amp; NVM Opportunities · NVM Knowledge Hub" data-title-zh="AI 系統與 NVM 機會 · NVM 知識中心" data-description-en="A persistent-state and NVM opportunity map for AI infrastructure: identity, repair, calibration, firmware, and RAS evidence, distinguishing standards, implementation evidence, and architecture inference." data-description-zh="AI 基礎設施的持久狀態與 NVM 機會地圖：涵蓋身分、修復、校準、韌體與 RAS 證據，區分標準要求、實作證據與架構推論。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v5"></script>
+  <script src="site-language.js?v=20261102-p2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="A persistent-state and NVM opportunity map for AI infrastructure: identity, repair, calibration, firmware, and RAS evidence, distinguishing standards, implementation evidence, and architecture inference.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -36,7 +36,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AI Systems & NVM Opportunities · NVM Knowledge Hub","description":"A persistent-state and NVM opportunity map for AI infrastructure: identity, repair, calibration, firmware, and RAS evidence, distinguishing standards, implementation evidence, and architecture inference.","url":"https://hub.samhuang68.org/ai-nvm-opportunities.html","image":"https://hub.samhuang68.org/assets/ai-nvm-system-boundaries-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/ai-nvm-opportunities.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What persistent state requirements exist across multi-die AI accelerators and Chiplets?","acceptedAnswer":{"@type":"Answer","text":"Advanced AI multi-die architectures (compute dies, HBM base dies, I/O bridges) require embedded NVM for per-die cryptographic ID (PUF/OTP), UCIe / BoW D2D lane redundancy repair, analog SerDes transceiver calibration, and thermal sensor trim, typically requiring 32 Kb to 256 Kb logic-compatible OTP."}},{"@type":"Question","name":"How do ReRAM and STT-MRAM compare in analog In-Memory Computing (CiM) for deep learning?","acceptedAnswer":{"@type":"Answer","text":"ReRAM provides multi-level cell (MLC) analog conductance states via oxygen vacancy filament modulation, offering high density for matrix-vector multiplication (MVM) but lower endurance (~10^5 cycles). STT-MRAM delivers virtually infinite endurance (>10^10 cycles) and sub-10ns write speeds, making it ideal for persistent working registers and dynamic weight caching, though with a smaller resistance window (TMR ≈ 150-200%)."}},{"@type":"Question","name":"What role does non-volatile memory play in co-packaged optics (CPO) and optical AI switches?","acceptedAnswer":{"@type":"Answer","text":"Silicon photonics optical matrix switches rely on phase-change materials (PCM, such as GST/GSST) or persistent non-volatile trim DACs to lock waveguide refractive indices without continuous electrical hold power, saving massive static power in AI optical fabrics."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Applications & Systems","item":"https://hub.samhuang68.org/#layer-applications"},{"@type":"ListItem","position":3,"name":"AI Compute-In-Memory & Edge Acceleration","item":"https://hub.samhuang68.org/ai-nvm-opportunities.html"}]}</script>
-  <link rel="stylesheet" href="styles.css?v=20261102">
+  <link rel="stylesheet" href="styles.css?v=20261102-p2">
   <link rel="stylesheet" href="research.css?v=20261102">
   <link rel="stylesheet" href="ai-nvm.css?v=20261102">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
@@ -369,7 +369,7 @@
       transition: all 0.2s ease !important;
     }
     .ai-nvm-page .research-hero-links .button.primary:hover {
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       box-shadow: 0 6px 24px rgba(0, 229, 255, 0.3) !important;
       transform: translateY(-1px) !important;
     }
@@ -494,7 +494,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      color: #a0aec0;
+      color: #475569;
       text-decoration: none;
       font-size: 0.7rem;
       white-space: nowrap;
@@ -1395,43 +1395,43 @@
           </div>
 
           <!-- HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡模擬器 -->
-          <div class="decision-matrix-card hbm4-probe-container" id="hbm4-repair-probe-simulator-root" style="margin-top: 24px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-            <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+          <div class="decision-matrix-card hbm4-probe-container" id="hbm4-repair-probe-simulator-root" style="margin-top: 24px; background: #ffffff; border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+            <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
               <div>
-                <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0e7490; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
                   <span data-lang="zh">HBM4 先進封裝 · 複合良率挽回與邏輯探針卡經濟學分析</span>
                   <span data-lang="en">HBM4 ADVANCED PACKAGING · COMPOUND YIELD RECOVERY &amp; LOGIC PROBE CARD ECONOMICS</span>
                 </div>
-                <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+                <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
                   <span data-lang="zh">HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡模擬器</span>
                   <span data-lang="en">HBM4 Logic Base Die Stacked Yield, eNVM Post-Package Repair (hPPR) &amp; High-Pin Probe Card Simulator</span>
                 </h4>
               </div>
-              <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.12); color: #06b6d4; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(6, 182, 212, 0.3);">
+              <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.12); color: #0e7490; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(6, 182, 212, 0.3);">
                 <span data-lang="zh">12nm/3nm 邏輯 Base Die · 垂直 MEMS 探針卡與 hPPR 架構模型</span>
                 <span data-lang="en">12nm/3nm Logic Base Die · Vertical MEMS &amp; hPPR Architecture Models</span>
               </span>
             </div>
 
-            <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+            <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 18px;">
               <span data-lang="zh">HBM4 轉向邏輯 Base Die（如先進代工 12nm/5nm/3nm 世代）深刻影響了 3D DRAM 堆疊的良率修復方程式與測試介面需求。透過邏輯相容 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜微調、TSV 冗餘切換與 Core DRAM 壞列重映射，具備較佳耐受 260°C 回焊熱預算之金屬微絲穩定性，緩解 12-Hi / 16-Hi 的複合良率挑戰。同時，測試介面朝向高針數、微間距垂直與 MEMS 邏輯探針卡架構演進，以支援高密度並行晶圓級測試。</span>
               <span data-lang="en">HBM4's transition to logic base dies impacts both 3D stacked DRAM repair strategies and test interface demands. Leveraging logic-compatible 0-mask AntiFuse OTP for 2048-bit PHY skew trim, TSV redundancy, and core row remapping offers stable metallic filaments with high tolerance to 260°C reflow thermal budgets, mitigating 12-Hi/16-Hi compound yield penalties. Concurrently, wafer-sort interfaces migrate toward high-pin MEMS logic probe cards for dense parallel sort.</span>
             </p>
 
             <!-- Simulation Disclaimer Banner -->
-            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
               <span data-lang="zh">本工作台之 3D 複合堆疊良率、hPPR 修復挽回金額與探針卡並行能力指標為基於幾何乘積、簡化修復覆蓋率及公開專利參數之數值示意模型，非晶圓代工廠或記憶體原廠保證之實際量產數據。真實良率受熱壓鍵合 (TCB/MR-MUF) 應力、微凸塊共平面度與原廠備援列 (Redundancy) 實體分配策略影響。</span>
               <span data-lang="en">The 3D compound stacked yield, hPPR value recovery, and probe parallel test metrics in this workbench are schematic numerical models based on geometric products, simplified repair coverage, and public patent parameters, rather than foundry-guaranteed production yields. Physical yields are subject to bonding thermomechanical stress, micro-bump coplanarity, and manufacturer redundancy allocation architectures.</span>
             </div>
 
             <!-- Interactive Controls Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px; background: rgba(30, 41, 59, 0.6); padding: 14px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #cbd5e1;">
               <div>
-                <label for="hbm4-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 5px;">
+                <label for="hbm4-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 5px;">
                   <span data-lang="zh">系統架構預設 (System Preset):</span><span data-lang="en">SYSTEM PRESET:</span>
                 </label>
-                <select id="hbm4-preset-select" aria-label="HBM4 System Preset" data-aria-en="HBM4 System Preset" data-aria-zh="HBM4 系統預設" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="hbm4-preset-select" aria-label="HBM4 System Preset" data-aria-en="HBM4 System Preset" data-aria-zh="HBM4 系統預設" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="sk_hynix_tsmc_12nm_16hi" selected>SK Hynix 16-Hi (TSMC 12nm, 2048-bit PHY)</option>
                   <option value="samsung_foundry_4nm_12hi">Samsung 12-Hi (In-house SF4A 4nm, 2048-bit)</option>
                   <option value="sk_hynix_tsmc_3nm_nextgen">Next-Gen HBM4E 16-Hi (TSMC 3nm N3P, 2048-bit)</option>
@@ -1441,10 +1441,10 @@
               </div>
 
               <div>
-                <label for="hbm4-probe-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 5px;">
+                <label for="hbm4-probe-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 5px;">
                   <span data-lang="zh">探針卡架構與廠商 (Probe Vendor):</span><span data-lang="en">PROBE VENDOR &amp; ARCH:</span>
                 </label>
-                <select id="hbm4-probe-select" aria-label="Probe Card Vendor" data-aria-en="Probe Card Vendor" data-aria-zh="探針卡供應商" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="hbm4-probe-select" aria-label="Probe Card Vendor" data-aria-en="Probe Card Vendor" data-aria-zh="探針卡供應商" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="mpi_taiwan" selected>Vertical Cantilever MEMS Architecture (VPC / MEMS)</option>
                   <option value="chpt_taiwan">Thin-Film Multi-Layer Organic MEMS (MLO / MEMS)</option>
                   <option value="technoprobe">Multi-Layer Ceramic MEMS (MLC / MEMS)</option>
@@ -1454,25 +1454,25 @@
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span><span data-lang="zh">DRAM Core 良率 (Y_core):</span><span data-lang="en">CORE DIE YIELD:</span></span>
-                  <span id="hbm4-core-yield-val" style="color: #06b6d4; font-weight: 700;">95.5%</span>
+                  <span id="hbm4-core-yield-val" style="color: #0e7490; font-weight: 700;">95.5%</span>
                 </div>
                 <input type="range" id="hbm4-core-yield-slider" min="88.0" max="99.0" step="0.5" value="95.5" aria-label="DRAM Core Die Yield" data-aria-en="DRAM Core Die Yield" data-aria-zh="DRAM Core 晶粒良率" aria-valuetext="95.5%" style="width: 100%; accent-color: #06b6d4; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span><span data-lang="zh">堆疊層數 (Die Stack):</span><span data-lang="en">STACK LAYERS:</span></span>
-                  <span id="hbm4-layer-val" style="color: #38bdf8; font-weight: 700;">16-Hi</span>
+                  <span id="hbm4-layer-val" style="color: #0369a1; font-weight: 700;">16-Hi</span>
                 </div>
                 <input type="range" id="hbm4-layer-slider" min="4" max="16" step="4" value="16" aria-label="Stack Layer Count" data-aria-en="Stack Layer Count" data-aria-zh="堆疊層數" aria-valuetext="16 layers" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span><span data-lang="zh">探針卡測試針數 (Pin Count):</span><span data-lang="en">PIN COUNT:</span></span>
-                  <span id="hbm4-pin-val" style="color: #818cf8; font-weight: 700;">8,192 pins</span>
+                  <span id="hbm4-pin-val" style="color: #4338ca; font-weight: 700;">8,192 pins</span>
                 </div>
                 <input type="range" id="hbm4-pin-slider" min="2048" max="12800" step="512" value="8192" aria-label="Probe Card Pin Count" data-aria-en="Probe Card Pin Count" data-aria-zh="探針卡測試針數" aria-valuetext="8192 pins" style="width: 100%; accent-color: #818cf8; cursor: pointer;">
               </div>
@@ -1480,51 +1480,51 @@
 
             <!-- Telemetry Metrics Strip -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px;">
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #ef4444; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #b91c1c; margin-bottom: 2px;">
                   <span data-lang="zh">未修復原始良率</span><span data-lang="en">RAW STACK YIELD</span>
                 </div>
-                <div id="hbm4-out-raw-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f87171;">—</div>
+                <div id="hbm4-out-raw-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b91c1c;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">多層指數相乘良率懸崖</span><span data-lang="en">Compound drop-off</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #06b6d4; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #0e7490; margin-bottom: 2px;">
                   <span data-lang="zh">AntiFuse 修復後良率</span><span data-lang="en">REPAIRED YIELD</span>
                 </div>
-                <div id="hbm4-out-rep-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #22d3ee;">—</div>
+                <div id="hbm4-out-rep-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0e7490;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">0-Mask 260°C 零回彈</span><span data-lang="en">Zero grow-back hPPR</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #047857; margin-bottom: 2px;">
                   <span data-lang="zh">單顆模組挽回價值</span><span data-lang="en">VALUE RECOVERED</span>
                 </div>
-                <div id="hbm4-out-value-recovery" style="font: 700 16px 'IBM Plex Mono', monospace; color: #34d399;">—</div>
+                <div id="hbm4-out-value-recovery" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">每顆 HBM 挽回毛利</span><span data-lang="en">Margin saved per unit</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #b45309; margin-bottom: 2px;">
                   <span data-lang="zh">代工探針卡 HBM 曝險</span><span data-lang="en">FOUNDRY PROBE EXPOSURE</span>
                 </div>
-                <div id="hbm4-out-exposure" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">—</div>
+                <div id="hbm4-out-exposure" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">設備資本支出敏感度</span><span data-lang="en">Equipment capex sensitivity</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #818cf8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #4338ca; margin-bottom: 2px;">
                   <span data-lang="zh">架構評級</span><span data-lang="en">RATING</span>
                 </div>
-                <div id="hbm4-out-rating" style="font: 700 14px 'IBM Plex Mono', monospace; color: #a5b4fc;">OPTIMAL</div>
+                <div id="hbm4-out-rating" style="font: 700 14px 'IBM Plex Mono', monospace; color: #4338ca;">OPTIMAL</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">第一性原理綜合評估</span><span data-lang="en">First-principles audit</span>
                 </div>
@@ -1532,7 +1532,7 @@
             </div>
 
             <!-- Visualization Canvas & Mode Buttons -->
-            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                 <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
                   <button id="hbm4-mode-yield" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
@@ -1550,145 +1550,145 @@
             </div>
 
             <!-- Architectural Insight Callout -->
-            <div style="background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+            <div style="background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
               <span id="hbm4-out-verdict" role="status" aria-live="polite">Loading HBM4 base die repair calculations...</span>
             </div>
           </div>
         </article>
 
         <!-- CXL 3.1 記憶體池化架構、0-Mask AntiFuse 標籤快取與動態毒化屏蔽 (Poison Tagging) -->
-        <article class="decision-matrix-card cxl-pooling-article" id="cxl-memory-pooling-section" style="margin-top: 28px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+        <article class="decision-matrix-card cxl-pooling-article" id="cxl-memory-pooling-section" style="margin-top: 28px; background: #ffffff; border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
             <div>
-              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
                 <span data-lang="zh">03-CXL · CXL 3.1 記憶體池化、硬體 CAM 標籤快取與 ANTIFUSE 信任根</span>
                 <span data-lang="en">03-CXL · CXL 3.1 MEMORY POOLING, HW CAM TAG CACHE &amp; ANTIFUSE ROT</span>
               </div>
-              <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+              <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
                 <span data-lang="zh">CXL 3.1 記憶體池化架構、晶片內硬體 CAM 標籤快取與 AntiFuse 信任根動態毒化屏蔽</span>
                 <span data-lang="en">CXL 3.1 Fabric-Attached Memory Pooling, On-Die HW CAM Tag Cache &amp; AntiFuse RoT Poison Shielding</span>
               </h4>
             </div>
-            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #0369a1; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
               <span data-lang="zh">PCIe 6.0 PAM4 · DCD 動態容量 · SPDM 1.3 信任根 · 次 10ns 標籤過濾</span>
               <span data-lang="en">PCIe 6.0 PAM4 · DCD Dynamic Capacity · SPDM 1.3 Trust Root · Sub-10ns Tag Filter</span>
             </span>
           </div>
 
           <!-- Simulation Disclaimer Banner -->
-          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
             <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
             <span data-lang="zh">本工作台之端到端存取延遲、困頓記憶體回收率與毒化攔截時間為基於 CXL 3.1 規範與傳輸佇列理論之系統微架構示意模型，非單一實體 ASIC 晶圓實測認證報告。動態 CAM/LUT 標籤快取在實體電路上由晶片內 SRAM/暫存器陣列實現；0-Mask AntiFuse OTP 則專注於儲存 DMTF SPDM 1.3 根憑證與安全開機靜態組態。跨網絡實際存取延遲受交換器擁塞程度、Flit 重傳率與主機驅動程式排程影響。</span>
             <span data-lang="en">The end-to-end access latency, stranded memory recovery rates, and poison intercept times in this workbench are system microarchitectural evaluation models based on CXL 3.1 specifications and queueing theory, rather than physical ASIC measurement certificates. Dynamic CAM/LUT tag caches are implemented via on-die SRAM/register arrays; 0-Mask AntiFuse OTP is dedicated to storing DMTF SPDM 1.3 root certificates and static boot configurations. Real-world fabric latencies vary with switch congestion, Flit retransmission, and host driver scheduling.</span>
           </div>
 
-          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 16px;">
+          <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 16px;">
             <span data-lang="zh">隨生成式 AI 叢集與分散式推論模型規模暴增，傳統伺服器內部固定配置之 DRAM 正面臨 40%–50% 的嚴重「困頓記憶體 (Stranded Memory)」浪費。CXL 3.1 協定透過光纖/銅纜 Fabric-Attached Memory (FAM) 架構與 Dynamic Capacity Device (DCD) 動態分派，實現跨節點多主機 (Multi-Headed) 記憶體池化。然而，CXL 記憶體池化面臨嚴峻的兩大挑戰：第一，跨交換器跳步 (Hops) 帶來的額外延遲必須控制在 150–200ns 容許邊界內；第二，池化記憶體若發生單元軟硬錯誤或電離擊穿，必須具備動態毒化警報 (Dynamic Poison Alert) 與壞頁隔離，避免引發多主機內核連鎖崩潰 (Kernel Panic)。在此體系中，控制器內建之晶片內硬體 CAM 標籤快取提供次 10ns 快速過濾，而 0-Mask AntiFuse OTP 則作為 DMTF SPDM 1.3 安全設備證明之硬體信任根與安全開機靜態密鑰儲存介質。</span>
             <span data-lang="en">As generative AI clusters and distributed LLM models scale rapidly, servers suffer from 40%–50% stranded memory inefficiencies under fixed local DRAM allocations. CXL 3.1 overcomes this bottleneck through Fabric-Attached Memory (FAM) and Dynamic Capacity Devices (DCD), enabling multi-headed memory pooling across disaggregated compute nodes. However, memory pooling introduces two major architectural hurdles: first, switch transit hops must maintain end-to-end access latencies within strict 150–200ns SLAs; second, uncorrectable cell failures require dynamic poison tagging and rapid page isolation to prevent catastrophic cross-host kernel panic propagation. In this architecture, on-die hardware CAM tag filters accelerate lookups within sub-10ns, while logic 0-mask AntiFuse OTP provides the tamper-resistant hardware root-of-trust and secure boot key storage for DMTF SPDM 1.3 device attestation.</span>
           </p>
 
           <!-- 七維跨架構對比表 -->
           <div style="overflow-x: auto; margin-bottom: 20px;">
-            <table class="decision-matrix-table" aria-label="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-en="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-zh="CXL 3.1 記憶體池化跨架構對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.5; color: #cbd5e1; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px;">
+            <table class="decision-matrix-table" aria-label="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-en="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-zh="CXL 3.1 記憶體池化跨架構對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.5; color: #0f172a; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px;">
               <caption class="sr-only">
                 <span data-lang="zh">CXL 3.1 記憶體池化、直連 DDR5 與 3D HBM3E/4 跨架構七維對比矩陣</span>
                 <span data-lang="en">CXL 3.1 Pooled Memory, Direct-Attach DDR5, and 3D HBM3E/4 Seven-Dimensional Architectural Comparison Matrix</span>
               </caption>
               <thead>
-                <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 2px solid rgba(14, 165, 233, 0.4);">
-                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #38bdf8;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid rgba(14, 165, 233, 0.4);">
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0369a1;">
                     <span data-lang="zh">架構維度</span><span data-lang="en">Architectural Dimension</span>
                   </th>
-                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0f172a;">
                     <span data-lang="zh">直連本機 DDR5 (Direct-Attach)</span><span data-lang="en">Direct-Attach DDR5 (Local)</span>
                   </th>
-                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0f172a;">
                     <span data-lang="zh">CXL 3.1 記憶體池化 (FAM / DCD)</span><span data-lang="en">CXL 3.1 Pooled Memory (FAM/DCD)</span>
                   </th>
-                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0f172a;">
                     <span data-lang="zh">3D 堆疊 HBM3E / HBM4</span><span data-lang="en">3D Stacked HBM3E / HBM4</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">1. 實體通道與信號調製</span><span data-lang="en">1. Physical Signaling</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">平行單端 SSTL / POD11 (64-bit + ECC)</span><span data-lang="en">Parallel single-ended SSTL/POD11 (64-bit + ECC)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #0369a1; font-weight: 600;">
                     <span data-lang="zh">PCIe 6.0 PAM4 高速差分 (64 GT/s, 256B Flit)</span><span data-lang="en">PCIe 6.0 PAM4 SerDes (64 GT/s, 256B Flit)</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">2048-bit 超寬矽中介層 / 邏輯 Base Die PHY</span><span data-lang="en">2048-bit ultra-wide Interposer/Base Die PHY</span>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">2. 最大定址池化容量</span><span data-lang="en">2. Max Addressable Capacity</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">受限於 CPU 記憶體控制器通道 (典型 2TB–4TB)</span><span data-lang="en">Limited by CPU IMC channels (typically 2TB–4TB)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #047857; font-weight: 600;">
                     <span data-lang="zh">全網絡共享池化，可擴展至數十 TB 至數 PB</span><span data-lang="en">Global fabric pooled, scalable to tens of TB to PB</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">受限於封裝基板面積 (典型 24GB–64GB 每堆疊)</span><span data-lang="en">Limited by package substrate (24GB–64GB per stack)</span>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">3. 端到端讀取延遲</span><span data-lang="en">3. Read Latency Profile</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">約 75–85 ns (極低延遲基準)</span><span data-lang="en">~75–85 ns (Low latency baseline)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #0369a1; font-weight: 600;">
                     <span data-lang="zh">約 130–185 ns (依交換器跳步與標籤快取而定)</span><span data-lang="en">~130–185 ns (Dependent on hops and tag cache)</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">約 80–110 ns (極高頻寬 1.5–2.0 TB/s)</span><span data-lang="en">~80–110 ns (Ultra-high bandwidth 1.5–2.0 TB/s)</span>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">4. 閒置容量回收率</span><span data-lang="en">4. Stranded Recovery Rate</span>
                   </th>
-                  <td style="padding: 9px 12px; color: #f87171;">
+                  <td style="padding: 9px 12px; color: #b91c1c;">
                     <span data-lang="zh">0% (固定專屬，跨節點完全無法借調)</span><span data-lang="en">0% (Fixed node-bound, non-transferrable)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #047857; font-weight: 600;">
                     <span data-lang="zh">動態提升至 88%–94% (挽回近 40% 雲端資本支出估算)</span><span data-lang="en">Up to 88%–94% (Recovers ~40% estimated cloud memory Capex)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #f87171;">
+                  <td style="padding: 9px 12px; color: #b91c1c;">
                     <span data-lang="zh">0% (GPU 加速器專用高速暫存)</span><span data-lang="en">0% (Dedicated GPU accelerator memory)</span>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">5. 毒化與故障隔離時間</span><span data-lang="en">5. Poison Isolation Time</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">依賴 CPU MCE / OS 核心陷阱 (~1,000 ns)</span><span data-lang="en">Dependent on CPU MCE / OS trap (~1,000 ns)</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #047857; font-weight: 600;">
                     <span data-lang="zh">&lt;10 ns (控制器硬體 CAM 標籤過濾與 Poison 標記轉發)</span><span data-lang="en">&lt;10 ns (Controller HW CAM filter &amp; Poison tag forwarding)</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">硬體 JEDEC hPPR 永久燒錄重映射</span><span data-lang="en">Hard JEDEC hPPR permanent row remapping</span>
                   </td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">6. 晶片內嵌 NVM 關鍵角色</span><span data-lang="en">6. Embedded NVM Role</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">SPD EEPROM 儲存啟動時序參數</span><span data-lang="en">SPD EEPROM stores boot timing parameters</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #0369a1; font-weight: 600;">
                     <span data-lang="zh">0-Mask AntiFuse OTP：SPDM 1.3 信任根憑證與控制器靜態配置</span><span data-lang="en">0-Mask AntiFuse OTP: SPDM 1.3 RoT credentials &amp; static configuration</span>
                   </td>
                   <td style="padding: 9px 12px;">
@@ -1696,16 +1696,16 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #0f172a; text-align: left;">
                     <span data-lang="zh">7. 額外製造光罩與封裝成本</span><span data-lang="en">7. Mask &amp; Packaging Cost</span>
                   </th>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">標準 DIMM PCB 封裝，成熟且成本極低</span><span data-lang="en">Standard DIMM PCB module, mature low cost</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                  <td style="padding: 9px 12px; color: #047857; font-weight: 600;">
                     <span data-lang="zh">0 額外光罩 (原生 CMOS 邏輯相容)，PCIe AIC 形態</span><span data-lang="en">0 extra masks (native CMOS logic), PCIe AIC form-factor</span>
                   </td>
-                  <td style="padding: 9px 12px; color: #f87171;">
+                  <td style="padding: 9px 12px; color: #b91c1c;">
                     <span data-lang="zh">極高 (CoWoS-S / CoWoS-L 先進矽中介層與 TSV 鍵合)</span><span data-lang="en">Very high (CoWoS silicon interposer &amp; TSV bonding)</span>
                   </td>
                 </tr>
@@ -1714,36 +1714,36 @@
           </div>
 
           <!-- 互動工作台容器 -->
-          <div class="decision-matrix-card cxl-simulator-container" id="cxl-memory-pooling-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
+          <div class="decision-matrix-card cxl-simulator-container" id="cxl-memory-pooling-simulator-root" style="background: #ffffff; border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">
               <div>
-                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
+                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #0369a1; text-transform: uppercase; letter-spacing: 0.08em;">
                   <span data-lang="zh">架構評估互動工作台</span><span data-lang="en">ARCHITECTURAL EVALUATION WORKBENCH</span>
                 </span>
-                <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
+                <h5 style="margin: 2px 0 0; font-size: 15px; color: #0f172a; font-weight: 700;">
                   <span data-lang="zh">CXL 3.1 延遲堆疊分解、困頓記憶體經濟學與毒化隔離模擬器</span>
                   <span data-lang="en">CXL 3.1 Latency Breakdown, Stranded Economics &amp; Poison Isolation Simulator</span>
                 </h5>
               </div>
-              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #0369a1; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
                 <span data-lang="zh">PCIe 6.0 PAM4 · 次 20ns 毒化阻斷目標</span><span data-lang="en">PCIe 6.0 PAM4 · Sub-20ns Poison Target</span>
               </span>
             </div>
 
             <!-- Simulation Disclaimer Banner -->
-            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
               <span data-lang="zh">本模擬器提供之 CXL 3.1 交換器延遲分解、困頓記憶體 (Stranded Memory) 回收率與硬體 CAM 毒化阻斷時間為基於架構規格理論值與統計分佈之解析模擬模型，不構成實體雲端叢集或特定 CXL 控制器之保證效能。真實延遲與隔離能力受 PCIe 6.0 SerDes 物理層重傳 (Retransmission/FEC)、交換器競爭仲裁演算法及作業系統記憶體階層調度影響。</span>
               <span data-lang="en">The CXL 3.1 switch latency breakdown, stranded memory recovery rate, and HW CAM poison isolation timing provided in this workbench are analytical simulation models based on architectural specification nominals and statistical distributions, not guaranteed metrics for production datacenter clusters or specific ASIC controllers. Physical latencies depend on PCIe 6.0 SerDes physical retransmission (FEC), switch fabric contention arbitration, and OS memory tiering policies.</span>
             </div>
 
             <!-- 控制面板 Controls Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1;">
               <div>
-                <label for="cxl-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <label for="cxl-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span data-lang="zh">系統拓樸預設 (System Preset):</span><span data-lang="en">SYSTEM PRESET:</span>
                 </label>
-                <select id="cxl-preset-select" aria-label="CXL System Preset" data-aria-en="CXL System Preset" data-aria-zh="CXL 系統拓樸預設" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="cxl-preset-select" aria-label="CXL System Preset" data-aria-en="CXL System Preset" data-aria-zh="CXL 系統拓樸預設" style="width: 100%; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="llm_shared_inference_8host" selected>8-Host LLM KV-Cache Pool (CXL 3.1 Multi-Headed)</option>
                   <option value="hpc_matrix_fabric_direct">HPC Supercomputing Direct Fabric (CXL 3.1 P2P Direct)</option>
                   <option value="dynamic_capacity_dcd_cloud">Cloud Datacenter Dynamic Capacity Device (CXL 3.1 DCD Switched)</option>
@@ -1752,10 +1752,10 @@
               </div>
 
               <div>
-                <label for="cxl-policy-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <label for="cxl-policy-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span data-lang="zh">快取與隔離策略 (Cache Policy):</span><span data-lang="en">CACHE &amp; ISOLATION POLICY:</span>
                 </label>
-                <select id="cxl-policy-select" aria-label="CXL Cache Policy" data-aria-en="CXL Cache Policy" data-aria-zh="CXL 快取與隔離策略" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="cxl-policy-select" aria-label="CXL Cache Policy" data-aria-en="CXL Cache Policy" data-aria-zh="CXL 快取與隔離策略" style="width: 100%; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="antifuse_hardware_tag" selected>On-Die HW CAM Tag Cache with AntiFuse RoT (Sub-10ns Filter)</option>
                   <option value="pure_software_kernel">Pure Software OS Kernel Interrupt Table (Legacy Trap)</option>
                   <option value="broadcast_snooping_nop">Broadcast Cache Invalidation (No Tag Cache, Full Bus Walk)</option>
@@ -1763,25 +1763,25 @@
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">交換器跳步數 (Switch Hops):</span><span data-lang="en">SWITCH HOPS:</span></span>
-                  <span id="cxl-hops-val" style="color: #38bdf8; font-weight: 700;">1 hop</span>
+                  <span id="cxl-hops-val" style="color: #0369a1; font-weight: 700;">1 hop</span>
                 </div>
                 <input type="range" id="cxl-hops-slider" min="0" max="3" step="1" value="1" aria-label="Switch Hop Count" data-aria-en="Switch Hop Count" data-aria-zh="交換器跳步數" aria-valuetext="1 hop" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">記憶體池容量 (Pool Capacity):</span><span data-lang="en">POOL CAPACITY:</span></span>
-                  <span id="cxl-capacity-val" style="color: #34d399; font-weight: 700;">2.0 TB (2048 GB)</span>
+                  <span id="cxl-capacity-val" style="color: #047857; font-weight: 700;">2.0 TB (2048 GB)</span>
                 </div>
                 <input type="range" id="cxl-capacity-slider" min="256" max="8192" step="256" value="2048" aria-label="Pool Memory Capacity" data-aria-en="Pool Memory Capacity" data-aria-zh="記憶體池容量" aria-valuetext="2048 GB" style="width: 100%; accent-color: #34d399; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">標籤快取命中率 (Hit Rate):</span><span data-lang="en">TAG HIT RATE:</span></span>
-                  <span id="cxl-hitrate-val" style="color: #fbbf24; font-weight: 700;">98.5%</span>
+                  <span id="cxl-hitrate-val" style="color: #b45309; font-weight: 700;">98.5%</span>
                 </div>
                 <input type="range" id="cxl-hitrate-slider" min="70.0" max="99.9" step="0.1" value="98.5" aria-label="Tag Cache Hit Rate" data-aria-en="Tag Cache Hit Rate" data-aria-zh="標籤快取命中率" aria-valuetext="98.5%" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
               </div>
@@ -1789,51 +1789,51 @@
 
             <!-- KPI 指標帶 Metrics Strip -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px;">
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #0369a1; margin-bottom: 2px;">
                   <span data-lang="zh">端到端存取延遲</span><span data-lang="en">END-TO-END LATENCY</span>
                 </div>
-                <div id="cxl-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #22d3ee;">—</div>
+                <div id="cxl-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0e7490;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">傳輸 + 標籤 + 介質</span><span data-lang="en">Link + Tag + Media</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #047857; margin-bottom: 2px;">
                   <span data-lang="zh">池化有效利用率</span><span data-lang="en">POOL UTILIZATION</span>
                 </div>
-                <div id="cxl-out-utilization" style="font: 700 16px 'IBM Plex Mono', monospace; color: #34d399;">—</div>
+                <div id="cxl-out-utilization" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">挽回困頓記憶體</span><span data-lang="en">Stranded recovered</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #b45309; margin-bottom: 2px;">
                   <span data-lang="zh">毒化故障攔截時間</span><span data-lang="en">POISON INTERCEPT</span>
                 </div>
-                <div id="cxl-out-poison-time" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">—</div>
+                <div id="cxl-out-poison-time" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">次 20ns 零崩潰保證</span><span data-lang="en">Zero-Panic SLA</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #818cf8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #4338ca; margin-bottom: 2px;">
                   <span data-lang="zh">資本支出節省額度</span><span data-lang="en">CAPEX SAVINGS</span>
                 </div>
-                <div id="cxl-out-saved" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a5b4fc;">—</div>
+                <div id="cxl-out-saved" style="font: 700 16px 'IBM Plex Mono', monospace; color: #4338ca;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">DRAM 購置成本節省</span><span data-lang="en">Direct DRAM saved</span>
                 </div>
               </div>
 
-              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">架構評級</span><span data-lang="en">RATING</span>
                 </div>
-                <div id="cxl-out-rating" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">OPTIMAL</div>
+                <div id="cxl-out-rating" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">OPTIMAL</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">第一性原理綜合評估</span><span data-lang="en">First-principles audit</span>
                 </div>
@@ -1841,13 +1841,13 @@
             </div>
 
             <!-- 視覺化 Canvas 與模式切換按鈕 -->
-            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                 <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
                   <button id="cxl-mode-latency" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                     <span data-lang="zh">端到端延遲分解堆疊柱狀圖</span><span data-lang="en">Latency Breakdown Stacked Bar</span>
                   </button>
-                  <button id="cxl-mode-pooling" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <button id="cxl-mode-pooling" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                     <span data-lang="zh">困頓記憶體回收率與經濟學曲線</span><span data-lang="en">Stranded Recovery &amp; Economics Curve</span>
                   </button>
                 </div>
@@ -1859,7 +1859,7 @@
             </div>
 
             <!-- 架構結論提示方塊 -->
-            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
               <span id="cxl-out-verdict" role="status" aria-live="polite">Loading CXL 3.1 memory pooling calculations...</span>
             </div>
           </div>
@@ -1877,7 +1877,7 @@
               <source media="(max-width: 760px)" srcset="assets/ai-photonics-state-contract-v1-800.webp">
               <img src="assets/ai-photonics-state-contract-v1-1600.webp" width="1600" height="900" alt="AI silicon package beside a co-packaged optical engine" data-alt-zh="AI silicon package 與 co-packaged optical engine 的系統情境視覺" data-alt-en="AI silicon package beside a co-packaged optical engine" loading="lazy" decoding="async">
             </picture>
-            <figcaption><span><span data-lang="zh">光學封裝示意</span><span data-lang="en">ILLUSTRATIVE OPTICAL PACKAGE</span></span><b><span data-lang="zh">邏輯狀態契約 · 非實體拓樸</span><span data-lang="en">LOGICAL STATE CONTRACT · NOT PHYSICAL TOPOLOGY</span></b></figcaption>
+            <figcaption><span><span data-lang="zh">AI 生成光學封裝示意</span><span data-lang="en">AI-GENERATED ILLUSTRATIVE OPTICAL PACKAGE</span></span><b><span data-lang="zh">邏輯狀態契約 · 非實體拓樸</span><span data-lang="en">LOGICAL STATE CONTRACT · NOT PHYSICAL TOPOLOGY</span></b></figcaption>
           </figure>
           <div class="photonics-state-model">
             <div class="state-domains">
@@ -1909,31 +1909,31 @@
         <div class="continuous-warning"><small><span data-lang="zh">狀態邊界</span><span data-lang="en">STATE BOUNDARY</span></small><b><span data-lang="zh">持續調整</span><span data-lang="en">CONTINUOUS TUNING</span></b><i>≠</i><strong><span data-lang="zh">持續 NVM 寫入</span><span data-lang="en">CONTINUOUS NVM WRITES</span></strong><p><span data-lang="zh">Runtime adaptation 保持 volatile；只有 qualified state 才能穿越 persistence gate。</span><span data-lang="en">Runtime adaptation stays volatile; only qualified state crosses the persistence gate.</span></p></div>
 
         <!-- CPO / 矽光子光電共封裝微環微調與雷射發熱 eNVM 留存性模擬器 -->
-        <div class="decision-matrix-card cpo-siph-container" id="cpo-siph-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+        <div class="decision-matrix-card cpo-siph-container" id="cpo-siph-simulator-root" style="margin-top: 32px; background: #ffffff; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
             <div>
-              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #38bdf8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
                 <span data-lang="zh">共封裝光學 (CPO) 與矽光子 (SiPh) · 微環熱光漂移與雷射發熱留存分析</span>
                 <span data-lang="en">CO-PACKAGED OPTICS (CPO) &amp; SILICON PHOTONICS · MRR DRIFT &amp; LASER RETENTION ANALYSIS</span>
               </div>
-              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
                 <span data-lang="zh">微環諧振腔波長漂移、零待機熱調諧與雷射自發熱 eNVM 壽命模擬器</span>
                 <span data-lang="en">Micro-Ring Resonator Wavelength Drift, Zero-Static Optical Trim &amp; Laser Self-Heating Retention Simulator</span>
               </h3>
             </div>
-            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #0369a1; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
               <span data-lang="zh">TSMC COUPE / ELS 3D 物理模型</span>
               <span data-lang="en">TSMC COUPE / ELS 3D Physics Model</span>
             </span>
           </div>
 
-          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+          <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 18px;">
             <span data-lang="zh">在 51.2T+ 高速交換機與光互連 AI 加速器中，共封裝光學（CPO）將光引擎（OE / PIC）與 ASIC 緊密整合。矽的熱光係數高達 1.86×10⁻⁴ K⁻¹，ASIC 與雷射二極體集中散熱將引發微環諧振腔波長劇烈漂移（約 0.08 nm/K）。傳統微加熱器需耗費數瓦持續電力調諧，而採用非揮發性 AntiFuse / Optical PCM 儲存出廠校準與光權重，可實現零待機熱能耗（Zero-Static Power）。同時，高溫對緊鄰雷射的 eNVM 形成 Arrhenius 留存加速衰減考驗。</span>
             <span data-lang="en">In 51.2T+ switch CPO and photonic AI accelerators, optical engines (OE/PIC) are tightly integrated with host ASICs. Silicon's high thermo-optic coefficient (1.86×10⁻⁴ K⁻¹) triggers severe micro-ring resonator (MRR) resonance drift (~0.08 nm/K) under laser and ASIC thermal dissipation. Conventional resistive micro-heaters burn continuous watts of static power; non-volatile AntiFuse or Optical PCM locks factory calibration and optical weights with zero static standby power, while laser self-heating imposes critical Arrhenius retention constraints.</span>
           </p>
 
           <!-- Model Disclaimer & Technical Boundary Notice -->
-          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
             <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
             <span data-lang="zh">本工作台之微環諧振波長漂移、熱調諧功耗與雷射熱留存推估為基於一階熱光效應與 Arrhenius 活化能之簡化數值模型，非特定光引擎實體封裝認證規格。實際光模組之波長穩定度取決於 ELS 外部雷射隔離、熱沉設計及閉迴路熱電冷卻 (TEC) 效率。</span>
             <span data-lang="en">The MRR resonance drift, tuning power, and retention lifetime projections in this workbench are schematic numerical models based on first-order thermo-optic and Arrhenius equations, rather than certified optical engine package specifications. Actual module stability depends on ELS laser thermal decoupling, heat sink designs, and active TEC cooling controls.</span>
@@ -1942,10 +1942,10 @@
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
             <div>
-              <label for="cpo-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <label for="cpo-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">CPO 系統架構預設:</span><span data-lang="en">CPO SYSTEM ARCHITECTURE:</span>
               </label>
-              <select id="cpo-preset-select" aria-label="CPO System Architecture Preset" data-aria-en="CPO System Architecture Preset" data-aria-zh="CPO 系統架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <select id="cpo-preset-select" aria-label="CPO System Architecture Preset" data-aria-en="CPO System Architecture Preset" data-aria-zh="CPO 系統架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                 <option value="hyperscale_cpo_51t" selected>51.2T Switch CPO (TSMC COUPE 3D)</option>
                 <option value="ai_accelerator_oio">AI Optical I/O Chiplet (2.5D CPO)</option>
                 <option value="external_laser_els">External Laser Source (ELS-FP Fiber)</option>
@@ -1954,10 +1954,10 @@
             </div>
 
             <div>
-              <label for="cpo-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <label for="cpo-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">光學微調 / NVM 技術拓撲:</span><span data-lang="en">OPTICAL TRIM &amp; NVM TOPOLOGY:</span>
               </label>
-              <select id="cpo-tech-select" aria-label="Optical Trim and NVM Topology" data-aria-en="Optical Trim and NVM Topology" data-aria-zh="光學微調與 NVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <select id="cpo-tech-select" aria-label="Optical Trim and NVM Topology" data-aria-en="Optical Trim and NVM Topology" data-aria-zh="光學微調與 NVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                 <option value="antifuse_zero_static" selected>AntiFuse OTP (Zero-Static Laser Trim)</option>
                 <option value="optical_pcm_gst">Optical PCM (GSST Waveguide Weight)</option>
                 <option value="active_thermal_heater">Active Micro-Heater (Resistive Tuning)</option>
@@ -1966,25 +1966,25 @@
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">環境冷卻溫度:</span><span data-lang="en">AMBIENT TEMP:</span></span>
-                <span id="cpo-ambient-val" style="color: #38bdf8; font-weight: 700;">45°C</span>
+                <span id="cpo-ambient-val" style="color: #0369a1; font-weight: 700;">45°C</span>
               </div>
               <input type="range" id="cpo-ambient-slider" min="25" max="85" step="1" value="45" aria-label="Ambient Cooling Temperature in Celsius" data-aria-en="Ambient Cooling Temperature in Celsius" data-aria-zh="環境冷卻溫度攝氏度" aria-valuetext="45°C" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">每通道雷射光功率:</span><span data-lang="en">LASER POWER / CH:</span></span>
-                <span id="cpo-laser-val" style="color: #38bdf8; font-weight: 700;">100 mW</span>
+                <span id="cpo-laser-val" style="color: #0369a1; font-weight: 700;">100 mW</span>
               </div>
               <input type="range" id="cpo-laser-slider" min="20" max="200" step="5" value="100" aria-label="Optical Laser Power Per Channel in mW" data-aria-en="Optical Laser Power Per Channel in mW" data-aria-zh="每通道雷射光功率毫瓦" aria-valuetext="100 mW" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">光通道總數 (WDM Channels):</span><span data-lang="en">WDM CHANNELS:</span></span>
-                <span id="cpo-channel-val" style="color: #38bdf8; font-weight: 700;">64 ch</span>
+                <span id="cpo-channel-val" style="color: #0369a1; font-weight: 700;">64 ch</span>
               </div>
               <input type="range" id="cpo-channel-slider" min="8" max="128" step="8" value="64" aria-label="WDM Optical Channels Count" data-aria-en="WDM Optical Channels Count" data-aria-zh="光通道總數" aria-valuetext="64 ch" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
@@ -1992,43 +1992,43 @@
 
           <!-- KPI Cards Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
                 <span data-lang="zh">光電接面溫升 (Tj)</span><span data-lang="en">JUNCTION TEMP (Tj)</span>
               </span>
-              <div id="cpo-out-junction" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+              <div id="cpo-out-junction" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
                 <span data-lang="zh">諧振波長漂移 (Δλ)</span><span data-lang="en">MRR DRIFT (Δλ)</span>
               </span>
-              <div id="cpo-out-drift" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f43f5e;">--</div>
+              <div id="cpo-out-drift" style="font: 700 16px 'IBM Plex Mono', monospace; color: #be123c;">--</div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
                 <span data-lang="zh">微調節能比 (Savings)</span><span data-lang="en">TRIM POWER SAVED</span>
               </span>
-              <div id="cpo-out-powersave" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+              <div id="cpo-out-powersave" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
                 <span data-lang="zh">eNVM 留存壽命</span><span data-lang="en">NVM RETENTION</span>
               </span>
-              <div id="cpo-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+              <div id="cpo-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
             </div>
           </div>
 
           <!-- Dual Mode Canvas Container -->
-          <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
               <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CPO Visualization Mode" data-aria-en="CPO Visualization Mode" data-aria-zh="CPO 視覺化模式">
                 <button id="cpo-mode-mrr" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                   <span data-lang="zh">微環諧振頻譜漂移 (MRR Transmission Shift)</span><span data-lang="en">MRR Resonance Shift</span>
                 </button>
-                <button id="cpo-mode-laser" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <button id="cpo-mode-laser" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                   <span data-lang="zh">雷射發熱 vs 接面溫升 (Laser Power vs Tj)</span><span data-lang="en">Laser Power vs Tj</span>
                 </button>
               </div>
@@ -2041,11 +2041,11 @@
 
           <!-- Verdict and Rating Banner -->
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(56, 189, 248, 0.08); border-left: 3px solid #38bdf8; border-radius: 0 4px 4px 0; padding: 10px 14px;">
-            <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+            <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
               <span id="cpo-out-verdict" role="status" aria-live="polite">Loading CPO &amp; Silicon Photonics calculations...</span>
             </div>
-            <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-              <span id="cpo-out-rating" style="color: #10b981;">Tier-1 Hyperscale Co-Design</span>
+            <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #ffffff; padding: 4px 10px; border-radius: 4px; border: 1px solid #cbd5e1; white-space: nowrap;">
+              <span id="cpo-out-rating" style="color: #047857;">Tier-1 Hyperscale Co-Design</span>
             </div>
           </div>
         </div>
@@ -2200,9 +2200,9 @@
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div style="display: inline-flex; align-items: center; gap: 8px;">
               <span class="pulse-dot" style="background: #ef4444;" aria-hidden="true"></span>
-              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.12em; color: #ef4444; text-transform: uppercase;"><span data-lang="zh">物理邊界分析 · CIM／IMC</span><span data-lang="en">PHYSICAL BOUNDARY ANALYSIS · CIM / IMC</span></span>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.12em; color: #b91c1c; text-transform: uppercase;"><span data-lang="zh">物理邊界分析 · CIM／IMC</span><span data-lang="en">PHYSICAL BOUNDARY ANALYSIS · CIM / IMC</span></span>
             </div>
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #88a0aa; background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 4px;"><span data-lang="zh">物理原理限制</span><span data-lang="en">FIRST-PRINCIPLES LIMITS</span></span>
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 4px;"><span data-lang="zh">物理原理限制</span><span data-lang="en">FIRST-PRINCIPLES LIMITS</span></span>
           </div>
 
           <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin: 0 0 10px; line-height: 1.3;">
@@ -2210,7 +2210,7 @@
             <span data-lang="en">Physical Boundaries of AI Compute-in-Memory (CIM/IMC) <em>Three Fundamental Silicon Limits</em></span>
           </h3>
 
-          <p style="font-size: 13.5px; line-height: 1.68; color: #b4c7d0; margin-bottom: 18px;">
+          <p style="font-size: 13.5px; line-height: 1.68; color: #0f172a; margin-bottom: 18px;">
             <span data-lang="zh">在非揮發性記憶體 (ReRAM、MRAM、Flash) 陣列內直接進行類比向量矩陣乘法 (VMM, Vector-Matrix Multiplication) 概念極具吸引力，但在先進節點大規模量產 AI 晶片中，存算一體面臨不可妥協的底層固體物理與混訊電路邊界：</span>
             <span data-lang="en">Performing analog Vector-Matrix Multiplication (VMM) directly within non-volatile memory arrays (ReRAM, MRAM, Flash) is conceptually attractive, but deploying CIM/IMC in production advanced-node AI accelerators faces insurmountable solid-state physics and mixed-signal boundaries:</span>
           </p>
@@ -2231,7 +2231,7 @@
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
             <article style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #ef4444; border-radius: 4px; padding: 14px 16px;">
-              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #ef4444; margin-bottom: 4px;"><span data-lang="zh">限制 01 · 混合訊號額外成本</span><span data-lang="en">LIMIT 01 · MIXED-SIGNAL OVERHEAD</span></div>
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #b91c1c; margin-bottom: 4px;"><span data-lang="zh">限制 01 · 混合訊號額外成本</span><span data-lang="en">LIMIT 01 · MIXED-SIGNAL OVERHEAD</span></div>
               <h4 style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin: 0 0 6px;"><span data-lang="zh">ADC/DAC 佔據 60%~85% 功耗與面積</span><span data-lang="en">ADC/DAC Consumes 60%~85% Power &amp; Area</span></h4>
               <p style="font-size: 12.5px; line-height: 1.6; color: #334155; margin: 0;">
                 <span data-lang="zh">雖然電阻陣列歐姆定律計算本身近乎零動態延遲，但陣列周邊的輸入 DAC 與高精度並行 ADC 轉換電路佔據了整個 CIM 巨集 60% 至 85% 的矽面積與能耗開銷，實質抵消了存算一體的陣列級能效優勢。</span>
@@ -2240,7 +2240,7 @@
             </article>
 
             <article style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #f59e0b; border-radius: 4px; padding: 14px 16px;">
-              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 4px;"><span data-lang="zh">限制 02 · 互連電阻</span><span data-lang="en">LIMIT 02 · INTERCONNECT RESISTANCE</span></div>
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #b45309; margin-bottom: 4px;"><span data-lang="zh">限制 02 · 互連電阻</span><span data-lang="en">LIMIT 02 · INTERCONNECT RESISTANCE</span></div>
               <h4 style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin: 0 0 6px;"><span data-lang="zh">金屬走線 IR-Drop 導致線性度失真</span><span data-lang="en">Interconnect IR-Drop Destroys Linearity</span></h4>
               <p style="font-size: 12.5px; line-height: 1.6; color: #334155; margin: 0;">
                 <span data-lang="zh">隨字元線 (Wordline) 與位元線 (Bitline) 陣列長度增加，金屬連線寄生電阻伴隨大電流引發嚴重的非線性 IR-drop 電壓降，使末端儲存單元實際工作偏壓顯著失真，導致累加電流偏離權重線性對應關係。</span>
@@ -2355,7 +2355,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">ADC 功耗吞噬佔比</span><span data-lang="en">ADC POWER OVERHEAD</span>
                 </div>
-                <div id="cim-adc-overhead-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #d97706;">—</div>
+                <div id="cim-adc-overhead-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">指數級能耗代價</span><span data-lang="en">Exponential FOM scaling</span>
                 </div>
@@ -2365,7 +2365,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">最遠端 IR-Drop 壓降</span><span data-lang="en">WORST IR-DROP</span>
                 </div>
-                <div id="cim-ir-drop-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #d97706;">—</div>
+                <div id="cim-ir-drop-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">導線串聯電阻衰減</span><span data-lang="en">Interconnect line loss</span>
                 </div>
@@ -2514,7 +2514,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">訊號雜訊失真比</span><span data-lang="en">SINAD / SNR</span>
                 </div>
-                <div id="cim-mac-out-sinad" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                <div id="cim-mac-out-sinad" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">類比總和訊噪品質</span><span data-lang="en">Analog summing SNR</span>
                 </div>
@@ -2524,7 +2524,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">Top-1 模型映射值</span><span data-lang="en">MAPPED TOP-1 ESTIMATE</span>
                 </div>
-                <div id="cim-mac-out-accuracy" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                <div id="cim-mac-out-accuracy" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">公式試算，未執行資料集</span><span data-lang="en">Formula estimate; no dataset run</span>
                 </div>
@@ -2544,7 +2544,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">ADC 功耗吞噬佔比</span><span data-lang="en">ADC POWER SHARE</span>
                 </div>
-                <div id="cim-mac-out-adcshare" style="font: 700 16px 'IBM Plex Mono', monospace; color: #d97706;">—</div>
+                <div id="cim-mac-out-adcshare" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">轉換器面積能耗懲罰</span><span data-lang="en">Converter penalty</span>
                 </div>
@@ -2552,7 +2552,7 @@
             </div>
 
             <!-- Visualization Canvas & Mode Buttons -->
-            <div style="background: #09131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                 <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
                   <button id="cim-mac-mode-hist" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
@@ -2672,7 +2672,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">有效權重信噪比</span><span data-lang="en">WEIGHT SNR</span>
                 </div>
-                <div id="cim-nn-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                <div id="cim-nn-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">含漂移與量化噪聲</span><span data-lang="en">Drift + quant noise</span>
                 </div>
@@ -2692,7 +2692,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">Top-1 模型映射值</span><span data-lang="en">MAPPED TOP-1 ESTIMATE</span>
                 </div>
-                <div id="cim-nn-out-top1" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                <div id="cim-nn-out-top1" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">公式試算，未執行資料集</span><span data-lang="en">Formula estimate; no dataset run</span>
                 </div>
@@ -2702,7 +2702,7 @@
                 <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                   <span data-lang="zh">基線降幅（百分點）</span><span data-lang="en">BASELINE DROP (POINTS)</span>
                 </div>
-                <div id="cim-nn-out-drop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                <div id="cim-nn-out-drop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                 <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                   <span data-lang="zh">預設基線減去模型映射值</span><span data-lang="en">Preset baseline minus mapped estimate</span>
                 </div>
@@ -2720,13 +2720,13 @@
             </div>
 
             <!-- Visualization Canvas & Mode Buttons -->
-            <div style="background: #09131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                 <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CiM Visualization View" data-aria-en="CiM Visualization View" data-aria-zh="CiM 視覺化視圖">
                   <button id="cim-nn-mode-curve" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                     <span data-lang="zh">Top-1 精度衰退曲線 (Accuracy vs Time)</span><span data-lang="en">Accuracy vs. Retention Time</span>
                   </button>
-                  <button id="cim-nn-mode-dist" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <button id="cim-nn-mode-dist" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                     <span data-lang="zh">權重分佈與量化誤差 (Weight Error Dist)</span><span data-lang="en">Weight Error Histogram</span>
                   </button>
                 </div>
@@ -2752,31 +2752,31 @@
         </div>
 
         <!-- 05-NEUROMORPHIC / 類腦神經形態與記憶體內運算 (CiM) 矩陣乘加 (MAC) 物理模擬器 -->
-        <article class="decision-matrix-card cim-neuromorphic-article" id="cim-neuromorphic-mac-section" style="margin-top: 28px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+        <article class="decision-matrix-card cim-neuromorphic-article" id="cim-neuromorphic-mac-section" style="margin-top: 28px; background: #ffffff; border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
             <div>
-              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
                 <span data-lang="zh">05-NEUROMORPHIC · 類腦神經形態與記憶體內運算 (CIM) 矩陣乘加</span>
                 <span data-lang="en">05-NEUROMORPHIC · COMPUTE-IN-MEMORY (CIM) MATRIX-VECTOR MAC</span>
               </div>
-              <h4 style="font-size: 18px; font-weight: 700; color: #f8fafc; margin: 0; line-height: 1.3;">
+              <h4 style="font-size: 18px; font-weight: 700; color: #0f172a; margin: 0; line-height: 1.3;">
                 <span data-lang="zh">第一性原理歐姆-基爾霍夫類比乘加、線路 IR-Drop 與電導漂移物理模擬器</span>
                 <span data-lang="en">First-Principles Kirchhoff-Ohm MAC, Parasitic Wire IR-Drop &amp; Conductance Drift Simulator</span>
               </h4>
             </div>
-            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; background: rgba(14, 165, 233, 0.12); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #0369a1; background: rgba(14, 165, 233, 0.12); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
               <span data-lang="zh">研討會典型文獻模型 (IEDM / ISSCC)</span>
               <span data-lang="en">Illustrative Literature Model (IEDM / ISSCC)</span>
             </span>
           </div>
 
-          <p style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+          <p style="font-size: 13px; line-height: 1.65; color: #0f172a; margin-bottom: 16px;">
             <span data-lang="zh">記憶體內運算 (Compute-in-Memory, CiM) 透過歐姆定律 (\(I = V \cdot G\)) 與基爾霍夫電流定律 (\(\sum I\))，於突觸交叉陣列原生地完成高維矩陣向量乘加 (MAC)。然而金屬走線寄生電阻引起的 IR-Drop 壓降、突觸材料電導漂移 (\(G(t) = G_0 \cdot t^{-\nu}\)) 與有限 ADC 解析度量化雜訊，會直接侵蝕類比訊噪比 (SNR) 並導致推論精度斷崖式下滑。本工具提供交叉陣列空間熱力圖與能量精度權衡評估。</span>
             <span data-lang="en">Compute-in-Memory (CiM) leverages Ohm's law (\(I = V \cdot G\)) and Kirchhoff's current law (\(\sum I\)) directly across synaptic crossbar arrays for dense matrix-vector multiplication (MAC). However, metal wire parasitic resistance causes spatial IR-drop degradation, while material conductance drift (\(G(t) = G_0 \cdot t^{-\nu}\)) and finite ADC quantization noise degrade the effective array SNR and neural network inference accuracy. This simulator models crossbar spatial gradients and energy-accuracy tradeoffs.</span>
           </p>
 
           <!-- 免責橫幅 DISCLAIMER -->
-          <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+          <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #b45309;">
             <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
             <span data-lang="zh">本模擬器採用文獻典型參數與集中電阻網絡簡化模型，旨在示意走線 IR-Drop、電導漂移與 ADC 量化雜訊對陣列 SNR 與推論精度的相對影響，非特定量產晶片實測保證。AntiFuse 屬於 OTP（單次可編程）介質，寫入後微絲永久導通不可逆，僅適用於靜態固化權重或 PUF 機率流推論，不支援線上權重更新；ReRAM/MRAM 則具備動態可覆寫特性。</span>
             <span data-lang="en">This simulator uses literature typical figures and lumped-network approximations to illustrate relative tradeoffs of IR-drop, conductance drift, and ADC noise on array SNR; it is not a production silicon guarantee. AntiFuse is a One-Time Programmable (OTP) medium with non-volatile ruptured filaments, suitable exclusively for fixed inference weights or PUF bitstreams without online weight rewritability.</span>
@@ -2790,45 +2790,45 @@
                 <span data-lang="en">Comparison of CiM Synaptic Storage Media, Mask Adders, and Conductance Drift</span>
               </caption>
               <thead>
-                <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 1px solid rgba(51, 65, 85, 0.8);">
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">突觸儲存介質</span><span data-lang="en">Synaptic Medium</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">單元機制與精度</span><span data-lang="en">Cell Mechanism</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">光罩道數</span><span data-lang="en">Mask Adders</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">電導漂移係數 (\(\nu\))</span><span data-lang="en">Drift Coeff (\(\nu\))</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">典型開關比</span><span data-lang="en">On/Off Ratio</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">核心優勢與適用場景</span><span data-lang="en">Key Advantage</span></th>
+                <tr style="background: #f8fafc; border-bottom: 1px solid #cbd5e1;">
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">突觸儲存介質</span><span data-lang="en">Synaptic Medium</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">單元機制與精度</span><span data-lang="en">Cell Mechanism</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">光罩道數</span><span data-lang="en">Mask Adders</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">電導漂移係數 (\(\nu\))</span><span data-lang="en">Drift Coeff (\(\nu\))</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">典型開關比</span><span data-lang="en">On/Off Ratio</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #475569;"><span data-lang="zh">核心優勢與適用場景</span><span data-lang="en">Key Advantage</span></th>
                 </tr>
               </thead>
-              <tbody style="color: #e2e8f0;">
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Analog ReRAM (OxRAM)</th>
+              <tbody style="color: #0f172a;">
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">Analog ReRAM (OxRAM)</th>
                   <td style="padding: 8px 10px;">4-bit MLC <span data-lang="zh">微絲電導</span><span data-lang="en">Filamentary</span></td>
-                  <td style="padding: 8px 10px; color: #f59e0b;">+4 Masks</td>
+                  <td style="padding: 8px 10px; color: #b45309;">+4 Masks</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.080 (Moderate)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">100x</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">最高類比突觸密度，支援動態權重重寫；具弛豫漂移效應</span><span data-lang="en">Highest analog density with dynamic rewritability; subject to drift</span></td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Spintronic STT-MRAM</th>
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">Spintronic STT-MRAM</th>
                   <td style="padding: 8px 10px;">1-bit <span data-lang="zh">差分雙態 MTJ</span><span data-lang="en">Differential MTJ</span></td>
-                  <td style="padding: 8px 10px; color: #f59e0b;">+3 Masks</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.001 (Negligible)</td>
+                  <td style="padding: 8px 10px; color: #b45309;">+3 Masks</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #047857;">0.001 (Negligible)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.5x (Bounded TMR)</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">近乎零漂移與近無限擦寫，適合頻繁權重更新；開關比較小</span><span data-lang="en">Negligible drift with extreme endurance for dynamic weights; bounded TMR</span></td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">0-Mask AntiFuse Stochastic</th>
+                <tr style="border-bottom: 1px solid #cbd5e1;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">0-Mask AntiFuse Stochastic</th>
                   <td style="padding: 8px 10px;">1-bit <span data-lang="zh">機率位元流 (OTP 固化推論)</span><span data-lang="en">1-bit Stochastic (OTP Fixed Inference)</span></td>
-                  <td style="padding: 8px 10px; color: #10b981; font-weight: 600;">0 Masks (Standard Logic)</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981; font-weight: 600;">0.000 (Zero Drift)</td>
+                  <td style="padding: 8px 10px; color: #047857; font-weight: 600;">0 Masks (Standard Logic)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #047857; font-weight: 600;">0.000 (Zero Drift)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 10,000x</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">零額外光罩完全邏輯相容，固態微絲永久穩定；僅限單次寫入推論，不支援動態覆寫</span><span data-lang="en">Zero mask adders; logic compatible; permanent stability; inference-only, non-rewritable</span></td>
                 </tr>
                 <tr>
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Digital SRAM Baseline</th>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">Digital SRAM Baseline</th>
                   <td style="padding: 8px 10px;">8T/10T <span data-lang="zh">數位全擺幅</span><span data-lang="en">Digital Rail</span></td>
-                  <td style="padding: 8px 10px; color: #10b981;">0 Masks</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.000</td>
+                  <td style="padding: 8px 10px; color: #047857;">0 Masks</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #047857;">0.000</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1,000x</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">完全數位無類比量化噪訊，支援動態讀寫；但面積高達 150 F² 且靜態待機漏電大</span><span data-lang="en">Full digital rail; rewritable without analog noise; large area and leakage</span></td>
                 </tr>
@@ -2837,25 +2837,25 @@
           </div>
 
           <!-- 互動工作台容器 -->
-          <div class="decision-matrix-card cim-simulator-container cim-reading-model" id="cim-neuromorphic-simulator-root" tabindex="-1" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+          <div class="decision-matrix-card cim-simulator-container cim-reading-model" id="cim-neuromorphic-simulator-root" tabindex="-1" style="background: #ffffff; border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
             <!-- Model Disclaimer & Technical Boundary Notice -->
-            <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #fde68a;">
+            <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
               <span data-lang="zh">本模擬器採用基爾霍夫電流定律 (KCL) 與空間集總電阻網格之簡化模型，用以示意類腦存算陣列中金屬位元線 IR-Drop 與有限導通電阻對矩陣乘加 (MAC) 運算精度的空間失真趨勢。實際存內計算晶片之能效 (TOPS/W) 與信噪比取決於感測放大器/ADC 線性度、DAC 驅動精度及陣列版圖佈局。</span>
               <span data-lang="en">This simulator employs Kirchhoff's Current Law (KCL) and lumped parasitic wire resistance models to illustrate spatial IR-drop distortion trends and matrix multiply-accumulate (MAC) accuracy degradation in neuromorphic compute-in-memory arrays. Actual silicon efficiency (TOPS/W) and SNR are governed by sense amplifier/ADC linearity, DAC precision, and macro physical layout.</span>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">
               <div>
-                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
+                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #0369a1; text-transform: uppercase; letter-spacing: 0.08em;">
                   <span data-lang="zh">CiM 線阻與 ADC · 教學試算</span><span data-lang="en">CiM WIRE RESISTANCE AND ADC · TEACHING ESTIMATE</span>
                 </span>
-                <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
+                <h5 style="margin: 2px 0 0; font-size: 15px; color: #0f172a; font-weight: 700;">
                   <span data-lang="zh">類腦神經形態 CiM 矩陣乘加效率與空間 IR-Drop 失真試算器</span>
                   <span data-lang="en">Neuromorphic CiM MAC Efficiency &amp; Spatial IR-Drop Distortion Simulator</span>
                 </h5>
               </div>
-              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #0369a1; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
                 <span data-lang="zh">未校準教學模型</span><span data-lang="en">Uncalibrated Teaching Model</span>
               </span>
             </div>
@@ -2863,12 +2863,12 @@
             <nav class="cim-reading-links" aria-label="Model Reading Navigation" data-aria-zh="模型判讀導覽" data-aria-en="Model Reading Navigation"><a href="#cim-neuro-reading-guide"><span data-lang="zh">怎麼讀這些數字</span><span data-lang="en">How to Read These Values</span></a><a href="#cim-model-guide"><span data-lang="zh">選其他 CiM 模型</span><span data-lang="en">Choose Another CiM Model</span></a></nav>
 
             <!-- 控制面板 Controls Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1;">
               <div>
-                <label for="cim-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <label for="cim-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span data-lang="zh">工作負載預設 (Workload Preset):</span><span data-lang="en">WORKLOAD PRESET:</span>
                 </label>
-                <select id="cim-preset-select" aria-label="CiM Workload Preset" data-aria-en="CiM Workload Preset" data-aria-zh="CiM 工作負載預設" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="cim-preset-select" aria-label="CiM Workload Preset" data-aria-en="CiM Workload Preset" data-aria-zh="CiM 工作負載預設" style="width: 100%; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="edge_keyword_spotting_kws" selected>Edge Keyword Spotting (128x64, 50MHz, ULP)</option>
                   <option value="vision_transformer_vit_patch">Vision Transformer (256x128, 200MHz, ViT-Patch)</option>
                   <option value="neuromorphic_spiking_snn">Spiking Neural Network (512x256, 100MHz, Event SNN)</option>
@@ -2877,10 +2877,10 @@
               </div>
 
               <div>
-                <label for="cim-media-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                <label for="cim-media-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 4px;">
                   <span data-lang="zh">突觸儲存介質 (Synaptic Media):</span><span data-lang="en">SYNAPTIC MEDIA:</span>
                 </label>
-                <select id="cim-media-select" aria-label="CiM Synaptic Media" data-aria-en="CiM Synaptic Media" data-aria-zh="CiM 突觸儲存介質" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <select id="cim-media-select" aria-label="CiM Synaptic Media" data-aria-en="CiM Synaptic Media" data-aria-zh="CiM 突觸儲存介質" style="width: 100%; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                   <option value="analog_reram_crossbar" selected>Analog ReRAM (OxRAM Multi-Level, 4-bit)</option>
                   <option value="stt_mram_binary_xbar">Spintronic STT-MRAM (Differential Pair, TMR 2.5x)</option>
                   <option value="antifuse_stochastic_puf">0-Mask AntiFuse Stochastic Synapse (Zero Drift)</option>
@@ -2889,25 +2889,25 @@
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">單元走線寄生電阻 (Wire Resistance):</span><span data-lang="en">WIRE RESISTANCE:</span></span>
-                  <span id="cim-wire-val" style="color: #38bdf8; font-weight: 700;">1.5 Ω/cell</span>
+                  <span id="cim-wire-val" style="color: #0369a1; font-weight: 700;">1.5 Ω/cell</span>
                 </div>
                 <input type="range" id="cim-wire-slider" min="0.2" max="6.0" step="0.1" value="1.5" aria-label="Unit Wire Resistance" data-aria-en="Unit Wire Resistance" data-aria-zh="單元走線寄生電阻" aria-valuetext="1.5 Ω/cell" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">列讀出 ADC 解析度 (ADC Resolution):</span><span data-lang="en">ADC RESOLUTION:</span></span>
-                  <span id="cim-adc-val" style="color: #34d399; font-weight: 700;">6 Bits</span>
+                  <span id="cim-adc-val" style="color: #047857; font-weight: 700;">6 Bits</span>
                 </div>
                 <input type="range" id="cim-adc-slider" min="3" max="8" step="1" value="6" aria-label="Column ADC Resolution Bits" data-aria-en="Column ADC Resolution Bits" data-aria-zh="列讀出 ADC 解析度" aria-valuetext="6 Bits" style="width: 100%; accent-color: #34d399; cursor: pointer;">
               </div>
 
               <div>
-                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; margin-bottom: 3px;">
                   <span><span data-lang="zh">運作漂移時長 (Operating Drift):</span><span data-lang="en">OPERATING DRIFT:</span></span>
-                  <span id="cim-drift-val" style="color: #f59e0b; font-weight: 700;">1,000 Hours</span>
+                  <span id="cim-drift-val" style="color: #b45309; font-weight: 700;">1,000 Hours</span>
                 </div>
                 <input type="range" id="cim-drift-slider" min="1" max="10000" step="100" value="1000" aria-label="Conductance Drift Time Hours" data-aria-en="Conductance Drift Time Hours" data-aria-zh="運作漂移時長" aria-valuetext="1000 Hours" style="width: 100%; accent-color: #f59e0b; cursor: pointer;">
               </div>
@@ -2915,63 +2915,63 @@
 
             <!-- KPI Cards Grid (6 Columns) -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">能量效率</span><span data-lang="en">EFFICIENCY</span>
                 </div>
-                <div id="cim-out-energy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div id="cim-out-energy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">TOPS/W (Array+ADC)</div>
               </div>
 
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">陣列吞吐量</span><span data-lang="en">THROUGHPUT</span>
                 </div>
-                <div id="cim-out-throughput" style="font: 700 15px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                <div id="cim-out-throughput" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">TOPS Peak Compute</div>
               </div>
 
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">陣列信噪比</span><span data-lang="en">ARRAY SNR</span>
                 </div>
-                <div id="cim-out-snr" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0284c7;">--</div>
+                <div id="cim-out-snr" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">dB (Effective SNR)</div>
               </div>
 
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">最遠 IR-Drop</span><span data-lang="en">WORST IR-DROP</span>
                 </div>
-                <div id="cim-out-irdrop" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">--</div>
+                <div id="cim-out-irdrop" style="font: 700 14px 'IBM Plex Mono', monospace; color: #b45309;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">mV (% read bias)</div>
               </div>
 
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">模型映射百分比</span><span data-lang="en">MAPPED PERCENTAGE</span>
                 </div>
-                <div id="cim-out-accuracy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div id="cim-out-accuracy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;"><span data-lang="zh">98.5 基線減去模型懲罰</span><span data-lang="en">98.5 baseline minus modeled penalties</span></div>
               </div>
 
-              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
-                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                   <span data-lang="zh">模型門檻分類</span><span data-lang="en">MODEL THRESHOLD CLASS</span>
                 </div>
-                <div id="cim-out-rating" style="font: 700 13px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div id="cim-out-rating" style="font: 700 13px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;"><span data-lang="zh">依試算門檻分類</span><span data-lang="en">Classified by model thresholds</span></div>
               </div>
             </div>
 
             <!-- 視覺化 Canvas 與模式切換按鈕 -->
-            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                 <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CiM Visualization View Mode" data-aria-en="CiM Visualization View Mode" data-aria-zh="CiM 視覺化檢視模式">
                   <button id="cim-mode-heatmap" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                     <span data-lang="zh">交叉陣列空間 IR-Drop 與電導熱力圖</span><span data-lang="en">Crossbar IR-Drop Heatmap</span>
                   </button>
-                  <button id="cim-mode-tradeoff" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <button id="cim-mode-tradeoff" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                     <span data-lang="zh">能效與模型映射值權衡曲線</span><span data-lang="en">Efficiency vs Mapped Estimate</span>
                   </button>
                 </div>
@@ -2983,7 +2983,7 @@
             </div>
 
             <!-- 架構結論提示方塊 -->
-            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
               <span id="cim-out-verdict" role="status" aria-live="polite">Loading Compute-in-Memory calculations...</span>
             </div>
             <section id="cim-neuro-reading-guide" class="cim-reading-guide" tabindex="-1" aria-labelledby="cim-neuro-reading-title">
@@ -3042,31 +3042,31 @@
         </div>
 
         <!-- 2nm / A16 GAA 奈米片與背面供電 (BSPDN) eNVM 寄生 RC 延遲與熱阻聚集試算器 -->
-        <div class="decision-matrix-card bspdn-nvm-container" id="bspdn-nvm-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+        <div class="decision-matrix-card bspdn-nvm-container" id="bspdn-nvm-simulator-root" style="margin-top: 32px; background: #ffffff; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
             <div>
-              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #38bdf8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
                 <span data-lang="zh">2nm / A16 前沿物理 · 背面供電網路 (BSPDN) 與熱聚集分析</span>
                 <span data-lang="en">2nm / A16 FRONTIER PHYSICS · BSPDN &amp; THERMAL BOTTLENECK ANALYSIS</span>
               </div>
-              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
                 <span data-lang="zh">GAA 奈米片背面供電 eNVM 寄生 RC 延遲、基板薄化熱阻與 Nano-TSV 互連試算器</span>
                 <span data-lang="en">GAA Nanosheet BSPDN eNVM Parasitic RC Delay, Thermal Hotspot &amp; Nano-TSV Interconnect Simulator</span>
               </h3>
             </div>
-            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #0369a1; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
               <span data-lang="zh">TSMC A16 / Intel 18A 物理模型</span>
               <span data-lang="en">TSMC A16 / Intel 18A Physics Model</span>
             </span>
           </div>
 
-          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+          <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 18px;">
             <span data-lang="zh">在 2nm GAA 奈米片與背面供電網路（BSPDN / PowerVia / SPR）中，背面供電將正面金屬層 100% 釋放給訊號線，大幅降低 IR-Drop 壓降與位元線 RC 延遲；然而晶圓研磨薄化至 5~10 µm 會大幅惡化橫向散熱熱阻，使 eMRAM / ReRAM 高寫入電流引發嚴峻的熱聚集（Thermal Throttle）危機。純邏輯 AntiFuse 讀取功耗僅奈瓦級，無額外光罩與熱阻負擔，在 BSPDN 世代展現天生物理優勢。</span>
             <span data-lang="en">In 2nm GAA nanosheets with Backside Power Delivery Networks (BSPDN / PowerVia / SPR), moving power grids to the backside liberates 100% of frontside metal tracks, eliminating IR-drop and reducing bitline RC delays. However, thinning wafers to 5-10 µm restricts lateral heat spreading, causing high-write-current eMRAM/ReRAM to trigger severe thermal throttle risks. Zero-mask AntiFuse generates negligible read heat, demonstrating unique physical compatibility in BSPDN architectures.</span>
           </p>
 
           <!-- Model Disclaimer & Technical Boundary Notice -->
-          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
             <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
             <span data-lang="zh">本工作台之 Nano-TSV 互連延遲、橫向熱阻聚集與寫入熱節流估算為基於一階集總 RC 與 1D 熱阻模型之數值示意推估，非晶圓代工廠量產簽核規範。次 2nm 製程之實際熱分佈需配合 3D 熱電協同模擬 (Electro-Thermal Co-Simulation) 與晶粒封裝熱界面材料 (TIM) 實測判定。</span>
             <span data-lang="en">The Nano-TSV interconnect RC delay, lateral thermal dissipation, and write thermal throttling projections in this workbench are schematic estimates based on lumped RC and 1D thermal resistance models, rather than official foundry sign-off rule decks. Actual sub-2nm thermal profiles require 3D electro-thermal co-simulation and package-level TIM verification.</span>
@@ -3075,10 +3075,10 @@
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
             <div>
-              <label for="bspdn-node-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <label for="bspdn-node-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">先進代工節點架構:</span><span data-lang="en">ADVANCED FOUNDRY NODE:</span>
               </label>
-              <select id="bspdn-node-select" aria-label="Advanced Foundry Process Node" data-aria-en="Advanced Foundry Process Node" data-aria-zh="先進代工節點架構" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <select id="bspdn-node-select" aria-label="Advanced Foundry Process Node" data-aria-en="Advanced Foundry Process Node" data-aria-zh="先進代工節點架構" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                 <option value="tsmc_a16_spr" selected>TSMC A16 SPR (GAA + BSPDN Nano-TSV)</option>
                 <option value="tsmc_n2_nanosheet">TSMC N2 Nanosheet (Conventional FSPDN Baseline)</option>
                 <option value="intel_18a_powervia">Intel 18A RibbonFET (PowerVia BSPDN)</option>
@@ -3087,10 +3087,10 @@
             </div>
 
             <div>
-              <label for="bspdn-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <label for="bspdn-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">奈米片 eNVM 技術拓撲:</span><span data-lang="en">NANOSHEET eNVM TOPOLOGY:</span>
               </label>
-              <select id="bspdn-tech-select" aria-label="Nanosheet eNVM Topology" data-aria-en="Nanosheet eNVM Topology" data-aria-zh="奈米片 eNVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <select id="bspdn-tech-select" aria-label="Nanosheet eNVM Topology" data-aria-en="Nanosheet eNVM Topology" data-aria-zh="奈米片 eNVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                 <option value="antifuse_nanosheet_logic" selected>Nanosheet AntiFuse (0-Mask / Zero Thermal Load)</option>
                 <option value="embedded_stt_mram_beol">BEOL STT-MRAM (4-6 Masks / Write Hotspot)</option>
                 <option value="embedded_reram_oxram">BEOL ReRAM OxRAM (2-3 Masks / Filament Stress)</option>
@@ -3099,17 +3099,17 @@
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">記憶體容量 (Array Capacity):</span><span data-lang="en">ARRAY CAPACITY:</span></span>
-                <span id="bspdn-array-val" style="color: #38bdf8; font-weight: 700;">1.0 Mb</span>
+                <span id="bspdn-array-val" style="color: #0369a1; font-weight: 700;">1.0 Mb</span>
               </div>
               <input type="range" id="bspdn-array-slider" min="0.25" max="16" step="0.25" value="1.0" aria-label="Memory Array Capacity in Megabits" data-aria-en="Memory Array Capacity in Megabits" data-aria-zh="記憶體容量 Mb" aria-valuetext="1.0 Mb" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">寫入/切換活動率 (Activity Rate):</span><span data-lang="en">ACTIVITY RATE:</span></span>
-                <span id="bspdn-act-val" style="color: #38bdf8; font-weight: 700;">15%</span>
+                <span id="bspdn-act-val" style="color: #0369a1; font-weight: 700;">15%</span>
               </div>
               <input type="range" id="bspdn-act-slider" min="1" max="100" step="1" value="15" aria-label="Write Switching Activity Rate Percentage" data-aria-en="Write Switching Activity Rate Percentage" data-aria-zh="寫入切換活動率百分比" aria-valuetext="15%" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
             </div>
@@ -3117,61 +3117,61 @@
 
           <!-- KPI Cards Strip -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">標稱核心電壓</span><span data-lang="en">NOMINAL VDD</span>
               </div>
-              <div id="bspdn-out-vdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">0.65 V</div>
+              <div id="bspdn-out-vdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">0.65 V</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">節點基準電壓</span><span data-lang="en">Node Vdd rail</span>
               </div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">BSPDN 實測壓降</span><span data-lang="en">REALIZED IR-DROP</span>
               </div>
-              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">24.0 mV</div>
+              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">24.0 mV</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">比正面供電降低 ~50%</span><span data-lang="en">~50% vs FSPDN</span>
               </div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">晶粒接面溫度 (Tj)</span><span data-lang="en">JUNCTION TEMP (Tj)</span>
               </div>
-              <div id="bspdn-out-temp" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">65.0 °C</div>
+              <div id="bspdn-out-temp" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">65.0 °C</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">薄化基板熱阻聚集</span><span data-lang="en">Thinned sub Rth</span>
               </div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">讀取存取延遲</span><span data-lang="en">READ LATENCY</span>
               </div>
-              <div id="bspdn-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">0.52 ns</div>
+              <div id="bspdn-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">0.52 ns</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">正面走線擁塞釋放</span><span data-lang="en">M0-M2 tracks freed</span>
               </div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">光罩增加道數</span><span data-lang="en">MASK ADDERS</span>
               </div>
-              <div id="bspdn-out-mask" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">0 Masks</div>
+              <div id="bspdn-out-mask" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">0 Masks</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">純邏輯相容性</span><span data-lang="en">Pure logic compatible</span>
               </div>
             </div>
 
-            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                 <span data-lang="zh">BSPDN 適配評級</span><span data-lang="en">BSPDN RATING</span>
               </div>
-              <div id="bspdn-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #10b981;">Optimal Tier-1</div>
+              <div id="bspdn-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #047857;">Optimal Tier-1</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">物理可靠度綜合判定</span><span data-lang="en">Reliability verdict</span>
               </div>
@@ -3179,13 +3179,13 @@
           </div>
 
           <!-- Interactive Canvas Section -->
-          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
               <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
                 <button id="bspdn-mode-thermal" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                   <span data-lang="zh">縱深熱阻與壓降分佈 (Depth Rth &amp; IR-Drop)</span><span data-lang="en">Depth Rth &amp; IR-Drop Profile</span>
                 </button>
-                <button id="bspdn-mode-delay" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <button id="bspdn-mode-delay" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                   <span data-lang="zh">金屬互連 RC 讀取延遲曲線 (RC Latency)</span><span data-lang="en">Interconnect RC Latency</span>
                 </button>
               </div>
@@ -3197,7 +3197,7 @@
           </div>
 
           <!-- Architectural Insight Callout -->
-          <div style="background: rgba(15, 23, 42, 0.8); border-left: 3px solid #38bdf8; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1;">
+          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
             <span id="bspdn-out-verdict" role="status" aria-live="polite">Loading 2nm / A16 GAA Nanosheet BSPDN simulation calculations...</span>
           </div>
         </div>
@@ -3241,7 +3241,7 @@
         <div class="evidence-closure-board">
           <figure class="evidence-scene">
             <img src="assets/assurance-evidence-v1.webp" width="1792" height="1024" loading="lazy" decoding="async" alt="Illustrative semiconductor evidence lab scene" data-alt-zh="半導體證據驗證實驗室概念場景" data-alt-en="Illustrative semiconductor evidence lab scene">
-            <figcaption><span><span data-lang="zh">證據情境示意</span><span data-lang="en">ILLUSTRATIVE EVIDENCE SCENE</span></span><b><span data-lang="zh">視覺不代表特定量測配置</span><span data-lang="en">Not a specific test configuration</span></b></figcaption>
+            <figcaption><span><span data-lang="zh">AI 生成證據情境示意</span><span data-lang="en">AI-GENERATED ILLUSTRATIVE EVIDENCE SCENE</span></span><b><span data-lang="zh">視覺不代表特定量測配置</span><span data-lang="en">Not a specific test configuration</span></b></figcaption>
           </figure>
           <div class="evidence-flow" role="list" aria-label="Evidence closure cases" data-aria-en="Evidence closure cases" data-aria-zh="證據閉環案例">
             <div class="evidence-flow-head" aria-hidden="true"><span><span data-lang="zh">觀測到的行為</span><span data-lang="en">OBSERVED BEHAVIOR</span></span><span><span data-lang="zh">可支持的結論</span><span data-lang="en">WHAT IT PROVES</span></span><span><span data-lang="zh">無法支持的結論</span><span data-lang="en">WHAT IT DOES NOT PROVE</span></span></div>
@@ -3451,15 +3451,15 @@
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">每位元傳輸能耗</span><span data-lang="en">Energy per Bit</span></div>
-                  <div id="sim-ucie-out-energy" style="font-size:1.15rem; font-weight:800; color:#0284c7; margin-top:2px;">0.33 pJ/bit</div>
+                  <div id="sim-ucie-out-energy" style="font-size:1.15rem; font-weight:800; color:#0369a1; margin-top:2px;">0.33 pJ/bit</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">傳輸延遲</span><span data-lang="en">Latency</span></div>
-                  <div id="sim-ucie-out-lat" style="font-size:1.15rem; font-weight:800; color:#d97706; margin-top:2px;">0.88 ns</div>
+                  <div id="sim-ucie-out-lat" style="font-size:1.15rem; font-weight:800; color:#b45309; margin-top:2px;">0.88 ns</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">NMC 能耗節省比</span><span data-lang="en">NMC Energy Savings</span></div>
-                  <div id="sim-ucie-out-savings" style="font-size:1.15rem; font-weight:800; color:#16a34a; margin-top:2px;">106.1x</div>
+                  <div id="sim-ucie-out-savings" style="font-size:1.15rem; font-weight:800; color:#15803d; margin-top:2px;">106.1x</div>
                 </div>
               </div>
 
@@ -3517,7 +3517,7 @@
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">單通道加熱功耗</span><span data-lang="en">Heater Power/Ch</span></div>
-                  <div id="sim-cpo-out-power" style="font-size:1.15rem; font-weight:800; color:#d97706; margin-top:2px;">10.2 mW</div>
+                  <div id="sim-cpo-out-power" style="font-size:1.15rem; font-weight:800; color:#b45309; margin-top:2px;">10.2 mW</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">殘餘校準誤差</span><span data-lang="en">Residual Error</span></div>
@@ -3592,12 +3592,12 @@
   </script>
   <script type="module" src="cim-efficiency-calculator.js"></script>
   <script type="module" src="cim-analog-mac-simulator.js"></script>
-  <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261005"></script>
-  <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261005"></script>
-  <script type="module" src="cpo-siph-nvm-simulator.js?v=20261006"></script>
+  <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="cpo-siph-nvm-simulator.js?v=20261102-p2"></script>
   <script type="module" src="hbm4-base-die-repair-probe-simulator.js?v=20261102"></script>
-  <script type="module" src="cxl-memory-pooling-simulator.js?v=20261006"></script>
-  <script type="module" src="cim-neuromorphic-mac-simulator.js?v=20261007"></script>
+  <script type="module" src="cxl-memory-pooling-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="cim-neuromorphic-mac-simulator.js?v=20261102-p2"></script>
 
     <script type="module">
       import { calculateUcieInterconnect } from './ai-chiplet-ucie-interconnect-simulator.js';

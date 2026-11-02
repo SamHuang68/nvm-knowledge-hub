@@ -210,12 +210,12 @@ export function calculateCryoNvmMetrics(params = {}) {
   // 6. Architectural Grading
   let ratingZh = '極致超導相容 (OPTIMAL CRYOGENIC)';
   let ratingEn = 'OPTIMAL CRYOGENIC';
-  let gradeColor = '#059669';
+  let gradeColor = '#047857';
 
   if (coherenceMarginPct < 50.0 || effectiveSsMvPerDec > 40.0) {
     ratingZh = '熱耗受限 (THERMAL STRAINED)';
     ratingEn = 'THERMAL STRAINED';
-    gradeColor = '#f59e0b';
+    gradeColor = '#b45309';
   }
   if (coherenceMarginPct < 15.0 || carrierIonizationPct < 5.0) {
     ratingZh = '凍結不相容 (FREEZE-OUT VIOLATION)';
@@ -460,12 +460,12 @@ export function initCryoNvmSimulator() {
     if (outEg) outEg.textContent = metrics.bandgapEv.toFixed(3) + ' eV';
     if (outFreeze) {
       outFreeze.textContent = metrics.carrierIonizationPct.toFixed(1) + '%';
-      outFreeze.style.color = metrics.carrierIonizationPct > 50 ? '#059669' : (metrics.carrierIonizationPct > 10 ? '#f59e0b' : '#dc2626');
+      outFreeze.style.color = metrics.carrierIonizationPct > 50 ? '#047857' : (metrics.carrierIonizationPct > 10 ? '#b45309' : '#dc2626');
     }
     if (outReadPower) outReadPower.textContent = metrics.readPowerNw < 1000 ? metrics.readPowerNw.toFixed(1) + ' nW' : (metrics.readPowerUw.toFixed(2) + ' µW');
     if (outCoherence) {
       outCoherence.textContent = metrics.coherenceMarginPct.toFixed(1) + '%';
-      outCoherence.style.color = metrics.coherenceMarginPct > 70 ? '#059669' : (metrics.coherenceMarginPct > 30 ? '#f59e0b' : '#dc2626');
+      outCoherence.style.color = metrics.coherenceMarginPct > 70 ? '#047857' : (metrics.coherenceMarginPct > 30 ? '#b45309' : '#dc2626');
     }
     if (outRating) {
       outRating.innerHTML = `<span data-lang="zh">${metrics.ratingZh}</span><span data-lang="en">${metrics.ratingEn}</span>`;
@@ -513,7 +513,7 @@ export function initCryoNvmSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'cryo-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0284c7; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 Cryo-CMOS 低溫特性 CSV' : '📥 Export Cryo-CMOS CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出極低溫量子介面載子凍結與讀出功耗分析資料集為 CSV 檔案' : 'Export cryogenic quantum interface carrier freeze-out and readout power dataset as CSV file');

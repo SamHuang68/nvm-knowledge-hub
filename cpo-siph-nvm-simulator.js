@@ -223,23 +223,23 @@ export function calculateCpoSiphMetrics(params = {}) {
 
   // 6. Overall CPO Optical System Grade
   let systemRating = 'Tier-1 Hyperscale Co-Design';
-  let ratingColor = '#10b981';
+  let ratingColor = '#047857';
   let verdictZh = '';
   let verdictEn = '';
 
   if (junctionTempC > 115.0 || estimatedRetentionYears < 5.0) {
     systemRating = 'Thermal Redline Warning';
-    ratingColor = '#ef4444';
+    ratingColor = '#b91c1c';
     verdictZh = `警報：雷射發熱疊加 ASIC 熱阻使接面溫度達 ${junctionTempC.toFixed(1)}°C！光學諧振漂移達 ${wavelengthDriftNm.toFixed(2)} nm，eNVM 預估留存衰減至 ${estimatedRetentionYears.toFixed(1)} 年。建議改採 ELS 外部解耦或強化熱沉。`;
     verdictEn = `Warning: Combined laser and ASIC heat drives junction temp to ${junctionTempC.toFixed(1)}°C. MRR drift reaches ${wavelengthDriftNm.toFixed(2)} nm, reducing eNVM retention to ${estimatedRetentionYears.toFixed(1)} yrs. Recommend external ELS decoupling.`;
   } else if (junctionTempC > 95.0 || estimatedRetentionYears < 10.0) {
     systemRating = 'Qualified CPO Deployment';
-    ratingColor = '#f59e0b';
+    ratingColor = '#b45309';
     verdictZh = `合規：接面溫度 ${junctionTempC.toFixed(1)}°C 處於邊界，微環漂移 ${wavelengthDriftNm.toFixed(2)} nm。${tech.nameZh} 實現 ${powerSavingsPercent.toFixed(0)}% 靜態調諧功耗節省，預估壽命 ${estimatedRetentionYears.toFixed(1)} 年。`;
     verdictEn = `Qualified: Junction temp ${junctionTempC.toFixed(1)}°C at margin, MRR drift ${wavelengthDriftNm.toFixed(2)} nm. ${tech.nameEn} achieves ${powerSavingsPercent.toFixed(0)}% static power savings with ${estimatedRetentionYears.toFixed(1)} yrs retention.`;
   } else {
     systemRating = 'Optimal Photonic Co-Design';
-    ratingColor = '#10b981';
+    ratingColor = '#047857';
     verdictZh = `優異：接面溫升控制於 ${junctionTempC.toFixed(1)}°C。${tech.nameZh} 徹底消除微加熱器靜態熱功耗（省下 ${savedTuningPowerW.toFixed(2)} W），留存壽命 ${estimatedRetentionYears.toFixed(1)} 年完全符合 15 年資料中心服務期。`;
     verdictEn = `Optimal: Junction temp well-controlled at ${junctionTempC.toFixed(1)}°C. ${tech.nameEn} eliminates static micro-heater power (saving ${savedTuningPowerW.toFixed(2)} W) with ${estimatedRetentionYears.toFixed(1)} yrs data retention.`;
   }

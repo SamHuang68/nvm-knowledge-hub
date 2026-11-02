@@ -79,7 +79,9 @@ npm run qa:bilingual
 npm run qa:ip
 ```
 
-動到頁首、頁尾、配色或模擬器 canvas 時，另執行 `npm run qa:light`：以實際渲染檢查頁首、頁尾、麵包屑、大型容器與 canvas 不是深色底，語言切換鈕文字對比至少 4.5:1。
+動到頁首、頁尾、配色或模擬器 canvas 時，另執行 `npm run qa:light`：以實際渲染檢查頁首、頁尾、麵包屑、大型容器與 canvas 不是深色底，語言切換鈕文字對比至少 4.5:1。加上 `--source-only`（或 `NVM_QA_SOURCE_ONLY=1`）會擋下執行期淡色轉換 `literature-paper.js`，確認原始碼本身就是淡色。
+
+圖解與模擬器的材料、載子與圖表色取自 `visual-tokens.js`，不要在產生器裡另寫色表。新增或替換 `assets/` 的檔案時，同步更新 `data/media-manifest.json`（種類、雜湊、權利與證據）；AI 生成圖以 `<img>` 呈現時，旁邊要有中英「AI 生成」可見標示。`check-release-gates.mjs` 會檢查這兩項。
 
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 

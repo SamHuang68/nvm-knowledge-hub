@@ -1,3 +1,4 @@
+import { NEUTRAL, CARRIER, EMERGING } from '../visual-tokens.js';
 /**
  * 具名新興記憶體 IP 的原創單元圖解。
  * 幾何、磁矩軌跡與粒子位置均為教材示意，並非產品剖面或量測。
@@ -5,7 +6,7 @@
 const bi = (zh,en) => ({zh,en});
 const pick = (value,language) => typeof value === 'string' ? value : value[language];
 const esc = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const C = {ink:'#173449',muted:'#536c7c',line:'#6b8492',metal:'#bdd0dc',oxide:'#edf3f7',free:'#178084',ref:'#4b6396',spin:'#7f5899',current:'#bd6827',electron:'#236fab',oxygen:'#1b80a2',vacancy:'#b66b21',silver:'#82639d',copper:'#b86e33',white:'#ffffff'};
+const C = {ink:NEUTRAL.ink,muted:NEUTRAL.muted,line:NEUTRAL.line,metal:EMERGING.electrodeLight,oxide:EMERGING.switchingOxide,free:EMERGING.freeLayer,ref:EMERGING.referenceLayer,spin:EMERGING.spin,current:EMERGING.writeCurrent,electron:CARRIER.electron,oxygen:EMERGING.oxygen,vacancy:EMERGING.vacancy,silver:EMERGING.silver,copper:EMERGING.copper,white:NEUTRAL.white};
 const source = (id,label,url,kind,date,locator,limit,accessedAt='2026-09-10') => ({id,label,url,kind,date,accessedAt,locator,limit});
 const SOURCES = {
   numem:source("ip-numem-current",bi("Numem：晶圓廠 STT-MRAM 與記憶體架構","Numem: Foundry STT-MRAM and Memory Architecture"),"https://www.numem.com/",bi("原廠技術概況","Vendor overview"),null,bi("Numem MRAM 與 foundry-based STT-MRAM 說明","Numem MRAM and foundry-based STT-MRAM description"),bi("支持晶圓廠 STT 單元與 IP 整合；SWT 偵測電路及精確能量改善未核實。","Supports foundry STT cells and IP integration; SWT sensing circuitry and exact energy gains are unverified."),"2026-10-09"),

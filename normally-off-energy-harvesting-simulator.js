@@ -515,12 +515,12 @@ export function initNormallyOffSimulator(container) {
     if (outAvgPower) outAvgPower.textContent = `${m.averagePowerUw} µW`;
     if (outRatio) {
       outRatio.textContent = `${m.energyBalanceRatio}x`;
-      outRatio.style.color = m.isSelfSustaining ? "#059669" : "#dc2626";
+      outRatio.style.color = m.isSelfSustaining ? "#047857" : "#dc2626";
     }
     if (outStatus) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outStatus.textContent = isZh ? m.statusZh : m.statusEn;
-      outStatus.style.color = (m.isSelfSustaining && m.isInrushSafe) ? "#059669" : "#dc2626";
+      outStatus.style.color = (m.isSelfSustaining && m.isInrushSafe) ? "#047857" : "#dc2626";
     }
 
     if (canvas) {
@@ -539,8 +539,8 @@ export function initNormallyOffSimulator(container) {
     if (outVerdict) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>常時關閉能量採集判定：</strong> 在 <code>${m.sourceNameZh}</code> (${m.pSourceUw} µW) 搭配 <code>${m.capUf} µF</code> 電容與 <code>${m.dutyPct}%</code> 占空比下，<code>${m.memoryNameZh}</code> 的系統平均功耗為 <strong>${m.averagePowerUw} µW</strong>，能量平衡比為 <strong>${m.energyBalanceRatio}x</strong>。運行狀態：<strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusZh}</strong>。本模擬係依據一階能量守恆與冷啟動電容充放電模型推算，實際 IoT 裝置須依據具體電源管理 IC (PMIC) 與待機漏電實測校驗。`
-        : `<strong>Normally-Off Energy Harvesting Verdict:</strong> Powered by <code>${m.sourceNameEn}</code> (${m.pSourceUw} µW) with a <code>${m.capUf} µF</code> reservoir at <code>${m.dutyPct}%</code> duty cycle, the <code>${m.memoryNameEn}</code> architecture consumes an average of <strong>${m.averagePowerUw} µW</strong> (Energy Balance: <strong>${m.energyBalanceRatio}x</strong>). Operational status: <strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusEn}</strong>. Illustrative first-order energy balance model; validate against PMIC bench tests and cold-boot inrush measurements.`;
+        ? `<strong>常時關閉能量採集判定：</strong> 在 <code>${m.sourceNameZh}</code> (${m.pSourceUw} µW) 搭配 <code>${m.capUf} µF</code> 電容與 <code>${m.dutyPct}%</code> 占空比下，<code>${m.memoryNameZh}</code> 的系統平均功耗為 <strong>${m.averagePowerUw} µW</strong>，能量平衡比為 <strong>${m.energyBalanceRatio}x</strong>。運行狀態：<strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#047857' : '#dc2626'};">${m.statusZh}</strong>。本模擬係依據一階能量守恆與冷啟動電容充放電模型推算，實際 IoT 裝置須依據具體電源管理 IC (PMIC) 與待機漏電實測校驗。`
+        : `<strong>Normally-Off Energy Harvesting Verdict:</strong> Powered by <code>${m.sourceNameEn}</code> (${m.pSourceUw} µW) with a <code>${m.capUf} µF</code> reservoir at <code>${m.dutyPct}%</code> duty cycle, the <code>${m.memoryNameEn}</code> architecture consumes an average of <strong>${m.averagePowerUw} µW</strong> (Energy Balance: <strong>${m.energyBalanceRatio}x</strong>). Operational status: <strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#047857' : '#dc2626'};">${m.statusEn}</strong>. Illustrative first-order energy balance model; validate against PMIC bench tests and cold-boot inrush measurements.`;
     }
   }
 
@@ -563,7 +563,7 @@ export function initNormallyOffSimulator(container) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'normally-off-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #059669; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #047857; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出常時關閉能量平衡 CSV' : '📥 Export Energy Balance CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出常時關閉能量採集與微功耗平衡資料集為 CSV 檔案' : 'Export normally-off energy harvesting and power balance dataset as CSV file');

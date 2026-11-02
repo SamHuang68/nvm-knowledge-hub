@@ -599,14 +599,14 @@ export function initCimAnalogMacSimulator() {
 
     if (outEnob) {
       outEnob.textContent = `${res.realizedEnob.toFixed(2)} / ${res.nominalAdcBits} b`;
-      outEnob.style.color = res.realizedEnob >= res.nominalAdcBits - 0.8 ? "#059669" : "#dc2626";
+      outEnob.style.color = res.realizedEnob >= res.nominalAdcBits - 0.8 ? "#047857" : "#dc2626";
     }
     if (outSinad) {
       outSinad.textContent = `${res.sinadDb.toFixed(1)} dB`;
     }
     if (outAccuracy) {
       outAccuracy.textContent = `${res.estimatedAccuracy.toFixed(1)}%`;
-      outAccuracy.style.color = res.isAccuracySafe ? "#059669" : "#dc2626";
+      outAccuracy.style.color = res.isAccuracySafe ? "#047857" : "#dc2626";
     }
     if (outTopsWatt) {
       outTopsWatt.textContent = `${res.macroTopsPerWatt.toFixed(1)} TOPS/W`;

@@ -523,11 +523,11 @@ export function initCimNnDegradationSimulator(container) {
     if (outMacBits) outMacBits.textContent = `${m.realizedMacBits} Bits`;
     if (outTop1) {
       outTop1.textContent = `${m.realizedTop1Pct}%`;
-      outTop1.style.color = m.isAccuracyAcceptable ? "#059669" : "#dc2626";
+      outTop1.style.color = m.isAccuracyAcceptable ? "#047857" : "#dc2626";
     }
     if (outDrop) {
       outDrop.textContent = isZh ? `-${m.top1DropPct} 百分點` : `-${m.top1DropPct} pp`;
-      outDrop.style.color = m.isAccuracyAcceptable ? "#059669" : "#dc2626";
+      outDrop.style.color = m.isAccuracyAcceptable ? "#047857" : "#dc2626";
     }
     if (outRefresh) {
       if (m.recommendedRefreshHours >= 87600) {

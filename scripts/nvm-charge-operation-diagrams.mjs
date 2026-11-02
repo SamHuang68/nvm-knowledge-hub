@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 
 /** @typedef {{id:string,title:string,caption:string,state:string,stimulus:string,svg:string,sourceIds:string[]}} OperationFrame */
 /** @typedef {{id:string,label:string,url:string,kind:string,date:string,locator:string,limit:string}} OperationSource */
@@ -10,7 +11,7 @@ const data = Object.fromEntries(['zh', 'en'].map(lang => [lang, JSON.parse(readF
 const topics = new Set(['efuse', 'antifuse', 'eeprom', 'mtp', 'nor', 'sonos', 'nand']);
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const choose = (lang, zh, en) => lang === 'zh' ? zh : en;
-const C = { ink: '#16334c', silicon: '#bed1e2', doped: '#7299b9', oxide: '#f3e2af', trap: '#d98762', fg: '#c2a269', metal: '#899ba9', electron: '#075f9d', hole: '#b52f43', field: '#a34b10', current: '#087766', white: '#fff' };
+const C = { ink: NEUTRAL.ink, silicon: MATERIAL.silicon, doped: MATERIAL.doped, oxide: MATERIAL.oxide, trap: MATERIAL.trap, fg: MATERIAL.floatingGate, metal: MATERIAL.metal, electron: CARRIER.electron, hole: CARRIER.hole, field: CARRIER.field, current: CARRIER.current, white: NEUTRAL.white };
 const rect = (x, y, w, h, fill, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="${C.ink}" stroke-width="1.4" ${extra}/>`;
 const path = (d, color = C.ink, width = 2, extra = '') => `<path d="${d}" fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;
 const text = (x, y, value, anchor = 'middle', color = C.ink) => `<text x="${x}" y="${y}" text-anchor="${anchor}" fill="${color}" font-size="20" font-weight="600">${esc(value)}</text>`;

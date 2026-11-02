@@ -527,7 +527,7 @@ export function initChipletUcieNvmSimulator() {
 
     if (outLatency) {
       outLatency.textContent = `${res.totalReadLatencyNs} ns`;
-      outLatency.style.color = res.isLatencyCompliant ? "#059669" : "#dc2626";
+      outLatency.style.color = res.isLatencyCompliant ? "#047857" : "#dc2626";
     }
     if (outEnergy) {
       outEnergy.textContent = `${res.interconnectEnergyPjBit} pJ/bit`;
@@ -541,7 +541,7 @@ export function initChipletUcieNvmSimulator() {
     }
     if (outYield) {
       outYield.textContent = `${res.chipletYieldPercent}% (${res.yieldGainPercent >= 0 ? "+" : ""}${res.yieldGainPercent}%)`;
-      outYield.style.color = res.yieldGainPercent >= 0 ? "#059669" : "#d97706";
+      outYield.style.color = res.yieldGainPercent >= 0 ? "#047857" : "#b45309";
     }
 
     if (outVerdict) {

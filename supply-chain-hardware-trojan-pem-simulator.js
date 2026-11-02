@@ -220,9 +220,9 @@ export class SupplyChainTrojanPemSimulator {
 
   initDOM() {
     this.container.innerHTML = `
-      <div class="trojan-pem-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
+      <div class="trojan-pem-card" style="background: var(--surface, #ffffff); border: 1px solid var(--border-color, #cbd5e1); border-radius: 12px; padding: 24px; color: var(--text-color, #0f172a); font-family: system-ui, -apple-system, sans-serif;">
         <!-- Academic Model Disclaimer Banner -->
-        <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 8px 12px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 11.5px; line-height: 1.5; color: #f59e0b;">
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 8px 12px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 11.5px; line-height: 1.5; color: #b45309;">
           <span data-lang="zh">⚠️ 示意模擬模型：本工作台參數依據學術文獻（Becker 2013 摻雜木馬、Schlösser 2012 光學發射）與工程假設估算，非量產晶片實測保證。CC EAL 與 NIST 認證屬系統級 TOE 產品評估範疇，不可由儲存介質直接推定。</span>
           <span data-lang="en">⚠️ Exploratory Simulation: Parameters are derived from literature (Becker 2013, Schlösser 2012) and engineering assumptions, not silicon guarantees. CC EAL and NIST certifications apply to system-level TOE products and cannot be inferred from bitcell medium alone.</span>
         </div>
@@ -234,13 +234,13 @@ export class SupplyChainTrojanPemSimulator {
               <span style="background: #9333ea; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">
                 <span data-lang="zh">零信任供應鏈與光學防禦</span><span data-lang="en">Zero-Trust &amp; Optical Defense</span>
               </span>
-              <span style="color: #10b981; font-size: 11px; font-weight: 600;">TEST 91 &amp; EVIDENCE V22</span>
+              <span style="color: #047857; font-size: 11px; font-weight: 600;">TEST 91 &amp; EVIDENCE V22</span>
             </div>
             <h3 style="margin: 0; font-size: 20px; font-weight: 700;">
               <span data-lang="zh">供應鏈硬體木馬、光學側信道 (PEM) 與 PUF 認證模擬工作台</span>
               <span data-lang="en">Hardware Trojan, Optical PEM &amp; PUF Verification Simulator</span>
             </h3>
-            <p style="margin: 6px 0 0; font-size: 13px; color: #9ca3af; max-width: 720px;">
+            <p style="margin: 6px 0 0; font-size: 13px; color: #475569; max-width: 720px;">
               <span data-lang="zh">第一性原理建模：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。</span>
               <span data-lang="en">First-principles physics: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</span>
             </p>
@@ -248,7 +248,7 @@ export class SupplyChainTrojanPemSimulator {
           <!-- Preset Buttons -->
           <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="trojan-preset-container">
             ${Object.entries(this.presets).map(([k, p]) => `
-              <button type="button" class="trojan-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#9333ea' : '#1f2937'}; border: 1px solid ${k === this.state.preset ? '#c084fc' : '#374151'}; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              <button type="button" class="trojan-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#9333ea' : '#ffffff'}; border: 1px solid ${k === this.state.preset ? '#9333ea' : '#cbd5e1'}; color: ${k === this.state.preset ? '#ffffff' : '#0f172a'}; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                 <span data-lang="zh">${p.labelZh}</span><span data-lang="en">${p.labelEn}</span>
               </button>
             `).join('')}
@@ -256,12 +256,12 @@ export class SupplyChainTrojanPemSimulator {
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; background: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
           <!-- Slider 1: Substrate Thickness -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">背面薄化矽基板厚度 (d_Si)</span><span data-lang="en">Backside Si Thickness (d_Si)</span></span>
-              <span id="trojan-val-thick" style="color: #c084fc; font-family: monospace; font-weight: 700;">8.0 μm</span>
+              <span id="trojan-val-thick" style="color: #7e22ce; font-family: monospace; font-weight: 700;">8.0 μm</span>
             </div>
             <input type="range" id="trojan-slide-thick" min="3.0" max="60.0" step="1.0" value="${this.state.substrateThickUm}" aria-label="Substrate Thickness" data-aria-en="Substrate Thickness" data-aria-zh="背面薄化矽基板厚度" style="width: 100%; accent-color: #9333ea;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -274,7 +274,7 @@ export class SupplyChainTrojanPemSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">頂層/背面金屬主動遮蔽強度</span><span data-lang="en">Active Shield Attenuation</span></span>
-              <span id="trojan-val-shield" style="color: #c084fc; font-family: monospace; font-weight: 700;">45 dB</span>
+              <span id="trojan-val-shield" style="color: #7e22ce; font-family: monospace; font-weight: 700;">45 dB</span>
             </div>
             <input type="range" id="trojan-slide-shield" min="0" max="60" step="2" value="${this.state.opticalShieldDb}" aria-label="Shield Attenuation" data-aria-en="Shield Attenuation" data-aria-zh="金屬主動遮蔽強度" style="width: 100%; accent-color: #9333ea;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -287,7 +287,7 @@ export class SupplyChainTrojanPemSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">硬體木馬植入比例 (PPM)</span><span data-lang="en">Trojan Payload Size (PPM)</span></span>
-              <span id="trojan-val-ppm" style="color: #c084fc; font-family: monospace; font-weight: 700;">50 ppm</span>
+              <span id="trojan-val-ppm" style="color: #7e22ce; font-family: monospace; font-weight: 700;">50 ppm</span>
             </div>
             <input type="range" id="trojan-slide-ppm" min="10" max="1000" step="10" value="${this.state.trojanPayloadPpm}" aria-label="Trojan Payload Size" data-aria-en="Trojan Payload Size" data-aria-zh="硬體木馬植入比例" style="width: 100%; accent-color: #9333ea;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -301,7 +301,7 @@ export class SupplyChainTrojanPemSimulator {
             <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">
               <span data-lang="zh">硬體信任根 / 儲存架構</span><span data-lang="en">Hardware Root-of-Trust</span>
             </label>
-            <select id="trojan-sel-tech" aria-label="Root of Trust Architecture" data-aria-en="Root of Trust Architecture" data-aria-zh="硬體信任根儲存架構" style="width: 100%; background: #1f2937; border: 1px solid #374151; color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
+            <select id="trojan-sel-tech" aria-label="Root of Trust Architecture" data-aria-en="Root of Trust Architecture" data-aria-zh="硬體信任根儲存架構" style="width: 100%; background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
               <option value="antifuse_puf">0-Mask AntiFuse 原生 PUF</option>
               <option value="sram_puf">SRAM 啟動狀態 PUF</option>
               <option value="mram">STT-MRAM 磁阻隨機數</option>
@@ -313,38 +313,38 @@ export class SupplyChainTrojanPemSimulator {
         <!-- Metrics Dashboard -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
           <!-- Metric 1: Optical Emission Leakage (Photons/s) -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">背面光子發射通量 (PEM)</span><span data-lang="en">Backside Photon Flux (PEM)</span>
             </div>
-            <div id="trojan-out-photons" style="font-size: 18px; font-weight: 700; color: #38bdf8; font-family: monospace;">0.04 ph/s</div>
-            <div id="trojan-out-snspd" style="font-size: 11px; margin-top: 4px; color: #94a3b8;"><span data-lang="zh">SNR &lt; -18 dB (噪聲淹沒)</span><span data-lang="en">SNR &lt; -18 dB (Below Noise)</span></div>
+            <div id="trojan-out-photons" style="font-size: 18px; font-weight: 700; color: #0369a1; font-family: monospace;">0.04 ph/s</div>
+            <div id="trojan-out-snspd" style="font-size: 11px; margin-top: 4px; color: #475569;"><span data-lang="zh">SNR &lt; -18 dB (噪聲淹沒)</span><span data-lang="en">SNR &lt; -18 dB (Below Noise)</span></div>
           </div>
 
           <!-- Metric 2: Trojan Detection Probability -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">硬體木馬偵測捕獲率</span><span data-lang="en">Trojan Detection Prob</span>
             </div>
-            <div id="trojan-out-detect" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">99.98%</div>
-            <div id="trojan-out-fp" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">FPR &lt; 0.01%</div>
+            <div id="trojan-out-detect" style="font-size: 18px; font-weight: 700; color: #047857; font-family: monospace;">99.98%</div>
+            <div id="trojan-out-fp" style="font-size: 11px; margin-top: 4px; color: #475569;">FPR &lt; 0.01%</div>
           </div>
 
           <!-- Metric 3: PUF Inter-Chip Hamming Distance -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">晶片間漢明距離 (Inter-HD)</span><span data-lang="en">Inter-Chip Hamming Distance</span>
             </div>
-            <div id="trojan-out-hd" style="font-size: 18px; font-weight: 700; color: #c084fc; font-family: monospace;">50.02% (理想)</div>
-            <div id="trojan-out-intra" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">Intra-BER = 0.25%</div>
+            <div id="trojan-out-hd" style="font-size: 18px; font-weight: 700; color: #7e22ce; font-family: monospace;">50.02% (理想)</div>
+            <div id="trojan-out-intra" style="font-size: 11px; margin-top: 4px; color: #475569;">Intra-BER = 0.25%</div>
           </div>
 
           <!-- Metric 4: Modeled Protection Margin -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">模型防護餘量評估</span><span data-lang="en">Modeled Protection Margin</span>
             </div>
-            <div id="trojan-out-tier" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">高防護餘量</div>
+            <div id="trojan-out-tier" style="font-size: 18px; font-weight: 700; color: #047857; font-family: monospace;">高防護餘量</div>
             <div id="trojan-out-rating" style="font-size: 11px; margin-top: 4px;"></div>
           </div>
         </div>
@@ -386,11 +386,11 @@ export class SupplyChainTrojanPemSimulator {
 
         <!-- Physical Verdict Callout -->
         <div id="trojan-verdict-box" style="background: rgba(147, 51, 234, 0.1); border-left: 4px solid #9333ea; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.5;">
-          <div style="font-weight: 700; color: #c084fc; margin-bottom: 4px;" id="trojan-verdict-title">
+          <div style="font-weight: 700; color: #7e22ce; margin-bottom: 4px;" id="trojan-verdict-title">
             <span data-lang="zh">零信任供應鏈與光學防禦物理研判</span>
             <span data-lang="en">Zero-Trust Supply Chain &amp; Optical Defense Verdict</span>
           </div>
-          <div id="trojan-verdict-desc" style="color: #d1d5db;"></div>
+          <div id="trojan-verdict-desc" style="color: #0f172a;"></div>
         </div>
       </div>
     `;
@@ -467,8 +467,9 @@ export class SupplyChainTrojanPemSimulator {
 
     this.container.querySelectorAll('.trojan-btn-preset').forEach(btn => {
       const active = btn.getAttribute('data-preset') === presetKey;
-      btn.style.background = active ? '#9333ea' : '#1f2937';
-      btn.style.borderColor = active ? '#c084fc' : '#374151';
+      btn.style.background = active ? '#9333ea' : '#ffffff';
+      btn.style.borderColor = active ? '#9333ea' : '#cbd5e1';
+      btn.style.color = active ? '#ffffff' : '#0f172a';
     });
 
     this.update();
@@ -486,13 +487,13 @@ export class SupplyChainTrojanPemSimulator {
     if (outPhotons) {
       if (p.measuredFlux < 0.1) {
         outPhotons.textContent = `${p.measuredFlux.toFixed(3)} ph/s`;
-        outPhotons.style.color = '#10b981';
+        outPhotons.style.color = '#047857';
       } else if (p.measuredFlux < 10) {
         outPhotons.textContent = `${p.measuredFlux.toFixed(2)} ph/s`;
-        outPhotons.style.color = '#f59e0b';
+        outPhotons.style.color = '#b45309';
       } else {
         outPhotons.textContent = `${p.measuredFlux.toFixed(0)} ph/s`;
-        outPhotons.style.color = '#ef4444';
+        outPhotons.style.color = '#b91c1c';
       }
     }
 
@@ -503,7 +504,7 @@ export class SupplyChainTrojanPemSimulator {
       } else if (p.snrDb < 5) {
         outSnspd.innerHTML = `<span data-lang="zh">SNR = ${p.snrDb.toFixed(1)} dB (弱信號臨界)</span><span data-lang="en">SNR = ${p.snrDb.toFixed(1)} dB (Marginal)</span>`;
       } else {
-        outSnspd.innerHTML = `<span style="color:#ef4444;"><span data-lang="zh">SNR = +${p.snrDb.toFixed(1)} dB (光子可被還原)</span><span data-lang="en">SNR = +${p.snrDb.toFixed(1)} dB (Vulnerable)</span></span>`;
+        outSnspd.innerHTML = `<span style="color:#b91c1c;"><span data-lang="zh">SNR = +${p.snrDb.toFixed(1)} dB (光子可被還原)</span><span data-lang="en">SNR = +${p.snrDb.toFixed(1)} dB (Vulnerable)</span></span>`;
       }
     }
 
@@ -511,7 +512,7 @@ export class SupplyChainTrojanPemSimulator {
     const outDetect = this.container.querySelector('#trojan-out-detect');
     if (outDetect) {
       outDetect.textContent = `${(p.detectionProb * 100).toFixed(2)}%`;
-      outDetect.style.color = p.detectionProb >= 0.90 ? '#10b981' : (p.detectionProb >= 0.75 ? '#f59e0b' : '#ef4444');
+      outDetect.style.color = p.detectionProb >= 0.90 ? '#047857' : (p.detectionProb >= 0.75 ? '#b45309' : '#b91c1c');
     }
 
     // 3. HD
@@ -520,7 +521,7 @@ export class SupplyChainTrojanPemSimulator {
       if (p.tech.interHammingMean > 0) {
         outHd.innerHTML = `${p.tech.interHammingMean.toFixed(2)}% (<span data-lang="zh">理想均勻</span><span data-lang="en">Ideal</span>)`;
       } else {
-        outHd.innerHTML = `<span style="color:#ef4444;"><span data-lang="zh">非 PUF (固定靜態存儲)</span><span data-lang="en">Non-PUF (Static)</span></span>`;
+        outHd.innerHTML = `<span style="color:#b91c1c;"><span data-lang="zh">非 PUF (固定靜態存儲)</span><span data-lang="en">Non-PUF (Static)</span></span>`;
       }
     }
 
@@ -538,19 +539,19 @@ export class SupplyChainTrojanPemSimulator {
     if (outTier) {
       if (p.snrDb < -10 && p.detectionProb >= 0.85) {
         outTier.innerHTML = '<span data-lang="zh">高防護餘量 (High Margin)</span><span data-lang="en">High Margin</span>';
-        outTier.style.color = '#10b981';
+        outTier.style.color = '#047857';
       } else if (p.snrDb < 0 && p.detectionProb >= 0.70) {
         outTier.innerHTML = '<span data-lang="zh">中等防護 (Moderate)</span><span data-lang="en">Moderate</span>';
-        outTier.style.color = '#f59e0b';
+        outTier.style.color = '#b45309';
       } else {
         outTier.innerHTML = '<span data-lang="zh">需增強屏蔽 (Needs Shielding)</span><span data-lang="en">Needs Shielding</span>';
-        outTier.style.color = '#ef4444';
+        outTier.style.color = '#b91c1c';
       }
     }
 
     const outRating = this.container.querySelector('#trojan-out-rating');
     if (outRating) {
-      outRating.innerHTML = `<span style="color: #94a3b8;"><span data-lang="zh">模型估算：SNR ${p.snrDb.toFixed(1)} dB · 檢出率 ${(p.detectionProb * 100).toFixed(1)}%</span><span data-lang="en">Model: SNR ${p.snrDb.toFixed(1)} dB · Detect ${(p.detectionProb * 100).toFixed(1)}%</span></span>`;
+      outRating.innerHTML = `<span style="color: #475569;"><span data-lang="zh">模型估算：SNR ${p.snrDb.toFixed(1)} dB · 檢出率 ${(p.detectionProb * 100).toFixed(1)}%</span><span data-lang="en">Model: SNR ${p.snrDb.toFixed(1)} dB · Detect ${(p.detectionProb * 100).toFixed(1)}%</span></span>`;
     }
 
     // 5. Verdict Box (Objective, referencing academic papers)

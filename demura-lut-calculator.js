@@ -197,7 +197,7 @@ export function initDemuraLutCalculator(rootSelector = '#demura-lut-calculator-r
     if (ratioBadge) ratioBadge.textContent = T(`${res.compressionRatio}× Spatial Compression`, `${res.compressionRatio}× 空間壓縮`);
     if (dmaTimeEl) {
       dmaTimeEl.textContent = `${res.dmaTimeMs} ms`;
-      dmaTimeEl.style.color = res.dmaTimeMs <= 50 ? '#059669' : res.dmaTimeMs <= 100 ? '#0284c7' : '#d97706';
+      dmaTimeEl.style.color = res.dmaTimeMs <= 50 ? '#047857' : res.dmaTimeMs <= 100 ? '#0369a1' : '#b45309';
     }
     if (flashSizeEl) flashSizeEl.textContent = `${res.recommendedFlashSizeMB} MB Serial NOR`;
     if (dieAreaEl) dieAreaEl.textContent = T(`+${res.embeddedDieAreaMm2} mm² (Die Area Surge)`, `+${res.embeddedDieAreaMm2} mm² (晶圓面積暴增)`);

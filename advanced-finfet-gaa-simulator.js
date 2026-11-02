@@ -471,7 +471,7 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
     const exportBtn = document.createElement('button');
     exportBtn.id = 'finfet-gaa-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 FinFET/GAA 電壓與溫度掃描 CSV' : '📥 Export FinFET/GAA Voltage and Temperature Sweep CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '保留目前教學預設，匯出 FinFET 與 GAA 電壓與溫度掃描 CSV' : 'Export the voltage and temperature sweep for the selected FinFET or GAA teaching preset as CSV');

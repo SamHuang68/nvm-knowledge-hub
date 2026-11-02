@@ -7,6 +7,8 @@
 
 'use strict';
 
+import { formatScientificFromLog } from './visual-tokens.js';
+
 /**
  * Physical constants for Si-SiO2 dielectric interface.
  */
@@ -77,24 +79,13 @@ export function calculateTunnelingBreakdownMetrics(params = {}) {
   };
 }
 
-const SUPERSCRIPT_DIGITS = '⁰¹²³⁴⁵⁶⁷⁸⁹';
-
 /**
  * 以科學記號顯示 log10(J)：兩位有效數字的係數與上標指數，例如 1.8 → 6.3×10¹、−8.7 → 2.0×10⁻⁹。
- * 只用 toFixed 與 Unicode 上標，不受語系影響。
+ * 格式由全站共用的 visual-tokens.js 提供，其他模擬器沿用同一個函式。
  * @param {number} logJ log10 of current density.
  * @return {string} Mantissa × power of ten, without unit.
  */
-export function formatCurrentDensity(logJ) {
-  let exponent = Math.floor(logJ);
-  let mantissa = Math.pow(10, logJ - exponent);
-  if (Number(mantissa.toFixed(1)) >= 10) {
-    mantissa = 1;
-    exponent += 1;
-  }
-  const power = String(exponent).replace('-', '⁻').replace(/\d/g, (digit) => SUPERSCRIPT_DIGITS[digit]);
-  return `${mantissa.toFixed(1)}×10${power}`;
-}
+export const formatCurrentDensity = formatScientificFromLog;
 
 /**
  * Controller for the Quantum Tunneling Simulator.

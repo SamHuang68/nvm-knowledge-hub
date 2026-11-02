@@ -1,5 +1,6 @@
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 /** 公開原廠頁可核對的補充 IP：Actt/NSCore/Floadia/CFX/Attopsemi/SST。未知 ID 回傳 null。 */
-const C = { ink: '#16334c', muted: '#5b6f82', silicon: '#bed1e2', doped: '#7299b9', oxide: '#f3e2af', trap: '#d98762', fg: '#c2a269', metal: '#899ba9', electron: '#075f9d', hole: '#b52f43', field: '#a34b10', current: '#087766', white: '#fff', panel: '#f7f9fc' };
+const C = { ink: NEUTRAL.ink, muted: NEUTRAL.muted, silicon: MATERIAL.silicon, doped: MATERIAL.doped, oxide: MATERIAL.oxide, trap: MATERIAL.trap, fg: MATERIAL.floatingGate, metal: MATERIAL.metal, electron: CARRIER.electron, hole: CARRIER.hole, field: CARRIER.field, current: CARRIER.current, white: NEUTRAL.white, panel: NEUTRAL.panel };
 const pick = (pair, language) => language === 'zh' ? pair[0] : pair[1];
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const bi = (zh, en) => [zh, en];

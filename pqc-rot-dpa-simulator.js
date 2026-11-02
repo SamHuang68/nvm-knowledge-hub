@@ -590,7 +590,7 @@ export function initPqcDpaSimulator(containerId) {
     const mtdEl = root.querySelector('#pqc-metric-mtd');
     if (mtdEl) {
       mtdEl.textContent = metrics.mtd >= 1e7 ? '> 10,000,000' : metrics.mtd.toLocaleString();
-      mtdEl.style.color = metrics.mtd >= 5e5 ? '#10b981' : (metrics.mtd >= 5e4 ? '#f59e0b' : '#ef4444');
+      mtdEl.style.color = metrics.mtd >= 5e5 ? '#047857' : (metrics.mtd >= 5e4 ? '#b45309' : '#b91c1c');
     }
 
     const rhoEl = root.querySelector('#pqc-metric-rho');
@@ -604,7 +604,7 @@ export function initPqcDpaSimulator(containerId) {
     const scoreEl = root.querySelector('#pqc-metric-score');
     if (scoreEl) {
       scoreEl.textContent = `${metrics.securityScore} / 100`;
-      scoreEl.style.color = metrics.securityScore >= 80 ? '#10b981' : (metrics.securityScore >= 55 ? '#f59e0b' : '#ef4444');
+      scoreEl.style.color = metrics.securityScore >= 80 ? '#047857' : (metrics.securityScore >= 55 ? '#b45309' : '#b91c1c');
     }
 
     // Update Verdict Text

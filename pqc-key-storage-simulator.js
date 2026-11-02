@@ -514,17 +514,17 @@ export function initPqcKeyStorageSimulator(container) {
     if (outSlots) outSlots.textContent = `${m.totalSlots} Slots`;
     if (outWear) {
       outWear.textContent = `${m.wearoutPct}%`;
-      outWear.style.color = m.wearoutPct < 50 ? "#059669" : (m.wearoutPct < 85 ? "#f59e0b" : "#dc2626");
+      outWear.style.color = m.wearoutPct < 50 ? "#047857" : (m.wearoutPct < 85 ? "#b45309" : "#dc2626");
     }
     if (outLife) outLife.textContent = `${m.remainingLifetimeYears} Years`;
     if (outZeroize) {
       outZeroize.textContent = m.zeroizeNs;
-      outZeroize.style.color = m.zeroizeValueNs <= 50 ? "#059669" : "#dc2626";
+      outZeroize.style.color = m.zeroizeValueNs <= 50 ? "#047857" : "#dc2626";
     }
     if (outRating) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outRating.textContent = isZh ? m.complianceGradeZh : m.complianceGradeEn;
-      outRating.style.color = m.isFipsLevel4Compliant ? "#059669" : "#dc2626";
+      outRating.style.color = m.isFipsLevel4Compliant ? "#047857" : "#dc2626";
     }
 
     if (canvas) {

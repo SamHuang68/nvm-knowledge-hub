@@ -501,18 +501,18 @@ export function initAutomotiveBlackboxCalculator() {
 
     if (outCapUf) {
       outCapUf.textContent = `${res.holdupCapacitanceUf} μF`;
-      outCapUf.style.color = res.isCapacitorFeasible ? "#059669" : "#dc2626";
+      outCapUf.style.color = res.isCapacitorFeasible ? "#047857" : "#dc2626";
     }
     if (outWriteTime) {
       outWriteTime.textContent = `${res.burstWriteTimeMs} ms`;
-      outWriteTime.style.color = res.isTimeCompliant ? "#059669" : "#dc2626";
+      outWriteTime.style.color = res.isTimeCompliant ? "#047857" : "#dc2626";
     }
     if (outSurgeMa) {
       outSurgeMa.textContent = `${res.peakSurgeCurrentMa} mA`;
     }
     if (outEvents) {
       outEvents.textContent = `${res.maxLifetimeEvents.toLocaleString()}`;
-      outEvents.style.color = res.isEnduranceSufficient ? "#059669" : "#d97706";
+      outEvents.style.color = res.isEnduranceSufficient ? "#047857" : "#b45309";
     }
     if (outRetention) {
       outRetention.textContent = isZh ? `${res.deratedRetentionYears} 年` : `${res.deratedRetentionYears} Yrs`;

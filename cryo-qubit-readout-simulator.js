@@ -644,12 +644,12 @@ export function initCryoQubitSimulator(container) {
     if (outSinr) outSinr.textContent = `${m.sinrDb} dB`;
     if (outBer) {
       outBer.textContent = m.berFormatted;
-      outBer.style.color = m.isQpuCompatible ? "#059669" : "#dc2626";
+      outBer.style.color = m.isQpuCompatible ? "#047857" : "#dc2626";
     }
     if (outRating) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outRating.textContent = isZh ? m.qpuRatingZh : m.qpuRatingEn;
-      outRating.style.color = m.isQpuCompatible ? "#059669" : "#dc2626";
+      outRating.style.color = m.isQpuCompatible ? "#047857" : "#dc2626";
     }
 
     if (canvas) {

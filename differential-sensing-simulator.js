@@ -271,7 +271,7 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
 
     if (deltaVEl) {
       deltaVEl.textContent = `${res.deltaVsenseMv} mV`;
-      deltaVEl.style.color = res.deltaVsenseMv >= 100 ? '#059669' : res.deltaVsenseMv >= 40 ? '#0284c7' : '#dc2626';
+      deltaVEl.style.color = res.deltaVsenseMv >= 100 ? '#047857' : res.deltaVsenseMv >= 40 ? '#0369a1' : '#dc2626';
     }
     if (cmrrEl) cmrrEl.textContent = `${res.cmrrDb} dB`;
     if (dpaDeltaEl) dpaDeltaEl.textContent = `${res.firstOrderDeltaI} µA`;
@@ -341,7 +341,7 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
     const exportBtn = document.createElement('button');
     exportBtn.id = 'diff-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZh = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'zh') === 'zh';
     exportBtn.textContent = isZh ? '📥 匯出差分感測 CSV' : '📥 Export Diff-Sense CSV';
     exportBtn.addEventListener('click', () => {

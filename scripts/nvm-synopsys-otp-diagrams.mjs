@@ -1,8 +1,9 @@
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 /**
  * Kilopass／Sidense 具名 OTP 公開原理重建。
  * 歷史單元、品牌收購與後續公開產品描述分開記錄。
  */
-const C={ink:'#16334c',si:'#bdd3e6',n:'#7299b8',oxide:'#f4e0a9',gate:'#9badba',defect:'#a45410',e:'#075f9d',i:'#087968',muted:'#607486',stop:'#bd354a'};
+const C={ink:NEUTRAL.ink,si:MATERIAL.silicon,n:MATERIAL.doped,oxide:MATERIAL.oxide,gate:MATERIAL.metal,defect:CARRIER.field,e:CARRIER.electron,i:CARRIER.current,muted:NEUTRAL.muted,stop:CARRIER.hole};
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const L=(lang,zh,en)=>lang==='zh'?zh:en;
 const rect=(x,y,w,h,fill,extra='')=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'" stroke="'+C.ink+'" stroke-width="1.5" '+extra+'/>';
@@ -17,7 +18,7 @@ function svg(prefix,title,body){
 }
 function oxideState(x,y,h,broken){
  if(!broken)return '';
- return rect(x-13,y,26,h,'#f3bf7d','data-conductive-region="oxide"')+path('M'+x+' '+y+'l-5 '+(h*.24)+'l10 '+(h*.25)+'l-10 '+(h*.26)+'L'+x+' '+(y+h),C.defect,4);
+ return rect(x-13,y,26,h,MATERIAL.breakdown,'data-conductive-region="oxide"')+path('M'+x+' '+y+'l-5 '+(h*.24)+'l10 '+(h*.25)+'l-10 '+(h*.26)+'L'+x+' '+(y+h),C.defect,4);
 }
 function comparison(x,y){return text(x,y,'I_L','start',C.muted)+path('M'+(x+51)+' '+(y-7)+'h20',C.muted,6)+text(x,y+30,'I_H','start',C.i)+path('M'+(x+51)+' '+(y+23)+'h85',C.i,6);}
 function bottom(ctx,operation,phase){

@@ -256,17 +256,17 @@ export function calculateAutomotiveHbm4Metrics(params = {}) {
 
   // ASIL Rating Qualification Target Assessment
   let asilRating = 'ASIL-D TARGET MET';
-  let ratingColor = '#10b981';
+  let ratingColor = '#047857';
 
   if (spfmPercent < 90.0 || totalResidualFit > 100.0) {
     asilRating = 'QM / NON-COMPLIANT';
-    ratingColor = '#ef4444';
+    ratingColor = '#b91c1c';
   } else if (spfmPercent < 97.0 || totalResidualFit > 50.0) {
     asilRating = 'ASIL-B TARGET MET';
-    ratingColor = '#f59e0b';
+    ratingColor = '#b45309';
   } else if (spfmPercent < 99.0 || totalResidualFit > 10.0) {
     asilRating = 'ASIL-C TARGET MET';
-    ratingColor = '#38bdf8';
+    ratingColor = '#0369a1';
   }
 
   // Verdict Narrative
@@ -651,7 +651,7 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
     const exportBtn = document.createElement('button');
     exportBtn.id = 'hbm4-scrub-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZh = document.documentElement.lang.startsWith('zh');
     exportBtn.textContent = isZh ? '📥 匯出 HBM4 巡檢 CSV' : '📥 Export HBM4 CSV';
     exportBtn.addEventListener('click', () => {

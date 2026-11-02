@@ -559,13 +559,13 @@ export function initBspdnSimulator() {
     if (outIndnoise) outIndnoise.textContent = metrics.indNoiseCurrentMv.toFixed(1) + ' mV';
     if (outEffvdd) {
       outEffvdd.textContent = metrics.effectiveVddCurrent.toFixed(3) + ' V';
-      outEffvdd.style.color = metrics.effectiveVddCurrent >= metrics.preset.targetVwriteMin ? '#059669' : '#dc2626';
+      outEffvdd.style.color = metrics.effectiveVddCurrent >= metrics.preset.targetVwriteMin ? '#047857' : '#dc2626';
     }
     if (outTempdrop) outTempdrop.textContent = '+' + metrics.deltaTCurrent.toFixed(1) + ' °C';
     if (outGain) outGain.textContent = metrics.irDropSavingPct + '%';
     if (outYield) {
       outYield.textContent = metrics.writeYield.toFixed(2) + '%';
-      outYield.style.color = metrics.writeYield >= 99.5 ? '#059669' : '#d97706';
+      outYield.style.color = metrics.writeYield >= 99.5 ? '#047857' : '#b45309';
     }
 
     if (outVerdict) {
@@ -608,7 +608,7 @@ export function initBspdnSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'bspdn-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 BSPDN 壓降與熱阻 CSV' : '📥 Export BSPDN CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出背面供電網路 (BSPDN) 壓降與熱阻分析資料集為 CSV 檔案' : 'Export BSPDN IR-drop and thermal resistance dataset as CSV file');

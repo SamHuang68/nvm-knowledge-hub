@@ -173,17 +173,17 @@ export function calculatePackagingPdkMetrics(params = {}) {
 
   // 5. Testability and Probe Ecosystem Status
   let testRating = 'QUALIFIED';
-  let ratingColor = '#10b981';
+  let ratingColor = '#047857';
 
   if (junctionTempRiseC > 85.0) {
     testRating = 'THERMAL THROTTLING RISK';
-    ratingColor = '#ef4444';
+    ratingColor = '#b91c1c';
   } else if (is3D && pitchUm <= 1.0) {
     testRating = 'SUB-MICRON 3D BENCHMARK';
-    ratingColor = '#06b6d4';
+    ratingColor = '#0e7490';
   } else if (tauPicoSec > 80.0) {
     testRating = 'HIGH D2D LATENCY PENALTY';
-    ratingColor = '#f59e0b';
+    ratingColor = '#b45309';
   }
 
   // Bilingual verdicts

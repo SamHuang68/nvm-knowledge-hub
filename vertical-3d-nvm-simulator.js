@@ -235,23 +235,23 @@ export function calculateVertical3dMetrics(params = {}) {
 
   // 5. Tier Architectural Grade Evaluation
   let tierGrade = 'High-Speed 3D Fabric';
-  let gradeColor = '#10b981';
+  let gradeColor = '#047857';
   let verdictZh = '';
   let verdictEn = '';
 
   if (totalAccessTimeNs > 50.0 || worstWlDelayNs > 25.0) {
     tierGrade = 'Severe RC Bottle-neck';
-    gradeColor = '#ef4444';
+    gradeColor = '#b91c1c';
     verdictZh = `警告：${tierCount} 層堆疊使底層字元線長達 ${worstLengthUm.toFixed(0)} µm！薄膜尺寸效應使電阻率擴增 ${sizeEffectFactor.toFixed(1)} 倍，字元線 RC 延遲達 ${worstWlDelayNs.toFixed(1)} ns（總存取延遲 ${totalAccessTimeNs.toFixed(1)} ns）。強烈建議改採先進金屬鉬 (Mo) 或加入中央字元線驅動中繼器 (WL Driver Repeater)。`;
     verdictEn = `Warning: ${tierCount}-tier stack extends bottom WL to ${worstLengthUm.toFixed(0)} µm. Thin-film size effect increases resistivity by ${sizeEffectFactor.toFixed(1)}x, driving WL RC delay to ${worstWlDelayNs.toFixed(1)} ns (total access ${totalAccessTimeNs.toFixed(1)} ns). Recommend low-resistivity Mo or center-placed WL repeaters.`;
   } else if (totalAccessTimeNs > 20.0 || worstWlDelayNs > 10.0) {
     tierGrade = 'Qualified 3D Tier Architecture';
-    gradeColor = '#f59e0b';
+    gradeColor = '#b45309';
     verdictZh = `合規：${tierCount} 層垂直階梯走線延遲梯差為 ${tierDelaySkewNs.toFixed(1)} ns，最差層 RC 延遲 ${worstWlDelayNs.toFixed(1)} ns，端到端讀取存取時間 ${totalAccessTimeNs.toFixed(1)} ns，符合車用代碼即時啟動標準。`;
     verdictEn = `Qualified: ${tierCount}-tier staircase delay skew is ${tierDelaySkewNs.toFixed(1)} ns; worst WL delay is ${worstWlDelayNs.toFixed(1)} ns, yielding ${totalAccessTimeNs.toFixed(1)} ns total access time, clearing automotive fast-boot specifications.`;
   } else {
     tierGrade = 'High-Speed 3D Fabric';
-    gradeColor = '#10b981';
+    gradeColor = '#047857';
     verdictZh = `優異：${conductor.nameZh} 展現卓越微縮抗散射能力（尺寸效應僅 ${sizeEffectFactor.toFixed(2)} 倍）。最差字元線 RC 延遲壓低至 ${worstWlDelayNs.toFixed(2)} ns，總存取延遲 ${totalAccessTimeNs.toFixed(1)} ns，提供極高隨機讀取頻寬吞吐。`;
     verdictEn = `Optimal: ${conductor.nameEn} exhibits exceptional scattering resistance (size effect only ${sizeEffectFactor.toFixed(2)}x). Worst WL RC delay suppressed to ${worstWlDelayNs.toFixed(2)} ns, total access ${totalAccessTimeNs.toFixed(1)} ns, delivering high random read bandwidth.`;
   }
@@ -503,12 +503,12 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
     if (outResistivity) outResistivity.textContent = `${metrics.effectiveResistivityUohmCm.toFixed(2)} µΩ·cm`;
     if (outWorstDelay) {
       outWorstDelay.textContent = `${metrics.worstWlDelayNs.toFixed(2)} ns`;
-      outWorstDelay.style.color = metrics.worstWlDelayNs <= 20.0 ? '#10b981' : '#ef4444';
+      outWorstDelay.style.color = metrics.worstWlDelayNs <= 20.0 ? '#047857' : '#b91c1c';
     }
     if (outDelaySkew) outDelaySkew.textContent = `${metrics.tierDelaySkewNs.toFixed(2)} ns`;
     if (outAccessTime) {
       outAccessTime.textContent = `${metrics.totalAccessTimeNs.toFixed(1)} ns`;
-      outAccessTime.style.color = metrics.totalAccessTimeNs <= 30.0 ? '#10b981' : '#f59e0b';
+      outAccessTime.style.color = metrics.totalAccessTimeNs <= 30.0 ? '#047857' : '#b45309';
     }
 
     if (outTierGrade) {

@@ -1,3 +1,4 @@
+import { NEUTRAL, EMERGING } from '../visual-tokens.js';
 /**
  * 新興 NVM 操作的原創教材圖版。
  * 圖形是機制示意，不含實測曲線、產品剖面或通用製程規格。
@@ -8,7 +9,7 @@
 
 const pair = (zh, en) => ({zh, en});
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const C = Object.freeze({ink:'#163449',muted:'#536b7d',line:'#678393',metal:'#829dad',oxide:'#e7eff4',free:'#147e82',ref:'#435b89',stim:'#b96521',read:'#196daf',oxygen:'#257fa2',vacancy:'#aa5d1d',ion:'#b76730',ferro:'#836197',hot:'#d55c25',cold:'#c6d8e2',white:'#ffffff'});
+const C = Object.freeze({ink:NEUTRAL.ink,muted:NEUTRAL.muted,line:NEUTRAL.line,metal:EMERGING.electrode,oxide:EMERGING.switchingOxide,free:EMERGING.freeLayer,ref:EMERGING.referenceLayer,stim:EMERGING.writeCurrent,read:EMERGING.read,oxygen:EMERGING.oxygen,vacancy:EMERGING.vacancy,ion:EMERGING.copper,ferro:EMERGING.ferro,hot:EMERGING.hot,cold:EMERGING.cold,white:NEUTRAL.white});
 
 function canvas(topic, operation, language, frame) {
   const prefix = `op-${topic}-${operation}-${frame}-${language}`;

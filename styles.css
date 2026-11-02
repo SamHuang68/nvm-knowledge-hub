@@ -534,7 +534,7 @@ section.hero .hero-proof strong [data-lang] { font-size: inherit !important; fon
 .ownership-flow div b { margin-top: 18px; font-size: 10px; letter-spacing: .08em; }
 .ownership-flow div span { color: var(--muted-light); font-size: 10px; }
 .ownership-flow > i { width: clamp(35px, 5vw, 80px); height: 1px; margin: 0 12px; background: linear-gradient(90deg, var(--cyan), var(--copper)); }
-.ownership-conclusion { max-width: 1000px; margin: 70px auto 0; padding: 24px; color: #0f172a; background: var(--cyan); font-size: 17px; font-weight: 800; }
+.ownership-conclusion { max-width: 1000px; margin: 70px auto 0; padding: 24px; color: #0f172a; background: #e6f3f3; border-left: 4px solid var(--cyan); font-size: 17px; font-weight: 800; }
 
 .learning-section { color: var(--ink); background: var(--navy-850); }
 .learning-head { display: grid; grid-template-columns: 1fr auto; gap: 50px; align-items: end; }

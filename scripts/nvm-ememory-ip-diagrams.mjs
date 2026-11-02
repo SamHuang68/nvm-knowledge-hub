@@ -1,3 +1,4 @@
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 /**
  * 力旺具名 IP 的公開原理教學圖。
  * 來源與雙語文案自包含；歷史專利和現行產品不可互換。
@@ -5,7 +6,7 @@
  * @typedef {{symbol:string,meaning:string}} Legend
  * @typedef {{id:string,title:string,state:string,stimulus:string,caption:string,svg:string,sourceIds:string[]}} Frame
  */
-const C={ink:'#16334c',si:'#bfd3e4',p:'#7d9fbb',oxide:'#f4e0a9',fg:'#c6a16b',metal:'#9badba',e:'#075f9d',h:'#bd354a',i:'#087968',field:'#a45410',muted:'#5b6f82'};
+const C={ink:NEUTRAL.ink,si:MATERIAL.silicon,p:MATERIAL.doped,oxide:MATERIAL.oxide,fg:MATERIAL.floatingGate,metal:MATERIAL.metal,e:CARRIER.electron,h:CARRIER.hole,i:CARRIER.current,field:CARRIER.field,muted:NEUTRAL.muted};
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const local=(language,zh,en)=>language==='zh'?zh:en;
 const r=(x,y,w,h,fill,extra='')=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'" stroke="'+C.ink+'" stroke-width="1.5" '+extra+'/>';

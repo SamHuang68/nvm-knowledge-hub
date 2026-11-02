@@ -665,7 +665,7 @@ export function initCryoRadhardSimulator(containerId) {
     const scoreEl = root.querySelector('#cryo-metric-score');
     if (scoreEl) {
       scoreEl.textContent = `${metrics.resilienceScore} / 100`;
-      scoreEl.style.color = metrics.resilienceScore >= 80 ? '#10b981' : (metrics.resilienceScore >= 55 ? '#f59e0b' : '#ef4444');
+      scoreEl.style.color = metrics.resilienceScore >= 80 ? '#047857' : (metrics.resilienceScore >= 55 ? '#b45309' : '#b91c1c');
     }
 
     // Update Verdict Text
@@ -676,12 +676,12 @@ export function initCryoRadhardSimulator(containerId) {
       const cons = lang === 'zh' ? metrics.topology.zh.cons : metrics.topology.en.cons;
 
       verdictEl.innerHTML = `
-        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.resilienceScore >= 80 ? '#10b981' : (metrics.resilienceScore >= 55 ? '#f59e0b' : '#ef4444')}">
+        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.resilienceScore >= 80 ? '#047857' : (metrics.resilienceScore >= 55 ? '#b45309' : '#b91c1c')}">
           ${metrics.status === 'OPTIMAL' ? (lang === 'zh' ? '✓ 極限環境驗證通過 (Optimal Qualification)' : '✓ Extreme Environment Qualified') :
             (metrics.status === 'MARGINAL' ? (lang === 'zh' ? '⚠ 臨界工作裕度 (Marginal Window)' : '⚠ Marginal Operating Window') :
              (lang === 'zh' ? '✗ 高風險嚴重失效 (Critical Failure Risk)' : '✗ Critical Physical Failure Risk'))}
         </div>
-        <div style="font-size: 0.85rem; line-height: 1.45; color: #cbd5e1;">
+        <div style="font-size: 0.85rem; line-height: 1.45; color: #0f172a;">
           <strong>${topoName}:</strong> ${pros} <span style="opacity: 0.85">${cons}</span>
         </div>
       `;
