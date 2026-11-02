@@ -50,6 +50,7 @@ import { calculateVertical3dMetrics } from '../vertical-3d-nvm-simulator.js';
 import { calculateCuCuBondingMetrics } from '../cu-cu-hybrid-bonding-stress-simulator.js';
 import { calculateAutomotiveHighTempSicGanMetrics } from '../automotive-high-temp-sic-gan-simulator.js';
 import { calculateTunnelingBreakdownMetrics } from '../tunneling-breakdown-simulator.js';
+import { formatCurrentDensity } from '../tunneling-breakdown-simulator.js';
 import { calculateHardwareTrojanPemMetrics } from '../supply-chain-hardware-trojan-pem-simulator.js';
 import { calculatePufNistRandomness } from '../puf-nist-randomness-evaluator.js';
 import { calculateAttackPotential } from '../attack-resistance-evaluator.js';
@@ -109,7 +110,8 @@ test('模型契約：穿隧數值與公開回傳欄位保留原版基準', () =>
   // 固定值來自 fb2119f64f0fc13ef64ca5623ec46bdaa6dbcfc6 的正常情境；不在測試中重抄公式。
   const cases = [
     [{ tox: 2.2, vox: 3.5 }, 15.909090909090907, 1.7661838751272148],
-    [{ tox: 3.5, vox: 1.2 }, 3.428571428571428, -18],
+    // 直接穿隧區改為與 FN 連續的梯形能障式後，此列由舊式的 −18 下限改為新值；FN 列維持原版基準。
+    [{ tox: 3.5, vox: 1.2 }, 3.428571428571428, -8.98555216835221],
     [{ tox: 2, vox: 4.2 }, 21, 3.6617869066941604],
     [{ tox: 1.8, vox: 7.5 }, 41.666666666666664, 6],
     [{ tox: 10, vox: 1 }, 1, -18],
@@ -136,6 +138,48 @@ test('模型契約：穿隧機制與低偏壓電流下限保留相容性', () =>
     const result = calculateTunnelingBreakdownMetrics({ tox: 2.2, vox });
     assert.equal(result.mechanism, mechanism, `${vox} V 的機制`);
     if (vox <= 0.05) assert.equal(result.logJ, -18);
+  }
+});
+
+test('模型契約：穿隧 J–V 在 Φ_B 兩側連續', () => {
+  // 直接穿隧與 FN 是同一能障穿隧電流的兩個極限；Φ_B ± 0.01 V 不得出現數量級跳階。
+  for (const tox of [1, 2, 2.2, 3.5, 5, 6]) {
+    const below = calculateTunnelingBreakdownMetrics({ tox, vox: 3.15 - 0.01 });
+    const above = calculateTunnelingBreakdownMetrics({ tox, vox: 3.15 + 0.01 });
+    assert.equal(below.mechanism, 'direct');
+    assert.equal(above.mechanism, 'fn');
+    assert.ok(Math.abs(below.logJ - above.logJ) < 0.3, `${tox} nm 在 Φ_B 兩側差 ${Math.abs(below.logJ - above.logJ)} 個數量級`);
+  }
+});
+
+test('模型契約：穿隧 log J 在繪圖範圍內隨 Vox 單調不減', () => {
+  // 涵蓋畫布的 151 點與 1 mV 細格，厚度涵蓋滑桿 1.0–6.0 nm。
+  for (let tenth = 10; tenth <= 60; tenth += 5) {
+    const tox = tenth / 10;
+    for (const steps of [150, 10000]) {
+      let previous = -Infinity;
+      for (let i = 0; i <= steps; i++) {
+        const vox = (i / steps) * 10;
+        const { logJ } = calculateTunnelingBreakdownMetrics({ tox, vox });
+        assert.ok(logJ >= previous, `${tox} nm 在 ${vox} V 下降：${previous} → ${logJ}`);
+        previous = logJ;
+      }
+    }
+  }
+});
+
+test('模型契約：Vox ≥ Φ_B 的 FN 數值與修正前相同', () => {
+  // 固定值取自 29066de 的 FN 分支輸出；只驗 FN 側未被連續化改動。
+  for (const [tox, vox, logJ] of [[5, 3.15, -9.447706192290177], [5, 3.2, -9.164747530541536], [5, 4, -5.57800186465627], [2, 3.2, 1.8099094064100028], [1, 3.16, 5.751020820382987]]) {
+    const result = calculateTunnelingBreakdownMetrics({ tox, vox });
+    assert.equal(result.mechanism, 'fn');
+    assert.ok(Math.abs(result.logJ - logJ) < 1e-12, `${tox} nm / ${vox} V`);
+  }
+});
+
+test('模型契約：穿隧電流密度以科學記號顯示', () => {
+  for (const [logJ, text] of [[1.8, '6.3×10¹'], [-8.7, '2.0×10⁻⁹'], [0, '1.0×10⁰'], [1.99999, '1.0×10²'], [2.9999999999999996, '1.0×10³'], [-0.5, '3.2×10⁻¹'], [-13.5, '3.2×10⁻¹⁴'], [12.3, '2.0×10¹²'], [-18, '1.0×10⁻¹⁸']]) {
+    assert.equal(formatCurrentDensity(logJ), text, `log J = ${logJ}`);
   }
 });
 

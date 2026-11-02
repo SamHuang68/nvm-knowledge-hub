@@ -168,6 +168,59 @@ export const KGD_PROBE_ARCHITECTURES = {
   }
 };
 
+// 量測斷行：英文在空白處斷開，中日韓字元可逐字斷開；閉合標點不放在行首。
+const CANVAS_WRAP_TOKENS = /[⺀-鿿豈-﫿！-｠]|[^\s⺀-鿿豈-﫿！-｠]+|\s+/g;
+function wrapCanvasText(ctx, text, maxWidth) {
+  const lines = [];
+  let line = '';
+  (String(text).match(CANVAS_WRAP_TOKENS) || []).forEach(token => {
+    const candidate = line + token;
+    if (!line.trim() || /^[)）,，、。:：;；]/.test(token) || ctx.measureText(candidate.trim()).width <= maxWidth) {
+      line = candidate;
+    } else {
+      lines.push(line.trim());
+      line = /^\s+$/.test(token) ? '' : token;
+    }
+  });
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+// 圖例逐項排列：同列放不下就換列，單項比可用寬度還長才斷行。回傳各段位置與最後一列基線。
+function layoutCanvasLegend(ctx, items, x0, y0, maxWidth, lineHeight, gap = 16) {
+  const placed = [];
+  let x = x0;
+  let y = y0;
+  items.forEach(({ text, color }) => {
+    const w = ctx.measureText(text).width;
+    if (x > x0 && x + w > x0 + maxWidth) { x = x0; y += lineHeight; }
+    if (x + w <= x0 + maxWidth) {
+      placed.push({ text, color, x, y });
+      x += w + gap;
+      return;
+    }
+    const lines = wrapCanvasText(ctx, text, maxWidth);
+    lines.forEach((line, i) => placed.push({ text: line, color, x: x0, y: y + i * lineHeight }));
+    y += (lines.length - 1) * lineHeight;
+    x = x0 + ctx.measureText(lines[lines.length - 1] || '').width + gap;
+  });
+  return { placed, lastY: y };
+}
+
+// x 軸刻度標籤：夾在 [minX, maxX] 內；與同列已放標籤重疊時改放下一列。
+function drawCanvasTickLabels(ctx, ticks, baseline, rowHeight, minX, maxX, maxRows = 2) {
+  const rows = [];
+  ctx.textAlign = 'left';
+  ticks.forEach(({ text, x }) => {
+    const w = ctx.measureText(text).width;
+    const left = Math.max(minX, Math.min(x - w / 2, maxX - w));
+    let row = 0;
+    while (row < maxRows - 1 && (rows[row] || []).some(([l, r]) => left < r + 6 && left + w > l - 6)) row++;
+    (rows[row] = rows[row] || []).push([left, left + w]);
+    ctx.fillText(text, left, baseline + row * rowHeight);
+  });
+}
+
 /**
  * Calculate first-principles TSV parasitic RC, interconnect density, and KGD contact-surface mechanics
  * @param {Object} params
@@ -334,9 +387,49 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
 
   const padLeft = 56;
   const padRight = 32;
-  const padTop = 32;
-  const padBottom = 48;
   const plotW = width - padLeft - padRight;
+
+  // 標題依畫布寬度量測後換列，plot 上緣跟著下移；畫布只剩約 300px 寬時不再裁切。
+  // 手機寬度（畫布 < 260px）字級略縮，替 plot 保留高度。
+  const narrow = width < 260;
+  const headerFont = narrow ? '600 9px "IBM Plex Mono", monospace' : '600 10px "IBM Plex Mono", monospace';
+  const headerItem = mode === 'tsv_rc_frequency_response'
+    ? { text: `— 2048-bit PHY 高頻眼高開展率 (Eye Height: ${metrics.eyeOpeningPercent.toFixed(1)}% @ 3.2GHz, τ = ${metrics.tauRcPicoSec.toFixed(1)} ps)`, color: '#0369a1' }
+    : { text: '■ 探針接觸力 vs 銅表面刮痕深度 (CMP Dishing Boundary Model)', color: '#047857' };
+  const headerX = width < 480 ? 8 : padLeft + 10;
+  ctx.font = headerFont;
+  const header = layoutCanvasLegend(ctx, [headerItem], headerX, 20, width - headerX - 8, narrow ? 11 : 13);
+  const padTop = 32 + (header.lastY - 20);
+
+  // 門檻標籤需要超過兩行時（手機寬度）改列入圖例，避免往上堆疊蓋住資料點與標題。
+  const thresholdText = '3.0nm CMP 容許上限 (Bonding Void Threshold)';
+  const thresholdFont = '700 10px "IBM Plex Mono", monospace';
+  ctx.font = thresholdFont;
+  const thresholdLines = wrapCanvasText(ctx, thresholdText, plotW - 20);
+  const thresholdInLegend = thresholdLines.length > 2;
+
+  // 模式 2 的探針基準點彼此只差零點幾克、零點幾奈米，點旁文字必然互疊；改成 plot 下方的色點圖例，名稱與深度全數保留。
+  const userForce = typeof metrics.contactForceGrams === 'number' ? metrics.contactForceGrams : 0.35;
+  const userDepth = typeof metrics.actualMarkDepthNm === 'number' ? metrics.actualMarkDepthNm : 1.8;
+  const probePoints = [
+    { name: 'Low-Force MEMS', force: 0.35, depth: 1.8, color: '#0369a1' },
+    { name: 'Thin-Film MEMS', force: 0.45, depth: 2.2, color: '#4f46e5' },
+    { name: 'Vertical MEMS', force: 0.40, depth: 2.0, color: '#b45309' },
+    { name: 'Mixed-Signal', force: 0.55, depth: 2.8, color: '#9333ea' },
+    { name: 'Legacy VPC', force: 2.80, depth: 18.5, color: '#dc2626' }
+  ];
+  const legendFont = narrow ? '600 8.5px "IBM Plex Mono", monospace' : '600 9.5px "IBM Plex Mono", monospace';
+  const legendX = width < 480 ? 8 : padLeft;
+  let legend = { placed: [], lastY: 0 };
+  if (mode !== 'tsv_rc_frequency_response') {
+    ctx.font = legendFont;
+    legend = layoutCanvasLegend(ctx, [
+      { text: `● ${document.documentElement.lang.startsWith('zh') ? '當前條件' : 'Current condition'} (${userForce.toFixed(2)}g, ${userDepth.toFixed(1)}nm)`, color: '#b45309' },
+      ...probePoints.map(p => ({ text: `● ${p.name} ${p.depth}nm`, color: p.color })),
+      ...(thresholdInLegend ? [{ text: `--- ${thresholdText}`, color: '#dc2626' }] : [])
+    ], legendX, 0, width - legendX - 8, narrow ? 10 : 12);
+  }
+  const padBottom = mode === 'tsv_rc_frequency_response' ? 48 : Math.max(48, legend.lastY + (narrow ? 20 : 26));
   const plotH = height - padTop - padBottom;
 
   // Grid
@@ -402,16 +495,13 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.stroke();
 
     // Labels
-    ctx.textAlign = 'center';
     ctx.font = '600 10.5px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#475569';
-    ctx.fillText('1 GHz', padLeft + plotW * ((1.0 - fMin) / (fMax - fMin)), height - padBottom + 16);
-    ctx.fillText('3.2 GHz (HBM4 PHY)', currX, height - padBottom + 16);
-    ctx.fillText('8 GHz', padLeft + plotW, height - padBottom + 16);
-
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#0369a1';
-    ctx.fillText(`— 2048-bit PHY 高頻眼高開展率 (Eye Height: ${metrics.eyeOpeningPercent.toFixed(1)}% @ 3.2GHz, τ = ${metrics.tauRcPicoSec.toFixed(1)} ps)`, padLeft + 10, padTop - 12);
+    drawCanvasTickLabels(ctx, [
+      { text: '1 GHz', x: padLeft + plotW * ((1.0 - fMin) / (fMax - fMin)) },
+      { text: '3.2 GHz (HBM4 PHY)', x: currX },
+      { text: '8 GHz', x: padLeft + plotW }
+    ], height - padBottom + 16, 12, 2, width - 2);
 
   } else {
     // Mode 2: Probe Contact Force (0.1g to 3.0g) vs Scrub Mark Depth (nm) & Void Budget
@@ -438,26 +528,26 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#dc2626';
-    ctx.textAlign = 'right';
-    ctx.fillText('3.0nm CMP 容許上限 (Bonding Void Threshold)', padLeft + plotW - 10, yThreshold - 6);
+    const getX = force => padLeft + plotW * (force / 3.0);
+    const curX = getX(Math.min(3.0, Math.max(0.1, userForce)));
+    const curY = getY(userDepth);
+
+    // 門檻標籤限制在 plot 寬度內往上換行；當前條件點落在右半部時改靠左，避免壓到點。
+    if (!thresholdInLegend) {
+      ctx.font = thresholdFont;
+      ctx.fillStyle = '#dc2626';
+      const thresholdOnLeft = curX > padLeft + plotW / 2;
+      ctx.textAlign = thresholdOnLeft ? 'left' : 'right';
+      thresholdLines.forEach((line, i) => {
+        ctx.fillText(line, thresholdOnLeft ? padLeft + 10 : padLeft + plotW - 10, yThreshold - 6 - (thresholdLines.length - 1 - i) * 12);
+      });
+    }
 
     // Green safe zone below 3.0nm
     ctx.fillStyle = 'rgba(5, 150, 105, 0.08)';
     ctx.fillRect(padLeft, yThreshold, plotW, padTop + plotH - yThreshold);
 
-    // Plot probe architecture baseline marks
-    const probePoints = [
-      { name: 'Low-Force MEMS', force: 0.35, depth: 1.8, color: '#0369a1' },
-      { name: 'Thin-Film MEMS', force: 0.45, depth: 2.2, color: '#4f46e5' },
-      { name: 'Vertical MEMS', force: 0.40, depth: 2.0, color: '#b45309' },
-      { name: 'Mixed-Signal', force: 0.55, depth: 2.8, color: '#9333ea' },
-      { name: 'Legacy VPC', force: 2.80, depth: 18.5, color: '#dc2626' }
-    ];
-
-    const getX = force => padLeft + plotW * (force / 3.0);
-
+    // Plot probe architecture baseline marks（名稱與深度改列在下方圖例）
     probePoints.forEach(p => {
       const x = getX(p.force);
       const y = getY(p.depth);
@@ -469,19 +559,9 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 1.2;
       ctx.stroke();
-
-      ctx.font = '600 9.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = p.color;
-      ctx.textAlign = 'center';
-      ctx.fillText(`${p.name}`, x, y - 8);
-      ctx.fillText(`${p.depth}nm`, x, y + 15);
     });
 
     // Plot dynamic user operating point
-    const userForce = typeof metrics.contactForceGrams === 'number' ? metrics.contactForceGrams : 0.35;
-    const userDepth = typeof metrics.actualMarkDepthNm === 'number' ? metrics.actualMarkDepthNm : 1.8;
-    const curX = getX(Math.min(3.0, Math.max(0.1, userForce)));
-    const curY = getY(userDepth);
 
     // Glowing halo
     ctx.strokeStyle = 'rgba(217, 119, 6, 0.4)';
@@ -498,16 +578,21 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#b45309';
-    ctx.textAlign = 'center';
-    ctx.fillText(`當前條件 (${userForce.toFixed(2)}g, ${userDepth.toFixed(1)}nm)`, curX, curY - 14);
-
     ctx.textAlign = 'left';
-    ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#047857';
-    ctx.fillText('■ 探針接觸力 vs 銅表面刮痕深度 (CMP Dishing Boundary Model)', padLeft + 10, padTop - 12);
+    ctx.font = legendFont;
+    const legendTop = padTop + plotH + (narrow ? 12 : 14);
+    legend.placed.forEach(entry => {
+      ctx.fillStyle = entry.color;
+      ctx.fillText(entry.text, entry.x, legendTop + entry.y);
+    });
   }
+
+  ctx.textAlign = 'left';
+  ctx.font = headerFont;
+  header.placed.forEach(entry => {
+    ctx.fillStyle = entry.color;
+    ctx.fillText(entry.text, entry.x, entry.y);
+  });
 
   ctx.restore();
 }

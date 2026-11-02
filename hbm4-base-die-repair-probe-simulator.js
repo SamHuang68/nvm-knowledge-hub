@@ -187,6 +187,97 @@ export const PROBE_CARD_ARCHITECTURES = {
   }
 };
 
+// 量測斷行：英文在空白處斷開，中日韓字元可逐字斷開；閉合標點不放在行首。
+const CANVAS_WRAP_TOKENS = /[⺀-鿿豈-﫿！-｠]|[^\s⺀-鿿豈-﫿！-｠]+|\s+/g;
+function wrapCanvasText(ctx, text, maxWidth) {
+  const lines = [];
+  let line = '';
+  (String(text).match(CANVAS_WRAP_TOKENS) || []).forEach(token => {
+    const candidate = line + token;
+    if (!line.trim() || /^[)）,，、。:：;；]/.test(token) || ctx.measureText(candidate.trim()).width <= maxWidth) {
+      line = candidate;
+    } else {
+      lines.push(line.trim());
+      line = /^\s+$/.test(token) ? '' : token;
+    }
+  });
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+// 圖例逐項排列：同列放不下就換列，單項比可用寬度還長才斷行。回傳各段位置與最後一列基線。
+function layoutCanvasLegend(ctx, items, x0, y0, maxWidth, lineHeight, gap = 16) {
+  const placed = [];
+  let x = x0;
+  let y = y0;
+  items.forEach(({ text, color }) => {
+    const w = ctx.measureText(text).width;
+    if (x > x0 && x + w > x0 + maxWidth) { x = x0; y += lineHeight; }
+    if (x + w <= x0 + maxWidth) {
+      placed.push({ text, color, x, y });
+      x += w + gap;
+      return;
+    }
+    const lines = wrapCanvasText(ctx, text, maxWidth);
+    lines.forEach((line, i) => placed.push({ text: line, color, x: x0, y: y + i * lineHeight }));
+    y += (lines.length - 1) * lineHeight;
+    x = x0 + ctx.measureText(lines[lines.length - 1] || '').width + gap;
+  });
+  return { placed, lastY: y };
+}
+
+// x 軸刻度標籤：夾在 [minX, maxX] 內；與同列已放標籤重疊時改放下一列。
+function drawCanvasTickLabels(ctx, ticks, baseline, rowHeight, minX, maxX, maxRows = 2) {
+  const rows = [];
+  ctx.textAlign = 'left';
+  ticks.forEach(({ text, x }) => {
+    const w = ctx.measureText(text).width;
+    const left = Math.max(minX, Math.min(x - w / 2, maxX - w));
+    let row = 0;
+    while (row < maxRows - 1 && (rows[row] || []).some(([l, r]) => left < r + 6 && left + w > l - 6)) row++;
+    (rows[row] = rows[row] || []).push([left, left + w]);
+    ctx.fillText(text, left, baseline + row * rowHeight);
+  });
+}
+
+// 依序嘗試候選位置，取第一個落在邊界內、且不與既有障礙（文字、圓點、線段）重疊的位置；
+// 都不完美時，取「超出邊界」最少、其次重疊面積最小的候選。
+function pickLabelSpot(ctx, text, candidates, obstacles, bounds) {
+  const m = ctx.measureText(text);
+  const ascent = m.actualBoundingBoxAscent || 8;
+  const descent = m.actualBoundingBoxDescent || 2;
+  const rectOf = ({ x, y, align }) => {
+    const l = align === 'right' ? x - m.width : align === 'center' ? x - m.width / 2 : x;
+    return { l, r: l + m.width, t: y - ascent, b: y + descent };
+  };
+  const overlap = (a, b) => Math.max(0, Math.min(a.r, b.r) - Math.max(a.l, b.l)) * Math.max(0, Math.min(a.b, b.b) - Math.max(a.t, b.t));
+  let best = null;
+  for (const candidate of candidates) {
+    const rect = rectOf(candidate);
+    const outside = Math.max(0, bounds.l - rect.l) + Math.max(0, rect.r - bounds.r) + Math.max(0, bounds.t - rect.t) + Math.max(0, rect.b - bounds.b);
+    const covered = obstacles.reduce((sum, o) => sum + overlap(rect, o), 0);
+    if (outside === 0 && covered === 0) return { ...candidate, rect };
+    if (!best || outside < best.outside || (outside === best.outside && covered < best.covered)) best = { ...candidate, rect, outside, covered };
+  }
+  return best;
+}
+
+// 把折線切成小方塊，當作文字避讓的障礙物。
+function polylineObstacles(points, halfWidth) {
+  const boxes = [];
+  for (let i = 1; i < points.length; i++) {
+    const [x1, y1] = points[i - 1];
+    const [x2, y2] = points[i];
+    const steps = Math.max(1, Math.ceil(Math.hypot(x2 - x1, y2 - y1) / 3));
+    for (let s = 0; s <= steps; s++) {
+      const x = x1 + (x2 - x1) * (s / steps);
+      const y = y1 + (y2 - y1) * (s / steps);
+      boxes.push({ l: x - halfWidth, r: x + halfWidth, t: y - halfWidth, b: y + halfWidth });
+    }
+  }
+  return boxes;
+}
+
 /**
  * Calculate first-principles compound stacked yield, eNVM hPPR recovery, and probe card economics
  * @param {Object} params
@@ -342,11 +433,47 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
-  const padLeft = 56;
-  const padRight = 32;
-  const padTop = 32;
-  const padBottom = 48;
+  // 手機寬度（畫布 < 360px）縮小左右留白與字級；圖例／標題量測後換列，plot 上緣跟著下移。
+  const narrow = width < 360;
+  const padLeft = narrow ? 44 : 56;
+  const padRight = narrow ? 16 : 32;
   const plotW = width - padLeft - padRight;
+  const textPx = narrow ? 9 : 10;
+  const headerFont = `600 ${textPx}px "IBM Plex Mono", monospace`;
+  const headerItems = mode === 'compound_yield_curve'
+    ? [
+      { text: '--- 未修復原始良率 (Raw Stack Yield)', color: '#dc2626' },
+      { text: '— 0-Mask AntiFuse 修復後良率 (Repaired Stack Yield)', color: '#0e7490' }
+    ]
+    : [{ text: '■ 高密度晶圓測試探針卡並行能力指數模型 (High-Density Wafer Sort Index)', color: '#0369a1' }];
+  const headerX = width < 480 ? 8 : padLeft + 10;
+  ctx.font = headerFont;
+  const header = layoutCanvasLegend(ctx, headerItems, headerX, 20, width - headerX - 8, narrow ? 11 : 13, 24);
+  const padTop = 32 + (header.lastY - 20);
+  const headerBottom = header.lastY + 3;
+
+  // 模式 2 長條標籤：每格放不下時改成 45° 斜排單行（名稱＋價格），底部留白依標籤長度加大。
+  const archKeys = ['micronics_japan', 'mpi_taiwan', 'chpt_taiwan', 'technoprobe', 'formfactor'];
+  const labelMap = {
+    micronics_japan: 'Cantilever',
+    mpi_taiwan: 'VPC/MEMS',
+    chpt_taiwan: 'MLO/MEMS',
+    technoprobe: 'MLC/MEMS',
+    formfactor: 'Spring/MEMS'
+  };
+  const barLabelFont = `600 ${narrow ? 8.5 : 10}px "IBM Plex Mono", monospace`;
+  ctx.font = barLabelFont;
+  const barLabels = archKeys.map(key => {
+    const card = PROBE_CARD_ARCHITECTURES[key];
+    return { name: labelMap[key] || key, cost: card ? `$${(card.baseAspUsd / 1000).toFixed(0)}k` : '' };
+  });
+  const slotW = plotW / 5;
+  const rotateBarLabels = mode !== 'compound_yield_curve' &&
+    barLabels.some(l => Math.max(ctx.measureText(l.name).width, ctx.measureText(l.cost).width) > slotW - 6);
+  const rotatedLabelSpan = rotateBarLabels
+    ? Math.max(...barLabels.map(l => ctx.measureText(`${l.name} ${l.cost}`).width)) * Math.SQRT1_2
+    : 0;
+  const padBottom = rotateBarLabels ? Math.max(48, Math.ceil(rotatedLabelSpan) + 22) : 48;
   const plotH = height - padTop - padBottom;
 
   // Grid lines
@@ -425,7 +552,11 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
     }
     ctx.stroke();
 
-    // Points & text
+    // Points（先畫完圓點，差值標籤再避開圓點、兩條線與彼此）
+    const obstacles = [
+      ...polylineObstacles(layerPoints.map((_, i) => [getX(i), getY(rawYields[i])]), 2),
+      ...polylineObstacles(layerPoints.map((_, i) => [getX(i), getY(repYields[i])]), 2)
+    ];
     for (let i = 0; i < 4; i++) {
       const x = getX(i);
       const yRaw = getY(rawYields[i]);
@@ -441,32 +572,52 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
       ctx.beginPath();
       ctx.arc(x, yRep, 5, 0, Math.PI * 2);
       ctx.fill();
-
-      // X labels
-      ctx.font = '700 11px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#334155';
-      ctx.textAlign = 'center';
-      ctx.fillText(`${layerPoints[i]}-Hi`, x, height - padBottom + 18);
-
-      // Delta label
-      const delta = repYields[i] - rawYields[i];
-      ctx.font = '600 10px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#047857';
-      ctx.fillText(`+${delta.toFixed(1)}%`, x, (yRaw + yRep) / 2 + 3);
+      obstacles.push({ l: x - 6, r: x + 6, t: yRaw - 6, b: yRaw + 6 }, { l: x - 7, r: x + 7, t: yRep - 7, b: yRep + 7 });
     }
 
-    // Legend
-    ctx.textAlign = 'left';
-    ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#dc2626';
-    ctx.fillText('--- 未修復原始良率 (Raw Stack Yield)', padLeft + 10, padTop - 12);
-    ctx.fillStyle = '#0e7490';
-    ctx.fillText('— 0-Mask AntiFuse 修復後良率 (Repaired Stack Yield)', padLeft + 230, padTop - 12);
+    // X labels（夾在畫布內，相鄰重疊時錯列）
+    ctx.font = `700 ${narrow ? 10 : 11}px "IBM Plex Mono", monospace`;
+    ctx.fillStyle = '#334155';
+    drawCanvasTickLabels(ctx, layerPoints.map((layers, i) => ({ text: `${layers}-Hi`, x: getX(i) })), height - padBottom + 18, 12, 2, width - 2);
+
+    // Delta label：原位置（兩點中間）會壓到圓點或線時，依序改放右側、左側、紅點下方、藍點上方。
+    ctx.font = `600 ${textPx}px "IBM Plex Mono", monospace`;
+    ctx.fillStyle = '#047857';
+    const deltaBounds = { l: padLeft - 2, r: width - 2, t: headerBottom, b: padTop + plotH - 2 };
+    for (let i = 0; i < 4; i++) {
+      const x = getX(i);
+      const yRaw = getY(rawYields[i]);
+      const yRep = getY(repYields[i]);
+      const mid = (yRaw + yRep) / 2 + 3;
+      const text = `+${(repYields[i] - rawYields[i]).toFixed(1)}%`;
+      const between = [
+        { x, y: mid, align: 'center' },
+        { x: x + 9, y: mid, align: 'left' },
+        { x: x - 9, y: mid, align: 'right' }
+      ];
+      // 手機寬度相鄰點只隔約 30px，優先放在紅點正下方（各點高度不同，自然錯開）。
+      const belowRaw = [
+        { x, y: yRaw + 16, align: 'center' },
+        { x: x - 2, y: yRaw + 16, align: 'left' },
+        { x: x + 4, y: yRaw + 16, align: 'right' }
+      ];
+      const aboveRep = [
+        { x, y: yRep - 10, align: 'center' },
+        { x: x - 2, y: yRep - 10, align: 'left' },
+        { x: x + 4, y: yRep - 10, align: 'right' }
+      ];
+      const spot = pickLabelSpot(ctx, text, [
+        ...(narrow ? [...belowRaw, ...between] : [...between, ...belowRaw]),
+        ...aboveRep
+      ], obstacles, deltaBounds);
+      ctx.textAlign = spot.align;
+      ctx.fillText(text, spot.x, spot.y);
+      obstacles.push(spot.rect);
+    }
 
   } else {
     // Mode 2: Probe Card Market Procurement Shift & Exposure
     // Mode 2: High-Density Wafer Sort Capability & Parallel Test Index
-    const archKeys = ['micronics_japan', 'mpi_taiwan', 'chpt_taiwan', 'technoprobe', 'formfactor'];
     const currentCardId = metrics.probeCard ? metrics.probeCard.id : 'mpi_taiwan';
 
     ctx.font = '600 11px "IBM Plex Mono", monospace';
@@ -479,13 +630,21 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
     ctx.fillText('0', padLeft - 8, padTop + plotH + 4);
 
     const barW = Math.min(48, plotW / 6);
+    const barRects = archKeys.map((key, idx) => {
+      const card = PROBE_CARD_ARCHITECTURES[key];
+      const barH = card ? (Math.round(card.foundryExposureFactor * 100) / 100.0) * plotH : 0;
+      const x = padLeft + slotW * idx + (slotW - barW) / 2;
+      return { l: x, r: x + barW, t: padTop + plotH - barH, b: padTop + plotH };
+    });
+    const scoreObstacles = [...barRects];
+    const scoreJobs = [];
     archKeys.forEach((key, idx) => {
       const card = PROBE_CARD_ARCHITECTURES[key];
       if (!card) return;
       const isSelected = card.id === currentCardId;
       const score = Math.round(card.foundryExposureFactor * 100);
 
-      const x = padLeft + (plotW / 5) * idx + (plotW / 5 - barW) / 2;
+      const x = padLeft + slotW * idx + (slotW - barW) / 2;
       const barH = (score / 100.0) * plotH;
       const y = padTop + plotH - barH;
 
@@ -513,31 +672,56 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
       ctx.lineWidth = isSelected ? 2.5 : 1;
       ctx.strokeRect(x, y, barW, barH);
 
-      // Score label on top of bar
-      ctx.font = isSelected ? '700 11px "IBM Plex Mono", monospace' : '600 10.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = isSelected ? '#b45309' : '#0f172a';
-      ctx.textAlign = 'center';
-      ctx.fillText(isSelected ? `★ ${score}` : `${score}`, x + barW / 2, y - 6);
+      // Score label on top of bar：等全部長條畫完再由高到低放置，見下方。
+      scoreJobs.push({
+        text: isSelected ? `★ ${score}` : `${score}`,
+        font: isSelected ? `700 ${narrow ? 9.5 : 11}px "IBM Plex Mono", monospace` : `600 ${narrow ? 9 : 10.5}px "IBM Plex Mono", monospace`,
+        color: isSelected ? '#b45309' : '#0f172a',
+        x,
+        y
+      });
 
       // Technical short label below
-      const labelMap = {
-        micronics_japan: 'Cantilever',
-        mpi_taiwan: 'VPC/MEMS',
-        chpt_taiwan: 'MLO/MEMS',
-        technoprobe: 'MLC/MEMS',
-        formfactor: 'Spring/MEMS'
-      };
-      ctx.font = '600 10px "IBM Plex Mono", monospace';
+      const { name, cost } = barLabels[idx];
+      ctx.font = barLabelFont;
       ctx.fillStyle = isSelected ? '#0369a1' : '#475569';
-      ctx.fillText(labelMap[key] || key, x + barW / 2, height - padBottom + 16);
-      ctx.fillText(`$${(card.baseAspUsd / 1000).toFixed(0)}k`, x + barW / 2, height - padBottom + 28);
+      if (rotateBarLabels) {
+        ctx.save();
+        ctx.translate(x + barW / 2 + 3, padTop + plotH + 10);
+        ctx.rotate(-Math.PI / 4);
+        ctx.textAlign = 'right';
+        ctx.fillText(`${name} ${cost}`, 0, 0);
+        ctx.restore();
+      } else {
+        ctx.textAlign = 'center';
+        ctx.fillText(name, x + barW / 2, height - padBottom + 16);
+        ctx.fillText(cost, x + barW / 2, height - padBottom + 28);
+      }
     });
 
-    ctx.textAlign = 'left';
-    ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#0369a1';
-    ctx.fillText('■ 高密度晶圓測試探針卡並行能力指數模型 (High-Density Wafer Sort Index)', padLeft + 10, padTop - 12);
+    // 分數標籤由最高的長條先放；與相鄰分數或長條重疊時改靠右緣、靠左緣或逐級上移。
+    scoreJobs.sort((a, b) => a.y - b.y).forEach(job => {
+      ctx.font = job.font;
+      ctx.fillStyle = job.color;
+      const spot = pickLabelSpot(ctx, job.text, [
+        { x: job.x + barW / 2, y: job.y - 6, align: 'center' },
+        { x: job.x + barW, y: job.y - 6, align: 'right' },
+        { x: job.x, y: job.y - 6, align: 'left' },
+        { x: job.x + barW / 2, y: job.y - 17, align: 'center' },
+        { x: job.x + barW / 2, y: job.y - 28, align: 'center' }
+      ], scoreObstacles, { l: padLeft - 4, r: width - 2, t: headerBottom, b: padTop + plotH });
+      ctx.textAlign = spot.align;
+      ctx.fillText(job.text, spot.x, spot.y);
+      scoreObstacles.push(spot.rect);
+    });
   }
+
+  ctx.textAlign = 'left';
+  ctx.font = headerFont;
+  header.placed.forEach(entry => {
+    ctx.fillStyle = entry.color;
+    ctx.fillText(entry.text, entry.x, entry.y);
+  });
 
   ctx.restore();
 }

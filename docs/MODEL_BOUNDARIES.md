@@ -18,6 +18,18 @@ The alternative candidate used Ea = 1.1 eV and Tref = 25°C. No target-specific 
 
 Sources: [NIST Arrhenius model](https://www.itl.nist.gov/div898/handbook/apr/section1/apr151.htm) and [NIST use-condition reliability projections](https://www.itl.nist.gov/div898/handbook/apr/section4/apr43.htm).
 
+## Tunneling and Breakdown
+
+`tunneling-breakdown-simulator.js` (memory-physics.html) is a teaching model. Both regimes use the same constants: Φ_B = 3.15 eV, B_FN = 250 MV/cm (image-force corrected) and A_FN = 1.54×10⁻⁶ A/V².
+
+- Vox ≥ Φ_B (label `fn`): classic Fowler–Nordheim, J = A_FN·Eox²·exp(−B_FN/Eox).
+- 0.05 V < Vox < Φ_B (label `direct`): the generalized FN expression for a trapezoidal barrier, J = A_FN·Eox²·exp(−B_FN·[1 − (1 − Vox/Φ_B)^{3/2}]/Eox). The bracket reaches 1 at Vox = Φ_B, so current and slope join the FN branch continuously; only the regime label changes at Φ_B.
+- Vox ≤ 0.05 V returns the low-bias floor; log₁₀J is clamped to [−18, 6]. The readout shows J as m.m×10ⁿ A/cm², or "< 10⁻¹⁴ A/cm²" below that level.
+
+The earlier direct branch used a separate exp(−α·tox·√Φ_eff) expression and jumped by up to about 13 decades at Φ_B. The current form omits the trapezoidal prefactor correction, reverse current, temperature, and trap-assisted tunneling/SILC, so low-bias magnitudes are order-of-magnitude illustrations, not calibrated gate leakage. The 4, 10 and 13 MV/cm field thresholds are illustrative region markers, not breakdown statistics.
+
+Checks: `node --test tests/test-physics-robustness.test.mjs` (continuity at Φ_B, monotonic J–V, unchanged FN values, display format) and `node scripts/驗證穿隧與高溫模型契約.mjs` (canvas curve, readouts, presets, keyboard and both languages).
+
 ## Other Reading Tools
 
 - Assurance categories describe evidence types, not the status of a product. Planning-route names may be standards, evaluation schemes or regulatory contexts; they are not equivalent certifications. Product certification requires a traceable certificate, target of evaluation, version and scope.

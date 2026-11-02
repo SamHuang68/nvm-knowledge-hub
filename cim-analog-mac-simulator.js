@@ -298,6 +298,28 @@ export function calculateCimAnalogMac(options = {}) {
   };
 }
 
+// 依序嘗試候選位置，取第一個落在邊界內、且不與障礙（曲線取樣點、標記點）重疊的位置；
+// 都不完美時，取「超出邊界」最少、其次重疊面積最小的候選。
+function pickLabelSpot(ctx, text, candidates, obstacles, bounds) {
+  const m = ctx.measureText(text);
+  const ascent = m.actualBoundingBoxAscent || 8;
+  const descent = m.actualBoundingBoxDescent || 2;
+  const rectOf = ({ x, y, align }) => {
+    const l = align === "right" ? x - m.width : align === "center" ? x - m.width / 2 : x;
+    return { l, r: l + m.width, t: y - ascent, b: y + descent };
+  };
+  const overlap = (a, b) => Math.max(0, Math.min(a.r, b.r) - Math.max(a.l, b.l)) * Math.max(0, Math.min(a.b, b.b) - Math.max(a.t, b.t));
+  let best = null;
+  for (const candidate of candidates) {
+    const rect = rectOf(candidate);
+    const outside = Math.max(0, bounds.l - rect.l) + Math.max(0, rect.r - bounds.r) + Math.max(0, bounds.t - rect.t) + Math.max(0, rect.b - bounds.b);
+    const covered = obstacles.reduce((sum, o) => sum + overlap(rect, o), 0);
+    if (outside === 0 && covered === 0) return { ...candidate, rect };
+    if (!best || outside < best.outside || (outside === best.outside && covered < best.covered)) best = { ...candidate, rect, outside, covered };
+  }
+  return best;
+}
+
 /**
  * Draws the high-DPI Canvas visualization for the CiM Analog MAC workbench.
  *
@@ -400,12 +422,15 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     ctx.font = "600 10px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#475569";
     ctx.fillText(isZh ? "電流分佈示意（正規化位置）" : "Current (normalized illustration)", padLeft, height - 10);
+    // 壓降標籤原本跨在橘色虛線上；改為靠右對齊、停在虛線左側。
     ctx.fillStyle = "#b45309";
+    ctx.textAlign = "right";
     ctx.fillText(
       isZh ? `模型壓降: ${results.irDropPercent}%` : `Model IR-drop: ${results.irDropPercent}%`,
-      skewX - 45,
+      skewX - 6,
       padTop + 14
     );
+    ctx.textAlign = "left";
 
   } else {
     // Mode 2: Accuracy vs SINAD / ENOB Roll-off Curve
@@ -433,6 +458,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
     let markerX = 0;
     let markerY = 0;
+    const curveObstacles = [];
 
     for (let b = 2.0; b <= 9.0; b += 0.1) {
       const normX = (b - 2.0) / 7.0;
@@ -453,6 +479,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
       if (b === 2.0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
+      curveObstacles.push({ l: x - 2, r: x + 2, t: y - 2.5, b: y + 2.5 });
 
       if (Math.abs(b - results.realizedEnob) < 0.08) {
         markerX = x;
@@ -471,14 +498,23 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Tooltip above marker
+      // Tooltip：原本被夾到 padTop + 12，標記點靠近頂端時文字直接壓在曲線與點上。
+      // 改為依序嘗試點的上方、下方與左右兩側，選第一個不碰到曲線、標記點與標題的位置。
       ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
       ctx.fillStyle = results.isAccuracySafe ? "#047857" : "#dc2626";
-      ctx.fillText(
-        isZh ? `${results.realizedEnob} b｜卡片 ${results.estimatedAccuracy}%` : `${results.realizedEnob} b | card ${results.estimatedAccuracy}%`,
-        Math.max(padLeft, markerX - 35),
-        Math.max(padTop + 12, markerY - 9)
-      );
+      const tooltip = isZh ? `${results.realizedEnob} b｜卡片 ${results.estimatedAccuracy}%` : `${results.realizedEnob} b | card ${results.estimatedAccuracy}%`;
+      const spot = pickLabelSpot(ctx, tooltip, [
+        { x: markerX, y: markerY - 10, align: "center" },
+        { x: markerX, y: markerY + 18, align: "center" },
+        { x: markerX + 10, y: markerY - 10, align: "left" },
+        { x: markerX - 10, y: markerY - 10, align: "right" },
+        { x: markerX + 10, y: markerY + 18, align: "left" },
+        { x: markerX - 10, y: markerY + 18, align: "right" }
+      ], [...curveObstacles, { l: markerX - 7, r: markerX + 7, t: markerY - 7, b: markerY + 7 }],
+      { l: padLeft, r: width - 4, t: padTop - 6, b: padTop + plotH });
+      ctx.textAlign = spot.align;
+      ctx.fillText(tooltip, spot.x, spot.y);
+      ctx.textAlign = "left";
     }
 
     ctx.font = "600 10px 'IBM Plex Mono', monospace";

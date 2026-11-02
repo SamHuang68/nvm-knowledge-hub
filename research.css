@@ -39,13 +39,13 @@
 .oip-page .paper-conclusion>*{position:relative;z-index:1}
 .oip-source-line{margin:18px 0 0;color:var(--muted-ink);font-size:12px;line-height:1.6}
 .oip-source-line a{color:#785021;font-weight:800}
-.oip-image-band{margin:28px 0 34px;border:1px solid rgba(6,50,63,.16);background:#f8fafc;box-shadow:0 22px 55px rgba(248, 250, 252, 0.96);overflow:hidden}
-.oip-image-band img{display:block;width:100%;height:clamp(210px,31vw,390px);object-fit:cover;object-position:center}
+.oip-image-band{max-width:1040px;margin:28px auto 34px;border:1px solid rgba(6,50,63,.16);background:#f8fafc;box-shadow:0 22px 55px rgba(248, 250, 252, 0.96);overflow:hidden}
+.oip-image-band img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
 .oip-image-band--power img{object-position:center 54%}
 .oip-image-band--helper img{object-position:center 48%}
 .oip-image-band figcaption{padding:11px 16px;border-top:1px solid rgba(196,165,116,.22);background:#f8fafc;color:#334155;font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.035em}
 @media(max-width:920px){.oip-threat-flow,.oip-decision-grid{grid-template-columns:1fr}.oip-architecture{grid-template-columns:1fr 1fr}.oip-architecture article:nth-child(2){border-right:0}.oip-architecture article:nth-child(-n+2){border-bottom:1px solid var(--hairline)}}
-@media(max-width:620px){.oip-architecture{grid-template-columns:1fr}.oip-architecture article{border-right:0;border-bottom:1px solid var(--hairline)}.oip-architecture article:last-child{border-bottom:0}.oip-threat-flow h3,.oip-decision-grid h3{margin-top:18px}.oip-equation strong{font-size:24px;overflow-wrap:anywhere}.oip-image-band{margin:20px 0 26px}.oip-image-band img{height:190px}.oip-image-band figcaption{font-size:10px}}
+@media(max-width:620px){.oip-architecture{grid-template-columns:1fr}.oip-architecture article{border-right:0;border-bottom:1px solid var(--hairline)}.oip-architecture article:last-child{border-bottom:0}.oip-threat-flow h3,.oip-decision-grid h3{margin-top:18px}.oip-equation strong{font-size:24px;overflow-wrap:anywhere}.oip-image-band{margin:20px 0 26px}.oip-image-band img{height:auto}.oip-image-band figcaption{font-size:10px}}
 
 html { scroll-behavior: smooth; }
 body.research-page { color: var(--ink); background: var(--paper); }

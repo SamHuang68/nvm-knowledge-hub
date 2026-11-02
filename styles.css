@@ -855,7 +855,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   overflow: hidden;
   isolation: isolate;
   color: #0f172a;
-  background-image: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 48%, rgba(248, 250, 252, 0.96) 100%), url("assets/nvm-lab-panorama.png");
+  background-image: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 48%, rgba(248, 250, 252, 0.96) 100%), url("assets/nvm-lab-panorama.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }

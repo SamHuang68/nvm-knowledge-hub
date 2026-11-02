@@ -38,11 +38,17 @@ export function calculateTunnelingBreakdownMetrics(params = {}) {
     logJ = -18;
     mechanism = 'retention';
   } else if (vox < SIM_CONSTANTS.BARRIER_HEIGHT_EV) {
+    // 教學模型：梯形能障的廣義 FN 式（WKB 指數項），與下方 FN 分支共用 A_FN、B_FN、Φ_B：
+    //   J = A_FN · Eox² · exp(−B_FN · [1 − (1 − Vox/Φ_B)^{3/2}] / Eox)
+    // Vox → Φ_B 時括號項 → 1，數值與一階導數皆接續經典 FN，不再於 Φ_B 跳階。
+    // 省略梯形能障前置因子修正與反向電流，低偏壓絕對值只作量級示意，未對量測校準。
+    // Teaching model: generalized FN expression for a trapezoidal barrier (WKB exponent),
+    // reducing continuously to classic FN at Vox = Φ_B; not calibrated to measured data.
     mechanism = 'direct';
-    const alpha = 1.025;
-    const barrierEff = Math.max(0.1, SIM_CONSTANTS.BARRIER_HEIGHT_EV - vox * 0.5);
-    const exponent = -alpha * (tox * 10) * Math.sqrt(barrierEff);
-    const jDirect = 1e3 * Math.pow(vox / tox, 2) * Math.exp(exponent);
+    const eoxVcm = eox * 1e6;
+    const bfnVcm = SIM_CONSTANTS.B_FN_MV_PER_CM * 1e6;
+    const trapezoid = 1 - Math.pow(1 - vox / SIM_CONSTANTS.BARRIER_HEIGHT_EV, 1.5);
+    const jDirect = SIM_CONSTANTS.A_FN * Math.pow(eoxVcm, 2) * Math.exp(-bfnVcm * trapezoid / eoxVcm);
     logJ = Math.min(6, Math.max(-18, Math.log10(Math.max(jDirect, 1e-18))));
   } else {
     mechanism = 'fn';
@@ -69,6 +75,25 @@ export function calculateTunnelingBreakdownMetrics(params = {}) {
     mechanism,
     state
   };
+}
+
+const SUPERSCRIPT_DIGITS = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+
+/**
+ * 以科學記號顯示 log10(J)：兩位有效數字的係數與上標指數，例如 1.8 → 6.3×10¹、−8.7 → 2.0×10⁻⁹。
+ * 只用 toFixed 與 Unicode 上標，不受語系影響。
+ * @param {number} logJ log10 of current density.
+ * @return {string} Mantissa × power of ten, without unit.
+ */
+export function formatCurrentDensity(logJ) {
+  let exponent = Math.floor(logJ);
+  let mantissa = Math.pow(10, logJ - exponent);
+  if (Number(mantissa.toFixed(1)) >= 10) {
+    mantissa = 1;
+    exponent += 1;
+  }
+  const power = String(exponent).replace('-', '⁻').replace(/\d/g, (digit) => SUPERSCRIPT_DIGITS[digit]);
+  return `${mantissa.toFixed(1)}×10${power}`;
 }
 
 /**
@@ -311,7 +336,7 @@ class TunnelingSimulator {
 
   /**
    * Computes log10 of current density J (A/cm^2).
-   * Incorporates Direct Tunneling (V < Phi_B) and Fowler-Nordheim (V >= Phi_B).
+   * Trapezoidal-barrier generalized FN (V < Phi_B), joining classic FN (V >= Phi_B) continuously.
    * @param {number} v Voltage in Volts.
    * @param {number} t Oxide thickness in nm.
    * @return {number} log10(J).
@@ -347,7 +372,7 @@ class TunnelingSimulator {
       if (logJ <= -14) {
         this.currentDisplay.textContent = '< 10⁻¹⁴ A/cm²';
       } else {
-        this.currentDisplay.textContent = `10^(${logJ.toFixed(1)}) A/cm²`;
+        this.currentDisplay.textContent = `${formatCurrentDensity(logJ)} A/cm²`;
       }
     }
 
@@ -567,7 +592,7 @@ class TunnelingSimulator {
     ctx.textBaseline = curY < padT + 40 ? 'bottom' : 'top';
     const offsetX = curX > w - 120 ? -10 : 10;
     const offsetY = curY < padT + 40 ? -8 : 8;
-    ctx.fillText(`(${this.vox.toFixed(1)}V, 10^${curLogJ.toFixed(1)})`, curX + offsetX, curY + offsetY);
+    ctx.fillText(`(${this.vox.toFixed(1)}V, ${formatCurrentDensity(curLogJ)})`, curX + offsetX, curY + offsetY);
 
     // Axis titles
     ctx.fillStyle = '#475569';
