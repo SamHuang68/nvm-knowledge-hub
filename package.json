@@ -1,7 +1,7 @@
 {
   "name": "nvm-knowledge-hub",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.3.0",
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
@@ -19,6 +19,7 @@
     "qa:bilingual": "node scripts/verify-bilingual-release.mjs",
     "qa:engineering": "node scripts/verify-nvm-engineering-diagrams.mjs",
     "qa:motion": "node scripts/verify-motion-layer.mjs",
+    "qa:timeline": "node scripts/verify-patent-timeline.mjs",
     "qa:mtp": "node scripts/verify-mtp-taxonomy.mjs",
     "qa:ip": "node scripts/verify-ip-cells.mjs",
     "qa:entry": "node scripts/verify-entry-directory.mjs",

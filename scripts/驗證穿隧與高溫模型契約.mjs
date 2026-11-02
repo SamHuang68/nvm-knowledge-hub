@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
 import {startTestServer} from './test-server.mjs';
-import {calculateTunnelingBreakdownMetrics as tunneling,formatCurrentDensity} from '../tunneling-breakdown-simulator.js';
+import {calculateTunnelingBreakdownMetrics as tunneling,formatCurrentDensity,tunnelingBarrierGeometry as barrier} from '../tunneling-breakdown-simulator.js';
 import {calculateAutomotiveHighTempSicGanMetrics as highTemp} from '../automotive-high-temp-sic-gan-simulator.js';
 
 // 只操作兩個受影響模型；不呼叫完整回歸或其他模型的驗收入口。
@@ -28,6 +28,7 @@ async function observeTunneling(page,record,label,language) {
       電場:document.getElementById('sim-eox-val').textContent,電流:document.getElementById('sim-current-val').textContent,
       機制:document.getElementById('sim-mech-val').textContent,判讀:document.getElementById('sim-verdict-banner').textContent.trim(),
       分區:document.getElementById('sim-verdict-banner').className,圖面:window.__模型圖面,畫布寬:canvas.clientWidth,
+      能帶:window.__能帶圖面,能帶說明:document.getElementById('tunneling-band-canvas')?.getAttribute('aria-label')||'',
       控制項:[...document.querySelectorAll('#tunneling-simulator-root input,#tunneling-simulator-root button')].map(e=>{
         const box=e.getBoundingClientRect();return {id:e.id,preset:e.dataset.preset,type:e.type,min:e.min,max:e.max,step:e.step,
           可用:!e.disabled&&box.width>0&&box.height>0,容器內:box.left>=container.left-1&&box.right<=container.right+1};
@@ -57,6 +58,11 @@ async function observeTunneling(page,record,label,language) {
   sameNumber(point[0],60+actual.vox/10*(寬-90),`${label} 操作點電壓`);
   sameNumber(point[1],30+(4-expected.logJ)/20*(高-75),`${label} 操作點電流`);
   assert.ok(actual.圖面.文字.includes(`(${actual.vox.toFixed(1)}V, ${formatCurrentDensity(expected.logJ)})`),`${label} 操作點標註須為科學記號`);
+  // 三視圖：能帶與剖面讀同一組滑桿值，形狀、厚度與穿隧距離和模型一致。
+  const geometry=barrier({tox:actual.tox,vox:actual.vox}),tunnel=`${geometry.tunnelNm.toFixed(1)} nm`;
+  assert.ok(actual.能帶?.文字?.includes(`t_ox ${geometry.tox.toFixed(1)} nm · ${language==='zh'?'穿隧':'tunnel'} ${tunnel}`),`${label} 剖面標示的厚度與穿隧距離`);
+  assert.ok(actual.能帶說明.includes(tunnel)&&actual.能帶說明.includes(geometry.shape==='trapezoid'?(language==='zh'?'梯形':'trapezoidal'):(language==='zh'?'三角形':'triangular')),`${label} 能帶圖說明與能障形狀`);
+  assert.equal(geometry.shape==='triangle',expected.mechanism==='fn',`${label} 能障形狀與機制`);
   record.穿隧.push({情境:label,...actual});
 }
 
@@ -82,6 +88,10 @@ try {
             if(name==='stroke')window.__模型圖面.曲線?.push({顏色:this.strokeStyle,座標:this.__路徑?.slice()??[]});
             if(name==='arc')window.__模型圖面.操作點?.push(args.slice(0,3));
             if(name==='fillText')window.__模型圖面.文字?.push(String(args[0]));
+          }
+          if(this.canvas.id==='tunneling-band-canvas') {
+            if(name==='clearRect')window.__能帶圖面={文字:[]};
+            if(name==='fillText')window.__能帶圖面?.文字.push(String(args[0]));
           }
           return original.apply(this,args);
         };

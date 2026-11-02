@@ -85,6 +85,8 @@ npm run qa:ip
 
 步進演示的示意動態由產生器在 SVG 內標記：`data-motion` 為 `along`（載子沿同圖 `data-motion-track` 路徑移動）、`pulse`（電場或電流脈動）或 `appear`（本格新狀態淡入），並附 `data-motion-source`（這組圖既有的來源條目）與 `data-motion-claim`。只標記圖中已畫出的元素；原始比較圖、減少動態效果、`?motion=static` 與列印都不動。目前只涵蓋 6 組試點，改動後執行 `npm run qa:motion`。
 
+記憶體物理頁的穿隧模擬器有三個連動視圖：J–V 曲線、能帶圖與剖面，全部讀同一組 `tox`／`Vox` 與 `tunneling-breakdown-simulator.js` 的模型（能障幾何由 `tunnelingBarrierGeometry` 提供）。專利地圖的優先權日時間軸由 `data/nvm-vendor-patent-maps*.json` 的 `priorityDate` 與 `legalStatus` 在建置時產生，不使用期滿日；專利附圖的權利說明取自 `data/nvm-patent-figures.json` 的 `rights`。改動後執行 `node scripts/驗證穿隧與高溫模型契約.mjs` 與 `npm run qa:timeline`。
+
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 
 ## 應用資料與 SharePoint 匯出

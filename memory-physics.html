@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="site-shell.css?v=20261102">
   <link rel="stylesheet" href="styles.css?v=20261102-p2">
   <link rel="stylesheet" href="research.css?v=20261102">
-  <link rel="stylesheet" href="tunneling-breakdown-simulator.css?v=20261102-p2">
+  <link rel="stylesheet" href="tunneling-breakdown-simulator.css?v=20261102-p4">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -2193,6 +2193,14 @@
               <div class="canvas-container">
                 <canvas id="tunneling-canvas" role="img" tabindex="0" aria-label="Interactive plot of current density vs oxide voltage" data-aria-en="Interactive plot of current density vs oxide voltage" data-aria-zh="穿隧電流密度對跨氧化層電壓之動態曲線圖"></canvas>
               </div>
+              <!-- 三視圖：能帶圖與剖面，與上方曲線同一組滑桿與模型 -->
+              <div class="canvas-container tunneling-band-container">
+                <canvas id="tunneling-band-canvas" role="img" tabindex="0" aria-label="Band diagram and cross-section"></canvas>
+              </div>
+              <p class="tunneling-band-note">
+                <span data-lang="en">Band diagram and cross-section share the curve's t<sub>ox</sub>, V<sub>ox</sub> and Φ<sub>B</sub> = 3.15 eV. Below Φ<sub>B</sub> electrons cross the whole trapezoidal barrier (direct tunneling); above it they cross a shorter triangle, Φ<sub>B</sub>/E<sub>ox</sub>, into the oxide conduction band (FN). Teaching sketch: image-force lowering and silicon band bending are omitted.</span>
+                <span data-lang="zh">能帶圖與剖面和上方曲線使用同一組 t<sub>ox</sub>、V<sub>ox</sub> 與 Φ<sub>B</sub> = 3.15 eV。低於 Φ<sub>B</sub> 時電子穿過整個梯形能障（直接穿隧）；高於 Φ<sub>B</sub> 時只穿過較短的三角形 Φ<sub>B</sub>/E<sub>ox</sub>，再進入氧化層傳導帶（FN）。教學示意，未計入影像力降低與矽能帶彎曲。</span>
+              </p>
               <div id="sim-verdict-banner" class="verdict-banner verdict-tunneling" role="status" aria-live="polite">
                 <span class="verdict-icon">⚡</span>
                 <span>
@@ -3656,7 +3664,7 @@
   </footer>
   <script src="research.js?v=20260929-v5"></script>
   <script src="memory-physics-navigation.js?v=20260929-v5"></script>
-  <script type="module" src="tunneling-breakdown-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="tunneling-breakdown-simulator.js?v=20261102-p4"></script>
   <script type="module" src="differential-sensing-simulator.js?v=20261102-p2"></script>
   <script type="module" src="tddb-weibull-simulator.js?v=20261102-p2"></script>
   <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261102-p2"></script>

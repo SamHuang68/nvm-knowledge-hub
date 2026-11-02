@@ -429,7 +429,7 @@ function renderCompetitiveMatrix(data, en) {
 
 /**
  * 渲染全頁廠商專利地圖面板
- * 扁平化結構：標頭 ➔ Filing Company 快速導覽 ➔ 各公司專利地圖案卷 ➔ 競爭關係附錄
+ * 扁平化結構：標頭 ➔ 查找 ➔ 判讀說明 ➔ 優先權日時間軸 ➔ Filing Company 快速導覽 ➔ 各公司專利地圖案卷 ➔ 競爭關係附錄
  * @param {object} data 專利資料物件
  * @param {string} language 語系 ('zh' | 'en')
  * @param {function} cite 引用輔助函式
@@ -440,10 +440,52 @@ export function renderVendorPatentMaps(data, language, cite) {
 
   const vendorNavTitle = en ? 'Company dossier shortcuts:' : '廠商案卷快速連結：';
 
-  return `<article id="patent-maps" class="nvm-panel nvm-patent-maps-editorial" data-nvm-panel>${editorialHeader(data, en)}${renderMapExplorer(data,en)}<section id="nvm-map-evidence" class="nvm-map-evidence" tabindex="-1"><h3>${en?'How to Read This Map':'如何判讀這張地圖'}</h3><p>${esc(evidenceNote(en))} ${evidenceLinks(en)}</p><p>${en?'Technology portfolios are editorial groupings, not legal patent families. One publication may appear in several portfolios. Company headings follow product lineage; the assignee on each record remains separate.':'技術組合是編輯分類，不等於法律上的專利家族；同一公報可能跨組合收錄。廠商標題沿產品承接脈絡整理，各筆公報的受讓人另行列示。'}</p></section><nav class="nvm-vendor-nav nvm-entity-nav" aria-label="${en ? 'Company Dossiers' : '廠商案卷選單'}"><span class="nvm-vendor-nav-title">${vendorNavTitle}</span><div class="nvm-entity-pills">${data.vendors.map(v => {
+  return `<article id="patent-maps" class="nvm-panel nvm-patent-maps-editorial" data-nvm-panel>${editorialHeader(data, en)}${renderMapExplorer(data,en)}<section id="nvm-map-evidence" class="nvm-map-evidence" tabindex="-1"><h3>${en?'How to Read This Map':'如何判讀這張地圖'}</h3><p>${esc(evidenceNote(en))} ${evidenceLinks(en)}</p><p>${en?'Technology portfolios are editorial groupings, not legal patent families. One publication may appear in several portfolios. Company headings follow product lineage; the assignee on each record remains separate.':'技術組合是編輯分類，不等於法律上的專利家族；同一公報可能跨組合收錄。廠商標題沿產品承接脈絡整理，各筆公報的受讓人另行列示。'}</p></section>${renderPriorityTimeline(data,en)}<nav class="nvm-vendor-nav nvm-entity-nav" aria-label="${en ? 'Company Dossiers' : '廠商案卷選單'}"><span class="nvm-vendor-nav-title">${vendorNavTitle}</span><div class="nvm-entity-pills">${data.vendors.map(v => {
     const vPatents = v.families.flatMap(f => f.patents);
     return `<a href="#vendor-${esc(v.id)}" class="nvm-entity-pill"><strong>${esc(v.shortName)}</strong><span>(${vPatents.length} ${en ? 'records' : '筆'})</span></a>`;
   }).join('')}</div></nav><div class="nvm-vendor-studies" id="nvm-map-dossiers" tabindex="-1">${data.vendors.map(v => renderVendorStudy(v, en, cite)).join('')}</div>${renderCompetitiveMatrix(data, en)}<nav class="nvm-bottom-nav" aria-label="${en ? 'Patent Maps Navigation' : '專利地圖章節導覽'}"><a href="#panorama">${en ? 'Return to the Atlas Overview' : '回到技術全景目錄'}</a><a href="#ip-directory">${en ? 'Continue to IP Cells Directory' : '接著讀：IP 單元與操作原理'}</a></nav></article>`;
+}
+
+// 優先權日時間軸：每家廠商一列、每筆收錄一點，依優先權年排列、依收錄狀態上色。
+// 只讀既有的 priorityDate 與 legalStatus；期滿日多數未核定，所以不推算到期年。
+// 建置時輸出靜態 SVG，不需要 JavaScript，也能列印；表格版列出同一份統計。
+function renderPriorityTimeline(data, en) {
+  const records = data.vendors.flatMap(vendor => vendor.families.flatMap(family => family.patents.map(patent => ({vendor, patent, year: Number(patent.priorityDate.slice(0, 4))}))));
+  const years = records.map(record => record.year);
+  const first = Math.floor(Math.min(...years) / 5) * 5;
+  const last = Math.ceil((Math.max(...years) + 1) / 5) * 5;
+  const left = 190, right = 965, top = 30, lane = 38, rows = 5;
+  const yearWidth = (right - left) / (last - first);
+  const height = top + data.vendors.length * lane + 30;
+  const x = year => left + (year - first) * yearWidth;
+  const statuses = ['active', 'expired', 'unverified'];
+  const count = (list, status) => list.filter(record => record.patent.legalStatus === status).length;
+  const ticks = [];
+  for (let year = first; year <= last; year += 5) ticks.push(`<line class="nvm-timeline-grid" x1="${x(year)}" y1="${top - 6}" x2="${x(year)}" y2="${height - 24}"/><text x="${x(year)}" y="${height - 8}" text-anchor="middle">${year}</text>`);
+  const lanes = data.vendors.map((vendor, index) => {
+    const y = top + index * lane;
+    const own = records.filter(record => record.vendor === vendor).sort((a, b) => a.patent.priorityDate.localeCompare(b.patent.priorityDate) || a.patent.id.localeCompare(b.patent.id));
+    const seen = new Map();
+    const dots = own.map(({patent, year}) => {
+      const slot = seen.get(year) || 0;
+      seen.set(year, slot + 1);
+      // 同年多筆時先往下堆 5 列，再往右開新欄，仍留在該年的寬度內。
+      const cx = x(year) + 3 + Math.floor(slot / rows) * 5.2;
+      const cy = y + 7 + (slot % rows) * 6;
+      return `<circle class="nvm-timeline-dot" data-status="${esc(patent.legalStatus)}" data-id="${esc(patent.id)}" data-priority="${esc(patent.priorityDate)}" cx="${cx.toFixed(1)}" cy="${cy}" r="2.4"><title>${esc(`${patent.id} · ${en ? 'priority' : '優先權日'} ${patent.priorityDate} · ${recordedStatus(patent.legalStatus, en)} · ${patent.title}`)}</title></circle>`;
+    }).join('');
+    return `<g data-timeline-vendor="${esc(vendor.id)}"><line class="nvm-timeline-lane" x1="${left - 180}" y1="${y + lane - 3}" x2="${right}" y2="${y + lane - 3}"/><text x="${left - 12}" y="${y + 22}" text-anchor="end">${esc(vendor.shortName)} · ${own.length}</text>${dots}</g>`;
+  }).join('');
+  const total = statuses.map(status => `${recordedStatus(status, en)} ${count(records, status)}`).join(en ? ', ' : '、');
+  const summary = en
+    ? `${data.vendors.length} companies, ${records.length} records by priority year (${first}–${last - 1}): ${total}.`
+    : `${data.vendors.length} 家廠商、${records.length} 筆收錄依優先權年排列（${first}–${last - 1}）：${total}。`;
+  const rowsHtml = data.vendors.map(vendor => {
+    const own = records.filter(record => record.vendor === vendor);
+    const ownYears = own.map(record => record.year);
+    return `<tr><th scope="row">${esc(vendor.shortName)}</th><td>${own.length}</td>${statuses.map(status => `<td>${count(own, status)}</td>`).join('')}<td>${Math.min(...ownYears)}</td><td>${Math.max(...ownYears)}</td></tr>`;
+  }).join('');
+  return `<section class="nvm-priority-timeline" id="nvm-priority-timeline" aria-labelledby="nvm-priority-timeline-heading"><h3 id="nvm-priority-timeline-heading">${en ? 'Priority-Date Timeline' : '優先權日時間軸'}</h3><p>${en ? `Each dot is one record, placed by its priority year and coloured by recorded status. Most term dates are not determined in this dataset, so the timeline does not project expiry years; recorded status is not a current legal determination.` : `每一點是一筆收錄，依優先權年排列、依收錄狀態上色。本資料多數期滿日未核定，所以時間軸不推算到期年；收錄狀態也不是即時法律判定。`}</p><ul class="nvm-timeline-legend">${statuses.map(status => `<li><span class="nvm-timeline-key" data-status="${status}" aria-hidden="true"></span>${recordedStatus(status, en)} ${count(records, status)}</li>`).join('')}</ul><p class="nvm-timeline-hint">${en ? 'Scroll the timeline sideways to see every year.' : '請左右捲動時間軸，查看所有年份。'}</p><div class="nvm-timeline-wrap" role="region" tabindex="0" aria-label="${en ? 'Priority-date timeline; scroll horizontally on small screens' : '優先權日時間軸；窄螢幕可橫向捲動'}"><svg viewBox="0 0 1000 ${height}" role="img" aria-labelledby="nvm-priority-timeline-title nvm-priority-timeline-desc"><title id="nvm-priority-timeline-title">${en ? 'Patent records by company and priority year' : '各廠商收錄的優先權年分布'}</title><desc id="nvm-priority-timeline-desc">${esc(summary)}</desc>${ticks.join('')}${lanes}</svg></div><details class="nvm-timeline-table"><summary>${en ? 'Show the timeline as a table' : '以表格檢視時間軸'}</summary><table><caption>${esc(summary)}</caption><thead><tr><th scope="col">${en ? 'Company / IP lineage' : '廠商／IP 沿革'}</th><th scope="col">${en ? 'Records' : '收錄'}</th>${statuses.map(status => `<th scope="col">${recordedStatus(status, en)}</th>`).join('')}<th scope="col">${en ? 'Earliest priority year' : '最早優先權年'}</th><th scope="col">${en ? 'Latest priority year' : '最晚優先權年'}</th></tr></thead><tbody>${rowsHtml}</tbody></table></details></section>`;
 }
 
 /**
