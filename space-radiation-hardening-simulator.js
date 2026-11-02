@@ -553,19 +553,19 @@ export function initSpaceRadiationSimulator(container) {
     if (outSer) outSer.textContent = `${m.seuRatePerMbDay} /Mb-day`;
     if (outSurv) {
       outSurv.textContent = `${m.totalMissionSurvivalPct}%`;
-      outSurv.style.color = m.isRadHardPassed ? "#059669" : "#dc2626";
+      outSurv.style.color = m.isRadHardPassed ? "#047857" : "#dc2626";
     }
     if (outSel) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outSel.textContent = m.isSelImmune
         ? (isZh ? "免疫 (SEL Immune)" : "Immune (SEL Safe)")
         : (isZh ? "有觸發風險 (SEL Risk)" : "Risk (Latchup Hazard)");
-      outSel.style.color = m.isSelImmune ? "#059669" : "#dc2626";
+      outSel.style.color = m.isSelImmune ? "#047857" : "#dc2626";
     }
     if (outRating) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outRating.textContent = isZh ? m.radGradeZh : m.radGradeEn;
-      outRating.style.color = m.isRadHardPassed ? "#059669" : "#dc2626";
+      outRating.style.color = m.isRadHardPassed ? "#047857" : "#dc2626";
     }
 
     if (canvas) {

@@ -540,14 +540,14 @@ export function initNanosheetBspdnSimulator(container) {
     if (outIrDrop) outIrDrop.textContent = `${m.realizedIrDropMv} mV`;
     if (outTemp) {
       outTemp.textContent = `${m.junctionTempC} °C`;
-      outTemp.style.color = m.junctionTempC < 85 ? "#059669" : (m.junctionTempC < 105 ? "#f59e0b" : "#dc2626");
+      outTemp.style.color = m.junctionTempC < 85 ? "#047857" : (m.junctionTempC < 105 ? "#b45309" : "#dc2626");
     }
     if (outLatency) outLatency.textContent = `${m.realizedReadLatencyNs} ns`;
     if (outMask) outMask.textContent = m.maskAdders === 0 ? "0 Masks (Pure Logic)" : `+${m.maskAdders} Masks`;
     if (outRating) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outRating.textContent = isZh ? m.bspdnCompatibilityZh : m.bspdnCompatibilityEn;
-      outRating.style.color = m.isOptimal ? "#059669" : "#dc2626";
+      outRating.style.color = m.isOptimal ? "#047857" : "#dc2626";
     }
 
     if (canvas) {
@@ -566,8 +566,8 @@ export function initNanosheetBspdnSimulator(container) {
     if (outVerdict) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>2nm/A16 奈米片與背面供電整合判定：</strong> 在 <code>${m.nodeNameZh}</code> (Vdd=${m.nominalVddV}V) 下，背面供電將壓降 (IR-Drop) 壓抑至 <strong>${m.realizedIrDropMv} mV</strong>。然而晶圓薄化使 <code>${m.techNameZh}</code> 峰值熱點溫度達 <strong>${m.junctionTempC} °C</strong> (溫升 +${m.junctionTempRiseC}°C)。正面繞線釋放使讀取延遲降至 <strong>${m.realizedReadLatencyNs} ns</strong>。節點相容評級：<strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityZh}</strong>。本模擬係依據一階集總參數熱阻與 RC 延遲模型推算，實際晶片須依據各代工廠 PDK 與先進封裝散熱方案量測校驗。`
-        : `<strong>2nm/A16 Nanosheet &amp; BSPDN Integration Verdict:</strong> Under <code>${m.nodeNameEn}</code> (Vdd=${m.nominalVddV}V), Backside Power Delivery curbs IR-Drop to <strong>${m.realizedIrDropMv} mV</strong>. However, substrate thinning drives <code>${m.techNameEn}</code> peak junction temperature to <strong>${m.junctionTempC} °C</strong> (ΔT +${m.junctionTempRiseC}°C). Frontside track relief reduces read latency to <strong>${m.realizedReadLatencyNs} ns</strong>. Node rating: <strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityEn}</strong>. Illustrative first-order lumped model; validate against specific foundry PDK and package thermal solutions.`;
+        ? `<strong>2nm/A16 奈米片與背面供電整合判定：</strong> 在 <code>${m.nodeNameZh}</code> (Vdd=${m.nominalVddV}V) 下，背面供電將壓降 (IR-Drop) 壓抑至 <strong>${m.realizedIrDropMv} mV</strong>。然而晶圓薄化使 <code>${m.techNameZh}</code> 峰值熱點溫度達 <strong>${m.junctionTempC} °C</strong> (溫升 +${m.junctionTempRiseC}°C)。正面繞線釋放使讀取延遲降至 <strong>${m.realizedReadLatencyNs} ns</strong>。節點相容評級：<strong style="color:${m.isOptimal ? '#047857' : '#dc2626'};">${m.bspdnCompatibilityZh}</strong>。本模擬係依據一階集總參數熱阻與 RC 延遲模型推算，實際晶片須依據各代工廠 PDK 與先進封裝散熱方案量測校驗。`
+        : `<strong>2nm/A16 Nanosheet &amp; BSPDN Integration Verdict:</strong> Under <code>${m.nodeNameEn}</code> (Vdd=${m.nominalVddV}V), Backside Power Delivery curbs IR-Drop to <strong>${m.realizedIrDropMv} mV</strong>. However, substrate thinning drives <code>${m.techNameEn}</code> peak junction temperature to <strong>${m.junctionTempC} °C</strong> (ΔT +${m.junctionTempRiseC}°C). Frontside track relief reduces read latency to <strong>${m.realizedReadLatencyNs} ns</strong>. Node rating: <strong style="color:${m.isOptimal ? '#047857' : '#dc2626'};">${m.bspdnCompatibilityEn}</strong>. Illustrative first-order lumped model; validate against specific foundry PDK and package thermal solutions.`;
     }
   }
 
@@ -590,7 +590,7 @@ export function initNanosheetBspdnSimulator(container) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'nanosheet-bspdn-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0284c7; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出 2nm/A16 背面供電 CSV' : '📥 Export 2nm/A16 BSPDN CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '匯出 2nm/A16 奈米片與背面供電數值資料集為 CSV 檔案' : 'Export 2nm/A16 Nanosheet & BSPDN metrics dataset as CSV file');

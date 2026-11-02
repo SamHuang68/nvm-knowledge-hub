@@ -510,21 +510,21 @@ export function initCxlPoolingSimulator(rootId = 'cxl-memory-pooling-simulator-r
     // Update KPI outputs
     if (outLatency) {
       outLatency.textContent = `${metrics.totalLatencyNs.toFixed(1)} ns`;
-      outLatency.style.color = metrics.totalLatencyNs <= 185 ? '#22d3ee' : (metrics.totalLatencyNs <= 300 ? '#fbbf24' : '#f87171');
+      outLatency.style.color = metrics.totalLatencyNs <= 185 ? '#0e7490' : (metrics.totalLatencyNs <= 300 ? '#b45309' : '#b91c1c');
     }
     if (outUtilization) {
       outUtilization.textContent = `${(metrics.poolUtilization * 100).toFixed(1)}% (+${metrics.utilizationGainPct.toFixed(1)}%)`;
     }
     if (outPoisonTime) {
       outPoisonTime.textContent = `${metrics.poisonInterceptNs.toFixed(1)} ns`;
-      outPoisonTime.style.color = metrics.isZeroPanicGuaranteed ? '#34d399' : '#f87171';
+      outPoisonTime.style.color = metrics.isZeroPanicGuaranteed ? '#047857' : '#b91c1c';
     }
     if (outSaved) {
       outSaved.textContent = `$${metrics.capexSavedDollars.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
     }
     if (outRating) {
       outRating.textContent = metrics.rating;
-      outRating.style.color = metrics.rating === 'OPTIMAL' ? '#38bdf8' : (metrics.rating === 'VIABLE' ? '#fbbf24' : '#f87171');
+      outRating.style.color = metrics.rating === 'OPTIMAL' ? '#0369a1' : (metrics.rating === 'VIABLE' ? '#b45309' : '#b91c1c');
     }
     if (outVerdict) {
       const lang = getLanguage();

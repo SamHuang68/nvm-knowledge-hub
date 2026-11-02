@@ -7,11 +7,12 @@ import { chromium } from 'playwright';
 import { startTestServer } from './test-server.mjs';
 
 // 僅驗證三個物理工作台；舊版只載入記憶體，本機頁面阻擋外部資源。
-const root=process.cwd(),baseline='9d5caa86cef8cdea190fb8b0a39d2009897a08f7';
+// 公式回歸沿用 1.2.1（修正前，保留 MRAM NaN 原失敗）；頁面保留以 2.0.2 發布版為基準，快取參數 ?v= 不算內容。
+const root=process.cwd(),baseline='9d5caa86cef8cdea190fb8b0a39d2009897a08f7',pageBaseline='f8f09ae95787a0626178c64477d05cce02401d9f';
 const evidence=path.join(root,'qa','延伸收斂-物理工具');
 fs.mkdirSync(evidence,{recursive:true});
-const report={基準版本:baseline,外部阻擋:true,案例:[],純函式組數:0,圖面組數:0,鍵盤組數:0};
-const oldSource=file=>execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});
+const report={基準版本:baseline,頁面基準版本:pageBaseline,外部阻擋:true,案例:[],純函式組數:0,圖面組數:0,鍵盤組數:0};
+const oldSource=(file,rev=baseline)=>execFileSync('git',['show',`${rev}:${file}`],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});
 const original=async file=>import('data:text/javascript;base64,'+Buffer.from(oldSource(file)).toString('base64'));
 const current=async file=>import(pathToFileURL(path.join(root,file)).href);
 const files=['cryogenic-nvm-physics-simulator.js','cryo-qubit-readout-simulator.js','bspdn-envm-ir-drop-simulator.js'];
@@ -48,12 +49,15 @@ for(const presetKey of Object.keys(modules[2].BSPDN_PRESETS))for(const [peakWrit
   if(peakWriteCurrent===25)margins.push({預設:presetKey,有效電壓:result.effectiveVddCurrent,裕度:result.writeMarginCurrentMv,分類:result.architectureRating});
 }
 report.案例.push({名稱:'量子位元與供電原有限數值、分類及合法負裕度',通過:true,最嚴苛輸入裕度:margins});
-const html=fs.readFileSync(path.join(root,'memory-physics.html'),'utf8'),oldHtml=oldSource('memory-physics.html');
+const html=fs.readFileSync(path.join(root,'memory-physics.html'),'utf8'),oldHtml=oldSource('memory-physics.html',pageBaseline);
 const values=(source,regexp)=>[...source.matchAll(regexp)].map(m=>m[1]);
-const ids=values(html,/\bid="([^"]+)"/g),links=values(html,/\bhref="([^"]+)"/g),svgs=values(html,/(<svg\b[\s\S]*?<\/svg>)/g);
-assert.deepEqual(ids,values(oldHtml,/\bid="([^"]+)"/g));assert.deepEqual(links,values(oldHtml,/\bhref="([^"]+)"/g));
+const ids=values(html,/\bid="([^"]+)"/g),noCacheKey=v=>v.replace(/\?v=[^"#&]*/,''),links=values(html,/\bhref="([^"]+)"/g).map(noCacheKey),svgs=values(html,/(<svg\b[\s\S]*?<\/svg>)/g);
+assert.deepEqual(ids,values(oldHtml,/\bid="([^"]+)"/g));assert.deepEqual(links,values(oldHtml,/\bhref="([^"]+)"/g).map(noCacheKey));
 assert.deepEqual(svgs.map(v=>v.replace(/\r\n/g,'\n')),values(oldHtml,/(<svg\b[\s\S]*?<\/svg>)/g).map(v=>v.replace(/\r\n/g,'\n')));
-assert.equal(html.replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim(),oldHtml.replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim());
+// 全文只比讀者看得到的內容文字：<style>／<script> 的程式碼不算內容（配色另由淡色門禁驗證）；
+// 2.1.0 核准新增的主圖 AI 生成揭露不屬於基準內容，其餘全文必須相同。
+const contentText=v=>v.replace(/<(style|script)\b[\s\S]*?<\/\1>/g,'').replace(/<p class="hero-ai-disclosure">[\s\S]*?<\/p>/g,'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
+assert.equal(contentText(html),contentText(oldHtml));
 report.案例.push({名稱:'原 ID／連結／SVG 與全文保留',通過:true,ID:ids.length,連結:links.length,SVG:svgs.length});
 
 const roots=['cryogenic-nvm-simulator-root','cryo-qubit-simulator-root','bspdn-envm-simulator-root'];
@@ -111,19 +115,19 @@ try {
     assert.equal(await page.locator('#cryo-out-vbd').innerText(),language==='zh'?'N/A · 未定義':'N/A · Undefined');
     const qubit=sram.畫布.find(v=>v.識別==='cryo-qubit-canvas'),joined=qubit.文字.map(v=>v.文字).join('').replace(/\s+/g,'');
     assert.match(joined,/ΔV:280mV/);assert.equal(await page.locator('#cryo-qubit-out-deltav').innerText(),'280 mV');
-    for(const color of ['#ef4444','#f59e0b','#a855f7','#00f0ff'])assert.equal(qubit.曲線.some(v=>v.顏色===color&&v.點數===51),true,'四條參考曲線必須完整');
+    for(const color of ['#dc2626','#d97706','#7c3aed','#0284c7'])assert.equal(qubit.曲線.some(v=>v.顏色===color&&v.點數===51),true,'四條參考曲線必須完整');
     for(const label of language==='zh'?['平面MRAM','垂直STT-MRAM','8TSRAM','AntiFuse微絲']:['In-PlaneMRAM','p-STT-MRAM','8TSRAM','AntiFuseFilament'])assert.equal(joined.includes(label),true,'四技術圖例必須完整');
     await set('bspdn-preset-select','fspdn_3nm_baseline');await set('bspdn-current-slider',25);await set('bspdn-rise-slider',.1);await set('bspdn-temp-slider',175);
     await mode('cryo-mode-spec');await mode('cryo-qubit-mode-waveform');
     const transient=await capture('300 K 右端、RF 圖例與合法負裕度');
     assert.equal(await page.locator('#bspdn-out-effvdd').innerText(),'0.942 V');
-    for(const color of ['#f59e0b','#38bdf8'])assert.equal(transient.畫布.find(v=>v.識別==='bspdn-canvas').曲線.some(v=>v.顏色===color&&v.點數===121),true);
+    for(const color of ['#d97706','#0284c7'])assert.equal(transient.畫布.find(v=>v.識別==='bspdn-canvas').曲線.some(v=>v.顏色===color&&v.點數===121),true);
     await set('bspdn-preset-select','samsung_sf14_bspdn');await mode('bspdn-mode-thermal');
     await set('cryo-qubit-preset-select','nv_center_diamond_77k');await set('cryo-qubit-rf-slider',0);
     const thermal=await capture('175°C 熱操作點與最長 RF 圖例');
-    for(const color of ['#f59e0b','#38bdf8'])assert.equal(thermal.畫布.find(v=>v.識別==='bspdn-canvas').曲線.some(v=>v.顏色===color&&v.點數===7),true);
+    for(const color of ['#d97706','#0284c7'])assert.equal(thermal.畫布.find(v=>v.識別==='bspdn-canvas').曲線.some(v=>v.顏色===color&&v.點數===7),true);
     for(const id of canvasIds)await page.locator('#'+id).screenshot({path:path.join(evidence,`修正-${width}-${language}-${id}.png`)});
-    for(const [id,label] of sliders){const input=page.locator('#'+id);await input.focus();for(const key of ['Home','End']){await page.keyboard.press(key);assert.equal(await input.getAttribute('aria-valuetext'),await page.locator('#'+label).innerText());}row.鍵盤.push(id);report.鍵盤組數++;}
+    for(const [id,label] of sliders){const input=page.locator('#'+id);await input.focus();for(const key of ['Home','End']){await page.keyboard.press(key);await page.waitForFunction(([i,l])=>document.getElementById(i).getAttribute('aria-valuetext')===document.getElementById(l).innerText,[id,label],{timeout:2000});}row.鍵盤.push(id);report.鍵盤組數++;}
     await page.evaluate(()=>window.HubLanguage.set(window.HubLanguage.get()==='zh'?'en':'zh',false));
     const flipped=language==='zh'?'en':'zh';
     assert.equal(await page.locator('#cryo-out-vbd').innerText(),flipped==='zh'?'N/A · 未定義':'N/A · Undefined');
@@ -132,7 +136,11 @@ try {
     for(const tech of Object.keys(modules[1].CRYO_MEMORY_TOPOLOGIES)){await set('cryo-qubit-tech-select',tech);assert.match(await page.locator('#cryo-qubit-out-rating').innerText(),flipped==='zh'?/未校準教學分類/:/Uncalibrated teaching class/);}
     for(const id of ['cryo-out-verdict','cryo-qubit-out-verdict','bspdn-out-verdict'])assert.doesNotMatch(await page.locator('#'+id).innerText(),/QUANTUM CRYO-READY|uniquely qualified|完全相容|可直接貼裝|天然免疫|首選|完全免疫/i);
     assert.equal(await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches),true);
-    await page.goto('about:blank');await page.waitForTimeout(100);assert.deepEqual(errors,[]);assert.deepEqual(timers,[]);
+    // da595b9 起 BSPDN 滑桿以單次 requestAnimationFrame 合併輸入；只允許輸入觸發的單次排程，閒置時不得持續排程。
+    const idleTimers=timers.length;await page.waitForTimeout(400);
+    assert.equal(timers.length,idleTimers,'reduced-motion 閒置時不得持續排程');
+    assert.deepEqual(timers.filter(v=>v.種類!=='requestAnimationFrame'),[]);
+    await page.goto('about:blank');await page.waitForTimeout(100);assert.deepEqual(errors,[]);
     row.通過=true;report.案例.push(row);await context.close();console.log(`${row.名稱}：通過`);
   }
 } finally {await browser.close();await server.close();}

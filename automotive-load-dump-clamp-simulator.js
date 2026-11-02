@@ -449,11 +449,11 @@ export function initAutomotiveLoadDumpSimulator(container) {
     if (outRipple) outRipple.textContent = `${m.pumpRippleMv} mV`;
     if (outMargin) {
       outMargin.textContent = `${m.dielectricMarginPct}%`;
-      outMargin.style.color = m.dielectricMarginPct >= 20.0 ? "#059669" : "#dc2626";
+      outMargin.style.color = m.dielectricMarginPct >= 20.0 ? "#047857" : "#dc2626";
     }
     if (outRating) {
       outRating.textContent = m.complianceRating;
-      outRating.style.color = m.isCompliant ? "#059669" : "#b45309";
+      outRating.style.color = m.isCompliant ? "#047857" : "#b45309";
     }
 
     if (canvas) {

@@ -610,7 +610,7 @@ export function initSubthresholdSimulator(containerId) {
     const scoreEl = root.querySelector('#subvt-metric-score');
     if (scoreEl) {
       scoreEl.textContent = `${metrics.efficiencyScore} / 100`;
-      scoreEl.style.color = metrics.efficiencyScore >= 80 ? '#10b981' : (metrics.efficiencyScore >= 50 ? '#f59e0b' : '#ef4444');
+      scoreEl.style.color = metrics.efficiencyScore >= 80 ? '#047857' : (metrics.efficiencyScore >= 50 ? '#b45309' : '#b91c1c');
     }
 
     syncMetricCopy([energyEl, latencyEl, leakageEl, scoreEl]);
@@ -623,12 +623,12 @@ export function initSubthresholdSimulator(containerId) {
       const cons = lang === 'zh' ? metrics.topology.zh.cons : metrics.topology.en.cons;
 
       verdictEl.innerHTML = `
-        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.efficiencyScore >= 80 ? '#10b981' : (metrics.efficiencyScore >= 50 ? '#f59e0b' : '#ef4444')}">
+        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.efficiencyScore >= 80 ? '#047857' : (metrics.efficiencyScore >= 50 ? '#b45309' : '#b91c1c')}">
           ${metrics.verdictStatus === 'OPTIMAL_MEP' ? (lang === 'zh' ? '✓ 處於最小能耗點 MEP 最優能效區 (Optimal Energy Point)' : '✓ Minimum Energy Point (MEP) Qualified') :
             (metrics.verdictStatus === 'MARGINAL_WINDOW' ? (lang === 'zh' ? '⚠ 接近次閾值漏電激增或感測臨界 (Marginal Window)' : '⚠ Marginal Sensing & Leakage Window') :
              (lang === 'zh' ? '✗ 低於電壓臨界斷崖，感測失效 (Voltage Cliff Failure)' : '✗ Voltage Cliff: Sense Amplifier Failure'))}
         </div>
-        <div style="font-size: 0.85rem; line-height: 1.45; color: #cbd5e1;">
+        <div style="font-size: 0.85rem; line-height: 1.45; color: #0f172a;">
           <strong>${topoName}:</strong> ${pros} <span style="opacity: 0.85">${cons}</span>
         </div>
       `;
@@ -778,7 +778,7 @@ export function initSubthresholdSimulator(containerId) {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'subvt-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0284c7; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid #0284c7; background: #f0f9ff; color: #0369a1; cursor: pointer;';
     const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
     exportBtn.textContent = lang === 'zh' ? '📥 匯出 CSV' : '📥 Export CSV';
     exportBtn.addEventListener('click', () => {

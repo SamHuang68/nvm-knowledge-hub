@@ -324,7 +324,7 @@ export class CuCuHybridBondingSimulator {
 
   initDOM() {
     this.container.innerHTML = `
-      <div class="cu-bonding-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; min-width: 0; overflow-wrap: anywhere; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
+      <div class="cu-bonding-card" style="background: var(--surface, #ffffff); border: 1px solid var(--border-color, #cbd5e1); border-radius: 12px; padding: 24px; min-width: 0; overflow-wrap: anywhere; color: var(--text-color, #0f172a); font-family: system-ui, -apple-system, sans-serif;">
         <!-- Header -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
           <div>
@@ -332,13 +332,13 @@ export class CuCuHybridBondingSimulator {
               <span style="background: #2563eb; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">
                 <span data-lang="zh">3D 先進封裝物理引擎</span><span data-lang="en">3D Packaging Physics Engine</span>
               </span>
-              <span style="color: #10b981; font-size: 11px; font-weight: 600;"><span data-lang="zh">工程示意模型</span><span data-lang="en">Engineering Teaching Model</span></span>
+              <span style="color: #047857; font-size: 11px; font-weight: 600;"><span data-lang="zh">工程示意模型</span><span data-lang="en">Engineering Teaching Model</span></span>
             </div>
             <h3 style="margin: 0; font-size: 20px; font-weight: 700;">
               <span data-lang="zh">Cu-Cu 混合鍵合熱應變與位錯漏電模擬工作台</span>
               <span data-lang="en">Cu-Cu Hybrid Bonding Stress &amp; Dislocation Leakage Simulator</span>
             </h3>
-            <p style="margin: 6px 0 0; font-size: 13px; color: #9ca3af; max-width: 720px;">
+            <p style="margin: 6px 0 0; font-size: 13px; color: #475569; max-width: 720px;">
               <span data-lang="zh">第一性原理建模：CMP 銅凹陷熱膨脹閉合、退火降溫殘留熱應力、矽通道壓電漂移與 eNVM 禁制保留區 (KOZ) 邊界耐受度。</span>
               <span data-lang="en">First-principles simulation: CMP dishing closure, residual thermal stress, piezoresistive channel drift, and eNVM Keep-Out Zone (KOZ) tolerances.</span>
             </p>
@@ -346,7 +346,7 @@ export class CuCuHybridBondingSimulator {
           <!-- Preset Buttons -->
           <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="cu-preset-container">
             ${Object.entries(this.presets).map(([k, p]) => `
-              <button type="button" class="cu-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#2563eb' : '#1f2937'}; border: 1px solid ${k === this.state.preset ? '#60a5fa' : '#374151'}; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              <button type="button" class="cu-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#2563eb' : '#ffffff'}; border: 1px solid ${k === this.state.preset ? '#2563eb' : '#cbd5e1'}; color: ${k === this.state.preset ? '#ffffff' : '#0f172a'}; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                 <span data-lang="zh">${p.labelZh}</span><span data-lang="en">${p.labelEn}</span>
               </button>
             `).join('')}
@@ -354,12 +354,12 @@ export class CuCuHybridBondingSimulator {
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
           <!-- Slider 1: Annealing Temp -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">鍵合退火溫度 (T_anneal)</span><span data-lang="en">Anneal Temp (T_anneal)</span></span>
-              <span id="cu-val-anneal" style="color: #60a5fa; font-family: monospace; font-weight: 700;">300 °C</span>
+              <span id="cu-val-anneal" style="color: #1d4ed8; font-family: monospace; font-weight: 700;">300 °C</span>
             </div>
             <input type="range" id="cu-slide-anneal" min="150" max="380" step="5" value="${this.state.annealTemp}" aria-label="Annealing Temperature" data-aria-en="Annealing Temperature" data-aria-zh="鍵合退火溫度" style="width: 100%; accent-color: #2563eb;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -372,7 +372,7 @@ export class CuCuHybridBondingSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">CMP 銅微凹陷深度 (d_dish)</span><span data-lang="en">CMP Cu Dishing (d_dish)</span></span>
-              <span id="cu-val-dishing" style="color: #60a5fa; font-family: monospace; font-weight: 700;">3.0 nm</span>
+              <span id="cu-val-dishing" style="color: #1d4ed8; font-family: monospace; font-weight: 700;">3.0 nm</span>
             </div>
             <input type="range" id="cu-slide-dishing" min="0.5" max="8.0" step="0.1" value="${this.state.cmpDishing}" aria-label="CMP Dishing" data-aria-en="CMP Dishing" data-aria-zh="CMP 銅微凹陷深度" style="width: 100%; accent-color: #2563eb;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -385,7 +385,7 @@ export class CuCuHybridBondingSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">鍵合銅柱厚度 (h_pad)</span><span data-lang="en">Cu Pad Height (h_pad)</span></span>
-              <span id="cu-val-height" style="color: #60a5fa; font-family: monospace; font-weight: 700;">1.2 μm</span>
+              <span id="cu-val-height" style="color: #1d4ed8; font-family: monospace; font-weight: 700;">1.2 μm</span>
             </div>
             <input type="range" id="cu-slide-height" min="0.4" max="3.0" step="0.1" value="${this.state.padHeight}" aria-label="Pad Height" data-aria-en="Pad Height" data-aria-zh="鍵合銅柱厚度" style="width: 100%; accent-color: #2563eb;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -398,7 +398,7 @@ export class CuCuHybridBondingSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">運作環境結溫 (T_op)</span><span data-lang="en">Operating Temp (T_op)</span></span>
-              <span id="cu-val-optemp" style="color: #60a5fa; font-family: monospace; font-weight: 700;">85 °C</span>
+              <span id="cu-val-optemp" style="color: #1d4ed8; font-family: monospace; font-weight: 700;">85 °C</span>
             </div>
             <input type="range" id="cu-slide-optemp" min="25" max="150" step="5" value="${this.state.opTemp}" aria-label="Operating Junction Temp" data-aria-en="Operating Junction Temp" data-aria-zh="運作環境結溫" style="width: 100%; accent-color: #2563eb;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -412,7 +412,7 @@ export class CuCuHybridBondingSimulator {
             <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">
               <span data-lang="zh">受測堆疊 eNVM 技術</span><span data-lang="en">Evaluated eNVM Technology</span>
             </label>
-            <select id="cu-sel-tech" aria-label="eNVM Technology" data-aria-en="eNVM Technology" data-aria-zh="受測堆疊 eNVM 技術" style="width: 100%; background: #1f2937; border: 1px solid #374151; color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
+            <select id="cu-sel-tech" aria-label="eNVM Technology" data-aria-en="eNVM Technology" data-aria-zh="受測堆疊 eNVM 技術" style="width: 100%; background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
               <option value="antifuse">AntiFuse OTP</option>
               <option value="mram">STT-MRAM</option>
               <option value="reram">Oxide ReRAM</option>
@@ -425,7 +425,7 @@ export class CuCuHybridBondingSimulator {
             <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">
               <span data-lang="zh">周圍微觀介電質襯層</span><span data-lang="en">Surrounding Dielectric Liner</span>
             </label>
-            <select id="cu-sel-diel" aria-label="Dielectric Liner" data-aria-en="Dielectric Liner" data-aria-zh="周圍微觀介電質襯層" style="width: 100%; background: #1f2937; border: 1px solid #374151; color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
+            <select id="cu-sel-diel" aria-label="Dielectric Liner" data-aria-en="Dielectric Liner" data-aria-zh="周圍微觀介電質襯層" style="width: 100%; background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
               <option value="sicn">SiCN (High-Density Cap)</option>
               <option value="sio2">SiO2 (PECVD)</option>
               <option value="sio2-lowt">SiO2 (Low-T Plasma)</option>
@@ -436,40 +436,40 @@ export class CuCuHybridBondingSimulator {
         <!-- Metrics Dashboard -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-bottom: 20px;">
           <!-- Metric 1: Closure Margin -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">退火熱膨脹突出 / 間隙裕度</span><span data-lang="en">Thermal Expansion / Gap Margin</span>
             </div>
-            <div id="cu-out-margin" style="font-size: 18px; font-weight: 700; color: #38bdf8; font-family: monospace;">+1.42 nm</div>
+            <div id="cu-out-margin" style="font-size: 18px; font-weight: 700; color: #0369a1; font-family: monospace;">+1.42 nm</div>
             <div id="cu-out-void-status" style="font-size: 11px; margin-top: 4px; font-weight: 600;"></div>
           </div>
 
           <!-- Metric 2: Peak Thermal Stress -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">室溫殘留界面峰值應力 (σ_peak)</span><span data-lang="en">Residual Peak Stress (σ_peak)</span>
             </div>
-            <div id="cu-out-stress" style="font-size: 18px; font-weight: 700; color: #f59e0b; font-family: monospace;">342 MPa</div>
-            <div id="cu-out-stress-class" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">
+            <div id="cu-out-stress" style="font-size: 18px; font-weight: 700; color: #b45309; font-family: monospace;">342 MPa</div>
+            <div id="cu-out-stress-class" style="font-size: 11px; margin-top: 4px; color: #475569;">
               <span data-lang="zh">雙軸張應力 (Tensile)</span><span data-lang="en">Biaxial Tensile</span>
             </div>
           </div>
 
           <!-- Metric 3: Piezoresistive Vth Shift -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">壓電效應通道電壓偏移 (ΔV_th)</span><span data-lang="en">Piezoresistive ΔV_th Shift</span>
             </div>
-            <div id="cu-out-vth" style="font-size: 18px; font-weight: 700; color: #ec4899; font-family: monospace;">41.0 mV</div>
-            <div id="cu-out-mobility" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">Δμ / μ = -6.8%</div>
+            <div id="cu-out-vth" style="font-size: 18px; font-weight: 700; color: #be185d; font-family: monospace;">41.0 mV</div>
+            <div id="cu-out-mobility" style="font-size: 11px; margin-top: 4px; color: #475569;">Δμ / μ = -6.8%</div>
           </div>
 
           <!-- Metric 4: KOZ Safe Radius -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">陣列禁制保留區半徑 (KOZ)</span><span data-lang="en">Safe Keep-Out Zone (KOZ)</span>
             </div>
-            <div id="cu-out-koz" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">1.15 μm</div>
+            <div id="cu-out-koz" style="font-size: 18px; font-weight: 700; color: #047857; font-family: monospace;">1.15 μm</div>
             <div id="cu-out-rating" style="font-size: 11px; margin-top: 4px;"></div>
           </div>
         </div>
@@ -515,11 +515,11 @@ export class CuCuHybridBondingSimulator {
 
         <!-- Physical Verdict Callout -->
         <div id="cu-verdict-box" style="background: rgba(37, 99, 235, 0.1); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.5;">
-          <div style="font-weight: 700; color: #60a5fa; margin-bottom: 4px;" id="cu-verdict-title">
+          <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 4px;" id="cu-verdict-title">
             <span data-lang="zh">物理整合研判與微縮架構指導</span>
             <span data-lang="en">Physical Integration Verdict &amp; Scaling Guidance</span>
           </div>
-          <div id="cu-verdict-desc" style="color: #d1d5db;"></div>
+          <div id="cu-verdict-desc" style="color: #0f172a;"></div>
         </div>
       </div>
     `;
@@ -619,8 +619,9 @@ export class CuCuHybridBondingSimulator {
     // Highlight Preset Button
     this.container.querySelectorAll('.cu-btn-preset').forEach(btn => {
       const active = btn.getAttribute('data-preset') === presetKey;
-      btn.style.background = active ? '#2563eb' : '#1f2937';
-      btn.style.borderColor = active ? '#60a5fa' : '#374151';
+      btn.style.background = active ? '#2563eb' : '#ffffff';
+      btn.style.borderColor = active ? '#2563eb' : '#cbd5e1';
+      btn.style.color = active ? '#ffffff' : '#0f172a';
     });
 
     this.update();
@@ -638,26 +639,26 @@ export class CuCuHybridBondingSimulator {
     if (outMargin) {
       const sign = physics.closureMarginNm >= 0 ? '+' : '';
       outMargin.textContent = `${sign}${physics.closureMarginNm.toFixed(2)} nm`;
-      outMargin.style.color = physics.closureMarginNm >= 0 ? '#38bdf8' : '#ef4444';
+      outMargin.style.color = physics.closureMarginNm >= 0 ? '#0369a1' : '#b91c1c';
     }
 
     const outVoid = this.container.querySelector('#cu-out-void-status');
     if (outVoid) {
       if (physics.voidRisk === 'none') {
-        outVoid.innerHTML = `<span style="color: #10b981;"><span data-lang="zh">● 完美閉合 (無奈米微空洞)</span><span data-lang="en">● Full Closure (Zero Nanovoids)</span></span>`;
+        outVoid.innerHTML = `<span style="color: #047857;"><span data-lang="zh">● 完美閉合 (無奈米微空洞)</span><span data-lang="en">● Full Closure (Zero Nanovoids)</span></span>`;
       } else if (physics.voidRisk === 'marginal') {
-        outVoid.innerHTML = `<span style="color: #f59e0b;"><span data-lang="zh">▲ 臨界閉合 (微弱接合壓力)</span><span data-lang="en">▲ Marginal Closure (Low Pressure)</span></span>`;
+        outVoid.innerHTML = `<span style="color: #b45309;"><span data-lang="zh">▲ 臨界閉合 (微弱接合壓力)</span><span data-lang="en">▲ Marginal Closure (Low Pressure)</span></span>`;
       } else if (physics.voidRisk === 'high') {
-        outVoid.innerHTML = `<span style="color: #f97316;"><span data-lang="zh">■ 高空洞風險 (殘留間隙)</span><span data-lang="en">■ High Void Risk (Residual Gap)</span></span>`;
+        outVoid.innerHTML = `<span style="color: #c2410c;"><span data-lang="zh">■ 高空洞風險 (殘留間隙)</span><span data-lang="en">■ High Void Risk (Residual Gap)</span></span>`;
       } else {
-        outVoid.innerHTML = `<span style="color: #ef4444;"><span data-lang="zh">✕ 鍵合失效 (開路奈米裂縫)</span><span data-lang="en">✕ Bond Failure (Open Nanocrack)</span></span>`;
+        outVoid.innerHTML = `<span style="color: #b91c1c;"><span data-lang="zh">✕ 鍵合失效 (開路奈米裂縫)</span><span data-lang="en">✕ Bond Failure (Open Nanocrack)</span></span>`;
       }
     }
 
     const outStress = this.container.querySelector('#cu-out-stress');
     if (outStress) {
       outStress.textContent = `${Math.round(physics.sigmaPeakMPa)} MPa`;
-      outStress.style.color = physics.sigmaPeakMPa > physics.tech.sigmaLimit ? '#ef4444' : '#f59e0b';
+      outStress.style.color = physics.sigmaPeakMPa > physics.tech.sigmaLimit ? '#b91c1c' : '#b45309';
     }
 
     const outVth = this.container.querySelector('#cu-out-vth');
@@ -678,13 +679,13 @@ export class CuCuHybridBondingSimulator {
     const outRating = this.container.querySelector('#cu-out-rating');
     if (outRating) {
       if (this.state.tech === 'antifuse') {
-        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">優異 (FEOL 高溫相容 / 緊鄰焊盤)</span><span data-lang="en">PREFERRED (FEOL High-T / Minimal KOZ)</span></span>`;
+        outRating.innerHTML = `<span style="color: #047857; font-weight: 600;"><span data-lang="zh">優異 (FEOL 高溫相容 / 緊鄰焊盤)</span><span data-lang="en">PREFERRED (FEOL High-T / Minimal KOZ)</span></span>`;
       } else if (this.state.tech === 'mram') {
-        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">良好 (需控制退火熱預算)</span><span data-lang="en">COMPATIBLE (Controlled BEOL Budget)</span></span>`;
+        outRating.innerHTML = `<span style="color: #1d4ed8; font-weight: 600;"><span data-lang="zh">良好 (需控制退火熱預算)</span><span data-lang="en">COMPATIBLE (Controlled BEOL Budget)</span></span>`;
       } else if (this.state.tech === 'reram') {
-        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">中等 (需低溫鍵合或 Forming 補償)</span><span data-lang="en">MODERATE (Low-T Bonding / Forming Margin)</span></span>`;
+        outRating.innerHTML = `<span style="color: #b45309; font-weight: 600;"><span data-lang="zh">中等 (需低溫鍵合或 Forming 補償)</span><span data-lang="en">MODERATE (Low-T Bonding / Forming Margin)</span></span>`;
       } else {
-        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">受限 (需注意 SILC 漏電與退火熱預算)</span><span data-lang="en">CONSTRAINED (SILC & Anneal Budget Control)</span></span>`;
+        outRating.innerHTML = `<span style="color: #b91c1c; font-weight: 600;"><span data-lang="zh">受限 (需注意 SILC 漏電與退火熱預算)</span><span data-lang="en">CONSTRAINED (SILC & Anneal Budget Control)</span></span>`;
       }
     }
 

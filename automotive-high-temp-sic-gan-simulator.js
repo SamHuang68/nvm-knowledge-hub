@@ -259,7 +259,7 @@ export class AutomotiveHighTempSicGanSimulator {
 
   initDOM() {
     this.container.innerHTML = `
-      <div class="sic-gan-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
+      <div class="sic-gan-card" style="background: var(--surface, #ffffff); border: 1px solid var(--border-color, #cbd5e1); border-radius: 12px; padding: 24px; color: var(--text-color, #0f172a); font-family: system-ui, -apple-system, sans-serif;">
         <!-- Header -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
           <div>
@@ -267,13 +267,13 @@ export class AutomotiveHighTempSicGanSimulator {
               <span style="background: #dc2626; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">
                 <span data-lang="zh">功率電子與高溫物理</span><span data-lang="en">Power Electronics &amp; High-Tj Physics</span>
               </span>
-              <span style="color: #10b981; font-size: 11px; font-weight: 600;">TEST 90 COMPLIANT</span>
+              <span style="color: #047857; font-size: 11px; font-weight: 600;">TEST 90 COMPLIANT</span>
             </div>
             <h3 style="margin: 0; font-size: 20px; font-weight: 700;">
               <span data-lang="zh">車規極限高溫 (175°C~250°C) SiC / GaN 功率整合 eNVM 模擬工作台</span>
               <span data-lang="en">High-Tj (175°C~250°C) SiC / GaN Driver eNVM Endurance Simulator</span>
             </h3>
-            <p style="margin: 6px 0 0; font-size: 13px; color: #9ca3af; max-width: 720px;">
+            <p style="margin: 6px 0 0; font-size: 13px; color: #475569; max-width: 720px;">
               <span data-lang="zh">第一性原理建模：Arrhenius 活化能電荷洩漏、STT-MRAM 超順磁退磁臨界、0-Mask AntiFuse 歐姆金屬微絲抗熱退火與去飽和保護 (DESAT) 觸發延遲。</span>
               <span data-lang="en">First-principles simulation: Arrhenius charge leakage, STT-MRAM superparamagnetic demagnetization, 0-Mask AntiFuse ohmic filament resilience, and DESAT fault latency.</span>
             </p>
@@ -281,7 +281,7 @@ export class AutomotiveHighTempSicGanSimulator {
           <!-- Preset Buttons -->
           <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="sic-preset-container">
             ${Object.entries(this.presets).map(([k, p]) => `
-              <button type="button" class="sic-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#dc2626' : '#1f2937'}; border: 1px solid ${k === this.state.preset ? '#f87171' : '#374151'}; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              <button type="button" class="sic-btn-preset ${k === this.state.preset ? 'active' : ''}" data-preset="${k}" aria-label="${p.labelEn}" data-aria-en="${p.labelEn}" data-aria-zh="${p.labelZh}" style="background: ${k === this.state.preset ? '#dc2626' : '#ffffff'}; border: 1px solid ${k === this.state.preset ? '#dc2626' : '#cbd5e1'}; color: ${k === this.state.preset ? '#ffffff' : '#0f172a'}; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                 <span data-lang="zh">${p.labelZh}</span><span data-lang="en">${p.labelEn}</span>
               </button>
             `).join('')}
@@ -289,12 +289,12 @@ export class AutomotiveHighTempSicGanSimulator {
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
           <!-- Slider 1: Junction Temperature -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">功率開關常態結溫 (T_j)</span><span data-lang="en">Normal Junction Temp (T_j)</span></span>
-              <span id="sic-val-temp" style="color: #f87171; font-family: monospace; font-weight: 700;">175 °C</span>
+              <span id="sic-val-temp" style="color: #b91c1c; font-family: monospace; font-weight: 700;">175 °C</span>
             </div>
             <input type="range" id="sic-slide-temp" min="125" max="250" step="5" value="${this.state.junctionTemp}" aria-label="Junction Temperature" data-aria-en="Junction Temperature" data-aria-zh="功率開關常態結溫" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -307,7 +307,7 @@ export class AutomotiveHighTempSicGanSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">短路/故障突波結溫 (T_surge)</span><span data-lang="en">Surge Peak Temp (T_surge)</span></span>
-              <span id="sic-val-surge" style="color: #f87171; font-family: monospace; font-weight: 700;">200 °C</span>
+              <span id="sic-val-surge" style="color: #b91c1c; font-family: monospace; font-weight: 700;">200 °C</span>
             </div>
             <input type="range" id="sic-slide-surge" min="140" max="280" step="5" value="${this.state.surgeTemp}" aria-label="Surge Peak Temp" data-aria-en="Surge Peak Temp" data-aria-zh="短路故障突波結溫" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -320,7 +320,7 @@ export class AutomotiveHighTempSicGanSimulator {
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
               <span style="font-weight: 600;"><span data-lang="zh">高壓母線電壓 (V_bus)</span><span data-lang="en">DC Bus Voltage (V_bus)</span></span>
-              <span id="sic-val-vbus" style="color: #f87171; font-family: monospace; font-weight: 700;">800 V</span>
+              <span id="sic-val-vbus" style="color: #b91c1c; font-family: monospace; font-weight: 700;">800 V</span>
             </div>
             <input type="range" id="sic-slide-vbus" min="300" max="1200" step="50" value="${this.state.busVoltage}" aria-label="DC Bus Voltage" data-aria-en="DC Bus Voltage" data-aria-zh="高壓母線電壓" style="width: 100%; margin: 0; accent-color: #dc2626;">
             <div style="display: flex; justify-content: space-between; font-size: 10px; color: #6b7280;">
@@ -334,7 +334,7 @@ export class AutomotiveHighTempSicGanSimulator {
             <label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 4px;">
               <span data-lang="zh">受測高溫 eNVM 架構</span><span data-lang="en">Evaluated High-Tj eNVM</span>
             </label>
-            <select id="sic-sel-tech" aria-label="High-Tj eNVM Technology" data-aria-en="High-Tj eNVM Technology" data-aria-zh="受測高溫 eNVM 架構" style="width: 100%; background: #1f2937; border: 1px solid #374151; color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
+            <select id="sic-sel-tech" aria-label="High-Tj eNVM Technology" data-aria-en="High-Tj eNVM Technology" data-aria-zh="受測高溫 eNVM 架構" style="width: 100%; background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px;">
               <option value="antifuse">AntiFuse OTP (0-Mask 微絲)</option>
               <option value="mram">STT-MRAM (垂直 MTJ)</option>
               <option value="reram">Oxide ReRAM (BEOL 微絲)</option>
@@ -346,38 +346,38 @@ export class AutomotiveHighTempSicGanSimulator {
         <!-- Metrics Dashboard -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
           <!-- Metric 1: Retention Lifetime -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">常態結溫資料留存壽命</span><span data-lang="en">Retention Lifetime @ Tj</span>
             </div>
-            <div id="sic-out-lifetime" style="font-size: 18px; font-weight: 700; color: #38bdf8; font-family: monospace;">> 20 年</div>
-            <div id="sic-out-arrhenius-af" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">AF = 1.0x</div>
+            <div id="sic-out-lifetime" style="font-size: 18px; font-weight: 700; color: #0369a1; font-family: monospace;">> 20 年</div>
+            <div id="sic-out-arrhenius-af" style="font-size: 11px; margin-top: 4px; color: #475569;">AF = 1.0x</div>
           </div>
 
           <!-- Metric 2: Thermal Stability Factor / BER -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">熱能障穩定度 (Δ / BER)</span><span data-lang="en">Thermal Barrier (Δ / BER)</span>
             </div>
-            <div id="sic-out-barrier" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">Δ > 65 (穩固)</div>
-            <div id="sic-out-ber" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">BER < 1e-15</div>
+            <div id="sic-out-barrier" style="font-size: 18px; font-weight: 700; color: #047857; font-family: monospace;">Δ > 65 (穩固)</div>
+            <div id="sic-out-ber" style="font-size: 11px; margin-top: 4px; color: #475569;">BER < 1e-15</div>
           </div>
 
           <!-- Metric 3: Differential Sense Margin -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">高溫差動讀出感測裕度</span><span data-lang="en">Diff Sense Margin (ΔI_sense)</span>
             </div>
-            <div id="sic-out-margin" style="font-size: 18px; font-weight: 700; color: #f59e0b; font-family: monospace;">18.5 μA</div>
-            <div id="sic-out-snr" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">SNR = 28.4 dB</div>
+            <div id="sic-out-margin" style="font-size: 18px; font-weight: 700; color: #b45309; font-family: monospace;">18.5 μA</div>
+            <div id="sic-out-snr" style="font-size: 11px; margin-top: 4px; color: #475569;">SNR = 28.4 dB</div>
           </div>
 
           <!-- Metric 4: DESAT Readout Fault Latency -->
-          <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">DESAT 短路保護讀出延遲</span><span data-lang="en">DESAT Trip Readout Latency</span>
             </div>
-            <div id="sic-out-latency" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">42 ns</div>
+            <div id="sic-out-latency" style="font-size: 18px; font-weight: 700; color: #047857; font-family: monospace;">42 ns</div>
             <div id="sic-out-rating" style="font-size: 11px; margin-top: 4px;"></div>
           </div>
         </div>
@@ -419,11 +419,11 @@ export class AutomotiveHighTempSicGanSimulator {
 
         <!-- Physical Verdict Callout -->
         <div id="sic-verdict-box" style="background: rgba(220, 38, 38, 0.1); border-left: 4px solid #dc2626; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.5;">
-          <div style="font-weight: 700; color: #f87171; margin-bottom: 4px;" id="sic-verdict-title">
+          <div style="font-weight: 700; color: #b91c1c; margin-bottom: 4px;" id="sic-verdict-title">
             <span data-lang="zh">車規功率半導體整合物理研判</span>
             <span data-lang="en">Automotive Power Stage Integration Verdict</span>
           </div>
-          <div id="sic-verdict-desc" style="color: #d1d5db;"></div>
+          <div id="sic-verdict-desc" style="color: #0f172a;"></div>
         </div>
       </div>
     `;
@@ -504,8 +504,9 @@ export class AutomotiveHighTempSicGanSimulator {
 
     this.container.querySelectorAll('.sic-btn-preset').forEach(btn => {
       const active = btn.getAttribute('data-preset') === presetKey;
-      btn.style.background = active ? '#dc2626' : '#1f2937';
-      btn.style.borderColor = active ? '#f87171' : '#374151';
+      btn.style.background = active ? '#dc2626' : '#ffffff';
+      btn.style.borderColor = active ? '#dc2626' : '#cbd5e1';
+      btn.style.color = active ? '#ffffff' : '#0f172a';
     });
 
     this.update();
@@ -523,17 +524,17 @@ export class AutomotiveHighTempSicGanSimulator {
     if (outLife) {
       if (p.lifetimeYears >= 15) {
         outLife.innerHTML = `&gt; ${Math.round(p.lifetimeYears)} <span data-lang="zh">年</span><span data-lang="en">yr</span>`;
-        outLife.style.color = '#10b981';
+        outLife.style.color = '#047857';
       } else if (p.lifetimeYears >= 1) {
         outLife.innerHTML = `${p.lifetimeYears.toFixed(1)} <span data-lang="zh">年</span><span data-lang="en">yr</span>`;
-        outLife.style.color = '#f59e0b';
+        outLife.style.color = '#b45309';
       } else if (p.lifetimeYears * 365 >= 1) {
         outLife.innerHTML = `${(p.lifetimeYears * 365).toFixed(0)} <span data-lang="zh">天</span><span data-lang="en">days</span>`;
-        outLife.style.color = '#ef4444';
+        outLife.style.color = '#b91c1c';
       } else {
         const hours = Math.max(0.1, p.lifetimeYears * 8760);
         outLife.innerHTML = `${hours.toFixed(1)} <span data-lang="zh">小時</span><span data-lang="en">hrs</span>`;
-        outLife.style.color = '#ef4444';
+        outLife.style.color = '#b91c1c';
       }
     }
 
@@ -548,16 +549,16 @@ export class AutomotiveHighTempSicGanSimulator {
       if (p.deltaBarrier !== null) {
         if (p.deltaBarrier >= 50) {
           outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">高磁熱穩定</span><span data-lang="en">Stable</span>)`;
-          outBar.style.color = '#10b981';
+          outBar.style.color = '#047857';
         } else if (p.deltaBarrier >= 40) {
           outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">臨界裕度</span><span data-lang="en">Marginal</span>)`;
-          outBar.style.color = '#f59e0b';
+          outBar.style.color = '#b45309';
         } else {
           outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">超順磁翻轉風險</span><span data-lang="en">Unstable</span>)`;
-          outBar.style.color = '#ef4444';
+          outBar.style.color = '#b91c1c';
         }
       } else {
-        outBar.innerHTML = `<span style="color: #94a3b8;"><span data-lang="zh">N/A (非磁性介質)</span><span data-lang="en">N/A (Non-Magnetic)</span></span>`;
+        outBar.innerHTML = `<span style="color: #475569;"><span data-lang="zh">N/A (非磁性介質)</span><span data-lang="en">N/A (Non-Magnetic)</span></span>`;
       }
     }
 
@@ -570,7 +571,7 @@ export class AutomotiveHighTempSicGanSimulator {
     const outMargin = this.container.querySelector('#sic-out-margin');
     if (outMargin) {
       outMargin.textContent = `${p.senseMarginUa.toFixed(1)} μA`;
-      outMargin.style.color = p.senseMarginUa >= 8 ? '#10b981' : (p.senseMarginUa >= 3 ? '#f59e0b' : '#ef4444');
+      outMargin.style.color = p.senseMarginUa >= 8 ? '#047857' : (p.senseMarginUa >= 3 ? '#b45309' : '#b91c1c');
     }
 
     const outSnr = this.container.querySelector('#sic-out-snr');
@@ -582,19 +583,19 @@ export class AutomotiveHighTempSicGanSimulator {
     const outLat = this.container.querySelector('#sic-out-latency');
     if (outLat) {
       outLat.textContent = `${Math.round(p.desatLatencyNs)} ns`;
-      outLat.style.color = p.desatLatencyNs <= 150 ? '#10b981' : '#f59e0b';
+      outLat.style.color = p.desatLatencyNs <= 150 ? '#047857' : '#b45309';
     }
 
     const outRating = this.container.querySelector('#sic-out-rating');
     if (outRating) {
       if (this.state.tech === 'antifuse') {
-        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">適合 (耐高溫微絲 / 250°C 留存 > 10 年)</span><span data-lang="en">SUITABLE (High-T Filament / > 10yr at 250°C)</span></span>`;
+        outRating.innerHTML = `<span style="color: #047857; font-weight: 600;"><span data-lang="zh">適合 (耐高溫微絲 / 250°C 留存 > 10 年)</span><span data-lang="en">SUITABLE (High-T Filament / > 10yr at 250°C)</span></span>`;
       } else if (this.state.tech === 'mram') {
-        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">GOOD (Limited &lt; 150°C / PMA Stability)</span></span>`;
+        outRating.innerHTML = `<span style="color: #1d4ed8; font-weight: 600;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">GOOD (Limited &lt; 150°C / PMA Stability)</span></span>`;
       } else if (this.state.tech === 'reram') {
-        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">MODERATE (Oxygen Back-Diffusion Margin)</span></span>`;
+        outRating.innerHTML = `<span style="color: #b45309; font-weight: 600;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">MODERATE (Oxygen Back-Diffusion Margin)</span></span>`;
       } else {
-        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">受限 (裸晶合封高溫熱區浮閘洩漏加速)</span><span data-lang="en">CONSTRAINED (Accelerated Leakage in Hot-Spots)</span></span>`;
+        outRating.innerHTML = `<span style="color: #b91c1c; font-weight: 600;"><span data-lang="zh">受限 (裸晶合封高溫熱區浮閘洩漏加速)</span><span data-lang="en">CONSTRAINED (Accelerated Leakage in Hot-Spots)</span></span>`;
       }
     }
 

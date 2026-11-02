@@ -1,8 +1,9 @@
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 /**
  * AEON 具名 MTP 的公開 FN／FN 功能模型。
  * 2009 年原廠文章支持寫抹機制；功能區形狀不宣稱特定世代的實體剖面。
  */
-const C = { ink:'#16334c', si:'#bfd3e4', oxide:'#f4e0a9', fg:'#c6a16b', e:'#075f9d', field:'#a45410', i:'#087968' };
+const C = { ink:NEUTRAL.ink, si:MATERIAL.silicon, oxide:MATERIAL.oxide, fg:MATERIAL.floatingGate, e:CARRIER.electron, field:CARRIER.field, i:CARRIER.current };
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text = (x,y,value,anchor='middle',fill=C.ink) => '<text x="'+x+'" y="'+y+'" text-anchor="'+anchor+'" fill="'+fill+'" font-size="22" font-weight="600">'+esc(value)+'</text>';
 const rect = (x,y,w,h,fill,extra='') => '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'" stroke="'+C.ink+'" stroke-width="1.5" '+extra+'/>';

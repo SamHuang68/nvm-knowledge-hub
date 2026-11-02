@@ -6,8 +6,11 @@ import { startTestServer } from "./test-server.mjs";
 // 規則 0003 的渲染門禁：頁首、頁尾、麵包屑、可見的大型容器與 canvas 都不得是深色底，
 // 語言切換鈕的文字對比至少 4.5:1。以實際渲染結果判定，避免只改外框或覆寫不完整。
 const root = path.resolve(import.meta.dirname, "..");
-const pages = process.argv[2] ? [process.argv[2]] : [...loadPublicRoutes(root).pages];
-const widths = process.argv[3] ? [Number(process.argv[3])] : [1440, 390];
+// --source-only（或 NVM_QA_SOURCE_ONLY=1）擋下執行期的淡色轉換，確認原始碼本身就是淡色。
+const sourceOnly = process.argv.includes("--source-only") || process.env.NVM_QA_SOURCE_ONLY === "1";
+const args = process.argv.slice(2).filter(arg => !arg.startsWith("--"));
+const pages = args[0] ? [args[0]] : [...loadPublicRoutes(root).pages];
+const widths = args[1] ? [Number(args[1])] : [1440, 390];
 const DARK_LUMINANCE = 0.2;
 const MIN_AREA = 10000;
 const failures = [];
@@ -19,6 +22,7 @@ for (const pageName of pages) {
   for (const width of widths) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1, colorScheme: "light" });
     await page.emulateMedia({ reducedMotion: "reduce", colorScheme: "light" });
+    if (sourceOnly) await page.route("**/literature-paper.js*", route => route.abort());
     await page.goto(new URL(pageName, base).href, { waitUntil: "networkidle" });
     // 模擬器在進入視窗時才繪製 canvas，逐段捲動後再量測。
     const height = await page.evaluate(() => document.documentElement.scrollHeight);
@@ -86,6 +90,8 @@ for (const pageName of pages) {
         const color = ownBackground(element);
         if (!color || luminance(color) >= DARK_LUMINANCE || !visible(element)) continue;
         const box = element.getBoundingClientRect();
+        // 沒有文字的細長元素是資料長條或分隔線，屬圖形標記，不是內容底。
+        if (box.height <= 24 && !element.textContent.trim()) continue;
         if (box.width * box.height >= MIN_AREA) dark.push(`${label(element)} ${Math.round(box.width)}x${Math.round(box.height)} ${luminance(color).toFixed(3)}`);
       }
       for (const canvas of document.querySelectorAll("canvas")) {
@@ -132,4 +138,4 @@ if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
-console.log(`light theme gate passed: ${pages.length} pages x ${widths.length} widths`);
+console.log(`light theme gate passed${sourceOnly ? " (source only)" : ""}: ${pages.length} pages x ${widths.length} widths`);

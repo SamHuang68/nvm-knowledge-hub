@@ -1,3 +1,4 @@
+import { NEUTRAL, MATERIAL, CARRIER } from '../visual-tokens.js';
 /** @typedef {{id:string,label:string,url:string,kind:string,date:string,locator:string,limit:string}} Source */
 /** @typedef {{symbol:string,meaning:string}} Legend */
 /** @typedef {{id:string,title:string,state:string,stimulus:string,caption:string,svg:string,sourceIds:string[]}} Frame */
@@ -174,7 +175,7 @@ const sourceRegistry = {
   ]
 };
 
-const C = { ink: '#16334c', silicon: '#d7e6f0', doped: '#92b6cf', oxide: '#f6e9bf', fg: '#d6bd81', electron: '#075f9d', hole: '#b52f43', current: '#087766', white: '#fff', panel: '#f7f9fc' };
+const C = { ink: NEUTRAL.ink, silicon: MATERIAL.silicon, doped: MATERIAL.doped, oxide: MATERIAL.oxide, fg: MATERIAL.floatingGate, electron: CARRIER.electron, hole: CARRIER.hole, current: CARRIER.current, white: NEUTRAL.white, panel: NEUTRAL.panel };
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const tx = (x, y, value, size = 22, color = C.ink, anchor = 'middle') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="${size}" font-weight="600" fill="${color}">${esc(value)}</text>`;
 const line = (d, color = C.ink, width = 2, extra = '') => `<path d="${d}" fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;

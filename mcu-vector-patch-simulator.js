@@ -621,20 +621,20 @@ export function initMcuVectorPatchSimulator() {
 
     if (outCampower) {
       outCampower.textContent = `${res.pCamDynamicUw} μW`;
-      outCampower.style.color = res.pCamDynamicUw < 15.0 ? "#059669" : res.pCamDynamicUw < 60.0 ? "#0284c7" : "#d97706";
+      outCampower.style.color = res.pCamDynamicUw < 15.0 ? "#047857" : res.pCamDynamicUw < 60.0 ? "#0369a1" : "#b45309";
     }
     if (outLatency) {
       outLatency.textContent = isZh
         ? `${res.patchLatencyCycles} 週期 (${res.patchLatencyNs} ns)`
         : `${res.patchLatencyCycles} cyc (${res.patchLatencyNs} ns)`;
-      outLatency.style.color = res.isZeroWaitState ? "#059669" : "#0284c7";
+      outLatency.style.color = res.isZeroWaitState ? "#047857" : "#0369a1";
     }
     if (outEnergy) {
       outEnergy.textContent = `${res.patchedInstrPj} pJ`;
     }
     if (outSavings) {
       outSavings.textContent = `${res.waferCostSavingsPercent}%`;
-      outSavings.style.color = "#059669";
+      outSavings.style.color = "#047857";
     }
     if (outLifespan) {
       outLifespan.textContent = isZh ? `${res.remainingYearsCapacity} 年` : `${res.remainingYearsCapacity} Yrs`;

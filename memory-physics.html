@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Complementary Storage and Verifiable Differences · NVM Knowledge Hub" data-title-zh="互補儲存與可驗證差異 · NVM 知識中心" data-description-en="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability." data-description-zh="互補儲存與可驗證差異：從位元胞成本、讀取路徑與物理可觀察性，檢視 SRAM PUF、加密 OTP 與安全儲存的證據邊界。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v5"></script>
+  <script src="site-language.js?v=20261102-p2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -42,9 +42,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
-  <link rel="stylesheet" href="styles.css?v=20261102">
+  <link rel="stylesheet" href="styles.css?v=20261102-p2">
   <link rel="stylesheet" href="research.css?v=20261102">
-  <link rel="stylesheet" href="tunneling-breakdown-simulator.css?v=20261004">
+  <link rel="stylesheet" href="tunneling-breakdown-simulator.css?v=20261102-p2">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -110,7 +110,7 @@
     html body.memory-physics-page .site-header,
     html body .site-header {
       background: #f8fafc !important;
-      border-bottom: 1px solid #33525e !important;
+      border-bottom: 1px solid #cbd5e1 !important;
       box-shadow: 0 2px 12px rgba(248, 250, 252, 0.96) !important;
       min-height: 64px !important;
       backdrop-filter: none !important;
@@ -129,7 +129,7 @@
       font-weight: 700 !important;
     }
     html body.memory-physics-page .site-header .primary-nav a {
-      color: #cde2e7 !important;
+      color: #0f172a !important;
       font-weight: 500 !important;
     }
     html body.memory-physics-page .site-header .primary-nav a:hover,
@@ -137,7 +137,7 @@
       color: #785021 !important;
     }
     html body.memory-physics-page .site-header .home-pill {
-      color: #e0eeed !important;
+      color: #0f172a !important;
       border-color: rgba(255, 255, 255, 0.25) !important;
     }
     html body.memory-physics-page .site-header .language-toggle {
@@ -189,12 +189,12 @@
     }
     html body.memory-physics-page .site-breadcrumb .topic-switch a:hover {
       background: #dfede8 !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       color: #0f172a !important;
     }
     html body.memory-physics-page .site-breadcrumb .topic-switch a[aria-current] {
       background: #dfede8 !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       color: #0f172a !important;
       font-weight: 700 !important;
     }
@@ -210,6 +210,17 @@
       display: flex !important;
       align-items: center !important;
       overflow: hidden !important;
+    }
+    .research-hero .hero-ai-disclosure {
+      display: table !important;
+      max-width: 100% !important;
+      margin: 18px 0 0 !important;
+      padding: 3px 8px !important;
+      border-radius: 4px !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      color: #785021 !important;
+      font: 600 11px/1.4 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.04em !important;
     }
     .f1-hero-media {
       position: absolute !important;
@@ -355,7 +366,7 @@
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .bento-metric-card:hover {
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       box-shadow: 0 4px 16px rgba(0, 111, 112, 0.12) !important;
       transform: translateY(-2px) !important;
     }
@@ -398,7 +409,7 @@
     }
     .research-hero-links .button.primary:hover {
       background: #f8fafc !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       transform: translateY(-1px) !important;
     }
     .research-hero-links .button.ghost {
@@ -417,7 +428,7 @@
       box-shadow: 0 2px 6px rgba(248, 250, 252, 0.96) !important;
     }
     .research-hero-links .button.ghost:hover {
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       color: #0f172a !important;
       transform: translateY(-1px) !important;
     }
@@ -831,7 +842,7 @@
       transition: transform 0.2s ease, border-color 0.2s ease !important;
     }
     html body.memory-physics-page :is(.correction-card, .topology-card, .public-claim-strip article, .causal-node, .claim-rung, .unknowns article, .evidence-result, .energy-card):hover {
-      border-top-color: #0f172a !important;
+      border-top-color: #cbd5e1 !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 6px 20px rgba(248, 250, 252, 0.96) !important;
     }
@@ -864,7 +875,7 @@
     }
     html body.memory-physics-page .causal-node.highlight {
       background: #edf6f4 !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       box-shadow: 0 4px 16px rgba(0, 111, 112, 0.12) !important;
     }
     html body.memory-physics-page .evidence-result a {
@@ -1169,7 +1180,7 @@
     .state-lab-controls button:hover {
       background: #eaf1ed !important;
       color: #173b49 !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
     }
     .state-lab-controls button.active {
       background: #f8fafc !important;
@@ -1265,7 +1276,7 @@
     }
     .icon-box-cross {
       background: #fee2e2 !important;
-      color: #dc2626 !important;
+      color: #b91c1c !important;
       border: 1px solid #fca5a5 !important;
     }
     .icon-box svg {
@@ -1331,7 +1342,7 @@
 
     /* TEST 13 Compliance & Base Paper styling */
     html, body {
-      background-color: #0f172a;
+      background-color: #f8fafc;
       background-color: #fafaf7 !important;
     }
 
@@ -1435,7 +1446,7 @@
     html body.memory-physics-page .state-lab-controls button:hover {
       background: #eaf1ed !important;
       color: #173b49 !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
     }
     html body.memory-physics-page .state-lab-controls button.active {
       background: #f8fafc !important;
@@ -1706,7 +1717,7 @@
     html body.memory-physics-page .provenance-links a:hover {
       background: #f8fafc !important;
       color: #0f172a !important;
-      border-color: #0f172a !important;
+      border-color: #cbd5e1 !important;
     }
   </style>
 </head>
@@ -1738,7 +1749,7 @@
       <picture class="f1-hero-media">
         <source srcset="assets/memory-physics-hero-1600.webp" media="(min-width: 900px)" type="image/webp">
         <source srcset="assets/memory-physics-hero-900.webp" type="image/webp">
-        <img src="assets/memory-physics-hero.jpg" alt="Memory Physics & Hardware Security Bitcell Microarchitecture Visual" data-alt-en="Memory Physics & Hardware Security Bitcell Microarchitecture Visual" data-alt-zh="記憶體物理與硬體安全位元單元微架構視覺圖" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+        <img src="assets/memory-physics-hero.jpg" alt="AI-generated illustrative memory physics and hardware security bitcell visual" data-alt-en="AI-generated illustrative memory physics and hardware security bitcell visual" data-alt-zh="AI 生成的記憶體物理與硬體安全位元單元示意圖" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
       </picture>
       <div class="f1-hero-ambient-glow" aria-hidden="true"></div>
       <div class="f1-hero-shade" aria-hidden="true"></div>
@@ -1767,6 +1778,7 @@
           <a class="button primary" href="#abstract"><span data-lang="zh">閱讀研究摘要</span><span data-lang="en">Read the abstract</span></a>
           <a class="button ghost" href="memory-evidence.html"><span data-lang="zh">開啟證據總帳</span><span data-lang="en">Open Evidence Ledger</span></a>
         </div>
+        <p class="hero-ai-disclosure"><span data-lang="zh">AI 生成概念背景 · 非實體結構</span><span data-lang="en">AI-generated concept backdrop · not a physical structure</span></p>
       </div>
     </section>
 
@@ -2196,7 +2208,7 @@
         <article class="interactive-workbench" id="tddb-weibull-root" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(14, 116, 144, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="tddb-sim-title">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
             <div>
-              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0891b2; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0e7490; letter-spacing: 0.08em; text-transform: uppercase;">
                 <span data-lang="zh">第一性原理元件可靠度 · 滲透崩潰與壽命外推</span>
                 <span data-lang="en">FIRST-PRINCIPLES DEVICE RELIABILITY · PERCOLATION &amp; LIFETIME INFERENCE</span>
               </span>
@@ -2205,7 +2217,7 @@
                 <span data-lang="en">Time-Dependent Dielectric Breakdown &amp; Weibull Reliability Simulator</span>
               </h4>
             </div>
-            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(8, 145, 178, 0.12); color: #0891b2; font-weight: 600;">
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(8, 145, 178, 0.12); color: #0e7490; font-weight: 600;">
               <span data-lang="zh">可靠度教學試算 · 非資格驗證</span>
               <span data-lang="en">Reliability Estimate · Not Qualification</span>
             </span>
@@ -2282,10 +2294,10 @@
                 <label for="tddb-tox-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
                   <span data-lang="zh">介電質厚度 (t<sub>ox</sub>)</span><span data-lang="en">Oxide Thickness (t<sub>ox</sub>)</span>
                 </label>
-                <span id="tddb-tox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">2.8 nm</span>
+                <span id="tddb-tox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0e7490;">2.8 nm</span>
               </div>
               <input type="range" id="tddb-tox-slider" min="1.0" max="5.0" step="0.1" value="2.8" style="width: 100%; cursor: pointer;" aria-label="Oxide physical thickness tox in nanometers" data-aria-en="Oxide physical thickness tox in nanometers" data-aria-zh="介電質厚度 tox (奈米)">
-              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; font-family: 'IBM Plex Mono', monospace;">
                 <span>1.0 nm</span><span>3.0 nm</span><span>5.0 nm</span>
               </div>
             </div>
@@ -2296,10 +2308,10 @@
                 <label for="tddb-vox-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
                   <span data-lang="zh">操作偏壓 (V<sub>ox</sub>)</span><span data-lang="en">Applied Voltage (V<sub>ox</sub>)</span>
                 </label>
-                <span id="tddb-vox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">0.75 V</span>
+                <span id="tddb-vox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0e7490;">0.75 V</span>
               </div>
               <input type="range" id="tddb-vox-slider" min="0.4" max="8.5" step="0.05" value="0.75" style="width: 100%; cursor: pointer;" aria-label="Applied voltage Vox in Volts" data-aria-en="Applied voltage Vox in Volts" data-aria-zh="操作偏壓 Vox (伏特)">
-              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; font-family: 'IBM Plex Mono', monospace;">
                 <span>0.4 V</span><span>4.5 V</span><span>8.5 V</span>
               </div>
             </div>
@@ -2310,10 +2322,10 @@
                 <label for="tddb-temp-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
                   <span data-lang="zh">接面溫度 (T<sub>j</sub>)</span><span data-lang="en">Junction Temp (T<sub>j</sub>)</span>
                 </label>
-                <span id="tddb-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">150 °C</span>
+                <span id="tddb-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0e7490;">150 °C</span>
               </div>
               <input type="range" id="tddb-temp-slider" min="25" max="175" step="5" value="150" style="width: 100%; cursor: pointer;" aria-label="Junction temperature Tj in Celsius" data-aria-en="Junction temperature Tj in Celsius" data-aria-zh="接面溫度 Tj (攝氏度)">
-              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; font-family: 'IBM Plex Mono', monospace;">
                 <span>25 °C</span><span>105 °C</span><span>175 °C</span>
               </div>
             </div>
@@ -2322,51 +2334,51 @@
           <!-- KPI METRIC CARDS -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0891b2;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">介電層電場 E<sub>ox</sub></span><span data-lang="en">Oxide Field E<sub>ox</sub></span>
               </small>
               <div id="tddb-eox-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">2.68 MV/cm</div>
-              <span style="font-size: 10px; color: #64748b;">V<sub>ox</sub> / t<sub>ox</sub></span>
+              <span style="font-size: 10px; color: #475569;">V<sub>ox</sub> / t<sub>ox</sub></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0284c7;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">Weibull 斜率 &beta;</span><span data-lang="en">Weibull Slope &beta;</span>
               </small>
               <div id="tddb-beta-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">≈ 1.74</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">假設的滲透形狀因數</span><span data-lang="en">Assumed percolation factor</span></span>
+              <span style="font-size: 10px; color: #475569;"><span data-lang="zh">假設的滲透形狀因數</span><span data-lang="en">Assumed percolation factor</span></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #2563eb;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">單元特性壽命 &eta;<sub>cell</sub></span><span data-lang="en">Cell Lifetime &eta;<sub>cell</sub></span>
               </small>
               <div id="tddb-eta-cell-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">≈ 2.97e+5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
-              <span style="font-size: 10px; color: #64748b;">t<sub>63.2%</sub> @ 1 Cell</span>
+              <span style="font-size: 10px; color: #475569;">t<sub>63.2%</sub> @ 1 Cell</span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #9333ea;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">陣列縮放壽命 &eta;<sub>array</sub></span><span data-lang="en">Array Lifetime &eta;<sub>array</sub></span>
               </small>
               <div id="tddb-eta-array-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #9333ea; margin-top: 4px;">≈ 498.5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
-              <span style="font-size: 10px; color: #64748b;">N<sup>&minus;1/&beta;</sup> <span data-lang="zh">面積縮放</span><span data-lang="en">Area scaled</span></span>
+              <span style="font-size: 10px; color: #475569;">N<sup>&minus;1/&beta;</sup> <span data-lang="zh">面積縮放</span><span data-lang="en">Area scaled</span></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #059669;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">15 年累積失效率 F</span><span data-lang="en">15-Yr Failure Rate F</span>
               </small>
-              <div id="tddb-f15y-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">≈ 0.2172 ppm</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學比較門檻 &lt;10 ppm</span><span data-lang="en">Example threshold &lt;10 ppm</span></span>
+              <div id="tddb-f15y-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #047857; margin-top: 4px;">≈ 0.2172 ppm</div>
+              <span style="font-size: 10px; color: #475569;"><span data-lang="zh">教學比較門檻 &lt;10 ppm</span><span data-lang="en">Example threshold &lt;10 ppm</span></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0d9488;">
-              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
                 <span data-lang="zh">失效率 FIT (10<sup>9</sup>h)</span><span data-lang="en">Hazard Rate (FIT)</span>
               </small>
               <div id="tddb-fit-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">≈ 0.57 FIT</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學比較門檻 &lt;1.0 FIT</span><span data-lang="en">Example threshold &lt;1.0 FIT</span></span>
+              <span style="font-size: 10px; color: #475569;"><span data-lang="zh">教學比較門檻 &lt;1.0 FIT</span><span data-lang="en">Example threshold &lt;1.0 FIT</span></span>
             </div>
           </div>
 
@@ -2401,7 +2413,7 @@
         <article id="cryogenic-nvm-simulator-root" class="physics-model-card reveal" style="border-top: 4px solid #0284c7; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06); padding: 1.5rem; margin-top: 2rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
             <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
-              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.08em; text-transform: uppercase;">
                 <span data-lang="zh">物理模型 07 · 低溫超導量子 NVM 物理</span>
                 <span data-lang="en">PHYSICS MODEL 07 · CRYOGENIC QUANTUM NVM DYNAMICS</span>
               </span>
@@ -2410,7 +2422,7 @@
                 <span data-lang="en">Cryogenic (4K / 77K) Quantum Computing NVM Physics &amp; Read Margin Simulator</span>
               </h3>
             </div>
-            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0369a1; padding: 4px 8px; border-radius: 4px;">
               <span data-lang="zh">第一性原理低溫固態物理</span>
               <span data-lang="en">First-Principles Cryo Solid-State</span>
             </span>
@@ -2457,7 +2469,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">讀取感測偏壓:</span><span data-lang="en">READ SENSE BIAS:</span></span>
-                <span id="cryo-bias-val" style="color: #0284c7; font-weight: 700;">200 mV</span>
+                <span id="cryo-bias-val" style="color: #0369a1; font-weight: 700;">200 mV</span>
               </div>
               <input type="range" id="cryo-bias-slider" min="50" max="600" step="25" value="200" aria-label="Read Sense Voltage" data-aria-en="Read Sense Voltage" data-aria-zh="讀取感測偏壓" aria-valuetext="200 mV" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2465,7 +2477,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">積分感測時間:</span><span data-lang="en">SENSE INTEGRATION TIME:</span></span>
-                <span id="cryo-time-val" style="color: #0284c7; font-weight: 700;">10 ns</span>
+                <span id="cryo-time-val" style="color: #0369a1; font-weight: 700;">10 ns</span>
               </div>
               <input type="range" id="cryo-time-slider" min="2" max="50" step="2" value="10" aria-label="Sense Integration Time" data-aria-en="Sense Integration Time" data-aria-zh="積分感測時間" aria-valuetext="10 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2477,7 +2489,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">讀取電流裕度窗</span><span data-lang="en">SENSE MARGIN WINDOW</span>
               </div>
-              <div id="cryo-out-window" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="cryo-out-window" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">ΔI = I_ON - I_OFF</span><span data-lang="en">ΔI = I_ON - I_OFF</span>
               </div>
@@ -2487,7 +2499,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">熱噪聲功率衰減</span><span data-lang="en">THERMAL NOISE DROP</span>
               </div>
-              <div id="cryo-out-noise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div id="cryo-out-noise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">Johnson 噪聲壓抑</span><span data-lang="en">4kTR suppression</span>
               </div>
@@ -2517,7 +2529,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">感測放大器信噪比</span><span data-lang="en">SENSE AMP SNR</span>
               </div>
-              <div id="cryo-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="cryo-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">動態訊號品質</span><span data-lang="en">Dynamic signal SNR</span>
               </div>
@@ -2525,7 +2537,7 @@
           </div>
 
           <!-- Canvas Visualization -->
-          <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
               <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Cryo Visualization Mode" data-aria-en="Cryo Visualization Mode" data-aria-zh="低溫物理視覺化模式">
                 <button id="cryo-mode-win" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
@@ -2555,7 +2567,7 @@
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 08</span><span data-lang="en">PHYSICAL MODEL 08</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">超導量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器</span><span data-lang="en">Superconducting Qubit Readout Spin Decoherence &amp; Microwave RF Simulator</span></h3>
             </div>
-            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 240, 255, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 240, 255, 0.1); color: #0369a1; padding: 4px 8px; border-radius: 4px;">
               <span data-lang="zh">量子介面與極限磁阻物理</span>
               <span data-lang="en">Quantum Interface &amp; Magnetoresistance</span>
             </span>
@@ -2602,7 +2614,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">外加磁場強度:</span><span data-lang="en">EXTERNAL B-FIELD:</span></span>
-                <span id="cryo-qubit-bfield-val" style="color: #0284c7; font-weight: 700;">0.10 Tesla</span>
+                <span id="cryo-qubit-bfield-val" style="color: #0369a1; font-weight: 700;">0.10 Tesla</span>
               </div>
               <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2610,7 +2622,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">微波射頻功率:</span><span data-lang="en">MICROWAVE RF POWER:</span></span>
-                <span id="cryo-qubit-rf-val" style="color: #0284c7; font-weight: 700;">-30.0 dBm</span>
+                <span id="cryo-qubit-rf-val" style="color: #0369a1; font-weight: 700;">-30.0 dBm</span>
               </div>
               <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2622,7 +2634,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">實現 TMR 穿隧磁阻</span><span data-lang="en">REALIZED TMR</span>
               </div>
-              <div id="cryo-qubit-out-tmr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div id="cryo-qubit-out-tmr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">強磁場自旋傾側衰退</span><span data-lang="en">B-field canting drop</span>
               </div>
@@ -2632,7 +2644,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">感測差分電壓窗</span><span data-lang="en">SENSE MARGIN ΔV</span>
               </div>
-              <div id="cryo-qubit-out-deltav" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="cryo-qubit-out-deltav" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">讀取訊號動態範圍</span><span data-lang="en">Read dynamic window</span>
               </div>
@@ -2642,7 +2654,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">自旋去相干壽命 T2*</span><span data-lang="en">SPIN DECOHERENCE T2*</span>
               </div>
-              <div id="cryo-qubit-out-t2" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+              <div id="cryo-qubit-out-t2" style="font: 700 16px 'IBM Plex Mono', monospace; color: #7e22ce;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">橫向弛豫時間</span><span data-lang="en">Transverse relaxation</span>
               </div>
@@ -2652,7 +2664,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">感測信噪比 (SINR)</span><span data-lang="en">READ SINR</span>
               </div>
-              <div id="cryo-qubit-out-sinr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div id="cryo-qubit-out-sinr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">含微波射頻串擾</span><span data-lang="en">Incl. RF crosstalk</span>
               </div>
@@ -2662,7 +2674,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">推導誤碼率 (BER)</span><span data-lang="en">DERIVED BER</span>
               </div>
-              <div id="cryo-qubit-out-ber" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="cryo-qubit-out-ber" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">位元讀取可靠度</span><span data-lang="en">Read error probability</span>
               </div>
@@ -2672,7 +2684,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">QPU 介面相容等級</span><span data-lang="en">QPU COMPATIBILITY</span>
               </div>
-              <div id="cryo-qubit-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="cryo-qubit-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">貼裝可行性評級</span><span data-lang="en">Proximity rating</span>
               </div>
@@ -2680,13 +2692,13 @@
           </div>
 
           <!-- Canvas Visualization -->
-          <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
               <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Cryo Qubit Visualization Mode" data-aria-en="Cryo Qubit Visualization Mode" data-aria-zh="量子低溫視覺化模式">
                 <button id="cryo-qubit-mode-bfield" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                   <span data-lang="zh">磁場掃描衰減曲線 (ΔV vs B-Field 0-5T)</span><span data-lang="en">B-Field Sweep (0-5T)</span>
                 </button>
-                <button id="cryo-qubit-mode-waveform" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <button id="cryo-qubit-mode-waveform" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                   <span data-lang="zh">微波射頻脈衝示波器 (RF Pulse Scope)</span><span data-lang="en">RF Pulse Scope</span>
                 </button>
               </div>
@@ -2710,7 +2722,7 @@
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 09</span><span data-lang="en">PHYSICAL MODEL 09</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與動態壓降試算器</span><span data-lang="en">Sub-2nm A16/A14 GAA Backside Power Delivery (BSPDN / PowerVia) eNVM IR-Drop Simulator</span></h3>
             </div>
-            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.1); color: #0369a1; padding: 4px 8px; border-radius: 4px;">
               <span data-lang="zh">次 2nm 埃米供電物理</span>
               <span data-lang="en">Sub-2nm Angstrom Power Physics</span>
             </span>
@@ -2744,31 +2756,31 @@
               </thead>
               <tbody>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">TSMC A16 NanoFlex SPR</th>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">TSMC A16 NanoFlex SPR</th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.85 &Omega; (-87%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.14 nH (-90%)</td>
-                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">22.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; color: #047857; font-weight: 600;">22.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">64.0 K/W (+16 K/W)</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">根除寫入 Sag，熱阻因減薄略增需封裝協調</span><span data-lang="en">Sag eliminated, slight thermal trapping requires package co-design</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Intel 14A PowerVia</th>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">Intel 14A PowerVia</th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.10 &Omega; (-86%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.18 nH (-87%)</td>
-                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">25.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; color: #047857; font-weight: 600;">25.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">68.0 K/W (+20 K/W)</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">信號走線擁塞降低，需考量背部散熱通孔</span><span data-lang="en">Signal congestion reduced, thermal vias required</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Samsung SF1.4 BS-PDN</th>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">Samsung SF1.4 BS-PDN</th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.35 &Omega; (-84%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.22 nH (-84%)</td>
-                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">28.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; color: #047857; font-weight: 600;">28.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">72.0 K/W (+24 K/W)</td>
                   <td style="padding: 8px 10px;"><span data-lang="zh">埋入式電軌穩固瞬態供電，熱管理需評估</span><span data-lang="en">Buried Power Rail stabilizes transient supply, thermal profile monitored</span></td>
                 </tr>
                 <tr style="background: #fffbeb;">
-                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">傳統 3nm 正面 FSPDN 基準</span><span data-lang="en">Conventional 3nm FSPDN Baseline</span></th>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #b45309;"><span data-lang="zh">傳統 3nm 正面 FSPDN 基準</span><span data-lang="en">Conventional 3nm FSPDN Baseline</span></th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">14.8 &Omega; (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.35 nH (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
                   <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;">177.6 mV (<span data-lang="zh">嚴重塌陷</span><span data-lang="en">Severe collapse</span>)</td>
@@ -2797,7 +2809,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">編程脈衝峰值電流:</span><span data-lang="en">PEAK WRITE CURRENT:</span></span>
-                <span id="bspdn-current-val" style="color: #0284c7; font-weight: 700;">12.0 mA</span>
+                <span id="bspdn-current-val" style="color: #0369a1; font-weight: 700;">12.0 mA</span>
               </div>
               <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2805,7 +2817,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">脈衝上升時間 (t_rise):</span><span data-lang="en">PULSE RISE TIME:</span></span>
-                <span id="bspdn-rise-val" style="color: #0284c7; font-weight: 700;">0.5 ns</span>
+                <span id="bspdn-rise-val" style="color: #0369a1; font-weight: 700;">0.5 ns</span>
               </div>
               <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2813,7 +2825,7 @@
             <div>
               <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span><span data-lang="zh">接面/環境基準溫度:</span><span data-lang="en">BASE JUNCTION TEMP:</span></span>
-                <span id="bspdn-temp-val" style="color: #0284c7; font-weight: 700;">125 °C</span>
+                <span id="bspdn-temp-val" style="color: #0369a1; font-weight: 700;">125 °C</span>
               </div>
               <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
@@ -2825,7 +2837,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">瞬態歐姆壓降 IR-DROP</span><span data-lang="en">DYNAMIC IR-DROP</span>
               </div>
-              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">ΔV = I_peak · R_PDN</span><span data-lang="en">I_peak · R_PDN</span>
               </div>
@@ -2835,7 +2847,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">電感切換噪訊 L·di/dt</span><span data-lang="en">INDUCTIVE NOISE</span>
               </div>
-              <div id="bspdn-out-indnoise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div id="bspdn-out-indnoise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">Nano-TSV 迴路電感</span><span data-lang="en">Nano-TSV loop noise</span>
               </div>
@@ -2845,7 +2857,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">內部有效寫入電壓</span><span data-lang="en">EFFECTIVE VDD</span>
               </div>
-              <div id="bspdn-out-effvdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="bspdn-out-effvdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">防硬擊穿臨界下限</span><span data-lang="en">Breakdown headroom</span>
               </div>
@@ -2855,7 +2867,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">局部接面溫升 ΔT_j</span><span data-lang="en">JUNCTION TEMP RISE</span>
               </div>
-              <div id="bspdn-out-tempdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="bspdn-out-tempdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">集總熱阻計算</span><span data-lang="en">Lumped theta_th model</span>
               </div>
@@ -2865,7 +2877,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">壓降抑制率 (ΔV_drop)</span><span data-lang="en">IR-DROP MITIGATION</span>
               </div>
-              <div id="bspdn-out-gain" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+              <div id="bspdn-out-gain" style="font: 700 16px 'IBM Plex Mono', monospace; color: #7e22ce;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">相比正面 3nm 基準</span><span data-lang="en">vs FSPDN Baseline</span>
               </div>
@@ -2875,7 +2887,7 @@
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                 <span data-lang="zh">寫入裕度與預估良率</span><span data-lang="en">ESTIMATED WRITE YIELD</span>
               </div>
-              <div id="bspdn-out-yield" style="font: 700 12px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div id="bspdn-out-yield" style="font: 700 12px 'IBM Plex Mono', monospace; color: #047857;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                 <span data-lang="zh">電壓裕度模型推估</span><span data-lang="en">Voltage headroom model</span>
               </div>
@@ -2883,13 +2895,13 @@
           </div>
 
           <!-- Canvas Visualization -->
-          <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
               <div style="display: inline-flex; gap: 6px;" role="group" aria-label="BSPDN Visualization Mode" data-aria-en="BSPDN Visualization Mode" data-aria-zh="背面供電視覺化模式">
                 <button id="bspdn-mode-transient" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                   <span data-lang="zh">瞬態供電電壓軌波形與動態壓降 (0-6ns)</span><span data-lang="en">Transient VDD Waveform &amp; IR-Drop</span>
                 </button>
-                <button id="bspdn-mode-thermal" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <button id="bspdn-mode-thermal" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                   <span data-lang="zh">熱阻特性與接面溫升分析</span><span data-lang="en">Thermal Resistance &amp; Hotspot Analysis</span>
                 </button>
               </div>
@@ -3196,7 +3208,7 @@
                 <span data-lang="zh">共模抑制比 (CMRR)</span>
                 <span data-lang="en">Common-Mode Rejection (CMRR)</span>
               </span>
-              <div id="diff-cmrr-db" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #0284c7; margin: 4px 0;">-- dB</div>
+              <div id="diff-cmrr-db" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #0369a1; margin: 4px 0;">-- dB</div>
               <span style="font-size: 10.5px; color: #0369a1;"><span data-lang="zh">抵抗電源漣波能力</span><span data-lang="en">Supply Noise Immunity</span></span>
             </div>
 
@@ -3644,12 +3656,12 @@
   </footer>
   <script src="research.js?v=20260929-v5"></script>
   <script src="memory-physics-navigation.js?v=20260929-v5"></script>
-  <script type="module" src="tunneling-breakdown-simulator.js?v=20261102"></script>
-  <script type="module" src="differential-sensing-simulator.js?v=20261005"></script>
-  <script type="module" src="tddb-weibull-simulator.js?v=20261005"></script>
-  <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261102"></script>
-  <script type="module" src="cryo-qubit-readout-simulator.js?v=20261005"></script>
-  <script type="module" src="bspdn-envm-ir-drop-simulator.js?v=20261006"></script>
+  <script type="module" src="tunneling-breakdown-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="differential-sensing-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="tddb-weibull-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="cryo-qubit-readout-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="bspdn-envm-ir-drop-simulator.js?v=20261102-p2"></script>
 
 <script type="module" src="gaa-nanosheet-tunneling-leakage-simulator.js?v=20261024"></script>
 <script type="module" src="bspdn-backside-power-thermal-simulator.js?v=20261024"></script>

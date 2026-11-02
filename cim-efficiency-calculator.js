@@ -200,11 +200,11 @@ export function initCimEfficiencyCalculator() {
     }
     if (adcOverheadElem) {
       adcOverheadElem.textContent = `${res.adcPowerFraction.toFixed(1)}%`;
-      adcOverheadElem.style.color = res.adcPowerFraction > 65 ? "#dc2626" : (res.adcPowerFraction > 40 ? "#d97706" : "#16a34a");
+      adcOverheadElem.style.color = res.adcPowerFraction > 65 ? "#dc2626" : (res.adcPowerFraction > 40 ? "#b45309" : "#15803d");
     }
     if (irDropElem) {
       irDropElem.textContent = `${res.irDropPercentage.toFixed(1)}%`;
-      irDropElem.style.color = res.irDropPercentage > 15 ? "#dc2626" : (res.irDropPercentage > 8 ? "#d97706" : "#16a34a");
+      irDropElem.style.color = res.irDropPercentage > 15 ? "#dc2626" : (res.irDropPercentage > 8 ? "#b45309" : "#15803d");
     }
     if (throughputElem) {
       throughputElem.textContent = `${res.throughputTops.toFixed(2)} TOPS`;

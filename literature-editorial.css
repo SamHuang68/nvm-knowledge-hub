@@ -18,6 +18,11 @@ html body.hub-literature-paper {
   background: #fafaf7 !important;
   color: #173b49 !important;
 }
+/* --research-cyan 在紙本模式是深銅色，當字色可讀；當大區塊底色時改用淡紙色，保留上緣強調線。 */
+html body.hub-literature-paper .outcome-equation {
+  background: var(--paper-2) !important;
+  border-top: 3px solid var(--research-cyan);
+}
 html body.hub-literature-paper .site-header {
   display: grid !important;
   grid-template-columns: minmax(140px,auto) minmax(0,1fr) minmax(200px,auto) !important;

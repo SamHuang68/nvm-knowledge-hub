@@ -228,6 +228,51 @@ for (const requiredBoundary of ["validated shutdown", "helper data", "device mis
   if (!lifecycleSource.toLowerCase().includes(requiredBoundary.toLowerCase())) failures.push(`secure-storage lifecycle boundary is missing ${requiredBoundary}`);
 }
 
+// 圖解產生器的材料與載子色只從 visual-tokens.js 取，避免各檔再寫一份而漂移。
+for (const file of files.filter(file => /^scripts\/nvm-[a-z-]+-diagrams\.mjs$/u.test(path.relative(root, file).replaceAll("\\", "/")))) {
+  const palette = fs.readFileSync(file, "utf8").match(/const C\s*=\s*(?:Object\.freeze\()?\{[^}]*\}/u)?.[0];
+  if (palette && /#[0-9a-f]{3,8}\b/iu.test(palette)) failures.push(`${path.relative(root, file).replaceAll("\\", "/")}: diagram palette must take colors from visual-tokens.js`);
+}
+
+// 媒體出處清單：assets/ 每個檔都要有條目、雜湊相符、在大小預算內、有人引用；
+// 以 <img>／<source> 當內容呈現的 AI 生成圖，旁邊要有中英可見揭露。
+const media = JSON.parse(fs.readFileSync(path.join(dataDir, "media-manifest.json"), "utf8"));
+const mediaKinds = new Set(Object.keys(media.kinds ?? {}));
+const assetFiles = files.map(file => path.relative(root, file).replaceAll("\\", "/")).filter(relative => /^assets\/[^/]+$/u.test(relative));
+const entries = new Map();
+for (const entry of media.assets ?? []) {
+  if (entries.has(entry.path)) failures.push(`media manifest lists ${entry.path} twice`);
+  entries.set(entry.path, entry);
+}
+const referencing = files.filter(file => /\.(?:html|css|js|json|webmanifest|xml|txt)$/u.test(file) && !file.endsWith(`${path.sep}media-manifest.json`));
+const referenceText = new Map(referencing.map(file => [path.relative(root, file).replaceAll("\\", "/"), fs.readFileSync(file, "utf8")]));
+for (const relative of assetFiles) {
+  const entry = entries.get(relative);
+  if (!entry) { failures.push(`media manifest missing ${relative}`); continue; }
+  const bytes = fs.readFileSync(path.join(root, relative));
+  const vector = relative.endsWith(".svg");
+  if (crypto.createHash("sha256").update(bytes).digest("hex") !== entry.sha256 || bytes.length !== entry.bytes) failures.push(`${relative}: bytes differ from media manifest`);
+  if (bytes.length > (vector ? media.budgetBytes.vector : media.budgetBytes.raster)) failures.push(`${relative}: ${bytes.length} bytes exceeds the media budget`);
+  if (!mediaKinds.has(entry.kind) || !entry.rights || !entry.evidence) failures.push(`${relative}: media manifest needs a known kind, rights and evidence`);
+  const name = path.basename(relative);
+  const users = [...referenceText].filter(([, text]) => text.includes(name));
+  if (!users.length) failures.push(`${relative}: orphan asset (no public file references it)`);
+  if (entry.kind !== "ai-generated") continue;
+  if (!entry.tool || !entry.visibleDisclosure?.zh || !entry.visibleDisclosure?.en) failures.push(`${relative}: AI-generated entry needs tool and visibleDisclosure`);
+  for (const [page, text] of users.filter(([page]) => page.endsWith(".html"))) {
+    for (const match of text.matchAll(new RegExp(`<(?:img|source)\\b[^>]*${name.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}[^>]*>`, "gu"))) {
+      // 「旁邊」指同一個 figure 或 section 之內；只看標籤以外的可見文字，alt 等屬性不算可見揭露。
+      const ends = ["</figure>", "</section>"].map(tag => text.indexOf(tag, match.index)).filter(index => index > match.index);
+      const end = Math.min(...ends, match.index + 2000);
+      const nearby = text.slice(match.index, ends.length && Math.min(...ends) - match.index < 8000 ? Math.min(...ends) : end).replace(/<[^>]*>/gu, " ");
+      if (!nearby.includes(entry.visibleDisclosure.zh) || !nearby.toLowerCase().includes(entry.visibleDisclosure.en.toLowerCase())) failures.push(`${page}: ${name} is shown without a visible AI-generated disclosure`);
+    }
+  }
+}
+for (const relative of entries.keys()) if (!assetFiles.includes(relative)) failures.push(`media manifest lists missing file ${relative}`);
+const patentFigures = JSON.parse(fs.readFileSync(path.join(dataDir, "nvm-patent-figures.json"), "utf8"));
+for (const patent of patentFigures.patents ?? []) if (!patent.rights) failures.push(`${patent.id}: patent figures lack a rights statement`);
+
 if (failures.length) {
   console.error("Release gate failed:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);

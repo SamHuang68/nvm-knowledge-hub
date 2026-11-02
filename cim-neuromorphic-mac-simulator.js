@@ -233,12 +233,12 @@ export function calculateCimMacMetrics(params = {}) {
   // System Verdict & Compliance
   let ratingZh = '模型門檻：較低損失';
   let ratingEn = 'MODEL THRESHOLD: LOWER LOSS';
-  let gradeColor = '#059669';
+  let gradeColor = '#047857';
 
   if (retainedAccuracyPct < 85.0 || worstCaseIrDropPct > 15.0) {
     ratingZh = '模型門檻：損失升高';
     ratingEn = 'MODEL THRESHOLD: ELEVATED LOSS';
-    gradeColor = '#f59e0b';
+    gradeColor = '#b45309';
   }
   if (retainedAccuracyPct < 70.0 || worstCaseIrDropPct > 25.0) {
     ratingZh = '模型門檻：較高損失';
@@ -533,11 +533,11 @@ export function initCimMacSimulator() {
     if (outSnr) outSnr.textContent = metrics.effectiveSnrDb.toFixed(1) + ' dB';
     if (outIrDrop) {
       outIrDrop.textContent = metrics.worstCaseIrDropMv.toFixed(1) + ' mV (' + metrics.worstCaseIrDropPct.toFixed(1) + '%)';
-      outIrDrop.style.color = metrics.worstCaseIrDropPct < 15 ? '#059669' : (metrics.worstCaseIrDropPct < 25 ? '#f59e0b' : '#dc2626');
+      outIrDrop.style.color = metrics.worstCaseIrDropPct < 15 ? '#047857' : (metrics.worstCaseIrDropPct < 25 ? '#b45309' : '#dc2626');
     }
     if (outAccuracy) {
       outAccuracy.textContent = metrics.retainedAccuracyPct.toFixed(1) + '%';
-      outAccuracy.style.color = metrics.retainedAccuracyPct > 85 ? '#059669' : (metrics.retainedAccuracyPct > 70 ? '#f59e0b' : '#dc2626');
+      outAccuracy.style.color = metrics.retainedAccuracyPct > 85 ? '#047857' : (metrics.retainedAccuracyPct > 70 ? '#b45309' : '#dc2626');
     }
     if (outRating) {
       outRating.innerHTML = `<span data-lang="zh">${metrics.ratingZh}</span><span data-lang="en">${metrics.ratingEn}</span>`;

@@ -117,6 +117,9 @@
         }
         return;
       }
+      // 沒有文字的細長元素（資料長條、進度條、分隔線）是圖形標記，不是內容底；
+      // 轉成紙色會和軌道同色而看不見，保留原色。
+      if (!el.textContent.trim() && el.getBoundingClientRect().height <= 24) return;
       if (lum(s.backgroundColor) < 140) {
         var useCard = /header|topbar|card|panel|note|toolbar|search|input|button|tab|dock|grid|article|modal/i.test((el.className || '') + ' ' + tag);
         el.style.setProperty('background-color', useCard ? CARD : PAPER, 'important');

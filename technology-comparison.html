@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub" data-title-zh="NVM 技術取捨矩陣 · AntiFuse、eFuse、eFlash 與 MRAM · NVM 知識中心" data-description-en="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory." data-description-zh="嵌入式非揮發性記憶體的九維技術取捨矩陣（5 大技術族群／11 葉技術）、五軸互動雷達選型器、第一原理物理模型與晶圓代工生態路線圖（雷達為示範性 heuristic；非 production selector）。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v5"></script>
+  <script src="site-language.js?v=20261102-p2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -42,8 +42,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
-  <link rel="stylesheet" href="styles.css?v=20261102">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20261102">
+  <link rel="stylesheet" href="styles.css?v=20261102-p2">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20261102-p2">
   <link rel="stylesheet" href="named-comparison.css?v=20261003-v1">
 
   <style>
@@ -169,7 +169,7 @@
       text-decoration: none !important;
     }
     html body .site-breadcrumb a:hover {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       text-decoration: underline !important;
     }
     html body .site-breadcrumb strong {
@@ -192,12 +192,12 @@
     html body .site-breadcrumb .topic-switch a:hover {
       background: #e0f2fe !important;
       border-color: #0284c7 !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
     }
     html body .site-breadcrumb .topic-switch a[aria-current] {
-      background: #0f172a !important;
-      border-color: #0f172a !important;
-      color: #ffffff !important;
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
 
@@ -272,7 +272,7 @@
       text-wrap: balance !important;
     }
     .f2-hero h1 em {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-style: normal !important;
       font-weight: 700 !important;
     }
@@ -429,9 +429,9 @@
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .hub-nav-pills .nav-pill:hover {
-      background: #0f172a !important;
-      color: #ffffff !important;
-      border-color: #0f172a !important;
+      background: #ffffff !important;
+      color: #0f172a !important;
+      border-color: #cbd5e1 !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15) !important;
     }
@@ -489,7 +489,7 @@
       gap: 8px !important;
       font: 700 11px 'IBM Plex Mono', monospace !important;
       letter-spacing: 0.14em !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       text-transform: uppercase !important;
       margin-bottom: 6px !important;
     }
@@ -501,7 +501,7 @@
       line-height: 1.3 !important;
     }
     .hub-sec-header h2 em {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-style: normal !important;
     }
 
@@ -570,26 +570,26 @@
       color: #0f172a !important;
     }
     .cat-filter-pill.is-expanded {
-      background: #0f172a !important;
-      border-color: #0f172a !important;
-      color: #ffffff !important;
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
     }
     .cat-filter-pill.is-collapsed {
       background: #f1f5f9 !important;
       border-color: #e2e8f0 !important;
-      color: #94a3b8 !important;
+      color: #475569 !important;
       opacity: 0.75 !important;
     }
     .pill-state-icon {
       font-size: 9.5px !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-weight: 700 !important;
     }
     .cat-filter-pill.is-expanded .pill-state-icon {
-      color: #38bdf8 !important;
+      color: #0369a1 !important;
     }
     .cat-filter-pill.is-collapsed .pill-state-icon {
-      color: #94a3b8 !important;
+      color: #475569 !important;
     }
     .pill-count-badge {
       background: #e2e8f0 !important;
@@ -605,7 +605,7 @@
     }
     .cat-filter-pill.is-collapsed .pill-count-badge {
       background: #e2e8f0 !important;
-      color: #94a3b8 !important;
+      color: #475569 !important;
     }
     .matrix-toolbar-right {
       display: flex !important;
@@ -664,12 +664,12 @@
     .matrix-action-btn:hover {
       background: #e0f2fe !important;
       border-color: #0284c7 !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
     }
     .matrix-action-btn.is-active {
-      background: #0f172a !important;
-      border-color: #0f172a !important;
-      color: #ffffff !important;
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2) !important;
     }
@@ -852,7 +852,7 @@
       letter-spacing: 0.02em !important;
     }
     .matrix-tech-name.focus-gold {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-weight: 700 !important;
       text-shadow: none !important;
     }
@@ -942,7 +942,7 @@
     .matrix-note-card h3, .matrix-note-card .note-card-title {
       margin: 0 !important;
       font: 700 1.02rem 'IBM Plex Mono', monospace !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       border-bottom: 1px solid #f1f5f9 !important;
       padding-bottom: 0.4rem !important;
     }
@@ -965,7 +965,7 @@
       content: "▪" !important;
       position: absolute !important;
       left: 0 !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-size: 0.75rem !important;
       top: 0 !important;
     }
@@ -973,7 +973,7 @@
       color: #0f172a !important;
     }
     .note-card-list a {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       text-decoration: underline !important;
       text-underline-offset: 2px !important;
     }
@@ -1070,7 +1070,7 @@
     }
     .match-score-num {
       font: 800 18px/1 'IBM Plex Mono', monospace !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
     }
     .match-score-bar-bg {
       height: 6px !important;
@@ -1144,7 +1144,7 @@
     }
     .formula-box-math em {
       font-style: italic !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
     }
     .formula-box-math sub,
     .formula-box-math sup {
@@ -1224,7 +1224,7 @@
     .foundry-brand-pill {
       font: 700 10.5px 'IBM Plex Mono', monospace !important;
       letter-spacing: 0.08em !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
     }
     .foundry-card h3 {
       font: 800 1.35rem 'IBM Plex Mono', monospace !important;
@@ -1323,7 +1323,7 @@
     .foundry-jump a:focus-visible {
       border-color: #0284c7 !important;
       background: #e0f2fe !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       outline: none !important;
     }
     .foundry-card:target,
@@ -1352,7 +1352,7 @@
     .value-chain-badge {
       font: 800 10px/1 'IBM Plex Mono', monospace !important;
       letter-spacing: 0.1em !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       text-transform: uppercase !important;
     }
     .value-chain-card h4 {
@@ -1366,7 +1366,7 @@
       color: #334155 !important;
     }
     .vc-layer b {
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 0.8rem !important;
     }
@@ -1412,7 +1412,7 @@
     .step-num {
       font: 800 11px/1 'IBM Plex Mono', monospace !important;
       letter-spacing: 0.12em !important;
-      color: #0284c7 !important;
+      color: #0369a1 !important;
       display: block !important;
     }
     .pipeline-step-card h3 {
@@ -1489,8 +1489,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #006f70;
-      color: #ffffff;
+      background: #e6f3f3;
+      color: #005b5c;
+      border: 1px solid #9fcfcf;
       font-size: 0.8rem;
       font-weight: 700;
       padding: 4px 10px;
@@ -1679,8 +1680,8 @@
       display: inline-block;
       font-size: 0.72rem;
       font-weight: 800;
-      color: #ffffff;
-      background: #173b49;
+      color: #0f172a;
+      background: #ffffff;
       padding: 2px 6px;
       border-radius: 4px;
       margin-bottom: 6px;
@@ -1849,8 +1850,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #173b49;
-      color: #ffffff;
+      background: #ffffff;
+      color: #0f172a;
       font-size: 0.75rem;
       font-weight: 700;
       padding: 3px 8px;
@@ -2128,7 +2129,7 @@
               <span data-lang="en">CORE-OXIDE ANTIFUSE WINDOW</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #34d399; font-weight: 600;">
+              <span style="color: #047857; font-weight: 600;">
                 <span data-lang="zh">較厚的 2.5 V 閘氧常先碰上接面崩潰</span>
                 <span data-lang="en">Thicker 2.5 V oxide often loses to junction BV</span>
               </span>
@@ -2335,7 +2336,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="1" data-tech="maskrom"><b>0–1</b><span class="cell-note"><span data-lang="zh">via／contact 圖樣</span><span data-lang="en">Via / contact pattern</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="1" data-tech="eeprom"><b><span data-lang="zh">待查驗</span><span data-lang="en">VERIFY</span></b><span class="cell-note"><span data-lang="zh">額外 poly／模組層數</span><span data-lang="en">Extra poly / module count</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="1" data-tech="fgotp"><b>+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級</span><span data-lang="en">Logic-IP class</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="1" data-tech="antifuse"><b style="color:#dfb77c;">+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級</span><span data-lang="en">Logic-IP class</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="1" data-tech="antifuse"><b style="color:#785021;">+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級</span><span data-lang="en">Logic-IP class</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="1" data-tech="ldmtp"><b><span data-lang="zh">通常 +0</span><span data-lang="en">Typically +0</span></b><span class="cell-note"><span data-lang="zh">通常 +0；供應商分流</span><span data-lang="en">Typically +0; vendor-split</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="1" data-tech="hdmtp"><b>+0 ~ +2</b><span class="cell-note"><span data-lang="zh">供應商分流；見註腳</span><span data-lang="en">Vendor-split; see footnote</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sst"><b>+4 / <span data-lang="zh">待查驗</span><span data-lang="en">VERIFY</span> / +10</b><span class="cell-note"><span data-lang="zh">ESF1／ESF2／ESF3</span><span data-lang="en">ESF1 / ESF2 / ESF3</span></span></div>
@@ -2351,7 +2352,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="maskrom"><b><span data-lang="zh">最小</span><span data-lang="en">Smallest</span></b><span class="cell-note">&lt; 8 F²</span></div>
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="eeprom"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">20–40 F²</span></div>
 <div class="matrix-cell" data-category="otp" data-row="2" data-tech="fgotp"><b><span data-lang="zh">大（I/O 級）</span><span data-lang="en">Large (I/O Class)</span></b><span class="cell-note">100–250+ F²*</span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="2" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">極小（Core 1T）</span><span data-lang="en">Ultra-Small (Core 1T)</span></b><span class="cell-note">10–25 F²*</span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="2" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">極小（Core 1T）</span><span data-lang="en">Ultra-Small (Core 1T)</span></b><span class="cell-note">10–25 F²*</span></div>
 <div class="matrix-cell" data-category="mtp" data-row="2" data-tech="ldmtp"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120+ F²</span></div>
 <div class="matrix-cell" data-category="mtp" data-row="2" data-tech="hdmtp"><b><span data-lang="zh">中／緊湊</span><span data-lang="en">Medium/Compact</span></b><span class="cell-note">25–50 F²</span></div>
 <div class="matrix-cell" data-category="eflash" data-row="2" data-tech="sst"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
@@ -2367,7 +2368,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="3" data-tech="maskrom"><b><span data-lang="zh">光罩圖樣</span><span data-lang="en">Mask pattern</span></b><span class="cell-note"><span data-lang="zh">無電氣 PGM</span><span data-lang="en">No electrical PGM</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="3" data-tech="eeprom"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">雙層多晶矽浮閘</span><span data-lang="en">Double-poly floating gate</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="3" data-tech="fgotp"><b><span data-lang="en">CHEI / None</span><span data-lang="zh">CHEI／無</span></b><span class="cell-note"><span data-lang="zh">浮閘注入；CFX 亦列此路徑</span><span data-lang="en">FG inject; CFX also lists this path</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通；CFX 教學為閘氧，ZA 位點未公開</span><span data-lang="en">Irreversible conduction; CFX teaching GOX, ZA site unpublished</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通；CFX 教學為閘氧，ZA 位點未公開</span><span data-lang="en">Irreversible conduction; CFX teaching GOX, ZA site unpublished</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="3" data-tech="ldmtp"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">NeoEE／ZT 級；Actt 未公開</span><span data-lang="en">NeoEE / ZT class; Actt unpublished</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b><span data-lang="zh">CHI/FN 或 FN/FN</span><span data-lang="en">CHI/FN or FN/FN</span></b><span class="cell-note"><span data-lang="zh">NeoMTP 等 CHI/FN；AEON 級 FN/FN — 非 TwinBit Schottky</span><span data-lang="en">NeoMTP-class CHI/FN; AEON-class FN/FN — not TwinBit Schottky</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sst"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">SuperFlash SSI／尖端 FN</span><span data-lang="en">SuperFlash SSI / tip FN</span></span></div>
@@ -2383,7 +2384,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="4" data-tech="maskrom"><b><span data-lang="zh">不適用</span><span data-lang="en">N/A</span></b><span class="cell-note"><span data-lang="zh">光罩寫入</span><span data-lang="en">Mask write</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="4" data-tech="eeprom"><b><span data-lang="en">FN / HV pump</span><span data-lang="zh">FN／高壓幫浦</span></b><span class="cell-note"><span data-lang="zh">~8–14 V 量級</span><span data-lang="en">~8–14 V class</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="4" data-tech="fgotp"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見註腳 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="4" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="4" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="4" data-tech="ldmtp"><b><span data-lang="zh">FN 視窗</span><span data-lang="en">FN window</span></b><span class="cell-note"><span data-lang="zh">低擾動幫浦</span><span data-lang="en">Low-disturb pump</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="4" data-tech="hdmtp"><b><span data-lang="zh">FN + FN（或 CHI/FN）</span><span data-lang="en">FN + FN (or CHI/FN)</span></b><span class="cell-note"><span data-lang="zh">AEON 級 FN 寫抹；NeoMTP 等 CHI/FN — 分流</span><span data-lang="en">AEON-class FN PGM/ERS; NeoMTP-class CHI/FN — split</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sst"><b><span data-lang="en">SSI + HV pump</span><span data-lang="zh">SSI + 高壓幫浦</span></b><span class="cell-note"><span data-lang="zh">寫 10V+5V／抹 12–15V</span><span data-lang="en">Prog 10V+5V / Ers 12–15V</span></span></div>
@@ -2399,7 +2400,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="5" data-tech="maskrom"><b><span data-lang="zh">永久級</span><span data-lang="en">Permanent class</span></b><span class="cell-note"><span data-lang="zh">光罩固定</span><span data-lang="en">Mask-fixed</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="5" data-tech="eeprom"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="5" data-tech="fgotp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="5" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">高溫級</span><span data-lang="en">High-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 175°C（架構級，非認證；<a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public</a>）量級</span><span data-lang="en">~10 yr @ 175°C (architecture class, not cert; <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public</a>)</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="5" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">高溫級</span><span data-lang="en">High-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 175°C（架構級，非認證；<a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public</a>）量級</span><span data-lang="en">~10 yr @ 175°C (architecture class, not cert; <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public</a>)</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="5" data-tech="ldmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="5" data-tech="hdmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sst"><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
@@ -2415,7 +2416,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="6" data-tech="maskrom"><b>~5–15 ns</b><span class="cell-note"><span data-lang="zh">靜態 1T 陣列</span><span data-lang="en">Static 1T array</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="6" data-tech="eeprom"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="6" data-tech="fgotp"><b>~25–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="6" data-tech="antifuse"><b style="color:#dfb77c;">~25–40 ns</b><span class="cell-note"><span data-lang="zh">受 cell current 限制</span><span data-lang="en">Cell-current limited</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="6" data-tech="antifuse"><b style="color:#785021;">~25–40 ns</b><span class="cell-note"><span data-lang="zh">受 cell current 限制</span><span data-lang="en">Cell-current limited</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="6" data-tech="ldmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="6" data-tech="hdmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sst"><b>~15–25 ns</b><span class="cell-note"><span data-lang="zh">分離閘極較快</span><span data-lang="en">Split-gate faster</span></span></div>
@@ -2431,7 +2432,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="7" data-tech="maskrom"><b><span data-lang="zh">0 次</span><span data-lang="en">0 cycles</span></b><span class="cell-note"><span data-lang="zh">唯讀</span><span data-lang="en">Read-only</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="7" data-tech="eeprom"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="7" data-tech="fgotp"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">OTP 單調</span><span data-lang="en">OTP monotonic</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="7" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="7" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="7" data-tech="ldmtp"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">家族量級；ZT 本文／表衝突，非保證</span><span data-lang="en">Family class; ZT body/table conflict, not a guarantee</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="7" data-tech="hdmtp"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">FN 穿隧／介面磨耗（AEON 級）；CHI 路線另計</span><span data-lang="en">FN tunneling / interface wear (AEON-class); CHI routes differ</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sst"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
@@ -2447,7 +2448,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="maskrom"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="eeprom"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">無（受限 I/O）</span><span data-lang="en">None (I/O Bound)</span></b><span class="cell-note"><span data-lang="zh">平面 &le;28nm 止步*</span><span data-lang="en">Planar &le;28nm floor*</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA</span><span data-lang="en">Down to 2nm GAA</span></b><span class="cell-note"><span data-lang="zh">隨 Core 薄閘氧*</span><span data-lang="en">Tracks Core GOX*</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#785021;"><span data-lang="zh">微縮至 2nm GAA</span><span data-lang="en">Down to 2nm GAA</span></b><span class="cell-note"><span data-lang="zh">隨 Core 薄閘氧*</span><span data-lang="en">Tracks Core GOX*</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sst" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
@@ -2535,7 +2536,7 @@
 
           <!-- Card 2: 單元拓撲與微縮斷崖 -->
           <div class="matrix-note-card">
-            <div class="note-card-badge" style="color: #f59e0b;"><span data-lang="zh">02 · 單元拓撲與製程整合</span><span data-lang="en">02 · CELL TOPOLOGY &amp; PROCESS INTEGRATION</span></div>
+            <div class="note-card-badge" style="color: #b45309;"><span data-lang="zh">02 · 單元拓撲與製程整合</span><span data-lang="en">02 · CELL TOPOLOGY &amp; PROCESS INTEGRATION</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">位元胞幾何與 3D 微縮邊界</span>
               <span data-lang="en">Cell Geometry &amp; 3D Scaling Limits</span>
@@ -2592,7 +2593,7 @@
 
           <!-- Card 4: 編程電壓與實體安全屏障 -->
           <div class="matrix-note-card">
-            <div class="note-card-badge" style="color: #3b82f6;"><span data-lang="zh">04 · 電壓視窗與實體安全</span><span data-lang="en">04 · VOLTAGE WINDOWS &amp; SECURITY</span></div>
+            <div class="note-card-badge" style="color: #1d4ed8;"><span data-lang="zh">04 · 電壓視窗與實體安全</span><span data-lang="en">04 · VOLTAGE WINDOWS &amp; SECURITY</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">電壓視窗與實體安全責任鏈</span>
               <span data-lang="en">Voltage Windows &amp; Layered Security</span>
@@ -2618,7 +2619,7 @@
 
           <!-- Card 5: Named IP coverage under family leaves -->
           <div class="matrix-note-card named-ip-card" id="named-ip-leaves">
-            <div class="note-card-badge" style="color: #7dd3fc;"><span data-lang="zh">05 · 具名 IP 歸屬與查核</span><span data-lang="en">05 · NAMED IP UNDER FAMILY LEAVES</span></div>
+            <div class="note-card-badge" style="color: #0369a1;"><span data-lang="zh">05 · 具名 IP 歸屬與查核</span><span data-lang="en">05 · NAMED IP UNDER FAMILY LEAVES</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">具名 IP 對應既有 11 葉（機制不同者不併欄）</span>
               <span data-lang="en">Named IPs Map onto the 11 Leaves (Do Not Merge Distinct Physics)</span>
@@ -4206,7 +4207,7 @@
 
         <!-- Formula 2: Wafer Cost Economics & Yield -->
         <div class="formula-card">
-          <div class="hub-sec-badge" style="color:#f59e0b;"><span data-lang="zh">公式 02 · 晶圓成本與良率</span><span data-lang="en">EQUATION 02 · WAFER COST &amp; YIELD</span></div>
+          <div class="hub-sec-badge" style="color:#b45309;"><span data-lang="zh">公式 02 · 晶圓成本與良率</span><span data-lang="en">EQUATION 02 · WAFER COST &amp; YIELD</span></div>
           <h3>
             <span data-lang="zh">額外光罩晶圓成本與良率恆等式</span>
             <span data-lang="en">Mask-Adder Wafer Cost &amp; Effective Yield Identity</span>
@@ -4386,31 +4387,31 @@
       </div>
 
       <!-- 晶圓光罩附加、Poisson/Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器 -->
-      <div class="decision-matrix-card wafer-tco-container" id="wafer-tco-calculator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+      <div class="decision-matrix-card wafer-tco-container" id="wafer-tco-calculator-root" style="margin-top: 32px; background: #ffffff; border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
           <div>
-            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #fbbf24; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #b45309; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
               <span data-lang="zh">第一性原理晶圓光罩附加與 TCO 經濟學模型</span>
               <span data-lang="en">FIRST-PRINCIPLES WAFER MASK-ADDER &amp; TCO ECONOMICS MODEL</span>
             </div>
-            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
               <span data-lang="zh">晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器</span>
               <span data-lang="en">eNVM Wafer Mask Adder, Murphy Yield Loss &amp; Mass-Production TCO Economics Calculator</span>
             </h3>
           </div>
-          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(245, 158, 11, 0.12); color: #fbbf24; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">
+          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(245, 158, 11, 0.12); color: #b45309; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">
             <span data-lang="zh">300mm 晶圓量產標準</span>
             <span data-lang="en">300mm Wafer Fab Standard</span>
           </span>
         </div>
 
-        <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+        <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 18px;">
           <span data-lang="zh">在半導體決策中，評估 eNVM 不能僅看裸單元面積（F²），必須閉環計入額外光罩道數（ΔN）、高溫熱退火對 CMOS 閘極氧化層的缺陷密度增加（ΔD₀）、Murphy 矽良率損失與光罩組 NRE 攤提。本工作台透過第一性原理晶圓成本恆等式與 Murphy 缺陷模型，即時量化純邏輯 AntiFuse（0 光罩）對比 eFlash（+10 光罩）與 eMRAM（+4 光罩）的全生命週期 TCO 經濟學價值。</span>
           <span data-lang="en">In semiconductor architecture decisions, evaluating eNVM requires looking beyond bitcell area (F²). Architectural cost closure demands factoring in mask-adder layers (ΔN), defectivity density penalties (ΔD₀) from high-temperature thermal budgets, Murphy silicon yield degradation, and mask-set NRE amortization. This calculator applies first-principles wafer cost identities and Murphy yield models to quantify the lifecycle TCO advantages of zero-mask AntiFuse over eFlash (+10 masks) and eMRAM (+4 masks).</span>
         </p>
 
         <!-- Simulation Disclaimer Banner -->
-        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
           <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
           <span data-lang="zh">本工作台之光罩附加成本比率 (α)、Murphy 矽良率損失與百萬晶圓 TCO 為基於公開一階成本恆等式與典型缺陷密度模型之數值試算，非特定晶圓代工廠機密晶圓報價單或特定晶片之產線良率承諾。實際生產成本需依據晶圓採購協議 (WPA)、量產規模與合約良率保證條款確認。</span>
           <span data-lang="en">The mask-adder cost ratios (α), Murphy yield loss, and million-wafer TCO in this workbench are schematic numerical approximations based on public first-order cost equations and defect models, rather than confidential foundry price schedules or tape-out yield commitments. Actual production economics depend on volume wafer supply agreements and contract yield targets.</span>
@@ -4419,10 +4420,10 @@
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin-bottom: 18px;">
           <div>
-            <label for="tco-process-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <label for="tco-process-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span data-lang="zh">晶圓代工製程節點基準:</span><span data-lang="en">FOUNDRY PROCESS NODE:</span>
             </label>
-            <select id="tco-process-select" aria-label="Foundry Process Node Baseline" data-aria-en="Foundry Process Node Baseline" data-aria-zh="晶圓代工製程節點基準" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <select id="tco-process-select" aria-label="Foundry Process Node Baseline" data-aria-en="Foundry Process Node Baseline" data-aria-zh="晶圓代工製程節點基準" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
               <option value="28nm_hpc" selected>28nm HPC+ Planar Logic ($3,200/wafer, 42 masks)</option>
               <option value="55nm_mature">55nm/40nm Mature Node ($1,850/wafer, 32 masks)</option>
               <option value="16nm_finfet">16nm/12nm FinFET Logic ($4,800/wafer, 55 masks)</option>
@@ -4431,10 +4432,10 @@
           </div>
 
           <div>
-            <label for="tco-envm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <label for="tco-envm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span data-lang="zh">eNVM 記憶體技術架構:</span><span data-lang="en">eNVM ARCHITECTURE:</span>
             </label>
-            <select id="tco-envm-select" aria-label="eNVM Memory Architecture" data-aria-en="eNVM Memory Architecture" data-aria-zh="eNVM 記憶體技術架構" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <select id="tco-envm-select" aria-label="eNVM Memory Architecture" data-aria-en="eNVM Memory Architecture" data-aria-zh="eNVM 記憶體技術架構" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
               <option value="antifuse_logic" selected>Pure Logic AntiFuse (0-Mask / 0-Penalty)</option>
               <option value="beol_reram">BEOL ReRAM (2-Mask / Oxide Filament)</option>
               <option value="beol_emram">BEOL STT-MRAM (4-Mask / MTJ Stack)</option>
@@ -4443,17 +4444,17 @@
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">單晶片總面積 (Die Area):</span><span data-lang="en">DIE AREA:</span></span>
-              <span id="tco-area-val" style="color: #fbbf24; font-weight: 700;">25.0 mm²</span>
+              <span id="tco-area-val" style="color: #b45309; font-weight: 700;">25.0 mm²</span>
             </div>
             <input type="range" id="tco-area-slider" min="2" max="60" step="0.5" value="25.0" aria-label="Die Area in Square Millimeters" data-aria-en="Die Area in Square Millimeters" data-aria-zh="單晶片總面積 平方公釐" aria-valuetext="25.0 mm²" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">年度晶圓投片總量:</span><span data-lang="en">ANNUAL WAFER VOLUME:</span></span>
-              <span id="tco-volume-val" style="color: #fbbf24; font-weight: 700;">30,000 Wafers</span>
+              <span id="tco-volume-val" style="color: #b45309; font-weight: 700;">30,000 Wafers</span>
             </div>
             <input type="range" id="tco-volume-slider" min="1000" max="80000" step="1000" value="30000" aria-label="Annual Wafer Volume" data-aria-en="Annual Wafer Volume" data-aria-zh="年度晶圓投片總量" aria-valuetext="30,000 Wafers" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
           </div>
@@ -4465,7 +4466,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">光罩附加數</span><span data-lang="en">MASK ADDERS</span>
             </div>
-            <div id="m-mask-layers" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">+0 Masks</div>
+            <div id="m-mask-layers" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">+0 Masks</div>
             <div id="m-total-masks" style="font-size: 10px; color: #64748b; margin-top: 2px;">42 Total</div>
           </div>
 
@@ -4491,7 +4492,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">Murphy 矽良率</span><span data-lang="en">MURPHY YIELD</span>
             </div>
-            <div id="m-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">92.4%</div>
+            <div id="m-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">92.4%</div>
             <div id="m-good-dies" style="font-size: 10px; color: #64748b; margin-top: 2px;">2,383 Good Dies</div>
           </div>
 
@@ -4499,7 +4500,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
               <span data-lang="zh">良品晶片成本</span><span data-lang="en">COST / GOOD DIE</span>
             </div>
-            <div id="m-die-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">$1.37 / Die</div>
+            <div id="m-die-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">$1.37 / Die</div>
             <div id="m-die-cost-sub" style="font-size: 10px; color: #64748b; margin-top: 2px;">Silicon + Test</div>
           </div>
 
@@ -4508,7 +4509,7 @@
               <span data-lang="zh">年度總擁有成本</span><span data-lang="en">ANNUAL TCO</span>
             </div>
             <div id="m-annual-tco" style="font: 700 16px 'IBM Plex Mono', monospace; color: #dc2626;">$97.2M</div>
-            <div id="m-tco-delta" style="font-size: 10px; color: #059669; margin-top: 2px;">Baseline (0-Mask)</div>
+            <div id="m-tco-delta" style="font-size: 10px; color: #047857; margin-top: 2px;">Baseline (0-Mask)</div>
           </div>
         </div>
 
@@ -4533,37 +4534,37 @@
         </div>
 
         <!-- Architectural Insight Callout -->
-        <div style="background: rgba(15, 23, 42, 0.8); border-left: 3px solid #fbbf24; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1;">
+        <div style="background: #f8fafc; border-left: 3px solid #fbbf24; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
           <span id="tco-analytical-summary">Loading first-principles wafer cost and TCO economics calculations...</span>
         </div>
       </div>
 
       <!-- 3D 立體垂直堆疊 eNVM 與字元線階梯刻蝕 Word-line Tier RC 延遲模擬器 -->
-      <div class="decision-matrix-card vertical-3d-container" id="vertical-3d-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
-        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+      <div class="decision-matrix-card vertical-3d-container" id="vertical-3d-simulator-root" style="margin-top: 32px; background: #ffffff; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 12px;">
           <div>
-            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #a78bfa; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #6d28d9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
               <span data-lang="zh">3D 垂直堆疊物理 · 高深寬比階梯刻蝕與薄膜尺寸效應</span>
               <span data-lang="en">3D VERTICAL STACKING PHYSICS · HAR STAIRCASE ETCH &amp; SIZE EFFECTS</span>
             </div>
-            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #0f172a; font-weight: 700;">
               <span data-lang="zh">3D 立體垂直堆疊 eNVM 字元線階梯 RC 延遲與薄膜金屬電阻率尺寸效應模擬器</span>
               <span data-lang="en">3D Vertical Stacked eNVM Word-Line Tier RC Delay &amp; Conductor Size-Effect Simulator</span>
             </h3>
           </div>
-          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(139, 92, 246, 0.12); color: #a78bfa; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.3);">
+          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(139, 92, 246, 0.12); color: #6d28d9; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.3);">
             <span data-lang="zh">HAR 階梯深孔 / 鉬 (Mo) 薄膜物理模型</span>
             <span data-lang="en">HAR Staircase / Molybdenum Thin-Film Model</span>
           </span>
         </div>
 
-        <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+        <p style="font-size: 13px; line-height: 1.65; color: #475569; margin: 0 0 18px;">
           <span data-lang="zh">在 3D 垂直堆疊記憶體（如 3D AntiFuse OTP、3D NOR 與 3D NAND）中，層數（Tier Count，32 至 128+ 層）的增加大幅提高了單元密度；然而高深寬比（HAR）階梯刻蝕走線使最底層字元線（Word-Line）物理長度急劇延伸。同時，金屬薄膜厚度微縮（&lt;25 nm）觸發 Fuchs-Sondheimer 表面散射與 Mayadas-Shatzkes 晶界散射，使鎢（W）電阻率暴增數倍，引發嚴峻的字元線 RC 延遲梯差（Delay Skew）。改採先進低電阻率金屬鉬（Mo）或超短平均自由程釕（Ru）可有效壓低 RC 延遲，維持端到端高速讀取存取頻寬。</span>
           <span data-lang="en">In 3D vertical stacked memories (such as 3D AntiFuse OTP, 3D NOR, and 3D NAND), increasing tier counts (32 to 128+ layers) dramatically multiplies bit density. However, high-aspect-ratio (HAR) staircase contact routing drastically extends the physical length of lower word-lines. Concurrently, scaling conductor film thickness below 25 nm triggers severe Fuchs-Sondheimer surface and Mayadas-Shatzkes grain-boundary scattering, surging tungsten (W) resistivity and causing severe RC delay skew across tiers. Transitioning to advanced molybdenum (Mo) or ultra-short mean-free-path ruthenium (Ru) suppresses RC delay, sustaining high random-read bandwidth.</span>
         </p>
 
         <!-- Simulation Disclaimer Banner -->
-        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
           <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
           <span data-lang="zh">本工作台之字元線階梯 RC 延遲與 Fuchs-Sondheimer / Mayadas-Shatzkes 薄膜金屬電阻率散射為基於一階集總傳輸線與半經驗尺寸效應模型之數值示意，非 3D TCAD 或高頻電磁場求解器 (HFSS) 之實體驗證網格數據。實體深階梯延遲受刻蝕輪廓側壁傾角、孔徑均勻性與阻障層 (TiN/TaN) 界面粗糙度支配。</span>
           <span data-lang="en">The word-line staircase RC delays and Fuchs-Sondheimer / Mayadas-Shatzkes conductor size-effect resistivity in this workbench are schematic numerical approximations based on first-order transmission-line models, rather than 3D TCAD or full-wave electromagnetic solver outputs. Physical staircase delay skew is governed by sidewall taper angles, etch hole uniformity, and barrier layer interface roughness.</span>
@@ -4572,10 +4573,10 @@
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin-bottom: 18px;">
           <div>
-            <label for="vert3d-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <label for="vert3d-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span data-lang="zh">3D 垂直堆疊架構預設:</span><span data-lang="en">3D STACKED ARCHITECTURE:</span>
             </label>
-            <select id="vert3d-preset-select" aria-label="3D Stacked Architecture Preset" data-aria-en="3D Stacked Architecture Preset" data-aria-zh="3D 垂直堆疊架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <select id="vert3d-preset-select" aria-label="3D Stacked Architecture Preset" data-aria-en="3D Stacked Architecture Preset" data-aria-zh="3D 垂直堆疊架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
               <option value="vert_3d_antifuse_64l" selected>64-Tier 3D AntiFuse OTP (RoT / Zero Leakage)</option>
               <option value="vert_3d_nor_48l">48-Tier 3D NOR (Automotive Boot Code)</option>
               <option value="vert_3d_nand_128l">128-Tier 3D CTF NAND (High-Density)</option>
@@ -4584,10 +4585,10 @@
           </div>
 
           <div>
-            <label for="vert3d-conductor-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <label for="vert3d-conductor-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span data-lang="zh">字元線導體金屬材料:</span><span data-lang="en">WORD-LINE CONDUCTOR:</span>
             </label>
-            <select id="vert3d-conductor-select" aria-label="Word-Line Conductor Material" data-aria-en="Word-Line Conductor Material" data-aria-zh="字元線導體金屬材料" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <select id="vert3d-conductor-select" aria-label="Word-Line Conductor Material" data-aria-en="Word-Line Conductor Material" data-aria-zh="字元線導體金屬材料" style="width: 100%; padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
               <option value="molybdenum_mo_pvd" selected>Advanced Molybdenum (Mo / Low Size Effect)</option>
               <option value="tungsten_w_ald">Conventional ALD Tungsten (W / Mainstream)</option>
               <option value="ruthenium_ru_subnm">Ultra-Scaled Ruthenium (Ru / Short MFP)</option>
@@ -4596,25 +4597,25 @@
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">垂直堆疊層數:</span><span data-lang="en">TIER COUNT:</span></span>
-              <span id="vert3d-tier-val" style="color: #a78bfa; font-weight: 700;">64 L</span>
+              <span id="vert3d-tier-val" style="color: #6d28d9; font-weight: 700;">64 L</span>
             </div>
             <input type="range" id="vert3d-tier-slider" min="16" max="192" step="16" value="64" aria-label="Vertical Stack Tier Count" data-aria-en="Vertical Stack Tier Count" data-aria-zh="垂直堆疊層數" aria-valuetext="64 Tiers" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">金屬薄膜厚度:</span><span data-lang="en">FILM THICKNESS:</span></span>
-              <span id="vert3d-thickness-val" style="color: #a78bfa; font-weight: 700;">25 nm</span>
+              <span id="vert3d-thickness-val" style="color: #6d28d9; font-weight: 700;">25 nm</span>
             </div>
             <input type="range" id="vert3d-thickness-slider" min="10" max="50" step="1" value="25" aria-label="Wordline Conductor Thickness in nm" data-aria-en="Wordline Conductor Thickness in nm" data-aria-zh="金屬薄膜厚度奈米" aria-valuetext="25 nm" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">陣列水平長度:</span><span data-lang="en">ARRAY LENGTH:</span></span>
-              <span id="vert3d-length-val" style="color: #a78bfa; font-weight: 700;">120 µm</span>
+              <span id="vert3d-length-val" style="color: #6d28d9; font-weight: 700;">120 µm</span>
             </div>
             <input type="range" id="vert3d-length-slider" min="30" max="300" step="10" value="120" aria-label="Array Horizontal Length in um" data-aria-en="Array Horizontal Length in um" data-aria-zh="陣列水平長度微米" aria-valuetext="120 µm" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
           </div>
@@ -4633,21 +4634,21 @@
             <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">最差層 RC 延遲</span><span data-lang="en">WORST WL DELAY</span>
             </span>
-            <div id="vert3d-out-worstdelay" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">--</div>
+            <div id="vert3d-out-worstdelay" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
           </div>
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
             <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">頂底層延遲梯差</span><span data-lang="en">TIER DELAY SKEW</span>
             </span>
-            <div id="vert3d-out-delayskew" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">--</div>
+            <div id="vert3d-out-delayskew" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
           </div>
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
             <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; display: block; margin-bottom: 4px;">
               <span data-lang="zh">端到端讀取存取時間</span><span data-lang="en">TOTAL ACCESS TIME</span>
             </span>
-            <div id="vert3d-out-accesstime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">--</div>
+            <div id="vert3d-out-accesstime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
           </div>
         </div>
 
@@ -4781,7 +4782,7 @@
         <!-- UMC -->
         <div class="foundry-card umc" id="foundry-umc">
           <div class="foundry-card-top">
-            <div class="foundry-brand-pill" style="color: #f59e0b;"><span data-lang="zh">晶圓廠 02 · 聯華電子 (UMC)</span><span data-lang="en">FOUNDRY 02 · UNITED MICROELECTRONICS</span></div>
+            <div class="foundry-brand-pill" style="color: #b45309;"><span data-lang="zh">晶圓廠 02 · 聯華電子 (UMC)</span><span data-lang="en">FOUNDRY 02 · UNITED MICROELECTRONICS</span></div>
             <h3>UMC</h3>
           </div>
           <div class="foundry-node-tiles">
@@ -4868,7 +4869,7 @@
         <!-- Samsung -->
         <div class="foundry-card sec" id="foundry-samsung">
           <div class="foundry-card-top">
-            <div class="foundry-brand-pill" style="color: #3b82f6;"><span data-lang="zh">晶圓廠 04 · 三星代工 (SAMSUNG FOUNDRY)</span><span data-lang="en">FOUNDRY 04 · SAMSUNG FOUNDRY</span></div>
+            <div class="foundry-brand-pill" style="color: #1d4ed8;"><span data-lang="zh">晶圓廠 04 · 三星代工 (SAMSUNG FOUNDRY)</span><span data-lang="en">FOUNDRY 04 · SAMSUNG FOUNDRY</span></div>
             <h3>Samsung Foundry</h3>
           </div>
           <div class="foundry-node-tiles">
@@ -5091,7 +5092,7 @@
       <article id="finfet-gaa-simulator-root" class="interactive-workbench" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.4); border-radius: 8px; padding: 20px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="finfet-sim-title">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
           <div>
-            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.08em; text-transform: uppercase;">
               <span data-lang="zh">先進邏輯節點 · 3D 靜電幾何與穿隧微縮</span>
               <span data-lang="en">ADVANCED LOGIC NODES · 3D ELECTROSTATICS &amp; TUNNELING SCALING</span>
             </span>
@@ -5100,7 +5101,7 @@
               <span data-lang="en">Advanced FinFET / GAA NanoSheet AntiFuse Scalability &amp; Quantum Tunneling Simulator</span>
             </h3>
           </div>
-          <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(2, 132, 199, 0.12); color: #0284c7; font-weight: 600;">
+          <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(2, 132, 199, 0.12); color: #0369a1; font-weight: 600;">
             <span data-lang="zh">架構比較 · 未綁定具名巨集規格</span>
             <span data-lang="en">Architecture Comparison · No Named Macro Specification</span>
           </span>
@@ -5136,10 +5137,10 @@
               <label for="finfet-volt-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
                 <span data-lang="zh">外加偏壓 (V<sub>ox</sub>)</span><span data-lang="en">Applied Voltage (V<sub>ox</sub>)</span>
               </label>
-              <span id="finfet-volt-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0284c7;">0.70 V</span>
+              <span id="finfet-volt-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0369a1;">0.70 V</span>
             </div>
             <input type="range" id="finfet-volt-slider" min="0.4" max="8.5" step="0.05" value="0.70" style="width: 100%; cursor: pointer;" aria-label="Applied voltage Vox in Volts" data-aria-en="Applied voltage Vox in Volts" data-aria-zh="外加偏壓 Vox (伏特)">
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; font-family: 'IBM Plex Mono', monospace;">
               <span>0.4 V</span><span>4.5 V</span><span>8.5 V</span>
             </div>
           </div>
@@ -5150,10 +5151,10 @@
               <label for="finfet-temp-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
                 <span data-lang="zh">接面溫度 (T<sub>j</sub>)</span><span data-lang="en">Junction Temp (T<sub>j</sub>)</span>
               </label>
-              <span id="finfet-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0284c7;">125 °C</span>
+              <span id="finfet-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0369a1;">125 °C</span>
             </div>
             <input type="range" id="finfet-temp-slider" min="25" max="175" step="5" value="125" style="width: 100%; cursor: pointer;" aria-label="Junction temperature Tj in Celsius" data-aria-en="Junction temperature Tj in Celsius" data-aria-zh="接面溫度 Tj (攝氏度)">
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; font-family: 'IBM Plex Mono', monospace;">
               <span>25 °C</span><span>105 °C</span><span>175 °C</span>
             </div>
           </div>
@@ -5162,51 +5163,51 @@
         <!-- KPI METRIC CARDS -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; margin-bottom: 1.25rem;">
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0284c7;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">一維基礎電場 E<sub>1D</sub></span><span data-lang="en">1D Field E<sub>1D</sub></span>
             </small>
             <div id="finfet-e1d-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">3.33 MV/cm</div>
-            <span style="font-size: 10px; color: #64748b;">V / t<sub>phys</sub></span>
+            <span style="font-size: 10px; color: #475569;">V / t<sub>phys</sub></span>
           </div>
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #ea580c;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">3D 角隅增強場 E<sub>corner</sub></span><span data-lang="en">3D Corner Field</span>
             </small>
-            <div id="finfet-ecorner-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #ea580c; margin-top: 4px;">4.07 MV/cm</div>
-            <span style="font-size: 10px; color: #64748b;">&kappa; &middot; E<sub>1D</sub> (+22%)</span>
+            <div id="finfet-ecorner-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #c2410c; margin-top: 4px;">4.07 MV/cm</div>
+            <span style="font-size: 10px; color: #475569;">&kappa; &middot; E<sub>1D</sub> (+22%)</span>
           </div>
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #2563eb;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">預測擊穿電壓 V<sub>bd</sub></span><span data-lang="en">Breakdown V<sub>bd</sub></span>
             </small>
             <div id="finfet-vbd-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">2.84 V</div>
-            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">相較 28nm -60%</span><span data-lang="en">-60% vs 28nm</span></span>
+            <span style="font-size: 10px; color: #475569;"><span data-lang="zh">相較 28nm -60%</span><span data-lang="en">-60% vs 28nm</span></span>
           </div>
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #7c3aed;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">電荷泵級數需求</span><span data-lang="en">Pump Stages</span>
             </small>
             <div id="finfet-pump-stages-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #7c3aed; margin-top: 4px;">6 <span data-lang="zh">級泵</span><span data-lang="en">Stages</span></div>
-            <span style="font-size: 10px; color: #64748b;">Dickson <span data-lang="zh">升壓鏈</span><span data-lang="en">ladder</span></span>
+            <span style="font-size: 10px; color: #475569;">Dickson <span data-lang="zh">升壓鏈</span><span data-lang="en">ladder</span></span>
           </div>
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #059669;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">假設電荷泵面積縮減</span><span data-lang="en">Assumed Pump Area Savings</span>
             </small>
-            <div id="finfet-area-savings-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">-72 %</div>
-            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">對比 28nm 基準</span><span data-lang="en">vs 28nm Base</span></span>
+            <div id="finfet-area-savings-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #047857; margin-top: 4px;">-72 %</div>
+            <span style="font-size: 10px; color: #475569;"><span data-lang="zh">對比 28nm 基準</span><span data-lang="en">vs 28nm Base</span></span>
           </div>
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0d9488;">
-            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
               <span data-lang="zh">待機穿隧漏電 J<sub>DT</sub></span><span data-lang="en">Tunneling Leakage</span>
             </small>
             <div id="finfet-jdt-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">2.4e-6 A/cm²</div>
-            <span style="font-size: 10px; color: #64748b;">WKB <span data-lang="zh">穿隧模型</span><span data-lang="en">WKB model</span></span>
+            <span style="font-size: 10px; color: #475569;">WKB <span data-lang="zh">穿隧模型</span><span data-lang="en">WKB model</span></span>
           </div>
         </div>
 
@@ -5232,7 +5233,7 @@
         <article id="advanced-packaging-simulator-root" class="interactive-workbench" style="margin-top: 2rem; background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 24px; box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96);" aria-labelledby="pkg-sim-title">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 1.25rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
             <div>
-              <div style="display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <div style="display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0369a1; letter-spacing: 0.08em; text-transform: uppercase;">
                 <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #0284c7;"></span>
                 <span data-lang="zh">先進封裝 PDK 與 D2D 互連工作台</span>
                 <span data-lang="en">ADVANCED PACKAGING PDK &amp; D2D WORKBENCH</span>
@@ -5244,7 +5245,7 @@
             </div>
             <div style="display: flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 4px 8px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #475569;">
               <span><span data-lang="zh">測試狀態：</span><span data-lang="en">TEST RATING:</span></span>
-              <strong id="pkg-out-rating" style="color: #059669;">QUALIFIED</strong>
+              <strong id="pkg-out-rating" style="color: #047857;">QUALIFIED</strong>
             </div>
           </div>
 
@@ -5276,7 +5277,7 @@
                 <label for="pkg-trace-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
                   <span data-lang="zh">D2D 走線長度 (L<sub>trace</sub>)</span><span data-lang="en">D2D Trace Length</span>
                 </label>
-                <span id="pkg-trace-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #0284c7;">3.5 mm</span>
+                <span id="pkg-trace-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #0369a1;">3.5 mm</span>
               </div>
               <input type="range" id="pkg-trace-slider" min="0.05" max="10.0" step="0.05" value="3.5" style="width: 100%; accent-color: #0284c7; cursor: pointer;" aria-label="D2D Trace Length in mm" data-aria-en="D2D Trace Length in mm" data-aria-zh="D2D 走線長度 (mm)" />
             </div>
@@ -5287,7 +5288,7 @@
                 <label for="pkg-power-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
                   <span data-lang="zh">晶粒熱設計功耗 (TDP)</span><span data-lang="en">Die Thermal Design Power</span>
                 </label>
-                <span id="pkg-power-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #ea580c;">450 W</span>
+                <span id="pkg-power-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #c2410c;">450 W</span>
               </div>
               <input type="range" id="pkg-power-slider" min="100" max="800" step="25" value="450" style="width: 100%; accent-color: #ea580c; cursor: pointer;" aria-label="Die Thermal Design Power in Watts" data-aria-en="Die Thermal Design Power in Watts" data-aria-zh="晶粒熱設計功耗 (W)" />
             </div>
@@ -5298,7 +5299,7 @@
                 <label for="pkg-rate-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
                   <span data-lang="zh">單線訊號傳輸速率</span><span data-lang="en">Per-Wire Data Rate</span>
                 </label>
-                <span id="pkg-rate-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #059669;">8.0 Gbps</span>
+                <span id="pkg-rate-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #047857;">8.0 Gbps</span>
               </div>
               <input type="range" id="pkg-rate-slider" min="2.0" max="16.0" step="0.5" value="8.0" style="width: 100%; accent-color: #059669; cursor: pointer;" aria-label="Per-Wire Data Rate in Gbps" data-aria-en="Per-Wire Data Rate in Gbps" data-aria-zh="單線訊號傳輸速率 (Gbps)" />
             </div>
@@ -5310,7 +5311,7 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">D2D RC 傳輸延遲 &tau;</span><span data-lang="en">D2D RC Delay &tau;</span>
               </small>
-              <div id="pkg-out-latency" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">2.8 ps</div>
+              <div id="pkg-out-latency" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #0369a1; margin-top: 4px;">2.8 ps</div>
               <span style="font-size: 11px; color: #64748b;">Elmore &tau;<sub>d2d</sub></span>
             </div>
 
@@ -5318,7 +5319,7 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">單線頻寬容量</span><span data-lang="en">Per-Wire Bandwidth</span>
               </small>
-              <div id="pkg-out-bw" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">8.0 Gbps/wire</div>
+              <div id="pkg-out-bw" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #047857; margin-top: 4px;">8.0 Gbps/wire</div>
               <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">訊號完整性邊界</span><span data-lang="en">Signal Margin</span></span>
             </div>
 
@@ -5326,7 +5327,7 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">垂直熱阻接面溫升 &Delta;T<sub>j</sub></span><span data-lang="en">Junction Temp Rise &Delta;T<sub>j</sub></span>
               </small>
-              <div id="pkg-out-temp" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #ea580c; margin-top: 4px;">+81.0 °C (0.18 K/W)</div>
+              <div id="pkg-out-temp" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #c2410c; margin-top: 4px;">+81.0 °C (0.18 K/W)</div>
               <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">熱阻階梯模型</span><span data-lang="en">Thermal Ladder</span></span>
             </div>
 
@@ -5334,7 +5335,7 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">Base Die 0-Mask eNVM 預算</span><span data-lang="en">Base Die eNVM Budget</span>
               </small>
-              <div id="pkg-out-envm" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #8b5cf6; margin-top: 4px;">32 Kb OTP</div>
+              <div id="pkg-out-envm" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #6d28d9; margin-top: 4px;">32 Kb OTP</div>
               <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">修復+校準+ID總預算</span><span data-lang="en">Repair + Trim + ID</span></span>
             </div>
           </div>
@@ -5799,7 +5800,7 @@
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">一階 DPA 衰減</span><span data-lang="en">1ST DPA ATTEN</span></small>
-                <strong style="color:#ef4444;"><span data-lang="zh">無衰減（易受攻擊）</span><span data-lang="en">None (Vulnerable)</span></strong>
+                <strong style="color:#b91c1c;"><span data-lang="zh">無衰減（易受攻擊）</span><span data-lang="en">None (Vulnerable)</span></strong>
               </div>
             </div>
             <ul class="rm-details-list">
@@ -5894,7 +5895,7 @@
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">一階 DPA 衰減</span><span data-lang="en">1ST DPA ATTEN</span></small>
-                <strong style="color:#ef4444;"><span data-lang="zh">無衰減（同極性疊加）</span><span data-lang="en">None (Same Polarity)</span></strong>
+                <strong style="color:#b91c1c;"><span data-lang="zh">無衰減（同極性疊加）</span><span data-lang="en">None (Same Polarity)</span></strong>
               </div>
             </div>
             <ul class="rm-details-list">
@@ -7111,11 +7112,11 @@
   </script>
 <script src="matrix-interactive.js?v=20260929-v5"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
-<script type="module" src="advanced-finfet-gaa-simulator.js?v=20261005"></script>
+<script type="module" src="advanced-finfet-gaa-simulator.js?v=20261102-p2"></script>
 <script type="module" src="wafer-cost-tco-calculator.js?v=20261005"></script>
-<script type="module" src="vertical-3d-nvm-simulator.js?v=20261006"></script>
-<script type="module" src="advanced-packaging-pdks-simulator.js?v=20261006"></script>
-<script type="module" src="cu-cu-hybrid-bonding-stress-simulator.js?v=20261102"></script>
+<script type="module" src="vertical-3d-nvm-simulator.js?v=20261102-p2"></script>
+<script type="module" src="advanced-packaging-pdks-simulator.js?v=20261102-p2"></script>
+<script type="module" src="cu-cu-hybrid-bonding-stress-simulator.js?v=20261102-p2"></script>
   <script type="module" src="ip-architect-master-matrix.js?v=20261024"></script>
 </body>
 </html>

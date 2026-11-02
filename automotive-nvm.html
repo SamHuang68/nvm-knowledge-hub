@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub" data-title-zh="車規 NVM · AEC-Q100 Grade 0、ISO 26262 ASIL-D 與 SECDED · NVM 知識中心" data-description-en="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification." data-description-zh="車用 eNVM 學習專題：涵蓋 AEC-Q100 Grade 0 條件、ISO 26262／ASIL 範圍、ECC／SECDED 與晶圓代工資格證據；本頁不構成產品認證。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v5"></script>
+  <script src="site-language.js?v=20261102-p2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.">
@@ -42,8 +42,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
-  <link rel="stylesheet" href="styles.css?v=20261102">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20261102">
+  <link rel="stylesheet" href="styles.css?v=20261102-p2">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20261102-p2">
 
   <style>
     /* 全站語系治理：英文為第一預設 */
@@ -60,7 +60,7 @@
     }
 
     body {
-      background-color: #0f172a;
+      background-color: #f8fafc;
       color: #334155;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       overflow-x: hidden;
@@ -87,7 +87,7 @@
 
     /* 頂部跳轉連結 (A11y) */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #f8fafc; color: #f59e0b; padding: 10px 18px; border: 1px solid #f59e0b; border-radius: 4px; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #f8fafc; color: #b45309; padding: 10px 18px; border: 1px solid #f59e0b; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
     /* =========================================================================
@@ -101,6 +101,18 @@
       padding: clamp(32px, 3.8vw, 48px) var(--hub-keepout, 24px) clamp(38px, 4.5vw, 56px);
       color: #0f172a;
       text-align: center;
+    }
+    .hero-ai-disclosure {
+      position: relative;
+      z-index: 3;
+      display: table;
+      margin: 16px auto 0;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #785021;
+      font: 600 11px/1.4 'IBM Plex Mono', monospace;
+      letter-spacing: 0.04em;
     }
     .m3-hero-media {
       position: absolute;
@@ -152,7 +164,7 @@
       background: rgba(245, 158, 11, 0.12);
       border: 1px solid rgba(245, 158, 11, 0.35);
       border-radius: 999px;
-      color: #f59e0b;
+      color: #b45309;
       font: 700 11px/1 'IBM Plex Mono', monospace;
       letter-spacing: 0.12em;
       margin-bottom: 8px;
@@ -169,7 +181,7 @@
       text-shadow: 0 2px 12px rgba(248, 250, 252, 0.96);
     }
     .m3-hero h1 em {
-      color: #f59e0b;
+      color: #b45309;
       font-style: normal;
       font-weight: 700;
     }
@@ -440,7 +452,7 @@
       font-size: 0.68rem;
       font-weight: 700;
       color: #b45309;
-      background: #1a3340;
+      background: #ffffff;
       border: 1px solid rgba(217, 119, 6, 0.25);
       min-width: 22px;
       text-align: center;
@@ -756,9 +768,9 @@
         <source media="(max-width: 768px)" srcset="assets/automotive-nvm-hero-900.webp">
         <img src="assets/automotive-nvm-hero-1600.webp" 
              width="1600" height="893"
-             alt="Automotive-Grade NVM Silicon Die, AEC-Q100 Grade 0 context, ISO 26262 ASIL vocabulary, percolation filament at a named-plan 175°C Tj stress"
-             data-alt-zh="車用 NVM 晶圓裸晶微結構、AEC-Q100 Grade 0 範圍、ISO 26262 ASIL 術語，以及特定計畫的 175°C Tj 細絲熱應力"
-             data-alt-en="Automotive-Grade NVM Silicon Die, AEC-Q100 Grade 0 context, ISO 26262 ASIL vocabulary, percolation filament at a named-plan 175°C Tj stress"
+             alt="AI-generated illustrative automotive NVM concept image, not a die photograph: AEC-Q100 Grade 0 context, ISO 26262 ASIL vocabulary, percolation filament at a named-plan 175°C Tj stress"
+             data-alt-zh="AI 生成的車用 NVM 概念示意圖，不是裸晶照片：AEC-Q100 Grade 0 範圍、ISO 26262 ASIL 術語，以及特定計畫的 175°C Tj 細絲熱應力"
+             data-alt-en="AI-generated illustrative automotive NVM concept image, not a die photograph: AEC-Q100 Grade 0 context, ISO 26262 ASIL vocabulary, percolation filament at a named-plan 175°C Tj stress"
              loading="eager" fetchpriority="high" decoding="async">
       </picture>
       <div class="m3-hero-shade" aria-hidden="true"></div>
@@ -777,7 +789,7 @@
         </p>
         <div class="m3-hero-proof" aria-label="Automotive NVM key metrics" data-aria-en="Automotive NVM key metrics" data-aria-zh="車規級 NVM 核心指標">
           <div>
-            <strong class="mono-text" style="color: #f59e0b;">175°C Tj</strong>
+            <strong class="mono-text" style="color: #b45309;">175°C Tj</strong>
             <span><span data-lang="zh">AEC-Q100 Grade 0 詞彙</span><span data-lang="en">Grade 0 vocabulary</span></span>
           </div>
           <div>
@@ -794,6 +806,7 @@
           </div>
         </div>
       </div>
+      <p class="hero-ai-disclosure"><span data-lang="zh">AI 生成概念背景 · 非裸晶照片</span><span data-lang="en">AI-generated concept backdrop · not a die photograph</span></p>
     </section>
 
     <!-- 4-Metric Stat Strip Grid (純白卡片微投影橋接) -->
@@ -1016,11 +1029,11 @@
                 </select>
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
-                <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b;">
+                <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #b45309;">
                   <span data-lang="zh">接面溫度 Tj (°C)：</span><span data-lang="en">JUNCTION TJ:</span>
                 </label>
                 <input type="range" id="tempSlider" aria-label="Junction Temperature (Tj)" data-aria-en="Junction Temperature (Tj)" data-aria-zh="接面溫度 (Tj)" min="25" max="175" step="5" value="175" aria-valuetext="175 °C" style="accent-color: #f59e0b; cursor: pointer; width: 100px;">
-                <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 0.95rem;">175 °C</span>
+                <span class="mono-text" id="tempVal" style="color: #b45309; font-weight: 700; font-size: 0.95rem;">175 °C</span>
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
                 <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #785021;">
@@ -1111,19 +1124,19 @@
                     <input type="range" id="bin-hours-175" min="0" max="2000" step="50" value="400" aria-label="Hours at 175 degrees C" data-aria-en="Hours at 175 degrees C" data-aria-zh="175度運作時長" style="width: 100%; accent-color: #dc2626;">
                   </div>
                   <div>
-                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #ea580c;">
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #c2410c;">
                       <span>150°C Tj</span><span id="bin-val-150">2600 hrs</span>
                     </div>
                     <input type="range" id="bin-hours-150" min="0" max="8000" step="100" value="2600" aria-label="Hours at 150 degrees C" data-aria-en="Hours at 150 degrees C" data-aria-zh="150度運作時長" style="width: 100%; accent-color: #ea580c;">
                   </div>
                   <div>
-                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #d97706;">
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #b45309;">
                       <span>125°C Tj</span><span id="bin-val-125">5000 hrs</span>
                     </div>
                     <input type="range" id="bin-hours-125" min="0" max="10000" step="200" value="5000" aria-label="Hours at 125 degrees C" data-aria-en="Hours at 125 degrees C" data-aria-zh="125度運作時長" style="width: 100%; accent-color: #d97706;">
                   </div>
                   <div>
-                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #ca8a04;">
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #a16207;">
                       <span>105°C Tj</span><span id="bin-val-105">4000 hrs</span>
                     </div>
                     <input type="range" id="bin-hours-105" min="0" max="12000" step="200" value="4000" aria-label="Hours at 105 degrees C" data-aria-en="Hours at 105 degrees C" data-aria-zh="105度運作時長" style="width: 100%; accent-color: #ca8a04;">
@@ -1135,7 +1148,7 @@
                     <input type="range" id="bin-hours-85" min="0" max="15000" step="500" value="2000" aria-label="Hours at 85 degrees C" data-aria-en="Hours at 85 degrees C" data-aria-zh="85度運作時長" style="width: 100%; accent-color: #2563eb;">
                   </div>
                   <div>
-                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #059669;">
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #047857;">
                       <span>40°C Tj</span><span id="bin-val-40">1000 hrs</span>
                     </div>
                     <input type="range" id="bin-hours-40" min="0" max="20000" step="500" value="1000" aria-label="Hours at 40 degrees C" data-aria-en="Hours at 40 degrees C" data-aria-zh="40度運作時長" style="width: 100%; accent-color: #059669;">
@@ -1274,7 +1287,7 @@
                   <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                     <span data-lang="zh">晶片端箝位峰值電壓</span><span data-lang="en">PEAK CLAMPED V</span>
                   </div>
-                  <div id="auto-ld-out-clampedv" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                  <div id="auto-ld-out-clampedv" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
                   <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                     <span data-lang="zh">晶圓輸入引腳實測</span><span data-lang="en">Die supply pin</span>
                   </div>
@@ -1304,7 +1317,7 @@
                   <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                     <span data-lang="zh">介電質擊穿安全裕度</span><span data-lang="en">BREAKDOWN MARGIN</span>
                   </div>
-                  <div id="auto-ld-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div id="auto-ld-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                   <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                     <span data-lang="zh">閘氧化層穿隧極限</span><span data-lang="en">Gate oxide limit</span>
                   </div>
@@ -1314,7 +1327,7 @@
                   <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                     <span data-lang="zh">車規合規性等級</span><span data-lang="en">COMPLIANCE RATING</span>
                   </div>
-                  <div id="auto-ld-out-rating" style="font: 700 13.5px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div id="auto-ld-out-rating" style="font: 700 13.5px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                   <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                     <span data-lang="zh">AEC-Q100 Grade 0 / ISO</span><span data-lang="en">AEC-Q100 Grade 0 / ISO</span>
                   </div>
@@ -1322,13 +1335,13 @@
               </div>
 
               <!-- Canvas and View Mode Toggle -->
-              <div style="background: #080d16; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
+              <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                   <div style="display: flex; gap: 6px;">
                     <button id="auto-ld-mode-trans" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
                       <span data-lang="zh">負載突降瞬態響應 (Transient Wave)</span><span data-lang="en">Load Dump Transient</span>
                     </button>
-                    <button id="auto-ld-mode-pump" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <button id="auto-ld-mode-pump" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                       <span data-lang="zh">電荷泵升壓階梯與漣波 (Pump Stages)</span><span data-lang="en">Charge Pump Stages &amp; Ripple</span>
                     </button>
                   </div>
@@ -1368,7 +1381,7 @@
                   <span data-lang="zh">注入雙位元 (DED)</span>
                   <span data-lang="en">Inject 2-Bit Error</span>
                 </button>
-                <button type="button" id="btnResetEcc" style="padding: 5px 10px; background: rgba(255, 255, 255, 0.08); color: #334155; border: 1px solid #64748b; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+                <button type="button" id="btnResetEcc" style="padding: 5px 10px; background: rgba(255, 255, 255, 0.08); color: #334155; border: 1px solid #cbd5e1; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
                   <span data-lang="zh">重設矩陣</span>
                   <span data-lang="en">Reset Array</span>
                 </button>
@@ -1408,20 +1421,20 @@
             </p>
 
             <!-- Simulation Disclaimer Banner -->
-            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
               <span data-lang="zh">本試算器之單點故障度量 (SPFM)、潛伏故障度量 (LFM) 與宇宙射線中子翻轉 FIT 率為基於一階海拔通量縮放模型與典型 SEC-DED 症狀矩陣之工程示意試算，非經第三方認證機構 (TÜV SÜD 等) 簽署之產品級 FMEDA 安全報告。車規功能安全設計需依循完整 ISO 26262 流程管理與硬體失效率分配。</span>
               <span data-lang="en">The Single Point Fault Metric (SPFM), Latent Fault Metric (LFM), and neutron soft-error FIT rates in this simulator are engineering schematic calculations based on first-order altitude flux scaling and typical SEC-DED syndrome matrices, not product-level FMEDA reports certified by third-party bodies (e.g. TÜV SÜD). Automotive functional safety must comply with full ISO 26262 lifecycle processes and hardware failure apportionment.</span>
             </div>
 
-            <div class="decision-matrix-card" id="auto-asild-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+            <div class="decision-matrix-card" id="auto-asild-simulator-root" style="margin-top: 16px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
               <!-- Controls Grid -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
                 <div>
-                  <label for="asild-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <label for="asild-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span data-lang="zh">車載安全任務情境:</span><span data-lang="en">SAFETY MISSION PROFILE:</span>
                   </label>
-                  <select id="asild-mission-select" aria-label="Automotive Safety Mission Profile" data-aria-en="Automotive Safety Mission Profile" data-aria-zh="車載安全任務情境" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <select id="asild-mission-select" aria-label="Automotive Safety Mission Profile" data-aria-en="Automotive Safety Mission Profile" data-aria-zh="車載安全任務情境" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                     <option value="powertrain_inverter_asild" selected>EV Inverter (ASIL-D / 125°C / 1500m)</option>
                     <option value="adas_domain_controller">ADAS Controller (ASIL-D / 3000m Pass)</option>
                     <option value="battery_management_asild">BMS Controller (ASIL-D / 500m)</option>
@@ -1430,10 +1443,10 @@
                 </div>
 
                 <div>
-                  <label for="asild-nvm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <label for="asild-nvm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span data-lang="zh">記憶體單元抗翻轉架構:</span><span data-lang="en">MEMORY SER HARDENING:</span>
                   </label>
-                  <select id="asild-nvm-select" aria-label="Memory SER Hardening Architecture" data-aria-en="Memory SER Hardening Architecture" data-aria-zh="記憶體單元抗翻轉架構" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <select id="asild-nvm-select" aria-label="Memory SER Hardening Architecture" data-aria-en="Memory SER Hardening Architecture" data-aria-zh="記憶體單元抗翻轉架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                     <option value="antifuse_charge_free" selected>AntiFuse OTP (Zero-Charge / High Soft-Error Immunity)</option>
                     <option value="radhard_stt_mram">Automotive STT-MRAM (MTJ / Low SER)</option>
                     <option value="embedded_flash_sg">Split-Gate eFlash (Moderate SER)</option>
@@ -1442,10 +1455,10 @@
                 </div>
 
                 <div>
-                  <label for="asild-ecc-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <label for="asild-ecc-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span data-lang="zh">硬體 ECC 診斷架構:</span><span data-lang="en">ECC DIAGNOSTIC ARCHITECTURE:</span>
                   </label>
-                  <select id="asild-ecc-select" aria-label="ECC Diagnostic Architecture" data-aria-en="ECC Diagnostic Architecture" data-aria-zh="硬體 ECC 診斷架構" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <select id="asild-ecc-select" aria-label="ECC Diagnostic Architecture" data-aria-en="ECC Diagnostic Architecture" data-aria-zh="硬體 ECC 診斷架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
                     <option value="secded_72_64" selected>SEC-DED (72, 64) Hamming (1-Correct / 2-Trap)</option>
                     <option value="chipkill_reed_solomon">Chipkill Reed-Solomon (Burst Multi-Symbol)</option>
                     <option value="parity_only">Parity Only (Detection Only / No Correction)</option>
@@ -1454,25 +1467,25 @@
                 </div>
 
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">行車海拔高度:</span><span data-lang="en">DRIVING ALTITUDE:</span></span>
-                    <span id="asild-altitude-val" style="color: #10b981; font-weight: 700;">1500 m</span>
+                    <span id="asild-altitude-val" style="color: #047857; font-weight: 700;">1500 m</span>
                   </div>
                   <input type="range" id="asild-altitude-slider" min="0" max="8000" step="100" value="1500" aria-label="Driving Altitude in Meters" data-aria-en="Driving Altitude in Meters" data-aria-zh="行車海拔高度公尺" aria-valuetext="1500 m" style="width: 100%; accent-color: #10b981; cursor: pointer;">
                 </div>
 
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">記憶體容量:</span><span data-lang="en">ARRAY CAPACITY:</span></span>
-                    <span id="asild-capacity-val" style="color: #10b981; font-weight: 700;">16 Mb</span>
+                    <span id="asild-capacity-val" style="color: #047857; font-weight: 700;">16 Mb</span>
                   </div>
                   <input type="range" id="asild-capacity-slider" min="1" max="64" step="1" value="16" aria-label="Memory Array Capacity in Mb" data-aria-en="Memory Array Capacity in Mb" data-aria-zh="記憶體容量兆位元" aria-valuetext="16 Mb" style="width: 100%; accent-color: #10b981; cursor: pointer;">
                 </div>
 
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">巡檢清洗週期:</span><span data-lang="en">SCRUB INTERVAL:</span></span>
-                    <span id="asild-scrub-val" style="color: #10b981; font-weight: 700;">60 s</span>
+                    <span id="asild-scrub-val" style="color: #047857; font-weight: 700;">60 s</span>
                   </div>
                   <input type="range" id="asild-scrub-slider" min="1" max="1800" step="1" value="60" aria-label="Periodic Scrubbing Interval in Seconds" data-aria-en="Periodic Scrubbing Interval in Seconds" data-aria-zh="巡檢清洗週期秒" aria-valuetext="60 s" style="width: 100%; accent-color: #10b981; cursor: pointer;">
                 </div>
@@ -1480,43 +1493,43 @@
 
               <!-- KPI Cards Strip -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">原始中子軟錯誤率</span><span data-lang="en">RAW SER FIT</span>
                   </div>
-                  <div id="asild-out-rawfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                  <div id="asild-out-rawfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">殘餘單點故障率 (SPF)</span><span data-lang="en">RESIDUAL FIT</span>
                   </div>
-                  <div id="asild-out-residualfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                  <div id="asild-out-residualfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">單點故障度量 (SPFM)</span><span data-lang="en">SPFM METRIC</span>
                   </div>
-                  <div id="asild-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                  <div id="asild-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">潛伏故障度量 (LFM)</span><span data-lang="en">LFM METRIC</span>
                   </div>
-                  <div id="asild-out-lfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                  <div id="asild-out-lfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 </div>
               </div>
 
               <!-- Canvas Visualization -->
-              <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                   <div style="display: inline-flex; gap: 6px;" role="group" aria-label="ASIL Visualization Mode" data-aria-en="ASIL Visualization Mode" data-aria-zh="ASIL 視覺化模式">
                     <button id="asild-mode-scrub" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                       <span data-lang="zh">巡檢週期 vs 殘餘 FIT (Scrubbing vs Residual)</span><span data-lang="en">Scrubbing vs Residual FIT</span>
                     </button>
-                    <button id="asild-mode-altitude" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <button id="asild-mode-altitude" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                       <span data-lang="zh">行車海拔 vs 中子通量 (Altitude vs Neutron Flux)</span><span data-lang="en">Altitude vs Neutron SER</span>
                     </button>
                   </div>
@@ -1529,11 +1542,11 @@
 
               <!-- Verdict & Rating Banner -->
               <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px;">
-                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
                   <span id="asild-out-verdict" role="status" aria-live="polite">Loading ISO 26262 ASIL-D safety calculations...</span>
                 </div>
-                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-                  <span id="asild-out-rating" style="color: #10b981;">ASIL-D TARGET MET</span>
+                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #ffffff; padding: 4px 10px; border-radius: 4px; border: 1px solid #cbd5e1; white-space: nowrap;">
+                  <span id="asild-out-rating" style="color: #047857;">ASIL-D TARGET MET</span>
                 </div>
               </div>
             </div>
@@ -1633,21 +1646,21 @@
             </p>
 
             <!-- Simulation Disclaimer Banner -->
-            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
               <span data-lang="zh">本工作台之失效率 (FIT)、SPFM 單點故障度量與 hPPR 消耗估算為基於 JEDEC JESD89A 大氣中子數據、Arrhenius 熱活化能與 Coffin-Manson 焊點熱疲勞之數值示意模型，非第三方實體驗證之 ASIL-D 產品認證報告。ISO 26262 系統級功能安全需經完整 FMEDA 分析與產品安全生命週期管理；實際晶片失效率受封裝基板底部填膠 (Underfill) 應力及冷卻散熱設計影響。</span>
               <span data-lang="en">The FIT failure rates, SPFM metrics, and hPPR usage estimates in this workbench are numerical schematic models based on JEDEC JESD89A atmospheric neutron data, Arrhenius thermal activation, and Coffin-Manson fatigue models, rather than third-party ASIL-D certified product test reports. ISO 26262 functional safety requires rigorous FMEDA analysis and lifecycle management; physical chip reliability is governed by substrate underfill integrity and active thermal management.</span>
             </div>
 
-            <div class="decision-matrix-card" id="auto-hbm4-scrubbing-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+            <div class="decision-matrix-card" id="auto-hbm4-scrubbing-simulator-root" style="margin-top: 16px; background: #ffffff; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
               <!-- Controls Grid -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px;">
                 <!-- Mission Profile Select -->
                 <div>
-                  <label for="hbm4-scrub-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <label for="hbm4-scrub-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span data-lang="zh">車規任務剖面情境</span><span data-lang="en">MISSION PROFILE PRESET</span>
                   </label>
-                  <select id="hbm4-scrub-mission-select" aria-label="Autonomous mission profile" data-aria-zh="車規任務剖面情境" data-aria-en="Autonomous mission profile" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-mission-select" aria-label="Autonomous mission profile" data-aria-zh="車規任務剖面情境" data-aria-en="Autonomous mission profile" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; cursor: pointer;">
                     <option value="l4_robotaxi_extreme">L4/L5 Robo-Taxi Autonomous HPC (24/7 Continuous · 115°C Tj)</option>
                     <option value="highway_adas_pilot">Highway Pilot Autonomous ADAS (High Altitude · 95°C Tj)</option>
                     <option value="in_cabin_ai_cockpit">Intelligent AI Cockpit (Infotainment &amp; DMS · 85°C Tj)</option>
@@ -1657,10 +1670,10 @@
 
                 <!-- Repair Architecture Select -->
                 <div>
-                  <label for="hbm4-scrub-repair-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <label for="hbm4-scrub-repair-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span data-lang="zh">巡檢清洗與 PPR 修復架構</span><span data-lang="en">REPAIR &amp; SCRUBBING ARCH</span>
                   </label>
-                  <select id="hbm4-scrub-repair-select" aria-label="Memory scrubbing and repair architecture" data-aria-zh="巡檢清洗與 PPR 修復架構" data-aria-en="Memory scrubbing and repair architecture" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                  <select id="hbm4-scrub-repair-select" aria-label="Memory scrubbing and repair architecture" data-aria-zh="巡檢清洗與 PPR 修復架構" data-aria-en="Memory scrubbing and repair architecture" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; cursor: pointer;">
                     <option value="hybrid_tier_scrubbing">Tiered Hybrid (Dynamic sPPR Cache + 0-Mask AntiFuse hPPR)</option>
                     <option value="dynamic_sppr_only">Dynamic Soft PPR Only (Register-Based)</option>
                     <option value="hard_anti_fuse_only">Permanent AntiFuse Hard PPR Only (hPPR)</option>
@@ -1670,27 +1683,27 @@
 
                 <!-- Junction Temperature Slider -->
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">Base Die 接面溫度 (T<sub>j</sub>):</span><span data-lang="en">JUNCTION TEMP (Tj):</span></span>
-                    <span id="hbm4-scrub-temp-val" style="color: #ef4444; font-weight: 700;">115 °C</span>
+                    <span id="hbm4-scrub-temp-val" style="color: #b91c1c; font-weight: 700;">115 °C</span>
                   </div>
                   <input type="range" id="hbm4-scrub-temp-slider" min="80" max="135" step="1" value="115" aria-label="Base Die Junction Temperature in Celsius" data-aria-en="Base Die Junction Temperature in Celsius" data-aria-zh="Base Die 接面溫度攝氏" aria-valuetext="115 °C" style="width: 100%; accent-color: #ef4444; cursor: pointer;">
                 </div>
 
                 <!-- Scrubbing Interval Slider -->
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">巡檢清洗週期:</span><span data-lang="en">SCRUB PERIOD:</span></span>
-                    <span id="hbm4-scrub-period-val" style="color: #06b6d4; font-weight: 700;">1.00 s</span>
+                    <span id="hbm4-scrub-period-val" style="color: #0e7490; font-weight: 700;">1.00 s</span>
                   </div>
                   <input type="range" id="hbm4-scrub-period-slider" min="0.05" max="10.0" step="0.05" value="1.0" aria-label="Scrubbing Interval in Seconds" data-aria-en="Scrubbing Interval in Seconds" data-aria-zh="巡檢清洗週期秒" aria-valuetext="1.00 s" style="width: 100%; accent-color: #06b6d4; cursor: pointer;">
                 </div>
 
                 <!-- HBM4 Stack Density Slider -->
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">HBM4 堆疊容量:</span><span data-lang="en">STACK DENSITY:</span></span>
-                    <span id="hbm4-scrub-density-val" style="color: #a78bfa; font-weight: 700;">64 GB</span>
+                    <span id="hbm4-scrub-density-val" style="color: #6d28d9; font-weight: 700;">64 GB</span>
                   </div>
                   <input type="range" id="hbm4-scrub-density-slider" min="32" max="96" step="32" value="64" aria-label="HBM4 Stack Density in GB" data-aria-en="HBM4 Stack Density in GB" data-aria-zh="HBM4 堆疊容量 GB" aria-valuetext="64 GB" style="width: 100%; accent-color: #a78bfa; cursor: pointer;">
                 </div>
@@ -1698,37 +1711,37 @@
 
               <!-- 4 KPI Cards Strip -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">原始累積失效率</span><span data-lang="en">RAW ACCUM FIT</span>
                   </div>
-                  <div id="hbm4-scrub-out-raw-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f87171;">--</div>
+                  <div id="hbm4-scrub-out-raw-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b91c1c;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">清洗後殘餘失效率</span><span data-lang="en">RESIDUAL FIT</span>
                   </div>
-                  <div id="hbm4-scrub-out-res-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                  <div id="hbm4-scrub-out-res-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">單點度量 SPFM</span><span data-lang="en">SPFM METRIC</span>
                   </div>
-                  <div id="hbm4-scrub-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                  <div id="hbm4-scrub-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">--</div>
                 </div>
 
-                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;">
                     <span data-lang="zh">AntiFuse hPPR 消耗</span><span data-lang="en">hPPR USAGE</span>
                   </div>
-                  <div id="hbm4-scrub-out-hppr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a78bfa;">--</div>
+                  <div id="hbm4-scrub-out-hppr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #6d28d9;">--</div>
                 </div>
               </div>
 
               <!-- Canvas Visualization -->
-              <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                   <div style="display: inline-flex; gap: 6px;" role="group" aria-label="HBM4 Scrubbing Visualization Mode" data-aria-en="HBM4 Scrubbing Visualization Mode" data-aria-zh="HBM4 巡檢視覺化模式">
                     <button id="hbm4-scrub-mode-interval" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #0369a1; background: #0369a1; color: #ffffff; cursor: pointer;">
@@ -1750,11 +1763,11 @@
 
               <!-- Verdict & Rating Banner -->
               <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px;">
-                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
                   <span id="hbm4-scrub-out-verdict" role="status" aria-live="polite">Loading Automotive ASIL-D HBM4 Scrubbing calculations...</span>
                 </div>
-                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-                  <span id="hbm4-scrub-out-rating" style="color: #10b981;">ASIL-D TARGET MET</span>
+                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #ffffff; padding: 4px 10px; border-radius: 4px; border: 1px solid #cbd5e1; white-space: nowrap;">
+                  <span id="hbm4-scrub-out-rating" style="color: #047857;">ASIL-D TARGET MET</span>
                 </div>
               </div>
             </div>
@@ -1772,9 +1785,9 @@
               <span data-lang="en">Phenomenological modeling of carrier freeze-out, incomplete ionization, Total Ionizing Dose (TID) hole trap accumulation, and heavy-ion SEU Weibull cross-section across 4.2K cryo-CMOS and 500 krad Jovian radiation belts.</span>
             </p>
 
-            <div id="cryo-simulator-root" style="background: #0f172a; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+            <div id="cryo-simulator-root" style="background: #ffffff; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #0f172a; margin-top: 16px;">
               <!-- Model Disclaimer & Technical Boundary Notice -->
-              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #b45309;">
                 <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
                 <span data-lang="zh">本工作台之 4.2K 載子凍結、次閾值擺幅與總電離劑量 (TID) 閾值漂移推估為基於簡化低溫物理與 Weibull 重離子截面積之數值模型，非單一 IP 官方太空或極低溫認證報告。深空 Class-S 或量子計算周邊之實際可靠度需依 MIL-STD-883 方法 1019 實施鈷-60 (Co-60) 射源與迴旋加速器實體重離子測試。</span>
                 <span data-lang="en">The 4.2K carrier freeze-out, subthreshold swing, and TID shift projections in this workbench are schematic numerical models based on simplified cryogenic physics and Weibull cross-sections, rather than formal spaceflight qualifications. Real-world mission assurance requires empirical Cobalt-60 and cyclotron heavy-ion irradiation testing per MIL-STD-883 Method 1019.</span>
@@ -1782,11 +1795,11 @@
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
                 <!-- Preset Selection -->
                 <div>
-                  <label for="cryo-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                  <label for="cryo-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #0369a1; margin-bottom: 6px;">
                     <span data-lang="zh">極限環境任務預設 (Extreme Environment Preset):</span>
                     <span data-lang="en">Extreme Environment Preset:</span>
                   </label>
-                  <select id="cryo-preset-select" aria-label="Extreme environment preset" data-aria-zh="極限環境預設情境" data-aria-en="Extreme environment preset" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-preset-select" aria-label="Extreme environment preset" data-aria-zh="極限環境預設情境" data-aria-en="Extreme environment preset" style="width: 100%; padding: 8px 10px; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
                     <option value="quantum_cryo_4k">4.2K Liquid-Helium Quantum Cryo-CMOS</option>
                     <option value="leo_satellite">LEO Commercial Satellite (50 krad TID)</option>
                     <option value="deep_space_jupiter">Jupiter Deep Space Probe (500 krad TID)</option>
@@ -1796,11 +1809,11 @@
 
                 <!-- Topology Selection -->
                 <div>
-                  <label for="cryo-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                  <label for="cryo-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #0369a1; margin-bottom: 6px;">
                     <span data-lang="zh">候選記憶體拓撲架構 (eNVM Topology Architecture):</span>
                     <span data-lang="en">Candidate eNVM Topology:</span>
                   </label>
-                  <select id="cryo-topology-select" aria-label="Candidate eNVM topology" data-aria-zh="候選記憶體拓撲架構" data-aria-en="Candidate eNVM topology" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                  <select id="cryo-topology-select" aria-label="Candidate eNVM topology" data-aria-zh="候選記憶體拓撲架構" data-aria-en="Candidate eNVM topology" style="width: 100%; padding: 8px 10px; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
                     <option value="antifuse_radhard">Logic AntiFuse OTP (0-Mask Hardened Filament)</option>
                     <option value="stt_mram_hardened">BEOL STT-MRAM (Spin-Torque Hardened MTJ)</option>
                     <option value="feram_radhard">FeRAM (Ferroelectric Polarization Dipole)</option>
@@ -1811,27 +1824,27 @@
               </div>
 
               <!-- Interactive Physical Sliders -->
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: #1e293b; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: #ffffff; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">環境溫度 (T)</span><span data-lang="en">Temperature (T)</span></span>
-                    <span id="cryo-temp-val" style="color: #38bdf8;">4.2 K (-268.9°C)</span>
+                    <span id="cryo-temp-val" style="color: #0369a1;">4.2 K (-268.9°C)</span>
                   </div>
                   <input type="range" id="cryo-temp-slider" min="4" max="450" step="1" value="4" style="width: 100%; accent-color: #38bdf8;" aria-label="Operating Temperature" data-aria-zh="工作環境溫度" data-aria-en="Operating Temperature">
                 </div>
 
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">總游離劑量 (TID)</span><span data-lang="en">Total Ionizing Dose</span></span>
-                    <span id="cryo-tid-val" style="color: #f59e0b;">1 krad</span>
+                    <span id="cryo-tid-val" style="color: #b45309;">1 krad</span>
                   </div>
                   <input type="range" id="cryo-tid-slider" min="0" max="1000" step="10" value="1" style="width: 100%; accent-color: #f59e0b;" aria-label="Total Ionizing Dose" data-aria-zh="總游離輻射劑量" data-aria-en="Total Ionizing Dose">
                 </div>
 
                 <div>
-                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                     <span><span data-lang="zh">重離子 LET 能量</span><span data-lang="en">Heavy-Ion Peak LET</span></span>
-                    <span id="cryo-let-val" style="color: #f43f5e;">0 MeV·cm²/mg</span>
+                    <span id="cryo-let-val" style="color: #be123c;">0 MeV·cm²/mg</span>
                   </div>
                   <input type="range" id="cryo-let-slider" min="0" max="100" step="1" value="0" style="width: 100%; accent-color: #f43f5e;" aria-label="Heavy-Ion Linear Energy Transfer" data-aria-zh="重離子線性能量傳遞" data-aria-en="Heavy-Ion Linear Energy Transfer">
                 </div>
@@ -1839,37 +1852,37 @@
 
               <!-- Real-time Metric Badges -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">低溫有效 Vth</span><span data-lang="en">Effective Vth</span></div>
-                  <div id="cryo-metric-vth" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">0.745 V</div>
+                <div style="background: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">低溫有效 Vth</span><span data-lang="en">Effective Vth</span></div>
+                  <div id="cryo-metric-vth" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0369a1;">0.745 V</div>
                 </div>
-                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">感測工作裕度</span><span data-lang="en">Sense Margin</span></div>
-                  <div id="cryo-metric-margin" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">0.005 V</div>
+                <div style="background: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">感測工作裕度</span><span data-lang="en">Sense Margin</span></div>
+                  <div id="cryo-metric-margin" style="font: 700 14px 'IBM Plex Mono', monospace; color: #047857;">0.005 V</div>
                 </div>
-                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">SEU 軟錯誤率</span><span data-lang="en">Annual SER</span></div>
-                  <div id="cryo-metric-ser" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">0 (Immune)</div>
+                <div style="background: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">SEU 軟錯誤率</span><span data-lang="en">Annual SER</span></div>
+                  <div id="cryo-metric-ser" style="font: 700 14px 'IBM Plex Mono', monospace; color: #b45309;">0 (Immune)</div>
                 </div>
-                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">極限環境耐受分</span><span data-lang="en">Resilience Score</span></div>
-                  <div id="cryo-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">98 / 100</div>
+                <div style="background: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">極限環境耐受分</span><span data-lang="en">Resilience Score</span></div>
+                  <div id="cryo-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #047857;">98 / 100</div>
                 </div>
               </div>
 
               <!-- Canvas Visualizer with Dual Mode Switcher -->
-              <div style="background: #090d16; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-                  <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #38bdf8; margin: 0;">
+                  <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #0369a1; margin: 0;">
                     <span data-lang="zh">第一性原理物理曲線可視化 (Physics Profile)</span>
                     <span data-lang="en">First-Principles Physics Profiles</span>
                   </h3>
                   <div style="display: flex; gap: 6px;">
-                    <button type="button" id="cryo-mode-temp-btn" class="active" aria-label="Switch to Temperature vs Read Margin chart" data-aria-en="Switch to Temperature vs Read Margin chart" data-aria-zh="切換為溫度與讀取裕度圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-temp-btn" class="active" aria-label="Switch to Temperature vs Read Margin chart" data-aria-en="Switch to Temperature vs Read Margin chart" data-aria-zh="切換為溫度與讀取裕度圖表" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #0369a1; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">溫度 vs 電壓裕度</span>
                       <span data-lang="en">Temp vs Margin</span>
                     </button>
-                    <button type="button" id="cryo-mode-seu-btn" aria-label="Switch to Weibull SEU Cross-Section chart" data-aria-en="Switch to Weibull SEU Cross-Section chart" data-aria-zh="切換為 Weibull 重離子單粒子翻轉截面積圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                    <button type="button" id="cryo-mode-seu-btn" aria-label="Switch to Weibull SEU Cross-Section chart" data-aria-en="Switch to Weibull SEU Cross-Section chart" data-aria-zh="切換為 Weibull 重離子單粒子翻轉截面積圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #475569; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                       <span data-lang="zh">Weibull SEU 截面積</span>
                       <span data-lang="en">Weibull SEU Cross-Section</span>
                     </button>
@@ -1898,7 +1911,7 @@
             </p>
 
             <!-- 免責橫幅 DISCLAIMER -->
-            <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+            <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #b45309;">
               <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
               <span data-lang="zh">本模擬器採用 Arrhenius 熱活化加速與去飽和保護 (DESAT) 之簡化工程模型，用以示意高溫下電荷洩漏、磁穩定性與微絲擴散之相對趨勢。第三代半導體功率開關裸晶高溫合封環境下，浮閘 eFlash 因熱發射效應面臨電荷洩漏加速，通常配置於溫度較低之微控制器晶粒；AntiFuse 微絲介質耐溫性良好，但仍需考量高壓編程脈衝為單次不可逆寫入之系統架構邊界。所列評級為工程適配分類，非車規官方認證。</span>
               <span data-lang="en">This simulator uses simplified Arrhenius thermal activation and DESAT timing models to illustrate trends in charge leakage, magnetic stability, and filament diffusion. In high-Tj power co-packaging environments, floating-gate eFlash experiences accelerated thermionic emission and is typically located on cooler MCU dies; AntiFuse silicide filaments offer robust temperature tolerance, though system designs must account for its irreversible OTP nature. Tiers represent engineering classifications rather than official certifications.</span>
@@ -1911,66 +1924,66 @@
             <div class="table-responsive-wrapper" style="overflow-x: auto; margin-top: 18px;">
               <table class="data-table" aria-label="High-Tj eNVM Comparison for SiC and GaN Drivers" data-aria-en="High-Tj eNVM Comparison for SiC and GaN Drivers" data-aria-zh="SiC 與 GaN 功率驅動器之高溫極限 eNVM 耐受性對比表" style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                  <tr style="background: #1e293b; color: #f8fafc; text-align: left;">
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">eNVM 技術架構</span><span data-lang="en">eNVM Architecture</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">物理儲存載體</span><span data-lang="en">Physical Storage Medium</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">熱活化能 (Ea)</span><span data-lang="en">Thermal Ea (eV)</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">175°C 留存壽命</span><span data-lang="en">175°C Retention</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">250°C 極限耐受</span><span data-lang="en">250°C Extreme Tj</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">DESAT 讀出延遲</span><span data-lang="en">DESAT Trip Read</span></th>
-                    <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">車規功率適用評級</span><span data-lang="en">Power Stage Suitability</span></th>
+                  <tr style="background: #ffffff; color: #0f172a; text-align: left;">
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">eNVM 技術架構</span><span data-lang="en">eNVM Architecture</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">物理儲存載體</span><span data-lang="en">Physical Storage Medium</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">熱活化能 (Ea)</span><span data-lang="en">Thermal Ea (eV)</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">175°C 留存壽命</span><span data-lang="en">175°C Retention</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">250°C 極限耐受</span><span data-lang="en">250°C Extreme Tj</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">DESAT 讀出延遲</span><span data-lang="en">DESAT Trip Read</span></th>
+                    <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">車規功率適用評級</span><span data-lang="en">Power Stage Suitability</span></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-                    <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #38bdf8;">
+                  <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+                    <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #0369a1;">
                       <span data-lang="zh">0-Mask AntiFuse OTP</span><span data-lang="en">0-Mask AntiFuse OTP</span>
                     </th>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">歐姆金屬/矽化物結晶微絲</span><span data-lang="en">Ohmic silicide filament</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">~ 0.98 eV (原子擴散)</span><span data-lang="en">~ 0.98 eV (Atomic diffusion)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 25 年</span><span data-lang="en">&gt; 25 Years</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 10 年 (高溫微絲穩定)</span><span data-lang="en">&gt; 10 Years (Stable filament)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">35 ~ 50 ns (超快保護)</span><span data-lang="en">35 ~ 50 ns (Ultra-fast)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">適合 (耐高溫微絲 / 適合智慧功率驅動)</span><span data-lang="en">Suitable (High-T filament / Intelligent driver)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">歐姆金屬/矽化物結晶微絲</span><span data-lang="en">Ohmic silicide filament</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">~ 0.98 eV (原子擴散)</span><span data-lang="en">~ 0.98 eV (Atomic diffusion)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">&gt; 25 年</span><span data-lang="en">&gt; 25 Years</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">&gt; 10 年 (高溫微絲穩定)</span><span data-lang="en">&gt; 10 Years (Stable filament)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">35 ~ 50 ns (超快保護)</span><span data-lang="en">35 ~ 50 ns (Ultra-fast)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">適合 (耐高溫微絲 / 適合智慧功率驅動)</span><span data-lang="en">Suitable (High-T filament / Intelligent driver)</span></td>
                   </tr>
-                  <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-                    <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
+                  <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+                    <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #1d4ed8;">
                       <span data-lang="zh">STT-MRAM (垂直 MTJ)</span><span data-lang="en">STT-MRAM (Perpendicular MTJ)</span>
                     </th>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">鐵磁自旋極化磁化方向</span><span data-lang="en">Ferromagnetic spin polarization</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 1.40 eV (磁各向異性)</span><span data-lang="en">~ 1.40 eV (Anisotropy energy)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">~ 2.5 年 (Δ 降至 42)</span><span data-lang="en">~ 2.5 Years (Δ drops to 42)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&lt; 1 小時 (超順磁熱消磁)</span><span data-lang="en">&lt; 1 Hour (Superparamagnetic flip)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">60 ~ 85 ns</span><span data-lang="en">60 ~ 85 ns</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">Good (Limited &lt; 150°C / PMA Stability)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">鐵磁自旋極化磁化方向</span><span data-lang="en">Ferromagnetic spin polarization</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 1.40 eV (磁各向異性)</span><span data-lang="en">~ 1.40 eV (Anisotropy energy)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309;"><span data-lang="zh">~ 2.5 年 (Δ 降至 42)</span><span data-lang="en">~ 2.5 Years (Δ drops to 42)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">&lt; 1 小時 (超順磁熱消磁)</span><span data-lang="en">&lt; 1 Hour (Superparamagnetic flip)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">60 ~ 85 ns</span><span data-lang="en">60 ~ 85 ns</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">Good (Limited &lt; 150°C / PMA Stability)</span></td>
                   </tr>
-                  <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-                    <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
+                  <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+                    <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #b45309;">
                       <span data-lang="zh">Oxide ReRAM (BEOL 微絲)</span><span data-lang="en">Oxide ReRAM (BEOL Filament)</span>
                     </th>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">過渡金屬氧化物氧空位微絲</span><span data-lang="en">Oxygen vacancy nanofilament</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 1.25 eV (離子遷移)</span><span data-lang="en">~ 1.25 eV (Ion migration)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">~ 1.2 年 (HRS 阻值下漂)</span><span data-lang="en">~ 1.2 Years (HRS drift)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 10 天 (高溫氧空位重構)</span><span data-lang="en">&lt; 10 Days (Thermal re-oxidation)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">90 ~ 130 ns</span><span data-lang="en">90 ~ 130 ns</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">Moderate (Oxygen back-diffusion margin)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">過渡金屬氧化物氧空位微絲</span><span data-lang="en">Oxygen vacancy nanofilament</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 1.25 eV (離子遷移)</span><span data-lang="en">~ 1.25 eV (Ion migration)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309;"><span data-lang="zh">~ 1.2 年 (HRS 阻值下漂)</span><span data-lang="en">~ 1.2 Years (HRS drift)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c;"><span data-lang="zh">&lt; 10 天 (高溫氧空位重構)</span><span data-lang="en">&lt; 10 Days (Thermal re-oxidation)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">90 ~ 130 ns</span><span data-lang="en">90 ~ 130 ns</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">Moderate (Oxygen back-diffusion margin)</span></td>
                   </tr>
-                  <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-                    <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
+                  <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+                    <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #b91c1c;">
                       <span data-lang="zh">Floating-Gate / CT eFlash</span><span data-lang="en">Floating-Gate / CT eFlash</span>
                     </th>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">穿隧氧層阱中捕獲之電子雲</span><span data-lang="en">Trapped electrons in poly gate</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 1.10 eV (熱離子激發)</span><span data-lang="en">~ 1.10 eV (Thermionic emission)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&lt; 3 個月 (AF 激增 650x)</span><span data-lang="en">&lt; 3 Months (AF surges 650x)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">極短 (&lt; 24 小時 / 熱激發洩漏)</span><span data-lang="en">Short (&lt; 24 hrs / Thermal emission)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&gt; 180 ns (感測窗口坍塌)</span><span data-lang="en">&gt; 180 ns (Collapsed window)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">受限 (裸晶合封熱區浮閘洩漏加速 / 需佈局於非功率熱區)</span><span data-lang="en">Constrained (Hot-spot leakage / Requires thermal separation)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">穿隧氧層阱中捕獲之電子雲</span><span data-lang="en">Trapped electrons in poly gate</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 1.10 eV (熱離子激發)</span><span data-lang="en">~ 1.10 eV (Thermionic emission)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">&lt; 3 個月 (AF 激增 650x)</span><span data-lang="en">&lt; 3 Months (AF surges 650x)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">極短 (&lt; 24 小時 / 熱激發洩漏)</span><span data-lang="en">Short (&lt; 24 hrs / Thermal emission)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c;"><span data-lang="zh">&gt; 180 ns (感測窗口坍塌)</span><span data-lang="en">&gt; 180 ns (Collapsed window)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">受限 (裸晶合封熱區浮閘洩漏加速 / 需佈局於非功率熱區)</span><span data-lang="en">Constrained (Hot-spot leakage / Requires thermal separation)</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <div class="rm-footnote" style="margin-top: 14px; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 6px;">
+            <div class="rm-footnote" style="margin-top: 14px; background: #f1f5f9; padding: 10px 14px; border-radius: 6px;">
               <strong style="color:#b45309;"><span data-lang="zh">功率電子高溫工程結論：</span><span data-lang="en">Power Electronics High-Tj Conclusion: </span></strong>
               <span data-lang="zh">第三代半導體 SiC/GaN 驅動晶片緊鄰發熱功率開關，結溫可能超過 175°C~200°C。傳統浮閘 eFlash 因熱發射 (Thermionic Emission) 電荷逸出速率隨溫度指數增加，在 >175°C~250°C 裸晶功率直結環境下受限，通常配置於溫度較低之微控制器或外圍晶粒；而 0-Mask AntiFuse 依託金屬矽化物微絲無電荷結構，高溫下資料留存良好，且能在次百奈秒內讀出去飽和保護 (DESAT) 閾值，適合智慧功率合封模組。</span>
               <span data-lang="en">Third-generation wide-bandgap SiC/GaN intelligent drivers operate adjacent to severe heat sources with junction temperatures easily exceeding 175°C~200°C. Floating-gate eFlash suffers from exponential thermionic charge emission at >175°C~250°C, typically necessitating placement on cooler MCU dies; 0-Mask AntiFuse utilizes charge-free silicide filaments with robust high-temperature retention, achieving sub-100ns DESAT trip reads suitable for smart power co-packaged modules.</span>
@@ -2011,7 +2024,7 @@
               <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #b45309; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#b45309;"><span data-lang="en">CONTRACT 02 · CALIBRATION</span><span data-lang="zh">契約 02 · 校準</span></span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#b45309; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;"><span data-lang="en">GRADE 0 BOUNDED</span><span data-lang="zh">Grade 0 範圍限制</span></span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#b45309; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #cbd5e1;"><span data-lang="en">GRADE 0 BOUNDED</span><span data-lang="zh">Grade 0 範圍限制</span></span>
                 </div>
                 <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">引擎與雷達感測器工廠標定參數</span>
@@ -2029,7 +2042,7 @@
               <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#6f5536;"><span data-lang="en">CONTRACT 03 · RESILIENT RECOVERY</span><span data-lang="zh">契約 03 · 韌性復原</span></span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #2a3f3a;"><span data-lang="en">FAIL-SAFE READY</span><span data-lang="zh">故障安全設計就緒</span></span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #cbd5e1;"><span data-lang="en">FAIL-SAFE READY</span><span data-lang="zh">故障安全設計就緒</span></span>
                 </div>
                 <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">ADAS 安全備援與緊急開機向量</span>
@@ -2197,7 +2210,7 @@
                   <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                     <span data-lang="zh">最低持電電容</span><span data-lang="en">HOLD-UP CAPACITANCE</span>
                   </div>
-                  <div id="auto-bb-out-capuf" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div id="auto-bb-out-capuf" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                   <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                     <span data-lang="zh">MLCC 板載佔地指標</span><span data-lang="en">PCB MLCC budget</span>
                   </div>
@@ -2207,7 +2220,7 @@
                   <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
                     <span data-lang="zh">斷電緊急寫入時間</span><span data-lang="en">BURST WRITE TIME</span>
                   </div>
-                  <div id="auto-bb-out-writetime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div id="auto-bb-out-writetime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
                   <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
                     <span data-lang="zh">掉電關閉窗口對比</span><span data-lang="en">vs power collapse</span>
                   </div>
@@ -2245,13 +2258,13 @@
               </div>
 
               <!-- Canvas Visualization -->
-              <div style="background: #101923; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
                   <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Blackbox Visualization Mode" data-aria-en="Blackbox Visualization Mode" data-aria-zh="黑盒子視覺化模式">
                     <button id="auto-bb-mode-curve" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
                       <span data-lang="zh">斷電放電時序曲線 (Discharge)</span><span data-lang="en">Discharge Timing</span>
                     </button>
-                    <button id="auto-bb-mode-dial" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <button id="auto-bb-mode-dial" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                       <span data-lang="zh">環形日誌緩衝區磨損 (Buffer Dial)</span><span data-lang="en">Buffer Dial</span>
                     </button>
                   </div>
@@ -2273,7 +2286,7 @@
           <section id="sec-value-chain" class="lens-panel" aria-labelledby="auto-value-chain-title">
             <div class="panel-hero-bar">
               <div class="hero-bar-meta">
-                <span class="meta-tag" style="background:rgba(16,185,129,0.18); color:#34d399; border-color:rgba(16,185,129,0.4);"><span data-lang="en">CHAPTER 05 · VALUE CHAIN &amp; SIP</span><span data-lang="zh">第 05 章 · 價值鏈與 SiP</span></span>
+                <span class="meta-tag" style="background:rgba(16,185,129,0.18); color:#047857; border-color:rgba(16,185,129,0.4);"><span data-lang="en">CHAPTER 05 · VALUE CHAIN &amp; SIP</span><span data-lang="zh">第 05 章 · 價值鏈與 SiP</span></span>
                 <span class="meta-desc"><span data-lang="en">FOUNDRY PDK · HARBOR ROOT-OF-TRUST · CHIPLET HETEROGENEOUS PACKAGING</span><span data-lang="zh">晶圓代工 PDK · Harbor 信任根 · Chiplet 異質封裝</span></span>
               </div>
               <h3 id="auto-value-chain-title" style="margin: 0.5rem 0 0.25rem; font-size: 1.4rem; color: #0f172a;">
@@ -2290,8 +2303,8 @@
               <!-- Pillar 1: Tower Y-Flash -->
               <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font: 800 10px 'IBM Plex Mono'; color: #34d399; letter-spacing: 0.1em;"><span data-lang="en">01 · BCD HIGH-VOLTAGE &amp; BMS</span><span data-lang="zh">01 · BCD 高壓與 BMS</span></span>
-                  <span style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #34d399; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Grade 0（Ta −40~+150°C）· Tj 175°C 依特定規格書</span><span data-lang="en">Grade 0 (Ta −40~+150°C) · Tj 175°C per named datasheet</span></span>
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #047857; letter-spacing: 0.1em;"><span data-lang="en">01 · BCD HIGH-VOLTAGE &amp; BMS</span><span data-lang="zh">01 · BCD 高壓與 BMS</span></span>
+                  <span style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #047857; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Grade 0（Ta −40~+150°C）· Tj 175°C 依特定規格書</span><span data-lang="en">Grade 0 (Ta −40~+150°C) · Tj 175°C per named datasheet</span></span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Tower Semiconductor Y-Flash</h4>
                 <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
@@ -2316,8 +2329,8 @@
               <!-- Pillar 2: PUFsecurity HRoT -->
               <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font: 800 10px 'IBM Plex Mono'; color: #dfb77c; letter-spacing: 0.1em;"><span data-lang="en">02 · VEHICLE ID &amp; SECURE BOOT</span><span data-lang="zh">02 · 車輛識別碼與安全開機</span></span>
-                  <span style="font-size: 10px; background: rgba(196, 165, 116, 0.15); color: #dfb77c; padding: 2px 6px; border-radius: 3px;">ISO 26262 ASIL-D</span>
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #785021; letter-spacing: 0.1em;"><span data-lang="en">02 · VEHICLE ID &amp; SECURE BOOT</span><span data-lang="zh">02 · 車輛識別碼與安全開機</span></span>
+                  <span style="font-size: 10px; background: rgba(196, 165, 116, 0.15); color: #785021; padding: 2px 6px; border-radius: 3px;">ISO 26262 ASIL-D</span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
                   <span data-lang="zh">PUFsecurity / 力旺 NeoPUF + AntiFuse</span>
@@ -2351,8 +2364,8 @@
               <!-- Pillar 3: Winbond & Macronix Heterogeneous -->
               <div style="background: #f8fafc; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font: 800 10px 'IBM Plex Mono'; color: #7dd3fc; letter-spacing: 0.1em;"><span data-lang="en">03 · ADVANCED-NODE CHIPLET / SIP</span><span data-lang="zh">03 · 先進節點 Chiplet／SiP</span></span>
-                  <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G0 · XiP</span>
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #0369a1; letter-spacing: 0.1em;"><span data-lang="en">03 · ADVANCED-NODE CHIPLET / SIP</span><span data-lang="zh">03 · 先進節點 Chiplet／SiP</span></span>
+                  <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #0369a1; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G0 · XiP</span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
                   <span data-lang="zh">Winbond 華邦 &amp; Macronix 旺宏異質整合</span>
@@ -2380,8 +2393,8 @@
               <!-- Pillar 4: Infineon TC4x & TSMC eRRAM -->
               <div style="background: #f8fafc; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font: 800 10px 'IBM Plex Mono'; color: #f59e0b; letter-spacing: 0.1em;"><span data-lang="en">04 · TSMC 28NM ERRAM BREAKTHROUGH</span><span data-lang="zh">04 · TSMC 28nm eRRAM 進展</span></span>
-                  <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G1 · TC4x</span>
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #b45309; letter-spacing: 0.1em;"><span data-lang="en">04 · TSMC 28NM ERRAM BREAKTHROUGH</span><span data-lang="zh">04 · TSMC 28nm eRRAM 進展</span></span>
+                  <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #b45309; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G1 · TC4x</span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Infineon AURIX™ TC4x (TSMC 28nm eRRAM)</h4>
                 <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
@@ -2592,9 +2605,9 @@
 
   <script type="module" src="automotive-thermal.js"></script>
   <script type="module" src="automotive-ecc.js"></script>
-  <script type="module" src="automotive-mission-profile.js?v=20261005"></script>
-  <script type="module" src="automotive-blackbox-journal-calculator.js?v=20261005"></script>
-  <script type="module" src="automotive-load-dump-clamp-simulator.js?v=20261005"></script>
+  <script type="module" src="automotive-mission-profile.js?v=20261102-p2"></script>
+  <script type="module" src="automotive-blackbox-journal-calculator.js?v=20261102-p2"></script>
+  <script type="module" src="automotive-load-dump-clamp-simulator.js?v=20261102-p2"></script>
 
   <!-- Studio Layout Vertical Rail Scroll Spy & Interactive Navigator -->
   <script>
@@ -2658,9 +2671,9 @@
       initCryoRadhardSimulator('cryo-simulator-root');
     }
   </script>
-  <script type="module" src="automotive-asild-ecc-simulator.js?v=20261006"></script>
-  <script type="module" src="automotive-hbm4-scrubbing-simulator.js?v=20261102"></script>
-  <script type="module" src="automotive-high-temp-sic-gan-simulator.js?v=20261102"></script>
+  <script type="module" src="automotive-asild-ecc-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="automotive-hbm4-scrubbing-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="automotive-high-temp-sic-gan-simulator.js?v=20261102-p2"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 <script type="module" src="ev-bms-cmti-isolation-journal-simulator.js?v=20261024"></script>
 </body>

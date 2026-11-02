@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Security Assurance · NVM Knowledge Hub" data-title-zh="安全確證 · NVM 知識中心" data-description-en="Secure NVM Physical Security Assurance: from fault injection and side-channel analysis to evidence and certification decisions." data-description-zh="安全 NVM 實體安全確證：從故障注入與側通道分析，連結證據判讀與認證決策。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v5"></script>
+  <script src="site-language.js?v=20261102-p2"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="Secure NVM Physical Security Assurance: from fault injection and side-channel analysis to evidence and certification decisions.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -36,8 +36,8 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Security Assurance · NVM Knowledge Hub","description":"Secure NVM Physical Security Assurance: from fault injection and side-channel analysis to evidence and certification decisions.","url":"https://hub.samhuang68.org/security-assurance.html","image":"https://hub.samhuang68.org/assets/assurance-evidence-v1.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/security-assurance.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the primary physical attack vectors against on-chip secure NVM?","acceptedAnswer":{"@type":"Answer","text":"Key attack vectors include passive non-invasive (Differential Power Analysis DPA, Electro-Magnetic Analysis EMA), active non-invasive (clock/voltage glitching, laser fault injection LFI), semi-invasive (UV optical clearing, backside photon emission), and invasive (FIB-PVC circuit editing, TEM/SEM voltage contrast)."}},{"@type":"Question","name":"Why is AntiFuse OTP physically superior against TEM/SEM reverse engineering compared to Floating Gate cells?","acceptedAnswer":{"@type":"Answer","text":"Floating-gate cells store static charges on poly gates that secondary electrons reveal during SEM inspection. AntiFuse programming alters a nanometer-scale dielectric spot into a conductive filament chemically identical to surrounding silicon, rendering it virtually invisible under optical and electron microscopy."}},{"@type":"Question","name":"How do Common Criteria and NIST FIPS 140-3 evaluate hardware NVM security?","acceptedAnswer":{"@type":"Answer","text":"Common Criteria (AVA_VAN.5) evaluates resistance against high-attack-potential adversaries using physical probing and laser injection. FIPS 140-3 focuses on cryptographic module boundaries, physical tamper response, and approved algorithm implementation correctness."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"IP & Architecture","item":"https://hub.samhuang68.org/#layer-ip-process"},{"@type":"ListItem","position":3,"name":"Silicon RoT & PUF Hardware Assurance","item":"https://hub.samhuang68.org/security-assurance.html"}]}</script>
-  <link rel="stylesheet" href="styles.css?v=20261102">
-  <link rel="stylesheet" href="assurance.css?v=20260929-v5">
+  <link rel="stylesheet" href="styles.css?v=20261102-p2">
+  <link rel="stylesheet" href="assurance.css?v=20261102-p2">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
@@ -352,14 +352,14 @@
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">硬體防禦增益加分</span><span data-lang="en">DEFENSE BONUS</span>
             </div>
-            <div id="cc-bonus-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+            <div id="cc-bonus-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0369a1; margin-top: 4px;">—</div>
           </div>
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">有效抗攻擊總潛力</span><span data-lang="en">EFFECTIVE POTENTIAL</span>
             </div>
-            <div id="cc-eff-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+            <div id="cc-eff-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #047857; margin-top: 4px;">—</div>
           </div>
         </div>
 
@@ -448,7 +448,7 @@
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">頻率法簡化熵 H<sub>&infin;</sub></span><span data-lang="en">FREQUENCY-ONLY ENTROPY</span>
             </div>
-            <div id="puf-entropy-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">0.985 bit</div>
+            <div id="puf-entropy-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1; margin-top: 4px;">0.985 bit</div>
             <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學參考值 &ge;0.9；非 90B 門檻</span><span data-lang="en">Illustrative reference &ge;0.9; not a 90B threshold</span></span>
           </div>
 
@@ -456,7 +456,7 @@
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">所選檢定通過數</span><span data-lang="en">SELECTED TESTS PASSED</span>
             </div>
-            <div id="puf-passed-tests-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">4 / 4</div>
+            <div id="puf-passed-tests-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857; margin-top: 4px;">4 / 4</div>
             <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">&alpha; = 0.01 門檻</span><span data-lang="en">&alpha; = 0.01 threshold</span></span>
           </div>
 
@@ -464,7 +464,7 @@
             <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">累計和偏離 Z</span><span data-lang="en">CUSUM EXCURSION</span>
             </div>
-            <div id="puf-cusum-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #d97706; margin-top: 4px;">Z = 12</div>
+            <div id="puf-cusum-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309; margin-top: 4px;">Z = 12</div>
             <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">漫步軌跡極值</span><span data-lang="en">Random walk max</span></span>
           </div>
         </div>
@@ -503,15 +503,15 @@
         </p>
       </header>
 
-      <div id="pqc-dpa-simulator-root" style="background: #090d16; border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+      <div id="pqc-dpa-simulator-root" style="background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 8px; padding: 20px; color: #0f172a; margin-top: 16px;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
           <!-- Security Preset Selection -->
           <div>
-            <label for="pqc-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #c4a574; margin-bottom: 6px;">
+            <label for="pqc-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #785021; margin-bottom: 6px;">
               <span data-lang="zh">教學模型防護目標：</span>
               <span data-lang="en">Illustrative Protection Target:</span>
             </label>
-            <select id="pqc-preset-select" aria-label="Illustrative protection target" data-aria-zh="教學模型防護目標" data-aria-en="Illustrative protection target" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-preset-select" aria-label="Illustrative protection target" data-aria-zh="教學模型防護目標" data-aria-en="Illustrative protection target" style="width: 100%; padding: 8px 10px; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
               <option value="fips140_3_lvl4" data-zh="教學模型：高防護目標" data-en="Illustrative Model: High Protection Target">Illustrative Model: High Protection Target</option>
               <option value="automotive_evita_high" data-zh="教學模型：中防護目標" data-en="Illustrative Model: Medium Protection Target">Illustrative Model: Medium Protection Target</option>
               <option value="iot_commercial_secure" data-zh="教學模型：基本防護目標" data-en="Illustrative Model: Basic Protection Target">Illustrative Model: Basic Protection Target</option>
@@ -521,11 +521,11 @@
 
           <!-- Key Storage & PUF Topology -->
           <div>
-            <label for="pqc-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #c4a574; margin-bottom: 6px;">
+            <label for="pqc-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #785021; margin-bottom: 6px;">
               <span data-lang="zh">底層金鑰儲存 / PUF 拓撲 (Key Storage &amp; PUF Topology):</span>
               <span data-lang="en">Key Storage &amp; PUF Topology:</span>
             </label>
-            <select id="pqc-topology-select" aria-label="Key storage and PUF topology" data-aria-zh="底層金鑰儲存與 PUF 拓撲" data-aria-en="Key storage and PUF topology" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+            <select id="pqc-topology-select" aria-label="Key storage and PUF topology" data-aria-zh="底層金鑰儲存與 PUF 拓撲" data-aria-en="Key storage and PUF topology" style="width: 100%; padding: 8px 10px; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px;">
               <option value="antifuse_rot_puf">Logic AntiFuse Nano-Filament PUF / RoT (0-Mask)</option>
               <option value="sram_puf_helper">SRAM Startup PUF (Requires External BCH Helper Data)</option>
               <option value="efuse_metal_poly">Poly-Si / Metal eFuse (Melt Link / SEM Visible)</option>
@@ -535,7 +535,7 @@
         </div>
 
         <!-- Countermeasure Checkboxes and Noise Slider -->
-        <div style="background: #131b2e; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+        <div style="background: #ffffff; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
           <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 12px;">
             <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
               <input type="checkbox" id="pqc-diff-check" aria-label="Differential Complementary Sensing defense" data-aria-en="Differential Complementary Sensing defense" data-aria-zh="差分互補對稱感測防禦" checked style="accent-color: #c4a574;">
@@ -552,9 +552,9 @@
           </div>
 
           <div>
-            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">電路雜訊擾動標準差 (Circuit Noise Sigma)</span><span data-lang="en">Circuit Noise Sigma (σ)</span></span>
-              <span id="pqc-noise-val" style="color: #c4a574;">σ = 4.8</span>
+              <span id="pqc-noise-val" style="color: #785021;">σ = 4.8</span>
             </div>
             <input type="range" id="pqc-noise-slider" min="0.1" max="8.0" step="0.1" value="4.8" style="width: 100%; accent-color: #c4a574;" aria-label="Circuit Noise Sigma" data-aria-zh="電路雜訊擾動標準差" data-aria-en="Circuit Noise Sigma">
           </div>
@@ -562,37 +562,37 @@
 
         <!-- Real-time Metric Badges -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">揭示量測次數 MTD</span><span data-lang="en">Trace MTD</span></div>
-            <div id="pqc-metric-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">> 10,000,000</div>
+          <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">揭示量測次數 MTD</span><span data-lang="en">Trace MTD</span></div>
+            <div id="pqc-metric-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #047857;">> 10,000,000</div>
           </div>
-          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">峰值相關係數 ρmax</span><span data-lang="en">Peak Correlation</span></div>
-            <div id="pqc-metric-rho" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">0.003</div>
+          <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">峰值相關係數 ρmax</span><span data-lang="en">Peak Correlation</span></div>
+            <div id="pqc-metric-rho" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0369a1;">0.003</div>
           </div>
-          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">晶片內原生錯誤率</span><span data-lang="en">Native Intra-BER</span></div>
-            <div id="pqc-metric-ber" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">0.0000%</div>
+          <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">晶片內原生錯誤率</span><span data-lang="en">Native Intra-BER</span></div>
+            <div id="pqc-metric-ber" style="font: 700 14px 'IBM Plex Mono', monospace; color: #b45309;">0.0000%</div>
           </div>
-          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
-            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">安全韌性總評分</span><span data-lang="en">Security Score</span></div>
-            <div id="pqc-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">95 / 100</div>
+          <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 2px;"><span data-lang="zh">安全韌性總評分</span><span data-lang="en">Security Score</span></div>
+            <div id="pqc-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #047857;">95 / 100</div>
           </div>
         </div>
 
         <!-- Canvas Visualizer with Dual Mode Switcher -->
-        <div style="background: #05080f; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-            <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #c4a574; margin: 0;">
+            <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #785021; margin: 0;">
               <span data-lang="zh">側信道相關性與 PUF 熵分佈視覺化</span>
               <span data-lang="en">Side-Channel Correlation &amp; PUF Entropy Visualization</span>
             </h3>
             <div style="display: flex; gap: 6px;">
-              <button type="button" id="pqc-mode-cpa-btn" class="active" aria-label="Switch to CPA Correlation Traces chart" data-aria-en="Switch to CPA Correlation Traces chart" data-aria-zh="切換為 CPA 相關係數軌跡圖表" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-cpa-btn" class="active" aria-label="Switch to CPA Correlation Traces chart" data-aria-en="Switch to CPA Correlation Traces chart" data-aria-zh="切換為 CPA 相關係數軌跡圖表" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #785021; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">CPA 相關係數軌跡</span>
                 <span data-lang="en">CPA Correlation Traces</span>
               </button>
-              <button type="button" id="pqc-mode-puf-btn" aria-label="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-en="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-zh="切換為 PUF 晶片間漢明距離分佈圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+              <button type="button" id="pqc-mode-puf-btn" aria-label="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-en="Switch to PUF Inter-Chip Hamming Distance chart" data-aria-zh="切換為 PUF 晶片間漢明距離分佈圖表" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #475569; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
                 <span data-lang="zh">PUF 晶片間漢明距離</span>
                 <span data-lang="en">PUF Inter-Chip Hamming</span>
               </button>
@@ -639,15 +639,15 @@
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">0-Mask AntiFuse OTP</th>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">0-Mask AntiFuse OTP</th>
               <td style="padding: 8px 10px;"><span data-lang="zh">永久歐姆金屬化微絲</span><span data-lang="en">Permanent Ohmic Filament</span></td>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">&gt; 2.5 Mrad(Si)</td>
-              <td style="padding: 8px 10px; color: #059669; font-weight: 600;"><span data-lang="zh">微絲無電荷 (巨集極低 SEU)</span><span data-lang="en">Filament immune (Low macro SEU)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #047857; font-weight: 600;">&gt; 2.5 Mrad(Si)</td>
+              <td style="padding: 8px 10px; color: #047857; font-weight: 600;"><span data-lang="zh">微絲無電荷 (巨集極低 SEU)</span><span data-lang="en">Filament immune (Low macro SEU)</span></td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 55 MeV·cm²/mg</td>
               <td style="padding: 8px 10px;"><span data-lang="zh">深空與高軌航太優選</span><span data-lang="en">Deep Space &amp; Orbit Architecture</span></td>
             </tr>
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">STT-eMRAM</th>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">STT-eMRAM</th>
               <td style="padding: 8px 10px;"><span data-lang="zh">磁性穿隧接面 (MTJ)</span><span data-lang="en">Magnetic Tunnel Junction</span></td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">~ 500 krad(Si)</td>
               <td style="padding: 8px 10px;"><span data-lang="zh">LETth ≈ 28（需 EDAC 加固）</span><span data-lang="en">LETth ≈ 28 (Needs EDAC)</span></td>
@@ -655,7 +655,7 @@
               <td style="padding: 8px 10px;"><span data-lang="zh">LEO / GEO 軌道耐受</span><span data-lang="en">LEO / GEO Qualified</span></td>
             </tr>
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">ReRAM (OxRAM)</th>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;">ReRAM (OxRAM)</th>
               <td style="padding: 8px 10px;"><span data-lang="zh">金屬氧化物氧空缺微絲</span><span data-lang="en">Oxygen-Vacancy Filament</span></td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">~ 300 krad(Si)</td>
               <td style="padding: 8px 10px;"><span data-lang="zh">LETth ≈ 22（高阻態易擾動）</span><span data-lang="en">LETth ≈ 22 (HRS Drift)</span></td>
@@ -663,7 +663,7 @@
               <td style="padding: 8px 10px;"><span data-lang="zh">低軌衛星評估中</span><span data-lang="en">LEO Evaluation</span></td>
             </tr>
             <tr style="background: #fffbeb;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">商用浮閘 eFlash 基準</span><span data-lang="en">Commercial eFlash Baseline</span></th>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #b45309;"><span data-lang="zh">商用浮閘 eFlash 基準</span><span data-lang="en">Commercial eFlash Baseline</span></th>
               <td style="padding: 8px 10px;"><span data-lang="zh">浮閘俘獲靜電荷</span><span data-lang="en">Trapped Gate Charge</span></td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">15–25 krad(Si)</td>
               <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;"><span data-lang="zh">極度敏感 (LETth &lt; 6.5)</span><span data-lang="en">Sensitive (LETth &lt; 6.5)</span></td>
@@ -685,7 +685,7 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
-            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.08em; text-transform: uppercase;">
               <span data-lang="zh">抗輻射架構評估 · 歐姆微絲抗電離模擬器</span>
               <span data-lang="en">RAD-HARD ARCHITECTURE EVALUATION · OHMIC FILAMENT SIMULATOR</span>
             </span>
@@ -694,7 +694,7 @@
               <span data-lang="en">Extreme Radiation Hardness (TID/SEE) &amp; Ohmic Filament Simulator</span>
             </h3>
           </div>
-          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0369a1; padding: 4px 8px; border-radius: 4px;">
             <span data-lang="zh">MIL-STD-883 / ESA 規範參考模型</span>
             <span data-lang="en">MIL-STD-883 / ESA Reference Model</span>
           </span>
@@ -734,7 +734,7 @@
           <div>
             <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">總電離劑量 TID:</span><span data-lang="en">TID DOSE:</span></span>
-              <span id="rad-tid-val" style="color: #0284c7; font-weight: 700;">150 krad</span>
+              <span id="rad-tid-val" style="color: #0369a1; font-weight: 700;">150 krad</span>
             </div>
             <input type="range" id="rad-tid-slider" min="10" max="1000" step="10" value="150" aria-label="Total Ionizing Dose in krad" data-aria-en="Total Ionizing Dose in krad" data-aria-zh="總電離劑量 TID" aria-valuetext="150 krad" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
           </div>
@@ -742,7 +742,7 @@
           <div>
             <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
               <span><span data-lang="zh">重離子 LET:</span><span data-lang="en">HEAVY-ION LET:</span></span>
-              <span id="rad-let-val" style="color: #0284c7; font-weight: 700;">65 MeV</span>
+              <span id="rad-let-val" style="color: #0369a1; font-weight: 700;">65 MeV</span>
             </div>
             <input type="range" id="rad-let-slider" min="5" max="100" step="5" value="65" aria-label="Heavy-Ion LET in MeV*cm^2/mg" data-aria-en="Heavy-Ion LET in MeV*cm^2/mg" data-aria-zh="重離子線性能量轉移 LET" aria-valuetext="65 MeV" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
           </div>
@@ -754,7 +754,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">閾值電壓漂移 ΔVth</span><span data-lang="en">DELTA VTH SHIFT</span>
             </div>
-            <div id="rad-out-deltavth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div id="rad-out-deltavth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">陷阱電洞電荷累積</span><span data-lang="en">Trapped hole accumulation</span>
             </div>
@@ -764,7 +764,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">剩餘感測電壓裕度</span><span data-lang="en">REMAINING MARGIN</span>
             </div>
-            <div id="rad-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="rad-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">讀取訊號窗 (下限 50mV)</span><span data-lang="en">Sense window (>50mV)</span>
             </div>
@@ -774,7 +774,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">感測裕度留存比率</span><span data-lang="en">MARGIN RETENTION</span>
             </div>
-            <div id="rad-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="rad-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">相對於照射前初值</span><span data-lang="en">Relative to pre-rad</span>
             </div>
@@ -784,7 +784,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">SEU 翻轉截面積 σ</span><span data-lang="en">SEU CROSS SECTION</span>
             </div>
-            <div id="rad-out-cross" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div id="rad-out-cross" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">重離子單一事件翻轉</span><span data-lang="en">Heavy-ion upset prob</span>
             </div>
@@ -794,7 +794,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">太空軌道 FIT 率</span><span data-lang="en">ORBITAL FIT RATE</span>
             </div>
-            <div id="rad-out-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+            <div id="rad-out-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #7e22ce;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">FIT / Mbit 任務失效率</span><span data-lang="en">FIT / Mbit failures</span>
             </div>
@@ -804,7 +804,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">宇航認證耐受評級</span><span data-lang="en">RAD-HARD RATING</span>
             </div>
-            <div id="rad-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="rad-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">ESA / NASA 級別</span><span data-lang="en">ESA / NASA Level</span>
             </div>
@@ -812,13 +812,13 @@
         </div>
 
         <!-- Canvas Visualization -->
-        <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
             <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Rad Visualization Mode" data-aria-en="Rad Visualization Mode" data-aria-zh="輻照視覺化模式">
               <button id="rad-mode-tid" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                 <span data-lang="zh">TID 累積劑量 vs 感測電壓裕度退化曲線 (0-1000 krad)</span><span data-lang="en">TID Dose vs Sense Margin</span>
               </button>
-              <button id="rad-mode-let" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <button id="rad-mode-let" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                 <span data-lang="zh">重離子 LET vs Weibull 單一事件翻轉截面積 (0-100 LET)</span><span data-lang="en">LET vs Weibull SEU Cross-Section</span>
               </button>
             </div>
@@ -874,15 +874,15 @@
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid #e2e8f0;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;"><span data-lang="zh">0-Mask AntiFuse 根種子衍生</span><span data-lang="en">0-Mask AntiFuse Seed Derivation</span></th>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">32–64 Bytes (256/512-bit)</td>
-              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">50x–126x (98%–99%)</td>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0369a1;"><span data-lang="zh">0-Mask AntiFuse 根種子衍生</span><span data-lang="en">0-Mask AntiFuse Seed Derivation</span></th>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #047857; font-weight: 600;">32–64 Bytes (256/512-bit)</td>
+              <td style="padding: 8px 10px; color: #047857; font-weight: 600;">50x–126x (98%–99%)</td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 15 ms / die (<span data-lang="zh">32B 燒錄</span><span data-lang="en">32B prog</span>)</td>
-              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">&gt; 2.5e7 traces (<span data-lang="zh">高階遮罩估算</span><span data-lang="en">Higher-order masking est.</span>)</td>
+              <td style="padding: 8px 10px; color: #047857; font-weight: 600;">&gt; 2.5e7 traces (<span data-lang="zh">高階遮罩估算</span><span data-lang="en">Higher-order masking est.</span>)</td>
               <td style="padding: 8px 10px;"><span data-lang="zh">支援高抗 DPA 架構設計（可協助達成 FIPS 140-3 / SESIP 評估）</span><span data-lang="en">Supports high-DPA resistance architectures (assists FIPS 140-3 / SESIP evaluations)</span></td>
             </tr>
             <tr style="background: #fffbeb;">
-              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">原生多項式矩陣全容量儲存</span><span data-lang="en">Raw Polynomial Direct Storage</span></th>
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #b45309;"><span data-lang="zh">原生多項式矩陣全容量儲存</span><span data-lang="en">Raw Polynomial Direct Storage</span></th>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">1,632–4,896 Bytes</td>
               <td style="padding: 8px 10px; color: #dc2626;">1.0x (<span data-lang="zh">基準，面積龐大</span><span data-lang="en">Baseline, high area</span>)</td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 850 ms / die (<span data-lang="zh">全密鑰燒錄</span><span data-lang="en">Full key prog</span>)</td>
@@ -904,7 +904,7 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
-            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0369a1; letter-spacing: 0.08em; text-transform: uppercase;">
               <span data-lang="zh">PQC 密碼工程架構評估 · 信任根金鑰儲存試算器</span>
               <span data-lang="en">PQC CRYPTO ARCHITECTURE EVALUATION · HARDWARE ROT SIMULATOR</span>
             </span>
@@ -913,7 +913,7 @@
               <span data-lang="en">Post-Quantum (ML-KEM/ML-DSA) Key Storage &amp; Side-Channel Simulator</span>
             </h3>
           </div>
-          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0369a1; padding: 4px 8px; border-radius: 4px;">
             <span data-lang="zh">NIST FIPS 203 / 204 標準</span>
             <span data-lang="en">NIST FIPS 203 / 204 Standards</span>
           </span>
@@ -967,7 +967,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">原生私鑰容量</span><span data-lang="en">RAW KEY SIZE</span>
             </div>
-            <div id="pqc-out-rawsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div id="pqc-out-rawsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0369a1;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">完整多項式向量</span><span data-lang="en">Full poly vector</span>
             </div>
@@ -977,7 +977,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">實體種子儲存預算</span><span data-lang="en">SEED BUDGET</span>
             </div>
-            <div id="pqc-out-seedsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="pqc-out-seedsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">AntiFuse 根金鑰</span><span data-lang="en">AntiFuse root key</span>
             </div>
@@ -987,7 +987,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">面積縮減與節省比</span><span data-lang="en">AREA REDUCTION</span>
             </div>
-            <div id="pqc-out-savings" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="pqc-out-savings" style="font: 700 16px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">矽面積開銷節約</span><span data-lang="en">Silicon area saved</span>
             </div>
@@ -997,7 +997,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">DPA 破解採樣門檻</span><span data-lang="en">DPA MTD TRACES</span>
             </div>
-            <div id="pqc-out-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+            <div id="pqc-out-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #7e22ce;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">側信道抗攻擊防護</span><span data-lang="en">Side-channel metric</span>
             </div>
@@ -1007,7 +1007,7 @@
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
               <span data-lang="zh">FIPS 信任根評級</span><span data-lang="en">FIPS ROT RATING</span>
             </div>
-            <div id="pqc-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div id="pqc-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #047857;">—</div>
             <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
               <span data-lang="zh">硬體安全保證</span><span data-lang="en">Hardware assurance</span>
             </div>
@@ -1015,13 +1015,13 @@
         </div>
 
         <!-- Canvas Visualization -->
-        <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
             <div style="display: inline-flex; gap: 6px;" role="group" aria-label="PQC Storage Visualization Mode" data-aria-en="PQC Storage Visualization Mode" data-aria-zh="PQC 儲存視覺化模式">
               <button id="pqc-mode-footprint" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                 <span data-lang="zh">原生私鑰 vs AntiFuse 種子儲存預算對比 (Bytes)</span><span data-lang="en">Raw Key vs Seed Budget</span>
               </button>
-              <button id="pqc-mode-mtd" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <button id="pqc-mode-mtd" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; cursor: pointer;">
                 <span data-lang="zh">側信道遮罩階數 vs DPA 採樣痕跡 MTD 曲線</span><span data-lang="en">Masking Order vs DPA MTD</span>
               </button>
             </div>
@@ -1039,7 +1039,7 @@
       </article>
 
       <!-- 教學架構：SRAM PUF 與 AntiFuse 的信任分工，非商用驗證 -->
-      <article id="hybrid-rot-assurance" class="pqc-hybrid-rot-card" style="margin-top: 20px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 20px 24px; color: var(--ink); overflow-wrap: anywhere;">
+      <article id="hybrid-rot-assurance" class="pqc-hybrid-rot-card" style="margin-top: 20px; background: #ffffff; border: 1px solid var(--line); border-radius: 8px; padding: 20px 24px; color: var(--ink); overflow-wrap: anywhere;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
           <div>
             <span style="font-weight: 700; color: var(--teal);"><span data-lang="zh">後量子硬體信任根 · 雙錨點架構評估</span><span data-lang="en">PQC HARDWARE ROOT OF TRUST · DUAL-ANCHOR EVALUATION</span></span>
@@ -1103,74 +1103,74 @@
       <!-- Comparative Supply Chain Security Table -->
       <div class="table-responsive-wrapper" style="overflow-x: auto; margin-top: 18px;">
         <table class="data-table" aria-label="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-en="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-zh="供應鏈硬體木馬防禦與光學發射衰減對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 13px;">
-          <caption style="text-align:left;font-size:11px;color:#94a3b8;padding-bottom:6px;">
+          <caption style="text-align:left;font-size:11px;color:#475569;padding-bottom:6px;">
             <span data-lang="zh">*註：數值為文獻典型值與工程模型估算假設（參考 Becker 2013 與 Schlösser 2012），非產品保證。認證等級屬完整 TOE 評估範疇。</span>
             <span data-lang="en">*Note: Values represent academic typical figures and engineering assumptions (per Becker 2013 &amp; Schlösser 2012). Certification tiers apply to complete TOE evaluations.</span>
           </caption>
           <thead>
-            <tr style="background: #1e293b; color: #f8fafc; text-align: left;">
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">信任根儲存架構</span><span data-lang="en">Root-of-Trust Architecture</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">估算光子通量</span><span data-lang="en">Estimated Photon Flux</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">屏蔽衰減估算</span><span data-lang="en">Optical Shielding</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">木馬防護邊界</span><span data-lang="en">Trojan Defense Boundary</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">晶片間漢明距離 (Inter-HD)</span><span data-lang="en">Inter-Chip HD</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">架構防禦角色</span><span data-lang="en">Architectural Role</span></th>
+            <tr style="background: #ffffff; color: #0f172a; text-align: left;">
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">信任根儲存架構</span><span data-lang="en">Root-of-Trust Architecture</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">估算光子通量</span><span data-lang="en">Estimated Photon Flux</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">屏蔽衰減估算</span><span data-lang="en">Optical Shielding</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">木馬防護邊界</span><span data-lang="en">Trojan Defense Boundary</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">晶片間漢明距離 (Inter-HD)</span><span data-lang="en">Inter-Chip HD</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">架構防禦角色</span><span data-lang="en">Architectural Role</span></th>
             </tr>
           </thead>
           <tbody>
-            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #38bdf8;">
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #0369a1;">
                 <span data-lang="zh">0-Mask AntiFuse 原生 PUF</span><span data-lang="en">0-Mask AntiFuse Native PUF</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&lt; 0.1 ph/s (微安級微絲)</span><span data-lang="en">&lt; 0.1 ph/s (Microamp filament)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">~ 48 dB (高衰減模型)</span><span data-lang="en">~ 48 dB (High attenuation)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981;"><span data-lang="zh">消除客製層光罩插入面；仍需防範標準層摻雜木馬</span><span data-lang="en">Eliminates dedicated mask vector; requires dopant defenses</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">50.02% (典型均勻)</span><span data-lang="en">50.02% (Uniform)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">高抗測餘量 (需結合 TOE)</span><span data-lang="en">High Margin (Requires TOE)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">&lt; 0.1 ph/s (微安級微絲)</span><span data-lang="en">&lt; 0.1 ph/s (Microamp filament)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">~ 48 dB (高衰減模型)</span><span data-lang="en">~ 48 dB (High attenuation)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857;"><span data-lang="zh">消除客製層光罩插入面；仍需防範標準層摻雜木馬</span><span data-lang="en">Eliminates dedicated mask vector; requires dopant defenses</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">50.02% (典型均勻)</span><span data-lang="en">50.02% (Uniform)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #047857; font-weight: 700;"><span data-lang="zh">高抗測餘量 (需結合 TOE)</span><span data-lang="en">High Margin (Requires TOE)</span></td>
             </tr>
-            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #1d4ed8;">
                 <span data-lang="zh">STT-MRAM (垂直 MTJ)</span><span data-lang="en">STT-MRAM (Perpendicular MTJ)</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">3 ~ 5 道 (BEOL 金屬層)</span><span data-lang="en">3 ~ 5 Masks (BEOL)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 85 ph/s</span><span data-lang="en">~ 85 ph/s</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 28 dB</span><span data-lang="en">~ 28 dB</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">後段磁穿隧結隱蔽性高；需防範外部磁場與 MOKE</span><span data-lang="en">BEOL MTJ concealment; requires MOKE / magnetic shielding</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.80%</span><span data-lang="en">49.80%</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;"><span data-lang="zh">中等抗測 (需磁屏蔽)</span><span data-lang="en">Moderate (Needs mag shield)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">3 ~ 5 道 (BEOL 金屬層)</span><span data-lang="en">3 ~ 5 Masks (BEOL)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 85 ph/s</span><span data-lang="en">~ 85 ph/s</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 28 dB</span><span data-lang="en">~ 28 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">後段磁穿隧結隱蔽性高；需防範外部磁場與 MOKE</span><span data-lang="en">BEOL MTJ concealment; requires MOKE / magnetic shielding</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">49.80%</span><span data-lang="en">49.80%</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #1d4ed8; font-weight: 700;"><span data-lang="zh">中等抗測 (需磁屏蔽)</span><span data-lang="en">Moderate (Needs mag shield)</span></td>
             </tr>
-            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #b45309;">
                 <span data-lang="zh">SRAM 啟動狀態 PUF</span><span data-lang="en">SRAM Power-Up PUF</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 150 ph/s (翻轉瞬間)</span><span data-lang="en">~ 150 ph/s (Switching)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 18 dB</span><span data-lang="en">~ 18 dB</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">免額外光罩；需防範供電噪訊與雷射 BBI 誘騙</span><span data-lang="en">No mask adders; requires anti-glitch &amp; laser BBI filtering</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.30% (Intra-BER ~ 4.8%)</span><span data-lang="en">49.30% (Intra-BER ~ 4.8%)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;"><span data-lang="zh">商用基線 (需強韌 ECC)</span><span data-lang="en">Commercial Baseline (Needs ECC)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 150 ph/s (翻轉瞬間)</span><span data-lang="en">~ 150 ph/s (Switching)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">~ 18 dB</span><span data-lang="en">~ 18 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309;"><span data-lang="zh">免額外光罩；需防範供電噪訊與雷射 BBI 誘騙</span><span data-lang="en">No mask adders; requires anti-glitch &amp; laser BBI filtering</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1;"><span data-lang="zh">49.30% (Intra-BER ~ 4.8%)</span><span data-lang="en">49.30% (Intra-BER ~ 4.8%)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b45309; font-weight: 700;"><span data-lang="zh">商用基線 (需強韌 ECC)</span><span data-lang="en">Commercial Baseline (Needs ECC)</span></td>
             </tr>
-            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
-              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
+            <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #cbd5e1; font-weight: 700; color: #b91c1c;">
                 <span data-lang="zh">傳統 eFlash 儲存金鑰</span><span data-lang="en">Conventional eFlash Key</span>
               </th>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">8 ~ 12 道 (高壓厚氧層)</span><span data-lang="en">8 ~ 12 Masks (HV Oxide)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&gt; 1000 ph/s (高壓發射)</span><span data-lang="en">&gt; 1000 ph/s (Pump Emission)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 10 dB</span><span data-lang="en">&lt; 10 dB</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">具專屬高壓光罩攻擊面；高壓電荷泵需發射遮蔽</span><span data-lang="en">Dedicated HV mask vector; requires pump shielding</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">無 (非 PUF 靜態寫入)</span><span data-lang="en">N/A (Non-PUF Static)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">需增強主動屏蔽網</span><span data-lang="en">Requires Active Shielding</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">8 ~ 12 道 (高壓厚氧層)</span><span data-lang="en">8 ~ 12 Masks (HV Oxide)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">&gt; 1000 ph/s (高壓發射)</span><span data-lang="en">&gt; 1000 ph/s (Pump Emission)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c;"><span data-lang="zh">&lt; 10 dB</span><span data-lang="en">&lt; 10 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c;"><span data-lang="zh">具專屬高壓光罩攻擊面；高壓電荷泵需發射遮蔽</span><span data-lang="en">Dedicated HV mask vector; requires pump shielding</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c;"><span data-lang="zh">無 (非 PUF 靜態寫入)</span><span data-lang="en">N/A (Non-PUF Static)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #cbd5e1; color: #b91c1c; font-weight: 700;"><span data-lang="zh">需增強主動屏蔽網</span><span data-lang="en">Requires Active Shielding</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="rm-footnote" style="margin-top: 14px; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 6px;">
-        <strong style="color:#a855f7;"><span data-lang="zh">零信任供應鏈與光學安全威脅建模結論：</span><span data-lang="en">Zero-Trust &amp; Optical Security Modeling Finding: </span></strong>
-        <span data-lang="zh">在半導體供應鏈安全中，代工廠惡意篡改與背面光學側信道 (PEM/TRE) 構成關鍵攻擊面。0-Mask AntiFuse PUF 藉由「零額外光罩」消除專屬非揮發層的光罩插入途徑；微安級讀取電流亦在物理上降低熱載子發光強度，大幅拉高時間分辨光子發射 (TRE) 的捕捉難度。但依據 Becker 2013 與 Schlösser 2012 文獻，任何單一技術皆無法完全免疫標準邏輯層摻雜木馬或極端背面薄化下的探測，仍需配合全生命週期防禦鏈與系統級 TOE 驗證。詳細文獻與證據總帳請參見 <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a>。</span>
-        <span data-lang="en">In semiconductor supply-chain security, untrusted foundry manipulation and backside optical side-channels (PEM/TRE) represent significant threat surfaces. 0-Mask AntiFuse PUF eliminates dedicated mask-insertion vectors targeting non-volatile layers; microampere read currents physically suppress hot-carrier luminescence, raising acquisition thresholds for time-resolved emission (TRE) attacks. However, as demonstrated by Becker 2013 and Schlösser 2012, no single medium immunizes against standard-cell dopant Trojans or aggressive backside thinning; full lifecycle governance and system-level TOE evaluations remain essential. Refer to <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a> for the complete research ledger.</span>
+      <div class="rm-footnote" style="margin-top: 14px; background: #f1f5f9; padding: 10px 14px; border-radius: 6px;">
+        <strong style="color:#7e22ce;"><span data-lang="zh">零信任供應鏈與光學安全威脅建模結論：</span><span data-lang="en">Zero-Trust &amp; Optical Security Modeling Finding: </span></strong>
+        <span data-lang="zh">在半導體供應鏈安全中，代工廠惡意篡改與背面光學側信道 (PEM/TRE) 構成關鍵攻擊面。0-Mask AntiFuse PUF 藉由「零額外光罩」消除專屬非揮發層的光罩插入途徑；微安級讀取電流亦在物理上降低熱載子發光強度，大幅拉高時間分辨光子發射 (TRE) 的捕捉難度。但依據 Becker 2013 與 Schlösser 2012 文獻，任何單一技術皆無法完全免疫標準邏輯層摻雜木馬或極端背面薄化下的探測，仍需配合全生命週期防禦鏈與系統級 TOE 驗證。詳細文獻與證據總帳請參見 <a href="memory-evidence.html#evidence-V22" style="color:#7e22ce; text-decoration: underline;">Evidence V22 ↗</a>。</span>
+        <span data-lang="en">In semiconductor supply-chain security, untrusted foundry manipulation and backside optical side-channels (PEM/TRE) represent significant threat surfaces. 0-Mask AntiFuse PUF eliminates dedicated mask-insertion vectors targeting non-volatile layers; microampere read currents physically suppress hot-carrier luminescence, raising acquisition thresholds for time-resolved emission (TRE) attacks. However, as demonstrated by Becker 2013 and Schlösser 2012, no single medium immunizes against standard-cell dopant Trojans or aggressive backside thinning; full lifecycle governance and system-level TOE evaluations remain essential. Refer to <a href="memory-evidence.html#evidence-V22" style="color:#7e22ce; text-decoration: underline;">Evidence V22 ↗</a> for the complete research ledger.</span>
       </div>
     </section>
 
@@ -1285,11 +1285,11 @@
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">金鑰翻轉竄改機率</span><span data-lang="en">Upset Probability</span></div>
-                  <div id="sim-lfi-out-upset" style="font-size:1.15rem; font-weight:800; color:#16a34a; margin-top:2px;">0.0%</div>
+                  <div id="sim-lfi-out-upset" style="font-size:1.15rem; font-weight:800; color:#15803d; margin-top:2px;">0.0%</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">安全防禦裕度</span><span data-lang="en">Security Margin</span></div>
-                  <div id="sim-lfi-out-margin" style="font-size:1.15rem; font-weight:800; color:#0284c7; margin-top:2px;">+36.2 dB</div>
+                  <div id="sim-lfi-out-margin" style="font-size:1.15rem; font-weight:800; color:#0369a1; margin-top:2px;">+36.2 dB</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:10px; text-align:center;">
                   <div style="font-size:0.72rem; color:#64748b; font-weight:600;"><span data-lang="zh">主動安全清零延遲</span><span data-lang="en">Zeroization Delay</span></div>
@@ -1307,9 +1307,9 @@
   <script src="assurance.js?v=20260929-v5"></script>
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
   <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
-  <script type="module" src="rad-hard-nvm-simulator.js?v=20261006"></script>
-  <script type="module" src="pqc-hardware-rot-ledger-simulator.js?v=20261006"></script>
-  <script type="module" src="supply-chain-hardware-trojan-pem-simulator.js?v=20261102"></script>
+  <script type="module" src="rad-hard-nvm-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="pqc-hardware-rot-ledger-simulator.js?v=20261102-p2"></script>
+  <script type="module" src="supply-chain-hardware-trojan-pem-simulator.js?v=20261102-p2"></script>
   <script type="module">
     import { initPqcDpaSimulator } from './pqc-rot-dpa-simulator.js';
     document.addEventListener('DOMContentLoaded', () => {

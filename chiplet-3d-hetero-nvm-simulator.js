@@ -589,13 +589,13 @@ export function initChipletHeteroSimulator(containerId) {
     const tempEl = root.querySelector('#chiplet-metric-temp');
     if (tempEl) {
       tempEl.textContent = `${metrics.totalJunctionTempC.toFixed(1)} °C`;
-      tempEl.style.color = metrics.totalJunctionTempC <= metrics.topology.maxJunctionTempC ? '#10b981' : '#ef4444';
+      tempEl.style.color = metrics.totalJunctionTempC <= metrics.topology.maxJunctionTempC ? '#047857' : '#b91c1c';
     }
 
     const stressEl = root.querySelector('#chiplet-metric-stress');
     if (stressEl) {
       stressEl.textContent = `${metrics.interfaceShearStressMpa.toFixed(1)} MPa`;
-      stressEl.style.color = metrics.interfaceShearStressMpa <= metrics.topology.shearStressToleranceMpa ? '#38bdf8' : '#ef4444';
+      stressEl.style.color = metrics.interfaceShearStressMpa <= metrics.topology.shearStressToleranceMpa ? '#0369a1' : '#b91c1c';
     }
 
     const latencyEl = root.querySelector('#chiplet-metric-latency');
@@ -604,7 +604,7 @@ export function initChipletHeteroSimulator(containerId) {
     const scoreEl = root.querySelector('#chiplet-metric-score');
     if (scoreEl) {
       scoreEl.textContent = `${metrics.packagingScore} / 100`;
-      scoreEl.style.color = metrics.packagingScore >= 80 ? '#10b981' : (metrics.packagingScore >= 55 ? '#f59e0b' : '#ef4444');
+      scoreEl.style.color = metrics.packagingScore >= 80 ? '#047857' : (metrics.packagingScore >= 55 ? '#b45309' : '#b91c1c');
     }
 
     // Update Verdict Text
@@ -615,12 +615,12 @@ export function initChipletHeteroSimulator(containerId) {
       const cons = lang === 'zh' ? metrics.topology.zh.cons : metrics.topology.en.cons;
 
       verdictEl.innerHTML = `
-        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.packagingScore >= 80 ? '#10b981' : (metrics.packagingScore >= 55 ? '#f59e0b' : '#ef4444')}">
+        <div style="font-weight: 700; margin-bottom: 4px; color: ${metrics.packagingScore >= 80 ? '#047857' : (metrics.packagingScore >= 55 ? '#b45309' : '#b91c1c')}">
           ${metrics.verdictStatus === 'OPTIMAL' ? (lang === 'zh' ? '✓ 異質整合熱應力與互連合格 (3D Packaging Optimal)' : '✓ 3D Packaging Qualified & Optimal') :
             (metrics.verdictStatus === 'MARGINAL' ? (lang === 'zh' ? '⚠ 接近熱應力臨界點 (Marginal Thermal Stress)' : '⚠ Marginal Thermal-Mechanical Boundary') :
              (lang === 'zh' ? '✗ 界面剝離或熱失控高風險 (Critical Delamination Risk)' : '✗ Critical Delamination & Thermal Failure Risk'))}
         </div>
-        <div style="font-size: 0.85rem; line-height: 1.45; color: #cbd5e1;">
+        <div style="font-size: 0.85rem; line-height: 1.45; color: #0f172a;">
           <strong>${topoName}:</strong> ${pros} <span style="opacity: 0.85">${cons}</span>
         </div>
       `;

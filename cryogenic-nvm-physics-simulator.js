@@ -523,7 +523,7 @@ export function initCryogenicNvmSimulator() {
 
     if (outWindow) {
       outWindow.textContent = `${res.deltaIreadUa} μA`;
-      outWindow.style.color = res.deltaIreadUa >= 10.0 ? "#059669" : "#d97706";
+      outWindow.style.color = res.deltaIreadUa >= 10.0 ? "#047857" : "#b45309";
     }
     if (outNoise) {
       outNoise.textContent = `${res.noisePowerDropDb} dB`;
@@ -539,7 +539,7 @@ export function initCryogenicNvmSimulator() {
     }
     if (outSnr) {
       outSnr.textContent = `${res.snrDb} dB`;
-      outSnr.style.color = res.snrDb >= 30.0 ? "#059669" : "#0284c7";
+      outSnr.style.color = res.snrDb >= 30.0 ? "#047857" : "#0369a1";
     }
 
     if (outVerdict) {

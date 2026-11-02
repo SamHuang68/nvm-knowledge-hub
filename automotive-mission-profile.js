@@ -297,7 +297,7 @@ export function initAutomotiveMissionProfile(rootSelector = '#automotive-mission
       const isRobust = margin >= 2.0;
 
       el.querySelector('.margin-val').textContent = `${margin}×`;
-      el.querySelector('.margin-val').style.color = isRobust ? '#059669' : isPass ? '#0284c7' : '#dc2626';
+      el.querySelector('.margin-val').style.color = isRobust ? '#047857' : isPass ? '#0369a1' : '#dc2626';
       el.querySelector('.equiv-hours').textContent = `${res.tEquivRefHours.toLocaleString()} hrs`;
       el.querySelector('.bake-req').textContent = `${res.requiredBakeHours.toLocaleString()} hrs`;
 
