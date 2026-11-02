@@ -26,29 +26,29 @@ html body.hub-literature-paper .site-header {
   min-height: 64px !important;
   max-height: none !important;
   padding: 0 var(--hub-keepout, 24px) !important;
-  background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
-  color: #f8fafc !important;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06) !important;
 }
 html body.hub-literature-paper .site-header .brand {
-  color: #f8fafc !important;
+  color: #0f172a !important;
 }
 html body.hub-literature-paper .site-header .brand-section {
-  color: #38bdf8 !important;
+  color: #0f5866 !important;
   font-weight: 700 !important;
 }
 html body.hub-literature-paper .site-header .primary-nav a {
-  color: #cbd5e1 !important;
+  color: #334155 !important;
 }
 html body.hub-literature-paper .site-header .primary-nav a:hover,
 html body.hub-literature-paper .site-header .primary-nav a[aria-current="location"] {
-  color: #38bdf8 !important;
+  color: #0369a1 !important;
 }
 html body.hub-literature-paper .site-header .language-toggle {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.22) !important;
-  color: #f8fafc !important;
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
 }
 html body.hub-literature-paper .primary-nav {
   display: flex !important;
@@ -82,7 +82,7 @@ html body.hub-literature-paper .topic-switch {
   letter-spacing: .03em !important;
 }
 html body.hub-literature-paper .site-breadcrumb a {
-  color: #0284c7 !important;
+  color: #0369a1 !important;
   letter-spacing: .02em !important;
 }
 html body.hub-literature-paper .site-breadcrumb strong {
@@ -312,11 +312,11 @@ html body.hub-literature-paper .nvm-figure-caption {
 html body.hub-literature-paper .hub-footer,
 html body.hub-literature-paper .research-footer,
 html body.hub-literature-paper footer {
-  background: #0b1523 !important;
-  color: #94a3b8 !important;
-  border-top: 1px solid rgba(56, 189, 248, 0.22) !important;
+  background: #fafaf7 !important;
+  color: #526a72 !important;
+  border-top: 1px solid #cddbdc !important;
 }
-html body.hub-literature-paper footer a { color: #38bdf8 !important; }
+html body.hub-literature-paper footer a { color: #006f70 !important; }
 @media (max-width: 960px) {
   html body.hub-literature-paper .site-header {
     grid-template-columns: auto 1fr auto !important;

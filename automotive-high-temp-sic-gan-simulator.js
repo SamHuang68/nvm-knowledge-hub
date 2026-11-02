@@ -385,32 +385,32 @@ export class AutomotiveHighTempSicGanSimulator {
         <!-- Dual Canvas Visualizations -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; margin-bottom: 20px;">
           <!-- Canvas 1: Arrhenius Log Lifetime Curve -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 1：高溫 Arrhenius 留存壽命對數衰減曲線 (125°C ~ 250°C)</span>
                 <span data-lang="en">Fig 1: Arrhenius Retention Log Lifetime vs Junction Temp</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Arrhenius Model</span>
+              <span style="font-size: 10px; color: #475569;">Arrhenius Model</span>
             </div>
-            <canvas id="sic-canvas-arrhenius" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <canvas id="sic-canvas-arrhenius" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; margin-top: 6px;">
               <span><span data-lang="zh">紅虛線：車規 15 年門檻</span><span data-lang="en">Red Dash: 15-Year Baseline</span></span>
               <span><span data-lang="zh">彩線：eNVM 活化能推算壽命</span><span data-lang="en">Color: Simulated Ea Lifetime</span></span>
             </div>
           </div>
 
           <!-- Canvas 2: Differential Sense Margin vs Temperature -->
-          <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">
                 <span data-lang="zh">圖 2：高溫讀出感測窗 ΔI_sense 與 DESAT 保護安全邊界</span>
                 <span data-lang="en">Fig 2: Diff Sense Margin &amp; DESAT Protection Safety Boundary</span>
               </span>
-              <span style="font-size: 10px; color: #64748b;">Sense Window</span>
+              <span style="font-size: 10px; color: #475569;">Sense Window</span>
             </div>
-            <canvas id="sic-canvas-sense" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <canvas id="sic-canvas-sense" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #f8fafc;"></canvas>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; margin-top: 6px;">
               <span><span data-lang="zh">綠虛線：DESAT 判定閾值 (5μA)</span><span data-lang="en">Green Dash: DESAT Trip (5μA)</span></span>
               <span><span data-lang="zh">曲線：高溫讀取信號窗退化</span><span data-lang="en">Curve: High-T Window Decay</span></span>
             </div>
@@ -647,7 +647,7 @@ export class AutomotiveHighTempSicGanSimulator {
     const plotH = h - padTop - padBottom;
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padLeft, padTop);
@@ -655,7 +655,7 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.lineTo(padLeft + plotW, padTop + plotH);
     ctx.stroke();
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px system-ui';
     ctx.fillText('Lifetime (Log Years)', 5, padTop - 10);
     ctx.fillText('Junction Temp Tj (°C)', padLeft + plotW / 2 - 50, padTop + plotH + 28);
@@ -676,13 +676,13 @@ export class AutomotiveHighTempSicGanSimulator {
       else if (logY === 0) label = '1y';
       else if (logY === 1) label = '10y';
       else if (logY === 2) label = '100y';
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(label, padLeft - 28, y + 3);
 
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#e2e8f0';
       ctx.beginPath(); ctx.moveTo(padLeft, y); ctx.lineTo(padLeft + plotW, y); ctx.stroke();
-      ctx.strokeStyle = '#475569';
+      ctx.strokeStyle = '#94a3b8';
     }
 
     // X axis: 125 to 250 C
@@ -691,7 +691,7 @@ export class AutomotiveHighTempSicGanSimulator {
     for (let t = 125; t <= 250; t += 25) {
       const x = padLeft + ((t - minT) / (maxT - minT)) * plotW;
       ctx.beginPath(); ctx.moveTo(x, padTop + plotH); ctx.lineTo(x, padTop + plotH + 3); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${t}°`, x - 8, padTop + plotH + 14);
     }
@@ -699,7 +699,7 @@ export class AutomotiveHighTempSicGanSimulator {
     // 15-Year Automotive Baseline Line (Red Dash)
     const log15 = Math.log10(15);
     const line15Y = padTop + plotH - ((log15 - logMin) / logRange) * plotH;
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padLeft, line15Y);
@@ -707,13 +707,13 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#dc2626';
     ctx.font = '9px monospace';
     ctx.fillText('AEC-Q100 15yr Limit', padLeft + plotW - 120, line15Y - 4);
 
     // Plot curves for current tech
     const T_base_K = 125 + 273.15;
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -738,7 +738,7 @@ export class AutomotiveHighTempSicGanSimulator {
     const curLogLife = Math.max(logMin, Math.min(logMax, Math.log10(p.lifetimeYears)));
     const curY = padTop + plotH - ((curLogLife - logMin) / logRange) * plotH;
 
-    ctx.fillStyle = p.lifetimeYears >= 15 ? '#10b981' : '#ef4444';
+    ctx.fillStyle = p.lifetimeYears >= 15 ? '#059669' : '#dc2626';
     ctx.beginPath();
     ctx.arc(curX, curY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -746,7 +746,7 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 9.5px monospace';
     ctx.fillText(`@${this.state.junctionTemp}°C: ${p.lifetimeYears >= 1 ? p.lifetimeYears.toFixed(1) + 'y' : (p.lifetimeYears * 8760).toFixed(0) + 'h'}`, Math.min(w - 140, curX + 10), curY - 6);
   }
@@ -777,7 +777,7 @@ export class AutomotiveHighTempSicGanSimulator {
     const plotH = h - padTop - padBottom;
 
     // Axes
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padLeft, padTop);
@@ -785,7 +785,7 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.lineTo(padLeft + plotW, padTop + plotH);
     ctx.stroke();
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.font = '10px system-ui';
     ctx.fillText('Sense Margin (μA)', 5, padTop - 10);
     ctx.fillText('Junction Temp Tj (°C)', padLeft + plotW / 2 - 50, padTop + plotH + 28);
@@ -798,27 +798,27 @@ export class AutomotiveHighTempSicGanSimulator {
     for (let m = 5; m <= 25; m += 5) {
       const y = padTop + plotH - (m / maxMargin) * plotH;
       ctx.beginPath(); ctx.moveTo(padLeft - 3, y); ctx.lineTo(padLeft, y); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${m}`, padLeft - 22, y + 3);
 
-      ctx.strokeStyle = '#1e293b';
+      ctx.strokeStyle = '#e2e8f0';
       ctx.beginPath(); ctx.moveTo(padLeft, y); ctx.lineTo(padLeft + plotW, y); ctx.stroke();
-      ctx.strokeStyle = '#475569';
+      ctx.strokeStyle = '#94a3b8';
     }
 
     // X ticks
     for (let t = 125; t <= 250; t += 25) {
       const x = padLeft + ((t - minT) / (maxT - minT)) * plotW;
       ctx.beginPath(); ctx.moveTo(x, padTop + plotH); ctx.lineTo(x, padTop + plotH + 3); ctx.stroke();
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#475569';
       ctx.font = '9px monospace';
       ctx.fillText(`${t}°`, x - 8, padTop + plotH + 14);
     }
 
     // DESAT Minimum Sense Threshold Line (Green Dash @ 5 uA)
     const line5Y = padTop + plotH - (5.0 / maxMargin) * plotH;
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padLeft, line5Y);
@@ -826,12 +826,12 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.font = '9px monospace';
     ctx.fillText('DESAT Min Trip Limit (5 μA)', padLeft + plotW - 150, line5Y - 4);
 
     // Margin Curve
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
@@ -860,7 +860,7 @@ export class AutomotiveHighTempSicGanSimulator {
     const curX = padLeft + ((this.state.junctionTemp - minT) / (maxT - minT)) * plotW;
     const curY = padTop + plotH - (Math.min(maxMargin, p.senseMarginUa) / maxMargin) * plotH;
 
-    ctx.fillStyle = p.senseMarginUa >= 5 ? '#10b981' : '#ef4444';
+    ctx.fillStyle = p.senseMarginUa >= 5 ? '#059669' : '#dc2626';
     ctx.beginPath();
     ctx.arc(curX, curY, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -868,7 +868,7 @@ export class AutomotiveHighTempSicGanSimulator {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 9.5px monospace';
     ctx.fillText(`ΔI = ${p.senseMarginUa.toFixed(1)} μA`, Math.min(w - 120, curX + 10), curY - 6);
   }

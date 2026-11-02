@@ -327,8 +327,8 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
   // Background gradient
   const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, "#09131e");
-  bgGrad.addColorStop(1, "#03080e");
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f8fafc");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -345,7 +345,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     const stepW = plotW / levels;
 
     // Draw Quantization Bins
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.25)";
+    ctx.strokeStyle = "rgba(2, 132, 199, 0.25)";
     ctx.lineWidth = 1;
     ctx.setLineDash([2, 3]);
     for (let k = 0; k <= levels; k++) {
@@ -371,7 +371,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
       else ctx.lineTo(padLeft + px, y);
     }
 
-    ctx.strokeStyle = results.isAccuracySafe ? "#34d399" : "#f87171";
+    ctx.strokeStyle = results.isAccuracySafe ? "#059669" : "#dc2626";
     ctx.lineWidth = 2.5;
     ctx.stroke();
 
@@ -380,14 +380,14 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     ctx.lineTo(padLeft, padTop + plotH);
     ctx.closePath();
     const fillGrad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
-    fillGrad.addColorStop(0, results.isAccuracySafe ? "rgba(52, 211, 153, 0.35)" : "rgba(248, 113, 113, 0.35)");
-    fillGrad.addColorStop(1, "rgba(15, 23, 42, 0.0)");
+    fillGrad.addColorStop(0, results.isAccuracySafe ? "rgba(5, 150, 105, 0.35)" : "rgba(220, 38, 38, 0.35)");
+    fillGrad.addColorStop(1, "rgba(248, 250, 252, 0.0)");
     ctx.fillStyle = fillGrad;
     ctx.fill();
 
     // IR-drop distortion skew line
     const skewX = padLeft + plotW * 0.75;
-    ctx.strokeStyle = "#fbbf24";
+    ctx.strokeStyle = "#d97706";
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -398,9 +398,9 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
     // Text labels
     ctx.font = "600 10px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.fillText(isZh ? "電流分佈示意（正規化位置）" : "Current (normalized illustration)", padLeft, height - 10);
-    ctx.fillStyle = "#fbbf24";
+    ctx.fillStyle = "#b45309";
     ctx.fillText(
       isZh ? `模型壓降: ${results.irDropPercent}%` : `Model IR-drop: ${results.irDropPercent}%`,
       skewX - 45,
@@ -409,7 +409,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
   } else {
     // Mode 2: Accuracy vs SINAD / ENOB Roll-off Curve
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.2)";
+    ctx.strokeStyle = "#e2e8f0";
     ctx.lineWidth = 1;
 
     // Draw horizontal grid lines (100%, 75%, 50%, 25%)
@@ -421,14 +421,14 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
       ctx.stroke();
 
       ctx.font = "500 9px 'IBM Plex Mono', monospace";
-      ctx.fillStyle = "#64748b";
+      ctx.fillStyle = "#475569";
       const pct = Math.round(100 - g * 25);
       ctx.fillText(`${pct}%`, padLeft - 28, y + 3);
     }
 
     // Roll-off Curve
     ctx.beginPath();
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 2.5;
 
     let markerX = 0;
@@ -465,7 +465,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     if (markerX > 0) {
       ctx.beginPath();
       ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
-      ctx.fillStyle = results.isAccuracySafe ? "#34d399" : "#ef4444";
+      ctx.fillStyle = results.isAccuracySafe ? "#059669" : "#dc2626";
       ctx.fill();
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 2;
@@ -473,7 +473,7 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
 
       // Tooltip above marker
       ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
-      ctx.fillStyle = results.isAccuracySafe ? "#34d399" : "#f87171";
+      ctx.fillStyle = results.isAccuracySafe ? "#047857" : "#dc2626";
       ctx.fillText(
         isZh ? `${results.realizedEnob} b｜卡片 ${results.estimatedAccuracy}%` : `${results.realizedEnob} b | card ${results.estimatedAccuracy}%`,
         Math.max(padLeft, markerX - 35),
@@ -482,13 +482,13 @@ export function drawCimMacCanvas(canvas, results, mode = "histogram", isZh = tru
     }
 
     ctx.font = "600 10px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.fillText(isZh ? "示意位元軸 (bits)" : "Illustrative bit axis", padLeft + plotW * 0.4, height - 10);
   }
 
   // Title in Canvas
   ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
-  ctx.fillStyle = "#e2e8f0";
+  ctx.fillStyle = "#0f172a";
   ctx.fillText(
     mode === "histogram"
       ? (isZh ? "教學示意：電流分佈與 ADC 階梯" : "Illustrative current / ADC bins")
@@ -625,7 +625,7 @@ export function initCimAnalogMacSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'cim-analog-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'max-width: 100%; min-height: 44px; white-space: normal; line-height: 1.5; margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.4); background: #ffffff; color: #0369a1; cursor: pointer;';
     const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
     exportBtn.textContent = isZhLang ? '📥 匯出類比 CiM 參數掃描 CSV' : '📥 Export Analog CiM Parameter Sweep CSV';
     exportBtn.setAttribute('aria-label', isZhLang ? '保留目前工作負載與介質，匯出 ADC、溫度及留存時間掃描 CSV' : 'Export the ADC, temperature and retention-time sweep for the current workload and device as CSV');

@@ -19,7 +19,7 @@
   <meta property="og:description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_TW">
-  <meta property="og:image" content="https://hub.samhuang68.org/assets/technology-comparison-hero-1600.webp">
+  <meta property="og:image" content="https://hub.samhuang68.org/assets/technology-comparison-social-1600.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
@@ -30,9 +30,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NVM Technology Trade-Off Matrix · NVM Knowledge Hub">
   <meta name="twitter:description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
-  <meta name="twitter:image" content="https://hub.samhuang68.org/assets/technology-comparison-hero-1600.webp">
+  <meta name="twitter:image" content="https://hub.samhuang68.org/assets/technology-comparison-social-1600.webp">
   <meta name="twitter:image:alt" content="NVM 9-Dimension Technology Trade-Off Matrix and Radar Selector">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Technology Trade-Off Matrix · NVM Knowledge Hub","description":"Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.","url":"https://hub.samhuang68.org/technology-comparison.html","image":"https://hub.samhuang68.org/assets/technology-comparison-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/technology-comparison.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Technology Trade-Off Matrix · NVM Knowledge Hub","description":"Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.","url":"https://hub.samhuang68.org/technology-comparison.html","image":"https://hub.samhuang68.org/assets/technology-comparison-social-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/technology-comparison.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is embedded Flash (eFlash) rarely integrated at process nodes below 28nm?","acceptedAnswer":{"@type":"Answer","text":"eFlash requires 10 to 15 V programming charge pumps, which demand thick high-voltage oxide gates that cannot scale into FinFET or GAA nanosheet geometries without adding 8 to 12 additional lithography masks, escalating wafer cost by 25% to 40% and degrading logic transistor performance."}},{"@type":"Question","name":"How does AntiFuse OTP compare to poly/metal eFuse in physical security and cell footprint?","acceptedAnswer":{"@type":"Answer","text":"eFuse operates by electromigration to blow a metal or polysilicon fuse requiring high current (10–15 mA) and large cell size (100–300 F²), and is vulnerable to optical/FIB-PVC reverse engineering. AntiFuse uses gate-oxide breakdown to form a microscopic conductive filament (~2 nm) within standard logic transistors (15–40 F²), exhibiting 0 extra masks, sub-microamp programming, and physical invisibility under TEM/SEM."}},{"@type":"Question","name":"What are the primary trade-offs between STT-MRAM and ReRAM in commercial foundry processes?","acceptedAnswer":{"@type":"Answer","text":"STT-MRAM achieves SRAM-like write speeds (<10 ns) and exceptional endurance (10^10 to 10^12 cycles), making it suitable for unified working memory and code execution, but requires a complex magnetic tunnel junction (MTJ) stack. ReRAM offers high cell density and multi-level cell capability with lower mask complexity, but has limited endurance (~10^5 cycles) and requires controlled forming/SET currents."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Foundations","item":"https://hub.samhuang68.org/#layer-foundations"},{"@type":"ListItem","position":3,"name":"11-Technology 9-Dimension Comparison Matrix","item":"https://hub.samhuang68.org/technology-comparison.html"}]}</script>
   <link rel="manifest" href="site.webmanifest">
@@ -117,39 +117,39 @@
       font-family: 'IBM Plex Mono', Consolas, monospace !important;
     }
 
-    /* 1. 導覽列與麵包屑：高階科技半導體夜幕頂欄 + 晶圓冷瓷麵包屑 */
+    /* 1. 導覽列與麵包屑：淡色頂欄（規則 0003）+ 晶圓冷瓷麵包屑 */
     html body .site-header {
-      background: linear-gradient(180deg, #0b1523 0%, #07111c 100%) !important;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18) !important;
+      background: #f8fafc !important;
+      border-bottom: 1px solid #cbd5e1 !important;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06) !important;
       min-height: 64px !important;
       backdrop-filter: blur(12px) !important;
       -webkit-backdrop-filter: blur(12px) !important;
       transition: background 0.3s ease, min-height 0.3s ease !important;
     }
     html body .site-header.scrolled {
-      background: rgba(11, 21, 35, 0.96) !important;
+      background: #ffffff !important;
       min-height: 56px !important;
     }
     html body .site-header .brand {
-      color: #f8fafc !important;
+      color: #0f172a !important;
     }
     html body .site-header .brand-section {
-      color: #38bdf8 !important;
+      color: #0f5866 !important;
       font-weight: 700 !important;
     }
     html body .site-header .primary-nav a {
-      color: #cbd5e1 !important;
+      color: #334155 !important;
       font-weight: 500 !important;
     }
     html body .site-header .primary-nav a:hover,
     html body .site-header .primary-nav a[aria-current="location"] {
-      color: #38bdf8 !important;
+      color: #0369a1 !important;
     }
     html body .site-header .language-toggle {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-color: rgba(255, 255, 255, 0.22) !important;
-      color: #f8fafc !important;
+      background: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
     }
 
     html body .site-breadcrumb {
@@ -1429,13 +1429,13 @@
       bottom: 24px !important;
       right: 24px !important;
       z-index: 9999 !important;
-      background: #0f172a !important;
-      border: 1px solid #334155 !important;
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
       border-radius: 8px !important;
-      color: #ffffff !important;
+      color: #0f172a !important;
       font: 600 12px/1.4 'IBM Plex Mono', monospace !important;
       padding: 10px 18px !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
       opacity: 0 !important;
       transform: translateY(12px) !important;
       transition: opacity 0.22s ease, transform 0.22s ease !important;
@@ -1447,12 +1447,12 @@
     }
 
     html body .site-footer {
-      background: #0b1523 !important;
-      border-top: 1px solid #1e293b !important;
-      color: #94a3b8 !important;
+      background: #f8fafc !important;
+      border-top: 1px solid #e2e8f0 !important;
+      color: #475569 !important;
     }
     html body .site-footer a {
-      color: #38bdf8 !important;
+      color: #0369a1 !important;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -2039,12 +2039,11 @@
     <!-- Hero Section (Executive Obsidian Silicon Visual) -->
     <section class="f2-hero f2-hero-container" aria-labelledby="hero-title">
       <picture class="f2-hero-media" aria-hidden="true">
-        <source media="(max-width: 768px)" srcset="assets/technology-comparison-hero-900.webp">
-        <img src="assets/technology-comparison-hero-1600.webp" 
+        <img src="assets/technology-comparison-hero.svg"
              width="1600" height="893"
-             alt="NVM Technology Trade-Off Matrix, silicon wafer and bitcell physics cross-section"
-             data-alt-zh="NVM 技術架構全景對比天平、晶圓光罩疊加與微觀位元胞物理結構"
-             data-alt-en="NVM Technology Trade-Off Matrix, silicon wafer and bitcell physics cross-section"
+             alt="Decorative line drawing of a wafer and six NVM bitcell cross-sections, drawn for this site"
+             data-alt-zh="站內繪製的裝飾線稿：晶圓與六種 NVM 位元單元剖面"
+             data-alt-en="Decorative line drawing of a wafer and six NVM bitcell cross-sections, drawn for this site"
              loading="eager" fetchpriority="high" decoding="async">
       </picture>
       <div class="f2-hero-shade" aria-hidden="true"></div>

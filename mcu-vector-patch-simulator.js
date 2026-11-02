@@ -257,8 +257,8 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
 
   // Background
   const bgGrad = ctx.createLinearGradient(0, 0, displayWidth, displayHeight);
-  bgGrad.addColorStop(0, "#08101a");
-  bgGrad.addColorStop(1, "#03070d");
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f8fafc");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, displayWidth, displayHeight);
 
@@ -275,29 +275,29 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     const colHeight = displayHeight - 55;
 
     // 1. CPU Bus Column (Left):
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 1.4;
-    ctx.fillStyle = "rgba(56, 189, 248, 0.08)";
+    ctx.fillStyle = "rgba(2, 132, 199, 0.08)";
     ctx.fillRect(plotLeft, plotTop + 10, colWidth, colHeight);
     ctx.strokeRect(plotLeft, plotTop + 10, colWidth, colHeight);
 
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0369a1";
     ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
     ctx.fillText("CPU FETCH BUS", plotLeft + 10, plotTop + 24);
     ctx.font = "500 8.5px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.fillText("PC: 0x0800_1240", plotLeft + 10, plotTop + 40);
 
     // 2. Hardware CAM Comparator (Center):
     const camX = plotLeft + colWidth + 40;
     const camW = 120;
-    ctx.strokeStyle = "#fbbf24";
+    ctx.strokeStyle = "#d97706";
     ctx.lineWidth = 1.4;
-    ctx.fillStyle = "rgba(251, 191, 36, 0.08)";
+    ctx.fillStyle = "rgba(217, 119, 6, 0.08)";
     ctx.fillRect(camX, plotTop + 10, camW, colHeight);
     ctx.strokeRect(camX, plotTop + 10, camW, colHeight);
 
-    ctx.fillStyle = "#fbbf24";
+    ctx.fillStyle = "#92400e";
     ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
     ctx.fillText(`CAM (${results.camEntries} SLOTS)`, camX + 10, plotTop + 24);
 
@@ -305,18 +305,18 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     for (let s = 0; s < Math.min(6, results.camEntries); s++) {
       const slotY = plotTop + 36 + s * 14;
       const isHit = s === 1;
-      ctx.fillStyle = isHit ? "rgba(16, 185, 129, 0.3)" : "rgba(255, 255, 255, 0.04)";
-      ctx.strokeStyle = isHit ? "#10b981" : "rgba(148, 163, 184, 0.2)";
+      ctx.fillStyle = isHit ? "rgba(5, 150, 105, 0.3)" : "rgba(15, 23, 42, 0.04)";
+      ctx.strokeStyle = isHit ? "#059669" : "rgba(15, 23, 42, 0.12)";
       ctx.fillRect(camX + 8, slotY, camW - 16, 11);
       ctx.strokeRect(camX + 8, slotY, camW - 16, 11);
 
-      ctx.fillStyle = isHit ? "#10b981" : "#64748b";
+      ctx.fillStyle = isHit ? "#065f46" : "#475569";
       ctx.font = "600 8px 'IBM Plex Mono', monospace";
       ctx.fillText(isHit ? "SLOT #1: MATCH [HIT]" : `SLOT #${s}: 0x0800_${(0x1000 + s * 0x80).toString(16)}`, camX + 12, slotY + 8);
     }
 
     // Interconnect Arrow CPU -> CAM
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 1.6;
     ctx.beginPath();
     ctx.moveTo(plotLeft + colWidth, plotTop + 40);
@@ -326,22 +326,22 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     // 3. Redirection Target (Right):
     const targetX = camX + camW + 40;
     const targetW = displayWidth - targetX - 15;
-    ctx.strokeStyle = "#10b981";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 1.4;
-    ctx.fillStyle = "rgba(16, 185, 129, 0.08)";
+    ctx.fillStyle = "rgba(5, 150, 105, 0.08)";
     ctx.fillRect(targetX, plotTop + 10, targetW, colHeight);
     ctx.strokeRect(targetX, plotTop + 10, targetW, colHeight);
 
-    ctx.fillStyle = "#10b981";
+    ctx.fillStyle = "#047857";
     ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
     ctx.fillText("PATCH BACKEND", targetX + 10, plotTop + 24);
     ctx.font = "500 8px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.fillText(results.backendNameEn.slice(0, 18), targetX + 10, plotTop + 38);
     ctx.fillText(`Wait: ${results.patchLatencyCycles - 1} cycles`, targetX + 10, plotTop + 50);
 
     // Branch Redirect Wire (Green arrow):
-    ctx.strokeStyle = "#10b981";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2.0;
     ctx.beginPath();
     ctx.moveTo(camX + camW, plotTop + 56);
@@ -350,7 +350,7 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
 
     // Draw bottom status summary text:
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#e2e8f0";
+    ctx.fillStyle = "#0f172a";
     const statusText = isZh
       ? `▶ CAM 查找功率: ${results.pCamDynamicUw} μW · 重新導向延遲: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} 週期) · 晶圓成本節省: ${results.waferCostSavingsPercent}%`
       : `▶ CAM Power: ${results.pCamDynamicUw} μW · Redirect Latency: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} cyc) · Wafer Cost Saving: ${results.waferCostSavingsPercent}%`;
@@ -362,21 +362,21 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     // ----------------------------------------------------
     const cycW = (plotRight - plotLeft - 70) / Math.max(4, results.patchLatencyCycles + 2);
     const stages = [
-      { name: "CYCLE 1: FETCH", sub: "PC -> Bus", color: "#38bdf8" },
-      { name: "CYCLE 1: CAM MATCH", sub: "Parallel SNOOP", color: "#fbbf24" },
+      { name: "CYCLE 1: FETCH", sub: "PC -> Bus", color: "#0369a1" },
+      { name: "CYCLE 1: CAM MATCH", sub: "Parallel SNOOP", color: "#a16207" },
     ];
 
     for (let w = 0; w < results.patchLatencyCycles - 1; w++) {
-      stages.push({ name: `WAIT STATE #${w + 1}`, sub: "Backend Memory Read", color: "#f59e0b" });
+      stages.push({ name: `WAIT STATE #${w + 1}`, sub: "Backend Memory Read", color: "#c2410c" });
     }
-    stages.push({ name: "PATCH EXECUTE", sub: "CPU ALUs Execute", color: "#10b981" });
+    stages.push({ name: "PATCH EXECUTE", sub: "CPU ALUs Execute", color: "#047857" });
 
     stages.forEach((st, idx) => {
       const x = plotLeft + idx * (cycW + 8);
       const y = plotTop + 25;
       const h = displayHeight - 75;
 
-      ctx.fillStyle = "rgba(15, 23, 42, 0.6)";
+      ctx.fillStyle = "#ffffff";
       ctx.strokeStyle = st.color;
       ctx.lineWidth = 1.4;
       ctx.fillRect(x, y, cycW, h);
@@ -385,13 +385,13 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
       ctx.fillStyle = st.color;
       ctx.font = "700 8.5px 'IBM Plex Mono', monospace";
       ctx.fillText(st.name, x + 6, y + 16);
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#475569";
       ctx.font = "500 7.5px 'IBM Plex Mono', monospace";
       ctx.fillText(st.sub, x + 6, y + 30);
     });
 
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#e2e8f0";
+    ctx.fillStyle = "#0f172a";
     const pipeText = isZh
       ? `時脈週期: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · 常規指令: ${results.normalRomInstrPj} pJ · 補丁指令: ${results.patchedInstrPj} pJ`
       : `Clock Period: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · Normal: ${results.normalRomInstrPj} pJ · Patched: ${results.patchedInstrPj} pJ`;
@@ -549,9 +549,9 @@ export function initMcuVectorPatchSimulator() {
 
       modeBtnPipe.classList.remove("active");
       modeBtnPipe.setAttribute("aria-pressed", "false");
-      modeBtnPipe.style.background = "#1e293b";
-      modeBtnPipe.style.borderColor = "#475569";
-      modeBtnPipe.style.color = "#94a3b8";
+      modeBtnPipe.style.background = "#ffffff";
+      modeBtnPipe.style.borderColor = "#cbd5e1";
+      modeBtnPipe.style.color = "#334155";
       update();
     });
 
@@ -565,9 +565,9 @@ export function initMcuVectorPatchSimulator() {
 
       modeBtnMap.classList.remove("active");
       modeBtnMap.setAttribute("aria-pressed", "false");
-      modeBtnMap.style.background = "#1e293b";
-      modeBtnMap.style.borderColor = "#475569";
-      modeBtnMap.style.color = "#94a3b8";
+      modeBtnMap.style.background = "#ffffff";
+      modeBtnMap.style.borderColor = "#cbd5e1";
+      modeBtnMap.style.color = "#334155";
       update();
     });
   }

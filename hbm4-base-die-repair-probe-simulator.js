@@ -266,17 +266,17 @@ export function calculateHbm4ProbeMetrics(params = {}) {
 
   // Rating and dynamic verdict
   let systemRating = 'OPTIMAL';
-  let ratingColor = '#10b981'; // green
+  let ratingColor = '#047857'; // green
 
   if (yieldDeltaPercent < 15.0 && stackLayers >= 12) {
     systemRating = 'SUB-OPTIMAL RECOVERY';
-    ratingColor = '#f59e0b';
+    ratingColor = '#b45309';
   } else if (probeCard.type === 'memory_legacy' && pinCount > 4096) {
     systemRating = 'PIN OVERFLOW / HIGH RISK';
-    ratingColor = '#ef4444';
+    ratingColor = '#b91c1c';
   } else if (stackLayers >= 16 && repairedStackYield >= 0.75) {
     systemRating = 'TIER-1 EXCELLENCE';
-    ratingColor = '#06b6d4';
+    ratingColor = '#0e7490';
   }
 
   // Dual-language verdicts
@@ -337,8 +337,8 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
 
   // Background gradient
   const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-  bgGrad.addColorStop(0, '#0f172a');
-  bgGrad.addColorStop(1, '#020617');
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f8fafc');
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -350,7 +350,7 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
   const plotH = height - padTop - padBottom;
 
   // Grid lines
-  ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+  ctx.strokeStyle = '#e2e8f0';
   ctx.lineWidth = 1;
   for (let i = 0; i <= 4; i++) {
     const y = padTop + (plotH / 4) * i;
@@ -363,7 +363,7 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
   if (mode === 'compound_yield_curve') {
     // Mode 1: 3D Stack Compound Yield Curve (Layers 4 to 16)
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('100%', padLeft - 8, padTop + 4);
     ctx.fillText('75%', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -396,13 +396,13 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
     for (let i = 1; i < 4; i++) ctx.lineTo(getX(i), getY(repYields[i]));
     for (let i = 3; i >= 0; i--) ctx.lineTo(getX(i), getY(rawYields[i]));
     ctx.closePath();
-    ctx.fillStyle = 'rgba(6, 182, 212, 0.14)';
+    ctx.fillStyle = 'rgba(8, 145, 178, 0.14)';
     ctx.fill();
 
     // Red dashed line: Raw unrepaired yield
     ctx.beginPath();
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#ef4444';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 2.2;
     for (let i = 0; i < 4; i++) {
       const x = getX(i);
@@ -415,7 +415,7 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
 
     // Cyan solid line: Repaired yield
     ctx.beginPath();
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#0891b2';
     ctx.lineWidth = 2.6;
     for (let i = 0; i < 4; i++) {
       const x = getX(i);
@@ -432,35 +432,35 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
       const yRep = getY(repYields[i]);
 
       // Dots
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = '#dc2626';
       ctx.beginPath();
       ctx.arc(x, yRaw, 4, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = '#06b6d4';
+      ctx.fillStyle = '#0891b2';
       ctx.beginPath();
       ctx.arc(x, yRep, 5, 0, Math.PI * 2);
       ctx.fill();
 
       // X labels
       ctx.font = '700 11px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = '#334155';
       ctx.textAlign = 'center';
       ctx.fillText(`${layerPoints[i]}-Hi`, x, height - padBottom + 18);
 
       // Delta label
       const delta = repYields[i] - rawYields[i];
       ctx.font = '600 10px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = '#047857';
       ctx.fillText(`+${delta.toFixed(1)}%`, x, (yRaw + yRep) / 2 + 3);
     }
 
     // Legend
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText('--- 未修復原始良率 (Raw Stack Yield)', padLeft + 10, padTop - 12);
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = '#0e7490';
     ctx.fillText('— 0-Mask AntiFuse 修復後良率 (Repaired Stack Yield)', padLeft + 230, padTop - 12);
 
   } else {
@@ -470,7 +470,7 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
     const currentCardId = metrics.probeCard ? metrics.probeCard.id : 'mpi_taiwan';
 
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('100', padLeft - 8, padTop + 4);
     ctx.fillText('75', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -494,28 +494,28 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
         grad.addColorStop(0, '#64748b');
         grad.addColorStop(1, '#334155');
       } else if (key === 'mpi_taiwan') {
-        grad.addColorStop(0, '#38bdf8');
-        grad.addColorStop(1, '#0284c7');
+        grad.addColorStop(0, '#0284c7');
+        grad.addColorStop(1, '#0369a1');
       } else if (key === 'chpt_taiwan') {
-        grad.addColorStop(0, '#818cf8');
-        grad.addColorStop(1, '#4f46e5');
+        grad.addColorStop(0, '#4f46e5');
+        grad.addColorStop(1, '#4338ca');
       } else if (key === 'technoprobe') {
-        grad.addColorStop(0, '#f59e0b');
-        grad.addColorStop(1, '#d97706');
+        grad.addColorStop(0, '#d97706');
+        grad.addColorStop(1, '#b45309');
       } else {
-        grad.addColorStop(0, '#c084fc');
-        grad.addColorStop(1, '#9333ea');
+        grad.addColorStop(0, '#9333ea');
+        grad.addColorStop(1, '#7e22ce');
       }
 
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, barW, barH);
-      ctx.strokeStyle = isSelected ? '#f59e0b' : 'rgba(255,255,255,0.2)';
+      ctx.strokeStyle = isSelected ? '#d97706' : 'rgba(15,23,42,0.2)';
       ctx.lineWidth = isSelected ? 2.5 : 1;
       ctx.strokeRect(x, y, barW, barH);
 
       // Score label on top of bar
       ctx.font = isSelected ? '700 11px "IBM Plex Mono", monospace' : '600 10.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = isSelected ? '#f59e0b' : '#f8fafc';
+      ctx.fillStyle = isSelected ? '#b45309' : '#0f172a';
       ctx.textAlign = 'center';
       ctx.fillText(isSelected ? `★ ${score}` : `${score}`, x + barW / 2, y - 6);
 
@@ -528,14 +528,14 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
         formfactor: 'Spring/MEMS'
       };
       ctx.font = '600 10px "IBM Plex Mono", monospace';
-      ctx.fillStyle = isSelected ? '#38bdf8' : '#94a3b8';
+      ctx.fillStyle = isSelected ? '#0369a1' : '#475569';
       ctx.fillText(labelMap[key] || key, x + barW / 2, height - padBottom + 16);
       ctx.fillText(`$${(card.baseAspUsd / 1000).toFixed(0)}k`, x + barW / 2, height - padBottom + 28);
     });
 
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#0369a1';
     ctx.fillText('■ 高密度晶圓測試探針卡並行能力指數模型 (High-Density Wafer Sort Index)', padLeft + 10, padTop - 12);
   }
 
@@ -658,9 +658,9 @@ export function initHbm4ProbeSimulator(rootSelector = '#hbm4-repair-probe-simula
       modeYieldBtn.style.background = '#0284c7';
       modeYieldBtn.style.borderColor = '#38bdf8';
       modeYieldBtn.style.color = '#ffffff';
-      modeProbeBtn.style.background = '#1e293b';
-      modeProbeBtn.style.borderColor = '#475569';
-      modeProbeBtn.style.color = '#94a3b8';
+      modeProbeBtn.style.background = '#ffffff';
+      modeProbeBtn.style.borderColor = '#cbd5e1';
+      modeProbeBtn.style.color = '#334155';
       update();
     });
 
@@ -673,9 +673,9 @@ export function initHbm4ProbeSimulator(rootSelector = '#hbm4-repair-probe-simula
       modeProbeBtn.style.background = '#0284c7';
       modeProbeBtn.style.borderColor = '#38bdf8';
       modeProbeBtn.style.color = '#ffffff';
-      modeYieldBtn.style.background = '#1e293b';
-      modeYieldBtn.style.borderColor = '#475569';
-      modeYieldBtn.style.color = '#94a3b8';
+      modeYieldBtn.style.background = '#ffffff';
+      modeYieldBtn.style.borderColor = '#cbd5e1';
+      modeYieldBtn.style.color = '#334155';
       update();
     });
   }

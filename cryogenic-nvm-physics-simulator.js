@@ -301,8 +301,8 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
   // Background
   const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, "#08131e");
-  bgGrad.addColorStop(1, "#03080e");
+  bgGrad.addColorStop(0, "#f8fafc");
+  bgGrad.addColorStop(1, "#f8fafc");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -347,7 +347,7 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
       if (px === padLeft) ctx.moveTo(px, y);
       else ctx.lineTo(px, y);
     }
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -360,13 +360,13 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
       if (px === centerOn - 45) ctx.moveTo(px, y);
       else ctx.lineTo(px, y);
     }
-    ctx.strokeStyle = "#34d399";
+    ctx.strokeStyle = "#059669";
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Sense Window Bracket between the two states
     const bracketY = padTop + plotH * 0.35;
-    ctx.strokeStyle = "#fbbf24";
+    ctx.strokeStyle = "#d97706";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(centerOff + 10, bracketY);
@@ -378,7 +378,7 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
     ctx.stroke();
 
     ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#fbbf24";
+    ctx.fillStyle = "#b45309";
     ctx.textAlign = "center";
     const windowText = isZh ? `感測裕度窗 ΔI: ${results.deltaIreadUa} μA` : `Sense Window ΔI: ${results.deltaIreadUa} μA`;
     drawLabel(windowText, padLeft, bracketY - 8, plotW);
@@ -386,14 +386,14 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
     // Labels
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0369a1";
     drawFooter(footerLines[0],0);
-    ctx.fillStyle = "#34d399";
+    ctx.fillStyle = "#047857";
     drawFooter(footerLines[1],1);
 
   } else {
     // Mode 2: Temperature Spectrum Curve (Thermal Noise vs Temp 4K -> 300K)
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.2)";
+    ctx.strokeStyle = "#e2e8f0";
     ctx.lineWidth = 1;
 
     // Horizontal grid
@@ -407,7 +407,7 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
     // Thermal noise drop curve: y(T) = 10 * log10(T / 300)
     ctx.beginPath();
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#0284c7";
     ctx.lineWidth = 2.5;
 
     let markerX = 0;
@@ -438,14 +438,14 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
     if (markerX > 0) {
       ctx.beginPath();
       ctx.arc(markerX, markerY, 5, 0, Math.PI * 2);
-      ctx.fillStyle = "#34d399";
+      ctx.fillStyle = "#059669";
       ctx.fill();
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 2;
       ctx.stroke();
 
       ctx.font = "700 9px 'IBM Plex Mono', monospace";
-      ctx.fillStyle = "#34d399";
+      ctx.fillStyle = "#047857";
       drawLabel(
         `${results.tempKelvin}K (${results.noisePowerDropDb} dB)`,
         Math.max(padLeft, markerX - 25),
@@ -454,13 +454,13 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
     }
 
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     footerLines.forEach(drawFooter);
   }
 
   // Canvas Title
   ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
-  ctx.fillStyle = "#f8fafc";
+  ctx.fillStyle = "#0f172a";
   titleLines.forEach((line, index) => ctx.fillText(line, 12, 16 + index * 13));
 
   ctx.restore();

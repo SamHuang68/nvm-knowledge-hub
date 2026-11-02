@@ -1449,7 +1449,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                 <span class="meta-code" style="color: #785021;"><span data-lang="en">BUS SNOOP &amp; REDIRECTION EMULATOR</span><span data-lang="zh">匯流排監聽與重新導向模擬器</span></span>
                 <div style="display: flex; gap: 8px; align-items: center;">
-                  <span class="meta-code" style="color: #334155;">PC: <b id="camStatusPc" style="color:#fbbf24;">0x0800_1240</b></span>
+                  <span class="meta-code" style="color: #334155;">PC: <b id="camStatusPc" style="color:#b45309;">0x0800_1240</b></span>
                   <span class="meta-code" style="color: #334155;"><span data-lang="en">STATE:</span><span data-lang="zh">狀態：</span> <b id="camOtpState" style="color:#785021;"><span data-lang="en">IDLE / MONITORING</span><span data-lang="zh">閒置／監控中</span></b></span>
                 </div>
               </div>
@@ -1569,7 +1569,7 @@
                     <button id="patch-mode-map" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
                       <span data-lang="zh">位址重定向地圖 (Address Map)</span><span data-lang="en">Address Map Flow</span>
                     </button>
-                    <button id="patch-mode-pipe" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <button id="patch-mode-pipe" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155; cursor: pointer;">
                       <span data-lang="zh">CPU 管線週期延遲 (Pipeline Cycles)</span><span data-lang="en">Pipeline Clock Cycles</span>
                     </button>
                   </div>
@@ -2149,10 +2149,10 @@
           const w = ntvCanvas.width;
           const h = ntvCanvas.height;
 
-          ctx.fillStyle = '#020c13';
+          ctx.fillStyle = '#f8fafc';
           ctx.fillRect(0, 0, w, h);
 
-          ctx.strokeStyle = '#0d2230';
+          ctx.strokeStyle = '#e2e8f0';
           ctx.lineWidth = 1;
           for (let i = 0; i <= 10; i++) {
             ctx.beginPath();
@@ -2167,7 +2167,7 @@
             ctx.stroke();
           }
 
-          ctx.strokeStyle = '#153d52';
+          ctx.strokeStyle = '#94a3b8';
           ctx.setLineDash([4, 4]);
           ctx.beginPath();
           ctx.moveTo(0, h / 2);
@@ -2175,8 +2175,8 @@
           ctx.stroke();
           ctx.setLineDash([]);
 
-          // CH1: 電壓階躍 (黃色 #fbbf24)
-          ctx.strokeStyle = '#fbbf24';
+          // CH1: 電壓階躍 (黃色 #d97706)
+          ctx.strokeStyle = '#d97706';
           ctx.lineWidth = 2.5;
           ctx.beginPath();
           const stepX = w * 0.25;
@@ -2189,8 +2189,8 @@
           ctx.lineTo(w - 15, vY);
           ctx.stroke();
 
-          // CH2: 電流瞬態與喚醒脈衝 (青色 #c4a574)
-          ctx.strokeStyle = '#c4a574';
+          // CH2: 電流瞬態與喚醒脈衝 (青色 #8a6a42)
+          ctx.strokeStyle = '#8a6a42';
           ctx.lineWidth = 2;
           ctx.beginPath();
           const baselineY = h * 0.85;
@@ -2213,9 +2213,9 @@
           ctx.stroke();
 
           ctx.font = '11px IBM Plex Mono, monospace';
-          ctx.fillStyle = '#fbbf24';
+          ctx.fillStyle = '#b45309';
           ctx.fillText(`CH1: VDD = ${vdd.toFixed(2)}V`, 25, 22);
-          ctx.fillStyle = '#c4a574';
+          ctx.fillStyle = '#785021';
           const pSave = ((1 - (vdd / 1.2) ** 2) * 100).toFixed(1);
           ctx.fillText(`CH2: DYN POWER REDUCTION = ${pSave}%`, 25, 40);
         }
@@ -2273,10 +2273,10 @@
         function drawCamBus(triggered) {
           const w = camCanvas.width;
           const h = camCanvas.height;
-          ctx2.fillStyle = '#020c13';
+          ctx2.fillStyle = '#f8fafc';
           ctx2.fillRect(0, 0, w, h);
 
-          ctx2.strokeStyle = '#1e293b';
+          ctx2.strokeStyle = '#cbd5e1';
           ctx2.lineWidth = 1;
           ctx2.beginPath();
           ctx2.moveTo(35, h * 0.35);
@@ -2293,8 +2293,8 @@
           ];
 
           nodes.forEach((n, idx) => {
-            ctx2.fillStyle = '#0f172a';
-            ctx2.strokeStyle = triggered && idx >= 1 ? '#8a6a42' : '#334155';
+            ctx2.fillStyle = '#ffffff';
+            ctx2.strokeStyle = triggered && idx >= 1 ? '#8a6a42' : '#64748b';
             ctx2.lineWidth = 2;
             ctx2.beginPath();
             ctx2.arc(n.x, h * 0.35, 11, 0, Math.PI * 2);
@@ -2302,12 +2302,12 @@
             ctx2.stroke();
 
             ctx2.font = '10px IBM Plex Mono, monospace';
-            ctx2.fillStyle = triggered && idx >= 1 ? '#c4a574' : '#94a3b8';
+            ctx2.fillStyle = triggered && idx >= 1 ? '#785021' : '#475569';
             ctx2.textAlign = 'center';
             ctx2.fillText(n.label, n.x, h * 0.35 - 16);
           });
 
-          ctx2.strokeStyle = triggered ? '#fbbf24' : '#c4a574';
+          ctx2.strokeStyle = triggered ? '#d97706' : '#8a6a42';
           ctx2.lineWidth = 2.5;
           ctx2.beginPath();
           ctx2.moveTo(w * 0.15, h * 0.35);
@@ -2321,7 +2321,7 @@
           ctx2.stroke();
 
           ctx2.font = '10px IBM Plex Mono, monospace';
-          ctx2.fillStyle = triggered ? '#fbbf24' : '#64748b';
+          ctx2.fillStyle = triggered ? '#b45309' : '#475569';
           ctx2.textAlign = 'left';
           ctx2.fillText(
             triggered
@@ -2339,16 +2339,16 @@
             isPatching = !isPatching;
             if (isPatching) {
               camStatusPc.textContent = '0x0800_FF00 (PATCHED)';
-              camStatusPc.style.color = '#c4a574';
+              camStatusPc.style.color = '#785021';
               camOtpState.textContent = 'MUX ACTIVE · TIMING TO VERIFY';
-              camOtpState.style.color = '#fbbf24';
+              camOtpState.style.color = '#b45309';
               camTriggerBtn.innerHTML = '<span data-lang="zh">重設匯流排</span><span data-lang="en">Reset Bus</span>';
               drawCamBus(true);
             } else {
               camStatusPc.textContent = '0x0800_1240';
-              camStatusPc.style.color = '#fbbf24';
+              camStatusPc.style.color = '#b45309';
               camOtpState.textContent = 'IDLE / MONITORING';
-              camOtpState.style.color = '#c4a574';
+              camOtpState.style.color = '#785021';
               camTriggerBtn.innerHTML = '<span data-lang="zh">注入缺陷指令</span><span data-lang="en">Inject Bug</span>';
               drawCamBus(false);
             }

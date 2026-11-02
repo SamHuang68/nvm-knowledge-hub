@@ -259,8 +259,8 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
 
   // Background gradient
   const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, "#081018");
-  bgGrad.addColorStop(1, "#03070b");
+  bgGrad.addColorStop(0, "#ffffff");
+  bgGrad.addColorStop(1, "#f8fafc");
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -276,32 +276,32 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
     const centerY = padTop + plotH * 0.55;
 
     // 1. Draw Package Substrate (Bottom layer)
-    ctx.fillStyle = "#1e293b";
+    ctx.fillStyle = "#e2e8f0";
     ctx.fillRect(padLeft, centerY + 30, plotW, 18);
-    ctx.strokeStyle = "#475569";
+    ctx.strokeStyle = "#94a3b8";
     ctx.lineWidth = 1;
     ctx.strokeRect(padLeft, centerY + 30, plotW, 18);
 
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#475569";
     ctx.fillText(isZh ? "有機封裝基板 (Package Substrate)" : "Organic Package Substrate", padLeft + 10, centerY + 43);
 
     // 2. Draw Compute Die vs NVM Die
     if (results.topologyKey === "monolithic_envm") {
       // Single Large Monolithic Die
-      ctx.fillStyle = "#0284c7";
+      ctx.fillStyle = "#e0f2fe";
       ctx.fillRect(padLeft + 20, centerY - 25, plotW - 40, 45);
-      ctx.strokeStyle = "#38bdf8";
+      ctx.strokeStyle = "#0284c7";
       ctx.lineWidth = 1.5;
       ctx.strokeRect(padLeft + 20, centerY - 25, plotW - 40, 45);
 
       // Embedded NVM Macro partition inside
-      ctx.fillStyle = "#059669";
+      ctx.fillStyle = "#d1fae5";
       ctx.fillRect(padLeft + plotW - 120, centerY - 20, 85, 35);
-      ctx.strokeStyle = "#34d399";
+      ctx.strokeStyle = "#059669";
       ctx.strokeRect(padLeft + plotW - 120, centerY - 20, 85, 35);
 
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#0f172a";
       ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
       ctx.fillText(isZh ? "單體 SoC 運算核心" : "Monolithic SoC Core", padLeft + 35, centerY + 3);
       ctx.font = "600 9px 'IBM Plex Mono', monospace";
@@ -310,19 +310,19 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
     } else if (results.topologyKey === "stacked_3d_hybrid") {
       // 3D Stacking: Compute Die stacked directly on NVM Base Die
       // Bottom: NVM Base Die
-      ctx.fillStyle = "#047857";
+      ctx.fillStyle = "#d1fae5";
       ctx.fillRect(padLeft + 40, centerY + 5, plotW - 80, 20);
-      ctx.strokeStyle = "#10b981";
+      ctx.strokeStyle = "#059669";
       ctx.strokeRect(padLeft + 40, centerY + 5, plotW - 80, 20);
 
       // Top: Compute Die
-      ctx.fillStyle = "#0369a1";
+      ctx.fillStyle = "#e0f2fe";
       ctx.fillRect(padLeft + 40, centerY - 25, plotW - 80, 26);
-      ctx.strokeStyle = "#38bdf8";
+      ctx.strokeStyle = "#0284c7";
       ctx.strokeRect(padLeft + 40, centerY - 25, plotW - 80, 26);
 
       // Cu-Cu Hybrid Bonding Interface
-      ctx.strokeStyle = "#f59e0b";
+      ctx.strokeStyle = "#d97706";
       ctx.lineWidth = 2;
       ctx.setLineDash([3, 2]);
       ctx.beginPath();
@@ -331,7 +331,7 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#0f172a";
       ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
       ctx.fillText(isZh ? "上層運算邏輯晶粒 (Compute Die)" : "Top Compute Die", padLeft + 55, centerY - 9);
       ctx.fillText(isZh ? "底層 NVM 基底晶粒 (Base Die)" : "Bottom NVM Base Die", padLeft + 55, centerY + 19);
@@ -343,43 +343,43 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
 
       if (isAdv) {
         // Silicon Interposer Layer
-        ctx.fillStyle = "#334155";
+        ctx.fillStyle = "#cbd5e1";
         ctx.fillRect(padLeft + 15, interposerY, plotW - 30, 14);
         ctx.strokeStyle = "#64748b";
         ctx.strokeRect(padLeft + 15, interposerY, plotW - 30, 14);
-        ctx.fillStyle = "#cbd5e1";
+        ctx.fillStyle = "#334155";
         ctx.font = "500 8.5px 'IBM Plex Mono', monospace";
         ctx.fillText(isZh ? "高密度矽中介層 (Silicon Interposer / EMIB)" : "Silicon Interposer / EMIB Bridge", padLeft + 25, interposerY + 10);
       }
 
       // Compute Chiplet
-      ctx.fillStyle = "#0369a1";
+      ctx.fillStyle = "#e0f2fe";
       ctx.fillRect(padLeft + 20, centerY - 25, (plotW - 60) * 0.65, 32);
-      ctx.strokeStyle = "#38bdf8";
+      ctx.strokeStyle = "#0284c7";
       ctx.strokeRect(padLeft + 20, centerY - 25, (plotW - 60) * 0.65, 32);
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#0f172a";
       ctx.font = "700 10px 'IBM Plex Mono', monospace";
       ctx.fillText(isZh ? "運算小晶片 (SoC Core)" : "Compute Chiplet", padLeft + 35, centerY - 5);
 
       // NVM Chiplet
       const nvmX = padLeft + 20 + (plotW - 60) * 0.65 + 18;
-      ctx.fillStyle = "#047857";
+      ctx.fillStyle = "#d1fae5";
       ctx.fillRect(nvmX, centerY - 25, (plotW - 60) * 0.35, 32);
-      ctx.strokeStyle = "#10b981";
+      ctx.strokeStyle = "#059669";
       ctx.strokeRect(nvmX, centerY - 25, (plotW - 60) * 0.35, 32);
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#0f172a";
       ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
       ctx.fillText(isZh ? "NVM 晶粒" : "NVM Die", nvmX + 8, centerY - 5);
 
       // UCIe Interconnect Arrows
-      ctx.strokeStyle = "#38bdf8";
+      ctx.strokeStyle = "#0284c7";
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(padLeft + 20 + (plotW - 60) * 0.65 + 2, centerY - 9);
       ctx.lineTo(nvmX - 2, centerY - 9);
       ctx.stroke();
 
-      ctx.fillStyle = "#fbbf24";
+      ctx.fillStyle = "#b45309";
       ctx.font = "600 8.5px 'IBM Plex Mono', monospace";
       ctx.fillText(isAdv ? "UCIe-A" : "UCIe-S", padLeft + 20 + (plotW - 60) * 0.65 + 1, centerY - 14);
     }
@@ -408,7 +408,7 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
 
     // Budget line marker
     const budgetX = padLeft + Math.min(plotW, (results.acceptableLatencyBudgetNs / totalNs) * plotW);
-    ctx.strokeStyle = "#ef4444";
+    ctx.strokeStyle = "#dc2626";
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 3]);
     ctx.beginPath();
@@ -417,7 +417,7 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#dc2626";
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
     const budgetLabel = `${isZh ? "延遲門檻" : "Budget"}: ${results.acceptableLatencyBudgetNs}ns`;
     const budgetLabelX = Math.max(padLeft, Math.min(budgetX - 30, width - padRight - ctx.measureText(budgetLabel).width));
@@ -425,19 +425,19 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
 
     // Legend
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#34d399";
+    ctx.fillStyle = "#047857";
     ctx.fillText(`● ${isZh ? "記憶體陣列" : "Array"}: ${results.tauArrayNs}ns`, padLeft, barY + barHeight + 24);
 
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#0369a1";
     ctx.fillText(`● ${isZh ? "UCIe 往返" : "UCIe RTT"}: ${results.tauRoundTripD2dNs}ns`, padLeft + 120, barY + barHeight + 24);
 
-    ctx.fillStyle = "#fbbf24";
+    ctx.fillStyle = "#b45309";
     ctx.fillText(`● ${isZh ? "協定控制" : "Controller"}: ${results.tauControllerNs}ns`, padLeft + 240, barY + barHeight + 24);
   }
 
   // Canvas Title
   ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
-  ctx.fillStyle = "#f1f5f9";
+  ctx.fillStyle = "#0f172a";
   ctx.fillText(
     mode === "package_view"
       ? (isZh ? `封裝微觀拓撲: ${results.topologyNameZh}` : `Micro-Topology: ${results.topologyNameEn}`)
@@ -623,7 +623,7 @@ export function initChipletUcieNvmSimulator() {
     const exportBtn = document.createElement('button');
     exportBtn.id = 'chiplet-export-csv-btn';
     exportBtn.type = 'button';
-    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.4); background: #ffffff; color: #0369a1; cursor: pointer;';
     const isZh = getLang();
     exportBtn.textContent = isZh ? '📥 匯出 UCIe 數據 CSV' : '📥 Export UCIe CSV';
     exportBtn.addEventListener('click', () => {

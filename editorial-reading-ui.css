@@ -706,7 +706,7 @@ html[data-language='en'] :is(.nvm-ip-editorial,.nvm-system-editorial) { line-bre
 
 /* Surgical Light Mode: Language Toggle Active State & Footer Contrast */
 .language-toggle { background: #ffffff !important; color: var(--editorial-ink) !important; border: 1px solid #94a3b8 !important; }
-.language-toggle [data-lang-option] { opacity: 0.65; color: #455e66; }
+.language-toggle [data-lang-option] { opacity: 0.85; color: #455e66; }
 .language-toggle [data-lang-option].is-active { opacity: 1; font-weight: 700; color: var(--editorial-ink); text-decoration: underline; text-underline-offset: 4px; }
 .knowledge-footer, .nvm-footer { background: #eef3f0 !important; color: var(--editorial-ink) !important; border-top: 1px solid var(--editorial-line) !important; }
 .knowledge-footer p, .nvm-footer p { color: #35525c !important; }

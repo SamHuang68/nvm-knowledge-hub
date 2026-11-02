@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 893" width="1600" height="893" aria-hidden="true">
+  <!-- 站內繪製的裝飾底紋：晶圓與六種位元單元剖面線稿，不含文字，非任何具名產品。 -->
+  <defs>
+    <clipPath id="wafer"><circle cx="1330" cy="430" r="400"/></clipPath>
+    <pattern id="die-grid" width="64" height="48" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="60" height="44" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="893" fill="#f8fafc"/>
+  <circle cx="1330" cy="430" r="400" fill="#f1f5f9" stroke="#475569" stroke-width="3"/>
+  <rect x="900" y="0" width="860" height="893" fill="url(#die-grid)" clip-path="url(#wafer)"/>
+  <path d="M1290 830 h80" stroke="#475569" stroke-width="6"/>
+  <g fill="none" stroke="#334155" stroke-width="2.5" stroke-linejoin="round">
+    <!-- 浮閘 -->
+    <g transform="translate(70 560)">
+      <rect x="0" y="150" width="200" height="60" fill="#e2e8f0"/>
+      <rect x="20" y="138" width="160" height="12" fill="#f8fafc"/>
+      <rect x="20" y="104" width="160" height="34" fill="#cbd5e1"/>
+      <rect x="20" y="92" width="160" height="12" fill="#f8fafc"/>
+      <rect x="20" y="52" width="160" height="40" fill="#e2e8f0"/>
+      <path d="M100 52 V10"/>
+    </g>
+    <!-- 電荷捕捉 -->
+    <g transform="translate(320 560)">
+      <rect x="0" y="150" width="200" height="60" fill="#e2e8f0"/>
+      <rect x="20" y="138" width="160" height="12" fill="#f8fafc"/>
+      <rect x="20" y="118" width="160" height="20" fill="#cbd5e1"/>
+      <rect x="20" y="106" width="160" height="12" fill="#f8fafc"/>
+      <rect x="20" y="62" width="160" height="44" fill="#e2e8f0"/>
+      <path d="M100 62 V10"/>
+      <g fill="#334155" stroke="none"><circle cx="60" cy="128" r="4"/><circle cx="90" cy="128" r="4"/><circle cx="120" cy="128" r="4"/><circle cx="150" cy="128" r="4"/></g>
+    </g>
+    <!-- 反熔絲 -->
+    <g transform="translate(570 560)">
+      <rect x="0" y="150" width="200" height="60" fill="#e2e8f0"/>
+      <rect x="40" y="140" width="120" height="10" fill="#f8fafc"/>
+      <rect x="40" y="90" width="120" height="50" fill="#cbd5e1"/>
+      <path d="M100 150 l-8 -6 l14 -6 l-12 -6"/>
+      <path d="M100 90 V10"/>
+    </g>
+    <!-- 磁穿隧接面 -->
+    <g transform="translate(70 230)">
+      <rect x="40" y="170" width="120" height="30" fill="#e2e8f0"/>
+      <rect x="40" y="130" width="120" height="40" fill="#cbd5e1"/>
+      <rect x="40" y="118" width="120" height="12" fill="#f8fafc"/>
+      <rect x="40" y="78" width="120" height="40" fill="#cbd5e1"/>
+      <rect x="40" y="48" width="120" height="30" fill="#e2e8f0"/>
+      <path d="M70 98 h60 m-12 -8 l12 8 l-12 8"/>
+      <path d="M70 150 h60 m-12 -8 l12 8 l-12 8"/>
+    </g>
+    <!-- 電阻式細絲 -->
+    <g transform="translate(320 230)">
+      <rect x="40" y="170" width="120" height="30" fill="#e2e8f0"/>
+      <rect x="40" y="70" width="120" height="100" fill="#f1f5f9"/>
+      <rect x="40" y="40" width="120" height="30" fill="#e2e8f0"/>
+      <path d="M100 170 C88 150 112 130 96 110 C86 96 108 84 100 70" stroke-width="5"/>
+    </g>
+    <!-- 鐵電電容 -->
+    <g transform="translate(570 230)">
+      <rect x="30" y="160" width="140" height="24" fill="#e2e8f0"/>
+      <rect x="30" y="80" width="140" height="80" fill="#f1f5f9"/>
+      <rect x="30" y="56" width="140" height="24" fill="#e2e8f0"/>
+      <path d="M70 140 V100 m-8 10 l8 -10 l8 10"/>
+      <path d="M100 140 V100 m-8 10 l8 -10 l8 10"/>
+      <path d="M130 140 V100 m-8 10 l8 -10 l8 10"/>
+    </g>
+  </g>
+</svg>

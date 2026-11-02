@@ -269,8 +269,8 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
   // Background
   const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-  bgGrad.addColorStop(0, '#09131e');
-  bgGrad.addColorStop(1, '#020617');
+  bgGrad.addColorStop(0, '#f8fafc');
+  bgGrad.addColorStop(1, '#f8fafc');
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
@@ -282,7 +282,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
   const plotH = height - padTop - padBottom;
 
   // Grid
-  ctx.strokeStyle = 'rgba(51, 65, 85, 0.35)';
+  ctx.strokeStyle = '#e2e8f0';
   ctx.lineWidth = 1;
   for (let i = 0; i <= 4; i++) {
     const y = padTop + (plotH / 4) * i;
@@ -295,7 +295,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
   if (mode === 'scrubbing_period_vs_residual_fit') {
     // Mode 1: Scrubbing Interval (0.01s to 10s) vs Residual Dual-Bit FIT
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('100 FIT', padLeft - 8, padTop + 4);
     ctx.fillText('50 FIT', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -309,7 +309,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     // ASIL-D 10 FIT Safety Limit Line
     const yAsilD = getY(10.0);
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = '#10b981';
+    ctx.strokeStyle = '#059669';
     ctx.lineWidth = 1.6;
     ctx.beginPath();
     ctx.moveTo(padLeft, yAsilD);
@@ -318,7 +318,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.setLineDash([]);
 
     ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#10b981';
+    ctx.fillStyle = '#047857';
     ctx.textAlign = 'right';
     ctx.fillText(
       isZh ? 'ASIL-D 門檻 (< 10 FIT)' : 'ASIL-D Target (< 10 FIT)',
@@ -328,7 +328,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     // Unmanaged Curve (Red)
     ctx.beginPath();
-    ctx.strokeStyle = '#f87171';
+    ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 2.0;
     for (let s = 0.1; s <= 10.0; s += 0.5) {
       const collision = Math.pow(metrics.rawSerFit * 1e-4, 2) * s;
@@ -342,7 +342,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     // Hybrid sPPR + AntiFuse hPPR Curve (Emerald Cyan)
     ctx.beginPath();
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#0891b2';
     ctx.lineWidth = 2.5;
     for (let s = 0.1; s <= 10.0; s += 0.5) {
       const collision = Math.pow(metrics.rawSerFit * 1e-4, 2) * s;
@@ -356,19 +356,19 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('1s', getX(1.0), height - padBottom + 16);
     ctx.fillText('5s', getX(5.0), height - padBottom + 16);
     ctx.fillText('10s (Scrub Interval)', getX(10.0), height - padBottom + 16);
 
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#f87171';
+    ctx.fillStyle = '#dc2626';
     ctx.fillText(
       isZh ? '--- 無修復純 ECC' : '--- Baseline ECC Only',
       padLeft + 10,
       padTop - 12
     );
-    ctx.fillStyle = '#06b6d4';
+    ctx.fillStyle = '#0e7490';
     ctx.fillText(
       isZh ? '— sPPR + AntiFuse hPPR 混合修復' : '— Hybrid sPPR + AntiFuse hPPR',
       padLeft + 200,
@@ -378,7 +378,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
   } else {
     // Mode 2: Junction Temp (70C to 135C) vs Lifetime Failure Rate
     ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('500 FIT', padLeft - 8, padTop + 4);
     ctx.fillText('375 FIT', padLeft - 8, padTop + plotH * 0.25 + 4);
@@ -393,7 +393,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     // Temperature degradation curve (Amber)
     ctx.beginPath();
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.5;
     for (let t = tMin; t <= tMax; t += 5) {
       const tK = Math.max(1.0, t + 273.15);
@@ -408,7 +408,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.fillText('85°C', getX(85), height - padBottom + 16);
     ctx.fillText('105°C', getX(105), height - padBottom + 16);
     ctx.fillText('125°C', getX(125), height - padBottom + 16);
@@ -416,7 +416,7 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '#b45309';
     ctx.fillText(
       isZh ? '■ Arrhenius 接面溫度熱活化失效率加速曲線 (Ea = 0.65 eV)' : '■ Arrhenius Thermal Acceleration vs Junction Temp (Ea = 0.65 eV)',
       padLeft + 10,
@@ -550,12 +550,12 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
       modeScrubBtn.setAttribute('aria-pressed', 'true');
       modeTempBtn.classList.remove('active');
       modeTempBtn.setAttribute('aria-pressed', 'false');
-      modeScrubBtn.style.background = '#0284c7';
-      modeScrubBtn.style.borderColor = '#38bdf8';
+      modeScrubBtn.style.background = '#0369a1';
+      modeScrubBtn.style.borderColor = '#0369a1';
       modeScrubBtn.style.color = '#ffffff';
-      modeTempBtn.style.background = '#1e293b';
-      modeTempBtn.style.borderColor = '#475569';
-      modeTempBtn.style.color = '#94a3b8';
+      modeTempBtn.style.background = '#ffffff';
+      modeTempBtn.style.borderColor = '#cbd5e1';
+      modeTempBtn.style.color = '#334155';
       update();
     });
 
@@ -565,12 +565,12 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
       modeTempBtn.setAttribute('aria-pressed', 'true');
       modeScrubBtn.classList.remove('active');
       modeScrubBtn.setAttribute('aria-pressed', 'false');
-      modeTempBtn.style.background = '#0284c7';
-      modeTempBtn.style.borderColor = '#38bdf8';
+      modeTempBtn.style.background = '#0369a1';
+      modeTempBtn.style.borderColor = '#0369a1';
       modeTempBtn.style.color = '#ffffff';
-      modeScrubBtn.style.background = '#1e293b';
-      modeScrubBtn.style.borderColor = '#475569';
-      modeScrubBtn.style.color = '#94a3b8';
+      modeScrubBtn.style.background = '#ffffff';
+      modeScrubBtn.style.borderColor = '#cbd5e1';
+      modeScrubBtn.style.color = '#334155';
       update();
     });
   }

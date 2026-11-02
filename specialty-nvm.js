@@ -830,9 +830,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lum = Math.max(0, Math.min(255, lum));
-        data[idx] = lum * 0.4;     // R
-        data[idx + 1] = lum * 0.8; // G
-        data[idx + 2] = lum * 0.9; // B (OLED cyan-blue)
+        // 淺色底映射：均勻區為淺青色，Mura 暗斑以較深的青色呈現
+        const tone = 218 + (lum - 120) * 0.8;
+        data[idx] = tone * 0.82;     // R
+        data[idx + 1] = tone * 0.97; // G
+        data[idx + 2] = tone;        // B (OLED cyan-blue)
         data[idx + 3] = 255;
       }
     }
@@ -840,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 水印提示
     ctx.font = '12px "IBM Plex Mono", monospace';
-    ctx.fillStyle = isMuraCorrected ? '#4ade80' : '#f87171';
+    ctx.fillStyle = isMuraCorrected ? '#14532d' : '#991b1b';
     ctx.fillText(isMuraCorrected
       ? labText('✓ 已套用 De-Mura LUT（亮度均勻）', '✓ DE-MURA LUT APPLIED (UNIFORM)')
       : labText('⚠ 偵測到原始 Mura 亮度不均', '⚠ RAW MURA UNEVENNESS DETECTED'), 16, 24);

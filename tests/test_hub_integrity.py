@@ -197,11 +197,13 @@ def run_tests() -> None:
 
     # ===== TEST 16: F2 專屬主視覺圖與白底輕盈配色整合驗證 =====
     print("\n═══ TEST 16: F2 專屬主視覺圖與白底輕盈配色整合驗證 ═══")
-    test("F2 包含專屬 1600/900 webp 主視覺圖標籤",
-         "technology-comparison-hero-1600.webp" in tc_c and "technology-comparison-hero-900.webp" in tc_c)
+    test("F2 主視覺底紋為站內繪製 SVG，不再引用含錯字的生成圖",
+         "technology-comparison-hero.svg" in tc_c and "technology-comparison-hero-1600.webp" not in tc_c)
     test("F2 主視覺圖實體檔案存在",
-         (BASE / "assets" / "technology-comparison-hero-1600.webp").exists() and
-         (BASE / "assets" / "technology-comparison-hero-900.webp").exists())
+         (BASE / "assets" / "technology-comparison-hero.svg").exists())
+    test("M4 晶粒圖為站內繪製示意，不標成顯微照或校準影像",
+         "specialty-bcd-pmic-floorplan.svg" in spec_c and "specialty-eink-ddic-floorplan.svg" in spec_c
+         and "micrograph" not in spec_c.lower() and "MICROSCOPY 100X" not in spec_c and "1mm CALIBRATED" not in spec_c)
     test("F2 包含 f2-stat-bridge 與純白規格彩條",
          "f2-stat-bridge" in tc_c and ".stat-strip-card {" in tc_c)
     test("F2 包含 selector-workbench-frame 半導體儀表框",
