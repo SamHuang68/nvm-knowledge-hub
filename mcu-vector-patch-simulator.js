@@ -267,7 +267,25 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
   const plotTop = 20;
   const plotBottom = displayHeight - 20;
 
-  if (mode === "address_map") {
+  // 原版面固定寬度約需 440px（CPU 100 + CAM 120 + 間距 + 後端），手機寬度畫布只有約 230px，右側整段被裁掉。
+  // 窄畫布改用量測後的版面；寬畫布維持原配置。
+  const narrow = displayWidth < 460;
+  const statusFont = "600 9px 'IBM Plex Mono', monospace";
+  const statusText = mode === "address_map"
+    ? (isZh
+      ? `▶ CAM 查找功率: ${results.pCamDynamicUw} μW · 重新導向延遲: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} 週期) · 晶圓成本節省: ${results.waferCostSavingsPercent}%`
+      : `▶ CAM Power: ${results.pCamDynamicUw} μW · Redirect Latency: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} cyc) · Wafer Cost Saving: ${results.waferCostSavingsPercent}%`)
+    : (isZh
+      ? `時脈週期: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · 常規指令: ${results.normalRomInstrPj} pJ · 補丁指令: ${results.patchedInstrPj} pJ`
+      : `Clock Period: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · Normal: ${results.normalRomInstrPj} pJ · Patched: ${results.patchedInstrPj} pJ`);
+  const statusX = narrow ? 8 : plotLeft;
+  ctx.font = statusFont;
+  const status = layoutStatusLines(ctx, statusText, displayWidth - statusX - 8, displayHeight - 8, 11);
+  const statusTop = status.top - 9;
+
+  if (mode === "address_map" && narrow) {
+    drawAddressMapNarrow(ctx, results, displayWidth, statusTop - 8);
+  } else if (mode === "address_map") {
     // ----------------------------------------------------
     // Mode A: Address Space Interception Memory Map
     // ----------------------------------------------------
@@ -348,19 +366,18 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     ctx.lineTo(targetX, plotTop + 56);
     ctx.stroke();
 
-    // Draw bottom status summary text:
-    ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#0f172a";
-    const statusText = isZh
-      ? `▶ CAM 查找功率: ${results.pCamDynamicUw} μW · 重新導向延遲: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} 週期) · 晶圓成本節省: ${results.waferCostSavingsPercent}%`
-      : `▶ CAM Power: ${results.pCamDynamicUw} μW · Redirect Latency: ${results.patchLatencyNs} ns (${results.patchLatencyCycles} cyc) · Wafer Cost Saving: ${results.waferCostSavingsPercent}%`;
-    ctx.fillText(statusText, plotLeft, displayHeight - 8);
-
   } else {
     // ----------------------------------------------------
     // Mode B: Pipeline Clock Cycle & Latency Breakdown
     // ----------------------------------------------------
-    const cycW = (plotRight - plotLeft - 70) / Math.max(4, results.patchLatencyCycles + 2);
+    // 窄畫布不保留右側 70px 空白、方塊上緣上移並讓出換行後的狀態列；方塊太窄時文字改直排。
+    const stageCount = Math.max(4, results.patchLatencyCycles + 2);
+    const stageLeft = narrow ? 10 : plotLeft;
+    const cycW = narrow
+      ? (displayWidth - 10 - stageLeft - 8 * (stageCount - 1)) / stageCount
+      : (plotRight - plotLeft - 70) / stageCount;
+    const stageTop = narrow ? 14 : plotTop + 25;
+    const stageH = narrow ? statusTop - 8 - stageTop : displayHeight - 75;
     const stages = [
       { name: "CYCLE 1: FETCH", sub: "PC -> Bus", color: "#0369a1" },
       { name: "CYCLE 1: CAM MATCH", sub: "Parallel SNOOP", color: "#a16207" },
@@ -371,16 +388,34 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
     }
     stages.push({ name: "PATCH EXECUTE", sub: "CPU ALUs Execute", color: "#047857" });
 
+    ctx.font = "700 8.5px 'IBM Plex Mono', monospace";
+    const verticalText = stages.some(st => ctx.measureText(st.name).width + 12 > cycW);
+
     stages.forEach((st, idx) => {
-      const x = plotLeft + idx * (cycW + 8);
-      const y = plotTop + 25;
-      const h = displayHeight - 75;
+      const x = stageLeft + idx * (cycW + 8);
+      const y = stageTop;
+      const h = stageH;
 
       ctx.fillStyle = "#ffffff";
       ctx.strokeStyle = st.color;
       ctx.lineWidth = 1.4;
       ctx.fillRect(x, y, cycW, h);
       ctx.strokeRect(x, y, cycW, h);
+
+      if (verticalText) {
+        // 由下往上直排：第一欄階段名稱、第二欄說明。
+        ctx.save();
+        ctx.translate(x + 14, y + h - 6);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle = st.color;
+        ctx.font = "700 8.5px 'IBM Plex Mono', monospace";
+        ctx.fillText(st.name, 0, 0);
+        ctx.fillStyle = "#475569";
+        ctx.font = "500 7.5px 'IBM Plex Mono', monospace";
+        ctx.fillText(st.sub, 0, 12);
+        ctx.restore();
+        return;
+      }
 
       ctx.fillStyle = st.color;
       ctx.font = "700 8.5px 'IBM Plex Mono', monospace";
@@ -389,16 +424,142 @@ export function drawVectorPatchCanvas(canvas, results, mode = "address_map", isZ
       ctx.font = "500 7.5px 'IBM Plex Mono', monospace";
       ctx.fillText(st.sub, x + 6, y + 30);
     });
-
-    ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#0f172a";
-    const pipeText = isZh
-      ? `時脈週期: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · 常規指令: ${results.normalRomInstrPj} pJ · 補丁指令: ${results.patchedInstrPj} pJ`
-      : `Clock Period: ${(1000 / results.clockMhz).toFixed(1)} ns (@ ${results.clockMhz} MHz) · Normal: ${results.normalRomInstrPj} pJ · Patched: ${results.patchedInstrPj} pJ`;
-    ctx.fillText(pipeText, plotLeft, displayHeight - 8);
   }
 
+  // Draw bottom status summary text（放不下時依「 · 」分段換行）:
+  ctx.font = statusFont;
+  ctx.fillStyle = "#0f172a";
+  ctx.textAlign = "left";
+  status.lines.forEach((line, i) => ctx.fillText(line, statusX, status.top + i * 11));
+
   ctx.restore();
+}
+
+// 量測斷行：英文在空白處斷開，中日韓字元可逐字斷開；閉合標點不放在行首。
+const CANVAS_WRAP_TOKENS = /[⺀-鿿豈-﫿！-｠]|[^\s⺀-鿿豈-﫿！-｠]+|\s+/g;
+function wrapCanvasText(ctx, text, maxWidth) {
+  const lines = [];
+  let line = "";
+  (String(text).match(CANVAS_WRAP_TOKENS) || []).forEach(token => {
+    const candidate = line + token;
+    if (!line.trim() || /^[)）,，、。:：;；]/.test(token) || ctx.measureText(candidate.trim()).width <= maxWidth) {
+      line = candidate;
+    } else {
+      lines.push(line.trim());
+      line = /^\s+$/.test(token) ? "" : token;
+    }
+  });
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+// 底部狀態列：放得下就維持單行；否則依「 · 」分段、能併就併成一行。回傳各行與第一行基線。
+function layoutStatusLines(ctx, text, maxWidth, bottomBaseline, lineHeight) {
+  if (ctx.measureText(text).width <= maxWidth) return { lines: [text], top: bottomBaseline };
+  const lines = [];
+  text.split(" · ").forEach(segment => {
+    const last = lines[lines.length - 1];
+    if (last !== undefined && ctx.measureText(`${last} · ${segment}`).width <= maxWidth) {
+      lines[lines.length - 1] = `${last} · ${segment}`;
+    } else {
+      lines.push(...wrapCanvasText(ctx, segment, maxWidth));
+    }
+  });
+  return { lines, top: bottomBaseline - (lines.length - 1) * lineHeight };
+}
+
+// 在方塊內逐段斷行繪製文字，回傳下一段可用的基線。
+function drawWrappedBlockText(ctx, text, font, color, x, baseline, maxWidth, lineHeight) {
+  ctx.font = font;
+  ctx.fillStyle = color;
+  const lines = wrapCanvasText(ctx, text, maxWidth);
+  lines.forEach((line, i) => ctx.fillText(line, x, baseline + i * lineHeight));
+  return baseline + lines.length * lineHeight;
+}
+
+// 窄畫布的位址攔截圖：左欄上下放 CPU 匯流排與補丁後端，右欄放 CAM 槽位（六個槽位與位址全數保留）。
+function drawAddressMapNarrow(ctx, results, displayWidth, diagramBottom) {
+  const margin = 6;
+  const top = 8;
+  const gap = 10;
+  const titleFont = "700 9px 'IBM Plex Mono', monospace";
+  const colH = diagramBottom - top;
+  const slotCount = Math.min(6, results.camEntries);
+  const slotLabels = Array.from({ length: slotCount }, (_, s) => s === 1
+    ? "SLOT #1: MATCH [HIT]"
+    : `SLOT #${s}: 0x0800_${(0x1000 + s * 0x80).toString(16)}`);
+  const camTitle = `CAM (${results.camEntries} SLOTS)`;
+  ctx.font = "600 8px 'IBM Plex Mono', monospace";
+  const slotTextW = Math.max(0, ...slotLabels.map(t => ctx.measureText(t).width));
+  ctx.font = titleFont;
+  const camW = Math.min((displayWidth - 2 * margin) * 0.62, Math.max(slotTextW + 16, ctx.measureText(camTitle).width + 14));
+  const camX = displayWidth - margin - camW;
+  const leftW = camX - gap - margin;
+  const textW = leftW - 10;
+
+  // 先量左欄兩個方塊的內容高度，CPU 方塊依內容、後端方塊填滿剩餘高度。
+  const lineCount = (text, font) => { ctx.font = font; return wrapCanvasText(ctx, text, textW).length; };
+  const backendName = results.backendNameEn.slice(0, 18);
+  const cpuH = 8 + lineCount("CPU FETCH BUS", titleFont) * 11 +
+    lineCount("PC: 0x0800_1240", "500 8.5px 'IBM Plex Mono', monospace") * 10 + 6;
+  const backendTop = top + cpuH + 8;
+  const backendContentH = 8 + lineCount("PATCH BACKEND", titleFont) * 11 +
+    lineCount(backendName, "500 8px 'IBM Plex Mono', monospace") * 10 +
+    lineCount(`Wait: ${results.patchLatencyCycles - 1} cycles`, "500 8px 'IBM Plex Mono', monospace") * 10 + 6;
+  const backendH = Math.max(backendContentH, diagramBottom - backendTop);
+
+  // CPU Bus block
+  ctx.strokeStyle = "#0284c7";
+  ctx.lineWidth = 1.4;
+  ctx.fillStyle = "rgba(2, 132, 199, 0.08)";
+  ctx.fillRect(margin, top, leftW, cpuH);
+  ctx.strokeRect(margin, top, leftW, cpuH);
+  let y = drawWrappedBlockText(ctx, "CPU FETCH BUS", titleFont, "#0369a1", margin + 5, top + 14, textW, 11);
+  drawWrappedBlockText(ctx, "PC: 0x0800_1240", "500 8.5px 'IBM Plex Mono', monospace", "#475569", margin + 5, y, textW, 10);
+
+  // Patch backend block
+  ctx.strokeStyle = "#059669";
+  ctx.lineWidth = 1.4;
+  ctx.fillStyle = "rgba(5, 150, 105, 0.08)";
+  ctx.fillRect(margin, backendTop, leftW, backendH);
+  ctx.strokeRect(margin, backendTop, leftW, backendH);
+  y = drawWrappedBlockText(ctx, "PATCH BACKEND", titleFont, "#047857", margin + 5, backendTop + 14, textW, 11);
+  y = drawWrappedBlockText(ctx, backendName, "500 8px 'IBM Plex Mono', monospace", "#475569", margin + 5, y, textW, 10);
+  drawWrappedBlockText(ctx, `Wait: ${results.patchLatencyCycles - 1} cycles`, "500 8px 'IBM Plex Mono', monospace", "#475569", margin + 5, y, textW, 10);
+
+  // CAM block with slots
+  ctx.strokeStyle = "#d97706";
+  ctx.lineWidth = 1.4;
+  ctx.fillStyle = "rgba(217, 119, 6, 0.08)";
+  ctx.fillRect(camX, top, camW, colH);
+  ctx.strokeRect(camX, top, camW, colH);
+  y = drawWrappedBlockText(ctx, camTitle, titleFont, "#92400e", camX + 7, top + 14, camW - 12, 11);
+  const pitch = slotCount ? Math.min(14, (diagramBottom - y - 2) / slotCount) : 14;
+  slotLabels.forEach((label, s) => {
+    const slotY = y - 4 + s * pitch;
+    const isHit = s === 1;
+    ctx.fillStyle = isHit ? "rgba(5, 150, 105, 0.3)" : "rgba(15, 23, 42, 0.04)";
+    ctx.strokeStyle = isHit ? "#059669" : "rgba(15, 23, 42, 0.12)";
+    ctx.fillRect(camX + 5, slotY, camW - 10, Math.min(11, pitch - 2));
+    ctx.strokeRect(camX + 5, slotY, camW - 10, Math.min(11, pitch - 2));
+    ctx.fillStyle = isHit ? "#065f46" : "#475569";
+    ctx.font = "600 8px 'IBM Plex Mono', monospace";
+    ctx.fillText(label, camX + 8, slotY + 8);
+  });
+
+  // CPU -> CAM 匯流排連線、CAM -> 後端重新導向連線
+  ctx.strokeStyle = "#0284c7";
+  ctx.lineWidth = 1.6;
+  ctx.beginPath();
+  ctx.moveTo(margin + leftW, top + cpuH / 2);
+  ctx.lineTo(camX, top + cpuH / 2);
+  ctx.stroke();
+  ctx.strokeStyle = "#059669";
+  ctx.lineWidth = 2.0;
+  ctx.beginPath();
+  ctx.moveTo(camX, backendTop + 16);
+  ctx.lineTo(margin + leftW, backendTop + 16);
+  ctx.stroke();
 }
 
 /**

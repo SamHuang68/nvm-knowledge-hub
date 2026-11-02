@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
 import {startTestServer} from './test-server.mjs';
-import {calculateTunnelingBreakdownMetrics as tunneling} from '../tunneling-breakdown-simulator.js';
+import {calculateTunnelingBreakdownMetrics as tunneling,formatCurrentDensity} from '../tunneling-breakdown-simulator.js';
 import {calculateAutomotiveHighTempSicGanMetrics as highTemp} from '../automotive-high-temp-sic-gan-simulator.js';
 
 // 只操作兩個受影響模型；不呼叫完整回歸或其他模型的驗收入口。
@@ -35,7 +35,7 @@ async function observeTunneling(page,record,label,language) {
   });
   const expected=tunneling({tox:actual.tox,vox:actual.vox});
   assert.equal(actual.電場,`${expected.eox.toFixed(2)} MV/cm`);
-  assert.equal(actual.電流,expected.logJ<=-14?'< 10⁻¹⁴ A/cm²':`10^(${expected.logJ.toFixed(1)}) A/cm²`);
+  assert.equal(actual.電流,expected.logJ<=-14?'< 10⁻¹⁴ A/cm²':`${formatCurrentDensity(expected.logJ)} A/cm²`);
   assert.equal(actual.分區,`verdict-banner verdict-${fields[expected.state]}`);
   const transport={retention:language==='zh'?'低偏壓電流下限':'Low-Bias Current Floor',direct:language==='zh'?'直接穿隧 (Direct Tunneling)':'Direct Tunneling',fn:language==='zh'?'FN 穿隧 (Fowler–Nordheim)':'Fowler–Nordheim Tunneling'};
   assert.equal(actual.機制,transport[expected.mechanism]);
@@ -43,7 +43,8 @@ async function observeTunneling(page,record,label,language) {
   assert.doesNotMatch(actual.判讀,/可保證\s*>?\s*10|retention guaranteed|completing permanent AntiFuse write/i);
   if(expected.state==='safe')assert.match(actual.判讀,language==='zh'?/未計算溫度、時間與老化/:/Temperature, time and aging are not modeled/);
   assert.ok(actual.控制項.every(item=>item.可用&&item.容器內),'原有控制項必須可用並留在容器內');
-  const curve=actual.圖面.曲線.find(item=>item.顏色==='#38bdf8'&&item.座標.length===151);
+  // 3740944 將畫布改為淺色時，J–V 曲線由 #38bdf8 改為 #0284c7；此處跟隨畫布實際筆色。
+  const curve=actual.圖面.曲線.find(item=>item.顏色==='#0284c7'&&item.座標.length===151);
   assert.ok(curve,'保留完整 151 點曲線');
   const {寬,高}=actual.圖面;
   for(let i=0;i<151;i++) {
@@ -55,6 +56,7 @@ async function observeTunneling(page,record,label,language) {
   assert.ok(point,'保留目前操作點');
   sameNumber(point[0],60+actual.vox/10*(寬-90),`${label} 操作點電壓`);
   sameNumber(point[1],30+(4-expected.logJ)/20*(高-75),`${label} 操作點電流`);
+  assert.ok(actual.圖面.文字.includes(`(${actual.vox.toFixed(1)}V, ${formatCurrentDensity(expected.logJ)})`),`${label} 操作點標註須為科學記號`);
   record.穿隧.push({情境:label,...actual});
 }
 

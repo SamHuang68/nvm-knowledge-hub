@@ -20,6 +20,17 @@
  *    d_KOZ = r_pad * (1 + kappa * sqrt(|sigma_peak| / sigma_limit))
  */
 
+// 依量測寬度縮小字級（最小 8px），讓畫布標籤在可用寬度內完整顯示。
+function fitFontPx(ctx, text, basePx, maxWidth, weight, family) {
+  let px = basePx;
+  ctx.font = `${weight} ${px}px ${family}`.trim();
+  while (px > 8 && ctx.measureText(text).width > maxWidth) {
+    px -= 0.5;
+    ctx.font = `${weight} ${px}px ${family}`.trim();
+  }
+  return px;
+}
+
 export const CU_BONDING_DIELECTRICS = Object.freeze({
   'sicn': { nameZh: 'SiCN (高密度保護蓋層)', nameEn: 'SiCN (High-Density Cap)', cte: 1.8e-6, modulus: 120 },
   'sio2': { nameZh: 'SiO2 (PECVD 氧化物)', nameEn: 'SiO2 (PECVD Oxide)', cte: 0.5e-6, modulus: 70 },
@@ -742,9 +753,13 @@ export class CuCuHybridBondingSimulator {
     ctx.fillRect(padX + padW, midY, w - padX - padW - 20, padHalfH + 20);
 
     // Labels for Dielectrics
+    // p.diel 來自 CU_BONDING_DIELECTRICS，只有 nameZh / nameEn；原本讀 p.diel.name 會印出 undefined。
+    const isZh = (document.documentElement.lang || '').startsWith('zh');
+    const dielName = isZh ? p.diel.nameZh : p.diel.nameEn;
     ctx.fillStyle = '#475569';
+    ctx.font = `${fitFontPx(ctx, dielName, 10, padX - 40, '', 'monospace')}px monospace`;
+    ctx.fillText(dielName, 30, midY - 10);
     ctx.font = '10px monospace';
-    ctx.fillText(`${p.diel.name}`, 30, midY - 10);
     ctx.fillText('Top Wafer', 30, midY - 60);
     ctx.fillText('Bottom Wafer', 30, midY + 70);
 
@@ -788,18 +803,16 @@ export class CuCuHybridBondingSimulator {
     ctx.stroke();
 
     // 3. Interface Bonding / Void Annotation
+    // 介面註記比焊盤寬，放在界面上會壓到兩側 Peak σ 標籤與紅點；改放在堆疊下方、置中對齊焊盤。
+    const annotationY = Math.min(h - 6, midY + padHalfH + 20 + 16);
+    let annotation;
     if (residualGapPx > 1.5) {
       ctx.fillStyle = 'rgba(2, 132, 199, 0.25)';
       ctx.fillRect(padX + 10, midY - residualGapPx / 2, padW - 20, residualGapPx);
       ctx.strokeStyle = '#0284c7';
       ctx.lineWidth = 1;
       ctx.strokeRect(padX + 10, midY - residualGapPx / 2, padW - 20, residualGapPx);
-
-      ctx.fillStyle = '#991b1b';
-      ctx.font = 'bold 11px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(`UNCLOSED NANOVOID (${Math.abs(p.closureMarginNm).toFixed(1)} nm GAP)`, padX + padW / 2, midY + 4);
-      ctx.textAlign = 'start';
+      annotation = { text: `UNCLOSED NANOVOID (${Math.abs(p.closureMarginNm).toFixed(1)} nm GAP)`, color: '#991b1b' };
     } else {
       ctx.strokeStyle = '#047857';
       ctx.lineWidth = 3;
@@ -807,13 +820,13 @@ export class CuCuHybridBondingSimulator {
       ctx.moveTo(padX, midY);
       ctx.lineTo(padX + padW, midY);
       ctx.stroke();
-
-      ctx.fillStyle = '#064e3b';
-      ctx.font = 'bold 11px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(`ATOMIC DIFFUSION JOINT (STRESS = ${Math.round(p.sigmaPeakMPa)} MPa)`, padX + padW / 2, midY - 6);
-      ctx.textAlign = 'start';
+      annotation = { text: `ATOMIC DIFFUSION JOINT (STRESS = ${Math.round(p.sigmaPeakMPa)} MPa)`, color: '#064e3b' };
     }
+    ctx.fillStyle = annotation.color;
+    ctx.font = `bold ${fitFontPx(ctx, annotation.text, 11, w - 8, 'bold', 'sans-serif')}px sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText(annotation.text, padX + padW / 2, annotationY);
+    ctx.textAlign = 'start';
 
     // Stress Concentration Wings at Corners
     ctx.fillStyle = 'rgba(220, 38, 38, 0.6)';
@@ -824,10 +837,14 @@ export class CuCuHybridBondingSimulator {
     ctx.arc(padX + padW, midY, 8, 0, Math.PI * 2);
     ctx.fill();
 
+    // 標籤與半徑 8px 的紅點保留 3px 間距，不再壓在點上。
     ctx.fillStyle = '#991b1b';
     ctx.font = '9px monospace';
-    ctx.fillText('Peak σ', padX - 35, midY + 3);
-    ctx.fillText('Peak σ', padX + padW + 10, midY + 3);
+    ctx.textAlign = 'right';
+    ctx.fillText('Peak σ', padX - 11, midY + 3);
+    ctx.textAlign = 'left';
+    ctx.fillText('Peak σ', padX + padW + 11, midY + 3);
+    ctx.textAlign = 'start';
   }
 
   renderCanvasStress(p) {

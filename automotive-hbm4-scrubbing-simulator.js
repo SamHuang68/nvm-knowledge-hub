@@ -129,6 +129,68 @@ export const REPAIR_ARCHITECTURES = {
   }
 };
 
+// Arrhenius 軟錯誤熱加速倍率（Ea = 0.65 eV、Tref = 25°C）；FIT 模型與模式 2 曲線共用同一組常數與公式。
+function serThermalAcceleration(junctionTempC) {
+  const kB = 8.617333e-5;
+  const Ea = 0.65;
+  const tKelvin = Math.max(1.0, junctionTempC + 273.15);
+  const tRefKelvin = 298.15;
+  return Math.exp(Math.max(-50, Math.min(50, (-Ea / kB) * (1.0 / tKelvin - 1.0 / tRefKelvin))));
+}
+
+// 量測斷行：英文在空白處斷開，中日韓字元可逐字斷開；閉合標點不放在行首。
+const CANVAS_WRAP_TOKENS = /[⺀-鿿豈-﫿！-｠]|[^\s⺀-鿿豈-﫿！-｠]+|\s+/g;
+function wrapCanvasText(ctx, text, maxWidth) {
+  const lines = [];
+  let line = '';
+  (String(text).match(CANVAS_WRAP_TOKENS) || []).forEach(token => {
+    const candidate = line + token;
+    if (!line.trim() || /^[)）,，、。:：;；]/.test(token) || ctx.measureText(candidate.trim()).width <= maxWidth) {
+      line = candidate;
+    } else {
+      lines.push(line.trim());
+      line = /^\s+$/.test(token) ? '' : token;
+    }
+  });
+  if (line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+// 圖例逐項排列：同列放不下就換列，單項比可用寬度還長才斷行。回傳各段位置與最後一列基線。
+function layoutCanvasLegend(ctx, items, x0, y0, maxWidth, lineHeight, gap = 16) {
+  const placed = [];
+  let x = x0;
+  let y = y0;
+  items.forEach(({ text, color }) => {
+    const w = ctx.measureText(text).width;
+    if (x > x0 && x + w > x0 + maxWidth) { x = x0; y += lineHeight; }
+    if (x + w <= x0 + maxWidth) {
+      placed.push({ text, color, x, y });
+      x += w + gap;
+      return;
+    }
+    const lines = wrapCanvasText(ctx, text, maxWidth);
+    lines.forEach((line, i) => placed.push({ text: line, color, x: x0, y: y + i * lineHeight }));
+    y += (lines.length - 1) * lineHeight;
+    x = x0 + ctx.measureText(lines[lines.length - 1] || '').width + gap;
+  });
+  return { placed, lastY: y };
+}
+
+// x 軸刻度標籤：夾在 [minX, maxX] 內；與同列已放標籤重疊時改放下一列。
+function drawCanvasTickLabels(ctx, ticks, baseline, rowHeight, minX, maxX, maxRows = 2) {
+  const rows = [];
+  ctx.textAlign = 'left';
+  ticks.forEach(({ text, x }) => {
+    const w = ctx.measureText(text).width;
+    const left = Math.max(minX, Math.min(x - w / 2, maxX - w));
+    let row = 0;
+    while (row < maxRows - 1 && (rows[row] || []).some(([l, r]) => left < r + 6 && left + w > l - 6)) row++;
+    (rows[row] = rows[row] || []).push([left, left + w]);
+    ctx.fillText(text, left, baseline + row * rowHeight);
+  });
+}
+
 /**
  * First-principles Automotive Mission and Scrubbing FIT calculations
  * @param {Object} params
@@ -156,11 +218,7 @@ export function calculateAutomotiveHbm4Metrics(params = {}) {
 
   // 2. Arrhenius Thermal Acceleration for Soft-Errors:
   // Ea = 0.65 eV, kB = 8.617333e-5 eV/K, Tref = 298.15 K (25 C)
-  const kB = 8.617333e-5;
-  const Ea = 0.65;
-  const tKelvin = Math.max(1.0, junctionTempC + 273.15);
-  const tRefKelvin = 298.15;
-  const thermalAccel = Math.exp(Math.max(-50, Math.min(50, (-Ea / kB) * (1.0 / tKelvin - 1.0 / tRefKelvin))));
+  const thermalAccel = serThermalAcceleration(junctionTempC);
 
   // Base soft-error rate (FIT/Gb at sea-level 25C)
   const baseSerPerGb = 1.8;
@@ -276,10 +334,23 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
 
   const padLeft = 56;
   const padRight = 32;
-  const padTop = 32;
   const padBottom = 48;
   const plotW = width - padLeft - padRight;
+
+  // 圖例／標題依畫布寬度量測後換列，plot 上緣跟著下移，窄畫布不再裁切或疊字。
+  const headerFont = '600 10px "IBM Plex Mono", monospace';
+  const headerItems = mode === 'scrubbing_period_vs_residual_fit'
+    ? [
+      { text: isZh ? '--- 無修復純 ECC' : '--- Baseline ECC Only', color: '#dc2626' },
+      { text: isZh ? '— sPPR + AntiFuse hPPR 混合修復' : '— Hybrid sPPR + AntiFuse hPPR', color: '#0e7490' }
+    ]
+    : [{ text: isZh ? '■ Arrhenius 接面溫度熱活化失效率加速曲線 (Ea = 0.65 eV)' : '■ Arrhenius Thermal Acceleration vs Junction Temp (Ea = 0.65 eV)', color: '#b45309' }];
+  const headerX = width < 480 ? 8 : padLeft + 10;
+  ctx.font = headerFont;
+  const header = layoutCanvasLegend(ctx, headerItems, headerX, 20, width - headerX - 8, 13, 24);
+  const padTop = 32 + (header.lastY - 20);
   const plotH = height - padTop - padBottom;
+  const tickBaseline = height - padBottom + 16;
 
   // Grid
   ctx.strokeStyle = '#e2e8f0';
@@ -298,9 +369,9 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.fillStyle = '#475569';
     ctx.textAlign = 'right';
     ctx.fillText('100 FIT', padLeft - 8, padTop + 4);
-    ctx.fillText('50 FIT', padLeft - 8, padTop + plotH * 0.25 + 4);
-    ctx.fillText('20 FIT', padLeft - 8, padTop + plotH * 0.50 + 4);
-    ctx.fillText('10 FIT', padLeft - 8, padTop + plotH * 0.75 + 4);
+    ctx.fillText('75 FIT', padLeft - 8, padTop + plotH * 0.25 + 4);
+    ctx.fillText('50 FIT', padLeft - 8, padTop + plotH * 0.50 + 4);
+    ctx.fillText('25 FIT', padLeft - 8, padTop + plotH * 0.75 + 4);
     ctx.fillText('0 FIT', padLeft - 8, padTop + plotH + 4);
 
     const getX = sec => padLeft + plotW * (sec / 10.0);
@@ -320,11 +391,11 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.font = '700 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#047857';
     ctx.textAlign = 'right';
-    ctx.fillText(
-      isZh ? 'ASIL-D 門檻 (< 10 FIT)' : 'ASIL-D Target (< 10 FIT)',
-      padLeft + plotW - 10,
-      yAsilD - 6
-    );
+    // 門檻標籤限制在 plot 寬度內，放不下時往上換行，不再蓋到左側 y 軸刻度。
+    const asilLines = wrapCanvasText(ctx, isZh ? 'ASIL-D 門檻 (< 10 FIT)' : 'ASIL-D Target (< 10 FIT)', plotW - 20);
+    asilLines.forEach((line, i) => {
+      ctx.fillText(line, padLeft + plotW - 10, yAsilD - 6 - (asilLines.length - 1 - i) * 12);
+    });
 
     // Unmanaged Curve (Red)
     ctx.beginPath();
@@ -354,26 +425,13 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     }
     ctx.stroke();
 
-    ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#475569';
-    ctx.fillText('1s', getX(1.0), height - padBottom + 16);
-    ctx.fillText('5s', getX(5.0), height - padBottom + 16);
-    ctx.fillText('10s (Scrub Interval)', getX(10.0), height - padBottom + 16);
-
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#dc2626';
-    ctx.fillText(
-      isZh ? '--- 無修復純 ECC' : '--- Baseline ECC Only',
-      padLeft + 10,
-      padTop - 12
-    );
-    ctx.fillStyle = '#0e7490';
-    ctx.fillText(
-      isZh ? '— sPPR + AntiFuse hPPR 混合修復' : '— Hybrid sPPR + AntiFuse hPPR',
-      padLeft + 200,
-      padTop - 12
-    );
+    drawCanvasTickLabels(ctx, [
+      { text: '1s', x: getX(1.0) },
+      { text: '5s', x: getX(5.0) },
+      { text: '10s (Scrub Interval)', x: getX(10.0) }
+    ], tickBaseline, 12, 2, width - 2);
 
   } else {
     // Mode 2: Junction Temp (70C to 135C) vs Lifetime Failure Rate
@@ -396,8 +454,8 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.strokeStyle = '#d97706';
     ctx.lineWidth = 2.5;
     for (let t = tMin; t <= tMax; t += 5) {
-      const tK = Math.max(1.0, t + 273.15);
-      const accel = Math.exp(Math.max(-50, Math.min(50, (-ea / kb) * (1.0 / tK - 1.0 / 298.15))));
+      // 原本引用未定義的 ea / kb，ReferenceError 被 try/catch 吞掉，曲線、刻度與標題都沒畫出；改用模型同一個 Arrhenius 公式。
+      const accel = serThermalAcceleration(t);
       const fit = Math.min(500.0, 1.8 * 64 * accel * 0.05);
       const x = getX(t);
       const y = getY(fit);
@@ -406,23 +464,22 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     }
     ctx.stroke();
 
-    ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#475569';
-    ctx.fillText('85°C', getX(85), height - padBottom + 16);
-    ctx.fillText('105°C', getX(105), height - padBottom + 16);
-    ctx.fillText('125°C', getX(125), height - padBottom + 16);
-    ctx.fillText('135°C (Tj)', getX(135), height - padBottom + 16);
-
-    ctx.textAlign = 'left';
-    ctx.font = '600 10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#b45309';
-    ctx.fillText(
-      isZh ? '■ Arrhenius 接面溫度熱活化失效率加速曲線 (Ea = 0.65 eV)' : '■ Arrhenius Thermal Acceleration vs Junction Temp (Ea = 0.65 eV)',
-      padLeft + 10,
-      padTop - 12
-    );
+    drawCanvasTickLabels(ctx, [
+      { text: '85°C', x: getX(85) },
+      { text: '105°C', x: getX(105) },
+      { text: '125°C', x: getX(125) },
+      { text: '135°C (Tj)', x: getX(135) }
+    ], tickBaseline, 12, 2, width - 2);
   }
+
+  ctx.textAlign = 'left';
+  ctx.font = headerFont;
+  header.placed.forEach(entry => {
+    ctx.fillStyle = entry.color;
+    ctx.fillText(entry.text, entry.x, entry.y);
+  });
   } catch (err) {
     console.warn('drawAutomotiveHbm4Canvas caught error:', err);
   } finally {

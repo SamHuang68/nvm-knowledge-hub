@@ -197,7 +197,7 @@
   padding: 7px 10px;
   border: 1px solid rgba(177, 239, 232, .22);
   background: rgba(248, 250, 252, 0.96);
-  color: rgba(222, 243, 241, .72);
+  color: #785021;
   font-family: "IBM Plex Mono", Consolas, monospace;
   font-size: 8px;
   line-height: 1.35;
@@ -807,7 +807,7 @@
   right: 18px;
   bottom: 16px;
   padding: 7px 9px;
-  color: #8faab5;
+  color: #785021;
   border-left: 1px solid var(--ai-copper);
   background: rgba(248, 250, 252, 0.96);
   font-size: 9px;
@@ -6225,15 +6225,14 @@
   word-break: keep-all !important;
 }
 
-/* 3. 圖說 (Figcaption) 半透明毛玻璃底色與遮罩防護（杜絕與背景線條重疊） */
+/* 3. 圖說 (Figcaption) 放在圖片下方，不再蓋住插圖內容 */
 .ai-nvm-page .photonics-art figcaption,
 .ai-nvm-page .evidence-scene figcaption,
 .ai-nvm-page .conclusion-visual figcaption {
-  position: absolute !important;
+  position: relative !important;
   z-index: 3 !important;
-  right: 16px !important;
-  bottom: 14px !important;
-  left: 16px !important;
+  inset: auto !important;
+  margin: 12px 16px 16px !important;
   padding: 10px 16px !important;
   background: rgba(248, 250, 252, 0.96) !important;
   backdrop-filter: blur(12px) !important;
@@ -6578,4 +6577,35 @@ body[data-language="zh"] [data-lang="zh"] {
 html[data-language="zh"] [data-lang="en"],
 body[data-language="zh"] [data-lang="en"] {
   display: none !important;
+}
+
+/* 插圖完整顯示：原本以 object-fit: cover 塞進直式欄位，只露出原圖的 19%～35%。
+   改為依原圖比例完整顯示，並取消把圖片下半部淡成白色的遮罩；圖說位置見「3. 圖說」。 */
+.ai-nvm-page .photonics-art,
+.ai-nvm-page .evidence-scene,
+.ai-nvm-page .conclusion-visual {
+  min-height: 0;
+  height: auto;
+  align-self: start;
+}
+
+.ai-nvm-page .photonics-art {
+  position: sticky;
+  top: 88px;
+}
+
+.ai-nvm-page .photonics-art picture,
+.ai-nvm-page .photonics-art img,
+.ai-nvm-page .evidence-scene img,
+.ai-nvm-page .conclusion-visual img {
+  position: static;
+  min-height: 0;
+  height: auto;
+  object-fit: contain;
+}
+
+.ai-nvm-page .photonics-art::after,
+.ai-nvm-page .evidence-scene::after,
+.ai-nvm-page .conclusion-visual::after {
+  display: none;
 }

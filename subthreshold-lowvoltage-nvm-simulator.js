@@ -390,6 +390,7 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
       nextY += 15;
       return row;
     }));
+    const height = nextY + 10;
     canvas.style.height = `${height}px`;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);

@@ -2,14 +2,15 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "2f96366bafbc643aa7164f1b5760f4d77b4d27d0",
+  "baseCommit": "29066dee5a657cccbc0522f22b089ff8e787d310",
   "documentation": [
-    "README.md",
+    "docs/MODEL_BOUNDARIES.md",
+    "docs/專利地圖修訂紀錄.md",
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
-      "id": "淡色主題渲染與語言鈕對比",
+      "id": "淡色主題與頁面渲染",
       "kind": "command",
       "command": [
         "node",
@@ -19,66 +20,58 @@
         "scripts/verify-light-theme.mjs"
       ],
       "changes": [
+        "404.html",
         "ai-nvm-opportunities.html",
-        "assets/specialty-bcd-pmic-floorplan.svg",
-        "assets/specialty-eink-ddic-floorplan.svg",
-        "assets/technology-comparison-hero.svg",
-        "assets/technology-comparison-social-1600.webp",
+        "ai-nvm.css",
+        "assets/iot-mcu-hero.jpg",
+        "assets/luminous-wafer-bg.jpg",
+        "assets/nvm-lab-panorama.webp",
+        "assets/secure-state-transition-r17.webp",
         "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
         "automotive-nvm.html",
-        "chiplet-ucie-nvm-simulator.js",
         "cim-analog-mac-simulator.js",
-        "cpo-optical-trim-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
         "cu-cu-hybrid-bonding-stress-simulator.js",
-        "editorial-reading-ui.css",
-        "global-reading-system.css",
         "hbm4-base-die-repair-probe-simulator.js",
-        "home-glass-renaissance.css",
-        "hub-apps-chrome.css",
         "hybrid-bonding-tsv-kgd-simulator.js",
+        "index.html",
         "iot-mcu-envm.html",
-        "literature-editorial.css",
         "mcu-vector-patch-simulator.js",
+        "memory-evidence.html",
         "memory-physics.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
         "oip-secure-storage.html",
         "package-lock.json",
         "package.json",
-        "scripts/verify-light-theme.mjs",
-        "site-shell.css",
-        "specialty-nvm.css",
+        "research.css",
+        "secure-storage.html",
+        "security-assurance.html",
         "specialty-nvm.html",
-        "specialty-nvm.js",
-        "supply-chain-hardware-trojan-pem-simulator.js",
-        "technology-comparison.html"
+        "sram-repair.html",
+        "styles.css",
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "technology-comparison.html",
+        "tunneling-breakdown-simulator.js"
       ],
       "inputs": [
         "404.html",
         "ai-nvm-opportunities.html",
-        "assets/specialty-bcd-pmic-floorplan.svg",
-        "assets/specialty-eink-ddic-floorplan.svg",
-        "assets/technology-comparison-hero.svg",
-        "assets/technology-comparison-social-1600.webp",
+        "ai-nvm.css",
+        "assets/iot-mcu-hero.jpg",
+        "assets/luminous-wafer-bg.jpg",
+        "assets/nvm-lab-panorama.webp",
+        "assets/secure-state-transition-r17.webp",
         "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
         "automotive-nvm.html",
         "briefing/index.html",
-        "chiplet-ucie-nvm-simulator.js",
         "cim-analog-mac-simulator.js",
-        "cpo-optical-trim-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
         "cu-cu-hybrid-bonding-stress-simulator.js",
         "data/public-routes.json",
-        "editorial-reading-ui.css",
-        "global-reading-system.css",
         "hbm4-base-die-repair-probe-simulator.js",
-        "home-glass-renaissance.css",
-        "hub-apps-chrome.css",
+        "hub-story-apps.js",
         "hybrid-bonding-tsv-kgd-simulator.js",
         "index.html",
         "iot-mcu-envm.html",
-        "literature-editorial.css",
         "literature-paper.js",
         "mcu-vector-patch-simulator.js",
         "memory-evidence.html",
@@ -88,22 +81,22 @@
         "oip-secure-storage.html",
         "package-lock.json",
         "package.json",
+        "research.css",
         "scripts/public-routes.mjs",
         "scripts/test-server.mjs",
         "scripts/verify-light-theme.mjs",
         "secure-storage.html",
         "security-assurance.html",
-        "site-shell.css",
-        "specialty-nvm.css",
         "specialty-nvm.html",
-        "specialty-nvm.js",
         "sram-repair.html",
-        "supply-chain-hardware-trojan-pem-simulator.js",
+        "styles.css",
+        "subthreshold-lowvoltage-nvm-simulator.js",
         "technology-comparison.html",
         "tools/whitepaper-studio/index.html",
+        "tunneling-breakdown-simulator.js",
         "whitepaper/index.html"
       ],
-      "reason": "規則 0003：頁首、頁尾、麵包屑、大型容器與 17 個模擬器 canvas 以實際渲染判定不得為深色底，語言切換鈕文字對比至少 4.5:1；三張生成圖改為站內繪製 SVG 後各頁仍可正常載入。",
+      "reason": "18 個公開頁面在 1440／390 逐段捲動後，頁首、頁尾、容器與 canvas 維持淡色、語言鈕對比 4.5:1；同時確認插圖完整顯示、手機主文直排、模擬器缺陷修正與快取參數更新後各頁仍可載入與繪製。",
       "prepare": [
         "node",
         "browser"
@@ -121,24 +114,10 @@
         "scripts/check-site-ia.mjs"
       ],
       "changes": [
-        "assets/ai-nvm-system-boundaries-hero.png",
-        "assets/ai-persistent-state-fabric-v1.png",
-        "assets/ai-photonics-state-contract-v1.png",
-        "assets/automotive-nvm-hero.jpg",
-        "assets/oip-closing-state-v1.png",
-        "assets/oip-evidence-closure-v1.png",
-        "assets/oip-helper-reconstruction-v1.png",
-        "assets/oip-power-off-state-v1.png",
-        "assets/oip-secure-storage-cover-v1.png",
-        "assets/secure-storage-hero.png",
-        "assets/silicon-ip-panorama.png",
-        "assets/specialty-bcd-pmic-die-v2.webp",
-        "assets/specialty-eink-ddic-die-v2.webp",
-        "assets/tech-comparison-hero.jpg",
-        "assets/technology-comparison-hero-1600.webp",
-        "assets/technology-comparison-hero-900.webp",
-        "specialty-nvm.html",
-        "technology-comparison.html"
+        "assets/nvm-lab-panorama.png",
+        "assets/secure-state-transition-r17.png",
+        "ai-nvm-opportunities.html",
+        "styles.css"
       ],
       "inputs": [
         "404.html",
@@ -159,100 +138,31 @@
         "security-assurance.html",
         "specialty-nvm.html",
         "sram-repair.html",
+        "styles.css",
         "technology-comparison.html",
         "tools/whitepaper-studio/index.html",
         "whitepaper/index.html"
       ],
       "deletedFiles": [
         {
-          "path": "assets/ai-nvm-system-boundaries-hero.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
+          "path": "assets/nvm-lab-panorama.png",
+          "consumer": "styles.css",
+          "reason": "原 PNG 已改為同內容的 WebP（原檔保存在 repo 外）；頁面與樣式表只能引用新檔。"
         },
         {
-          "path": "assets/ai-persistent-state-fabric-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/ai-photonics-state-contract-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/automotive-nvm-hero.jpg",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/oip-closing-state-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/oip-evidence-closure-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/oip-helper-reconstruction-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/oip-power-off-state-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/oip-secure-storage-cover-v1.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/secure-storage-hero.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/silicon-ip-panorama.png",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/specialty-bcd-pmic-die-v2.webp",
-          "consumer": "specialty-nvm.html",
-          "reason": "原生成圖已由站內繪製 SVG 取代；頁面不得再引用已刪檔案。"
-        },
-        {
-          "path": "assets/specialty-eink-ddic-die-v2.webp",
-          "consumer": "specialty-nvm.html",
-          "reason": "原生成圖已由站內繪製 SVG 取代；頁面不得再引用已刪檔案。"
-        },
-        {
-          "path": "assets/tech-comparison-hero.jpg",
-          "consumer": "scripts/check-site-ia.mjs",
-          "reason": "無任何引用的生成圖母檔，已移到 repo 外保存；刪除後所有公開頁面的本機資產參照仍須可解析。"
-        },
-        {
-          "path": "assets/technology-comparison-hero-1600.webp",
-          "consumer": "technology-comparison.html",
-          "reason": "原生成圖已由站內繪製 SVG 取代；頁面不得再引用已刪檔案。"
-        },
-        {
-          "path": "assets/technology-comparison-hero-900.webp",
-          "consumer": "technology-comparison.html",
-          "reason": "原生成圖已由站內繪製 SVG 取代；頁面不得再引用已刪檔案。"
+          "path": "assets/secure-state-transition-r17.png",
+          "consumer": "ai-nvm-opportunities.html",
+          "reason": "原 PNG 已改為同內容的 WebP（原檔保存在 repo 外）；頁面與樣式表只能引用新檔。"
         }
       ],
-      "reason": "刪除 12 個無引用的生成圖母檔與 4 個被取代的生成圖後，公開頁面的本機路徑、錨點與資產參照全部可解析。",
+      "reason": "兩張 PNG 改為 WebP 並刪除原檔後，公開頁面的本機資產參照全部可解析。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 120
     },
     {
-      "id": "模擬器配色調整不影響物理模型",
+      "id": "物理模型連續性與模擬器計算",
       "kind": "command",
       "command": [
         "node",
@@ -264,55 +174,149 @@
       ],
       "changes": [
         "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
-        "chiplet-ucie-nvm-simulator.js",
         "cim-analog-mac-simulator.js",
-        "cpo-optical-trim-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
         "cu-cu-hybrid-bonding-stress-simulator.js",
         "hbm4-base-die-repair-probe-simulator.js",
         "hybrid-bonding-tsv-kgd-simulator.js",
         "mcu-vector-patch-simulator.js",
-        "specialty-nvm.js",
-        "supply-chain-hardware-trojan-pem-simulator.js"
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "tunneling-breakdown-simulator.js",
+        "tests/test-physics-robustness.test.mjs"
       ],
       "inputs": [
         "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
-        "chiplet-ucie-nvm-simulator.js",
         "cim-analog-mac-simulator.js",
-        "cpo-optical-trim-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
         "cu-cu-hybrid-bonding-stress-simulator.js",
         "hbm4-base-die-repair-probe-simulator.js",
         "hybrid-bonding-tsv-kgd-simulator.js",
         "mcu-vector-patch-simulator.js",
         "package-lock.json",
         "package.json",
-        "specialty-nvm.js",
-        "supply-chain-hardware-trojan-pem-simulator.js",
-        "tests/test-physics-robustness.test.mjs"
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "tests/test-physics-robustness.test.mjs",
+        "tunneling-breakdown-simulator.js"
       ],
-      "reason": "13 個模擬器來源只改繪圖與按鈕顏色；物理計算函式的健全性測試必須維持全數通過。",
+      "reason": "穿隧 J–V 在 Φ_B 連續且單調、FN 段數值不變；其他模擬器只改繪圖與版面，計算函式健全性維持通過。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 120
     },
     {
-      "id": "完整性斷言語法",
-      "kind": "syntax",
+      "id": "穿隧與高溫模型契約",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/驗證穿隧與高溫模型契約.mjs"
+      ],
       "targets": [
-        "tests/test_hub_integrity.py"
+        "scripts/驗證穿隧與高溫模型契約.mjs"
       ],
       "changes": [
-        "tests/test_hub_integrity.py"
+        "scripts/驗證穿隧與高溫模型契約.mjs"
       ],
       "inputs": [
-        "tests/test_hub_integrity.py"
+        "automotive-high-temp-sic-gan-simulator.js",
+        "automotive-nvm.html",
+        "memory-physics.html",
+        "package-lock.json",
+        "package.json",
+        "scripts/test-server.mjs",
+        "scripts/驗證穿隧與高溫模型契約.mjs",
+        "tunneling-breakdown-simulator.js"
       ],
-      "reason": "更新 F2 主視覺為站內 SVG、新增特種製程晶粒圖不得標成顯微照或校準影像的斷言。此檔在基底提交已有 28 項既有失敗，不作為執行門禁；本機執行結果記錄於修訂紀錄。",
-      "timeoutSeconds": 30
+      "reason": "契約腳本改以實際曲線色 #0284c7 檢查 151 點穿隧曲線並新增科學記號斷言；高溫模型契約維持不變。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "技術全景生成同步",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/build-nvm-atlas.mjs",
+        "--check"
+      ],
+      "targets": [
+        "scripts/build-nvm-atlas.mjs"
+      ],
+      "changes": [
+        "scripts/build-nvm-atlas.mjs",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
+      ],
+      "inputs": [
+        "data/nvm-vendor-patent-maps.json",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "package-lock.json",
+        "package.json",
+        "scripts/build-nvm-atlas.mjs"
+      ],
+      "reason": "atlas 封面同時列出 22 件代表專利與專利地圖 477 件，廠商數改由資料計算；樣式快取參數更新後生成物一致。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 120
+    },
+    {
+      "id": "首頁生成同步",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/build-knowledge-hub-home.mjs",
+        "--check"
+      ],
+      "targets": [
+        "scripts/build-knowledge-hub-home.mjs"
+      ],
+      "changes": [
+        "scripts/build-knowledge-hub-home.mjs",
+        "index.html"
+      ],
+      "inputs": [
+        "index.html",
+        "package-lock.json",
+        "package.json",
+        "scripts/build-knowledge-hub-home.mjs"
+      ],
+      "reason": "首頁樣式快取參數更新後，生成器與首頁輸出一致。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "id": "白皮書公開產物一致",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/verify-whitepaper-consistency.mjs"
+      ],
+      "targets": [
+        "scripts/verify-whitepaper-consistency.mjs"
+      ],
+      "changes": [
+        "tools/whitepaper-studio/public-entry-template.html.tpl",
+        "whitepaper/index.html",
+        "whitepaper/build-manifest.json"
+      ],
+      "inputs": [
+        "package-lock.json",
+        "package.json",
+        "scripts/verify-whitepaper-consistency.mjs",
+        "tools/whitepaper-studio/public-entry-template.html.tpl",
+        "whitepaper/build-manifest.json",
+        "whitepaper/index.html"
+      ],
+      "reason": "白皮書入口範本的 site-shell 快取參數更新後，公開產物與建置清單一致。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 120
     },
     {
       "id": "離線清單同步",
@@ -329,38 +333,38 @@
         "data/offline-manifest.js"
       ],
       "inputs": [
+        "404.html",
         "ai-nvm-opportunities.html",
+        "ai-nvm.css",
         "automotive-hbm4-scrubbing-simulator.js",
-        "automotive-high-temp-sic-gan-simulator.js",
         "automotive-nvm.html",
-        "chiplet-ucie-nvm-simulator.js",
         "cim-analog-mac-simulator.js",
-        "cpo-optical-trim-simulator.js",
-        "cryogenic-nvm-physics-simulator.js",
         "cu-cu-hybrid-bonding-stress-simulator.js",
         "data/offline-manifest.js",
-        "editorial-reading-ui.css",
-        "global-reading-system.css",
         "hbm4-base-die-repair-probe-simulator.js",
-        "home-glass-renaissance.css",
-        "hub-apps-chrome.css",
         "hybrid-bonding-tsv-kgd-simulator.js",
+        "index.html",
         "iot-mcu-envm.html",
-        "literature-editorial.css",
         "mcu-vector-patch-simulator.js",
+        "memory-evidence.html",
         "memory-physics.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
         "oip-secure-storage.html",
         "package-lock.json",
         "package.json",
+        "research.css",
         "scripts/build-offline-manifest.mjs",
-        "site-shell.css",
-        "specialty-nvm.css",
+        "secure-storage.html",
+        "security-assurance.html",
         "specialty-nvm.html",
-        "specialty-nvm.js",
-        "supply-chain-hardware-trojan-pem-simulator.js",
-        "technology-comparison.html"
+        "sram-repair.html",
+        "styles.css",
+        "subthreshold-lowvoltage-nvm-simulator.js",
+        "technology-comparison.html",
+        "tunneling-breakdown-simulator.js"
       ],
-      "reason": "根目錄頁面、樣式與腳本更新後，離線快取清單的內容雜湊必須與實際檔案一致。",
+      "reason": "根目錄頁面、樣式與腳本更新後，離線快取清單雜湊與實際檔案一致。",
       "prepare": [
         "node"
       ],
