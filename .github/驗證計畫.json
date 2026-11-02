@@ -226,7 +226,8 @@
         "scripts/verify-light-theme.mjs"
       ],
       "changes": [
-        "nvm-engineering-diagrams.css"
+        "nvm-engineering-diagrams.css",
+        "scripts/verify-light-theme.mjs"
       ],
       "inputs": [
         "atlas-diagram-loader.js",
@@ -244,7 +245,7 @@
         "visual-tokens.js",
         "操作圖步進演示.js"
       ],
-      "reason": "演示框新增示意動態註記的樣式後，18 個公開頁面在 1440／390 仍維持淡色。",
+      "reason": "演示框新增示意動態註記的樣式後，18 個公開頁面在 1440／390 仍維持淡色。門禁新增每頁進度輸出與 120 秒單頁上限，瀏覽器停止回應時會直接報出頁面與寬度。",
       "prepare": [
         "node",
         "browser"
