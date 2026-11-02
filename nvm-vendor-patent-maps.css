@@ -1394,3 +1394,29 @@
 .nvm-map-summary-table tbody tr:hover {
   background: #f4faf9;
 }
+
+/* 優先權日時間軸：與收錄狀態徽章同色；待核對用空心點區分。 */
+.nvm-priority-timeline { margin: 32px 0; }
+.nvm-priority-timeline > p { max-width: 72ch; color: #334155; line-height: 1.75; }
+.nvm-timeline-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 12px 0; font-size: 14px; color: #1e293b; }
+.nvm-timeline-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.nvm-timeline-key { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.nvm-timeline-key[data-status="active"] { background: #199451; }
+.nvm-timeline-key[data-status="expired"] { background: #bf7e24; }
+.nvm-timeline-key[data-status="unverified"] { background: #ffffff; box-shadow: inset 0 0 0 2px #735318; }
+.nvm-timeline-wrap { overflow-x: auto; border: 1px solid #d9e2e7; border-radius: 6px; background: #ffffff; }
+.nvm-timeline-wrap:focus-visible { outline: 3px solid #14777a; outline-offset: 2px; }
+.nvm-timeline-wrap svg { display: block; width: 100%; min-width: 880px; height: auto; }
+.nvm-timeline-wrap text { font: 500 13px/1 system-ui, "Microsoft JhengHei", sans-serif; fill: #334155; }
+.nvm-timeline-grid { stroke: #e2e8f0; stroke-width: 1; }
+.nvm-timeline-lane { stroke: #eef2f5; stroke-width: 1; }
+.nvm-timeline-dot[data-status="active"] { fill: #199451; }
+.nvm-timeline-dot[data-status="expired"] { fill: #bf7e24; }
+.nvm-timeline-dot[data-status="unverified"] { fill: #ffffff; stroke: #735318; stroke-width: 1.4; }
+.nvm-timeline-table { margin-top: 12px; }
+.nvm-timeline-table summary { cursor: pointer; font-weight: 600; color: #155959; }
+.nvm-timeline-table table { margin-top: 8px; border-collapse: collapse; font-size: 14px; }
+.nvm-timeline-table th, .nvm-timeline-table td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+@media print { .nvm-timeline-wrap { overflow: visible; } .nvm-timeline-wrap svg { min-width: 0; } }
+.nvm-timeline-hint { display: none; margin: 0 0 8px; font-size: 13px; color: #475569; }
+@media (max-width: 900px) { .nvm-timeline-hint { display: block; } }

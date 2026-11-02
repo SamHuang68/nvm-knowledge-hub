@@ -122,3 +122,4 @@ body .nvm-figure-actions>button,body .nvm-figure-actions>a{min-height:44px}
 @media(max-width:390px){.nvm-atlas-page .nvm-operation{padding-inline:10px}.nvm-step-demo{padding-inline:4px}}
 @media(prefers-reduced-motion:reduce){.nvm-step-stage>svg{animation:none}.nvm-step-controls,.nvm-step-stage,.nvm-step-timeline{transition:none}}
 @media print{.nvm-step-demo{display:none!important}}
+.nvm-patent-figure>figcaption .nvm-patent-rights{flex-basis:100%;color:#475569;font-size:13px}

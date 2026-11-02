@@ -50,7 +50,7 @@ import { calculateVertical3dMetrics } from '../vertical-3d-nvm-simulator.js';
 import { calculateCuCuBondingMetrics } from '../cu-cu-hybrid-bonding-stress-simulator.js';
 import { calculateAutomotiveHighTempSicGanMetrics } from '../automotive-high-temp-sic-gan-simulator.js';
 import { calculateTunnelingBreakdownMetrics } from '../tunneling-breakdown-simulator.js';
-import { formatCurrentDensity } from '../tunneling-breakdown-simulator.js';
+import { formatCurrentDensity, tunnelingBarrierGeometry } from '../tunneling-breakdown-simulator.js';
 import { calculateHardwareTrojanPemMetrics } from '../supply-chain-hardware-trojan-pem-simulator.js';
 import { calculatePufNistRandomness } from '../puf-nist-randomness-evaluator.js';
 import { calculateAttackPotential } from '../attack-resistance-evaluator.js';
@@ -165,6 +165,29 @@ test('模型契約：穿隧 log J 在繪圖範圍內隨 Vox 單調不減', () =>
         previous = logJ;
       }
     }
+  }
+});
+
+test('模型契約：能帶圖的能障形狀與穿隧距離和電流模型一致', () => {
+  // 能帶圖與剖面只讀同一個模型：形狀對應機制分界，穿隧距離在 Φ_B 相接、之後隨 Vox 縮短。
+  for (let tenth = 10; tenth <= 60; tenth += 5) {
+    const tox = tenth / 10;
+    let previous = Infinity;
+    for (let i = 1; i <= 1000; i++) {
+      const vox = i / 100;
+      const geometry = tunnelingBarrierGeometry({ tox, vox });
+      const metrics = calculateTunnelingBreakdownMetrics({ tox, vox });
+      assert.equal(geometry.eox, metrics.eox);
+      assert.equal(geometry.shape === 'triangle', metrics.mechanism === 'fn', `${tox} nm / ${vox} V 形狀與機制不一致`);
+      assert.ok(Math.abs(geometry.gateEdgeEv - (3.15 - vox)) < 1e-12);
+      if (geometry.shape === 'trapezoid') assert.equal(geometry.tunnelNm, tox);
+      else assert.ok(Math.abs(geometry.tunnelNm - 3.15 * tox / vox) < 1e-9, `${tox} nm / ${vox} V 轉折點`);
+      assert.ok(geometry.tunnelNm <= previous + 1e-12, `${tox} nm 在 ${vox} V 穿隧距離變長`);
+      previous = geometry.tunnelNm;
+    }
+    const below = tunnelingBarrierGeometry({ tox, vox: 3.15 - 1e-6 });
+    const above = tunnelingBarrierGeometry({ tox, vox: 3.15 });
+    assert.ok(Math.abs(below.tunnelNm - above.tunnelNm) < 1e-5, `${tox} nm 在 Φ_B 穿隧距離不連續`);
   }
 });
 

@@ -7,7 +7,7 @@
 
 'use strict';
 
-import { formatScientificFromLog } from './visual-tokens.js';
+import { formatScientificFromLog, NEUTRAL, MATERIAL, CARRIER, CHART } from './visual-tokens.js';
 
 /**
  * Physical constants for Si-SiO2 dielectric interface.
@@ -88,6 +88,23 @@ export function calculateTunnelingBreakdownMetrics(params = {}) {
 export const formatCurrentDensity = formatScientificFromLog;
 
 /**
+ * 能帶圖與剖面用的能障幾何，和電流公式共用同一組 Φ_B、tox、Vox 與機制分界：
+ * Si 側能障高 Φ_B，閘極側降為 Φ_B − Vox。Vox < Φ_B 為梯形能障，電子須穿過整個 tox；
+ * Vox ≥ Φ_B 為三角形能障，古典轉折點在 x = Φ_B / Eox，之後進入氧化層傳導帶。
+ * 兩式在 Vox = Φ_B 相接；未計入影像力降低與 Si 能帶彎曲，只作教學示意。
+ * @param {Object} params Input parameters {tox, vox}.
+ * @return {Object} {tox, vox, eox, phiB, gateEdgeEv, shape, tunnelNm, mechanism}.
+ */
+export function tunnelingBarrierGeometry(params = {}) {
+  const { tox, vox, eox, mechanism } = calculateTunnelingBreakdownMetrics(params);
+  const phiB = SIM_CONSTANTS.BARRIER_HEIGHT_EV;
+  const shape = vox < phiB ? 'trapezoid' : 'triangle';
+  // Eox 以 MV/cm 表示；× 0.1 換成 V/nm。
+  const tunnelNm = shape === 'trapezoid' ? tox : Math.min(tox, phiB / (eox * 0.1));
+  return { tox, vox, eox, phiB, gateEdgeEv: phiB - vox, shape, tunnelNm, mechanism };
+}
+
+/**
  * Controller for the Quantum Tunneling Simulator.
  */
 class TunnelingSimulator {
@@ -102,6 +119,9 @@ class TunnelingSimulator {
     this.canvas = this.root.querySelector('#tunneling-canvas');
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
+    // 能帶與剖面（第二張畫布）：和曲線同一組滑桿與模型。
+    this.bandCanvas = this.root.querySelector('#tunneling-band-canvas');
+    this.bandCtx = this.bandCanvas?.getContext('2d') || null;
 
     // Controls
     this.toxSlider = this.root.querySelector('#sim-tox-slider');
@@ -313,6 +333,14 @@ class TunnelingSimulator {
     this.ctx.scale(dpr, dpr);
     this.width = w;
     this.height = h;
+    if (this.bandCtx) {
+      const box = this.bandCanvas.getBoundingClientRect();
+      this.bandWidth = box.width || this.bandCanvas.clientWidth || 480;
+      this.bandHeight = box.height || this.bandCanvas.clientHeight || 300;
+      this.bandCanvas.width = Math.round(this.bandWidth * dpr);
+      this.bandCanvas.height = Math.round(this.bandHeight * dpr);
+      this.bandCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
   }
 
   /**
@@ -419,6 +447,14 @@ class TunnelingSimulator {
     if (this.verdictBanner) {
       this.verdictBanner.className = `verdict-banner verdict-${alertClass}`;
       this.verdictBanner.innerHTML = `<span class="verdict-icon">${verdictIcon}</span><span>${verdictMsg}</span>`;
+    }
+
+    if (this.bandCanvas) {
+      const g = tunnelingBarrierGeometry({ vox: this.vox, tox: this.tox });
+      const width = g.tunnelNm.toFixed(1);
+      this.bandCanvas.setAttribute('aria-label', isZh
+        ? `能帶與剖面：${g.shape === 'trapezoid' ? `梯形能障，電子穿過整個 ${width} nm 氧化層` : `三角形能障，電子穿過 ${width} nm 後進入氧化層傳導帶`}；Φ_B 3.15 eV，qV_ox ${g.vox.toFixed(1)} eV。`
+        : `Band diagram and cross-section: ${g.shape === 'trapezoid' ? `trapezoidal barrier; electrons cross the full ${width} nm oxide` : `triangular barrier; electrons cross ${width} nm, then enter the oxide conduction band`}; Φ_B 3.15 eV, qV_ox ${g.vox.toFixed(1)} eV.`);
     }
 
     this.render();
@@ -604,6 +640,170 @@ class TunnelingSimulator {
       0
     );
     ctx.restore();
+    this.renderBand();
+  }
+
+  /**
+   * 能帶圖（上）與剖面（下）共用同一條 x 軸：Si｜SiO₂（寬度與 tox 成正比）｜閘極。
+   * 能量軸固定（Si 傳導帶為 0 eV），滑桿改變時只看到能障傾斜與厚度變化。
+   */
+  renderBand() {
+    const ctx = this.bandCtx;
+    if (!ctx || !this.bandWidth || !this.bandHeight) return;
+    const w = this.bandWidth;
+    const h = this.bandHeight;
+    const zh = this.isZh();
+    const g = tunnelingBarrierGeometry({ vox: this.vox, tox: this.tox });
+    // 窄版（手機）只留形狀、Φ_B、qV_ox 與剖面標示；完整說明在 aria-label 與下方註記。
+    const compact = w < 480;
+    const label = (text, x, y, color = CHART.text, align = 'left', weight = '600') => {
+      ctx.fillStyle = color;
+      ctx.font = `${weight} ${compact ? 11 : 12}px "Plus Jakarta Sans", "Microsoft JhengHei", sans-serif`;
+      ctx.textAlign = align;
+      ctx.fillText(text, x, y);
+    };
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = CHART.background;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = CHART.frame;
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0.5, 0.5, w - 1, h - 1);
+
+    // x 版位：滑桿上限 6 nm 的氧化層佔繪圖寬度 46%。
+    const padX = 16;
+    const plotW = w - padX * 2;
+    const oxL = padX + plotW * 0.27;
+    const oxW = plotW * 0.46 * (g.tox / 6);
+    const oxR = oxL + oxW;
+    const right = padX + plotW;
+    const xAtNm = (nm) => oxL + oxW * (nm / g.tox);
+
+    // 剖面條在下，能帶圖在上。
+    const stripH = Math.max(24, h * 0.12);
+    const stripY = h - stripH - 26;
+    const bandTop = compact ? 36 : 46;
+    const bandBottom = stripY - 26;
+    const eMax = g.phiB + 0.6;
+    const eMin = -10.5;
+    const toY = (e) => bandTop + ((eMax - e) / (eMax - eMin)) * (bandBottom - bandTop);
+    const y0 = toY(0);
+    const yPhi = toY(g.phiB);
+    const yEdge = toY(g.gateEdgeEv);
+    const yGate = toY(-g.vox);
+
+    // 標題列：能障形狀與穿隧距離（同一個模型輸出）。
+    const width = g.tunnelNm.toFixed(1);
+    const title = compact
+      ? (g.shape === 'trapezoid' ? (zh ? '梯形能障：直接穿隧' : 'Trapezoid: direct tunneling') : (zh ? '三角形能障：FN 穿隧' : 'Triangle: FN tunneling'))
+      : g.shape === 'trapezoid'
+        ? (zh ? `梯形能障：電子直接穿過整個 ${width} nm` : `Trapezoidal barrier: electrons cross the full ${width} nm`)
+        : (zh ? `三角形能障：穿過 ${width} nm 後進入氧化層傳導帶（FN）` : `Triangular barrier: ${width} nm, then the oxide conduction band (FN)`);
+    label(title, padX, compact ? 20 : 22, CHART.text, 'left', '700');
+
+    // 區域底色。
+    ctx.globalAlpha = 0.28;
+    ctx.fillStyle = MATERIAL.silicon;
+    ctx.fillRect(padX, bandTop, oxL - padX, bandBottom - bandTop);
+    ctx.fillStyle = MATERIAL.oxide;
+    ctx.fillRect(oxL, bandTop, oxW, bandBottom - bandTop);
+    ctx.fillStyle = MATERIAL.metal;
+    ctx.fillRect(oxR, bandTop, right - oxR, bandBottom - bandTop);
+    ctx.globalAlpha = 1;
+
+    // 穿隧區：電子能量 0 eV 與能障之間、電子必須穿過的禁區。
+    const turnX = xAtNm(g.tunnelNm);
+    const turnY = g.shape === 'trapezoid' ? toY(g.phiB - g.vox) : y0;
+    ctx.globalAlpha = 0.16;
+    ctx.fillStyle = CARRIER.electron;
+    ctx.beginPath();
+    ctx.moveTo(oxL, y0);
+    ctx.lineTo(oxL, yPhi);
+    ctx.lineTo(turnX, turnY);
+    ctx.lineTo(turnX, y0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // 能帶：Si 傳導帶 → 能障 Φ_B → 傾斜 qV_ox → 閘極費米能階。
+    ctx.strokeStyle = NEUTRAL.ink;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(padX, y0);
+    ctx.lineTo(oxL, y0);
+    ctx.lineTo(oxL, yPhi);
+    ctx.lineTo(oxR, yEdge);
+    ctx.lineTo(oxR, yGate);
+    ctx.lineTo(right, yGate);
+    ctx.stroke();
+
+    // 0 eV 參考虛線延伸到閘極側，標出 qV_ox。
+    ctx.strokeStyle = CHART.axis;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 4]);
+    ctx.beginPath();
+    ctx.moveTo(oxL, y0);
+    ctx.lineTo(right, y0);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    const dimX = right - 14;
+    ctx.strokeStyle = CARRIER.field;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(dimX, y0);
+    ctx.lineTo(dimX, yGate);
+    ctx.stroke();
+    // 窄版的能量軸較短，qV_ox 改標在 0 eV 線上方，避免壓到閘極能階線。
+    label(compact ? `qV_ox ${g.vox.toFixed(1)}` : `qV_ox ${g.vox.toFixed(1)} eV`, dimX - 6, compact ? y0 - 6 : Math.max(y0 + 16, (y0 + yGate) / 2), CARRIER.field, 'right');
+    label(compact ? 'Φ_B' : `Φ_B ${g.phiB.toFixed(2)} eV`, oxL - 6, yPhi + 4, NEUTRAL.ink, 'right');
+    if (!compact) {
+      label(zh ? 'Si 傳導帶' : 'Si E_C', padX + 4, y0 - 8, NEUTRAL.muted);
+      // 閘極 E_F 標在閘極區左側、能階線下方，避開右側的 qV_ox 標示。
+      label(zh ? '閘極 E_F' : 'Gate E_F', oxR + 8, yGate + 16, NEUTRAL.muted, 'left');
+    }
+
+    // 電子路徑：穿隧段實線；FN 之後沿氧化層傳導帶漂移到閘極（虛線）。
+    ctx.strokeStyle = CARRIER.electron;
+    ctx.fillStyle = CARRIER.electron;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(oxL - 22, y0);
+    ctx.lineTo(turnX, y0);
+    ctx.stroke();
+    if (g.shape === 'triangle') {
+      // 進入氧化層傳導帶後沿能障斜線漂移，在閘極界面離開氧化層。
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      ctx.moveTo(turnX, y0 - 4);
+      ctx.lineTo(oxR, yEdge - 4);
+      ctx.lineTo(oxR + 18, yEdge - 4);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.beginPath();
+    ctx.arc(oxL - 26, y0, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 剖面條：同一條 x 軸。
+    const strip = (x, width, color, text) => {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, stripY, width, stripH);
+      ctx.strokeStyle = NEUTRAL.ink;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x + 0.5, stripY + 0.5, width - 1, stripH - 1);
+      if (text && width > 34) label(text, x + width / 2, stripY + stripH / 2 + 4, NEUTRAL.ink, 'center');
+    };
+    strip(padX, oxL - padX, MATERIAL.silicon, 'Si');
+    strip(oxL, oxW, MATERIAL.oxide, 'SiO₂');
+    strip(oxR, right - oxR, MATERIAL.metal, zh ? '閘極' : 'Gate');
+    // 穿隧距離標在剖面條下方，與上方禁區同寬。
+    ctx.strokeStyle = CARRIER.electron;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(oxL, stripY + stripH + 6);
+    ctx.lineTo(turnX, stripY + stripH + 6);
+    ctx.stroke();
+    label(zh ? `t_ox ${g.tox.toFixed(1)} nm · 穿隧 ${width} nm` : `t_ox ${g.tox.toFixed(1)} nm · tunnel ${width} nm`, oxL, stripY + stripH + 20, CARRIER.electron, 'left');
   }
 }
 

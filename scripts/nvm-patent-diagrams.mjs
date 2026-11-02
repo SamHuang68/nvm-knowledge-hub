@@ -162,5 +162,5 @@ export function patentStudy(id,language='en'){
  const def=defs[id];if(!def)return null;
  const locale=language==='en'?'en':'zh';
  const record=manifest.patents.find(p=>p.id===id);if(!record)return null;
- return{id,focus:def.focus[locale],trace:def.trace[locale],claim:def.claim[locale],bridge:def.bridge[locale],callouts:def.callouts.map(([number,meaning])=>({number,meaning:meaning[locale]})),figures:def.images.map(([index,label,rotation,page])=>{const fig=record.figures.find(f=>f.index===index);if(!fig)throw new Error(`${id} 附圖 ${index} 不存在`);return{...fig,label,rotation,page,pdfUrl:record.pdfUrl,pdfSHA256:record.pdfSHA256};}),sourceUrl:record.url,claimsAnchor:record.claimsAnchor};
+ return{id,focus:def.focus[locale],trace:def.trace[locale],claim:def.claim[locale],bridge:def.bridge[locale],callouts:def.callouts.map(([number,meaning])=>({number,meaning:meaning[locale]})),figures:def.images.map(([index,label,rotation,page])=>{const fig=record.figures.find(f=>f.index===index);if(!fig)throw new Error(`${id} 附圖 ${index} 不存在`);return{...fig,label,rotation,page,pdfUrl:record.pdfUrl,pdfSHA256:record.pdfSHA256};}),sourceUrl:record.url,claimsAnchor:record.claimsAnchor,rights:record.rights};
 }

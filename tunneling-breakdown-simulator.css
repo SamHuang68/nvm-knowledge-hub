@@ -271,3 +271,21 @@
   font-size: 1.25rem;
   flex-shrink: 0;
 }
+
+/* 三視圖：能帶與剖面畫布與曲線同比例；窄版加高，留給能量軸與剖面條。 */
+.canvas-container.tunneling-band-container {
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 600px) {
+  .canvas-container.tunneling-band-container {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.tunneling-band-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #475569;
+}
