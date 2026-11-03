@@ -83,13 +83,17 @@ npm run qa:ip
 
 圖解與模擬器的材料、載子與圖表色取自 `visual-tokens.js`，不要在產生器裡另寫色表。新增或替換 `assets/` 的檔案時，同步更新 `data/media-manifest.json`（種類、雜湊、權利與證據）；AI 生成圖以 `<img>` 呈現時，旁邊要有中英「AI 生成」可見標示。`check-release-gates.mjs` 會檢查這兩項。
 
-步進演示的示意動態由產生器在 SVG 內標記：`data-motion` 為 `along`（載子沿同圖 `data-motion-track` 路徑移動）、`pulse`（電場或電流脈動）或 `appear`（本格新狀態淡入），並附 `data-motion-source`（這組圖既有的來源條目）與 `data-motion-claim`。只標記圖中已畫出的元素；原始比較圖、減少動態效果、`?motion=static` 與列印都不動。目前只涵蓋 6 組試點，改動後執行 `npm run qa:motion`。
+步進演示的示意動態由產生器在 SVG 內標記：`data-motion` 為 `along`（載子沿同圖 `data-motion-track` 路徑移動）、`pulse`（電場或電流脈動）或 `appear`（本格新狀態淡入），並附 `data-motion-source`（這組圖既有的來源條目）與 `data-motion-claim`。只標記圖中已畫出的元素；原始比較圖、減少動態效果、`?motion=static` 與列印都不動。6 組試點（11 個操作）在產生器裡手動標記；其餘操作序列由 `scripts/nvm-engineering-diagrams-ui.mjs` 的 `withArrowMotion` 讓已畫出的箭頭（`marker-end`，或產生器以 `data-flow` 標記的手繪箭頭）脈動，來源取該格綁定的條目；沒有箭頭的序列不加動態，演示框會說明。播放器的控制列另有可點選與拖曳的時間軸、速度（0.5×／1×／2×）與字幕（步驟標題加狀態，跟頁面語言）。改動後執行 `npm run qa:motion` 與 `node scripts/操作圖步進驗證.mjs`。
 
 記憶體物理頁的穿隧模擬器有三個連動視圖：J–V 曲線、能帶圖與剖面，全部讀同一組 `tox`／`Vox` 與 `tunneling-breakdown-simulator.js` 的模型（能障幾何由 `tunnelingBarrierGeometry` 提供）。專利地圖的優先權日時間軸由 `data/nvm-vendor-patent-maps*.json` 的 `priorityDate` 與 `legalStatus` 在建置時產生，不使用期滿日；專利附圖的權利說明取自 `data/nvm-patent-figures.json` 的 `rights`。改動後執行 `node scripts/驗證穿隧與高溫模型契約.mjs` 與 `npm run qa:timeline`。
 
 操作影片（`assets/video/`）由 `node scripts/build-operation-videos.mjs <repo 外母帶資料夾>` 從 atlas 步進演示逐格錄製：同一組原始影格加示意動態，中英各一版，AV1 WebM 為主、H.264 MP4 備援，附 WebP 海報與中英 WebVTT。腳本會更新 `data/media-manifest.json`，播放器標記由 `scripts/nvm-engineering-diagrams-ui.mjs` 依清單產生（`preload="none"`、不自動播放）。逐格 PNG 留在母帶資料夾，不進 repo。改動步進演示、示意動態或影片後，重新產製並執行 `npm run qa:video`；單支影片上限 2 MB，由 `check-release-gates.mjs` 檢查。
 
 等角爆炸圖由 `scripts/nvm-isometric-diagrams.mjs` 定義方塊與層次：atlas 的 STT、VCM、反熔絲專題在建置時插入；`technology-comparison.html` 的 hybrid bonding 圖由 `node scripts/build-isometric-sections.mjs` 寫進標記區段（`npm run build` 會執行，`--check` 只比對）。圖內只有編號，名稱放在 HTML。STT 的 3D 檢視（`iso-3d-view.js`）用同一組方塊建成 CSS 3D，不使用 3D 函式庫。改動後執行 `npm run qa:isometric`。
+
+頁面背景或分享預覽用了 AI 生成圖、圖旁卻沒有圖說時，頁尾有一行 AI 媒體說明，寫明工具與日期。頁面與圖的對應記在 `scripts/ai-media-notes.mjs`，文字由 `data/media-manifest.json` 產生；手寫頁由 `node scripts/build-ai-media-notes.mjs` 寫進標記區段（`npm run build` 會執行，`--check` 只比對），atlas、首頁與白皮書由各自的產生器輸出。發布門禁會擋下「分享預覽圖是 AI 生成圖卻沒有說明」的頁面；改動後執行 `npm run qa:ai-notes`，它會逐頁實測實際套用的背景與預覽圖。
+
+插圖的 AVIF 與手機裁切由 `node scripts/build-image-variants.mjs <內含 media-masters/ 的資料夾>` 從 repo 外的母帶產生，並更新 `data/media-manifest.json`。頁面以 AVIF 為優先，原 WebP／JPG 保留為備援。手機裁切（4:5、1:1）對齊目前 `object-fit: cover` 實際顯示的區域，只在顯示框比例不超過裁切比例的寬度使用，可見區域不變；蓋著白色漸層的背景改用低解析 AVIF。改動後執行 `npm run qa:image-variants`。
 
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 

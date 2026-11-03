@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261102-p2">
+  <link rel="stylesheet" href="styles.css?v=20261103-p7">
   <link rel="stylesheet" href="site-shell.css?v=20261102">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
@@ -78,6 +78,9 @@
       background: linear-gradient(0deg, var(--navy-950) 0%, rgba(248, 250, 252, 0.96) 24%),
                   linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 40%, rgba(248, 250, 252, 0.96) 70%, rgba(248, 250, 252, 0.96)),
                   url("assets/iot-mcu-hero.jpg") center/cover no-repeat !important;
+      background: linear-gradient(0deg, var(--navy-950) 0%, rgba(248, 250, 252, 0.96) 24%),
+                  linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 40%, rgba(248, 250, 252, 0.96) 70%, rgba(248, 250, 252, 0.96)),
+                  image-set(url("assets/iot-mcu-hero-bg.avif") type("image/avif"), url("assets/iot-mcu-hero.jpg") type("image/jpeg")) center/cover no-repeat !important;
       transform: scale(1.01);
       animation: hero-push 18s ease-out forwards;
       opacity: 0.95;
@@ -2079,7 +2082,8 @@
       <p><span data-lang="zh">高階主管學習原型 · ULP IoT &amp; Edge MCU eNVM 視覺化系統 · 2026</span><span data-lang="en">Executive Learning Prototype · ULP IoT &amp; Edge MCU eNVM Visual System · 2026</span></p>
       <p><span data-lang="zh">僅限公開技術證據 · 嚴格符合半導體資安合規標準</span><span data-lang="en">Public evidence only · Strict adherence to semiconductor security compliance</span></p>
     </div>
-  </footer>
+  <!-- ai-media-note:start --><p class="ai-media-note" data-ai-media-note style="margin:12px 0 0;font-size:13px;line-height:1.6;color:#4b5f6b"><span data-lang="zh">本頁背景圖與分享預覽圖為 AI 生成示意圖（Google generative AI (Antigravity, SynthID watermark)・2026-09-05；OpenAI gpt-image 2.0・2026-08-15），不是照片或量測。</span><span data-lang="en">This page's background and share-preview images are AI-generated (Google generative AI (Antigravity, SynthID watermark), 2026-09-05; OpenAI gpt-image 2.0, 2026-08-15); not a photograph or measurement.</span></p><!-- ai-media-note:end -->
+</footer>
 
   <!-- 核心全站 JS 與 M2 專屬動態 Canvas 互動引擎 -->
   <script src="iot-page-navigation.js?v=20260929-v5"></script>

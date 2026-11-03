@@ -38,15 +38,15 @@
     "src/styles/main.css": "9c5d5fcf716a1a8a8863b47d899b04d8d93d73f39945317d7e5df395bdc07204",
     "src/styles/portal.css": "2e9b9b529d72b4b9e9629e7bf91546e549ff1dee4ed9795a3350959c517a6eb4",
     "src/styles/production.css": "31035aa3c3fadb8efc3411cabeb99500970ab8226950fb22085582978026ed7c",
-    "public-entry-template.html.tpl": "e5b93bffeeea7e8450251a4a12b19b73101ffa6d6354af9af59be6e9601f1e25",
+    "public-entry-template.html.tpl": "d83f7de950690e8655ca40c8bf0c518f5f3ad8e5057390a77ca4cc8a93dd113d",
     "index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "vite.config.js": "dbcdb5d9fb1256d563aaa4e6b639a7eea9b718faf1d864adbbbe26bb20a3b0a8",
     "package.json": "d407a5e7dfaab948cbc44ae2d013d7d3ff955b36431d9fbbe4def9748ea5b64c",
     "package-lock.json": "62d1e9d4553a157ce103294c905af6cac59259ba977e7a050f8e3f58333dedaf",
-    "scripts/build-whitepaper.mjs": "fb93b79ccb12926c99abd1c9484b5a694f9b97a9c7ff3bd2a30f13c9098d639e"
+    "scripts/build-whitepaper.mjs": "83efd38b008683a51c7bfd4da3d85f9f58a127d76cb1dc94c6b2a10fb50fb57a"
   },
   "outputs": {
-    "index.html": "e5dabd38dc34949a6d5dbd61652183e293362256e7027a342e775c7ab65af1c4",
+    "index.html": "d05314e474c16c033a590aa3561b66d6f956969bd836eef37015d17750d6720a",
     "assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "assets/whitepaper.js": "21579d0732fc9a57400ce69c0d6f3cccba3bbf66de47b3b5f005be4270d78adc",
     "assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8"

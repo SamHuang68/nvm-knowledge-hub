@@ -11,17 +11,20 @@ import * as tddb from '../tddb-weibull-simulator.js';
 // 僅覆核兩個控制器；舊版在記憶體載入，外部資源及 Service Worker 阻擋。
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const baseline = 'bb6e755b0031760f7b371f41722708a5acbff62a';
+// 數值回歸仍以 bb6e755 為準；計算函式之後只加了無效輸入防呆（有效輸入數值不變），原始碼逐字比對改以 v2.5.0 發布版為基準。
+const sourceBaseline = '8b54d4352eaa392dd8a6d813fefd807032293251';
 const evidence = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa/後續改善-20261008/資源審核'));
 const channel = process.env.NVM_QA_BROWSER || 'msedge';
 await fs.mkdir(evidence, {recursive: true});
-const report = {基準: baseline, 瀏覽器: channel, 輸出目錄: evidence, 外部阻擋: true, 案例: [], 數值案例: 0, 圖面: 0, 匯出列: 0, 鍵盤: 0};
+const report = {基準: baseline, 原始碼基準: sourceBaseline, 瀏覽器: channel, 輸出目錄: evidence, 外部阻擋: true, 案例: [], 數值案例: 0, 圖面: 0, 匯出列: 0, 鍵盤: 0};
 const check = (名稱, condition, 證據) => report.案例.push({名稱, 通過: Boolean(condition), 證據});
 const oldSources = [];
 for (const [name, calculator] of [['subthreshold-lowvoltage-nvm-simulator.js', 'calculateSubthresholdMetrics'], ['tddb-weibull-simulator.js', 'calculateTddbWeibull']]) {
   const oldSource = execFileSync('git', ['show', `${baseline}:${name}`], {cwd: root, encoding: 'utf8'}).replace(/\r\n/g, '\n');
+  const released = execFileSync('git', ['show', `${sourceBaseline}:${name}`], {cwd: root, encoding: 'utf8'}).replace(/\r\n/g, '\n');
   const fresh = (await fs.readFile(path.join(root, name), 'utf8')).replace(/\r\n/g, '\n');
   const functionPattern = new RegExp(`export function ${calculator}\\([\\s\\S]*?\\n}\\n`);
-  assert.equal(fresh.match(functionPattern)?.[0], oldSource.match(functionPattern)?.[0]);
+  assert.equal(fresh.match(functionPattern)?.[0], released.match(functionPattern)?.[0]);
   assert.equal(fresh.includes('copyAttached'), false);
   oldSources.push(oldSource);
 }
@@ -112,8 +115,9 @@ try {
       checkFrame(`${width}/${language}/${temperature}°C／${capacity}Kb 能耗`,energy,language==='zh'?['總能耗','動態CV²','MEP','E =']:['Total','DynamicCV²','MEP','E =']);
       const sample=Array.from({length:61},(_,j)=>sub.calculateSubthresholdMetrics({...inputs,customVdd:.25+.95*j/60}));
       const maximum=Math.max(60,Math.ceil(Math.max(expected.totalEnergyFj,...sample.map(m=>m.totalEnergyFj))/10)*10);
-      const green=energy.圖面.曲線.find(row=>row.顏色==='#10b981'&&row.座標.length===61);
-      const blue=energy.圖面.曲線.find(row=>row.座標.length===61&&row.顏色!== '#10b981');
+      // 曲線色以 0c073b7（v1.5.2 亮色模式）之後的實際筆色辨識：總能耗 #059669、延遲 #d97706。
+      const green=energy.圖面.曲線.find(row=>row.顏色==='#059669'&&row.座標.length===61);
+      const blue=energy.圖面.曲線.find(row=>row.座標.length===61&&row.顏色!== '#059669');
       const top=green?.座標[0][1]-200*(1-sample[0].totalEnergyFj/maximum);
       const correct=green&&blue&&sample.every((m,j)=>Math.abs(green.座標[j][1]-(top+200*(1-m.totalEnergyFj/maximum)))<1e-6&&Math.abs(blue.座標[j][1]-(top+200*(1-m.activeEnergyFj/maximum)))<1e-6);
       const point=energy.圖面.操作點.find(p=>p.r===5);
@@ -121,7 +125,7 @@ try {
       await page.locator('#subvt-mode-latency-btn').focus();await page.keyboard.press('Space');report.鍵盤++;
       const latency=await snapshot('subvt-simulator-root','subvt-lowvoltage-canvas');
       checkFrame(`${width}/${language}/${temperature}°C／${capacity}Kb 延遲`,latency,['Pelgrom BER',language==='zh'?'目前延遲':'Active Delay']);
-      const yellow=latency.圖面.曲線.find(row=>row.顏色==='#f59e0b'&&row.座標.length===61);
+      const yellow=latency.圖面.曲線.find(row=>row.顏色==='#d97706'&&row.座標.length===61);
       const logMax=Math.max(4,Math.ceil(Math.log10(Math.max(expected.senseLatencyNs,...sample.map(m=>m.senseLatencyNs)))));
       const latencyTop=yellow?.座標[0][1]-200*(1-Math.log10(sample[0].senseLatencyNs)/logMax);
       const op=latency.圖面.操作點.find(p=>p.r===5);

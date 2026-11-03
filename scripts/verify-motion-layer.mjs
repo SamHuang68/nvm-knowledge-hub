@@ -1,4 +1,4 @@
-// 示意動態層驗收：標記契約（來源、主張、路徑）、6 組試點範圍，以及鍵盤、減少動態效果、
+// 示意動態層驗收：標記契約（來源、主張、路徑）、試點與擴充範圍，以及鍵盤、減少動態效果、
 // motion=static、列印、離開畫面與暫停時都會停下，原始比較圖不動。
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,7 +10,8 @@ const results = [];
 const errors = [];
 const note = (passed, label, detail = {}) => results.push({passed: Boolean(passed), label, ...detail});
 
-// 試點範圍：NeoBit 寫入、NeoFuse 寫入、NeoEE 完整 MTP 循環、STT 與 VCM、FeRAM 的雙向操作。
+// 試點範圍：NeoBit 寫入、NeoFuse 寫入、NeoEE 完整 MTP 循環、STT 與 VCM、FeRAM 的雙向操作，保留手動標記（含沿路徑與淡入）。
+// v2.6.0 擴充：其餘操作序列只讓已畫出的箭頭（marker-end 或 data-flow）脈動；沒有箭頭的序列不加動態。
 const PILOTS = ['ip-neobit-write', 'ip-neofuse-write', 'ip-neoee-write', 'ip-neoee-erase', 'ip-neoee-read', 'stt-write', 'stt-erase', 'vcm-write', 'vcm-erase', 'feram-write', 'feram-erase'];
 const CLAIMS = {along: 'direction', pulse: 'direction', appear: 'state-change'};
 
@@ -19,15 +20,20 @@ for (const file of ['nvm-technology-atlas.html', 'nvm-technology-atlas-zh.html']
   const html = fs.readFileSync(path.join(root, file), 'utf8');
   const operations = html.split('<div class="nvm-engineering-operation" data-engineering-operation="').slice(1);
   const withMotion = [];
+  const withArrows = [];
+  const richMotion = [];
   const problems = [];
   for (const body of operations) {
     const id = body.slice(0, body.indexOf('"'));
     const sources = new Set([...body.matchAll(/href="#source-([^"]+)"/g)].map(match => match[1]));
-    const svgs = body.match(/<svg[\s\S]*?<\/svg>/g) || [];
+    // 只看這組操作的逐格圖；切段尾端可能接著下一個單元的結構圖，不算進來。
+    const svgs = (body.match(/<figure class="nvm-op-frame"[\s\S]*?<\/figure>/g) || []).flatMap(frame => frame.match(/<svg[\s\S]*?<\/svg>/g) || []);
+    if (svgs.some(svg => /marker-end=|data-flow/.test(svg))) withArrows.push(id);
     let tagged = 0;
     for (const svg of svgs) {
       for (const match of svg.matchAll(/<[a-z]+ ([^>]*?)data-motion="([a-z]+)"([^>]*)>/g)) {
         tagged++;
+        if (match[2] !== 'pulse') richMotion.push(id);
         const attributes = match[1] + match[3];
         const kind = match[2];
         const source = attributes.match(/data-motion-source="([^"]+)"/)?.[1];
@@ -42,7 +48,9 @@ for (const file of ['nvm-technology-atlas.html', 'nvm-technology-atlas-zh.html']
     if (tagged) withMotion.push(id);
   }
   note(!problems.length, `標記契約：來源、主張與路徑（${file}）`, {problems: problems.slice(0, 10)});
-  note(JSON.stringify([...new Set(withMotion)].sort()) === JSON.stringify([...PILOTS].sort()), `動態只出現在試點範圍（${file}）`, {withMotion: [...new Set(withMotion)]});
+  const expected = [...new Set([...PILOTS, ...withArrows])].sort();
+  note(JSON.stringify([...new Set(withMotion)].sort()) === JSON.stringify(expected), `試點與有箭頭的操作序列都有動態，沒有箭頭的不加（${file}）`, {withMotion: withMotion.length, expected: expected.length, missing: expected.filter(id => !withMotion.includes(id)), extra: withMotion.filter(id => !expected.includes(id))});
+  note([...new Set(richMotion)].every(id => PILOTS.includes(id)), `沿路徑與淡入只出現在試點（${file}）`, {richMotion: [...new Set(richMotion)].filter(id => !PILOTS.includes(id))});
 }
 
 // 二、瀏覽器行為。

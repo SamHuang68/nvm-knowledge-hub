@@ -277,6 +277,17 @@ for (const relative of assetFiles) {
     }
   }
 }
+// 分享預覽圖是 AI 生成圖、頁面上卻沒有以 <img>／<source> 顯示時，頁尾要有 AI 媒體說明（scripts/ai-media-notes.mjs）。
+for (const page of routes.pages) {
+  const text = referenceText.get(page);
+  if (!text) continue;
+  const tags = [...text.matchAll(/<(?:img|source)\b[^>]*>/gu)].map(match => match[0]);
+  for (const meta of text.matchAll(/<meta\b[^>]*(?:property="og:image"|name="twitter:image")[^>]*>/gu)) {
+    const name = path.basename(meta[0].match(/content="([^"]+)"/u)?.[1] ?? "");
+    if (entries.get(`assets/${name}`)?.kind !== "ai-generated" || tags.some(tag => tag.includes(name))) continue;
+    if (!text.includes("data-ai-media-note")) failures.push(`${page}: AI-generated share image ${name} needs a visible AI media note`);
+  }
+}
 for (const relative of entries.keys()) if (!assetFiles.includes(relative)) failures.push(`media manifest lists missing file ${relative}`);
 const patentFigures = JSON.parse(fs.readFileSync(path.join(dataDir, "nvm-patent-figures.json"), "utf8"));
 for (const patent of patentFigures.patents ?? []) if (!patent.rights) failures.push(`${patent.id}: patent figures lack a rights statement`);
