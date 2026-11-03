@@ -346,6 +346,7 @@
       <a href="../technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
     <p>&copy; 2026 NVM Knowledge Hub &middot; Public Workbench &middot; Evidence-Governed Architecture</p>
+    {{aiMediaNote}}
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>

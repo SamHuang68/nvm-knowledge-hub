@@ -8,6 +8,10 @@ const server=process.env.NVM_QA_BASE?null:await startTestServer(root);
 const base=process.env.NVM_QA_BASE||server.base;
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/nvm-knowledge-data-en.json'),'utf8'));
 const units=data.ipCurriculum.units,results=[],failures=[],errors=[];
+// --units=a,b 只在瀏覽器逐一檢查指定單元的圖面（目錄、搜尋、語言切換等共用檢查照常執行），供局部驗證控制在時限內。
+const onlyUnits=process.argv.find(value=>value.startsWith('--units='))?.slice(8).split(',');
+const browserUnits=onlyUnits?units.filter(unit=>onlyUnits.includes(unit.id)):units;
+if(onlyUnits&&browserUnits.length!==onlyUnits.length)throw new Error('--units 含未知單元：'+onlyUnits.join(','));
 const note=(passed,label,details={})=>{const row={passed:Boolean(passed),label,...details};results.push(row);if(!passed)failures.push(row);};
 const requiredIds=["neobit","neofuse","kilopass-xpm","sidense-1t-fuse","cfx-otp","attopsemi-ifuse","floadia-za","neoee","neomtp","ymc-mtp","impinj-aeon","actt-cmt","nscore-twinbit","floadia-zt","floadia-g1","floadia-g2","sst-superflash","chingis-pfusion","iotmemory-silvoflash","numem-mram","gf-emram","weebit-reram","crossbar-reram","everspin-mram","avalanche-mram","spinmem-mram","crocus-mram","panasonic-reram","tetramem-reram","4ds-reram","adesto-cbram"];
 note(units.length===requiredIds.length&&requiredIds.every(id=>units.some(unit=>unit.id===id))&&new Set(units.map(unit=>unit.id)).size===units.length,'IP 目錄包含既有單元及 Actt、NSCore、Floadia、創飛芯、Attopsemi、SST、常億、智憶技術');
@@ -27,11 +31,11 @@ try{
   await page.goto(new URL(file+'?lang='+language,base).href,{waitUntil:'networkidle'});
   await page.addStyleTag({content:'html{scroll-behavior:auto!important}'});
   await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced'));
-  note(await page.locator('#panorama').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===0&&await page.locator('#panorama .nvm-library-entries>a').count()===9,'首次閱讀呈現中性目錄，IP 單元為獨立項目',{language,width});
+  note(await page.locator('#panorama').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===0&&await page.locator('#panorama .nvm-library-entries>a').count()===10,'首次閱讀呈現中性目錄，IP 單元為獨立項目',{language,width});
   await page.locator('#panorama a[href="#ip-directory"]').click();
   await page.waitForFunction(()=>document.getElementById('ip-directory')?.checkVisibility());
   note(await page.locator('#ip-directory').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===units.length,'由目錄進入完整 IP 名錄',{language,width});
-  for(const unit of units){
+  for(const unit of browserUnits){
    await page.evaluate(id=>{location.hash='ip-'+id;},unit.id);await page.waitForFunction(id=>!document.getElementById('ip-'+id).hidden,unit.id);
    const panel=page.locator('#ip-'+unit.id);
    const auditStructure=await panel.locator('.nvm-ip-structure-drawing').evaluate(inspect);
@@ -69,7 +73,7 @@ try{
    await page.locator('#searchTrigger').click();await page.locator('#searchOverlay input[type="search"]').fill('NeoBit');
    const searchResult=page.locator('#searchResults a[href*="#ip-neobit"]').first();
    await searchResult.waitFor({state:'visible'});await searchResult.click();
-   await page.waitForFunction(()=>location.hash==='#ip-neobit'&&!document.getElementById('ip-neobit').hidden);
+   await page.waitForFunction(()=>location.hash==='#ip-neobit'&&document.getElementById('ip-neobit')?.hidden===false);
    note(await page.evaluate(()=>document.documentElement.lang)===(language==='en'?'en':'zh-Hant'),'首頁搜尋直接進入具名 IP 並保留語言',{language,width});
    const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#ip-neobit .nvm-ip-structure-figure [data-engineering-download]').click()]);
    const downloadFile=await download.path();
@@ -82,7 +86,7 @@ try{
 note(errors.length===0,'IP 頁面 JavaScript 無錯誤',{errors});
 const report={passed:failures.length===0,checkedAt:new Date().toISOString(),base,units:units.length,operations:units.reduce((n,unit)=>n+unit.operations.length,0),framesPerLanguage:units.reduce((n,unit)=>n+unit.operations.reduce((sum,op)=>sum+op.variants.reduce((v,variant)=>v+variant.frames.length,0),0),0),checks:results.length,failures,results};
 fs.writeFileSync(path.join(output,'IP單元查核.json'),JSON.stringify(report,null,2)+'\n');
-console.log(JSON.stringify({passed:report.passed,checks:report.checks,framesPerLanguage:report.framesPerLanguage,failures:failures.slice(0,12)}));
+console.log(JSON.stringify({passed:report.passed,checks:report.checks,failed:failures.length,framesPerLanguage:report.framesPerLanguage,failures:failures.slice(0,12)}));
 if(!report.passed)process.exitCode=1;
 function inspect(element){
  const outside=[],overlap=[];let minimumText=Infinity;

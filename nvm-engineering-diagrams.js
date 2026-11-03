@@ -1,5 +1,5 @@
 import {ensureDiagrams} from './atlas-diagram-loader.js';
-import {cloneDiagram, exportDiagram, enhanceEngineeringViews} from './操作圖步進演示.js?v=20261103-p5';
+import {cloneDiagram, exportDiagram, enhanceEngineeringViews} from './操作圖步進演示.js?v=20261103-p7';
 import {enhanceIsometric3D} from './iso-3d-view.js?v=20261103-p6';
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 const say = (zh, en) => isEnglish() ? en : zh;

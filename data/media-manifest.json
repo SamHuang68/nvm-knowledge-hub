@@ -32,6 +32,63 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.43/255; first added 8fc26b1 2026-08-25"
     },
     {
+      "path": "assets/ai-nvm-system-boundaries-hero-mobile-4x5.avif",
+      "variantOf": "assets/ai-nvm-system-boundaries-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 62632,
+      "sha256": "c770bf0d8e0b632d7582db891f7a78cc4e1e4f2c5c43dd3b3a38688da2acab08",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-removed-from-repo/ai-nvm-system-boundaries-hero.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "crops": [
+        {
+          "ratio": "4:5",
+          "objectPositionX": 0.7,
+          "maxViewportWidth": 760,
+          "masterSize": [
+            1672,
+            941
+          ],
+          "masterBox": [
+            643,
+            0,
+            753,
+            941
+          ]
+        }
+      ],
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-nvm-system-boundaries-hero-1600.webp: 4:5 crop at object-position 70% (master box 643,0,753,941); encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-nvm-system-boundaries-hero-1600.webp stays as the fallback."
+    },
+    {
+      "path": "assets/ai-nvm-system-boundaries-hero-1600.avif",
+      "variantOf": "assets/ai-nvm-system-boundaries-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 71672,
+      "sha256": "2ea9704d9115727636e228f472c7b7bf3cc0a733c84b6607b0e5a3bd6ff06463",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-removed-from-repo/ai-nvm-system-boundaries-hero.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-nvm-system-boundaries-hero-1600.webp: same 1600x900 size as ai-nvm-system-boundaries-hero-1600.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-nvm-system-boundaries-hero-1600.webp stays as the fallback."
+    },
+    {
       "path": "assets/ai-nvm-system-boundaries-hero-900.webp",
       "kind": "ai-generated",
       "bytes": 73162,
@@ -70,6 +127,26 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.37/255; first added 8fc26b1 2026-08-25"
     },
     {
+      "path": "assets/ai-persistent-state-fabric-v1-1800.avif",
+      "variantOf": "assets/ai-persistent-state-fabric-v1-1800.webp",
+      "kind": "ai-generated",
+      "bytes": 59327,
+      "sha256": "7e398ca3a29a96ff75db1dd19f6279183f24ebe6a31de808592c713c43c9cd88",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-removed-from-repo/ai-persistent-state-fabric-v1.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-persistent-state-fabric-v1-1800.webp: same 1800x772 size as ai-persistent-state-fabric-v1-1800.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-persistent-state-fabric-v1-1800.webp stays as the fallback."
+    },
+    {
       "path": "assets/ai-persistent-state-fabric-v1-900.webp",
       "kind": "ai-generated",
       "bytes": 54544,
@@ -87,6 +164,26 @@
       },
       "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.51/255; first added 8fc26b1 2026-08-25"
+    },
+    {
+      "path": "assets/ai-persistent-state-fabric-v1-900.avif",
+      "variantOf": "assets/ai-persistent-state-fabric-v1-900.webp",
+      "kind": "ai-generated",
+      "bytes": 18160,
+      "sha256": "bbe6258c7588848a89b1c6afd3ad17c87a486c1c55e3adfb9971b633a5a363c7",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-removed-from-repo/ai-persistent-state-fabric-v1.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-persistent-state-fabric-v1-900.webp: same 900x386 size as ai-persistent-state-fabric-v1-900.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-persistent-state-fabric-v1-900.webp stays as the fallback."
     },
     {
       "path": "assets/ai-photonics-state-contract-v1-1600.webp",
@@ -109,6 +206,26 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.43/255; first added 8fc26b1 2026-08-25"
     },
     {
+      "path": "assets/ai-photonics-state-contract-v1-1600.avif",
+      "variantOf": "assets/ai-photonics-state-contract-v1-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 32918,
+      "sha256": "1a0633f1f8531d85e92828a7ac232cd93f34f1d57fc4f6ed0f45662b3c49624d",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-c2pa-masters/ai-photonics-state-contract-v1-800__exec-b49134d9-fb67-4301-9c68-7ab56a50b8ca.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-photonics-state-contract-v1-1600.webp: same 1600x900 size as ai-photonics-state-contract-v1-1600.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-photonics-state-contract-v1-1600.webp stays as the fallback."
+    },
+    {
       "path": "assets/ai-photonics-state-contract-v1-800.webp",
       "kind": "ai-generated",
       "bytes": 36724,
@@ -126,6 +243,26 @@
       },
       "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.58/255; first added 8fc26b1 2026-08-25"
+    },
+    {
+      "path": "assets/ai-photonics-state-contract-v1-800.avif",
+      "variantOf": "assets/ai-photonics-state-contract-v1-800.webp",
+      "kind": "ai-generated",
+      "bytes": 12989,
+      "sha256": "03313cb68cfdf433f2c2b6c344c0f054863bb6fb379d9f2973def7a78d891480",
+      "display": [
+        "page-image"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-25",
+      "master": "media-masters/2026-11-02-c2pa-masters/ai-photonics-state-contract-v1-800__exec-b49134d9-fb67-4301-9c68-7ab56a50b8ca.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of ai-photonics-state-contract-v1-800.webp: same 800x450 size as ai-photonics-state-contract-v1-800.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). ai-photonics-state-contract-v1-800.webp stays as the fallback."
     },
     {
       "path": "assets/apple-touch-icon.png",
@@ -223,6 +360,63 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.42/255; first added 05b93a7 2026-09-05"
     },
     {
+      "path": "assets/automotive-nvm-hero-mobile-1x1.avif",
+      "variantOf": "assets/automotive-nvm-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 32956,
+      "sha256": "ab642988375638ca608bce1f996182ac0c7aeb15cfaa4e113d98e5cb24189418",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-05",
+      "master": "media-masters/2026-11-02-removed-from-repo/automotive-nvm-hero.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "crops": [
+        {
+          "ratio": "1:1",
+          "objectPositionX": 0.5,
+          "maxViewportWidth": 400,
+          "masterSize": [
+            1376,
+            768
+          ],
+          "masterBox": [
+            304,
+            0,
+            768,
+            768
+          ]
+        }
+      ],
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of automotive-nvm-hero-1600.webp: 1:1 crop at object-position 50% (master box 304,0,768,768); encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). automotive-nvm-hero-1600.webp stays as the fallback."
+    },
+    {
+      "path": "assets/automotive-nvm-hero-1600.avif",
+      "variantOf": "assets/automotive-nvm-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 56794,
+      "sha256": "4434974acf2706bd9a0edfd7f9851dbd3031e008110ce2f6349c1125d6b9a146",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-05",
+      "master": "media-masters/2026-11-02-removed-from-repo/automotive-nvm-hero.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of automotive-nvm-hero-1600.webp: same 1600x893 size as automotive-nvm-hero-1600.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). automotive-nvm-hero-1600.webp stays as the fallback."
+    },
+    {
       "path": "assets/automotive-nvm-hero-900.webp",
       "kind": "ai-generated",
       "bytes": 83742,
@@ -240,6 +434,26 @@
       },
       "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.66/255; first added 05b93a7 2026-09-05"
+    },
+    {
+      "path": "assets/automotive-nvm-hero-900.avif",
+      "variantOf": "assets/automotive-nvm-hero-900.webp",
+      "kind": "ai-generated",
+      "bytes": 30900,
+      "sha256": "41fde2f523482b5f6fa433194bc56e6f1eec8505487600fb94b7021074e7328e",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-05",
+      "master": "media-masters/2026-11-02-removed-from-repo/automotive-nvm-hero.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of automotive-nvm-hero-900.webp: same 900x502 size as automotive-nvm-hero-900.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). automotive-nvm-hero-900.webp stays as the fallback."
     },
     {
       "path": "assets/closing-secure-boundary-v1.webp",
@@ -363,6 +577,26 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.48/255; first added 7e560d8 2026-09-05"
     },
     {
+      "path": "assets/iot-mcu-hero-bg.avif",
+      "variantOf": "assets/iot-mcu-hero.jpg",
+      "kind": "ai-generated",
+      "bytes": 46837,
+      "sha256": "dedf74e3ea560dffa3870a41b06597400670c763238ea4401351d6bde49186fb",
+      "display": [
+        "css-background"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-05",
+      "master": "media-masters/2026-11-02-phase1-originals/iot-mcu-hero.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of iot-mcu-hero.jpg: low-resolution background, 960 px wide; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 40). iot-mcu-hero.jpg stays as the fallback."
+    },
+    {
       "path": "assets/learning-path-v1.webp",
       "kind": "ai-generated",
       "bytes": 110530,
@@ -403,6 +637,26 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.48/255; first added f23ef7b 2026-10-04"
     },
     {
+      "path": "assets/luminous-wafer-bg.avif",
+      "variantOf": "assets/luminous-wafer-bg.jpg",
+      "kind": "ai-generated",
+      "bytes": 23616,
+      "sha256": "daf2b54859da6cb6a30bf47b286249b4622c88cb5331906852d14a3a4bdbb088",
+      "display": [
+        "css-background"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-24",
+      "master": "media-masters/2026-11-02-phase1-originals/luminous-wafer-bg.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of luminous-wafer-bg.jpg: low-resolution background, 960 px wide; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 40). luminous-wafer-bg.jpg stays as the fallback."
+    },
+    {
       "path": "assets/memory-physics-hero-1600.webp",
       "kind": "ai-generated",
       "bytes": 126540,
@@ -423,6 +677,63 @@
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.42/255; first added 88b6348 2026-09-08"
     },
     {
+      "path": "assets/memory-physics-hero-mobile-1x1.avif",
+      "variantOf": "assets/memory-physics-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 32501,
+      "sha256": "f009b6e16a7570d4273361a548f31915d153855037aa40ccceef327dcb4a2d84",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-08",
+      "master": "media-masters/2026-11-02-c2pa-masters/memory-physics-hero__memory_physics_hero_1788851405853.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "crops": [
+        {
+          "ratio": "1:1",
+          "objectPositionX": 0.72,
+          "maxViewportWidth": 600,
+          "masterSize": [
+            1376,
+            768
+          ],
+          "masterBox": [
+            438,
+            0,
+            768,
+            768
+          ]
+        }
+      ],
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of memory-physics-hero-1600.webp: 1:1 crop at object-position 72% (master box 438,0,768,768); encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). memory-physics-hero-1600.webp stays as the fallback."
+    },
+    {
+      "path": "assets/memory-physics-hero-1600.avif",
+      "variantOf": "assets/memory-physics-hero-1600.webp",
+      "kind": "ai-generated",
+      "bytes": 47148,
+      "sha256": "e0115efb543518503f79a253c58282d6cc8582d660f7e4d5985c19fbedf6d532",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-08",
+      "master": "media-masters/2026-11-02-c2pa-masters/memory-physics-hero__memory_physics_hero_1788851405853.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of memory-physics-hero-1600.webp: same 1600x900 size as memory-physics-hero-1600.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). memory-physics-hero-1600.webp stays as the fallback."
+    },
+    {
       "path": "assets/memory-physics-hero-900.webp",
       "kind": "ai-generated",
       "bytes": 48948,
@@ -440,6 +751,26 @@
       },
       "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia, SynthID; derivative of master, gray mean abs diff 0.6/255; first added 88b6348 2026-09-08"
+    },
+    {
+      "path": "assets/memory-physics-hero-900.avif",
+      "variantOf": "assets/memory-physics-hero-900.webp",
+      "kind": "ai-generated",
+      "bytes": 23368,
+      "sha256": "f883bc3c36731512857872b73fc8da616c65f9787cd84bf877f8f8a18e169706",
+      "display": [
+        "page-image"
+      ],
+      "tool": "Google generative AI (Antigravity, SynthID watermark)",
+      "generatedAt": "2026-09-08",
+      "master": "media-masters/2026-11-02-c2pa-masters/memory-physics-hero__memory_physics_hero_1788851405853.jpg",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of memory-physics-hero-900.webp: same 900x506 size as memory-physics-hero-900.webp; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 30). memory-physics-hero-900.webp stays as the fallback."
     },
     {
       "path": "assets/memory-physics-hero.jpg",
@@ -749,6 +1080,26 @@
       },
       "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
       "evidence": "C2PA on master: digitalSourceType trainedAlgorithmicMedia; derivative of master, gray mean abs diff 0.44/255; first added 8fc26b1 2026-08-25"
+    },
+    {
+      "path": "assets/secure-storage-hero-key-bg.avif",
+      "variantOf": "assets/secure-storage-hero-key.webp",
+      "kind": "ai-generated",
+      "bytes": 23369,
+      "sha256": "2f66a563161f8c9cbba047a130ead3a127587b88f885550ef2ea466bba06ac03",
+      "display": [
+        "css-background"
+      ],
+      "tool": "OpenAI gpt-image 2.0",
+      "generatedAt": "2026-08-11",
+      "master": "media-masters/2026-11-02-removed-from-repo/secure-storage-hero.png",
+      "c2pa": "master-only",
+      "visibleDisclosure": {
+        "zh": "AI 生成",
+        "en": "AI-generated"
+      },
+      "rights": "Generated for this site; no third-party source image. The generating service's output terms apply. Not a photograph, micrograph or measurement.",
+      "evidence": "AVIF variant of secure-storage-hero-key.webp: low-resolution background, 960 px wide; encoded from the master by scripts/build-image-variants.mjs (libaom-av1, crf 40). secure-storage-hero-key.webp stays as the fallback."
     },
     {
       "path": "assets/secure-storage-hero-v2.webp",

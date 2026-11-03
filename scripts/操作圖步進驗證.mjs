@@ -74,10 +74,16 @@ try {
     note(stepWithKeyboard==='2'&&await demo.getAttribute('data-step-current')==='3'&&new URL(page.url()).hash===hash&&await demo.locator('.nvm-step-stage').evaluate(node=>node===document.activeElement), '方向鍵與首末步保留焦點及舊錨點', {language,width});
     await page.keyboard.press('Home');
     await demo.locator('[data-nvm-step-action="play"]').click();
-    await page.waitForTimeout(2650);
-    const atEnd = await demo.getAttribute('data-frame');
+    // 每步停留時間依示意動態長度而定（v2.6.0 起 STT 讀取也有箭頭脈動），所以等到抵達末格，再確認當下已停、之後不循環。
+    const arrival = await demo.evaluate(root => new Promise(resolve => {
+      const done = () => resolve({frame: root.dataset.frame, playing: root.dataset.playing});
+      if (root.dataset.frame === 'end') return done();
+      const observer = new MutationObserver(() => { if (root.dataset.frame === 'end') { observer.disconnect(); done(); } });
+      observer.observe(root, {attributes: true, attributeFilter: ['data-frame']});
+      setTimeout(() => { observer.disconnect(); done(); }, 15000);
+    }));
     await page.waitForTimeout(1300);
-    note(atEnd==='end'&&await demo.getAttribute('data-step-current')==='3'&&await demo.getAttribute('data-playing')==='false', '播放到最後一格立即停止且不循環', {language,width});
+    note(arrival.frame==='end'&&arrival.playing==='false'&&await demo.getAttribute('data-step-current')==='3'&&await demo.getAttribute('data-playing')==='false', '播放到最後一格立即停止且不循環', {language,width,arrival});
     await demo.locator('[data-nvm-step-action="reset"]').click();
     await demo.locator('[data-nvm-step-action="play"]').click();
     await page.evaluate(()=>window.dispatchEvent(new Event('blur')));

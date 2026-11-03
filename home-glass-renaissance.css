@@ -9,6 +9,9 @@ body.hub-reading-home {
   background-image:
     radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(240, 246, 248, 0.8) 60%, rgba(228, 237, 240, 0.95) 100%),
     url('assets/luminous-wafer-bg.jpg') !important;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(240, 246, 248, 0.8) 60%, rgba(228, 237, 240, 0.95) 100%),
+    image-set(url('assets/luminous-wafer-bg.avif') type('image/avif'), url('assets/luminous-wafer-bg.jpg') type('image/jpeg')) !important;
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: 100% auto, cover !important;

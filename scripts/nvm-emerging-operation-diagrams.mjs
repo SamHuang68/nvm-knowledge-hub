@@ -23,10 +23,13 @@ function canvas(topic, operation, language, frame) {
     const a=angle*Math.PI/180, b1=a+2.62, b2=a-2.62;
     return path(`M${x+size*Math.cos(b1)} ${y+size*Math.sin(b1)}L${x} ${y}L${x+size*Math.cos(b2)} ${y+size*Math.sin(b2)}`,'none',color,width);
   };
-  const arrow = (x1,y1,x2,y2,color=C.stim,width=2.8,extra='') => line(x1,y1,x2,y2,color,width,extra)+head(x2,y2,Math.atan2(y2-y1,x2-x1)*180/Math.PI,color,width);
+  const arrowShape = (x1,y1,x2,y2,color=C.stim,width=2.8,extra='') => line(x1,y1,x2,y2,color,width,extra)+head(x2,y2,Math.atan2(y2-y1,x2-x1)*180/Math.PI,color,width);
+  // data-flow 標記載子、電場與電流箭頭，供 renderOperationStudy 在試點以外加上脈動；試點自己的標記不受影響。
+  const arrow = (...args) => '<g data-flow>'+arrowShape(...args)+'</g>';
+  // 磁矩是狀態不是流向，用不帶 data-flow 的箭頭，不會脈動。
   const moment = (x,y,angle,length=36,color=C.free) => {
     const rad=angle*Math.PI/180, dx=Math.cos(rad)*length, dy=-Math.sin(rad)*length;
-    return arrow(x-dx/2,y-dy/2,x+dx/2,y+dy/2,color,4);
+    return arrowShape(x-dx/2,y-dy/2,x+dx/2,y+dy/2,color,4);
   };
   const ring = (x,y,r=7,color=C.vacancy) => dot(x,y,r,C.white,`stroke="${color}" stroke-width="2.2"`);
   const charge = (x,y,positive=false,color=C.read) => dot(x,y,6,color)+line(x-3,y,x+3,y,C.white,1.5)+(positive?line(x,y-3,x,y+3,C.white,1.5):'');

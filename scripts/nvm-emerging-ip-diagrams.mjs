@@ -140,13 +140,15 @@ function canvas(id,operation,language,index) {
   const line=(x1,y1,x2,y2,color=C.line,width=2.2,extra='')=>path(`M${x1} ${y1}L${x2} ${y2}`,color,width,'none',extra);
   const rect=(x,y,w,h,fill=C.white,extra='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="${C.line}" stroke-width="1.5" ${extra}/>`;
   const dot=(x,y,r,color,extra='')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${color}" ${extra}/>`;
-  const arrow=(x1,y1,x2,y2,color=C.current,width=3,extra='')=>{
+  const arrowShape=(x1,y1,x2,y2,color=C.current,width=3,extra='')=>{
     const a=Math.atan2(y2-y1,x2-x1),s=9;
     return line(x1,y1,x2,y2,color,width,extra)+path(`M${x2-s*Math.cos(a-.5)} ${y2-s*Math.sin(a-.5)}L${x2} ${y2}L${x2-s*Math.cos(a+.5)} ${y2-s*Math.sin(a+.5)}`,color,width);
   };
+  // data-flow 標記載子與電流箭頭，供 renderOperationStudy 加上脈動；磁矩是狀態不是流向，用 arrowShape，不會脈動。
+  const arrow=(...args)=>'<g data-flow>'+arrowShape(...args)+'</g>';
   const moment=(x,y,angle,color=C.free)=>{
     const a=angle*Math.PI/180,dx=14*Math.cos(a),dy=-14*Math.sin(a);
-    return arrow(x-dx,y-dy,x+dx,y+dy,color,4);
+    return arrowShape(x-dx,y-dy,x+dx,y+dy,color,4);
   };
   const text=(x,y,zh,en,anchor='start',color=C.ink)=>t(x,y,language==='zh'?zh:en,anchor,color);
   return {prefix,t,text,path,line,rect,dot,arrow,moment};
@@ -177,10 +179,11 @@ function mtj(c,id,angle,on,bias,drive=0,read=false,torque=false) {
     out+=c.moment(265,100,angle)+c.moment(265,169,90,C.ref)+access(c,on,190,'B');
   } else if(id==='spinmem-mram') {
     out+=c.line(265,20,265,46)+c.t(248,36,'A','end')+c.t(282,36,bias);
-    out+=c.rect(180,46,170,24,'#ebdcf5')+c.t(20,65,'PSC');
+    // 上三層很薄；標籤基線拉開到 26，22 號字的文字框（高約 24.4）才不互疊，且各自仍落在該層高度內。
+    out+=c.rect(180,46,170,24,'#ebdcf5')+c.t(20,62,'PSC');
     out+=c.rect(180,70,170,22,C.metal)+c.text(20,88,'耦合功能','Coupling');
-    out+=c.rect(180,92,170,22,'#e3d4eb')+c.text(20,110,'增強功能','Enhancement');
-    out+=c.rect(180,114,170,32,'#d9efee')+c.t(20,137,'FL');
+    out+=c.rect(180,92,170,22,'#e3d4eb')+c.text(20,114,'增強功能','Enhancement');
+    out+=c.rect(180,114,170,32,'#d9efee')+c.t(20,140,'FL');
     out+=c.rect(180,146,170,24,C.oxide)+c.text(20,165,'穿隧障壁','Barrier');
     out+=c.rect(180,170,170,32,'#e2e8f4')+c.t(20,192,'RL');
     out+=c.moment(265,130,angle)+c.moment(265,186,90,C.ref)+access(c,on,202,'B');

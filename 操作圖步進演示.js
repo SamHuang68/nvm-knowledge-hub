@@ -126,13 +126,20 @@ function enhanceVariant(variant) {
   const frameTitle = element('h6', 'nvm-step-title');
   const frameNotes = element('div', 'nvm-step-description');
   notes.append(frameTitle, frameNotes);
-  layout.append(stage, notes);
+  // 字幕沿用影片字幕的來源：步驟標題加圖說第一項狀態，隨頁面語言切換。
+  const view = element('div', 'nvm-step-view');
+  const caption = element('p', 'nvm-step-caption');
+  view.append(stage, caption);
+  layout.append(view, notes);
   const timeline = element('ol', 'nvm-step-timeline');
   frames.forEach((frame, index) => {
     const item = element('li');
-    const ordinal = element('span', 'nvm-step-ordinal', String(index + 1).padStart(2, '0'));
-    const label = element('span', 'nvm-step-label', frame.querySelector('h6').textContent);
-    item.append(ordinal, label);
+    const jump = element('button', 'nvm-step-jump');
+    jump.type = 'button';
+    jump.dataset.nvmStepJump = String(index);
+    jump.setAttribute('aria-controls', stage.id);
+    jump.append(element('span', 'nvm-step-ordinal', String(index + 1).padStart(2, '0')), element('span', 'nvm-step-label', frame.querySelector('h6').textContent));
+    item.append(jump);
     timeline.append(item);
   });
   const controls = element('div', 'nvm-step-controls');
@@ -147,6 +154,23 @@ function enhanceVariant(variant) {
     controls.append(button);
   }
   buttons.play.setAttribute('aria-pressed', 'false');
+  // 第二列：拖曳時間軸、播放速度與字幕。速度同時套用換步間隔與示意動態。
+  const options = element('div', 'nvm-step-options');
+  const scrubLabel = element('label', 'nvm-step-option');
+  const scrubText = element('span');
+  const scrub = element('input', 'nvm-step-scrub');
+  Object.assign(scrub, {type: 'range', min: '1', max: String(frames.length), step: '1', value: '1'});
+  scrub.setAttribute('aria-controls', stage.id);
+  scrubLabel.append(scrubText, scrub);
+  const speedLabel = element('label', 'nvm-step-option');
+  const speedText = element('span');
+  const speed = element('select', 'nvm-step-speed');
+  for (const value of ['0.5', '1', '2']) speed.append(new Option(`${value}×`, value, false, value === '1'));
+  speedLabel.append(speedText, speed);
+  const captionToggle = element('button', 'nvm-step-caption-toggle');
+  captionToggle.type = 'button';
+  captionToggle.setAttribute('aria-pressed', 'false');
+  options.append(scrubLabel, speedLabel, captionToggle);
   const guidance = element('p', 'nvm-step-guidance');
   const status = element('p', 'nvm-step-status');
   status.setAttribute('role', 'status');
@@ -155,17 +179,20 @@ function enhanceVariant(variant) {
   const motionNote = element('p', 'nvm-step-motion-note');
   const motionSources = [...new Set(svgs.flatMap(svg => [...svg.querySelectorAll('[data-motion]')].map(node => node.dataset.motionSource)))];
   root.dataset.motion = motionSources.length ? 'illustrative' : 'none';
-  root.append(header, layout, timeline, controls, guidance, motionNote, status);
+  root.append(header, layout, timeline, controls, options, guidance, motionNote, status);
   let current = 0;
   let timer = null;
   let playing = false;
   let inViewport = true;
   let motions = [];
+  let rate = 1;
+  let captions = false;
   const visible = () => inViewport && variant.checkVisibility() && document.visibilityState !== 'hidden';
   const clearClock = () => { clearTimeout(timer); timer = null; };
   const stopMotion = () => { motions.forEach(animation => animation.cancel()); motions = []; };
-  const frameHold = () => Math.max(hold, motionLength(motions) + 300);
+  const frameHold = () => Math.max(hold, motionLength(motions) + 300) / rate;
   const stageName = () => frames[current].querySelector('h6').textContent;
+  const stageState = () => frames[current].querySelector('[data-figure-notes] dd')?.textContent.trim() || '';
   const announcement = () => say(`第 ${current + 1}／${frames.length} 步：${stageName()}`, `Step ${current + 1} of ${frames.length}: ${stageName()}`);
   const updateButtons = () => {
     buttons.prev.disabled = current === 0;
@@ -191,9 +218,16 @@ function enhanceVariant(variant) {
     const drawing = cloneDiagram(svgs[current], `step-${sequenceId}`);
     stage.replaceChildren(drawing);
     // 只在使用者切換步次或播放時啟動，載入頁面時不自行動。
-    if (animate && !reducedMotion.matches && !staticView && visible()) motions = startMotion(drawing);
+    if (animate && !reducedMotion.matches && !staticView && visible()) {
+      motions = startMotion(drawing);
+      motions.forEach(animation => { animation.playbackRate = rate; });
+    }
     frameTitle.textContent = stageName();
     frameNotes.replaceChildren(...[...frames[current].querySelector('[data-figure-notes]').childNodes].map(node => node.cloneNode(true)));
+    caption.textContent = stageState() ? `${stageName()}${say('：', ': ')}${stageState()}` : stageName();
+    caption.hidden = !captions;
+    scrub.value = String(current + 1);
+    scrub.setAttribute('aria-valuetext', announcement());
     [...timeline.children].forEach((item, index) => {
       item.classList.toggle('is-current', index === current);
       if (index === current) item.setAttribute('aria-current', 'step');
@@ -233,6 +267,23 @@ function enhanceVariant(variant) {
     if (action === 'next') move(current + 1);
     if (action === 'reset') move(0);
   });
+  timeline.addEventListener('click', event => {
+    const jump = event.target.closest('[data-nvm-step-jump]');
+    if (jump) move(Number(jump.dataset.nvmStepJump));
+  });
+  // 拖曳中只換圖，放開時才播放該步的示意動態並朗讀。
+  scrub.addEventListener('input', () => { pause(); render(Number(scrub.value) - 1); });
+  scrub.addEventListener('change', () => render(Number(scrub.value) - 1, true, true));
+  speed.addEventListener('change', () => {
+    rate = Number(speed.value);
+    motions.forEach(animation => animation.updatePlaybackRate(rate));
+    if (playing) { clearClock(); timer = setTimeout(tick, frameHold()); }
+  });
+  captionToggle.addEventListener('click', () => {
+    captions = !captions;
+    captionToggle.setAttribute('aria-pressed', String(captions));
+    caption.hidden = !captions;
+  });
   root.addEventListener('keydown', event => {
     if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest('input,textarea,select,a[href]')) return;
     const destinations = {ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: frames.length - 1, r: 0, R: 0};
@@ -252,13 +303,20 @@ function enhanceVariant(variant) {
     buttons.prev.textContent = say('← 前一步', '← Previous');
     buttons.next.textContent = say('下一步 →', 'Next →');
     buttons.reset.textContent = say('↺ 重設', '↺ Reset');
+    options.setAttribute('aria-label', say('時間軸、速度與字幕', 'Timeline, Speed and Captions'));
+    scrubText.textContent = say('時間軸', 'Timeline');
+    speedText.textContent = say('速度', 'Speed');
+    captionToggle.textContent = say('字幕', 'Captions');
     const unavailable = reducedMotion.matches || staticView;
     root.dataset.stepMode = unavailable ? 'static' : 'step';
     layout.hidden = unavailable;
     timeline.hidden = unavailable;
     controls.hidden = unavailable;
-    motionNote.hidden = unavailable || !motionSources.length;
-    if (motionSources.length) {
+    options.hidden = unavailable;
+    motionNote.hidden = unavailable;
+    // 圖中沒有畫出載子路徑或方向時不加動態，並直接說明，不另外推算。
+    if (!motionSources.length) motionNote.textContent = say('示意動態：這組圖沒有畫出載子路徑或電場方向，所以不加動態。', 'Illustrative motion: this sequence draws no carrier path or field direction, so no motion is added.');
+    else {
       // 依據直接連到這組圖既有的來源條目；找不到條目時顯示來源編號。
       const basis = motionSources.flatMap((id, index) => {
         const link = variant.querySelector(`.nvm-op-sources a[href="#source-${CSS.escape(id)}"]`);
@@ -274,7 +332,7 @@ function enhanceVariant(variant) {
       guidance.textContent = '';
     } else {
       render(current);
-      guidance.textContent = say('←／→ 切換步次 · Home／End 到首末步 · 空白鍵播放／暫停。每步對應原圖；演示節奏不代表實際操作時間。', '←/→ step · Home/End first/last · Space play/pause. Each step uses an original frame; playback pace does not represent physical operation time.');
+      guidance.textContent = say('←／→ 切換步次 · Home／End 到首末步 · 空白鍵播放／暫停 · 可點選或拖曳時間軸。每步對應原圖；演示節奏與速度不代表實際操作時間。', '←/→ step · Home/End first/last · Space play/pause · click or drag the timeline. Each step uses an original frame; playback pace and speed do not represent physical operation time.');
       status.textContent = '';
     }
   };
