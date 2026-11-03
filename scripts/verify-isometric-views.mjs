@@ -56,8 +56,11 @@ try {
     const cuboids = await stage.evaluate(node => node.querySelectorAll('.nvm-iso-cuboid').length);
     await page.keyboard.press('ArrowRight');
     const keyed = await transform();
+    // 舞台在按鈕下方展開，可能落在視窗外，延遲載入的圖也還會移動版面；先捲到視窗中央，
+    // 由 hover 確認位置穩定、中心點確實落在舞台上，再按下拖曳。
+    await stage.evaluate(node => node.scrollIntoView({block: 'center'}));
+    await stage.hover();
     const box = await stage.boundingBox();
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
     await page.mouse.down();
     await page.mouse.move(box.x + box.width / 2 + 80, box.y + box.height / 2 + 30, {steps: 4});
     await page.mouse.up();
