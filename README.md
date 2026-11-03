@@ -89,6 +89,8 @@ npm run qa:ip
 
 操作影片（`assets/video/`）由 `node scripts/build-operation-videos.mjs <repo 外母帶資料夾>` 從 atlas 步進演示逐格錄製：同一組原始影格加示意動態，中英各一版，AV1 WebM 為主、H.264 MP4 備援，附 WebP 海報與中英 WebVTT。腳本會更新 `data/media-manifest.json`，播放器標記由 `scripts/nvm-engineering-diagrams-ui.mjs` 依清單產生（`preload="none"`、不自動播放）。逐格 PNG 留在母帶資料夾，不進 repo。改動步進演示、示意動態或影片後，重新產製並執行 `npm run qa:video`；單支影片上限 2 MB，由 `check-release-gates.mjs` 檢查。
 
+等角爆炸圖由 `scripts/nvm-isometric-diagrams.mjs` 定義方塊與層次：atlas 的 STT、VCM、反熔絲專題在建置時插入；`technology-comparison.html` 的 hybrid bonding 圖由 `node scripts/build-isometric-sections.mjs` 寫進標記區段（`npm run build` 會執行，`--check` 只比對）。圖內只有編號，名稱放在 HTML。STT 的 3D 檢視（`iso-3d-view.js`）用同一組方塊建成 CSS 3D，不使用 3D 函式庫。改動後執行 `npm run qa:isometric`。
+
 驗證須使用最新正式目錄與路由，不能把過期的固定產品數量、首屏內容或折疊狀態保留成驗收條件。桌面與手機都應檢查焦點、語言切換、返回／前進、深層連結及橫向溢出。
 
 ## 應用資料與 SharePoint 匯出

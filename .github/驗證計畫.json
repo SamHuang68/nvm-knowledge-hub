@@ -2,120 +2,51 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "c4c1ce5b2a531a899fe6efaf474f39ac7f2bb084",
+  "baseCommit": "e210260cf13985606a6726b29b3fe77e6c1b996a",
   "documentation": [
     "README.md",
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
-      "id": "操作影片試點",
+      "id": "等角爆炸圖與 3D 試點",
       "kind": "command",
       "command": [
         "node",
-        "scripts/verify-operation-videos.mjs"
+        "scripts/verify-isometric-views.mjs"
       ],
       "targets": [
-        "scripts/verify-operation-videos.mjs"
+        "scripts/verify-isometric-views.mjs"
       ],
       "changes": [
-        "assets/video/neobit-program-v1-en-poster.webp",
-        "assets/video/neobit-program-v1-en.mp4",
-        "assets/video/neobit-program-v1-en.webm",
-        "assets/video/neobit-program-v1-zh-poster.webp",
-        "assets/video/neobit-program-v1-zh.mp4",
-        "assets/video/neobit-program-v1-zh.webm",
-        "assets/video/neobit-program-v1.en.vtt",
-        "assets/video/neobit-program-v1.zh.vtt",
-        "assets/video/neoee-mtp-cycle-v1-en-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-en.mp4",
-        "assets/video/neoee-mtp-cycle-v1-en.webm",
-        "assets/video/neoee-mtp-cycle-v1-zh-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-zh.mp4",
-        "assets/video/neoee-mtp-cycle-v1-zh.webm",
-        "assets/video/neoee-mtp-cycle-v1.en.vtt",
-        "assets/video/neoee-mtp-cycle-v1.zh.vtt",
-        "assets/video/neofuse-program-v1-en-poster.webp",
-        "assets/video/neofuse-program-v1-en.mp4",
-        "assets/video/neofuse-program-v1-en.webm",
-        "assets/video/neofuse-program-v1-zh-poster.webp",
-        "assets/video/neofuse-program-v1-zh.mp4",
-        "assets/video/neofuse-program-v1-zh.webm",
-        "assets/video/neofuse-program-v1.en.vtt",
-        "assets/video/neofuse-program-v1.zh.vtt",
-        "assets/video/stt-write-erase-v1-en-poster.webp",
-        "assets/video/stt-write-erase-v1-en.mp4",
-        "assets/video/stt-write-erase-v1-en.webm",
-        "assets/video/stt-write-erase-v1-zh-poster.webp",
-        "assets/video/stt-write-erase-v1-zh.mp4",
-        "assets/video/stt-write-erase-v1-zh.webm",
-        "assets/video/stt-write-erase-v1.en.vtt",
-        "assets/video/stt-write-erase-v1.zh.vtt",
-        "data/media-manifest.json",
-        "scripts/verify-operation-videos.mjs",
-        "scripts/build-operation-videos.mjs",
-        "scripts/nvm-engineering-diagrams-ui.mjs",
-        "nvm-engineering-diagrams.css",
-        "操作圖步進演示.js",
+        "scripts/verify-isometric-views.mjs",
+        "scripts/nvm-isometric-diagrams.mjs",
+        "iso-3d-view.js",
         "nvm-engineering-diagrams.js",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/serve-local.mjs",
+        "nvm-engineering-diagrams.css",
+        "technology-comparison.html",
         "nvm-technology-atlas.html",
-        "nvm-technology-atlas-zh.html",
-        "scripts/test-server.mjs"
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
-        "assets/video/neobit-program-v1-en-poster.webp",
-        "assets/video/neobit-program-v1-en.mp4",
-        "assets/video/neobit-program-v1-en.webm",
-        "assets/video/neobit-program-v1-zh-poster.webp",
-        "assets/video/neobit-program-v1-zh.mp4",
-        "assets/video/neobit-program-v1-zh.webm",
-        "assets/video/neobit-program-v1.en.vtt",
-        "assets/video/neobit-program-v1.zh.vtt",
-        "assets/video/neoee-mtp-cycle-v1-en-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-en.mp4",
-        "assets/video/neoee-mtp-cycle-v1-en.webm",
-        "assets/video/neoee-mtp-cycle-v1-zh-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-zh.mp4",
-        "assets/video/neoee-mtp-cycle-v1-zh.webm",
-        "assets/video/neoee-mtp-cycle-v1.en.vtt",
-        "assets/video/neoee-mtp-cycle-v1.zh.vtt",
-        "assets/video/neofuse-program-v1-en-poster.webp",
-        "assets/video/neofuse-program-v1-en.mp4",
-        "assets/video/neofuse-program-v1-en.webm",
-        "assets/video/neofuse-program-v1-zh-poster.webp",
-        "assets/video/neofuse-program-v1-zh.mp4",
-        "assets/video/neofuse-program-v1-zh.webm",
-        "assets/video/neofuse-program-v1.en.vtt",
-        "assets/video/neofuse-program-v1.zh.vtt",
-        "assets/video/stt-write-erase-v1-en-poster.webp",
-        "assets/video/stt-write-erase-v1-en.mp4",
-        "assets/video/stt-write-erase-v1-en.webm",
-        "assets/video/stt-write-erase-v1-zh-poster.webp",
-        "assets/video/stt-write-erase-v1-zh.mp4",
-        "assets/video/stt-write-erase-v1-zh.webm",
-        "assets/video/stt-write-erase-v1.en.vtt",
-        "assets/video/stt-write-erase-v1.zh.vtt",
         "atlas-diagram-loader.js",
-        "data/media-manifest.json",
+        "iso-3d-view.js",
+        "literature-paper.js",
         "nvm-engineering-diagrams.css",
         "nvm-engineering-diagrams.js",
         "nvm-technology-atlas-zh.html",
         "nvm-technology-atlas.html",
         "package-lock.json",
         "package.json",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/build-operation-videos.mjs",
-        "scripts/nvm-engineering-diagrams-ui.mjs",
-        "scripts/serve-local.mjs",
+        "scripts/nvm-isometric-diagrams.mjs",
         "scripts/test-server.mjs",
-        "scripts/verify-operation-videos.mjs",
+        "scripts/verify-isometric-views.mjs",
         "site-language.js",
+        "technology-comparison.html",
         "visual-tokens.js",
         "操作圖步進演示.js"
       ],
-      "reason": "4 支試點影片中英各一版：字幕中英同步並與片長一致；播放器不自動播放、按下才下載，播放 AV1 版並顯示頁面語言字幕；切換操作時暫停；1440／390 版面不溢出。",
+      "reason": "4 張等角爆炸圖編號與圖例一致、各層不重疊；STT 的 3D 按下才建立，可拖曳與方向鍵旋轉、Home 重設，列印時隱藏；比較頁只顯示頁面語言；1440／390 不溢出。",
       "prepare": [
         "node",
         "browser"
@@ -123,236 +54,33 @@
       "timeoutSeconds": 300
     },
     {
-      "id": "發布門禁與媒體出處清單",
+      "id": "等角圖區段同步",
       "kind": "command",
       "command": [
         "node",
-        "scripts/check-release-gates.mjs"
+        "scripts/build-isometric-sections.mjs",
+        "--check"
       ],
       "targets": [
-        "scripts/check-release-gates.mjs"
+        "scripts/build-isometric-sections.mjs"
       ],
       "changes": [
-        "scripts/check-release-gates.mjs",
-        "data/media-manifest.json",
-        ".gitattributes"
+        "scripts/build-isometric-sections.mjs",
+        "technology-comparison.html"
       ],
       "inputs": [
-        ".gitattributes",
-        "404.html",
-        "ai-nvm-opportunities.html",
-        "assets/ai-nvm-system-boundaries-hero-1600.webp",
-        "assets/ai-nvm-system-boundaries-hero-900.webp",
-        "assets/ai-persistent-state-fabric-v1-1800.webp",
-        "assets/ai-persistent-state-fabric-v1-900.webp",
-        "assets/ai-photonics-state-contract-v1-1600.webp",
-        "assets/ai-photonics-state-contract-v1-800.webp",
-        "assets/apple-touch-icon.png",
-        "assets/applications-ecosystem-v1.webp",
-        "assets/architecture-subsystem-v1.webp",
-        "assets/assurance-evidence-v1.webp",
-        "assets/automotive-nvm-hero-1600.webp",
-        "assets/automotive-nvm-hero-900.webp",
-        "assets/closing-secure-boundary-v1.webp",
-        "assets/comparison-cell-states-v1.webp",
-        "assets/evidence-field-v1.webp",
-        "assets/favicon.svg",
-        "assets/icon-192.png",
-        "assets/icon-512.png",
-        "assets/iot-mcu-hero.jpg",
-        "assets/learning-path-v1.webp",
-        "assets/luminous-wafer-bg.jpg",
-        "assets/memory-physics-hero-1600.webp",
-        "assets/memory-physics-hero-900.webp",
-        "assets/memory-physics-hero.jpg",
-        "assets/nvm-lab-panorama.webp",
-        "assets/nvm-state-atlas-hero-r17.webp",
-        "assets/oip-closing-state-v1-1440.webp",
-        "assets/oip-closing-state-v1-768.webp",
-        "assets/oip-evidence-closure-v1-1440.webp",
-        "assets/oip-evidence-closure-v1-768.webp",
-        "assets/oip-helper-reconstruction-v1-1440.webp",
-        "assets/oip-helper-reconstruction-v1-768.webp",
-        "assets/oip-power-off-state-v1-1440.webp",
-        "assets/oip-power-off-state-v1-768.webp",
-        "assets/oip-secure-storage-cover-v1-1440.webp",
-        "assets/oip-secure-storage-cover-v1-768.webp",
-        "assets/power-off-state-v1.webp",
-        "assets/secure-state-transition-r17.webp",
-        "assets/secure-storage-hero-key.webp",
-        "assets/secure-storage-hero-v2.webp",
-        "assets/silicon-ip-panorama-v2.webp",
-        "assets/specialty-bcd-pmic-floorplan.svg",
-        "assets/specialty-eink-ddic-floorplan.svg",
-        "assets/specialty-foundry-v1.webp",
-        "assets/technology-comparison-hero.svg",
-        "assets/technology-comparison-social-1600.webp",
-        "assets/video/neobit-program-v1-en-poster.webp",
-        "assets/video/neobit-program-v1-en.mp4",
-        "assets/video/neobit-program-v1-en.webm",
-        "assets/video/neobit-program-v1-zh-poster.webp",
-        "assets/video/neobit-program-v1-zh.mp4",
-        "assets/video/neobit-program-v1-zh.webm",
-        "assets/video/neobit-program-v1.en.vtt",
-        "assets/video/neobit-program-v1.zh.vtt",
-        "assets/video/neoee-mtp-cycle-v1-en-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-en.mp4",
-        "assets/video/neoee-mtp-cycle-v1-en.webm",
-        "assets/video/neoee-mtp-cycle-v1-zh-poster.webp",
-        "assets/video/neoee-mtp-cycle-v1-zh.mp4",
-        "assets/video/neoee-mtp-cycle-v1-zh.webm",
-        "assets/video/neoee-mtp-cycle-v1.en.vtt",
-        "assets/video/neoee-mtp-cycle-v1.zh.vtt",
-        "assets/video/neofuse-program-v1-en-poster.webp",
-        "assets/video/neofuse-program-v1-en.mp4",
-        "assets/video/neofuse-program-v1-en.webm",
-        "assets/video/neofuse-program-v1-zh-poster.webp",
-        "assets/video/neofuse-program-v1-zh.mp4",
-        "assets/video/neofuse-program-v1-zh.webm",
-        "assets/video/neofuse-program-v1.en.vtt",
-        "assets/video/neofuse-program-v1.zh.vtt",
-        "assets/video/stt-write-erase-v1-en-poster.webp",
-        "assets/video/stt-write-erase-v1-en.mp4",
-        "assets/video/stt-write-erase-v1-en.webm",
-        "assets/video/stt-write-erase-v1-zh-poster.webp",
-        "assets/video/stt-write-erase-v1-zh.mp4",
-        "assets/video/stt-write-erase-v1-zh.webm",
-        "assets/video/stt-write-erase-v1.en.vtt",
-        "assets/video/stt-write-erase-v1.zh.vtt",
-        "automotive-nvm.html",
-        "briefing/index.html",
-        "data/ai-nvm-opportunities-knowledge.json",
-        "data/institutional-pov-contract.json",
-        "data/media-manifest.json",
-        "data/nvm-patent-figures.json",
-        "data/public-release-policy.json",
-        "data/public-routes.json",
-        "index.html",
-        "iot-mcu-envm.html",
-        "memory-evidence.html",
-        "memory-physics.html",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "oip-secure-storage.html",
-        "scripts/check-release-gates.mjs",
-        "scripts/nvm-bitcell-figures.mjs",
-        "scripts/nvm-charge-operation-diagrams.mjs",
-        "scripts/nvm-ememory-ip-diagrams.mjs",
-        "scripts/nvm-emerging-ip-diagrams.mjs",
-        "scripts/nvm-emerging-operation-diagrams.mjs",
-        "scripts/nvm-engineering-diagrams-ui.mjs",
-        "scripts/nvm-impinj-ip-diagrams.mjs",
-        "scripts/nvm-industry-research-ui.mjs",
-        "scripts/nvm-interface-locale.mjs",
-        "scripts/nvm-ip-curriculum-ui.mjs",
-        "scripts/nvm-patent-diagrams.mjs",
-        "scripts/nvm-rewrite-cycle.mjs",
-        "scripts/nvm-supplement-ip-diagrams.mjs",
-        "scripts/nvm-synopsys-otp-diagrams.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/nvm-visual-index.mjs",
-        "scripts/nvm-ymc-ip-diagrams.mjs",
-        "scripts/public-routes.mjs",
-        "secure-storage.html",
-        "security-assurance.html",
-        "specialty-nvm.html",
-        "sram-repair.html",
+        "package-lock.json",
+        "package.json",
+        "scripts/build-isometric-sections.mjs",
+        "scripts/nvm-isometric-diagrams.mjs",
         "technology-comparison.html",
-        "tools/whitepaper-studio/index.html",
-        "whitepaper/index.html"
+        "visual-tokens.js"
       ],
-      "reason": "assets/video/ 納入清單門禁：32 個檔都有條目且雜湊相符；影片 2 MB 預算；每支 WebM 都有 MP4 備援、海報與中英字幕；字幕固定 LF。",
+      "reason": "比較頁的 hybrid bonding 區段由產生器寫入，頁面與產生器一致。",
       "prepare": [
         "node"
       ],
-      "timeoutSeconds": 120
-    },
-    {
-      "id": "示意動態層",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/verify-motion-layer.mjs"
-      ],
-      "targets": [
-        "scripts/verify-motion-layer.mjs"
-      ],
-      "changes": [
-        "scripts/verify-motion-layer.mjs",
-        "操作圖步進演示.js"
-      ],
-      "inputs": [
-        "atlas-diagram-loader.js",
-        "nvm-engineering-diagrams.css",
-        "nvm-engineering-diagrams.js",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "package-lock.json",
-        "package.json",
-        "scripts/nvm-bitcell-figures.mjs",
-        "scripts/nvm-charge-operation-diagrams.mjs",
-        "scripts/nvm-ememory-ip-diagrams.mjs",
-        "scripts/nvm-emerging-ip-diagrams.mjs",
-        "scripts/nvm-emerging-operation-diagrams.mjs",
-        "scripts/nvm-engineering-diagrams-ui.mjs",
-        "scripts/nvm-impinj-ip-diagrams.mjs",
-        "scripts/nvm-industry-research-ui.mjs",
-        "scripts/nvm-interface-locale.mjs",
-        "scripts/nvm-ip-curriculum-ui.mjs",
-        "scripts/nvm-patent-diagrams.mjs",
-        "scripts/nvm-rewrite-cycle.mjs",
-        "scripts/nvm-supplement-ip-diagrams.mjs",
-        "scripts/nvm-synopsys-otp-diagrams.mjs",
-        "scripts/nvm-vendor-patent-maps-ui.mjs",
-        "scripts/nvm-visual-index.mjs",
-        "scripts/nvm-ymc-ip-diagrams.mjs",
-        "scripts/test-server.mjs",
-        "scripts/verify-motion-layer.mjs",
-        "site-language.js",
-        "visual-tokens.js",
-        "操作圖步進演示.js"
-      ],
-      "reason": "檢查只認圖內標記元素自己的動畫，不再把換步的 CSS 淡入算成示意動態；播放器加入影片暫停後，動態行為維持不變。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 600
-    },
-    {
-      "id": "步進演示既有行為",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/操作圖步進驗證.mjs"
-      ],
-      "targets": [
-        "scripts/操作圖步進驗證.mjs"
-      ],
-      "changes": [
-        "操作圖步進演示.js",
-        "nvm-engineering-diagrams.js"
-      ],
-      "inputs": [
-        "atlas-diagram-loader.js",
-        "nvm-engineering-diagrams.css",
-        "nvm-engineering-diagrams.js",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.html",
-        "package-lock.json",
-        "package.json",
-        "scripts/test-server.mjs",
-        "scripts/操作圖步進驗證.mjs",
-        "site-language.js",
-        "visual-tokens.js",
-        "操作圖步進演示.js"
-      ],
-      "reason": "播放器加入影片暫停處理後，既有步進、鍵盤、計時、減少動態效果、motion=static、列印與下載行為不變。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 600
+      "timeoutSeconds": 60
     },
     {
       "id": "技術全景生成同步",
@@ -368,8 +96,7 @@
       "changes": [
         "nvm-technology-atlas.html",
         "nvm-technology-atlas-zh.html",
-        "scripts/build-nvm-atlas.mjs",
-        "scripts/nvm-engineering-diagrams-ui.mjs"
+        "scripts/build-nvm-atlas.mjs"
       ],
       "inputs": [
         "data/media-manifest.json",
@@ -394,6 +121,7 @@
         "scripts/nvm-industry-research-ui.mjs",
         "scripts/nvm-interface-locale.mjs",
         "scripts/nvm-ip-curriculum-ui.mjs",
+        "scripts/nvm-isometric-diagrams.mjs",
         "scripts/nvm-patent-diagrams.mjs",
         "scripts/nvm-rewrite-cycle.mjs",
         "scripts/nvm-supplement-ip-diagrams.mjs",
@@ -403,11 +131,47 @@
         "scripts/nvm-ymc-ip-diagrams.mjs",
         "visual-tokens.js"
       ],
-      "reason": "影片區塊由產生器依媒體清單輸出，生成物與產生器一致。",
+      "reason": "等角圖由產生器插入三個專題的「狀態存在哪裡」小節，生成物與產生器一致。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 120
+    },
+    {
+      "id": "步進演示既有行為",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/操作圖步進驗證.mjs"
+      ],
+      "targets": [
+        "scripts/操作圖步進驗證.mjs"
+      ],
+      "changes": [
+        "nvm-engineering-diagrams.js"
+      ],
+      "inputs": [
+        "atlas-diagram-loader.js",
+        "iso-3d-view.js",
+        "literature-paper.js",
+        "nvm-engineering-diagrams.css",
+        "nvm-engineering-diagrams.js",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "package-lock.json",
+        "package.json",
+        "scripts/test-server.mjs",
+        "scripts/操作圖步進驗證.mjs",
+        "site-language.js",
+        "visual-tokens.js",
+        "操作圖步進演示.js"
+      ],
+      "reason": "atlas 前端入口多載入 3D 模組後，步進演示的既有行為不變。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 600
     },
     {
       "id": "工程圖解",
@@ -420,11 +184,12 @@
         "scripts/verify-nvm-engineering-diagrams.mjs"
       ],
       "changes": [
-        "scripts/nvm-engineering-diagrams-ui.mjs"
+        "nvm-engineering-diagrams.css"
       ],
       "inputs": [
         "atlas-diagram-loader.js",
-        "data/media-manifest.json",
+        "iso-3d-view.js",
+        "literature-paper.js",
         "nvm-engineering-diagrams.css",
         "nvm-engineering-diagrams.js",
         "nvm-technology-atlas-zh.html",
@@ -441,6 +206,7 @@
         "scripts/nvm-industry-research-ui.mjs",
         "scripts/nvm-interface-locale.mjs",
         "scripts/nvm-ip-curriculum-ui.mjs",
+        "scripts/nvm-isometric-diagrams.mjs",
         "scripts/nvm-patent-diagrams.mjs",
         "scripts/nvm-rewrite-cycle.mjs",
         "scripts/nvm-supplement-ip-diagrams.mjs",
@@ -454,7 +220,7 @@
         "visual-tokens.js",
         "操作圖步進演示.js"
       ],
-      "reason": "操作章節多了影片區塊後，各寬度的圖面字級、裁切與圖序檢查維持通過。",
+      "reason": "工程圖樣式加入等角圖與 3D 規則後，各寬度的圖面字級、裁切與圖序檢查維持通過。",
       "prepare": [
         "node",
         "browser"
@@ -477,6 +243,8 @@
       ],
       "inputs": [
         "atlas-diagram-loader.js",
+        "iso-3d-view.js",
+        "literature-paper.js",
         "nvm-engineering-diagrams.css",
         "nvm-engineering-diagrams.js",
         "nvm-technology-atlas-zh.html",
@@ -489,12 +257,54 @@
         "visual-tokens.js",
         "操作圖步進演示.js"
       ],
-      "reason": "操作章節新增影片區塊後，延遲載入、列印展開與圖面還原維持正常。",
+      "reason": "專題小節新增等角圖後，延遲載入、列印展開與圖面還原維持正常。",
       "prepare": [
         "node",
         "browser"
       ],
       "timeoutSeconds": 600
+    },
+    {
+      "id": "站內參照完整性",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/check-site-ia.mjs"
+      ],
+      "targets": [
+        "scripts/check-site-ia.mjs"
+      ],
+      "changes": [
+        "technology-comparison.html"
+      ],
+      "inputs": [
+        "404.html",
+        "ai-nvm-opportunities.html",
+        "automotive-nvm.html",
+        "briefing/index.html",
+        "data/public-routes.json",
+        "index.html",
+        "iot-mcu-envm.html",
+        "memory-evidence.html",
+        "memory-physics.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "oip-secure-storage.html",
+        "scripts/check-site-ia.mjs",
+        "scripts/public-routes.mjs",
+        "secure-storage.html",
+        "security-assurance.html",
+        "specialty-nvm.html",
+        "sram-repair.html",
+        "technology-comparison.html",
+        "tools/whitepaper-studio/index.html",
+        "whitepaper/index.html"
+      ],
+      "reason": "比較頁插入等角圖區段後，公開頁面的本機參照與錨點全部有效。",
+      "prepare": [
+        "node"
+      ],
+      "timeoutSeconds": 120
     },
     {
       "id": "淡色主題與頁面渲染",
@@ -518,6 +328,8 @@
         "data/public-routes.json",
         "index.html",
         "iot-mcu-envm.html",
+        "iso-3d-view.js",
+        "literature-paper.js",
         "memory-evidence.html",
         "memory-physics.html",
         "nvm-engineering-diagrams.css",
@@ -541,7 +353,7 @@
         "whitepaper/index.html",
         "操作圖步進演示.js"
       ],
-      "reason": "影片區塊為白底、淺色邊框，18 個公開頁面在 1440／390 仍維持淡色。",
+      "reason": "等角圖與 3D 舞台為白底或淺底，18 個公開頁面在 1440／390 仍維持淡色。",
       "prepare": [
         "node",
         "browser"
@@ -565,9 +377,9 @@
         "package-lock.json"
       ],
       "inputs": [
-        ".gitattributes",
         "README.md",
         "data/offline-manifest.js",
+        "iso-3d-view.js",
         "nvm-engineering-diagrams.css",
         "nvm-engineering-diagrams.js",
         "nvm-technology-atlas-zh.html",
@@ -575,9 +387,9 @@
         "package-lock.json",
         "package.json",
         "scripts/build-offline-manifest.mjs",
-        "操作圖步進演示.js"
+        "technology-comparison.html"
       ],
-      "reason": "根目錄播放器、樣式與頁面更新後，離線快取清單雜湊與實際檔案一致。",
+      "reason": "根目錄新增 3D 模組、更新樣式與頁面後，離線快取清單雜湊與實際檔案一致。",
       "prepare": [
         "node"
       ],
