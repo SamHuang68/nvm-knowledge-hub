@@ -290,9 +290,15 @@ function enhanceVariant(variant) {
   viewportObserver.observe(root);
 }
 
+// 操作影片：所在章節或操作被隱藏時暫停；列印前全部暫停。影片由讀者自己按下播放，其他情況不干預。
+const pauseVideos = (all = false) => document.querySelectorAll('.nvm-op-video video').forEach(video => {
+  if (!video.paused && (all || !video.checkVisibility())) video.pause();
+});
+
 export function enhanceEngineeringViews() {
   const scan = () => {
     for (const [variant, demo] of demos) if (!variant.checkVisibility()) demo.pause();
+    pauseVideos();
     const panels = document.querySelectorAll('[data-nvm-panel]:not([hidden])');
     for (const panel of panels) panel.querySelectorAll('.nvm-op-variant').forEach(enhanceVariant);
   };
@@ -313,6 +319,7 @@ export function enhanceEngineeringViews() {
   window.addEventListener('blur', pauseAll);
   window.addEventListener('pagehide', pauseAll);
   window.addEventListener('beforeprint', pauseAll);
+  window.addEventListener('beforeprint', () => pauseVideos(true));
   document.addEventListener('click', event => { if (event.target.closest('[data-engineering-zoom],[data-zoom-diagram]')) pauseAll(); }, true);
   reducedMotion.addEventListener('change', () => { for (const demo of demos.values()) demo.sync(); });
   window.addEventListener('hub:language-change', () => { for (const demo of demos.values()) demo.sync(); });

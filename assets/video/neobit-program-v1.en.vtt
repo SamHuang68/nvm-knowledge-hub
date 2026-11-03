@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Program · 01/04 Initial State
+less stored negative FG charge; p-channel is not in its programmed conductive state.
+
+2
+00:00:02.500 --> 00:00:06.508
+Program · 02/04 Apply Conditions
+select pMOS and establish a lateral channel field; coupling shifts FG potential.
+
+3
+00:00:06.508 --> 00:00:10.517
+Program · 03/04 Carrier Motion
+accelerated holes create electron–hole pairs; some hot electrons enter FG through oxide.
+
+4
+00:00:10.517 --> 00:00:13.017
+Program · 04/04 Retained Result
+Q− remains after the pulse; the p-channel conducts more readily at specified read bias.

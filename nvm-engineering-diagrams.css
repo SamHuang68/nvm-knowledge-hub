@@ -123,3 +123,10 @@ body .nvm-figure-actions>button,body .nvm-figure-actions>a{min-height:44px}
 @media(prefers-reduced-motion:reduce){.nvm-step-stage>svg{animation:none}.nvm-step-controls,.nvm-step-stage,.nvm-step-timeline{transition:none}}
 @media print{.nvm-step-demo{display:none!important}}
 .nvm-patent-figure>figcaption .nvm-patent-rights{flex-basis:100%;color:#475569;font-size:13px}
+.nvm-op-video{margin:24px 0 8px;padding:16px;border:1px solid #c6d9de;border-left:4px solid #14777a;background:#fff}
+.nvm-op-video>figcaption{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;font-size:14px;line-height:1.6;color:#334d5d}
+.nvm-op-video>figcaption strong{color:#163449;font-size:16px}
+.nvm-op-video video{display:block;width:100%;max-width:640px;height:auto;background:#f8fbfd;border:1px solid #d9e2e7}
+.nvm-op-video-transcript{margin-top:10px;font-size:14px;line-height:1.7;color:#334d5d}
+.nvm-op-video-transcript summary{cursor:pointer;font-weight:600;color:#155959}
+@media print{.nvm-op-video video{display:none}}

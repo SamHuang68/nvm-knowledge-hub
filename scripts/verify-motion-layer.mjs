@@ -50,12 +50,13 @@ const server = await startTestServer(root);
 const browser = await chromium.launch({headless: true});
 const atlas = (language, query = '') => `${server.base}nvm-technology-atlas${language === 'zh' ? '-zh' : ''}.html?lang=${language}${query}`;
 const motionState = demo => demo.evaluate(root => {
-  const animations = document.getAnimations().filter(animation => animation instanceof Animation && !(animation instanceof CSSAnimation) && animation.effect?.target?.closest?.('[data-motion]'));
+  // 只認圖內標記元素自己的動畫；演示框外層也帶 data-motion，換步的 CSS 淡入不算示意動態。
+  const animations = document.getAnimations().filter(animation => !(animation instanceof CSSAnimation) && animation.effect?.target?.matches?.('.nvm-step-stage [data-motion]'));
   const properties = new Set(animations.flatMap(animation => animation.effect.getKeyframes().flatMap(frame => Object.keys(frame))));
   return {
     running: animations.filter(animation => animation.playState === 'running').length,
     insideStage: animations.every(animation => animation.effect.target.closest('.nvm-step-stage') && root.contains(animation.effect.target)),
-    sourced: animations.every(animation => animation.effect.target.closest('[data-motion]').dataset.motionSource),
+    sourced: animations.every(animation => animation.effect.target.dataset.motionSource),
     properties: [...properties].filter(name => !['offset', 'easing', 'composite', 'computedOffset'].includes(name)),
     originalsStill: document.getAnimations().filter(animation => animation.effect?.target?.closest?.('.nvm-op-frames')).length === 0
   };
@@ -152,7 +153,7 @@ try {
       await demo.locator('[data-nvm-step-action="next"]').click();
       await page.waitForTimeout(450);
       perFrame.push(await demo.evaluate(root => {
-        const animations = document.getAnimations().filter(animation => animation.effect?.target?.closest?.('[data-motion]') && root.contains(animation.effect.target));
+        const animations = document.getAnimations().filter(animation => !(animation instanceof CSSAnimation) && animation.effect?.target?.matches?.('.nvm-step-stage [data-motion]') && root.contains(animation.effect.target));
         const moved = animations.filter(animation => animation.effect.target.dataset.motion === 'along').map(animation => getComputedStyle(animation.effect.target).transform).filter(value => value !== 'none');
         return {step: Number(root.dataset.stepCurrent), running: animations.length, along: root.querySelectorAll('.nvm-step-stage [data-motion="along"]').length, moved: moved.length};
       }));
