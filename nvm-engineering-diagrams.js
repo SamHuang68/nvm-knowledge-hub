@@ -1,5 +1,6 @@
 import {ensureDiagrams} from './atlas-diagram-loader.js';
 import {cloneDiagram, exportDiagram, enhanceEngineeringViews} from './操作圖步進演示.js?v=20261103-p5';
+import {enhanceIsometric3D} from './iso-3d-view.js?v=20261103-p6';
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 const say = (zh, en) => isEnglish() ? en : zh;
 const dialog=document.createElement('dialog');
@@ -75,3 +76,4 @@ document.addEventListener('click',async event=>{
  dialog.showModal();dialog.querySelector('.nvm-engineering-dialog-body').scrollTop=0;scroller.scrollLeft=0;scroller.scrollTop=0;
 });
 enhanceEngineeringViews();
+enhanceIsometric3D();
