@@ -19,21 +19,25 @@ document.addEventListener('keydown', event => {
 document.addEventListener('pointerdown', () => document.documentElement.classList.remove('nvm-keyboard-navigation'));
 const pageHeader = document.querySelector('.nvm-header');
 // 章節位置與前後章由既有側欄／panel 契約產生，沒有第二份目錄。
-const chapterNav = document.createElement('nav');
+// 導覽列由 build-nvm-atlas.mjs 寫在頁首之後（避免載入後把內容往下推），這裡接手並填入選項；沒有時才建立。
+const staticChapterNav = document.querySelector('.nvm-reading-position');
+const chapterNav = staticChapterNav || document.createElement('nav');
 chapterNav.className = 'nvm-reading-position';
-const chapterSelect = document.createElement('select');
+const chapterSelect = staticChapterNav?.querySelector('select') || document.createElement('select');
 chapterSelect.id = 'nvm-current-chapter';
-const chapterLabel = document.createElement('label');
+const chapterLabel = staticChapterNav?.querySelector('label') || document.createElement('label');
 chapterLabel.htmlFor = chapterSelect.id;
-const chapterPrevious = document.createElement('button');
-const chapterNext = document.createElement('button');
+const chapterPrevious = staticChapterNav?.querySelector('[data-chapter-previous]') || document.createElement('button');
+const chapterNext = staticChapterNav?.querySelector('[data-chapter-next]') || document.createElement('button');
 chapterPrevious.type = chapterNext.type = 'button';
 chapterPrevious.textContent = '←'; chapterNext.textContent = '→';
 chapterPrevious.dataset.chapterPrevious = ''; chapterNext.dataset.chapterNext = '';
 const chapterLinks = panels.map(panel => [...contents.querySelectorAll('a[href^="#"]')].find(link => link.hash === `#${panel.id}`));
 panels.forEach((panel,index) => { const option = document.createElement('option'); option.value = panel.id; option.textContent = chapterLinks[index]?.textContent.trim() || panel.querySelector('h2')?.textContent.trim(); chapterSelect.append(option); });
-chapterNav.append(chapterLabel, chapterSelect, chapterPrevious, chapterNext);
-pageHeader?.insertAdjacentElement('afterend', chapterNav);
+if (!staticChapterNav) {
+  chapterNav.append(chapterLabel, chapterSelect, chapterPrevious, chapterNext);
+  pageHeader?.insertAdjacentElement('afterend', chapterNav);
+}
 function updatePosition(panel) {
   const index = panels.indexOf(panel);
   chapterSelect.value = panel.id;
@@ -245,6 +249,8 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
   });
 });
 showRoute({ focus: Boolean(location.hash) });
+// 導覽列寫在 HTML，一開始就存在；選項、目前章節與按鈕都接好之後才標記可用（驗收以此判斷初始化完成）。
+chapterNav.dataset.chapterReady = '';
 recordReadingPosition();
 if (document.readyState !== 'complete') {
   const initialRoute=readingRoute();

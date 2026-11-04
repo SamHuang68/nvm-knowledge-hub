@@ -50,6 +50,8 @@ npm run serve
 
 共用樣式表（閱讀系統、章節導覽、文章版面、應用頁外框等）與對應的 body 類別直接寫在 HTML 裡，第一次繪製就是最終版面，不會等腳本載入後再跳動。哪一頁套哪些樣式記在 `scripts/hub-shared-styles.mjs`；手寫頁由 `node scripts/build-shared-styles.mjs` 寫進 `<head>` 的標記區段（`npm run build` 會執行，`--check` 只比對），atlas、首頁與白皮書由各自的產生器輸出。頁面帶 `data-hub-static-styles` 時，`site-language.js` 不再插入這些樣式表；沒有標記的舊頁面仍由它插入。改動後執行 `npm run qa:shared-styles`，它會比對兩種載入方式的最終樣式表順序與類別是否相同。
 
+第一屏原本由腳本在載入後插入的內容也直接寫在 HTML：5 頁的「失敗即關閉」區塊（步驟說明放在按鈕的 `data-note-en`／`data-note-zh`，由 `hub-story-maps.js` 接手），以及 atlas 的章節導覽列與搜尋按鈕（由 `build-nvm-atlas.mjs` 輸出，`nvm-technology-atlas.js` 接手後標記 `data-chapter-ready`）。沒有靜態內容的舊頁面仍由腳本建立。改動這些區塊或腳本後執行 `node scripts/verify-first-paint.mjs`，它會比對兩種載入方式的最終內容、位置與步驟說明。
+
 ## 來源、生成物與工作台
 
 - `data/nvm-knowledge-catalog.json`：首頁分類、資源標題、簡介與目的地。

@@ -12,6 +12,21 @@
   function langSync() {
     if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);
   }
+  // 「失敗即關閉」區塊已寫在 HTML 時（按鈕帶 data-note-en／data-note-zh），只接手按鈕，不再插入，避免載入後版面跳動；
+  // 沒有靜態區塊的舊頁面仍由下方 failClosed() 與 hub-story-apps.js 建立。
+  const staticFail = document.getElementById('hub-fail-closed');
+  if (staticFail) {
+    const note = staticFail.querySelector('.hub-story-note');
+    const buttons = [...staticFail.querySelectorAll('.hub-story-step[data-note-en]')];
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(el => {
+        el.classList.toggle('is-on', el === b);
+        if (el.hasAttribute('aria-pressed')) el.setAttribute('aria-pressed', String(el === b));
+      });
+      if (note) note.innerHTML = T(b.dataset.noteEn, b.dataset.noteZh);
+      langSync();
+    }));
+  }
   function storyShell(id, kickerEn, kickerZh, titleEn, titleZh, leadEn, leadZh) {
     const box = document.createElement('section');
     box.id = id;

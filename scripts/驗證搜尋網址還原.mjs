@@ -22,7 +22,7 @@ try{
  });
  await check('搜尋與跨章節返回共同還原',{},async page=>{
   await page.goto(new URL('nvm-technology-atlas-zh.html?lang=zh#research',server.base).href,{waitUntil:'domcontentloaded'});
-  await page.locator('#nvm-current-chapter').waitFor();await page.locator('#searchHudPills button').first().waitFor({state:'attached'});
+  await page.locator('.nvm-reading-position[data-chapter-ready]').waitFor();await page.locator('#searchHudPills button').first().waitFor({state:'attached'});
   await page.evaluate(()=>window.scrollTo({top:1800,behavior:'instant'}));await page.waitForTimeout(250);
   const y=await page.evaluate(()=>scrollY);await page.keyboard.press('Control+k');await field(page).fill('TSMC');await page.locator('[data-category=foundry]').click();await page.keyboard.press('Escape');
   assert.ok(Math.abs(await page.evaluate(()=>scrollY)-y)<5,'搜尋關閉保留章內位置');assert.equal(await page.evaluate(()=>history.state.__nvmReadingPosition.y),y,'搜尋寫網址保留閱讀名稱空間');
