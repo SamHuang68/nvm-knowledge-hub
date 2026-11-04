@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "ba12e6872ee45d20905a",
+  "version": "6d70f64a5b7e0739a43a",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -252,7 +252,7 @@ self.NVMOfflineManifest = {
     "hub-auto-tune.js": "de98394d0e6b3d00757940e0b4477282aa6976a4289b2d05b620efcce39d5478",
     "hub-story-apps.js": "0fbc0f882d99827b60b18337485a32c42b391532312faffff47391f10085b279",
     "hub-story-maps.css": "190ec8f3a5809d4945885ca532520189e7115d57e3563bb5f57e46f3107ff965",
-    "hub-story-maps.js": "78de22b7fdd3d8151fc64f88463acd636416bd7b730bae2bf4b5335ba2e52ff8",
+    "hub-story-maps.js": "42554e899dc3c63f6fdbdd78bde60d99525b39962eba6d58a3c90c1a12fe24bc",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "hybrid-bonding-tsv-kgd-simulator.js": "4744a64a73d28a02a79be3ede4277a88a3275e962b9926ce58135c03aed488fe",
@@ -308,7 +308,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8e8cefebf3fdaa7dc2b1ff37623ebc042b4cb49ce5f4eceeb080f8f01cd198f5",
     "secure-storage.html": "22bdade97a29e27ab80d413e604c0db546b8456c2b6d830293833413efc45107",
-    "security-assurance.html": "fbe830720ebfa3c6a4340408bbceb6d08afa65c017018e7b7f0c651bc9172932",
+    "security-assurance.html": "4a8008092e79d6efcc5446b312a864cfffb1cee03c2757963ae78033078dfdee",
     "site-language.js": "0cf77ab4d2a4a3d8a841a246093d29f7e73ad502b9b965e0bbde9b0a513decec",
     "site-shell.css": "59bcb88dd32d23ebaccc4b4ad5e5e4eefdbcd25ca8b8c673f2161a945b3bfb75",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -348,5 +348,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 23570578
+  "totalBytes": 23570774
 };

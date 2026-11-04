@@ -254,7 +254,8 @@
     const hero = document.getElementById('hero-title') || document.querySelector('h1');
     const heroSection = hero?.closest('section.hero');
     // A boundary reader belongs after the IoT hero, outside its flex row and decorative layers.
-    if (heroSection && /iot-mcu-envm\.html/i.test(path)) heroSection.insertAdjacentElement('afterend', box);
+    // 安全保證頁同樣放在主圖之後：放進主圖格線會佔滿兩欄（.hub-story 為 grid-column: 1 / -1），把右側的訊號面板擠到下方。
+    if (heroSection && /iot-mcu-envm\.html|security-assurance\.html/i.test(path)) heroSection.insertAdjacentElement('afterend', box);
     else if (hero && hero.parentElement) hero.parentElement.insertAdjacentElement('afterend', box);
     else host.insertAdjacentElement('afterbegin', box);
   }

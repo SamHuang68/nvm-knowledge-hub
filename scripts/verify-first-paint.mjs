@@ -89,6 +89,18 @@ try {
   const heading = await tab.evaluate(() => ({before: [window.__title, window.__lead], after: [document.getElementById('hero-title')?.innerHTML, document.querySelector('.lead-desc')?.innerHTML]}));
   note(heading.before[0] && JSON.stringify(heading.before) === JSON.stringify(heading.after), '車用頁主標題與導言載入當下就是最終文字', heading);
   await context.close();
+  // 安全保證頁：區塊放在主圖之後（放進主圖格線會佔滿兩欄，把訊號面板擠到下方）；1440 寬時面板與文案同一列、在右側。
+  const assurance = await browser.newContext({viewport: {width: 1440, height: 900}, serviceWorkers: 'block'});
+  const view = await assurance.newPage();
+  await view.goto(`${server.base}security-assurance.html?lang=zh`, {waitUntil: 'load'});
+  await view.waitForTimeout(1500);
+  const hero = await view.evaluate(() => {
+    const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
+    const copy = rect('.hero-copy'), panel = rect('.signal-panel'), box = document.getElementById('hub-fail-closed');
+    return {sameRow: panel.top < copy.bottom && panel.bottom > copy.top, rightOfCopy: panel.left >= copy.right, boxAfterHero: box?.previousElementSibling?.classList.contains('hero') && box.parentElement.tagName === 'MAIN'};
+  });
+  note(hero.sameRow && hero.rightOfCopy && hero.boxAfterHero, '安全保證頁 1440：訊號面板在文案右側同一列，失敗即關閉區塊在主圖之後', hero);
+  await assurance.close();
 } finally {
   await browser.close();
   await server.close();
