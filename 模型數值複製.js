@@ -20,7 +20,8 @@ function installStyles() {
     .model-value-copy-status {flex-basis:100%;min-width:0;font:400 12px/1.5 sans-serif;white-space:normal;overflow-wrap:anywhere}
     .model-value-copy-status:empty {display:none}
   `;
-  document.head.appendChild(style);
+  // 排在 HTML 寫好的共用樣式表之前，維持原本「共用樣式最後套用」的順序；沒有靜態共用樣式的頁面照舊加在最後。
+  document.head.insertBefore(style, document.querySelector('link[data-hub-shared-style="global-search.css"]'));
 }
 
 function refresh(element,state) {

@@ -48,6 +48,8 @@ npm run serve
 
 `site-language.js` 管理全站語言。首次造訪預設英文；讀者可切換繁體中文，技術全景跨語言頁切換會保留原 hash。每頁主導覽提供同一套四類入口；麵包屑表達所在位置，本頁章節列及少量相關閱讀負責局部跳轉。
 
+共用樣式表（閱讀系統、章節導覽、文章版面、應用頁外框等）與對應的 body 類別直接寫在 HTML 裡，第一次繪製就是最終版面，不會等腳本載入後再跳動。哪一頁套哪些樣式記在 `scripts/hub-shared-styles.mjs`；手寫頁由 `node scripts/build-shared-styles.mjs` 寫進 `<head>` 的標記區段（`npm run build` 會執行，`--check` 只比對），atlas、首頁與白皮書由各自的產生器輸出。頁面帶 `data-hub-static-styles` 時，`site-language.js` 不再插入這些樣式表；沒有標記的舊頁面仍由它插入。改動後執行 `npm run qa:shared-styles`，它會比對兩種載入方式的最終樣式表順序與類別是否相同。
+
 ## 來源、生成物與工作台
 
 - `data/nvm-knowledge-catalog.json`：首頁分類、資源標題、簡介與目的地。
