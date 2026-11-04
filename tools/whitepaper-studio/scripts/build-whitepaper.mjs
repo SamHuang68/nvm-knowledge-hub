@@ -9,6 +9,7 @@ import { renderPhase4Metadata } from '../src/js/modules/phase4_meta_view.js';
 import { renderPhase3Templates } from '../src/js/modules/phase3_template_view.js';
 import { nvmIpSpecs } from '../src/data/nvm_specs.js';
 import { aiMediaNote } from '../../../scripts/ai-media-notes.mjs';
+import { applySharedStyles } from '../../../scripts/hub-shared-styles.mjs';
 
 const root = new URL('../', import.meta.url);
 const outputRoot = new URL('../../../whitepaper/', import.meta.url);
@@ -39,6 +40,8 @@ export async function buildStudio({ checkOnly = false } = {}) {
   // 分享預覽圖是 AI 生成圖，頁尾說明由媒體清單產生（scripts/ai-media-notes.mjs）。
   if (!html.includes('{{aiMediaNote}}')) throw new Error('白皮書樣板缺少區塊：aiMediaNote');
   html = html.replace('{{aiMediaNote}}', () => aiMediaNote('whitepaper/index.html'));
+  // 共用樣式表與 body 類別寫進 HTML，第一次繪製即是最終版面（scripts/hub-shared-styles.mjs）。
+  html = applySharedStyles(html, 'whitepaper/index.html');
   html = html.replace(/[\t ]+$/gm, '');
   const result = await build({ root: fileURLToPath(root), configFile: fileURLToPath(new URL('vite.config.js', root)), logLevel: 'warn' });
   const outputs = new Map([['index.html', html]]);

@@ -20,6 +20,19 @@ const BACKGROUNDS = [
   {page: 'iot-mcu-envm.html', selector: '.hero-media', avif: 'iot-mcu-hero-bg.avif'},
   {page: 'secure-storage.html', selector: '.hero-media', avif: 'secure-storage-hero-key-bg.avif'},
 ];
+// 頁面載入後仍會插入樣式或改寫內容，主圖框跟著變；兩種來源都等版面框 1 秒不變（最多 12 秒）再量，
+// 避免量在不同版面狀態而誤判偏差（正式網站晚載入較慢時重現過）。
+const settle = image => image.evaluate(img => new Promise(resolve => {
+  const start = performance.now();
+  let last = '', since = start;
+  const tick = () => {
+    const size = `${img.offsetWidth}x${img.offsetHeight}`;
+    if (size !== last) { last = size; since = performance.now(); }
+    if ((document.readyState === 'complete' && performance.now() - since >= 1000) || performance.now() - start > 12000) resolve();
+    else setTimeout(tick, 100);
+  };
+  tick();
+}));
 // 以圖片座標表示 cover 可見區域（左、上、寬、高佔整張原圖的比例），裁切變體換回原圖座標後比對。
 // 用版面尺寸（offsetWidth／offsetHeight），不受主圖放大動畫的 transform 影響。
 const visibleRegion = image => image.evaluate(img => {
@@ -55,6 +68,7 @@ try {
         const target = tab.locator(image).first();
         await target.evaluate(img => { img.loading = 'eager'; });
         await target.evaluate(img => img.decode().catch(() => {}));
+        await settle(target);
         states[avif ? 'avif' : 'fallback'] = await visibleRegion(target);
         await tab.close();
       }

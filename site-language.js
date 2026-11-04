@@ -11,6 +11,15 @@
     return path + '.html';
   }
   const html = document.documentElement;
+  // 頁面已在 HTML 寫好共用樣式表（scripts/hub-shared-styles.mjs）時，不再插入或搬移，第一次繪製即是最終版面；舊頁面仍由這裡插入。
+  const staticStyles = html.hasAttribute('data-hub-static-styles');
+  function appendSheet(href) {
+    if (staticStyles) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = new URL(href, rootURL).href;
+    document.head.append(link);
+  }
   function savedLanguage() {
     try { return localStorage.getItem(STORAGE_KEY) || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang');
     } catch { return null; }
@@ -119,13 +128,13 @@
     ['hub-apps-chrome.css?v=20260929-v5', appsPages]
   ];
   for (const [href, enabled] of sheets) {
-    if (!enabled) continue;
+    if (!enabled || staticStyles) continue;
     const link = document.createElement('link'); link.rel = 'stylesheet';
     link.href = new URL(href, rootURL).href; link.dataset.hubSharedStyle = href.split('?')[0]; document.head.append(link);
   }
   if (/memory-physics\.html/i.test(hubPagePath(location.pathname))) {
     const script = document.createElement('script'); script.src = new URL('f1-card-align.js?v=20260929-v5', rootURL).href;
-    script.defer = true; document.head.append(script);
+    script.async = false; document.head.append(script);
   }
   function ready() {
     // A head redirect can stop parsing before body exists (notably in WebKit).
@@ -215,10 +224,7 @@
     (function bootHubSearch() {
       if (window.__NVM_SEARCH_BOOTSTRAP) return;
       window.__NVM_SEARCH_BOOTSTRAP = true;
-      const css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = new URL('global-search.css?v=20260929-v5', rootURL).href;
-      document.head.append(css);
+      appendSheet('global-search.css?v=20260929-v5');
       const startController = () => {
         if (window.__NVM_SEARCH_ENHANCED) return;
         const ctrl = document.createElement('script');
@@ -233,19 +239,18 @@
       document.head.append(index);
     })();
     const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html|specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname));
+    // 以下腳本由這裡插入，defer 對插入的 <script> 無效；改用 async = false 依插入順序執行。
+    // 例如 hub-auto-tune.js 要改寫 hub-story-maps.js 建立的區塊，先後顛倒時車用頁會隨機呈現兩種版面。
     if (storyPages) {
-      const css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = new URL('hub-story-maps.css?v=20260929-v5', rootURL).href;
-      document.head.append(css);
+      appendSheet('hub-story-maps.css?v=20260929-v5');
       const js = document.createElement('script');
       js.src = new URL('hub-story-maps.js?v=20260929-v5', rootURL).href;
-      js.defer = true;
+      js.async = false;
       document.head.append(js);
       if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))) {
         const apps = document.createElement('script');
         apps.src = new URL('hub-story-apps.js?v=20260929-v5', rootURL).href;
-        apps.defer = true;
+        apps.async = false;
         document.head.append(apps);
       }
     }
@@ -254,37 +259,33 @@
     const literaturePages = !/^(?:index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html)$/i.test(pageFile);
     if (literaturePages) {
       document.body.classList.add('hub-literature-paper');
-      const paper = document.createElement('link');
-      paper.rel = 'stylesheet';
-      paper.href = new URL('literature-editorial.css?v=20261102-p2', rootURL).href;
-      document.head.append(paper);
+      appendSheet('literature-editorial.css?v=20261102-p2');
       const lift = document.createElement('script');
       lift.src = new URL('literature-paper.js?v=20261102-p2', rootURL).href;
-      lift.defer = true;
+      lift.async = false;
       document.head.append(lift);
     }
     if (/automotive-nvm\.html|iot-mcu-envm\.html|specialty-nvm\.html/i.test(hubPagePath(location.pathname))) {
       const demote = document.createElement('script');
       demote.src = new URL('claim-scope.js?v=20260929-v5', rootURL).href;
-      demote.defer = true;
+      demote.async = false;
       document.head.append(demote);
     }
     if (/automotive-nvm\.html/i.test(hubPagePath(location.pathname))) {
-      const css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = new URL('hub-auto-tune.css?v=20260929-v5', rootURL).href;
-      document.head.append(css);
+      appendSheet('hub-auto-tune.css?v=20260929-v5');
       const tune = document.createElement('script');
       tune.src = new URL('hub-auto-tune.js?v=20260929-v5', rootURL).href;
-      tune.defer = true;
+      tune.async = false;
       document.head.append(tune);
     }
-    const readingStyle = document.querySelector('link[data-hub-shared-style="global-reading-system.css"]');
-    const appsChrome = document.querySelector('link[data-hub-shared-style="hub-apps-chrome.css"]');
-    const chapterLens = document.querySelector('link[data-hub-shared-style="chapter-lens.css"]');
-    if (readingStyle) document.head.append(readingStyle);
-    if (appsChrome) document.head.append(appsChrome);
-    if (chapterLens) document.head.append(chapterLens);
+    if (!staticStyles) {
+      const readingStyle = document.querySelector('link[data-hub-shared-style="global-reading-system.css"]');
+      const appsChrome = document.querySelector('link[data-hub-shared-style="hub-apps-chrome.css"]');
+      const chapterLens = document.querySelector('link[data-hub-shared-style="chapter-lens.css"]');
+      if (readingStyle) document.head.append(readingStyle);
+      if (appsChrome) document.head.append(appsChrome);
+      if (chapterLens) document.head.append(chapterLens);
+    }
     document.querySelectorAll('aside.lens-vertical-rail').forEach(rail => {
       if (rail._hubLensBound) return;
       rail._hubLensBound = true;

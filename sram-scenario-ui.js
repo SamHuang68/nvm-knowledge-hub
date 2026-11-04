@@ -10,7 +10,8 @@ export function initScenarios({ getState, applyState, isValid }) {
   let status = null, failure = null, reading = false;
   const drafts = [];
   const importDialog = $('scenario-import-dialog'), summaryDialog = $('scenario-summary-dialog');
-  const style = document.createElement('style'); style.textContent = REPORT_CSS; document.head.append(style);
+  // 排在 HTML 寫好的共用樣式表之前，維持原本「共用樣式最後套用」的順序；沒有靜態共用樣式的頁面照舊加在最後。
+  const style = document.createElement('style'); style.textContent = REPORT_CSS; document.head.insertBefore(style, document.querySelector('link[data-hub-shared-style="global-search.css"]'));
 
   function errorText(code) {
     return ({

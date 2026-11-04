@@ -1,7 +1,7 @@
 {
   "name": "nvm-knowledge-hub",
   "private": true,
-  "version": "2.6.0",
+  "version": "2.6.1",
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
@@ -24,6 +24,7 @@
     "qa:isometric": "node scripts/verify-isometric-views.mjs",
     "qa:ai-notes": "node scripts/verify-ai-media-notes.mjs",
     "qa:image-variants": "node scripts/verify-image-variants.mjs",
+    "qa:shared-styles": "node scripts/verify-shared-styles.mjs",
     "qa:mtp": "node scripts/verify-mtp-taxonomy.mjs",
     "qa:ip": "node scripts/verify-ip-cells.mjs",
     "qa:entry": "node scripts/verify-entry-directory.mjs",
@@ -35,8 +36,9 @@
     "check:whitepaper": "node scripts/verify-whitepaper-consistency.mjs && node tools/whitepaper-studio/scripts/check-public.mjs",
     "build:offline": "node scripts/build-offline-manifest.mjs",
     "check:offline": "node scripts/build-offline-manifest.mjs --check",
-    "build": "npm run build:evidence && npm run build:nvm && npm run build:whitepaper && npm run build:media-notes && npm run export:sharepoint && npm run build:offline",
+    "build": "npm run build:evidence && npm run build:nvm && npm run build:whitepaper && npm run build:media-notes && npm run build:shared-styles && npm run export:sharepoint && npm run build:offline",
     "build:media-notes": "node scripts/build-ai-media-notes.mjs",
+    "build:shared-styles": "node scripts/build-shared-styles.mjs",
     "qa:gates": "node scripts/verify-check-gates.mjs",
     "qa:sharepoint": "node scripts/verify-sharepoint-line-endings.mjs",
     "qa:repair": "node scripts/verify-repair-simulator.mjs",
