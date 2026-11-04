@@ -244,12 +244,12 @@
     if (storyPages) {
       appendSheet('hub-story-maps.css?v=20260929-v5');
       const js = document.createElement('script');
-      js.src = new URL('hub-story-maps.js?v=20260929-v5', rootURL).href;
+      js.src = new URL('hub-story-maps.js?v=20261104-s2', rootURL).href;
       js.async = false;
       document.head.append(js);
       if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))) {
         const apps = document.createElement('script');
-        apps.src = new URL('hub-story-apps.js?v=20260929-v5', rootURL).href;
+        apps.src = new URL('hub-story-apps.js?v=20261104-s2', rootURL).href;
         apps.async = false;
         document.head.append(apps);
       }
@@ -274,7 +274,7 @@
     if (/automotive-nvm\.html/i.test(hubPagePath(location.pathname))) {
       appendSheet('hub-auto-tune.css?v=20260929-v5');
       const tune = document.createElement('script');
-      tune.src = new URL('hub-auto-tune.js?v=20260929-v5', rootURL).href;
+      tune.src = new URL('hub-auto-tune.js?v=20261104-s2', rootURL).href;
       tune.async = false;
       document.head.append(tune);
     }

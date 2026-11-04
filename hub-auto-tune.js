@@ -15,8 +15,8 @@
   const h1 = document.getElementById('hero-title');
   if (h1) {
     h1.innerHTML = T(
-      'Automotive NVM: Grade 0 ambient and 175°C junction are not the same claim.',
-      '車規 NVM：Grade 0 環境溫度與 175°C 接面溫度不是同一項主張。'
+      'Automotive NVM: Grade 0 ambient and 175°C junction are not the same claim',
+      '車規 NVM：Grade 0 環境溫度與 175°C 接面溫度不是同一項主張'
     );
   }
   const lead = document.querySelector('.lead-desc');
@@ -34,7 +34,7 @@
   }
   if (fail) {
     const title = fail.querySelector('h3');
-    if (title) title.innerHTML = T('Four gates before any ASIL sentence.', '任何 ASIL 句子之前先走四關。');
+    if (title) title.innerHTML = T('Four gates before any ASIL sentence', '任何 ASIL 句子之前先走四關');
     const kicker = fail.querySelector('.hub-story-kicker');
     if (kicker) kicker.innerHTML = T('READING PATH', '閱讀路徑');
     const leadP = fail.querySelector('.hub-story-lead');

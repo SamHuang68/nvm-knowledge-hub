@@ -38,7 +38,7 @@
     "src/styles/main.css": "9c5d5fcf716a1a8a8863b47d899b04d8d93d73f39945317d7e5df395bdc07204",
     "src/styles/portal.css": "2e9b9b529d72b4b9e9629e7bf91546e549ff1dee4ed9795a3350959c517a6eb4",
     "src/styles/production.css": "31035aa3c3fadb8efc3411cabeb99500970ab8226950fb22085582978026ed7c",
-    "public-entry-template.html.tpl": "634b29c0d2af5afdc4599e0e802b59196d670ec767a8d63e80f5e7806c4d927e",
+    "public-entry-template.html.tpl": "cc6953c4c3ca2d12aae712f295dcd2a712008c59b760481a7805ea2fa0e6fa19",
     "index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "vite.config.js": "dbcdb5d9fb1256d563aaa4e6b639a7eea9b718faf1d864adbbbe26bb20a3b0a8",
     "package.json": "d407a5e7dfaab948cbc44ae2d013d7d3ff955b36431d9fbbe4def9748ea5b64c",
@@ -46,7 +46,7 @@
     "scripts/build-whitepaper.mjs": "468ec6eba9b2c09054f3d494a7424ae06e635b155207a85da3442f8d10213acc"
   },
   "outputs": {
-    "index.html": "99d6705bedc0f6fbeab615737024801edece4a3230343e0bd38f5a48f1da8b12",
+    "index.html": "b73a91d836c458161fd7ea12468c56a5a28f19e62862f8dbe2d58a6deb22be37",
     "assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "assets/whitepaper.js": "21579d0732fc9a57400ce69c0d6f3cccba3bbf66de47b3b5f005be4270d78adc",
     "assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8"

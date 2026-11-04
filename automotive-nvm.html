@@ -2,7 +2,7 @@
 <html data-hub-static-styles lang="en" data-title-en="Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub" data-title-zh="車規 NVM · AEC-Q100 Grade 0、ISO 26262 ASIL-D 與 SECDED · NVM 知識中心" data-description-en="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification." data-description-zh="車用 eNVM 學習專題：涵蓋 AEC-Q100 Grade 0 條件、ISO 26262／ASIL 範圍、ECC／SECDED 與晶圓代工資格證據；本頁不構成產品認證。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20261104-s1"></script><!-- hub-shared-styles:head:start --><link rel="stylesheet" href="surface-radius.css?v=20260929-v5" data-hub-shared-style="surface-radius.css"><!-- hub-shared-styles:head:end -->
+  <script src="site-language.js?v=20261104-s2"></script><!-- hub-shared-styles:head:start --><link rel="stylesheet" href="surface-radius.css?v=20260929-v5" data-hub-shared-style="surface-radius.css"><!-- hub-shared-styles:head:end -->
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.">
@@ -782,14 +782,8 @@
         <div class="hero-kicker">
           <span><span data-lang="en">MISSION-CRITICAL SILICON · DOMAIN M3</span><span data-lang="zh">關鍵任務晶片 · M3 領域</span></span>
         </div>
-        <h1 id="hero-title">
-          <span data-lang="zh">車規級 NVM：<em>175°C 極端環境與低缺陷任務載記可靠度</em></span>
-          <span data-lang="en">Automotive NVM: <em>175°C Harsh Thermal &amp; Low-Defectivity Mission-Profile Rigor</em></span>
-        </h1>
-        <p class="lead-desc">
-          <span data-lang="zh">全面解析 AEC-Q100 Grade 0（環境溫度 −40°C 至 +150°C）與特定規格書的 175°C 接面溫度（Tj）車規可靠度驗證、ISO 26262 SEooC ASIL 語境（非認證）架構防護、永久閘極介電質擊穿微絲 (Localized Silicon Percolation Path) 零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠低缺陷任務載記（非宣稱已達 Zero PPM 認證）簽核語彙。</span>
-          <span data-lang="en">Comprehensive architectural treatise on qualification rigor for AEC-Q100 Grade 0 (−40°C to +150°C ambient) and a named-datasheet 175°C Tj junction limit, ISO 26262 SEooC ASIL vocabulary (not certification), permanent gate-dielectric breakdown filament named-condition ohmic-stability physics , SECDED (72, 64) Hamming code auto-correction, and wafer-level defectivity checklist (not a Zero-PPM certification claim).</span>
-        </p>
+        <h1 id="hero-title"><span data-lang="en">Automotive NVM: Grade 0 ambient and 175°C junction are not the same claim</span><span data-lang="zh">車規 NVM：Grade 0 環境溫度與 175°C 接面溫度不是同一項主張</span></h1>
+        <p class="lead-desc"><span data-lang="en">This page uses the mission profile to pick the test gate. It does not issue a certification. AEC-Q100 Grade 0 is an ambient range (−40°C to +150°C Ta). Junction limits stay on the named datasheet.</span><span data-lang="zh">本頁依任務條件選擇測試關卡，不構成認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。接面溫度以特定規格書為準。</span></p>
         <div class="m3-hero-proof" aria-label="Automotive NVM key metrics" data-aria-en="Automotive NVM key metrics" data-aria-zh="車規級 NVM 核心指標">
           <div>
             <strong class="mono-text" style="color: #b45309;">175°C Tj</strong>
@@ -813,7 +807,11 @@
     </section>
 
     <!-- 4-Metric Stat Strip Grid (純白卡片微投影橋接) -->
-    <div class="m3-stat-bridge">
+    <!-- hub-fail-closed:static:start --><section id="hub-fail-closed" class="hub-story hub-auto-moved">
+      <p class="hub-story-kicker"><span data-lang="en">READING PATH</span><span data-lang="zh">閱讀路徑</span></p>
+      <h3><span data-lang="en">Four gates before any ASIL sentence</span><span data-lang="zh">任何 ASIL 句子之前先走四關</span></h3>
+      <p class="hub-story-lead"><span data-lang="en">Domain and mission profile first. Then Ta versus Tj. Then Q100-005 into HTOL / HTDR / ELFR. Stop at SEooC vocabulary and VERIFY.</span><span data-lang="zh">先定義領域與任務條件，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。最後以 SEooC 術語收斂，數字維持待驗證。</span></p><div class="hub-story-steps"><button type="button" class="hub-story-step is-on" data-note-en="Name the ECU domain and the time-at-temperature budget. That selects the grade conversation." data-note-zh="先點 ECU 域與溫度時間預算。那才決定要談哪一等 Grade。"><span class="n">01</span><strong><span data-lang="en">Domain</span><span data-lang="zh">域</span></strong><small><span data-lang="en">Cabin · under-hood · safety</span><span data-lang="zh">船內 · 引擎艙 · 安全</span></small></button><button type="button" class="hub-story-step" data-note-en="Grade 0 is −40°C to +150°C ambient. 175°C is a junction figure. Do not write them as one claim." data-note-zh="Grade 0 是 −40°C 至 +150°C 環境溫。175°C 是接面溫度數字。不得寫成同一項主張。"><span class="n">02</span><strong><span data-lang="en">Ta vs Tj</span><span data-lang="zh">Ta 對 Tj</span></strong><small><span data-lang="en">Grade is ambient</span><span data-lang="zh">Grade 是環境溫</span></small></button><button type="button" class="hub-story-step" data-note-en="Devices with NVM take endurance preconditioning per Q100-005 before HTOL, HTDR or LTDR. Sample counts stay VERIFY." data-note-zh="含 NVM 的晶片要先依 Q100-005 做耐久預處理，再進 HTOL、HTDR 或 LTDR。樣品數仍待驗證。"><span class="n">03</span><strong><span data-lang="en">Q100-005 first</span><span data-lang="zh">先 Q100-005</span></strong><small><span data-lang="en">NVM precondition</span><span data-lang="zh">NVM 預處理</span></small></button><button type="button" class="hub-story-step" data-note-en="SPFM, LFM and FIT on this page are architectural vocabulary. They do not become ASIL-D Ready." data-note-zh="本頁的 SPFM、LFM、FIT 是架構語彙，不會變成 ASIL-D Ready。"><span class="n">04</span><strong><span data-lang="en">Stop at VERIFY</span><span data-lang="zh">停在待驗證狀態</span></strong><small><span data-lang="en">SEooC vocabulary</span><span data-lang="zh">SEooC 語彙</span></small></button></div><p class="hub-story-note" role="status"><span data-lang="en">Name the ECU domain and the time-at-temperature budget. That selects the grade conversation.</span><span data-lang="zh">先點 ECU 域與溫度時間預算。那才決定要談哪一等 Grade。</span></p></section><!-- hub-fail-closed:static:end -->
+<div class="m3-stat-bridge">
       <div class="stat-strip-grid">
         <div class="stat-strip-card border-l-cyan">
           <div class="stat-top-meta">

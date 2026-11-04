@@ -18,8 +18,8 @@
   box.id = 'hub-fail-closed';
   box.className = 'hub-story';
   const spec = /specialty-nvm\.html/i.test(path);
-  const titleEn = spec ? 'Four use-classes, not one product Ready.' : 'Candidate fit is not a design win.';
-  const titleZh = spec ? '四種用途，不是一張產品 Ready。' : '候選適配不是 design win。';
+  const titleEn = spec ? 'Four use-classes, not one product Ready' : 'Candidate fit is not a design win';
+  const titleZh = spec ? '四種用途，不是一張產品 Ready' : '候選適配不是 design win';
   const states = spec ? [
     { n: '01', en: 'Name the use', zh: '先點用途', hintEn: 'Trim · HV · repair · e-ink', hintZh: '修調 · 高壓 · 修復 · 電子紙', bodyEn: 'Analog trim, HV display, matrix repair and e-ink drivers are separate constraints.', bodyZh: '類比修調、高壓顯示、矩陣修復與電子紙驅動是四種約束，不是同一張合格證。' },
     { n: '02', en: 'Bind the node', zh: '綁定節點', hintEn: 'Process + document', hintZh: '製程 + 文件', bodyEn: 'Mask adder, height and retention stay with the cited specialty node.', bodyZh: '光罩加價、高度與留存必須跟著被引用的特種節點。' },
