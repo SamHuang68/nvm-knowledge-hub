@@ -29,19 +29,19 @@ async function check(name,run) {
     results.push({name,passed:false,error:error.message,trace,errors});
   } finally {await context.close();}
 }
+// v2.6.1 起共用樣式（含 global-search.css）寫在 HTML head，是擋渲染的樣式表：瀏覽器在它完成前不繪製畫面
+// （Chromium 也不執行後續腳本），使用者無法在搜尋樣式完成前觸控。因此不再扣住搜尋樣式；
+// 「頁面可操作但尚未 load」的時段由延遲圖片維持。若搜尋樣式改回由腳本插入，下面的前提檢查會失敗，須重新檢視本模型。
 async function delayedPage(page) {
-  let release,releaseCSS;
+  let release,staticSearchStyle=false;
   const held=new Promise(resolve=>{release=resolve;});
-  const cssHeld=new Promise(resolve=>{releaseCSS=resolve;});
-  const cleanup=()=>{releaseCSS();release();};
-  await page.route(url=>url.pathname.endsWith('/global-search.css'),async route=>{
-    const response=await route.fetch();await cssHeld;
-    await route.fulfill({response}).catch(()=>{});
-  });
+  const cleanup=()=>release();
   await page.route(url=>decodeURIComponent(url.pathname).endsWith('/閱讀延遲.svg'),async route=>{await held;await route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>'}).catch(()=>{});});
   await page.route('**/nvm-technology-atlas-zh.html*',async route=>{
     const response=await route.fetch();
-    const html=(await response.text()).replace('</body>','<img src="閱讀延遲.svg" width="1" height="1" alt="" aria-hidden="true" style="position:fixed;pointer-events:none;opacity:0"></body>');
+    const source=await response.text();
+    staticSearchStyle=/<link[^>]+data-hub-shared-style="global-search\.css"/.test(source);
+    const html=source.replace('</body>','<img src="閱讀延遲.svg" width="1" height="1" alt="" aria-hidden="true" style="position:fixed;pointer-events:none;opacity:0"></body>');
     await route.fulfill({response,body:html});
   });
   await page.addInitScript(()=>{
@@ -55,16 +55,13 @@ async function delayedPage(page) {
   });
   try {
     await page.goto(`${server.base}nvm-technology-atlas-zh.html?lang=zh#patent-maps`,{waitUntil:'domcontentloaded'});
-    await page.waitForFunction(()=>document.querySelector('link[href*="global-search.css"]'));
+    assert.equal(staticSearchStyle,true,'搜尋樣式寫在 HTML head，首次繪製前完成');
+    await page.waitForFunction(()=>window.__readingCSSReady);
     await page.locator('#nvm-map-query').waitFor({state:'visible'});
-    assert.equal(await page.evaluate(()=>window.__readingCSSReady),false,'搜尋樣式保持待完成');
+    // 樣式完成後，讓初始原生錨點完成排版；不等待圖片或整頁 load。
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     assert.equal(await page.evaluate(()=>document.readyState),'interactive','保持真實 load 尚未完成的邊界');
-    return {release,cleanup,settleCSS:async()=>{
-      releaseCSS();await page.waitForFunction(()=>window.__readingCSSReady);
-      // 動態樣式完成後，讓初始原生錨點完成排版；不等待圖片或整頁 load。
-      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-      assert.equal(await page.evaluate(()=>document.readyState),'interactive','樣式完成時圖片仍待載入');
-    }};
+    return {release,cleanup};
   } catch(error) {cleanup();throw error;}
 }
 async function finishLoad(page,release) {
@@ -94,7 +91,7 @@ try {
     try {
       const query=page.locator('#nvm-map-query');
       if(method==='直接填值') {
-        await delayed.settleCSS();await query.fill('US6678190');
+        await query.fill('US6678190');
       } else if(method==='觸控') {
         await query.scrollIntoViewIfNeeded();
         const box=await query.boundingBox();
@@ -110,13 +107,7 @@ try {
       assert.equal(await page.evaluate(()=>document.readyState),'interactive','使用者操作完成時仍未觸發 load');
       assert.equal(await query.inputValue(),'US6678190');
       assert.equal(await page.evaluate(()=>document.activeElement?.id),'nvm-map-query','操作後焦點在搜尋框');
-      trace.push({step:'使用者已開始輸入',...await snapshot(page)});
-      if(method!=='直接填值') {
-        assert.equal(await page.evaluate(()=>window.__readingCSSReady),false,'真實觸控與 Tab 發生於搜尋樣式完成前');
-        await delayed.settleCSS();
-        assert.equal(await page.evaluate(()=>document.activeElement?.id),'nvm-map-query','搜尋樣式完成不能搶走真實操作焦點');
-      }
-      trace.push({step:'搜尋樣式完成、圖片仍待載入',...await snapshot(page)});
+      trace.push({step:'使用者已開始輸入、圖片仍待載入',...await snapshot(page)});
       await finishLoad(page,delayed.release);
       trace.push({step:'延遲資源完成',...await snapshot(page)});
       assert.equal(await page.evaluate(()=>document.activeElement?.id),'nvm-map-query','完成載入不能搶走已開始操作的搜尋焦點');
@@ -127,7 +118,6 @@ try {
   await check('延遲載入保留初始定位',async(page,trace)=>{
     const delayed=await delayedPage(page);
     try {
-      await delayed.settleCSS();
       await finishLoad(page,delayed.release);trace.push({step:'無使用者操作的初始定位',...await snapshot(page)});
       assert.equal(await page.evaluate(()=>document.activeElement?.tagName),'H2');
       assert.equal(await page.locator('#patent-maps').isVisible(),true);
