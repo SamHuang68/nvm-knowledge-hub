@@ -208,12 +208,13 @@ try {
   await check('語言轉向保留深層連結', {}, async (page, trace) => {
     await visit(page, 'research-ibm');
     await page.locator('#languageToggle').click();
-    await page.waitForURL(url => url.pathname.endsWith('/nvm-technology-atlas.html') && url.searchParams.get('lang') === 'en' && url.hash === '#research-ibm');
+    // 正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；比對前去掉副檔名，本機與正式網站都適用（同 verify-task-search.mjs）。
+    await page.waitForURL(url => url.pathname.replace(/\.html$/, '').endsWith('/nvm-technology-atlas') && url.searchParams.get('lang') === 'en' && url.hash === '#research-ibm');
     await page.waitForFunction(() => !document.getElementById('research').hidden && document.activeElement === document.querySelector('#research-ibm h3'));
     assert.equal(await page.locator('#nvm-current-chapter').inputValue(), 'research');
     trace.push({動作:'英文深層連結', ...await snapshot(page)});
     await page.locator('#languageToggle').click();
-    await page.waitForURL(url => url.pathname.endsWith('/nvm-technology-atlas-zh.html') && url.searchParams.get('lang') === 'zh' && url.hash === '#research-ibm');
+    await page.waitForURL(url => url.pathname.replace(/\.html$/, '').endsWith('/nvm-technology-atlas-zh') && url.searchParams.get('lang') === 'zh' && url.hash === '#research-ibm');
     await page.waitForFunction(() => document.activeElement === document.querySelector('#research-ibm h3'));
   });
 

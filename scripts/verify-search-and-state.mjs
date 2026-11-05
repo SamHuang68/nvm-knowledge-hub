@@ -122,7 +122,8 @@ for (const language of ['zh', 'en']) {
         assert.equal(await page.locator('#searchOverlay').getAttribute('aria-hidden'), focus === 'closed' ? 'true' : 'false');
         if (focus === 'result') {
           await page.keyboard.press('Enter');
-          await page.waitForURL(url => url.pathname.endsWith('sram-repair.html'));
+          // 正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；比對前去掉副檔名，本機與正式網站都適用（同 verify-task-search.mjs）。
+          await page.waitForURL(url => url.pathname.replace(/\.html$/, '').endsWith('sram-repair'));
         }
       } finally { release(); }
     });
@@ -151,7 +152,7 @@ for (const language of ['zh', 'en']) {
       await first.waitFor();
       assert.match(await first.getAttribute('href'), /secure-storage\.html/);
       await page.keyboard.press('Enter');
-      await page.waitForURL(url => url.pathname.endsWith('secure-storage.html'));
+      await page.waitForURL(url => url.pathname.replace(/\.html$/, '').endsWith('secure-storage'));
       await page.waitForFunction(() => document.getElementById('searchOverlay')?.getAttribute('aria-hidden') === 'true');
     });
   }
