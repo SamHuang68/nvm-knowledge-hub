@@ -17,7 +17,9 @@ async function check(name,run) {
   if(filter && !name.includes(filter))return;
   const context=await browser.newContext({viewport:{width:390,height:960},isMobile:true,hasTouch:true,serviceWorkers:'block'});
   await context.route('**/*',route=>new URL(route.request().url()).origin===new URL(server.base).origin ? route.continue() : route.abort());
-  const page=await context.newPage();page.setDefaultTimeout(10000);
+  // atlas 中文頁約 8.5 MB、7 萬多個元素：WebKit 本機開頁到 load 約 7 秒，CI 上可達 8～10 秒以上。
+  // 開頁逾時放寬為 60 秒（同 verify-page-loading.mjs），其餘操作維持 10 秒。
+  const page=await context.newPage();page.setDefaultTimeout(10000);page.setDefaultNavigationTimeout(60000);
   const errors=[],trace=[];page.on('pageerror',error=>errors.push(error.message));
   try {
     await run(page,trace);assert.deepEqual(errors,[],'沒有頁面例外');
