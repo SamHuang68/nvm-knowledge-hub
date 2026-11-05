@@ -4,6 +4,8 @@ import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { startTestServer } from './test-server.mjs';
 const root=path.resolve(import.meta.dirname,'..'), out=path.join(root,'qa','圖解與章節導覽');
+// 首頁互動模型導覽的連結數以目錄資料為準（與驗證整合內容與導覽.mjs 同一來源），新增組別時不必改這裡。
+const experimentLinks=JSON.parse(fs.readFileSync(path.join(root,'data/nvm-knowledge-catalog.json'),'utf8')).experiments.flatMap(group=>group.links).length;
 fs.mkdirSync(out,{recursive:true});
 const server=await startTestServer(root), browser=await chromium.launch({channel:'msedge',headless:true});
 const results=[];
@@ -33,7 +35,7 @@ try {
    const labelledBy=await page.locator('#probeResultDisplay').getAttribute('aria-labelledby');
    assert.equal(labelledBy,await button.getAttribute('id'));
   }
-  await page.locator('.knowledge-experiments').scrollIntoViewIfNeeded();assert.equal(await page.locator('.knowledge-experiments a').count(),9);
+  await page.locator('.knowledge-experiments').scrollIntoViewIfNeeded();assert.equal(await page.locator('.knowledge-experiments a').count(),experimentLinks);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true);
   await page.locator('.storage-explorer').scrollIntoViewIfNeeded();
   await page.locator('.storage-explorer').screenshot({path:path.join(out,`儲存狀態-${width}-${lang}.png`),style:'.knowledge-header,.hub-rail-nav{visibility:hidden}'});

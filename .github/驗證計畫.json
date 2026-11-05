@@ -2,12 +2,280 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "af2868756bb04920c56cbc3587600d23818c1710",
+  "baseCommit": "5e43f590c91316ffd11880194c52190142a47f1b",
   "documentation": [
     "README.md",
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
+    {
+      "id": "圖解與章節導覽",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/驗證圖解與章節導覽.mjs"
+      ],
+      "targets": [
+        "scripts/驗證圖解與章節導覽.mjs"
+      ],
+      "changes": [
+        "scripts/驗證圖解與章節導覽.mjs",
+        "index.html",
+        "data/nvm-knowledge-catalog.json"
+      ],
+      "inputs": [
+        "404.html",
+        "ai-nvm-node.css",
+        "ai-nvm-opportunities.html",
+        "ai-nvm-tune.css",
+        "ai-nvm.css",
+        "assurance.css",
+        "assurance.js",
+        "atlas-diagram-loader.js",
+        "automotive-nvm.html",
+        "briefing/index.html",
+        "chapter-lens.css",
+        "claim-scope.js",
+        "data/nvm-knowledge-catalog.json",
+        "data/nvm-search-index.js",
+        "editorial-reading-ui.css",
+        "evidence-workbench.css",
+        "global-reading-system.css",
+        "global-search.css",
+        "home-glass-renaissance.css",
+        "home-interactions.css",
+        "hub-apps-chrome.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "hub-story-apps.js",
+        "hub-story-maps.css",
+        "hub-story-maps.js",
+        "hub.css",
+        "index.html",
+        "iot-mcu-envm.html",
+        "knowledge-hub-home.css",
+        "literature-editorial.css",
+        "literature-paper.js",
+        "memory-evidence.html",
+        "memory-physics-contrast.css",
+        "memory-physics.html",
+        "model-boundaries.css",
+        "named-comparison.css",
+        "nvm-bitcell-figures.css",
+        "nvm-engineering-diagrams.css",
+        "nvm-industry-research.css",
+        "nvm-ip-cells.css",
+        "nvm-portal-entry.css",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.css",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "oip-secure-storage.html",
+        "package-lock.json",
+        "package.json",
+        "reading-controls.css",
+        "research.css",
+        "scripts/test-server.mjs",
+        "scripts/驗證圖解與章節導覽.mjs",
+        "search-controller.js",
+        "secure-storage.html",
+        "security-assurance.html",
+        "site-language.js",
+        "site-shell.css",
+        "specialty-nvm.css",
+        "specialty-nvm.html",
+        "sram-repair.css",
+        "sram-repair.html",
+        "sram-scenario-ui.js",
+        "styles.css",
+        "surface-radius.css",
+        "technology-comparison.html",
+        "tools/whitepaper-studio/index.html",
+        "tunneling-breakdown-simulator.css",
+        "visual-tokens.js",
+        "whitepaper/index.html",
+        "儲存狀態導讀.css",
+        "模型數值複製.js",
+        "生命週期圖解.css",
+        "章節閱讀導覽.css"
+      ],
+      "reason": "首頁互動模型導覽的連結數改由目錄資料推算（2026-10-15 新增第四組後為 13 個）；首頁專利地圖卡片改為 14 家後，圖解、生命週期與章節導覽維持通過。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "專利地圖",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "targets": [
+        "scripts/專利地圖驗證.mjs"
+      ],
+      "changes": [
+        "scripts/專利地圖驗證.mjs",
+        "nvm-technology-atlas.js",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
+      ],
+      "inputs": [
+        "ai-nvm-node.css",
+        "ai-nvm-tune.css",
+        "ai-nvm.css",
+        "assurance.css",
+        "assurance.js",
+        "atlas-diagram-loader.js",
+        "chapter-lens.css",
+        "claim-scope.js",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
+        "editorial-reading-ui.css",
+        "evidence-workbench.css",
+        "global-reading-system.css",
+        "global-search.css",
+        "home-glass-renaissance.css",
+        "home-interactions.css",
+        "hub-apps-chrome.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "hub-story-apps.js",
+        "hub-story-maps.css",
+        "hub-story-maps.js",
+        "hub.css",
+        "knowledge-hub-home.css",
+        "literature-editorial.css",
+        "literature-paper.js",
+        "memory-physics-contrast.css",
+        "model-boundaries.css",
+        "named-comparison.css",
+        "nvm-bitcell-figures.css",
+        "nvm-engineering-diagrams.css",
+        "nvm-industry-research.css",
+        "nvm-ip-cells.css",
+        "nvm-portal-entry.css",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.css",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "package-lock.json",
+        "package.json",
+        "reading-controls.css",
+        "research.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
+        "scripts/test-server.mjs",
+        "scripts/專利地圖驗證.mjs",
+        "search-controller.js",
+        "site-language.js",
+        "site-shell.css",
+        "specialty-nvm.css",
+        "sram-repair.css",
+        "sram-scenario-ui.js",
+        "styles.css",
+        "surface-radius.css",
+        "tunneling-breakdown-simulator.css",
+        "visual-tokens.js",
+        "儲存狀態導讀.css",
+        "模型數值複製.js",
+        "生命週期圖解.css",
+        "章節閱讀導覽.css"
+      ],
+      "reason": "廠商、技術族、eFlash 與 eMemory 筆數改由同語言資料推算（Stage 13 擴充為 14 家、477 筆）；更正前公報號仍可找到更正後案卷；atlas 腳本調整後專利地圖流程維持通過。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 420
+    },
+    {
+      "id": "閱讀位置還原",
+      "kind": "command",
+      "command": [
+        "node",
+        "scripts/驗證閱讀位置還原.mjs"
+      ],
+      "targets": [
+        "scripts/驗證閱讀位置還原.mjs"
+      ],
+      "changes": [
+        "nvm-technology-atlas.js",
+        "scripts/build-nvm-atlas.mjs",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
+      ],
+      "inputs": [
+        "ai-nvm-node.css",
+        "ai-nvm-tune.css",
+        "ai-nvm.css",
+        "assurance.css",
+        "assurance.js",
+        "atlas-diagram-loader.js",
+        "chapter-lens.css",
+        "claim-scope.js",
+        "editorial-reading-ui.css",
+        "evidence-workbench.css",
+        "global-reading-system.css",
+        "global-search.css",
+        "home-glass-renaissance.css",
+        "home-interactions.css",
+        "hub-apps-chrome.css",
+        "hub-auto-tune.css",
+        "hub-auto-tune.js",
+        "hub-story-apps.js",
+        "hub-story-maps.css",
+        "hub-story-maps.js",
+        "hub.css",
+        "knowledge-hub-home.css",
+        "literature-editorial.css",
+        "literature-paper.js",
+        "memory-physics-contrast.css",
+        "model-boundaries.css",
+        "named-comparison.css",
+        "nvm-bitcell-figures.css",
+        "nvm-engineering-diagrams.css",
+        "nvm-industry-research.css",
+        "nvm-ip-cells.css",
+        "nvm-portal-entry.css",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.css",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
+        "nvm-vendor-patent-maps.css",
+        "package-lock.json",
+        "package.json",
+        "reading-controls.css",
+        "research.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/test-server.mjs",
+        "scripts/驗證閱讀位置還原.mjs",
+        "search-controller.js",
+        "site-language.js",
+        "site-shell.css",
+        "specialty-nvm.css",
+        "sram-repair.css",
+        "sram-scenario-ui.js",
+        "styles.css",
+        "surface-radius.css",
+        "tunneling-breakdown-simulator.css",
+        "visual-tokens.js",
+        "儲存狀態導讀.css",
+        "模型數值複製.js",
+        "生命週期圖解.css",
+        "章節閱讀導覽.css"
+      ],
+      "reason": "瀏覽器在載入期間把焦點移到可聚焦的錨點節，不再被當成使用者操作；深層錨點初次開啟與語言切換後焦點回到節標題（8／8）。",
+      "prepare": [
+        "node",
+        "browser"
+      ],
+      "timeoutSeconds": 300
+    },
     {
       "id": "首屏內容靜態化",
       "kind": "command",
@@ -19,9 +287,10 @@
         "scripts/verify-first-paint.mjs"
       ],
       "changes": [
-        "scripts/verify-first-paint.mjs",
-        "security-assurance.html",
-        "hub-story-maps.js"
+        "nvm-technology-atlas.js",
+        "scripts/build-nvm-atlas.mjs",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         "ai-nvm-node.css",
@@ -88,7 +357,7 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "安全保證頁的失敗即關閉區塊移到主圖之後（HTML 與 hub-story-maps.js 舊路一致）：內容、位置、步驟說明與腳本建立的相同；1440 寬時訊號面板回到文案右側同一列。",
+      "reason": "atlas 腳本與快取參數更新後，章節導覽列與搜尋按鈕仍在 HTML、初始化後標記 data-chapter-ready。",
       "prepare": [
         "node",
         "browser"
@@ -96,95 +365,19 @@
       "timeoutSeconds": 300
     },
     {
-      "id": "安全保證頁語言",
+      "id": "搜尋網址還原",
       "kind": "command",
       "command": [
         "node",
-        "scripts/verify-security-assurance-locale.mjs"
+        "scripts/驗證搜尋網址還原.mjs"
       ],
       "targets": [
-        "scripts/verify-security-assurance-locale.mjs"
+        "scripts/驗證搜尋網址還原.mjs"
       ],
       "changes": [
-        "security-assurance.html"
-      ],
-      "inputs": [
-        "ai-nvm-node.css",
-        "ai-nvm-tune.css",
-        "ai-nvm.css",
-        "assurance.css",
-        "assurance.js",
-        "atlas-diagram-loader.js",
-        "chapter-lens.css",
-        "claim-scope.js",
-        "editorial-reading-ui.css",
-        "evidence-workbench.css",
-        "global-reading-system.css",
-        "global-search.css",
-        "home-glass-renaissance.css",
-        "home-interactions.css",
-        "hub-apps-chrome.css",
-        "hub-auto-tune.css",
-        "hub-auto-tune.js",
-        "hub-story-apps.js",
-        "hub-story-maps.css",
-        "hub-story-maps.js",
-        "hub.css",
-        "knowledge-hub-home.css",
-        "literature-editorial.css",
-        "literature-paper.js",
-        "memory-physics-contrast.css",
-        "model-boundaries.css",
-        "named-comparison.css",
-        "nvm-bitcell-figures.css",
-        "nvm-engineering-diagrams.css",
-        "nvm-industry-research.css",
-        "nvm-ip-cells.css",
-        "nvm-portal-entry.css",
-        "nvm-technology-atlas.css",
         "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "package-lock.json",
-        "package.json",
-        "reading-controls.css",
-        "research.css",
-        "scripts/test-server.mjs",
-        "scripts/verify-security-assurance-locale.mjs",
-        "search-controller.js",
-        "security-assurance.html",
-        "site-language.js",
-        "site-shell.css",
-        "specialty-nvm.css",
-        "sram-repair.css",
-        "sram-scenario-ui.js",
-        "styles.css",
-        "surface-radius.css",
-        "tunneling-breakdown-simulator.css",
-        "visual-tokens.js",
-        "儲存狀態導讀.css",
-        "模型數值複製.js",
-        "生命週期圖解.css",
-        "章節閱讀導覽.css"
-      ],
-      "reason": "區塊移位後，安全保證頁中英切換、標題與輔助說明維持通過。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 300
-    },
-    {
-      "id": "響應式閱讀",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/verify-responsive-reading.mjs"
-      ],
-      "targets": [
-        "scripts/verify-responsive-reading.mjs"
-      ],
-      "changes": [
-        "hub-story-maps.js"
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         "404.html",
@@ -199,6 +392,7 @@
         "briefing/index.html",
         "chapter-lens.css",
         "claim-scope.js",
+        "data/nvm-search-index.js",
         "editorial-reading-ui.css",
         "evidence-workbench.css",
         "global-reading-system.css",
@@ -238,7 +432,7 @@
         "reading-controls.css",
         "research.css",
         "scripts/test-server.mjs",
-        "scripts/verify-responsive-reading.mjs",
+        "scripts/驗證搜尋網址還原.mjs",
         "search-controller.js",
         "secure-storage.html",
         "security-assurance.html",
@@ -261,7 +455,7 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "hub-story-maps.js 舊路的插入判斷擴及安全保證頁後，IoT 頁的區塊位置、按鈕切換與各寬度版面維持通過。",
+      "reason": "atlas 載入後的初始定位判斷調整後，搜尋網址還原與章節定位維持通過。",
       "prepare": [
         "node",
         "browser"
@@ -279,7 +473,8 @@
         "scripts/verify-sitewide-bilingual.mjs"
       ],
       "changes": [
-        "security-assurance.html"
+        "index.html",
+        "data/nvm-knowledge-catalog.json"
       ],
       "inputs": [
         "404.html",
@@ -294,6 +489,7 @@
         "briefing/index.html",
         "chapter-lens.css",
         "claim-scope.js",
+        "data/nvm-knowledge-catalog.json",
         "editorial-reading-ui.css",
         "evidence-workbench.css",
         "global-reading-system.css",
@@ -356,7 +552,7 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "安全保證頁版面調整後，中英兩種語言只顯示頁面語言、沒有混雜。",
+      "reason": "首頁專利地圖卡片文字更新後，中英兩種語言只顯示頁面語言、沒有混雜。",
       "prepare": [
         "node",
         "browser"
@@ -374,7 +570,9 @@
         "scripts/check-release-gates.mjs"
       ],
       "changes": [
-        "security-assurance.html"
+        "index.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         ".claude/skills/impeccable/scripts/live-browser-dom.js",
@@ -731,50 +929,11 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "安全保證頁調整後，標題規範、POV 綁定與主張邊界都通過。",
+      "reason": "首頁與 atlas 更新後，標題規範、POV 綁定與主張邊界都通過。",
       "prepare": [
         "node"
       ],
       "timeoutSeconds": 180
-    },
-    {
-      "id": "共用樣式同步",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/build-shared-styles.mjs",
-        "--check"
-      ],
-      "targets": [
-        "scripts/build-shared-styles.mjs"
-      ],
-      "changes": [
-        "security-assurance.html"
-      ],
-      "inputs": [
-        "404.html",
-        "ai-nvm-opportunities.html",
-        "automotive-nvm.html",
-        "briefing/index.html",
-        "iot-mcu-envm.html",
-        "memory-evidence.html",
-        "memory-physics.html",
-        "oip-secure-storage.html",
-        "package-lock.json",
-        "package.json",
-        "scripts/build-shared-styles.mjs",
-        "scripts/hub-shared-styles.mjs",
-        "secure-storage.html",
-        "security-assurance.html",
-        "specialty-nvm.html",
-        "sram-repair.html",
-        "technology-comparison.html"
-      ],
-      "reason": "安全保證頁移動區塊後，共用樣式區塊仍與規則一致。",
-      "prepare": [
-        "node"
-      ],
-      "timeoutSeconds": 60
     },
     {
       "id": "站內參照完整性",
@@ -787,7 +946,9 @@
         "scripts/check-site-ia.mjs"
       ],
       "changes": [
-        "security-assurance.html"
+        "index.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         "404.html",
@@ -812,7 +973,7 @@
         "tools/whitepaper-studio/index.html",
         "whitepaper/index.html"
       ],
-      "reason": "安全保證頁調整後，本機參照與錨點全部有效。",
+      "reason": "首頁與 atlas 更新後，本機參照與錨點全部有效。",
       "prepare": [
         "node"
       ],
@@ -829,8 +990,10 @@
         "scripts/verify-light-theme.mjs"
       ],
       "changes": [
-        "security-assurance.html",
-        "hub-story-maps.js"
+        "index.html",
+        "nvm-technology-atlas.js",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas-zh.html"
       ],
       "inputs": [
         "404.html",
@@ -909,7 +1072,7 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "安全保證頁版面調整後，18 個公開頁面在 1440／390 仍維持淡色。",
+      "reason": "首頁與 atlas 更新後，18 個公開頁面在 1440／390 仍維持淡色。",
       "prepare": [
         "node",
         "browser"
@@ -934,11 +1097,13 @@
       ],
       "inputs": [
         "data/offline-manifest.js",
-        "hub-story-maps.js",
+        "index.html",
+        "nvm-technology-atlas-zh.html",
+        "nvm-technology-atlas.html",
+        "nvm-technology-atlas.js",
         "package-lock.json",
         "package.json",
-        "scripts/build-offline-manifest.mjs",
-        "security-assurance.html"
+        "scripts/build-offline-manifest.mjs"
       ],
       "reason": "頁面與腳本更新後，離線快取清單雜湊與實際檔案一致。",
       "prepare": [
