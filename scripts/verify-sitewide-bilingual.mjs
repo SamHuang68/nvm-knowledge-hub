@@ -57,9 +57,11 @@ try {
   await page.locator('#searchOverlay input[type="search"]').press('Enter');
   await page.waitForURL(/#topic-sot$/);
   note(await page.locator('html').getAttribute('lang')==='en','英文搜尋保留專題語言');
+  // 正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；比對前去掉副檔名，本機與正式網站都適用（同 verify-task-search.mjs）。
+  const atlasPath=()=>new URL(page.url()).pathname.replace(/\.html$/,'');
   await page.locator('.language-toggle').click();
   await page.waitForFunction(()=>document.documentElement.lang==='zh-Hant');
-  note(decodeURIComponent(page.url()).includes('nvm-technology-atlas-zh.html') && page.url().endsWith('#topic-sot'),'切換中文版保留原專題');
+  note(atlasPath().endsWith('/nvm-technology-atlas-zh') && page.url().endsWith('#topic-sot'),'切換中文版保留原專題');
   await page.locator('.nvm-header .brand').click();
   await page.waitForLoadState('networkidle');
   note(await page.locator('html').getAttribute('lang')==='zh-Hant','返回首頁保留中文偏好');
@@ -67,10 +69,10 @@ try {
   await page.locator('#searchOverlay input[type="search"]').fill('GLOBALFOUNDRIES');
   await page.locator('.search-result-item[href$="#foundry"]').click();
   await page.waitForFunction(()=>document.documentElement.lang==='zh-Hant' && location.hash==='#foundry');
-  note(decodeURIComponent(page.url()).includes('nvm-technology-atlas-zh.html'),'中文搜尋保留路線圖語言');
+  note(atlasPath().endsWith('/nvm-technology-atlas-zh'),'中文搜尋保留路線圖語言');
   await page.locator('.language-toggle').click();
   await page.waitForFunction(()=>document.documentElement.lang==='en' && location.hash==='#foundry');
-  note(decodeURIComponent(page.url()).includes('nvm-technology-atlas.html'),'切換英文保留路線圖');
+  note(atlasPath().endsWith('/nvm-technology-atlas'),'切換英文保留路線圖');
   await page.reload({waitUntil:'networkidle'});
   note(await page.locator('html').getAttribute('lang')==='en','重新載入保留語言');
   await page.goto(new URL('nvm-technology-atlas.html?lang=en#sources',base).href,{waitUntil:'networkidle'});
