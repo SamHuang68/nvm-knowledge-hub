@@ -1,7 +1,7 @@
 {
   "name": "nvm-knowledge-hub",
   "private": true,
-  "version": "2.6.3",
+  "version": "2.6.4",
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",

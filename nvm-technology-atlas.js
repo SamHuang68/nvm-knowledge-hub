@@ -256,7 +256,10 @@ if (document.readyState !== 'complete') {
   const initialRoute=readingRoute();
   let interacted=false;
   const interactionEvents=['pointerdown','keydown','wheel','touchstart','focusin'];
-  const markInteraction=()=>{interacted=true;};
+  let initialAnchor=null;
+  try { initialAnchor=document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch {}
+  // 錨點目標本身可聚焦（tabindex="-1" 的節）時，瀏覽器在載入期間會把焦點移到該節；這不是使用者操作，不能擋掉 load 後回到節標題。
+  const markInteraction=event=>{if(event.type!=='focusin'||event.target!==initialAnchor)interacted=true;};
   // 晚載入的資源可補正初始錨點，但不能蓋掉已開始的搜尋、捲動或導覽。
   for(const name of interactionEvents) window.addEventListener(name,markInteraction,{capture:true,passive:true});
   window.addEventListener('load', () => {

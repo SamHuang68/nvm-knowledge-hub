@@ -283,6 +283,8 @@ for (const [locale,value] of Object.entries(data)) {
   const broken=structuredClone(value); broken.vendors[0].families[0].id='unclassified';
   assert.throws(()=>validateVendorPatentMaps(broken),/尚未分類/,'新增未分類組合會阻擋生成');
 }
+// 篩選後的預期筆數由同語言資料推算（頁面同樣以 patentMapTechnology 判斷技術），Stage 3 案卷是否保留由上方 recordIDs 對照負責。
+const technologyRecords=(locale,technology)=>data[locale].vendors.flatMap(v=>v.families.filter(f=>patentMapTechnology(f)===technology).flatMap(f=>f.patents)).length;
 const server=await startTestServer(root);
 const browser=await ({chromium,webkit}[engine]).launch();
 const observations=[];
@@ -299,8 +301,9 @@ try {
     assert.equal(await page.locator('html').getAttribute('lang'),locale==='en'?'en':'zh-Hant');
     const visible=()=>map.locator('[data-map-record]:visible').count();
     assert.equal(await visible(),totalRecords);
-    assert.equal(await map.locator('[data-map-vendor]:visible').count(),12);
-    assert.equal(await map.locator('[data-map-family]:visible').count(),19);
+    // 廠商與技術族數以同語言資料為準，與上方 totalRecords、recordIDs 同一來源；擴充廠商時不必改這裡。
+    assert.equal(await map.locator('[data-map-vendor]:visible').count(),data[locale].vendors.length);
+    assert.equal(await map.locator('[data-map-family]:visible').count(),data[locale].vendors.reduce((sum,vendor)=>sum+vendor.families.length,0));
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'整頁不得橫向溢位');
     await page.screenshot({path:path.join(out,`${locale}-${width}-總覽.png`)});
     assert.deepEqual(await map.locator('[data-map-record]').evaluateAll(nodes=>nodes.map(n=>n.id)),recordIDs(data[locale]));
@@ -313,7 +316,7 @@ try {
     await page.reload();
     await map.locator('[data-map-controls]').waitFor({state:'visible'});
     assert.equal(await map.locator('#nvm-map-technology').inputValue(),'eflash','更改篩選後重整不得被舊案卷錨點清空');
-    assert.equal(await visible(),9);
+    assert.equal(await visible(),technologyRecords(locale,'eflash'));
     await map.locator('button[type=reset]').click();
     const company=map.locator('#nvm-map-company');
     await company.selectOption('ememory');
@@ -368,12 +371,16 @@ try {
     await page.locator('#vendor-patent-neobit-family-US6678190B2 [data-map-return]').click();
     await page.waitForFunction(()=>location.hash==='#nvm-map-heading' && document.activeElement?.id==='nvm-map-heading');
     const search=map.locator('#nvm-map-query');
+    // US10651268B2 原本被兩個組合重複收錄，2026-10-15 更正歸屬後分別改為不同公報並以 correctedFrom 記錄；
+    // 舊公報號仍要找得到更正後的案卷，計數依不同公報計算。
+    const correctedHits=data[locale].vendors.flatMap(v=>v.families.flatMap(f=>f.patents.filter(p=>p.id==='US10651268B2'||p.correctedFrom?.id==='US10651268B2')));
+    const correctedDistinct=new Set(correctedHits.map(p=>p.id)).size;
     await search.fill('US10651268B2');
-    assert.equal(await visible(),2,'同一公報跨組合收錄不漏列');
-    assert.ok((await map.locator('#nvm-map-count').innerText()).includes(locale==='en'?'1 distinct':'1 個不同'));
+    assert.equal(await visible(),correctedHits.length,'更正前公報號仍可找到更正後案卷，不漏列');
+    assert.ok((await map.locator('#nvm-map-count').innerText()).includes(locale==='en'?`${correctedDistinct} distinct`:`${correctedDistinct} 個不同`),'計數依不同公報計算');
     await search.fill('eMeMoRy');
-    assert.ok(await visible()>=14,'大小寫不影響搜尋，涵蓋 eMemory 與其他提及它的紀錄');
-    assert.equal(await map.locator('#vendor-ememory [data-map-record]:visible').count(),14);
+    assert.ok(await visible()>=companyRecords.length,'大小寫不影響搜尋，涵蓋 eMemory 與其他提及它的紀錄');
+    assert.equal(await map.locator('#vendor-ememory [data-map-record]:visible').count(),companyRecords.length);
     await search.fill('');
     await map.locator('#nvm-map-technology').selectOption('mram');
     assert.equal(await visible(),data[locale].vendors.find(v=>v.id==='everspin').families.reduce((sum,f)=>sum+f.patents.length,0),'MRAM 含主分支新增案卷');
@@ -404,12 +411,12 @@ try {
     assert.ok(await page.locator('#vendor-patent-neobit-family-US6678190B2').isVisible(),'不相容篩選不能隱藏直接連結');
     await page.goto(`${server.base}${pathname}?lang=${locale}&pm_tech=eflash#patent-maps`);
     await map.locator('#nvm-map-technology').waitFor({state:'visible'});
-    assert.equal(await visible(),9,'eFlash 共九筆，保留 Stage 3');
+    assert.equal(await visible(),technologyRecords(locale,'eflash'),'eFlash 篩選筆數與資料一致');
     await Promise.all([page.waitForURL(url=>!url.pathname.endsWith('/'+pathname)),page.locator('.language-toggle, #languageToggle').first().click()]);
     await map.locator('[data-map-controls]').waitFor({state:'visible'});
     await page.waitForFunction(previous=>document.documentElement.lang!==previous,locale==='en'?'en':'zh-Hant');
     assert.equal(await map.locator('#nvm-map-technology').inputValue(),'eflash','切換語系保留分類');
-    assert.equal(await visible(),9);
+    assert.equal(await visible(),technologyRecords(locale==='en'?'zh':'en','eflash'));
     const aria=await map.locator('[data-map-controls]').ariaSnapshot();
     assert.ok(aria.includes('searchbox') && aria.includes('combobox') && aria.includes('button'),'搜尋與篩選具有原生讀屏語意');
     fs.writeFileSync(path.join(out,`${locale}-${width}-語意.txt`),aria);

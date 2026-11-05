@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "6d70f64a5b7e0739a43a",
+  "version": "e09be324527d8d8a1e2c",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -256,7 +256,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "hybrid-bonding-tsv-kgd-simulator.js": "4744a64a73d28a02a79be3ede4277a88a3275e962b9926ce58135c03aed488fe",
-    "index.html": "adb001d77cc70fe318ce3bc75a187bc7da6c9fb64afa521ddd2281906246cde0",
+    "index.html": "fba1d33266ef8ed4f03c8801098b02ae2cca02dd084fbb7f4f5a561ab8e815cb",
     "iot-energy-tradeoff-calculator.js": "119f50db9902d76550b6914fb5252367d38d5308870ae944e65d308cda4196fa",
     "iot-mcu-envm.html": "191c0b9dfdfe960c4bc12eddd413c813d47d6e0a66eb928a2dad0402931324e8",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
@@ -286,10 +286,10 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "93238ffe8b1c99e40ba90b2e039eab7c4bd52d884e3e6cd2db6bb72465dc3f2d",
+    "nvm-technology-atlas-zh.html": "9445dd1763c1c2a26eea2c385583ba5821912c31177fdb0d93d644ef4ae8b027",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "442c0bf3c7bf483ffaea6cb14743aa3f9f8d7547ff629c210637e53781dc78f3",
-    "nvm-technology-atlas.js": "d9eff3efc5ee150fd4a1d70ea1026e776ccfce75e6fb6b914cf0e225c6e697ee",
+    "nvm-technology-atlas.html": "77172de59e45c29881172e82202db207cdc458ff13645eed057c27a8252f69b9",
+    "nvm-technology-atlas.js": "9bb7e33a0d7b94caf0d3e1ec59567da716fd1cdd7152918e61e35fb6d5343dd5",
     "nvm-vendor-patent-maps.css": "9153841776ad9bb42ea92ddc0f59df8d56b4baea7288c8529a5ed49d6c72118a",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "51576615f1acffff676e850b93152bb0700ab8ed06ea6e83c7cc22c7e604a0c6",
@@ -348,5 +348,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 23570774
+  "totalBytes": 23571143
 };
