@@ -2,24 +2,24 @@
   "schemaVersion": 1,
   "scope": "targeted",
   "project": "SamHuang68/nvm-knowledge-hub",
-  "baseCommit": "aab6e74301448d96f2725fb0e395cf8a434b24df",
+  "baseCommit": "d6576fe736012acafcd0af5505c396075d925cbb",
   "documentation": [
     "README.md",
     "docs/網站分階段優化紀錄-20261008.md"
   ],
   "cases": [
     {
-      "id": "閱讀位置還原",
+      "id": "專利地圖閱讀互動-WebKit",
       "kind": "command",
       "command": [
         "node",
-        "scripts/驗證閱讀位置還原.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs"
       ],
       "targets": [
-        "scripts/驗證閱讀位置還原.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs"
       ],
       "changes": [
-        "scripts/驗證閱讀位置還原.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs"
       ],
       "inputs": [
         "ai-nvm-node.css",
@@ -30,6 +30,9 @@
         "atlas-diagram-loader.js",
         "chapter-lens.css",
         "claim-scope.js",
+        "data/nvm-search-index.js",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
         "editorial-reading-ui.css",
         "evidence-workbench.css",
         "global-reading-system.css",
@@ -64,8 +67,9 @@
         "reading-controls.css",
         "research.css",
         "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
         "scripts/test-server.mjs",
-        "scripts/驗證閱讀位置還原.mjs",
+        "scripts/驗證專利地圖閱讀互動.mjs",
         "search-controller.js",
         "site-language.js",
         "site-shell.css",
@@ -81,7 +85,7 @@
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；網址判斷改為去掉 .html 後比對，沿用 verify-task-search.mjs 的寫法。「語言轉向保留深層連結」在本機測試伺服器（.html）與正式網站（無副檔名）都通過，8／8。",
+      "reason": "v2.6.1 起 global-search.css 寫在 HTML head（擋渲染），驗收不再扣住它；「頁面可操作但尚未 load」改由延遲圖片維持，並檢查搜尋樣式確實寫在 HTML。原本失敗的觸控案例與其餘 4 案都通過（5／5）。",
       "prepare": [
         "node",
         "browser"
@@ -89,33 +93,31 @@
       "timeoutSeconds": 300
     },
     {
-      "id": "全站雙語",
+      "id": "專利地圖閱讀互動-Chromium",
       "kind": "command",
       "command": [
         "node",
-        "scripts/verify-sitewide-bilingual.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs",
+        "--engine=chromium"
       ],
       "targets": [
-        "scripts/verify-sitewide-bilingual.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs"
       ],
       "changes": [
-        "scripts/verify-sitewide-bilingual.mjs"
+        "scripts/驗證專利地圖閱讀互動.mjs"
       ],
       "inputs": [
-        "404.html",
         "ai-nvm-node.css",
-        "ai-nvm-opportunities.html",
         "ai-nvm-tune.css",
         "ai-nvm.css",
         "assurance.css",
         "assurance.js",
         "atlas-diagram-loader.js",
-        "automotive-nvm.html",
-        "briefing/index.html",
         "chapter-lens.css",
         "claim-scope.js",
-        "data/nvm-knowledge-data-en.json",
         "data/nvm-search-index.js",
+        "data/nvm-vendor-patent-maps-en.json",
+        "data/nvm-vendor-patent-maps.json",
         "editorial-reading-ui.css",
         "evidence-workbench.css",
         "global-reading-system.css",
@@ -129,14 +131,10 @@
         "hub-story-maps.css",
         "hub-story-maps.js",
         "hub.css",
-        "index.html",
-        "iot-mcu-envm.html",
         "knowledge-hub-home.css",
         "literature-editorial.css",
         "literature-paper.js",
-        "memory-evidence.html",
         "memory-physics-contrast.css",
-        "memory-physics.html",
         "model-boundaries.css",
         "named-comparison.css",
         "nvm-bitcell-figures.css",
@@ -149,138 +147,35 @@
         "nvm-technology-atlas.html",
         "nvm-technology-atlas.js",
         "nvm-vendor-patent-maps.css",
-        "oip-secure-storage.html",
         "package-lock.json",
         "package.json",
         "reading-controls.css",
         "research.css",
+        "scripts/build-nvm-atlas.mjs",
+        "scripts/nvm-vendor-patent-maps-ui.mjs",
         "scripts/test-server.mjs",
-        "scripts/verify-sitewide-bilingual.mjs",
+        "scripts/驗證專利地圖閱讀互動.mjs",
         "search-controller.js",
-        "secure-storage.html",
-        "security-assurance.html",
         "site-language.js",
         "site-shell.css",
         "specialty-nvm.css",
-        "specialty-nvm.html",
         "sram-repair.css",
-        "sram-repair.html",
         "sram-scenario-ui.js",
         "styles.css",
         "surface-radius.css",
-        "technology-comparison.html",
-        "tools/whitepaper-studio/index.html",
         "tunneling-breakdown-simulator.css",
         "visual-tokens.js",
-        "whitepaper/index.html",
         "儲存狀態導讀.css",
         "模型數值複製.js",
         "生命週期圖解.css",
         "章節閱讀導覽.css"
       ],
-      "reason": "正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；網址判斷改為去掉 .html 後比對，沿用 verify-task-search.mjs 的寫法。「切換中文版保留原專題」「中文搜尋保留路線圖語言」「切換英文保留路線圖」仍分辨中英文 atlas 頁。",
+      "reason": "v2.6.1 起 global-search.css 寫在 HTML head（擋渲染），驗收不再扣住它；「頁面可操作但尚未 load」改由延遲圖片維持，並檢查搜尋樣式確實寫在 HTML。Chromium 原本卡在 DOMContentLoaded 的 4 個延遲載入案例都通過（5／5）。",
       "prepare": [
         "node",
         "browser"
       ],
-      "timeoutSeconds": 420
-    },
-    {
-      "id": "搜尋與狀態",
-      "kind": "command",
-      "command": [
-        "node",
-        "scripts/verify-search-and-state.mjs"
-      ],
-      "targets": [
-        "scripts/verify-search-and-state.mjs"
-      ],
-      "changes": [
-        "scripts/verify-search-and-state.mjs"
-      ],
-      "inputs": [
-        "404.html",
-        "ai-nvm-node.css",
-        "ai-nvm-opportunities.html",
-        "ai-nvm-tune.css",
-        "ai-nvm.css",
-        "assurance.css",
-        "assurance.js",
-        "atlas-diagram-loader.js",
-        "automotive-nvm.html",
-        "briefing/index.html",
-        "chapter-lens.css",
-        "claim-scope.js",
-        "data/ai-nvm-opportunities-knowledge.json",
-        "data/nvm-search-index.js",
-        "editorial-reading-ui.css",
-        "evidence-workbench.css",
-        "global-reading-system.css",
-        "global-search.css",
-        "home-glass-renaissance.css",
-        "home-interactions.css",
-        "hub-apps-chrome.css",
-        "hub-auto-tune.css",
-        "hub-auto-tune.js",
-        "hub-story-apps.js",
-        "hub-story-maps.css",
-        "hub-story-maps.js",
-        "hub.css",
-        "index.html",
-        "iot-mcu-envm.html",
-        "knowledge-hub-home.css",
-        "literature-editorial.css",
-        "literature-paper.js",
-        "memory-evidence.html",
-        "memory-physics-contrast.css",
-        "memory-physics.html",
-        "model-boundaries.css",
-        "named-comparison.css",
-        "nvm-bitcell-figures.css",
-        "nvm-engineering-diagrams.css",
-        "nvm-industry-research.css",
-        "nvm-ip-cells.css",
-        "nvm-portal-entry.css",
-        "nvm-technology-atlas-zh.html",
-        "nvm-technology-atlas.css",
-        "nvm-technology-atlas.html",
-        "nvm-technology-atlas.js",
-        "nvm-vendor-patent-maps.css",
-        "oip-secure-storage.html",
-        "package-lock.json",
-        "package.json",
-        "reading-controls.css",
-        "research.css",
-        "scripts/test-server.mjs",
-        "scripts/verify-search-and-state.mjs",
-        "search-controller.js",
-        "secure-storage.html",
-        "security-assurance.html",
-        "site-language.js",
-        "site-shell.css",
-        "specialty-nvm.css",
-        "specialty-nvm.html",
-        "sram-repair.css",
-        "sram-repair.html",
-        "sram-scenario-ui.js",
-        "styles.css",
-        "surface-radius.css",
-        "technology-comparison.html",
-        "tools/whitepaper-studio/index.html",
-        "tunneling-breakdown-simulator.css",
-        "visual-tokens.js",
-        "whitepaper/index.html",
-        "儲存狀態導讀.css",
-        "模型數值複製.js",
-        "生命週期圖解.css",
-        "章節閱讀導覽.css"
-      ],
-      "reason": "正式網站（Cloudflare Pages）把 .html 轉成無副檔名網址；網址判斷改為去掉 .html 後比對，沿用 verify-task-search.mjs 的寫法。搜尋結果按 Enter 後等候 sram-repair、secure-storage 的判斷，在本機與正式網站都通過，27／27。",
-      "prepare": [
-        "node",
-        "browser"
-      ],
-      "timeoutSeconds": 420
+      "timeoutSeconds": 300
     },
     {
       "id": "離線清單同步",
