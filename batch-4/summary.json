@@ -1,0 +1,258 @@
+{
+  "batch": "batch-4",
+  "schemaVersion": "1.0",
+  "reviewed": 27,
+  "unresolved": 0,
+  "remaining": 0,
+  "completed": [
+    {
+      "publicationNumber": "US7465589B2",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 10,
+      "claim1Column": 8,
+      "pdfSHA256": "95f19d0a693a20d3fd973a75b49e58daf1b3044d8d83ec12f5e03d4c884fdd14",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9230633B2",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 13,
+      "claim1Column": 12,
+      "pdfSHA256": "d326cd36df2fc126b1a1ae9707d2959fed135f1229ab1b3ceb4d155e3743e0e0",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9293182B2",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 8,
+      "claim1Column": 7,
+      "pdfSHA256": "d0495f59fead7ad441e5e20f6f42453c34e2f03535300d815dde86b0a26c72b4",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9311980B1",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 10,
+      "claim1Column": 11,
+      "pdfSHA256": "8f54eee5a81906481ba6c9b32d6b5c6bdbd10a6c5c519d0ee740769288ca527c",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9336849B2",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 17,
+      "claim1Column": 18,
+      "pdfSHA256": "7f1f5b3d9c0f035110dbe428eafda055b4b89738f1a578f8ca5d023cdb9208fb",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9361964B1",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 10,
+      "claim1Column": 11,
+      "pdfSHA256": "dbf276d065b72187bc9e704d81ba31fcfea8afe37578119176757693acf0c67b",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9552849B2",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 13,
+      "claim1Column": 12,
+      "pdfSHA256": "5efc42c435d79cf7ea7485355ae14a9f1ceba9cc3e3f26d17c235e3e57d39216",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9552863B1",
+      "company": "Everspin",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 13,
+      "claim1Column": 11,
+      "pdfSHA256": "292aa43b03b9c4ec80fb87fe0dbabc7e85e2ce799c7e59697ffe7d91817fe8e1",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US6835591B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 38,
+      "claim1Column": 16,
+      "pdfSHA256": "1f2a6ddbe7559b5111e757247897e69ad78305bf54035200fc7380bfa27bdc11",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US6911682B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 41,
+      "claim1Column": 14,
+      "pdfSHA256": "a04f32a1e0932acd6db3101beb3e73aca4f3cfe70b0059fd42e14d03be5590cf",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US6919592B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 32,
+      "claim1Column": 12,
+      "pdfSHA256": "01a3839a3646a19735fcddf04167f870cd7c4ed73a52b8eb220ce94b6d06e5fc",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US6924538B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 27,
+      "claim1Column": 12,
+      "pdfSHA256": "38dfca98a02d1876dad540f2721986b6c18c53c80bd78a563724f0998ea17f68",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7071023B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 35,
+      "claim1Column": 16,
+      "pdfSHA256": "8dfe28bb0e386cb6887d03691ff842563016f811d569e43a9db464a63c73b9b9",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7115901B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 184,
+      "claim1Column": 87,
+      "pdfSHA256": "134daf68979e1ff0bdd6ff1e7ffa71645a1663542be280dc2deed80b3393b3b3",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7115960B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 27,
+      "claim1Column": 14,
+      "pdfSHA256": "5aa6efeebe5806b1288c83f80fa49272acaa15eccebecefdf68c004cb3fe3dcd",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7161403B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 33,
+      "claim1Column": 18,
+      "pdfSHA256": "2fe9b77457466ecce8c7a174124f6e5347e3b04930cc7bbee03bf67087b66ba7",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7335395B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 58,
+      "claim1Column": 25,
+      "pdfSHA256": "b4c0883627a19e7b78acebc49e8724490a98ab33d36e6274da64d6354030e787",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7365632B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 17,
+      "claim1Column": 10,
+      "pdfSHA256": "f6233dcc29418b63403cd288111ac30b63d690a7767a6ab51cbe4046abae882f",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7375369B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 13,
+      "claim1Column": 16,
+      "pdfSHA256": "15a0f9dcb91f8497a518d136f08cde71ad93ed88b7ede22361d6b7cb1bc25d78",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7566478B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 56,
+      "claim1Column": 23,
+      "pdfSHA256": "41f981ce731e5817150dd134977363803f7e3ddd88e1d7ad7425dfd4643d94c6",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7835170B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 72,
+      "claim1Column": 44,
+      "pdfSHA256": "91d54a4c34fba01c79dcb5203d9c2411721d25bb6789b972422e757d703edbdf",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US8102018B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 76,
+      "claim1Column": 56,
+      "pdfSHA256": "157b44f5b05e60b7dc0c42f61f32d62894c5e72028e885172a247daeb2abbd13",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US9390790B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 171,
+      "claim1Column": 105,
+      "pdfSHA256": "0dc08007fc201873e055a7328830b5466c42900a1217e2671e1eab5a9ec2b0ff",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US6982903B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 184,
+      "claim1Column": 87,
+      "pdfSHA256": "80ea799bebcf94c68880969ff953a29caba4012c123db8b18466dfd86d9bab44",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7112493B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 184,
+      "claim1Column": 88,
+      "pdfSHA256": "26def5b23c385c3f0e7131b9a7607fc7c31dfc34820a83d46d7c2cfa5aa16274",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7161218B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 92,
+      "claim1Column": 43,
+      "pdfSHA256": "6256922a87fe9c66ce06ba4090ab68c98dd03ed4d776a7d21e789aa4a5ab9a5f",
+      "hashMatchesBibliography": false
+    },
+    {
+      "publicationNumber": "US7304357B2",
+      "company": "Nantero",
+      "status": "claim1-text-reviewed",
+      "claim1Page": 39,
+      "claim1Column": 16,
+      "pdfSHA256": "6ccac09197b27389304df9f3193be26da2696e5b516749a10856352e62e24e85",
+      "hashMatchesBibliography": false
+    }
+  ],
+  "unresolvedList": [],
+  "remainingPublications": [],
+  "remainingNote": "All 27 batch-4 records have been reviewed or marked unresolved.",
+  "updatedOn": "2026-11-17T14:18:42+08:00",
+  "updatedTimeZone": "Asia/Taipei",
+  "note": "Workspace /workspace was restored from an older snapshot around 2026-11-17T12:51–12:52+08:00 (Asia/Taipei). Prior batch-4 outputs were lost. Official image-ppubs PDFs were re-fetched on this run; SHA-256 values are of the bytes actually kept. Reviews are not reconstructed from memory."
+}

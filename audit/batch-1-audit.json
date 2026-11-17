@@ -1,0 +1,2493 @@
+{
+  "batch": "batch-1",
+  "source": "/workspace/nvm-claim1/out/batch-1/",
+  "writtenOn": "2026-11-17T14:14:07+08:00",
+  "zone": "Asia/Taipei",
+  "summary": {
+    "auditedCount": 29,
+    "PASS": 24,
+    "PASS_WITH_NOTES": 5,
+    "FAIL": 0,
+    "fails": [],
+    "passWithNotes": [
+      {
+        "publicationNumber": "US7248507B2",
+        "reason": "Known printed oddities confirmed on official page 15, column 10, and correctly kept in the verbatim transcription: first 'threshold voltage' is spelled correctly; the later occurrence prints 'threshold voltaae'; 'lingering ehanae' is printed as such. Not errors in the review. Bibliographic fields and figures 1A/2A (page 2) and 4A (page 3) match."
+      },
+      {
+        "publicationNumber": "US8659933B2",
+        "reason": "Known front-page oddity confirmed: item (54) prints 'HERETO RESISTIVE SWITCHING MATERIAL LAYER IN RRAM DEVICE AND METHOD'. The review correctly set titleMatch=false and transcribed HERETO rather than correcting it to HETERO. Claim 1 on page 24, column 15 matches word-for-word. FIG. 1 is on page 6; Fig. 10 is on page 13; Fig. 12 is on page 14."
+      },
+      {
+        "publicationNumber": "US8750019B2",
+        "reason": "Known printed oddity confirmed on official page 16, column 10: 'are rovided below' (missing initial 'p' in provided). Also confirmed: 'separates polycrystalline silicon-germanium material layer' has no article. Both were kept in the verbatim string. Claim 1 spans columns 9–10 and otherwise matches word-for-word. Front page and cited figure pages exist: FIG. 1 is on page 6; FIG. 5 is on page 8; FIG. 6A (with FIG. 6B) is on page 9."
+      },
+      {
+        "publicationNumber": "US8399307B2",
+        "reason": "Page 1 and Claim 1 (page 20, columns 9–10) match word-for-word. Confirmed printed typo “to fond a second bottom wiring structure,” kept as printed, and the claim’s mix of “first peripheral region” with later “first periphery region.” Figure 10 is on page 11; Figure 11 is on page 12; Fig. 14 is on page 15."
+      },
+      {
+        "publicationNumber": "USRE46335E1",
+        "reason": "Page 1 (US RE46,335 E, Mar. 7, 2017, SWITCHING DEVICE HAVING A NON-LINEAR ELEMENT, Crossbar, Inc., Santa Clara, CA (US)) and Claim 1 (page 26 column 14 after “We claim:” through page 27 column 15) match word-for-word. Confirmed reissue markup: deleted “[and]” and “the read voltage[.]” plus italic added matter for the third-voltage, fourth-voltage, and “third voltage is less than the fourth voltage” clauses, all kept in the verbatim text. FIG. 4 and FIG. 5 are both on page 13; FIG. 8A (with 8B) is on page 19. Discussion pages 22, 23, and 25 exist."
+      }
+    ],
+    "mechanical": {
+      "officialPdfSha256ByteLengthAndPageCount": "all 29 match review retrieval, claimReview.source.pdfSHA256, and summary.json",
+      "jsonlEqualsPerRecordFile": true,
+      "syntheticHashOrGotcha0034StockSentence": false,
+      "duplicateClaim1Verbatim": false,
+      "copiedOrPaddedReviews": false
+    },
+    "conventions": [
+      "PASS is used when Claim 1 and page-1 bibliography match the official image word-for-word, including correctly preserved awkward printed wording (for example “a read transistor have a gate,” “an one-time programmable,” “there between,” “reducing number of times”).",
+      "PASS_WITH_NOTES is reserved for confirmed known typographical oddities (voltaae/ehanae, HERETO title, “are rovided below,” “to fond”), the USRE46335E1 reissue bracket/italic markup, and the peripheral/periphery mix in US8399307B2.",
+      "Front-page terminal-disclaimer asterisks that the review noted but omitted from printedGrantDate (US8450209B2 *May 28, 2013; US8519485B2 *Aug. 27, 2013) are recorded under PASS, not FAIL. US6956258B2 already includes *Oct. 18, 2005 in printedGrantDate.",
+      "Official image-ppubs PDFs are regenerated on fetch (CreationDate 2026-11-17); their SHA-256 differs from the Google-hosted bibliography fingerprints. Reviews correctly kept both.",
+      "Assignee spelling differences were confirmed as printed: Kilopass Technologies, Inc. (US6956258B2) versus Kilopass Technology, Inc. (US7269047B1, US7623368B2, US9230813B2, US9484068B2)."
+    ],
+    "writtenOn": "2026-11-17T14:14:07+08:00",
+    "zone": "Asia/Taipei"
+  },
+  "records": [
+    {
+      "publicationNumber": "US8441835B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8441835B2-uspto.pdf",
+      "sha256": {
+        "computed": "e580312e76a4707bfd3c86252c64e2e67ada85c64b30a86996a17daa5e4ace41",
+        "reviewRetrieval": "e580312e76a4707bfd3c86252c64e2e67ada85c64b30a86996a17daa5e4ace41",
+        "reviewClaimSource": "e580312e76a4707bfd3c86252c64e2e67ada85c64b30a86996a17daa5e4ace41",
+        "summary": "e580312e76a4707bfd3c86252c64e2e67ada85c64b30a86996a17daa5e4ace41",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1341733,
+        "review": 1341733,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 20,
+        "review": 20,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,441,835 B2",
+          "review": "US 8,441,835 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "INTERFACE CONTROL FOR IMPROVED SWITCHING IN RRAM",
+          "review": "INTERFACE CONTROL FOR IMPROVED SWITCHING IN RRAM",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Menlo Park, CA (US)",
+          "review": "Crossbar, Inc., Menlo Park, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 14, 2013",
+          "review": "May 14, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          19
+        ],
+        "columns": [
+          12
+        ],
+        "wordByWord": "PASS",
+        "diffs": [],
+        "endsBeforeClaim2": true
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 15,
+          "discussionExists": true
+        },
+        {
+          "figure": 4,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 8,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Official page-1 and Claim 1 (page 19, column 12) match the review word-for-word. Hyphenation was joined correctly. FIG. 1 is on page 5; FIG. 4 and FIG. 8 are on page 7. Discussion pages 15, 16 and 19 exist; page 15 columns 3–4 discuss FIG. 1 (and mention FIG. 8 in the brief description). No fabrication indicators."
+      ]
+    },
+    {
+      "publicationNumber": "US7248507B2",
+      "verdict": "PASS_WITH_NOTES",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US7248507B2-uspto.pdf",
+      "sha256": {
+        "computed": "4ad26f4c81ee42b2ba851d2fb605e2ea729fc7940f317c1b6164a2c9c4268d28",
+        "reviewRetrieval": "4ad26f4c81ee42b2ba851d2fb605e2ea729fc7940f317c1b6164a2c9c4268d28",
+        "reviewClaimSource": "4ad26f4c81ee42b2ba851d2fb605e2ea729fc7940f317c1b6164a2c9c4268d28",
+        "summary": "4ad26f4c81ee42b2ba851d2fb605e2ea729fc7940f317c1b6164a2c9c4268d28",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 774041,
+        "review": 774041,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 15,
+        "review": 15,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 7,248,507 B2",
+          "review": "US 7,248,507 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "CMIS SEMICONDUCTOR NONVOLATILE STORAGE CIRCUIT",
+          "review": "CMIS SEMICONDUCTOR NONVOLATILE STORAGE CIRCUIT",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Nscore Inc., Kitakyushu-shi, Fukuoka (JP)",
+          "review": "Nscore Inc., Kitakyushu-shi, Fukuoka (JP)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Jul. 24, 2007",
+          "review": "Jul. 24, 2007",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          15
+        ],
+        "columns": [
+          10
+        ],
+        "wordByWord": "PASS",
+        "diffs": [],
+        "confirmedPrintedOddities": [
+          "threshold voltaae",
+          "lingering ehanae"
+        ],
+        "endsBeforeClaim2": true
+      },
+      "figures": [
+        {
+          "figure": "1A",
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 13,
+          "discussionExists": true
+        },
+        {
+          "figure": "2A",
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 13,
+          "discussionExists": true
+        },
+        {
+          "figure": "4A",
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 13,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Known printed oddities confirmed on official page 15, column 10, and correctly kept in the verbatim transcription: first 'threshold voltage' is spelled correctly; the later occurrence prints 'threshold voltaae'; 'lingering ehanae' is printed as such. Not errors in the review. Bibliographic fields and figures 1A/2A (page 2) and 4A (page 3) match."
+      ]
+    },
+    {
+      "publicationNumber": "US8659933B2",
+      "verdict": "PASS_WITH_NOTES",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8659933B2-uspto.pdf",
+      "sha256": {
+        "computed": "7326201256b8993520df10b532a1ad55feaaf642cd7ffa30c93cca5b57cc9508",
+        "reviewRetrieval": "7326201256b8993520df10b532a1ad55feaaf642cd7ffa30c93cca5b57cc9508",
+        "reviewClaimSource": "7326201256b8993520df10b532a1ad55feaaf642cd7ffa30c93cca5b57cc9508",
+        "summary": "7326201256b8993520df10b532a1ad55feaaf642cd7ffa30c93cca5b57cc9508",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1873087,
+        "review": 1873087,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 26,
+        "review": 26,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,659,933 B2",
+          "review": "US 8,659,933 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "HERETO RESISTIVE SWITCHING MATERIAL LAYER IN RRAM DEVICE AND METHOD",
+          "review": "HERETO RESISTIVE SWITCHING MATERIAL LAYER IN RRAM DEVICE AND METHOD",
+          "titleMatchClaimed": false,
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Feb. 25, 2014",
+          "review": "Feb. 25, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          24
+        ],
+        "columns": [
+          15
+        ],
+        "wordByWord": "PASS",
+        "diffs": [],
+        "endsBeforeClaim2": true
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        },
+        {
+          "figure": 10,
+          "citedPage": 13,
+          "exists": true,
+          "discussionPage": 21,
+          "discussionExists": true
+        },
+        {
+          "figure": 12,
+          "citedPage": 14,
+          "exists": true,
+          "discussionPage": 22,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Known front-page oddity confirmed: item (54) prints 'HERETO RESISTIVE SWITCHING MATERIAL LAYER IN RRAM DEVICE AND METHOD'. The review correctly set titleMatch=false and transcribed HERETO rather than correcting it to HETERO. Claim 1 on page 24, column 15 matches word-for-word. FIG. 1 is on page 6; Fig. 10 is on page 13; Fig. 12 is on page 14."
+      ]
+    },
+    {
+      "publicationNumber": "US8750019B2",
+      "verdict": "PASS_WITH_NOTES",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8750019B2-uspto.pdf",
+      "sha256": {
+        "computed": "3ba7e690347d2b188839370f5503e471752cdd6270c24778620bfdc235024d27",
+        "reviewRetrieval": "3ba7e690347d2b188839370f5503e471752cdd6270c24778620bfdc235024d27",
+        "reviewClaimSource": "3ba7e690347d2b188839370f5503e471752cdd6270c24778620bfdc235024d27",
+        "summary": "3ba7e690347d2b188839370f5503e471752cdd6270c24778620bfdc235024d27",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1110028,
+        "review": 1110028,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 17,
+        "review": 17,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,750,019 B2",
+          "review": "US 8,750,019 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "RESISTIVE MEMORY USING SIGE MATERIAL",
+          "review": "RESISTIVE MEMORY USING SIGE MATERIAL",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Jun. 10, 2014",
+          "review": "Jun. 10, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          16
+        ],
+        "columns": [
+          9,
+          10
+        ],
+        "wordByWord": "PASS",
+        "diffs": [],
+        "confirmedPrintedOddities": [
+          "are rovided below",
+          "separates polycrystalline silicon-germanium material layer (no article)"
+        ],
+        "endsBeforeClaim2": true
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 12,
+          "discussionExists": true
+        },
+        {
+          "figure": 5,
+          "citedPage": 8,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        },
+        {
+          "figure": "6A",
+          "citedPage": 9,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Known printed oddity confirmed on official page 16, column 10: 'are rovided below' (missing initial 'p' in provided). Also confirmed: 'separates polycrystalline silicon-germanium material layer' has no article. Both were kept in the verbatim string. Claim 1 spans columns 9–10 and otherwise matches word-for-word. Front page and cited figure pages exist: FIG. 1 is on page 6; FIG. 5 is on page 8; FIG. 6A (with FIG. 6B) is on page 9."
+      ]
+    },
+    {
+      "publicationNumber": "US8088688B1",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8088688B1-uspto.pdf",
+      "sha256": {
+        "computed": "c4f1706d08b9b517d151ba67bc26e8fea26ae1b0da5d04ed83a453cd557b56dd",
+        "reviewRetrieval": "c4f1706d08b9b517d151ba67bc26e8fea26ae1b0da5d04ed83a453cd557b56dd",
+        "reviewClaimSource": "c4f1706d08b9b517d151ba67bc26e8fea26ae1b0da5d04ed83a453cd557b56dd",
+        "summary": "c4f1706d08b9b517d151ba67bc26e8fea26ae1b0da5d04ed83a453cd557b56dd",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 686218,
+        "review": 686218,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 14,
+        "review": 14,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,088,688 B1",
+          "review": "US 8,088,688 B1",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "P+ POLYSILICON MATERIAL ON ALUMINUM FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "P+ POLYSILICON MATERIAL ON ALUMINUM FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Jan. 3, 2012",
+          "review": "Jan. 3, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          13
+        ],
+        "columns": [
+          7
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "label": "Fig. 1 (Prior Art)",
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 4,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 10,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 13, column 7) match the review word-for-word, including “the polycrystalline silicon material having the p+ impurity being derived from an aluminum species.” Fig. 1 (Prior Art) is on page 2; Fig. 6 is on page 4; Fig. 10 is on page 5. Discussion page 11 exists. No fabrication indicators."
+      ]
+    },
+    {
+      "publicationNumber": "US8168506B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8168506B2-uspto.pdf",
+      "sha256": {
+        "computed": "ff551298af799bee35e8bcd4f98367871ef3f8070e16276ed9f0c92051cae41e",
+        "reviewRetrieval": "ff551298af799bee35e8bcd4f98367871ef3f8070e16276ed9f0c92051cae41e",
+        "reviewClaimSource": "ff551298af799bee35e8bcd4f98367871ef3f8070e16276ed9f0c92051cae41e",
+        "summary": "ff551298af799bee35e8bcd4f98367871ef3f8070e16276ed9f0c92051cae41e",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 2098865,
+        "review": 2098865,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 20,
+        "review": 20,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,168,506 B2",
+          "review": "US 8,168,506 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "ON/OFF RATIO FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "ON/OFF RATIO FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 1, 2012",
+          "review": "May 1, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          19
+        ],
+        "columns": [
+          9,
+          10
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 11,
+          "citedPage": 8,
+          "exists": true,
+          "discussionPage": 17,
+          "discussionExists": true
+        },
+        {
+          "figure": 16,
+          "citedPage": 12,
+          "exists": true,
+          "discussionPage": 18,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 19, columns 9–10) match word-for-word. Confirmed printed preamble is “What is claimed:” (no “is”), and the claim keeps “conformably overlying” and “a second portion of the third dielectric material remaining on the side region.” Fig. 1 is on page 2; Fig. 11 is on page 8; Fig. 16 is on page 12."
+      ]
+    },
+    {
+      "publicationNumber": "US8187945B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8187945B2-uspto.pdf",
+      "sha256": {
+        "computed": "9a330951d90f98b44a521818663bc8d72488eb2866517b00a61f468ef151a9ed",
+        "reviewRetrieval": "9a330951d90f98b44a521818663bc8d72488eb2866517b00a61f468ef151a9ed",
+        "reviewClaimSource": "9a330951d90f98b44a521818663bc8d72488eb2866517b00a61f468ef151a9ed",
+        "summary": "9a330951d90f98b44a521818663bc8d72488eb2866517b00a61f468ef151a9ed",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 2045654,
+        "review": 2045654,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 22,
+        "review": 22,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,187,945 B2",
+          "review": "US 8,187,945 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "METHOD FOR OBTAINING SMOOTH, CONTINUOUS SILVER FILM",
+          "review": "METHOD FOR OBTAINING SMOOTH, CONTINUOUS SILVER FILM",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 29, 2012",
+          "review": "May 29, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          22
+        ],
+        "columns": [
+          11
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 18,
+          "discussionExists": true
+        },
+        {
+          "figure": "6J",
+          "citedPage": 11,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        },
+        {
+          "figure": "7A",
+          "citedPage": 15,
+          "exists": true,
+          "discussionPage": 21,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 22, column 11) match word-for-word. Item (54) does print the comma in “SMOOTH, CONTINUOUS.” FIG. 1 is on page 2; FIG. 6J is on page 11; FIG. 7A (with 7B) is on page 15."
+      ]
+    },
+    {
+      "publicationNumber": "US8198144B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8198144B2-uspto.pdf",
+      "sha256": {
+        "computed": "e0a5d8ef8fcd6763043596a2a2e8a67af1d96da61befea1b3810be31363d6cdd",
+        "reviewRetrieval": "e0a5d8ef8fcd6763043596a2a2e8a67af1d96da61befea1b3810be31363d6cdd",
+        "reviewClaimSource": "e0a5d8ef8fcd6763043596a2a2e8a67af1d96da61befea1b3810be31363d6cdd",
+        "summary": "e0a5d8ef8fcd6763043596a2a2e8a67af1d96da61befea1b3810be31363d6cdd",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 912645,
+        "review": 912645,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 18,
+        "review": 18,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,198,144 B2",
+          "review": "US 8,198,144 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "PILLAR STRUCTURE FOR MEMORY DEVICE AND METHOD",
+          "review": "PILLAR STRUCTURE FOR MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Jun. 12, 2012",
+          "review": "Jun. 12, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          17
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 15,
+          "discussionExists": true
+        },
+        {
+          "figure": 8,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 15,
+          "discussionExists": true
+        },
+        {
+          "figure": 13,
+          "citedPage": 9,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 17, column 8) match word-for-word, including “the bottom metallic barrier forming a metal-to-metal contact,” later “bottom metal barrier material,” and “non-planer surface region.” Fig. 1 is on page 2; Fig. 8 is on page 7; Fig. 13 (with 13a/13b) is on page 9."
+      ]
+    },
+    {
+      "publicationNumber": "US8258020B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8258020B2-uspto.pdf",
+      "sha256": {
+        "computed": "89056662d8251f1123603aeecbf4bf934cc86999bfaa9e27b89a8dd67a08a403",
+        "reviewRetrieval": "89056662d8251f1123603aeecbf4bf934cc86999bfaa9e27b89a8dd67a08a403",
+        "reviewClaimSource": "89056662d8251f1123603aeecbf4bf934cc86999bfaa9e27b89a8dd67a08a403",
+        "summary": "89056662d8251f1123603aeecbf4bf934cc86999bfaa9e27b89a8dd67a08a403",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1226185,
+        "review": 1226185,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 21,
+        "review": 21,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,258,020 B2",
+          "review": "US 8,258,020 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "INTERCONNECTS FOR STACKED NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "INTERCONNECTS FOR STACKED NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar Inc., Santa Clara, CA (US)",
+          "review": "Crossbar Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Sep. 4, 2012",
+          "review": "Sep. 4, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          20
+        ],
+        "columns": [
+          9
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "label": "Figure 1 (Prior Art)",
+          "discussionPage": 17,
+          "discussionExists": true
+        },
+        {
+          "figure": 9,
+          "citedPage": 10,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 10,
+          "citedPage": 11,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 20, column 9) match word-for-word, including the claim’s shifts among “first dielectric material,” “first wiring structure,” and “second wiring material.” Assignee line correctly recorded as “Crossbar Inc., Santa Clara, CA (US)” with no comma after Crossbar. Figure 1 (Prior Art) is on page 3; Figure 9 is on page 10; Figure 10 is on page 11."
+      ]
+    },
+    {
+      "publicationNumber": "US8315079B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8315079B2-uspto.pdf",
+      "sha256": {
+        "computed": "6e47a29dfaf82fc0727278656b158634c35221e5e1139d961254309c402ddea4",
+        "reviewRetrieval": "6e47a29dfaf82fc0727278656b158634c35221e5e1139d961254309c402ddea4",
+        "reviewClaimSource": "6e47a29dfaf82fc0727278656b158634c35221e5e1139d961254309c402ddea4",
+        "summary": "6e47a29dfaf82fc0727278656b158634c35221e5e1139d961254309c402ddea4",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 963223,
+        "review": 963223,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 14,
+        "review": 14,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,315,079 B2",
+          "review": "US 8,315,079 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "CIRCUIT FOR CONCURRENT READ OPERATION AND METHOD THEREFOR",
+          "review": "CIRCUIT FOR CONCURRENT READ OPERATION AND METHOD THEREFOR",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Nov. 20, 2012",
+          "review": "Nov. 20, 2012",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          13
+        ],
+        "columns": [
+          11
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 9,
+          "discussionExists": true
+        },
+        {
+          "figure": 5,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 13, column 11) match word-for-word, including the printed phrase “each resistive memory units having a first end and a second end.” FIG. 1 is on page 2; FIG. 5 is on page 5; FIG. 6 is on page 6."
+      ]
+    },
+    {
+      "publicationNumber": "US8391049B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8391049B2-uspto.pdf",
+      "sha256": {
+        "computed": "ef4d7fbf162aec2405ffb62d999f4bbfe1a8462b2c4fbf34de4d0f654117ae1d",
+        "reviewRetrieval": "ef4d7fbf162aec2405ffb62d999f4bbfe1a8462b2c4fbf34de4d0f654117ae1d",
+        "reviewClaimSource": "ef4d7fbf162aec2405ffb62d999f4bbfe1a8462b2c4fbf34de4d0f654117ae1d",
+        "summary": "ef4d7fbf162aec2405ffb62d999f4bbfe1a8462b2c4fbf34de4d0f654117ae1d",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1597089,
+        "review": 1597089,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 19,
+        "review": 19,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,391,049 B2",
+          "review": "US 8,391,049 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "RESISTOR STRUCTURE FOR A NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "RESISTOR STRUCTURE FOR A NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Mar. 5, 2013",
+          "review": "Mar. 5, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          19
+        ],
+        "columns": [
+          11
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": "1a",
+          "citedPage": 5,
+          "exists": true,
+          "label": "Fig. 1a",
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 9,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 8,
+          "citedPage": 10,
+          "exists": true,
+          "discussionPage": 17,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 19, column 11) match word-for-word. Fig. 1a (with 1b/1c) is on page 5 (Sheet 1 of 9); Fig. 6 is on page 9 (Sheet 5 of 9); Fig. 8 is on page 10 (Sheet 6 of 9). Discussion pages 16 and 17 exist."
+      ]
+    },
+    {
+      "publicationNumber": "US8399307B2",
+      "verdict": "PASS_WITH_NOTES",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8399307B2-uspto.pdf",
+      "sha256": {
+        "computed": "889ef4908b41fdf9690a4fdd4ab63dcf8870158966c7687ef0a9a3fcb0bc2b25",
+        "reviewRetrieval": "889ef4908b41fdf9690a4fdd4ab63dcf8870158966c7687ef0a9a3fcb0bc2b25",
+        "reviewClaimSource": "889ef4908b41fdf9690a4fdd4ab63dcf8870158966c7687ef0a9a3fcb0bc2b25",
+        "summary": "889ef4908b41fdf9690a4fdd4ab63dcf8870158966c7687ef0a9a3fcb0bc2b25",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1183144,
+        "review": 1183144,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 21,
+        "review": 21,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,399,307 B2",
+          "review": "US 8,399,307 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "INTERCONNECTS FOR STACKED NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "INTERCONNECTS FOR STACKED NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Mar. 19, 2013",
+          "review": "Mar. 19, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          20
+        ],
+        "columns": [
+          9,
+          10
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 10,
+          "citedPage": 11,
+          "exists": true,
+          "label": "Figure 10",
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 11,
+          "citedPage": 12,
+          "exists": true,
+          "label": "Figure 11",
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 14,
+          "citedPage": 15,
+          "exists": true,
+          "label": "Fig. 14",
+          "discussionPage": 20,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 20, columns 9–10) match word-for-word. Confirmed printed typo “to fond a second bottom wiring structure,” kept as printed, and the claim’s mix of “first peripheral region” with later “first periphery region.” Figure 10 is on page 11; Figure 11 is on page 12; Fig. 14 is on page 15."
+      ]
+    },
+    {
+      "publicationNumber": "US8411485B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8411485B2-uspto.pdf",
+      "sha256": {
+        "computed": "7dc6f87aef089dfcbae2c32984e2fc4ec2676e049fcd9c6c710ad4522adb1b45",
+        "reviewRetrieval": "7dc6f87aef089dfcbae2c32984e2fc4ec2676e049fcd9c6c710ad4522adb1b45",
+        "reviewClaimSource": "7dc6f87aef089dfcbae2c32984e2fc4ec2676e049fcd9c6c710ad4522adb1b45",
+        "summary": "7dc6f87aef089dfcbae2c32984e2fc4ec2676e049fcd9c6c710ad4522adb1b45",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 834636,
+        "review": 834636,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 14,
+        "review": 14,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,411,485 B2",
+          "review": "US 8,411,485 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "NON-VOLATILE VARIABLE CAPACITIVE DEVICE INCLUDING RESISTIVE MEMORY CELL",
+          "review": "NON-VOLATILE VARIABLE CAPACITIVE DEVICE INCLUDING RESISTIVE MEMORY CELL",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Apr. 2, 2013",
+          "review": "Apr. 2, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          14
+        ],
+        "columns": [
+          11
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 10,
+          "discussionExists": true
+        },
+        {
+          "figure": "4A",
+          "citedPage": 4,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 9,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 14, column 11) match word-for-word. FIG. 1 is on page 2; FIG. 4A (with 4B) is on page 4; FIG. 9 is on page 5 (with FIG. 5 Prior Art)."
+      ]
+    },
+    {
+      "publicationNumber": "USRE46335E1",
+      "verdict": "PASS_WITH_NOTES",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/USRE46335E1-uspto.pdf",
+      "sha256": {
+        "computed": "c00b2f60e5d61dce1a736bc40c4a0cc7aec85e5adb46e8a7fc794c5e9988fcd7",
+        "reviewRetrieval": "c00b2f60e5d61dce1a736bc40c4a0cc7aec85e5adb46e8a7fc794c5e9988fcd7",
+        "reviewClaimSource": "c00b2f60e5d61dce1a736bc40c4a0cc7aec85e5adb46e8a7fc794c5e9988fcd7",
+        "summary": "c00b2f60e5d61dce1a736bc40c4a0cc7aec85e5adb46e8a7fc794c5e9988fcd7",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 2051757,
+        "review": 2051757,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 29,
+        "review": 29,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US RE46,335 E",
+          "review": "US RE46,335 E",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "SWITCHING DEVICE HAVING A NON-LINEAR ELEMENT",
+          "review": "SWITCHING DEVICE HAVING A NON-LINEAR ELEMENT",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Mar. 7, 2017",
+          "review": "Mar. 7, 2017",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          26,
+          27
+        ],
+        "columns": [
+          14,
+          15
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 4,
+          "citedPage": 13,
+          "exists": true,
+          "discussionPage": 22,
+          "discussionExists": true
+        },
+        {
+          "figure": 5,
+          "citedPage": 13,
+          "exists": true,
+          "discussionPage": 23,
+          "discussionExists": true
+        },
+        {
+          "figure": "8A",
+          "citedPage": 19,
+          "exists": true,
+          "discussionPage": 25,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 (US RE46,335 E, Mar. 7, 2017, SWITCHING DEVICE HAVING A NON-LINEAR ELEMENT, Crossbar, Inc., Santa Clara, CA (US)) and Claim 1 (page 26 column 14 after “We claim:” through page 27 column 15) match word-for-word. Confirmed reissue markup: deleted “[and]” and “the read voltage[.]” plus italic added matter for the third-voltage, fourth-voltage, and “third voltage is less than the fourth voltage” clauses, all kept in the verbatim text. FIG. 4 and FIG. 5 are both on page 13; FIG. 8A (with 8B) is on page 19. Discussion pages 22, 23, and 25 exist."
+      ]
+    },
+    {
+      "publicationNumber": "US8450209B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8450209B2-uspto.pdf",
+      "sha256": {
+        "computed": "f7c9b79b577929a6b38545cc72d3c70d68dc8d26bd33356ba5c1287fbff60935",
+        "reviewRetrieval": "f7c9b79b577929a6b38545cc72d3c70d68dc8d26bd33356ba5c1287fbff60935",
+        "reviewClaimSource": "f7c9b79b577929a6b38545cc72d3c70d68dc8d26bd33356ba5c1287fbff60935",
+        "summary": "f7c9b79b577929a6b38545cc72d3c70d68dc8d26bd33356ba5c1287fbff60935",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 933291,
+        "review": 933291,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 17,
+        "review": 17,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,450,209 B2",
+          "review": "US 8,450,209 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "P+ POLYSILICON MATERIAL ON ALUMINUM FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "P+ POLYSILICON MATERIAL ON ALUMINUM FOR NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 28, 2013",
+          "review": "May 28, 2013",
+          "result": "PASS",
+          "frontPageAsteriskOrNotice": "*May 28, 2013 (recorded in review notes; printedGrantDate omits the asterisk)"
+        }
+      },
+      "claim1": {
+        "pages": [
+          16
+        ],
+        "columns": [
+          7
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 6,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        },
+        {
+          "figure": 10,
+          "citedPage": 8,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        },
+        {
+          "figure": 17,
+          "citedPage": 12,
+          "exists": true,
+          "discussionPage": 15,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 16, column 7) match word-for-word. Tight crop of item (54) confirms “P+ POLYSILICON MATERIAL ON ALUMINUM …,” not a period before ON. Front page date is “*May 28, 2013”; the review recorded “May 28, 2013” in printedGrantDate and noted the asterisk, terminal disclaimer, and 0-day term extension in notes. Fig. 6 is on page 7; Fig. 10 is on page 8; Fig. 17 is on page 12."
+      ]
+    },
+    {
+      "publicationNumber": "US8450710B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8450710B2-uspto.pdf",
+      "sha256": {
+        "computed": "53243ceb758ac8bbe5f57e496d3664b611c55ca7feb8c9894ad3529139fcaf16",
+        "reviewRetrieval": "53243ceb758ac8bbe5f57e496d3664b611c55ca7feb8c9894ad3529139fcaf16",
+        "reviewClaimSource": "53243ceb758ac8bbe5f57e496d3664b611c55ca7feb8c9894ad3529139fcaf16",
+        "summary": "53243ceb758ac8bbe5f57e496d3664b611c55ca7feb8c9894ad3529139fcaf16",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1191815,
+        "review": 1191815,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 16,
+        "review": 16,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,450,710 B2",
+          "review": "US 8,450,710 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "LOW TEMPERATURE P+ SILICON JUNCTION MATERIAL FOR A NON-VOLATILE MEMORY DEVICE",
+          "review": "LOW TEMPERATURE P+ SILICON JUNCTION MATERIAL FOR A NON-VOLATILE MEMORY DEVICE",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 28, 2013",
+          "review": "May 28, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          15
+        ],
+        "columns": [
+          9
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 12,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 12,
+          "discussionExists": true
+        },
+        {
+          "figure": 12,
+          "citedPage": 10,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 15, column 9) match word-for-word, including “about 400 Degrees Celsius to about 450 Degrees Celsius” and the p+ aluminum-species limitation. Fig. 1 is on page 5; Fig. 6 is on page 7; Fig. 12 is on page 10."
+      ]
+    },
+    {
+      "publicationNumber": "US8513636B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8513636B2-uspto.pdf",
+      "sha256": {
+        "computed": "9e4b41ad0e60c9588263d6f1568cd8c790b2d0a301df8dbb46d817324a722b12",
+        "reviewRetrieval": "9e4b41ad0e60c9588263d6f1568cd8c790b2d0a301df8dbb46d817324a722b12",
+        "reviewClaimSource": "9e4b41ad0e60c9588263d6f1568cd8c790b2d0a301df8dbb46d817324a722b12",
+        "summary": "9e4b41ad0e60c9588263d6f1568cd8c790b2d0a301df8dbb46d817324a722b12",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 740276,
+        "review": 740276,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 13,
+        "review": 13,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,513,636 B2",
+          "review": "US 8,513,636 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "VERTICAL DIODES FOR NON-VOLATILE MEMORY DEVICE",
+          "review": "VERTICAL DIODES FOR NON-VOLATILE MEMORY DEVICE",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Aug. 20, 2013",
+          "review": "Aug. 20, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          11
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 9,
+          "discussionExists": true
+        },
+        {
+          "figure": 15,
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 16,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 11, column 8) match word-for-word, including “450 Degree Celsius,” “n-type zinc oxide material,” and the later printed phrase “n-type metal oxide material.” FIG. 1 is on page 2; FIG. 15 is on page 6; FIG. 16 is on page 7."
+      ]
+    },
+    {
+      "publicationNumber": "US8519485B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8519485B2-uspto.pdf",
+      "sha256": {
+        "computed": "de83eb3c08971ac75676972ea705c02e1607c2029a57eb3ada97c9efdd95e328",
+        "reviewRetrieval": "de83eb3c08971ac75676972ea705c02e1607c2029a57eb3ada97c9efdd95e328",
+        "reviewClaimSource": "de83eb3c08971ac75676972ea705c02e1607c2029a57eb3ada97c9efdd95e328",
+        "summary": "de83eb3c08971ac75676972ea705c02e1607c2029a57eb3ada97c9efdd95e328",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1118848,
+        "review": 1118848,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 21,
+        "review": 21,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,519,485 B2",
+          "review": "US 8,519,485 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "PILLAR STRUCTURE FOR MEMORY DEVICE AND METHOD",
+          "review": "PILLAR STRUCTURE FOR MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Aug. 27, 2013",
+          "review": "Aug. 27, 2013",
+          "result": "PASS",
+          "frontPageAsteriskOrNotice": "*Aug. 27, 2013 (printedGrantDate omits the asterisk)"
+        }
+      },
+      "claim1": {
+        "pages": [
+          20
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 8,
+          "citedPage": 10,
+          "exists": true,
+          "discussionPage": 18,
+          "discussionExists": true
+        },
+        {
+          "figure": 13,
+          "citedPage": 12,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 18,
+          "citedPage": 16,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 20, column 8) match word-for-word, including “bottom metallic barrier” vs later “bottom metal barrier material,” “wherein a pillar-like structure comprising,” and “plurality of pillar structures.” Front page date is “*Aug. 27, 2013”; the review recorded “Aug. 27, 2013” in printedGrantDate. Fig. 8 is on page 10; Fig. 13 (with 13a/13b) is on page 12; Fig. 18 is on page 16."
+      ]
+    },
+    {
+      "publicationNumber": "US8619459B1",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8619459B1-uspto.pdf",
+      "sha256": {
+        "computed": "72828d6e6d51ae995202584375627c74b8e493d23856acbf6570c92962fa416d",
+        "reviewRetrieval": "72828d6e6d51ae995202584375627c74b8e493d23856acbf6570c92962fa416d",
+        "reviewClaimSource": "72828d6e6d51ae995202584375627c74b8e493d23856acbf6570c92962fa416d",
+        "summary": "72828d6e6d51ae995202584375627c74b8e493d23856acbf6570c92962fa416d",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1559443,
+        "review": 1559443,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 24,
+        "review": 24,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,619,459 B1",
+          "review": "US 8,619,459 B1",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "HIGH OPERATING SPEED RESISTIVE RANDOM ACCESS MEMORY",
+          "review": "HIGH OPERATING SPEED RESISTIVE RANDOM ACCESS MEMORY",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Dec. 31, 2013",
+          "review": "Dec. 31, 2013",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          23
+        ],
+        "columns": [
+          19
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 2,
+          "citedPage": 4,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        },
+        {
+          "figure": 3,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 17,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 23, column 19) match word-for-word, including the printed phrase “a read transistor have a gate.” FIG. 1 is on page 3; FIG. 2 is on page 4; FIG. 3 is on page 5."
+      ]
+    },
+    {
+      "publicationNumber": "US8659003B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8659003B2-uspto.pdf",
+      "sha256": {
+        "computed": "ec3ab6611a836e3a940f2a80b5b22a71d93b7043126cd10f7e58c378e732f088",
+        "reviewRetrieval": "ec3ab6611a836e3a940f2a80b5b22a71d93b7043126cd10f7e58c378e732f088",
+        "reviewClaimSource": "ec3ab6611a836e3a940f2a80b5b22a71d93b7043126cd10f7e58c378e732f088",
+        "summary": "ec3ab6611a836e3a940f2a80b5b22a71d93b7043126cd10f7e58c378e732f088",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 713514,
+        "review": 713514,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 16,
+        "review": 16,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,659,003 B2",
+          "review": "US 8,659,003 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "DISTURB-RESISTANT NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "review": "DISTURB-RESISTANT NON-VOLATILE MEMORY DEVICE AND METHOD",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Feb. 25, 2014",
+          "review": "Feb. 25, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          16
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        },
+        {
+          "figure": 13,
+          "citedPage": 10,
+          "exists": true,
+          "discussionPage": 15,
+          "discussionExists": true
+        },
+        {
+          "figure": 16,
+          "citedPage": 12,
+          "exists": true,
+          "discussionPage": 16,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 16, column 8) match word-for-word, including “a substrate having a surface region” followed by “the surface region of the semiconductor substrate.” Fig. 1 is on page 3; Fig. 13 is on page 10; Fig. 16 is on page 12."
+      ]
+    },
+    {
+      "publicationNumber": "US8674724B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8674724B2-uspto.pdf",
+      "sha256": {
+        "computed": "ac291067d571b54ea9a02b3c7362f8f825c00c5237edf2a78630ef306456e165",
+        "reviewRetrieval": "ac291067d571b54ea9a02b3c7362f8f825c00c5237edf2a78630ef306456e165",
+        "reviewClaimSource": "ac291067d571b54ea9a02b3c7362f8f825c00c5237edf2a78630ef306456e165",
+        "summary": "ac291067d571b54ea9a02b3c7362f8f825c00c5237edf2a78630ef306456e165",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 2004478,
+        "review": 2004478,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 29,
+        "review": 29,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,674,724 B2",
+          "review": "US 8,674,724 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "FIELD PROGRAMMABLE GATE ARRAY UTILIZING TWO-TERMINAL NON-VOLATILE MEMORY",
+          "review": "FIELD PROGRAMMABLE GATE ARRAY UTILIZING TWO-TERMINAL NON-VOLATILE MEMORY",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Mar. 18, 2014",
+          "review": "Mar. 18, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          28
+        ],
+        "columns": [
+          24
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        },
+        {
+          "figure": 11,
+          "citedPage": 13,
+          "exists": true,
+          "discussionPage": 26,
+          "discussionExists": true
+        },
+        {
+          "figure": 12,
+          "citedPage": 14,
+          "exists": true,
+          "discussionPage": 27,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 28, column 24) match word-for-word. FIG. 1 is on page 3; FIG. 11 is on page 13; FIG. 12 is on page 14."
+      ]
+    },
+    {
+      "publicationNumber": "US8648327B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8648327B2-uspto.pdf",
+      "sha256": {
+        "computed": "3efdf998dd351790efccb7a3e1485b39945448e423c68f4650700f91d6705fe6",
+        "reviewRetrieval": "3efdf998dd351790efccb7a3e1485b39945448e423c68f4650700f91d6705fe6",
+        "reviewClaimSource": "3efdf998dd351790efccb7a3e1485b39945448e423c68f4650700f91d6705fe6",
+        "summary": "3efdf998dd351790efccb7a3e1485b39945448e423c68f4650700f91d6705fe6",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1558333,
+        "review": 1558333,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 22,
+        "review": 22,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,648,327 B2",
+          "review": "US 8,648,327 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "STACKABLE NON-VOLATILE RESISTIVE SWITCHING MEMORY DEVICES",
+          "review": "STACKABLE NON-VOLATILE RESISTIVE SWITCHING MEMORY DEVICES",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Feb. 11, 2014",
+          "review": "Feb. 11, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          21
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 8,
+          "citedPage": 8,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 18,
+          "citedPage": 17,
+          "exists": true,
+          "discussionPage": 21,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 21, column 8) match word-for-word, including the preamble verb “comprises:” after the semiconductor-substrate clause. Fig. 1 is on page 5; Fig. 8 is on page 8; Fig. 18 is on page 17."
+      ]
+    },
+    {
+      "publicationNumber": "US8723154B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US8723154B2-uspto.pdf",
+      "sha256": {
+        "computed": "ec82fd9672f015d90b9e105ad3a630cfb4aa6723ad8925512d7c0fa6a112f431",
+        "reviewRetrieval": "ec82fd9672f015d90b9e105ad3a630cfb4aa6723ad8925512d7c0fa6a112f431",
+        "reviewClaimSource": "ec82fd9672f015d90b9e105ad3a630cfb4aa6723ad8925512d7c0fa6a112f431",
+        "summary": "ec82fd9672f015d90b9e105ad3a630cfb4aa6723ad8925512d7c0fa6a112f431",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 2287044,
+        "review": 2287044,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 24,
+        "review": 24,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 8,723,154 B2",
+          "review": "US 8,723,154 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "INTEGRATION OF AN AMORPHOUS SILICON RESISTIVE SWITCHING DEVICE",
+          "review": "INTEGRATION OF AN AMORPHOUS SILICON RESISTIVE SWITCHING DEVICE",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Crossbar, Inc., Santa Clara, CA (US)",
+          "review": "Crossbar, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "May 13, 2014",
+          "review": "May 13, 2014",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          22,
+          23
+        ],
+        "columns": [
+          10,
+          11
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 3,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        },
+        {
+          "figure": 5,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 22, column 10 through page 23, column 11) match word-for-word, including “forms a switching media.” Fig. 1 is on page 3; Fig. 3 is on page 5; Fig. 5 is on page 7."
+      ]
+    },
+    {
+      "publicationNumber": "US11736285B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US11736285B2-uspto.pdf",
+      "sha256": {
+        "computed": "7a1d0f119dfb2e1d6685b25b024b49f7b4988fa09c9b31806d5eba4cfb4095bf",
+        "reviewRetrieval": "7a1d0f119dfb2e1d6685b25b024b49f7b4988fa09c9b31806d5eba4cfb4095bf",
+        "reviewClaimSource": "7a1d0f119dfb2e1d6685b25b024b49f7b4988fa09c9b31806d5eba4cfb4095bf",
+        "summary": "7a1d0f119dfb2e1d6685b25b024b49f7b4988fa09c9b31806d5eba4cfb4095bf",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 812617,
+        "review": 812617,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 16,
+        "review": 16,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 11,736,285 B2",
+          "review": "US 11,736,285 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "METHOD FOR CONTROLLING DEVICE ACTIVATION AND ASSOCIATED ELECTRONIC DEVICE",
+          "review": "METHOD FOR CONTROLLING DEVICE ACTIVATION AND ASSOCIATED ELECTRONIC DEVICE",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "PUFsecurity Corporation, Hsinchu County (TW)",
+          "review": "PUFsecurity Corporation, Hsinchu County (TW)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Aug. 22, 2023",
+          "review": "Aug. 22, 2023",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          14
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 11,
+          "discussionExists": true
+        },
+        {
+          "figure": 2,
+          "citedPage": 4,
+          "exists": true,
+          "discussionPage": 12,
+          "discussionExists": true
+        },
+        {
+          "figure": 7,
+          "citedPage": 9,
+          "exists": true,
+          "discussionPage": 13,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 14, column 8) match word-for-word, including the printed phrases “an one-time programmable (OTP) device” and “the another comparison result.” Assignee is “PUFsecurity Corporation, Hsinchu County (TW).” FIG. 1 is on page 3; FIG. 2 is on page 4; FIG. 7 is on page 9."
+      ]
+    },
+    {
+      "publicationNumber": "US6956258B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US6956258B2-uspto.pdf",
+      "sha256": {
+        "computed": "ad6132ac82b8a24cd31a67e3da38759881fea2e9302847b2c5312fadc8503208",
+        "reviewRetrieval": "ad6132ac82b8a24cd31a67e3da38759881fea2e9302847b2c5312fadc8503208",
+        "reviewClaimSource": "ad6132ac82b8a24cd31a67e3da38759881fea2e9302847b2c5312fadc8503208",
+        "summary": "ad6132ac82b8a24cd31a67e3da38759881fea2e9302847b2c5312fadc8503208",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1429850,
+        "review": 1429850,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 28,
+        "review": 28,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 6,956,258 B2",
+          "review": "US 6,956,258 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "REPROGRAMMABLE NON-VOLATILE MEMORY USING A BREAKDOWN PHENOMENA IN AN ULTRA-THIN DIELECTRIC",
+          "review": "REPROGRAMMABLE NON-VOLATILE MEMORY USING A BREAKDOWN PHENOMENA IN AN ULTRA-THIN DIELECTRIC",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Kilopass Technologies, Inc., Santa Clara, CA (US)",
+          "review": "Kilopass Technologies, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "*Oct. 18, 2005",
+          "review": "*Oct. 18, 2005",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          25,
+          26
+        ],
+        "columns": [
+          16,
+          17
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 19,
+          "discussionExists": true
+        },
+        {
+          "figure": 2,
+          "citedPage": 4,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        },
+        {
+          "figure": 3,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 20,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 25, column 16 through page 26, column 17) match word-for-word, including the printed two-word phrase “there between.” Assignee is “Kilopass Technologies, Inc., Santa Clara, CA (US).” printedGrantDate correctly includes the front-page asterisk: “*Oct. 18, 2005.” FIG. 1 is on page 3; FIG. 2 is on page 4; FIG. 3 is on page 5."
+      ]
+    },
+    {
+      "publicationNumber": "US9230813B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US9230813B2-uspto.pdf",
+      "sha256": {
+        "computed": "9e7efa18a1b3812a66873d723f50c912a0dbedee79bb487fa4e7095cd34523d7",
+        "reviewRetrieval": "9e7efa18a1b3812a66873d723f50c912a0dbedee79bb487fa4e7095cd34523d7",
+        "reviewClaimSource": "9e7efa18a1b3812a66873d723f50c912a0dbedee79bb487fa4e7095cd34523d7",
+        "summary": "9e7efa18a1b3812a66873d723f50c912a0dbedee79bb487fa4e7095cd34523d7",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1646850,
+        "review": 1646850,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 29,
+        "review": 29,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 9,230,813 B2",
+          "review": "US 9,230,813 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "ONE-TIME PROGRAMMABLE MEMORY AND METHOD FOR MAKING THE SAME",
+          "review": "ONE-TIME PROGRAMMABLE MEMORY AND METHOD FOR MAKING THE SAME",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Kilopass Technology, Inc., San Jose, CA (US)",
+          "review": "Kilopass Technology, Inc., San Jose, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Jan. 5, 2016",
+          "review": "Jan. 5, 2016",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          28
+        ],
+        "columns": [
+          8
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 4,
+          "citedPage": 5,
+          "exists": true,
+          "discussionPage": 26,
+          "discussionExists": true
+        },
+        {
+          "figure": 5,
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 26,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 26,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 28, column 8, after “I claim:”) match word-for-word. Assignee is “Kilopass Technology, Inc., San Jose, CA (US)” (the applicant line recites Santa Clara). FIG. 4 is on page 5; FIG. 5 is on page 6; FIG. 6 is on page 7."
+      ]
+    },
+    {
+      "publicationNumber": "US9484068B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US9484068B2-uspto.pdf",
+      "sha256": {
+        "computed": "290cdbf73a2c74471fef307f3f1554264b302fc39fa4261757f75a60a0a4ab0f",
+        "reviewRetrieval": "290cdbf73a2c74471fef307f3f1554264b302fc39fa4261757f75a60a0a4ab0f",
+        "reviewClaimSource": "290cdbf73a2c74471fef307f3f1554264b302fc39fa4261757f75a60a0a4ab0f",
+        "summary": "290cdbf73a2c74471fef307f3f1554264b302fc39fa4261757f75a60a0a4ab0f",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 1912744,
+        "review": 1912744,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 42,
+        "review": 42,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 9,484,068 B2",
+          "review": "US 9,484,068 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "MTP-THYRISTOR MEMORY CELL CIRCUITS AND METHODS OF OPERATION",
+          "review": "MTP-THYRISTOR MEMORY CELL CIRCUITS AND METHODS OF OPERATION",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Kilopass Technology, Inc., San Jose, CA (US)",
+          "review": "Kilopass Technology, Inc., San Jose, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Nov. 1, 2016",
+          "review": "Nov. 1, 2016",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          42
+        ],
+        "columns": [
+          23,
+          24
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": "1A",
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 31,
+          "discussionExists": true
+        },
+        {
+          "figure": "1B",
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 32,
+          "discussionExists": true
+        },
+        {
+          "figure": 2,
+          "citedPage": 3,
+          "exists": true,
+          "discussionPage": 31,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 42, columns 23–24, after “The invention claimed is:”) match word-for-word. Assignee is “Kilopass Technology, Inc., San Jose, CA (US).” FIG. 1A and FIG. 1B are on page 2; FIG. 2 is on page 3."
+      ]
+    },
+    {
+      "publicationNumber": "US7269047B1",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US7269047B1-uspto.pdf",
+      "sha256": {
+        "computed": "5775b7a9891df8ae7ebee288f4778fe68755065602157c79dfaf5a5423889609",
+        "reviewRetrieval": "5775b7a9891df8ae7ebee288f4778fe68755065602157c79dfaf5a5423889609",
+        "reviewClaimSource": "5775b7a9891df8ae7ebee288f4778fe68755065602157c79dfaf5a5423889609",
+        "summary": "5775b7a9891df8ae7ebee288f4778fe68755065602157c79dfaf5a5423889609",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 562220,
+        "review": 562220,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 15,
+        "review": 15,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 7,269,047 B1",
+          "review": "US 7,269,047 B1",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "MEMORY TRANSISTOR GATE OXIDE STRESS RELEASE AND IMPROVED RELIABILITY",
+          "review": "MEMORY TRANSISTOR GATE OXIDE STRESS RELEASE AND IMPROVED RELIABILITY",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Kilopass Technology, Inc., Santa Clara, CA (US)",
+          "review": "Kilopass Technology, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Sep. 11, 2007",
+          "review": "Sep. 11, 2007",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          14,
+          15
+        ],
+        "columns": [
+          6,
+          7
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": "5A",
+          "citedPage": 6,
+          "exists": true,
+          "discussionPage": 13,
+          "discussionExists": true
+        },
+        {
+          "figure": 6,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        },
+        {
+          "figure": 10,
+          "citedPage": 11,
+          "exists": true,
+          "discussionPage": 14,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 14, column 6 through page 15, column 7) match word-for-word, including “reducing number of times” and “stored as a digital data.” Assignee is “Kilopass Technology, Inc., Santa Clara, CA (US).” FIG. 5A (with FIG. 5B) is on page 6; FIG. 6 is on page 7; FIG. 10 is on page 11."
+      ]
+    },
+    {
+      "publicationNumber": "US7623368B2",
+      "verdict": "PASS",
+      "officialPdf": "/workspace/nvm-claim1/out/batch-1/pdfs/US7623368B2-uspto.pdf",
+      "sha256": {
+        "computed": "9d054724c43c73c96bc71cad1e8f8967b771864f60445ed3da7bf1d95878a82c",
+        "reviewRetrieval": "9d054724c43c73c96bc71cad1e8f8967b771864f60445ed3da7bf1d95878a82c",
+        "reviewClaimSource": "9d054724c43c73c96bc71cad1e8f8967b771864f60445ed3da7bf1d95878a82c",
+        "summary": "9d054724c43c73c96bc71cad1e8f8967b771864f60445ed3da7bf1d95878a82c",
+        "match": true
+      },
+      "pdfByteLength": {
+        "computed": 540261,
+        "review": 540261,
+        "match": true
+      },
+      "pdfPageCount": {
+        "pdfinfo": 11,
+        "review": 11,
+        "match": true
+      },
+      "jsonlEqualsRecordFile": true,
+      "syntheticHash": false,
+      "bibliographic": {
+        "publicationNumber": {
+          "printedOnPage1": "US 7,623,368 B2",
+          "review": "US 7,623,368 B2",
+          "result": "PASS"
+        },
+        "title": {
+          "printedOnPage1": "NON-VOLATILE SEMICONDUCTOR MEMORY BASED ON ENHANCED GATE OXIDE BREAKDOWN",
+          "review": "NON-VOLATILE SEMICONDUCTOR MEMORY BASED ON ENHANCED GATE OXIDE BREAKDOWN",
+          "result": "PASS"
+        },
+        "assignee": {
+          "printedOnPage1": "Kilopass Technology, Inc., Santa Clara, CA (US)",
+          "review": "Kilopass Technology, Inc., Santa Clara, CA (US)",
+          "result": "PASS"
+        },
+        "grantDate": {
+          "printedOnPage1": "Nov. 24, 2009",
+          "review": "Nov. 24, 2009",
+          "result": "PASS"
+        }
+      },
+      "claim1": {
+        "pages": [
+          10
+        ],
+        "columns": [
+          6
+        ],
+        "wordByWord": "PASS",
+        "diffs": []
+      },
+      "figures": [
+        {
+          "figure": 1,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 9,
+          "discussionExists": true
+        },
+        {
+          "figure": 2,
+          "citedPage": 2,
+          "exists": true,
+          "discussionPage": 9,
+          "discussionExists": true
+        },
+        {
+          "figure": 8,
+          "citedPage": 7,
+          "exists": true,
+          "discussionPage": 10,
+          "discussionExists": true
+        }
+      ],
+      "fabricationFlags": [],
+      "notes": [
+        "Page 1 and Claim 1 (page 10, column 6, after “The invention claimed is:”) match word-for-word, including the printed mix of “a p-type body” and later “said P-type body.” Assignee is “Kilopass Technology, Inc., Santa Clara, CA (US).” Fig. 1 and Fig. 2 are on page 2; Fig. 8 is on page 7."
+      ]
+    }
+  ]
+}
