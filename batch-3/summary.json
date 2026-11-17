@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1.0",
   "batch": "batch-3",
-  "checkpointKind": "durable-mid-pass",
+  "checkpointKind": "complete",
   "reviewedOn": "2026-11-17",
   "reviewTimeZone": "Etc/UTC",
   "retrievalTimezone": "Asia/Taipei",
   "reviewer": "Grok Bot isolated official USPTO image-ppubs PDF transcription and bibliographic check",
   "mandate": "Clean official re-download after /workspace snapshot restore ~12:51 Asia/Taipei on 2026-11-17; SHA-256 of bytes actually kept; every Claim 1 re-verified against the new official page image; reviews.jsonl append-only.",
   "totalRecords": 27,
-  "reviewedCount": 9,
-  "unresolvedCount": 18,
-  "reviewsJsonlLineCount": 9,
+  "reviewedCount": 27,
+  "unresolvedCount": 0,
+  "reviewsJsonlLineCount": 27,
   "officialPdfsFetched": 27,
   "bibliographyPdfsRefetched": 26,
   "bibliographyFetchSkipped": [
@@ -117,83 +117,208 @@
       "claim1PrintedColumn": 6,
       "biblioAllMatch": true,
       "figures": "available-figures-aligned"
-    }
-  ],
-  "unresolved": [
+    },
     {
       "publicationNumber": "US6222765B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "531e1acc165a712ed95437d2fda3d7ef55f087f7ad68cce35bd663a6f1997544",
+      "officialByteLength": 373037,
+      "pdfPageCount": 6,
+      "claim1Page": 6,
+      "claim1PrintedColumn": 5,
+      "biblioAllMatch": true,
+      "figures": "available-figures-aligned"
     },
     {
       "publicationNumber": "US6282145B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "6b93bcc16f52cf68263f90764ced5a4407220a0f1ffc32608cd939dc53719a77",
+      "officialByteLength": 3929694,
+      "pdfPageCount": 74,
+      "claim1Page": 70,
+      "claim1PrintedColumn": 40,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6369420B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "804aea430fc444cef70ae1fc61e072480eaf86e0123d571defa4ade96d17bc4c",
+      "officialByteLength": 548031,
+      "pdfPageCount": 16,
+      "claim1Page": 15,
+      "claim1PrintedColumn": 5,
+      "biblioAllMatch": true,
+      "figures": "available-figures-aligned"
     },
     {
       "publicationNumber": "US6396742B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "62662cb18df97b4cb096d09218eede7fbe9900efeeae652ca6547f13f496437b",
+      "officialByteLength": 2773224,
+      "pdfPageCount": 35,
+      "claim1Page": 29,
+      "claim1PrintedColumn": 28,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6429075B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "2f944bbb4aa0276fa16dae445c9f696beed4e926ae749fa1da81b80e0f9972a6",
+      "officialByteLength": 556498,
+      "pdfPageCount": 16,
+      "claim1Page": 15,
+      "claim1PrintedColumn": 5,
+      "biblioAllMatch": true,
+      "figures": "available-figures-aligned"
     },
     {
       "publicationNumber": "US6839277B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "a9f8849ed5a956403563ec86d7962f20f66a0f29cdf656cecd81480c45ce8058",
+      "officialByteLength": 709964,
+      "pdfPageCount": 11,
+      "claim1Page": 10,
+      "claim1PrintedColumn": 9,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6861315B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "4a8dc92e2173baba96e110b64dfbd7548162793d518e76bad07ee3f12a444d4f",
+      "officialByteLength": 593782,
+      "pdfPageCount": 9,
+      "claim1Page": 9,
+      "claim1PrintedColumn": 5,
+      "biblioAllMatch": true,
+      "figures": "available-figures-aligned"
     },
     {
       "publicationNumber": "US6885600B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "7c32d2dc8fb82ddccb0a8c0524d8f3e179c214290653a6046a6d94a50913df1b",
+      "officialByteLength": 1816558,
+      "pdfPageCount": 25,
+      "claim1Page": 23,
+      "claim1PrintedColumn": 20,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6975539B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "957cfb940bf6c827e61b276ae22bd702cc618071baf0cddc11ccbbe48a2a337b",
+      "officialByteLength": 5929673,
+      "pdfPageCount": 115,
+      "claim1Page": 114,
+      "claim1PrintedColumn": 70,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6992937B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "fec190315509af81c932e5c6dfcdf24461060d5efa6e6f1920cb0dbdac96705b",
+      "officialByteLength": 3940202,
+      "pdfPageCount": 57,
+      "claim1Page": 52,
+      "claim1PrintedColumn": 43,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US7116088B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "ee8badfa45397c0369fa0ca2cb451fffa84dc063e27e99ee10624cc74473bf21",
+      "officialByteLength": 1319452,
+      "pdfPageCount": 22,
+      "claim1Page": 21,
+      "claim1PrintedColumn": 18,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US7139196B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "8241e9ca296b6d54a0b8e38acf78a0d753375f597e6f13602b8c6f381c35c348",
+      "officialByteLength": 6015694,
+      "pdfPageCount": 116,
+      "claim1Page": 115,
+      "claim1PrintedColumn": 71,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US7158431B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "0fffe58b2fc5f2e5934ba2303e96016fec58687c81366129afb13fa64bc933e7",
+      "officialByteLength": 1318689,
+      "pdfPageCount": 23,
+      "claim1Page": 21,
+      "claim1PrintedColumn": 16,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US5572054A",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "4a01c22027b86e91ff61802c97fdc7bdc0647f247fe27cd49c213cdb24ba2e13",
+      "officialByteLength": 1249103,
+      "pdfPageCount": 19,
+      "claim1Page": 16,
+      "claim1PrintedColumn": 12,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6329685B1",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "57c663c469346e1b043b9ae0fab607148df2d7c84dfad34c26de89f88276112f",
+      "officialByteLength": 1437155,
+      "pdfPageCount": 34,
+      "claim1Page": 30,
+      "claim1PrintedColumn": 14,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US6747310B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "66887edb8ce450c22844d6b71ef7c621ebbd589c3289913bc7dc395d992a66fd",
+      "officialByteLength": 1073480,
+      "pdfPageCount": 21,
+      "claim1Page": 20,
+      "claim1PrintedColumn": 11,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US8705282B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "94f46989a51a1132fac91ea3c9dce7040ba97e69c86fe862c19aa8b84533c758",
+      "officialByteLength": 1394397,
+      "pdfPageCount": 21,
+      "claim1Page": 21,
+      "claim1PrintedColumn": 9,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     },
     {
       "publicationNumber": "US9922715B2",
-      "reason": "Not yet re-verified against the new official page image on this clean pass; official PDF is on disk with SHA-256 recorded in fetch-results.json. Not unresolvable."
+      "status": "claim1-text-reviewed",
+      "officialSHA256": "0fff8ec7fc076f37c9f0e5913dce5b7d75561d00b1e27fb7ab23adc1f4db176f",
+      "officialByteLength": 1145911,
+      "pdfPageCount": 23,
+      "claim1Page": 21,
+      "claim1PrintedColumn": 10,
+      "biblioAllMatch": true,
+      "figures": "figures-1-to-3-aligned"
     }
   ],
-  "nextPublication": "US6222765B1",
+  "unresolved": [],
+  "nextPublication": null,
   "outputDir": "/workspace/nvm-claim1/out/batch-3",
   "paths": {
     "reviews": [
@@ -205,7 +330,25 @@
       "/workspace/nvm-claim1/out/batch-3/US6418046B1.json",
       "/workspace/nvm-claim1/out/batch-3/US6445612B1.json",
       "/workspace/nvm-claim1/out/batch-3/US6633498B1.json",
-      "/workspace/nvm-claim1/out/batch-3/US5386158A.json"
+      "/workspace/nvm-claim1/out/batch-3/US5386158A.json",
+      "/workspace/nvm-claim1/out/batch-3/US6222765B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6282145B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6369420B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6396742B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6429075B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US6839277B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US6861315B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6885600B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US6975539B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US6992937B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US7116088B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US7139196B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US7158431B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US5572054A.json",
+      "/workspace/nvm-claim1/out/batch-3/US6329685B1.json",
+      "/workspace/nvm-claim1/out/batch-3/US6747310B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US8705282B2.json",
+      "/workspace/nvm-claim1/out/batch-3/US9922715B2.json"
     ],
     "reviewsJsonl": "/workspace/nvm-claim1/out/batch-3/reviews.jsonl",
     "fetchResults": "/workspace/nvm-claim1/out/batch-3/fetch-results.json",
@@ -214,11 +357,12 @@
     "officialPdfs": "/workspace/nvm-claim1/out/batch-3/pdfs"
   },
   "notes": [
-    "Official USPTO image-ppubs PDFs were freshly built by USPTO PDF Builder (retrieval 2026-11-17, Asia/Taipei) and therefore have different SHA-256 values than the bibliography fingerprints, which usually come from older Google-hosted grant PDFs. The official file is the Claim 1 source.",
+    "All 27 batch-3 records are claim1-text-reviewed from official USPTO image-ppubs page images on this clean pass.",
+    "Official USPTO image-ppubs PDFs were freshly built by USPTO PDF Builder (retrieval 2026-11-17, Asia/Taipei) and therefore have different SHA-256 values than the bibliography fingerprints, which usually come from older Google-hosted grant PDFs. The official file is the Claim 1 source. This includes US6747310B2, whose record sourceUrl was already the USPTO endpoint (identical byte length, different SHA-256).",
     "26 Google bibliography PDFs were re-fetched and each matched the recorded bibliography fingerprint.",
     "US6445612B1 official PDF has 17 pages vs bibliography 16. Official pages 16–17 are Certificates of Correction. Page 16 (sealed 12 August 2003) changes Claim 9’s dependency from claim 1 to claim 6; page 17 (sealed 7 October 2003) adds a DARPA government-support paragraph after the title. Neither amends Claim 1 text (affectsClaim1Text: false).",
-    "US7543211B2 has only FIGS. 1–2; US5386158A has only FIG. 1, FIG. 2a and FIG. 2b (no FIG. 3). Both use available-figures-aligned with a real figureInventory and page-image SHA-256s of the official scale-to-2000 renders.",
-    "US5386158A uses the older grant format; the printed patent number is 5,386,158 (no 'US … B1' legend). It still matches US5386158A.",
-    "Remaining 18 records are queued, not unresolvable. Earlier-pass locations may be used only as locators."
+    "US7543211B2 has only FIGS. 1–2; US5386158A has only FIG. 1, FIG. 2a and FIG. 2b (no FIG. 3). Both use available-figures-aligned with a real figureInventory and page-image SHA-256s of the official scale-to-2000 renders. All other 25 records use figures-1-to-3-aligned.",
+    "US5386158A and US5572054A use the older grant format; printed numbers are 5,386,158 and 5,572,054 (no 'US … A' legend). Both still match the record publication numbers. Titles printed in all caps were treated as title matches.",
+    "US6747310B2 is editorially SST/SuperFlash in this batch; the printed assignee is Actrans System Inc., Santa Clara, CA (US), which matches the record assignee and was recorded faithfully. Not a bibliographic mismatch."
   ]
 }
